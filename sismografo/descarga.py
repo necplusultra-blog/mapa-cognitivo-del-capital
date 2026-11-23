@@ -29,11 +29,15 @@ PWT_DTA = 'https://dataverse.nl/api/access/datafile/554030'  # pwt110.dta
 PWT_FRED_VARS = {'LABSHP': 'A156NRUG', 'RKNANP': 'A666NRUG', 'RGDPNA': 'A666NRUG', 'CKSPPP': 'A666NRUG', 'RGDPES': 'A666NRUG'}
 
 
+UA = ('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36 '
+      'sismografo-del-capital (+https://github.com/necplusultra-blog/sismografo-del-capital)')
+
+
 def _get(url, dest, tries=3):
     for k in range(tries):
         try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'sismografo-del-capital/1.0'})
-            with urllib.request.urlopen(req, timeout=180) as r, open(dest + '.part', 'wb') as f:
+            req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': '*/*'})
+            with urllib.request.urlopen(req, timeout=90) as r, open(dest + '.part', 'wb') as f:
                 f.write(r.read())
             with open(dest + '.part', 'rb') as f:
                 head = f.read(200).lower()
