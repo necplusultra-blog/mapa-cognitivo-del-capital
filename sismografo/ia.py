@@ -14,7 +14,10 @@ Advertencias de método:
 import json, os, time, urllib.request
 import numpy as np, pandas as pd
 
-UA = 'sismografo-del-capital (https://github.com/necplusultra-blog/sismografo-del-capital; necplusultra-blog@users.noreply.github.com)'
+# La SEC pide identificar las descargas. El contacto se define en la variable de entorno SEC_USER_AGENT
+# (en GitHub: Settings › Secrets and variables › Actions › Variables); si falta, se usa un nombre genérico.
+UA = os.environ.get('SEC_USER_AGENT') or 'Sismografo del capital research project'
+CACHE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'datos_cache', 'ia_empresas.csv')
 EMPRESAS = {  # nombre: CIK actual y predecesores (Google Inc. antes de Alphabet; Avago antes de Broadcom Inc.)
     'Microsoft': [789019], 'Alphabet': [1652044, 1288776], 'Amazon': [1018724], 'Meta': [1326801],
     'Nvidia': [1045810], 'Oracle': [1341439], 'Broadcom': [1730168, 1441634], 'AMD': [2488],
@@ -59,6 +62,17 @@ def _serie(facts, conceptos, instantaneo):
             elif not instantaneo and len(f) == 6 and f.startswith('CY'): y = int(f[2:])
             else: continue
             out.setdefault(y, e['val'] / 1e6)
+    # segunda pasada: informes anuales (10-K) sin «frame» de la SEC; el año es el calendario que más cubre
+    for c in conceptos:
+        for e in facts.get('facts', {}).get('us-gaap', {}).get(c, {}).get('units', {}).get('USD', []):
+            if e.get('form') != '10-K' or e.get('fp') != 'FY': continue
+            end = pd.Timestamp(e['end'])
+            if instantaneo:
+                y = (end - pd.DateOffset(months=6)).year
+            else:
+                if 'start' not in e or not 330 <= (end - pd.Timestamp(e['start'])).days <= 400: continue
+                y = (end - pd.DateOffset(months=6)).year
+            out.setdefault(y, e['val'] / 1e6)
     return out
 
 
@@ -95,7 +109,17 @@ def _mundo_usd(dir_datos, fin):
 
 def calcular(dir_datos, dir_out, F, N):
     E = _empresas(dir_datos)
+    if E.empty or E['empresa'].nunique() < len(EMPRESAS):
+        if not os.path.exists(CACHE): raise RuntimeError('sin datos de la SEC ni copia en caché')
+        print('IA: la SEC no respondió; se usa la copia guardada en datos_cache/'); E = pd.read_csv(CACHE)
+    else:
+        os.makedirs(os.path.dirname(CACHE), exist_ok=True); E.to_csv(CACHE, index=False)
     E.to_csv(os.path.join(dir_out, 'ia_empresas.csv'), index=False)
+    # huecos de un año en los saldos (p. ej. Broadcom en la fusión de 2016): interpolación lineal dentro de cada empresa
+    E = E.sort_values(['empresa', 'anio'])
+    for v in INSTANTANEOS:
+        E[v] = E.groupby('empresa')[v].transform(lambda x: x.interpolate(limit=1, limit_area='inside'))
+    E['ganancia_antes_imp'] = E['ganancia_antes_imp'].fillna(E['ganancia_operativa'])   # si falta, la operativa
     completos = E.dropna(subset=['ganancia_operativa', 'capital_fijo', 'activos'])
     n = completos.groupby('anio').empresa.nunique()
     anios = [int(y) for y in n.index if n[y] == len(EMPRESAS) and y >= 2010]

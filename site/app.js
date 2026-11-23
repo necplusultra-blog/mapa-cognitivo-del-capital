@@ -97,7 +97,27 @@ function draw() {
   lineChart('c-wmasa', mmasa, [{ key: 'masa_mundial', label: 'Mundial' }, { key: 'masa_sin_china', label: 'Sin China' }], { height: 220, tipfmt: d3.format(',.1f'), aria: 'Masa mundial de ganancia' });
 }
 
+function drawIA(A, E) {
+  if (!A || !A.length) return;
+  $('ia').hidden = false;
+  const last = A[A.length - 1];
+  set('ia-fin', last.anio); set('ia-pct-corp', f1(last.pct_ganancia_ia_en_corporativas) + ' %');
+  set('ia-pct-mundo', f1(last.pct_ganancia_ia_en_masa_mundial) + ' %'); set('ia-pct-inv', f1(last.pct_inversion_ia_en_inversion_privada) + ' %');
+  const s1 = [['tasa_ia_sobre_activos', 'Grupo IA: ganancia operativa / activos totales'], ['tasa_nfc_hc_sin_ppi', 'No financiero EE.UU. (costo histórico, sin propiedad intelectual)'], ['tasa_nfc_sin_ia', 'No financiero EE.UU. sin el grupo IA']];
+  legend('l-ia1', s1.map((x) => x[1]));
+  lineChart('c-ia1', A, s1.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Tasa de ganancia del grupo IA' });
+  const s2 = [['pct_ganancia_ia_en_corporativas', 'Ganancias corporativas de EE.UU.'], ['pct_inversion_ia_en_inversion_privada', 'Inversión privada no residencial de EE.UU.'], ['pct_ganancia_ia_en_masa_mundial', 'Masa mundial de ganancia bruta']];
+  legend('l-ia2', s2.map((x) => x[1]));
+  lineChart('c-ia2', A, s2.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.2f')(v) + ' %', aria: 'Peso del grupo IA' });
+  const yrs = E.slice(-4); const emp = Object.keys(E[0]).filter((k) => k !== 'anio').sort();
+  const h = $('t-ia-h'); h.replaceChildren(); const hr = document.createElement('tr');
+  ['Empresa', ...yrs.map((r) => String(r.anio))].forEach((t) => { const th = document.createElement('th'); th.textContent = t; hr.append(th); }); h.append(hr);
+  const tb = $('t-ia'); tb.replaceChildren();
+  emp.forEach((e) => { const tr = document.createElement('tr'); [e, ...yrs.map((r) => (r[e] == null ? '—' : f0(r[e])))].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
+}
+
 Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_decadas', 'eeuu_masa', 'mundo_tasas', 'mundo_masa', 'eeuu_trimestral', 'eeuu_sensibilidad'].map(get)).then(([meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens]) => {
   D = { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens }; draw();
-  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 150); });
+  if (meta.ia) Promise.all([get('ia_agregado'), get('ia_empresas')]).then(([A, E]) => { D.iaA = A; D.iaE = E; drawIA(A, E); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); if (D.iaA) drawIA(D.iaA, D.iaE); }, 150); });
 }).catch((e) => { document.querySelector('.lede').insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });

@@ -62,6 +62,20 @@
   <div class="legend" id="l-wmasa"></div>
   <div class="chart" id="c-wmasa"></div>
 
+  <section id="ia" hidden>
+  <h2>Las corporaciones de la inteligencia artificial</h2>
+  <p class="muted">Microsoft, Alphabet, Amazon, Meta, Nvidia, Oracle, Broadcom y AMD, según sus estados financieros ante la SEC. En <span id="ia-fin">—</span> se apropiaron del <b id="ia-pct-corp">—</b> de las ganancias corporativas de EE.UU. y de alrededor del <b id="ia-pct-mundo">—</b> de la masa mundial de ganancia bruta; su inversión equivale al <b id="ia-pct-inv">—</b> de la inversión privada no residencial de EE.UU.</p>
+  <h3>Tasa de ganancia: grupo IA frente al sector no financiero</h3>
+  <div class="legend" id="l-ia1"></div>
+  <div class="chart" id="c-ia1"></div>
+  <h3>Peso del grupo IA (%)</h3>
+  <div class="legend" id="l-ia2"></div>
+  <div class="chart" id="c-ia2"></div>
+  <h3>Ganancia operativa sobre capital fijo, por empresa (%)</h3>
+  <div class="tablewrap"><table><thead id="t-ia-h"></thead><tbody id="t-ia"></tbody></table></div>
+  <p class="muted">Advertencias: (1) las ganancias de estas empresas son consolidadas a escala mundial; el agregado no financiero de EE.UU. es doméstico, de modo que la tasa «sin IA» es aproximada. (2) El capital es contable, a costo histórico, y la I+D propia no se capitaliza; por eso la comparación es con la especificación NIPA a costo histórico y sin propiedad intelectual. (3) La ganancia apropiada no es plusvalor producido: estas participaciones miden apropiación, que incluye rentas y transferencias, no formación de plusvalor. (4) La masa mundial de los años sin Penn World Table usa la última participación salarial disponible.</p>
+  </section>
+
   <details>
     <summary>Método, definiciones y advertencias</summary>
     <ul>
@@ -69,6 +83,7 @@
       <li><b>Plusvalor ampliado.</b> Valor agregado del sector empresarial, sin vivienda arrendada, menos la remuneración del trabajo productivo. Incluye ganancias, intereses, rentas, impuestos y salarios improductivos (lectura macromonetaria, Moseley).</li>
       <li><b>Trabajo productivo/improductivo.</b> Por ramas: comercio, finanzas y seguros, inmobiliario y servicios jurídicos son improductivos. Con corrección intra-rama (desde 1972): V incluye sólo a los trabajadores de producción y no supervisores de las ramas productivas (BLS). El trabajo que produce software e I+D en empresas capitalistas es productivo.</li>
       <li><b>Bifurcaciones del multiverso.</b> Sector (corporativo o no financiero), medida de ganancia, costo corriente o histórico, neta o bruta, propiedad intelectual dentro o fuera de K, existencias, utilización de capacidad y K total o sólo productivo.</li>
+      <li><b>Corporaciones de la IA.</b> Estados financieros XBRL de la SEC (ganancia operativa, ganancia antes de impuestos, propiedad, planta y equipo netos, activos totales, inversión en activos fijos). OpenAI y Anthropic no publican estados auditados.</li>
       <li><b>Fuentes.</b> BEA (cuentas nacionales, activos fijos, PIB por industria), Reserva Federal (Z.1, G.17), BLS (CES) y Penn World Table 11.0.</li>
       <li><b>Frecuencia.</b> Se actualiza cada mes. Los datos cambian cuando las fuentes publican: el BEA, cada trimestre y en su revisión anual de septiembre; la PWT, cada pocos años.</li>
     </ul>

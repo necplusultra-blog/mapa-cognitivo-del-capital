@@ -33,6 +33,8 @@ jobs:
             echo "$u -> $(curl -s -L -o /dev/null -m 40 -A 'Mozilla/5.0' -w '%{http_code} %{time_total}s' "$u" || echo fallo)"; done
       - name: Descargar datos y recalcular el multiverso
         timeout-minutes: 60
+        env:
+          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT }}
         run: python -u run.py
       - name: Guardar los resultados versionados
         run: |
