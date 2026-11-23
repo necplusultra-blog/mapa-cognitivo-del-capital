@@ -1,0 +1,23 @@
+:root { --fg:#1d1b18; --muted:#6b6560; --bg:#faf8f4; --panel:#fff; --line:#e3ded6; --c0:#b5452a; --c1:#2f5d8a; --c2:#5b8a3a; --c3:#8a5a9e; --c4:#c08a1e; --down:#b23a2a; --up:#3a7d44; --dep:#a8781a; }
+@media (prefers-color-scheme: dark) { :root { --fg:#ece8e1; --muted:#a39d95; --bg:#161513; --panel:#1f1e1b; --line:#34312c; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.sc { max-width: 1000px; margin: 0 auto; padding: 32px 20px 64px; }
+h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 2.6rem; margin: 0 0 8px; }
+h2 { font-size: 1.25rem; margin: 40px 0 6px; } h3 { font-size: 1rem; margin: 16px 0 6px; }
+.kicker { text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; color: var(--muted); margin: 0; }
+.lede { font-size: 1.1rem; max-width: 760px; }
+.muted { color: var(--muted); font-size: .85rem; }
+.kpis { display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin:24px 0; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; }
+.big { font-family: Georgia, serif; font-size: 2rem; font-variant-numeric: tabular-nums; }
+.chart { position:relative; min-height:250px; width:100%; } .chart.short { min-height:200px; }
+.chart text { fill: var(--muted); font-size: 11px; } .chart .tick line { stroke: var(--line); } .chart .domain { stroke: var(--muted); }
+.tip { position:absolute; pointer-events:none; background:var(--panel); border:1px solid var(--line); box-shadow:0 4px 14px rgba(0,0,0,.12); border-radius:8px; padding:6px 10px; font-size:12px; white-space:nowrap; font-variant-numeric: tabular-nums; }
+.legend { display:flex; flex-wrap:wrap; gap:4px 16px; font-size:.8rem; color:var(--muted); margin:6px 0; }
+.sw { display:inline-block; width:14px; height:3px; vertical-align:middle; margin-right:6px; border-radius:2px; }
+.grid2 { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+.tablewrap { overflow-x:auto; } table { border-collapse:collapse; width:100%; font-variant-numeric: tabular-nums; }
+th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--line); } th { color:var(--muted); font-size:.8rem; font-weight:600; }
+.down { color:var(--down); } .up { color:var(--up); } .dep { color:var(--dep); }
+details { margin-top:40px; } li { margin-bottom:6px; } a { color: var(--c1); } footer { margin-top:40px; }

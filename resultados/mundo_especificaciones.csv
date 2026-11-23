@@ -1,0 +1,9 @@
+id,medida,ponderacion,china,panel,n_paises,quiebres
+W|bruta|K|china-con|balanceado-1960,bruta,K,con,balanceado-1960,78,"[1968, 1984, 2005]"
+W|bruta|K|china-con|no balanceado,bruta,K,con,no balanceado,130,"[1974, 1982, 1990, 2005]"
+W|bruta|K|china-sin|balanceado-1960,bruta,K,sin,balanceado-1960,77,"[1968, 1984, 2004]"
+W|bruta|K|china-sin|no balanceado,bruta,K,sin,no balanceado,129,"[1974, 1982, 1990, 2004]"
+W|bruta|PIB|china-con|balanceado-1960,bruta,PIB,con,balanceado-1960,78,"[1968, 1984, 2005]"
+W|bruta|PIB|china-con|no balanceado,bruta,PIB,con,no balanceado,130,"[1970, 1982, 1990, 2005]"
+W|bruta|PIB|china-sin|balanceado-1960,bruta,PIB,sin,balanceado-1960,77,"[1968, 1984, 2004]"
+W|bruta|PIB|china-sin|no balanceado,bruta,PIB,sin,no balanceado,129,"[1970, 1982, 1991, 2004]"

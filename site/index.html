@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sismógrafo del capital — multiverso de la tasa de ganancia</title>
+<meta name="description" content="Observatorio público y reproducible de la tasa y la masa de ganancia y plusvalor: EE.UU. y mundo, como multiverso de especificaciones teóricamente explícitas.">
+<link rel="stylesheet" href="style.css">
+<script src="vendor/d3.min.js"></script>
+</head>
+<body>
+<main class="sc">
+  <header>
+    <p class="kicker">Observatorio de crítica de la economía política</p>
+    <h1>Sismógrafo del capital</h1>
+    <p class="lede">Un sismógrafo no predice el terremoto: registra temblores y rupturas. Este observatorio registra la tasa y la masa de ganancia y de plusvalor como un <em>multiverso</em> de especificaciones, cada una ligada a una decisión teórica explícita, y se actualiza cuando las fuentes publican datos nuevos.</p>
+    <p class="muted">Última actualización: <span id="m-act">—</span> · EE.UU. hasta <span id="m-fin">—</span> · mundo hasta <span id="m-wfin">—</span></p>
+  </header>
+
+  <section class="kpis">
+    <div class="card"><div class="muted">Mediana del multiverso EE.UU. en el último año (100 = promedio del periodo)</div><div class="big" id="k-med">—</div><div class="muted">1982: <span id="k-med82">—</span></div></div>
+    <div class="card"><div class="muted">Tasa de plusvalor S/V con corrección intra-rama, último año</div><div class="big" id="k-e">—</div><div class="muted">1972: <span id="k-e72">—</span></div></div>
+    <div class="card"><div class="muted">Masa real de plusvalor EE.UU. (miles de millones USD 2017)</div><div class="big" id="k-masa">—</div><div class="muted">1948: <span id="k-masa48">—</span></div></div>
+    <div class="card"><div class="muted">Peso de China en el capital mundial</div><div class="big" id="k-cn">—</div><div class="muted">2000: <span id="k-cn00">—</span></div></div>
+  </section>
+
+  <h2>EE.UU.: el abanico del multiverso</h2>
+  <p class="muted"><span id="m-n">—</span> especificaciones, cada una normalizada a su promedio del periodo (=100). Banda clara: percentiles 10–90; oscura: 25–75; línea: mediana.</p>
+  <div class="chart" id="c-bandas"></div>
+
+  <h2>Cinco lecturas del debate, en niveles</h2>
+  <div class="legend" id="l-ref"></div>
+  <div class="chart" id="c-ref"></div>
+  <p class="muted">Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico).</p>
+
+  <h2>Quiebres endógenos</h2>
+  <p class="muted">Cuántas especificaciones detectan un quiebre de tendencia en cada año (tendencias lineales por tramos, tramo mínimo de 8 años, número de quiebres por BIC). Ningún corte se fija de antemano.</p>
+  <div class="chart short" id="c-quiebres"></div>
+
+  <h2>Qué conclusiones resisten todas las decisiones</h2>
+  <div class="tablewrap"><table><thead><tr><th>Tramo</th><th>% de especificaciones con baja</th><th>Clasificación</th></tr></thead><tbody id="t-dec"></tbody></table></div>
+
+  <h2>La ley bifacética: masa y tasa de plusvalor</h2>
+  <div class="legend" id="l-masa"></div>
+  <div class="grid2">
+    <div><h3>Masa real de plusvalor</h3><div class="chart" id="c-masa"></div></div>
+    <div><h3>Tasa de plusvalor S/V</h3><div class="chart" id="c-e"></div></div>
+  </div>
+
+  <h2>Mundo</h2>
+  <p class="muted" id="m-wsrc">—</p>
+  <div class="legend" id="l-mundo"></div>
+  <div class="chart" id="c-mundo"></div>
+  <div class="legend" id="l-wmasa"></div>
+  <div class="chart" id="c-wmasa"></div>
+
+  <details>
+    <summary>Método, definiciones y advertencias</summary>
+    <ul>
+      <li><b>Alcance.</b> Los datos muestran la manifestación fenoménica de determinaciones categoriales; no las demuestran. Lo determinable no es la distancia a un tope, sino la forma en que se articula el campo de las contratendencias.</li>
+      <li><b>Plusvalor ampliado.</b> Valor agregado del sector empresarial, sin vivienda arrendada, menos la remuneración del trabajo productivo. Incluye ganancias, intereses, rentas, impuestos y salarios improductivos (lectura macromonetaria, Moseley).</li>
+      <li><b>Trabajo productivo/improductivo.</b> Por ramas: comercio, finanzas y seguros, inmobiliario y servicios jurídicos son improductivos. Con corrección intra-rama (desde 1972): V incluye sólo a los trabajadores de producción y no supervisores de las ramas productivas (BLS). El trabajo que produce software e I+D en empresas capitalistas es productivo.</li>
+      <li><b>Bifurcaciones del multiverso.</b> Sector (corporativo o no financiero), medida de ganancia, costo corriente o histórico, neta o bruta, propiedad intelectual dentro o fuera de K, existencias, utilización de capacidad y K total o sólo productivo.</li>
+      <li><b>Fuentes.</b> BEA (cuentas nacionales, activos fijos, PIB por industria), Reserva Federal (Z.1, G.17), BLS (CES) y Penn World Table 11.0.</li>
+      <li><b>Frecuencia.</b> Se actualiza cada mes. Los datos cambian cuando las fuentes publican: el BEA, cada trimestre y en su revisión anual de septiembre; la PWT, cada pocos años.</li>
+    </ul>
+  </details>
+  <footer class="muted">Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. Descargas: <a href="descargas/">resultados en CSV</a>. Investigación doctoral de Pablo Jiménez Cea, «Los límites inmanentes del capital» (ICSyH-BUAP).</footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

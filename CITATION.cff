@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Si usas este software o sus datos, cítalo así."
+title: "Sismógrafo del capital: multiverso de la tasa de ganancia"
+type: software
+authors:
+  - family-names: "Jiménez Cea"
+    given-names: "Pablo Ignacio"
+    affiliation: "Instituto de Ciencias Sociales y Humanidades «Alfonso Vélez Pliego», BUAP"
+repository-code: "https://github.com/necplusultra-blog/sismografo-del-capital"
+url: "https://necplusultra-blog.github.io/sismografo-del-capital/"
+license: MIT
+keywords:
+  - tasa de ganancia
+  - crítica de la economía política
+  - plusvalor
+  - multiverso
+  - límites inmanentes del capital

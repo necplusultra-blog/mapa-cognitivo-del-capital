@@ -1,0 +1,71 @@
+"""Descarga de las fuentes públicas. Todo es reproducible y no requiere claves.
+
+BEA (cuentas nacionales, activos fijos, PIB por industria), FRED (Z.1, G.17, BLS CES)
+y Penn World Table 11.0 (dataverse.nl; si falla, las series de la PWT replicadas en FRED).
+"""
+import os, time, urllib.request
+
+BEA = 'https://apps.bea.gov'
+BEA_FILES = {
+    'NipaDataA.txt': f'{BEA}/national/Release/TXT/NipaDataA.txt',
+    'SeriesRegister.txt': f'{BEA}/national/Release/TXT/SeriesRegister.txt',
+    'FixedAssets.txt': f'{BEA}/national/FixedAssets/Release/TXT/FixedAssets.txt',
+    'FaSeriesRegister.txt': f'{BEA}/national/FixedAssets/Release/TXT/SeriesRegister.txt',
+    'ValueAdded.xlsx': f'{BEA}/industry/Release/XLS/GDPxInd/ValueAdded.xlsx',
+    'GDPbyInd_VA_SIC.xls': f'{BEA}/industry/xls/GDPbyInd_VA_SIC.xls',
+    'GDPbyInd_VA_NAICS_1947-1997.xls': f'{BEA}/industry/xls/GDPbyInd_VA_NAICS_1947-1997.xls',
+}
+FRED_SERIES = ['BOGZ1FL105020005A', 'CUMFNS', 'AWHMAN']
+CES_SUPERSECTORES = {  # código CES: (nombre, productivo según el Capítulo Primero)
+    '10000000': ('Minería y explotación forestal', True), '20000000': ('Construcción', True),
+    '30000000': ('Manufactura', True), '41420000': ('Comercio mayorista', False),
+    '42000000': ('Comercio minorista', False), '43000000': ('Transporte y almacenamiento', True),
+    '44220000': ('Servicios públicos', True), '50000000': ('Información', True),
+    '55000000': ('Actividades financieras', False), '60000000': ('Servicios profesionales y empresariales', True),
+    '65000000': ('Educación y salud privadas', True), '70000000': ('Ocio y hospitalidad', True),
+    '80000000': ('Otros servicios', True),
+}
+PWT_DTA = 'https://dataverse.nl/api/access/datafile/554030'  # pwt110.dta
+PWT_FRED_VARS = {'LABSHP': 'A156NRUG', 'RKNANP': 'A666NRUG', 'RGDPNA': 'A666NRUG', 'CKSPPP': 'A666NRUG', 'RGDPES': 'A666NRUG'}
+
+
+def _get(url, dest, tries=3):
+    for k in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'sismografo-del-capital/1.0'})
+            with urllib.request.urlopen(req, timeout=180) as r, open(dest + '.part', 'wb') as f:
+                f.write(r.read())
+            with open(dest + '.part', 'rb') as f:
+                head = f.read(200).lower()
+            if b'<!doctype html' in head or b'<html' in head:
+                raise IOError(f'respuesta HTML en lugar de datos: {url}')
+            os.replace(dest + '.part', dest)
+            return True
+        except Exception as e:  # noqa: BLE001
+            print(f'  intento {k + 1} falló: {url} ({e})')
+            time.sleep(3)
+    return False
+
+
+def fred_csv(series, dest_dir):
+    return _get(f'https://fred.stlouisfed.org/graph/fredgraph.csv?id={series}', os.path.join(dest_dir, series + '.csv'))
+
+
+def descargar_todo(dir_datos, mundo=True):
+    os.makedirs(dir_datos, exist_ok=True)
+    bea = os.path.join(dir_datos, 'bea'); os.makedirs(bea, exist_ok=True)
+    for name, url in BEA_FILES.items():
+        print('BEA', name); assert _get(url, os.path.join(bea, name)), name
+    fred = os.path.join(dir_datos, 'fred'); os.makedirs(fred, exist_ok=True)
+    ids = list(FRED_SERIES) + [f'CES{c}{t}' for c in CES_SUPERSECTORES for t in ('06', '07', '08')]
+    for s in ids:
+        fred_csv(s, fred)
+    if mundo:
+        pwt = os.path.join(dir_datos, 'pwt'); os.makedirs(pwt, exist_ok=True)
+        if not _get(PWT_DTA, os.path.join(pwt, 'pwt110.dta')):
+            print('PWT completa no disponible: se usa la réplica parcial en FRED')
+            import pycountry
+            from concurrent.futures import ThreadPoolExecutor
+            ids = [f'{v}{c.alpha_2}{u}' for c in pycountry.countries for v, u in PWT_FRED_VARS.items()]
+            with ThreadPoolExecutor(8) as ex:
+                list(ex.map(lambda s: _get(f'https://fred.stlouisfed.org/graph/fredgraph.csv?id={s}', os.path.join(pwt, s + '.csv'), tries=1), ids))

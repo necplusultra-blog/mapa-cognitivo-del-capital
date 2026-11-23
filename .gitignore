@@ -170,7 +170,7 @@ conda-meta/
 .ropeproject
 
 # mkdocs/Zensical documentation
-/site
+# /site  (no se ignora: es el sitio público)
 
 # mypy
 .mypy_cache/
@@ -221,3 +221,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# datos brutos descargados (se regeneran en cada corrida)
+datos_brutos/
