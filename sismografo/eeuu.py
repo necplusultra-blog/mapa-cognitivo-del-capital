@@ -97,7 +97,7 @@ def comp_improductiva(D):
 def v_produccion(D):
     """Corrección intra-rama (D2c): salarios de trabajadores de producción y no supervisores en
     supersectores productivos (BLS CES), escalados por la razón remuneración/salarios del sector empresarial."""
-    tot = None
+    tot = None; D.N_prod = None; D.H_prod = None
     for code, (nm, prod) in CES_SUPERSECTORES.items():
         if not prod: continue
         emp = _fred_anual(os.path.join(D.dir_fred, f'CES{code}06.csv'))
@@ -106,6 +106,9 @@ def v_produccion(D):
         hrs = _fred_anual(hrs_path if os.path.exists(hrs_path) and code != '30000000' else os.path.join(D.dir_fred, 'AWHMAN.csv'))
         pay = emp * 1000 * ahe * hrs * 52 / 1e6   # millones de USD
         tot = pay if tot is None else tot + pay
+        n_, h_ = emp / 1000, emp * 1000 * hrs * 52 / 1e6        # millones de trabajadores; millones de horas al año
+        D.N_prod = n_ if D.N_prod is None else D.N_prod + n_
+        D.H_prod = h_ if D.H_prod is None else D.H_prod + h_
     markup = (D.s('N', 'A442RC') + D.s('N', 'W462RC')) / (D.s('N', 'A443RC') + D.s('N', 'W463RC'))
     return (tot.reindex(D.YEARS) * markup)
 
@@ -199,6 +202,19 @@ def calcular(dir_datos, dir_out):
         r, S_, K = bus(prod, 'cc', False, 'incl', 'todo', False)
         masa[prod] = pd.DataFrame({'S': S_, 'S_real_2017': S_ / DEFL * 100, 'V': V[prod], 'K': K, 'e': S_ / V[prod], 'K_V': K / V[prod], 'r': r})
     masa['c'] = masa['c'].loc[INICIO_C:]
+    # Del dinero al tiempo de trabajo (lectura macromonetaria): la tasa de plusvalor medida en dinero es la
+    # proporción plustrabajo/trabajo necesario de los obreros productivos. Masa = e × número de obreros.
+    c = masa['c']; N_ = D.N_prod.reindex(c.index); H_ = D.H_prod.reindex(c.index)
+    c['obreros_productivos_mill'] = N_
+    c['horas_productivas_mill'] = H_
+    c['horas_plustrabajo_mill'] = H_ * c['e'] / (1 + c['e'])
+    c['semana_horas'] = H_ / N_ / 52
+    c['semana_necesario'] = c['semana_horas'] / (1 + c['e'])
+    c['semana_plustrabajo'] = c['semana_horas'] - c['semana_necesario']
+    c['plusvalor_por_obrero_real'] = c['S_real_2017'] / N_                       # USD de 2017 por obrero productivo
+    c['expresion_monetaria_hora'] = (c['S'] + c['V']) / H_                        # USD corrientes de valor nuevo por hora
+    c['expresion_monetaria_hora_real'] = c['expresion_monetaria_hora'] / DEFL.reindex(c.index) * 100
+    masa['c'] = c
 
     R.to_csv(os.path.join(dir_out, 'eeuu_multiverso_tasas.csv'), index_label='anio')
     M.to_csv(os.path.join(dir_out, 'eeuu_especificaciones.csv'))

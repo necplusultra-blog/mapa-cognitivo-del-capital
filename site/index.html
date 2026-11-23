@@ -14,6 +14,7 @@
     <p class="kicker">Observatorio de crítica de la economía política</p>
     <h1>Sismógrafo del capital</h1>
     <p class="lede">Un sismógrafo no predice el terremoto: registra temblores y rupturas. Este observatorio registra la tasa y la masa de ganancia y de plusvalor como un <em>multiverso</em> de especificaciones, cada una ligada a una decisión teórica explícita, y se actualiza cuando las fuentes publican datos nuevos.</p>
+    <p>Los datos se interpretan desde la crítica marxiana de la economía política: la ganancia es una forma de aparición del plusvalor, y el plusvalor es trabajo impago de los obreros productivamente explotados. El sismógrafo usa inteligencia artificial para procesar las enormes cantidades de datos estadísticos y contables que lo hacen posible; las decisiones teóricas que orientan ese procesamiento son explícitas y se documentan en cada bifurcación.</p>
     <p class="muted">Última actualización: <span id="m-act">—</span> · EE.UU. hasta <span id="m-fin">—</span> · mundo hasta <span id="m-wfin">—</span></p>
   </header>
 
@@ -54,6 +55,27 @@
     <div><h3>Masa real de plusvalor</h3><div class="chart" id="c-masa"></div></div>
     <div><h3>Tasa de plusvalor S/V</h3><div class="chart" id="c-e"></div></div>
   </div>
+
+  <h2 id="tiempo">Del dinero al tiempo de trabajo</h2>
+  <p>La masa de plusvalor es el producto de la tasa de plusvalor (pv/v, el grado de explotación) por el número de obreros productivamente explotados. Medida en dinero, la tasa de plusvalor de los obreros productivos expresa la proporción entre plustrabajo y trabajo necesario en su jornada: de cada semana de trabajo, una fracción 1/(1+e) reproduce el valor de su fuerza de trabajo y una fracción e/(1+e) es plustrabajo. Con las horas efectivamente trabajadas por los obreros de producción y no supervisores de las ramas productivas (BLS), la masa de plusvalor puede leerse directamente en horas de trabajo impago.</p>
+  <section class="kpis">
+    <div class="card"><div class="muted">Obreros productivos explotados, <span class="t-fin">—</span> (millones)</div><div class="big" id="t-n">—</div><div class="muted"><span class="t-ini">—</span>: <span id="t-n0">—</span></div></div>
+    <div class="card"><div class="muted">Trabajo necesario en una semana de <span id="t-sem">—</span> h</div><div class="big" id="t-nec">—</div><div class="muted"><span class="t-ini">—</span>: <span id="t-nec0">—</span></div></div>
+    <div class="card"><div class="muted">Plustrabajo semanal por obrero</div><div class="big" id="t-plus">—</div><div class="muted"><span class="t-ini">—</span>: <span id="t-plus0">—</span></div></div>
+    <div class="card"><div class="muted">Masa anual de plustrabajo (miles de millones de horas)</div><div class="big" id="t-masa">—</div><div class="muted"><span class="t-ini">—</span>: <span id="t-masa0">—</span></div></div>
+  </section>
+  <div class="grid2">
+    <div><h3>La semana del obrero productivo: trabajo necesario y plustrabajo (horas)</h3><div class="legend" id="l-sem"></div><div class="chart" id="c-sem"></div></div>
+    <div><h3>Masa de plustrabajo (miles de millones de horas al año)</h3><div class="chart" id="c-hplus"></div></div>
+  </div>
+  <h3>¿De dónde viene el crecimiento de la masa de plustrabajo?</h3>
+  <p class="muted" id="t-desc-intro">—</p>
+  <div class="tablewrap"><table><thead><tr><th>Factor</th><th>Se multiplica por</th><th>Aporte al crecimiento (en logaritmos)</th></tr></thead><tbody id="t-desc"></tbody></table></div>
+  <h3>Expresión monetaria del tiempo de trabajo</h3>
+  <p class="muted">Valor nuevo (v + pv) por hora de trabajo productivo: cuántos dólares representa una hora de trabajo social productivo. Es la relación que permite pasar del dinero al tiempo y del tiempo al dinero.</p>
+  <div class="legend" id="l-melt"></div>
+  <div class="chart" id="c-melt"></div>
+  <p class="muted">Supuestos: lectura macromonetaria (Moseley), en la que v es el salario efectivamente pagado; sólo obreros de producción y no supervisores de las ramas productivas, desde 1972 y sin la agricultura. Para la escala mundial, el número de obreros productivos requiere los datos por rama de la fase de ampliación mundial (OIT y KLEMS); por ahora la masa mundial se expresa sólo en dinero.</p>
 
   <h2>Mundo</h2>
   <p class="muted" id="m-wsrc">—</p>

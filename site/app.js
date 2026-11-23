@@ -116,8 +116,27 @@ function drawIA(A, E) {
   emp.forEach((e) => { const tr = document.createElement('tr'); [e, ...yrs.map((r) => (r[e] == null ? '—' : f0(r[e])))].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
 }
 
+function drawTiempo(T, Dc) {
+  const a = T[0], z = T[T.length - 1];
+  document.querySelectorAll('.t-fin').forEach((e) => { e.textContent = z.anio; });
+  document.querySelectorAll('.t-ini').forEach((e) => { e.textContent = a.anio; });
+  set('t-n', f1(z.obreros_productivos_mill)); set('t-n0', f1(a.obreros_productivos_mill));
+  set('t-sem', f1(z.semana_horas)); set('t-nec', f1(z.semana_necesario) + ' h'); set('t-nec0', f1(a.semana_necesario) + ' h');
+  set('t-plus', f1(z.semana_plustrabajo) + ' h'); set('t-plus0', f1(a.semana_plustrabajo) + ' h');
+  set('t-masa', f1(z.horas_plustrabajo_mmh)); set('t-masa0', f1(a.horas_plustrabajo_mmh));
+  legend('l-sem', ['Trabajo necesario', 'Plustrabajo']);
+  lineChart('c-sem', T, [{ key: 'semana_necesario', label: 'Necesario' }, { key: 'semana_plustrabajo', label: 'Plustrabajo' }], { yfmt: (v) => v + ' h', tipfmt: (v) => d3.format('.1f')(v) + ' h', aria: 'Trabajo necesario y plustrabajo semanal' });
+  lineChart('c-hplus', T, [{ key: 'horas_plustrabajo_mmh', label: 'Plustrabajo' }], { tipfmt: d3.format(',.1f'), aria: 'Masa anual de plustrabajo en horas' });
+  set('t-desc-intro', `Entre ${Dc.desde} y ${Dc.hasta} la masa anual de plustrabajo se multiplica por ${f2(Dc.factor_total)}: horas de plustrabajo = obreros × horas por obrero × e/(1+e).`);
+  const tb = $('t-desc'); tb.replaceChildren();
+  Dc.factores.forEach((r) => { const tr = document.createElement('tr'); [r.factor, f2(r.multiplica), f1(r.aporte_pct) + ' %'].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
+  legend('l-melt', ['USD corrientes por hora', 'USD de 2017 por hora']);
+  lineChart('c-melt', T, [{ key: 'expresion_monetaria_hora', label: 'Corrientes' }, { key: 'expresion_monetaria_hora_real', label: 'De 2017' }], { tipfmt: (v) => d3.format('.1f')(v) + ' USD', aria: 'Expresión monetaria del tiempo de trabajo' });
+}
+
 Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_decadas', 'eeuu_masa', 'mundo_tasas', 'mundo_masa', 'eeuu_trimestral', 'eeuu_sensibilidad'].map(get)).then(([meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens]) => {
   D = { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens }; draw();
+  Promise.all([get('eeuu_tiempo'), get('eeuu_descomposicion')]).then(([T, Dc]) => { D.T = T; D.Dc = Dc; drawTiempo(T, Dc); });
   if (meta.ia) Promise.all([get('ia_agregado'), get('ia_empresas')]).then(([A, E]) => { D.iaA = A; D.iaE = E; drawIA(A, E); });
-  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); if (D.iaA) drawIA(D.iaA, D.iaE); }, 150); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); if (D.T) drawTiempo(D.T, D.Dc); if (D.iaA) drawIA(D.iaA, D.iaE); }, 150); });
 }).catch((e) => { document.querySelector('.lede').insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });

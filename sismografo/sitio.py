@@ -33,6 +33,19 @@ def escribir(ee, mu, dir_site):
     masa = pd.DataFrame({'masa_ramas': mb['S_real_2017'] / 1000, 'masa_intra': mc['S_real_2017'] / 1000,
                          'e_ramas': mb['e'], 'e_intra': mc['e'], 'kv_ramas': mb['K_V'], 'kv_intra': mc['K_V']}).round(3)
     masa.index.name = 'anio'; _w(f'{d}/eeuu_masa.json', _rows(masa))
+    tiempo = mc[['obreros_productivos_mill', 'horas_plustrabajo_mill', 'semana_horas', 'semana_necesario', 'semana_plustrabajo',
+                 'e', 'plusvalor_por_obrero_real', 'expresion_monetaria_hora', 'expresion_monetaria_hora_real']].copy()
+    tiempo['horas_plustrabajo_mmh'] = tiempo.pop('horas_plustrabajo_mill') / 1000   # miles de millones de horas
+    tiempo = tiempo.astype(float).round(3); tiempo.index.name = 'anio'
+    _w(f'{d}/eeuu_tiempo.json', _rows(tiempo))
+    # descomposición de la masa de plustrabajo: horas = obreros × horas por obrero × e/(1+e)
+    a0, a1 = int(tiempo.index[0]), int(tiempo.index[-1]); t0, t1 = tiempo.loc[a0], tiempo.loc[a1]
+    f = {'Número de obreros productivos': t1.obreros_productivos_mill / t0.obreros_productivos_mill,
+         'Horas por obrero (extensión de la jornada)': t1.semana_horas / t0.semana_horas,
+         'Proporción de plustrabajo e/(1+e)': (t1.e / (1 + t1.e)) / (t0.e / (1 + t0.e))}
+    tot = float(np.log(t1.horas_plustrabajo_mmh / t0.horas_plustrabajo_mmh))
+    _w(f'{d}/eeuu_descomposicion.json', dict(desde=a0, hasta=a1, factor_total=round(float(np.exp(tot)), 3),
+        factores=[dict(factor=k, multiplica=round(float(v), 3), aporte_pct=round(100 * float(np.log(v)) / tot, 1)) for k, v in f.items()]))
     _w(f'{d}/eeuu_trimestral.json', json.loads(ee['trim'].reset_index().to_json(orient='records')))
     _w(f'{d}/eeuu_sensibilidad.json', ee['sens'])
     if ee.get('ia') is not None:
