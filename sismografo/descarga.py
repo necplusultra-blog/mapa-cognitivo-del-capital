@@ -3,7 +3,13 @@
 BEA (cuentas nacionales, activos fijos, PIB por industria), FRED (Z.1, G.17, BLS CES)
 y Penn World Table 11.0 (dataverse.nl; si falla, las series de la PWT replicadas en FRED).
 """
-import os, time, urllib.request
+import os, shutil, socket, time, urllib.request
+
+# Algunos servidores (dataverse → objectstore) anuncian IPv6, que los runners de GitHub no siempre alcanzan:
+# se fuerza IPv4.
+_orig_gai = socket.getaddrinfo
+socket.getaddrinfo = lambda host, port, family=0, *a, **k: _orig_gai(host, port, socket.AF_INET, *a, **k)
+CACHE_PWT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'datos_cache', 'pwt110.dta')
 
 BEA = 'https://apps.bea.gov'
 BEA_FILES = {
@@ -67,7 +73,13 @@ def descargar_todo(dir_datos, mundo=True):
         fred_csv(s, fred)
     if mundo:
         pwt = os.path.join(dir_datos, 'pwt'); os.makedirs(pwt, exist_ok=True)
-        if not _get(PWT_DTA, os.path.join(pwt, 'pwt110.dta')):
+        dest = os.path.join(pwt, 'pwt110.dta')
+        if _get(PWT_DTA, dest):
+            os.makedirs(os.path.dirname(CACHE_PWT), exist_ok=True); shutil.copy(dest, CACHE_PWT)
+        elif os.path.exists(CACHE_PWT):
+            print('PWT: dataverse no respondió; se usa la copia guardada en datos_cache/')
+            shutil.copy(CACHE_PWT, dest)
+        else:
             print('PWT completa no disponible: se usa la réplica parcial en FRED')
             import pycountry
             from concurrent.futures import ThreadPoolExecutor
