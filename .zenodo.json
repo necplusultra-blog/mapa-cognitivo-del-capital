@@ -1,0 +1,9 @@
+{
+  "title": "Sismógrafo del capital: multiverso de la tasa de ganancia",
+  "upload_type": "software",
+  "description": "Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor (EE.UU. y mundo), organizado como un multiverso de especificaciones teóricamente explícitas, con detección endógena de quiebres. Investigación doctoral de Pablo Ignacio Jiménez Cea, «Los límites inmanentes del capital» (ICSyH-BUAP). Los datos derivados se publican bajo CC BY 4.0.",
+  "creators": [{"name": "Jiménez Cea, Pablo Ignacio", "affiliation": "Instituto de Ciencias Sociales y Humanidades «Alfonso Vélez Pliego», Benemérita Universidad Autónoma de Puebla"}],
+  "license": "MIT",
+  "language": "spa",
+  "keywords": ["tasa de ganancia", "crítica de la economía política", "plusvalor", "multiverso", "límites inmanentes del capital", "rate of profit", "Marx"]
+}

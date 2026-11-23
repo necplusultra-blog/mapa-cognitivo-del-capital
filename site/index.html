@@ -33,9 +33,17 @@
   <div class="chart" id="c-ref"></div>
   <p class="muted">Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico).</p>
 
+  <h2>Estimación trimestral (hasta <span id="m-trim">—</span>)</h2>
+  <p class="muted">Tasa corporativa neta a costo corriente, en %: ganancias trimestrales (tasa anual) sobre el stock de capital interpolado por trimestre. Los trimestres posteriores al último dato anual de capital usan un stock extrapolado (tramo punteado) y son provisionales.</p>
+  <div class="legend" id="l-trim"></div>
+  <div class="chart" id="c-trim"></div>
+
   <h2>Quiebres endógenos</h2>
   <p class="muted">Cuántas especificaciones detectan un quiebre de tendencia en cada año (tendencias lineales por tramos, tramo mínimo de 8 años, número de quiebres por BIC). Ningún corte se fija de antemano.</p>
   <div class="chart short" id="c-quiebres"></div>
+
+  <h3>Sensibilidad del detector</h3>
+  <div class="tablewrap"><table><thead><tr><th>Configuración</th><th>Quiebres por especificación</th><th>Años más frecuentes (n.º de especificaciones)</th></tr></thead><tbody id="t-sens"></tbody></table></div>
 
   <h2>Qué conclusiones resisten todas las decisiones</h2>
   <div class="tablewrap"><table><thead><tr><th>Tramo</th><th>% de especificaciones con baja</th><th>Clasificación</th></tr></thead><tbody id="t-dec"></tbody></table></div>
@@ -65,7 +73,7 @@
       <li><b>Frecuencia.</b> Se actualiza cada mes. Los datos cambian cuando las fuentes publican: el BEA, cada trimestre y en su revisión anual de septiembre; la PWT, cada pocos años.</li>
     </ul>
   </details>
-  <footer class="muted">Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. Descargas: <a href="descargas/">resultados en CSV</a>. Investigación doctoral de Pablo Jiménez Cea, «Los límites inmanentes del capital» (ICSyH-BUAP).</footer>
+  <footer class="muted">Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. Descargas: <a href="descargas/">resultados en CSV</a>. Investigación doctoral de Pablo Ignacio Jiménez Cea, «Los límites inmanentes del capital» (ICSyH-BUAP).</footer>
 </main>
 <script src="app.js"></script>
 </body>

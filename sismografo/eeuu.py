@@ -171,6 +171,20 @@ def calcular(dir_datos, dir_out):
     yrs = np.array(Y)
     M['quiebres'] = [breaks(R[c].values, yrs) if c in principal else breaks(Rc[c].values, np.array(Rc.index)) for c in M.index]
 
+    # sensibilidad del detector de quiebres (F1.4)
+    configs = [('h=6, BIC', 6, 'bic'), ('h=8, BIC (base)', 8, 'bic'), ('h=10, BIC', 10, 'bic'), ('h=8, LWZ', 8, 'lwz')]
+    sens = []
+    for etiqueta, h, crit in configs:
+        cnt = collections.Counter()
+        nq = []
+        for c in principal:
+            b = M.loc[c, 'quiebres'] if (h, crit) == (8, 'bic') else breaks(R[c].values, yrs, h=h, crit=crit)
+            cnt.update(b); nq.append(len(b))
+        top = sorted(cnt.items(), key=lambda kv: (-kv[1], kv[0]))[:6]
+        sens.append(dict(configuracion=etiqueta, quiebres_medios=round(float(np.mean(nq)), 2),
+                         anios_mas_frecuentes=', '.join(f'{y} ({n})' for y, n in top)))
+    pd.DataFrame(sens).to_csv(os.path.join(dir_out, 'eeuu_sensibilidad_quiebres.csv'), index=False)
+
     # robustez decenal (sólo el multiverso principal, ventana común)
     Rp = R[principal]
     dec = pd.Series([f'{(y // 10) * 10}s' if y < 2020 else f'2020–{str(D.FIN)[2:]}' for y in Y], index=Y)
@@ -190,4 +204,4 @@ def calcular(dir_datos, dir_out):
     M.to_csv(os.path.join(dir_out, 'eeuu_especificaciones.csv'))
     for k, v in masa.items(): v.to_csv(os.path.join(dir_out, f'eeuu_masa_plusvalor_{k}.csv'), index_label='anio')
     pd.DataFrame({'COMP_U': COMP_U, 'V_ramas': V['b'], 'V_intra_rama': V['c'], 'COMP_empresarial': COMP_BUS}).to_csv(os.path.join(dir_out, 'eeuu_salarios.csv'), index_label='anio')
-    return dict(R=R, M=M, principal=principal, Rc=Rc, trans=trans, masa=masa, empalmes=empalmes, fin=D.FIN)
+    return dict(F=D.F, sens=sens, R=R, M=M, principal=principal, Rc=Rc, trans=trans, masa=masa, empalmes=empalmes, fin=D.FIN)

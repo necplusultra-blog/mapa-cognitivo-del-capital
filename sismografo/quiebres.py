@@ -1,3 +1,4 @@
+"""Quiebres endógenos: tendencias lineales por tramos (tipo Bai-Perron), número de quiebres por criterio de información."""
 import numpy as np
 
 def seg_ssr(y):
@@ -6,7 +7,8 @@ def seg_ssr(y):
     b, res, *_ = np.linalg.lstsq(X, y, rcond=None)
     return float(((y - X @ b) ** 2).sum())
 
-def breaks(y, years, h=8, mmax=5):
+def breaks(y, years, h=8, mmax=5, crit='bic'):
+    """crit='bic' (Schwarz) o 'lwz' (Liu-Wu-Zidek, penaliza más los quiebres)."""
     y = np.asarray(y, float); n = len(y)
     cost = np.full((n + 1, n + 1), np.inf)
     for i in range(n):
@@ -23,7 +25,8 @@ def breaks(y, years, h=8, mmax=5):
     for m in range(mmax + 1):
         if not np.isfinite(dp[m, n]): continue
         k = 3 * m + 2
-        bics.append((n * np.log(dp[m, n] / n) + k * np.log(n), m))
+        pen = k * np.log(n) if crit == 'bic' else 0.299 * k * np.log(n) ** 2.1
+        bics.append((n * np.log(dp[m, n] / n) + pen, m))
     _, m = min(bics)
     bps, j = [], n
     for mm in range(m, 0, -1):

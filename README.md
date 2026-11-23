@@ -13,7 +13,8 @@ Sitio público: https://necplusultra-blog.github.io/sismografo-del-capital/
   - Sector empresarial: *plusvalor ampliado* según el criterio de trabajo productivo de Jiménez Cea, *Los límites inmanentes del capital*, cap. 1, §1.3.
   - Bifurcaciones: costo corriente o histórico, neta o bruta, propiedad intelectual dentro o fuera del capital, existencias, utilización de capacidad, y capital total o sólo productivo.
 - **Masa real de plusvalor, tasa de plusvalor S/V y composición K/V**, por ramas y con corrección intra-rama (trabajadores de producción y no supervisores, BLS).
-- **Quiebres endógenos** por especificación: tendencias lineales por tramos con selección por BIC. Ningún corte se fija de antemano.
+- **Quiebres endógenos** por especificación: tendencias lineales por tramos con selección por BIC, más un análisis de sensibilidad (tramo mínimo de 6, 8 o 10 años; criterio BIC o LWZ). Ningún corte se fija de antemano.
+- **Estimación trimestral** de la tasa corporativa: ganancias trimestrales sobre capital interpolado. Los trimestres con capital extrapolado se marcan como provisionales.
 - **Mundo**: núcleo reducido con la Penn World Table 11.0 (tasa bruta, neta y tasa interna de retorno), ponderada por capital o PIB, con y sin China.
 
 Los resultados muestran la manifestación fenoménica de determinaciones categoriales; no las demuestran.
@@ -49,5 +50,7 @@ Todas son públicas y no requieren claves:
 - Código: MIT (`LICENSE`).
 - Datos derivados, gráficos y textos: CC BY 4.0 (`LICENSE-DATA.md`).
 - Para citar, véase `CITATION.cff`.
+
+Investigación doctoral de Pablo Ignacio Jiménez Cea.
 
 Jiménez Cea, P. I. (2026). *Sismógrafo del capital: multiverso de la tasa de ganancia* [software y datos]. https://github.com/necplusultra-blog/sismografo-del-capital

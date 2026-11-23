@@ -33,6 +33,8 @@ def escribir(ee, mu, dir_site):
     masa = pd.DataFrame({'masa_ramas': mb['S_real_2017'] / 1000, 'masa_intra': mc['S_real_2017'] / 1000,
                          'e_ramas': mb['e'], 'e_intra': mc['e'], 'kv_ramas': mb['K_V'], 'kv_intra': mc['K_V']}).round(3)
     masa.index.name = 'anio'; _w(f'{d}/eeuu_masa.json', _rows(masa))
+    _w(f'{d}/eeuu_trimestral.json', json.loads(ee['trim'].reset_index().to_json(orient='records')))
+    _w(f'{d}/eeuu_sensibilidad.json', ee['sens'])
     RW = mu['RW']
     cols = {f'{m}_{w}_{c}': f'W|{m}|{w}|china-{c}|balanceado-1960' for m in mu['medidas'] for w in ('K',) for c in ('con', 'sin')}
     mt = (RW[list(cols.values())].astype(float).rename(columns={v: k for k, v in cols.items()}) * 100).loc[1960:].round(2)
@@ -45,7 +47,7 @@ def escribir(ee, mu, dir_site):
     try: sha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], text=True).strip()
     except Exception: sha = None  # noqa: BLE001
     meta = dict(actualizado=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), commit=sha,
-                eeuu_fin=int(ee['fin']), eeuu_n=len(P), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
+                eeuu_fin=int(ee['fin']), eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(P), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
                 mundo_fin=int(mu['fin']), mundo_fuente=mu['fuente'], mundo_n=mu['n'], mundo_nbal=mu['nbal'], mundo_medidas=mu['medidas'])
     _w(f'{d}/meta.json', meta)
     return meta

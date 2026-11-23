@@ -4,7 +4,7 @@
     python run.py --sin-descarga  # recalcula con los datos ya descargados
 """
 import argparse, json, os
-from sismografo import descarga, eeuu, mundo, sitio
+from sismografo import descarga, eeuu, mundo, sitio, trimestral
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 
@@ -17,6 +17,7 @@ if __name__ == '__main__':
         descarga.descargar_todo(a.datos)
     out = os.path.join(RAIZ, 'resultados')
     ee = eeuu.calcular(a.datos, out)
+    ee['trim'] = trimestral.calcular(a.datos, out, ee['F'])
     mu = mundo.calcular(a.datos, out)
     meta = sitio.escribir(ee, mu, os.path.join(RAIZ, 'site'))
     import glob, shutil

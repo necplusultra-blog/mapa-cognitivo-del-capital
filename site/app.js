@@ -23,17 +23,22 @@ function lineChart(id, rows, series, o = {}) {
   let ml = 0; gy.selectAll('text').each(function () { ml = Math.max(ml, this.getComputedTextLength()); }); ml += 12;
   gy.attr('transform', `translate(${ml},0)`); gy.selectAll('.tick line').attr('x2', W - ml - mr);
   const x = d3.scaleLinear().domain(d3.extent(rows, (r) => r.anio)).range([ml, W - mr]);
-  svg.append('g').attr('transform', `translate(0,${H - mb})`).call(d3.axisBottom(x).ticks(Math.max(3, Math.floor((W - ml) / 70))).tickFormat(d3.format('d')));
+  svg.append('g').attr('transform', `translate(0,${H - mb})`).call(d3.axisBottom(x).ticks(Math.max(3, Math.floor((W - ml) / 70))).tickFormat(o.xlab ? (v) => (o.xlab(v) || '').slice(0, 4) : d3.format('d')));
   (o.bands || []).forEach((b, i) => svg.append('path').datum(rows).attr('d', d3.area().x((r) => x(r.anio)).y0((r) => y(+r[b[0]])).y1((r) => y(+r[b[1]]))).style('fill', C[0]).style('fill-opacity', i ? 0.3 : 0.14));
   if (o.ref != null) svg.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y(o.ref)).attr('y2', y(o.ref)).style('stroke', 'var(--muted)').attr('stroke-dasharray', '3,3');
-  series.forEach((s, i) => svg.append('path').datum(rows.filter((r) => r[s.key] != null)).attr('d', d3.line().x((r) => x(r.anio)).y((r) => y(+r[s.key]))).style('fill', 'none').style('stroke', C[(s.c ?? i) % C.length]).style('stroke-width', 2));
+  series.forEach((s, i) => {
+    const pts = rows.filter((r) => r[s.key] != null); const cut = o.prov != null && o.prov >= 0 ? o.prov : Infinity;
+    const ln = d3.line().x((r) => x(r.anio)).y((r) => y(+r[s.key])); const col = C[(s.c ?? i) % C.length];
+    svg.append('path').datum(pts.filter((r) => r.anio < cut)).attr('d', ln).style('fill', 'none').style('stroke', col).style('stroke-width', 2);
+    if (cut !== Infinity) svg.append('path').datum(pts.filter((r) => r.anio >= cut - 1)).attr('d', ln).style('fill', 'none').style('stroke', col).style('stroke-width', 2).attr('stroke-dasharray', '4,3');
+  });
   const tip = d3.select(el).append('div').attr('class', 'tip').style('display', 'none');
   const rule = svg.append('line').attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--muted)').style('display', 'none');
   const vf = o.tipfmt || d3.format(',.2f');
   svg.on('pointermove', (ev) => {
     const yr = Math.round(x.invert(d3.pointer(ev)[0])); const r = rows.find((q) => q.anio === yr); if (!r) return;
     rule.attr('x1', x(yr)).attr('x2', x(yr)).style('display', null);
-    tip.style('display', null).text(''); tip.append('div').text(yr).style('font-weight', 600);
+    tip.style('display', null).text(''); tip.append('div').text(o.xlab ? o.xlab(yr) + (r.provisional ? ' (provisional)' : '') : yr).style('font-weight', 600);
     (o.tipExtra ? o.tipExtra(r) : []).concat(series.map((s) => [s.label, r[s.key]])).forEach(([l, v]) => { if (v != null) tip.append('div').text(`${l}: ${vf(+v)}`); });
     tip.style('left', Math.min(Math.max(0, x(yr) + 10), W - 220) + 'px').style('top', '8px');
   }).on('pointerleave', () => { tip.style('display', 'none'); rule.style('display', 'none'); });
@@ -55,7 +60,7 @@ function bars(id, rows) {
 
 let D = {};
 function draw() {
-  const { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa } = D;
+  const { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens } = D;
   set('m-act', meta.actualizado); set('m-fin', meta.eeuu_fin); set('m-wfin', meta.mundo_fin); set('m-n', meta.eeuu_n);
   const last = bandas[bandas.length - 1], b82 = bandas.find((r) => r.anio === 1982);
   set('k-med', f1(last.p50)); set('k-med82', f1(b82.p50));
@@ -68,7 +73,14 @@ function draw() {
   const refS = [['nfc_ebe_cc', 'No financiero, EBE, costo corriente (tipo Duménil-Lévy)'], ['corp_ebe_hc', 'Corporativo, EBE, costo histórico (tipo Kliman)'], ['emp_todo_cc', 'Empresarial, todo trabajo productivo'], ['emp_ramas_cc', 'Plusvalor ampliado, por ramas'], ['emp_intra_cc', 'Plusvalor ampliado, corrección intra-rama (desde 1972)']];
   legend('l-ref', refS.map((s) => s[1]));
   lineChart('c-ref', ref, refS.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Cinco medidas de la tasa de ganancia de EE.UU.' });
+  set('m-trim', meta.eeuu_trim_fin);
+  const tr = trim.map((r, i) => ({ ...r, anio: i, t: r.trimestre }));
+  const trS = [['nfc_ebe', 'No financiero, excedente neto'], ['nfc_despues_imp', 'No financiero, después de impuestos'], ['corp_ebe', 'Corporativo total, excedente neto']];
+  legend('l-trim', trS.map((x) => x[1]));
+  lineChart('c-trim', tr, trS.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', xlab: (i) => (tr[Math.round(i)] || {}).t, prov: tr.findIndex((r) => r.provisional), aria: 'Tasa de ganancia corporativa trimestral' });
   bars('c-quiebres', quiebres);
+  const ts = $('t-sens'); ts.replaceChildren();
+  sens.forEach((r) => { const tr2 = document.createElement('tr'); [r.configuracion, String(r.quiebres_medios), r.anios_mas_frecuentes].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr2.append(td); }); ts.append(tr2); });
   const tb = $('t-dec'); tb.replaceChildren();
   decadas.forEach((r) => { const tr = document.createElement('tr'); const c = r.clase.includes('baja') ? 'down' : r.clase.includes('sube') ? 'up' : 'dep';
     [[r.tramo], [f1(r.pct_baja) + ' %'], [r.clase, c]].forEach(([t, k]) => { const td = document.createElement('td'); td.textContent = t; if (k) td.className = k; tr.append(td); }); tb.append(tr); });
@@ -85,7 +97,7 @@ function draw() {
   lineChart('c-wmasa', mmasa, [{ key: 'masa_mundial', label: 'Mundial' }, { key: 'masa_sin_china', label: 'Sin China' }], { height: 220, tipfmt: d3.format(',.1f'), aria: 'Masa mundial de ganancia' });
 }
 
-Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_decadas', 'eeuu_masa', 'mundo_tasas', 'mundo_masa'].map(get)).then(([meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa]) => {
-  D = { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa }; draw();
+Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_decadas', 'eeuu_masa', 'mundo_tasas', 'mundo_masa', 'eeuu_trimestral', 'eeuu_sensibilidad'].map(get)).then(([meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens]) => {
+  D = { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens }; draw();
   let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 150); });
 }).catch((e) => { document.querySelector('.lede').insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });

@@ -8,6 +8,7 @@ import os, time, urllib.request
 BEA = 'https://apps.bea.gov'
 BEA_FILES = {
     'NipaDataA.txt': f'{BEA}/national/Release/TXT/NipaDataA.txt',
+    'NipaDataQ.txt': f'{BEA}/national/Release/TXT/NipaDataQ.txt',
     'SeriesRegister.txt': f'{BEA}/national/Release/TXT/SeriesRegister.txt',
     'FixedAssets.txt': f'{BEA}/national/FixedAssets/Release/TXT/FixedAssets.txt',
     'FaSeriesRegister.txt': f'{BEA}/national/FixedAssets/Release/TXT/SeriesRegister.txt',
