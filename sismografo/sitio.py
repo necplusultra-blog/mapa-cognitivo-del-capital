@@ -35,7 +35,7 @@ def escribir(ee, mu, dir_site):
     masa.index.name = 'anio'; _w(f'{d}/eeuu_masa.json', _rows(masa))
     RW = mu['RW']
     cols = {f'{m}_{w}_{c}': f'W|{m}|{w}|china-{c}|balanceado-1960' for m in mu['medidas'] for w in ('K',) for c in ('con', 'sin')}
-    mt = (RW[list(cols.values())].rename(columns={v: k for k, v in cols.items()}) * 100).loc[1960:].round(2)
+    mt = (RW[list(cols.values())].astype(float).rename(columns={v: k for k, v in cols.items()}) * 100).loc[1960:].round(2)
     mt.index.name = 'anio'; _w(f'{d}/mundo_tasas.json', _rows(mt))
     mm = pd.DataFrame({'masa_mundial': mu['masa']['masa_mundial'] / 1e6, 'masa_sin_china': mu['masa']['masa_sin_china'] / 1e6,
                        'china_pct_K': mu['peso'].get('CN') * 100, 'eeuu_pct_K': mu['peso'].get('US') * 100}).round(2)
