@@ -204,4 +204,4 @@ def calcular(dir_datos, dir_out):
     M.to_csv(os.path.join(dir_out, 'eeuu_especificaciones.csv'))
     for k, v in masa.items(): v.to_csv(os.path.join(dir_out, f'eeuu_masa_plusvalor_{k}.csv'), index_label='anio')
     pd.DataFrame({'COMP_U': COMP_U, 'V_ramas': V['b'], 'V_intra_rama': V['c'], 'COMP_empresarial': COMP_BUS}).to_csv(os.path.join(dir_out, 'eeuu_salarios.csv'), index_label='anio')
-    return dict(F=D.F, sens=sens, R=R, M=M, principal=principal, Rc=Rc, trans=trans, masa=masa, empalmes=empalmes, fin=D.FIN)
+    return dict(F=D.F, N=D.N, sens=sens, R=R, M=M, principal=principal, Rc=Rc, trans=trans, masa=masa, empalmes=empalmes, fin=D.FIN)

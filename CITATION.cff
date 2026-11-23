@@ -5,6 +5,7 @@ type: software
 authors:
   - family-names: "Jiménez Cea"
     given-names: "Pablo Ignacio"
+    orcid: "https://orcid.org/0000-0002-6977-9134"
     affiliation: "Instituto de Ciencias Sociales y Humanidades «Alfonso Vélez Pliego», BUAP"
 repository-code: "https://github.com/necplusultra-blog/sismografo-del-capital"
 url: "https://necplusultra-blog.github.io/sismografo-del-capital/"
