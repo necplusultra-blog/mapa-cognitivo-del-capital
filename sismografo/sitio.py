@@ -95,9 +95,34 @@ def escribir(ee, mu, dir_site):
         comj = pd.DataFrame({'altos_ingresos': com[alto].sum(axis=1), **{c: com.get(c) for c in ('USA', 'DEU', 'JPN', 'CHN', 'IND')}}).round(2)
         comj.index.name = 'anio'
         dd = D[D.anio == u]
-        _w(f'{d}/transformacion.json', dict(serie=_rows(ser), anio_ramas=u, ramas=json.loads(ramas.round(3).to_json(orient='records')),
+        mos = {}
+        MT, MR = tf.get('MT', pd.DataFrame()), tf.get('MR', pd.DataFrame())
+        if not MT.empty:
+            g = MT.groupby(['interpretacion', 'anio'])[['plusvalor_usd_mill', 'capital_usd_mill']].sum()
+            agr = (g.plusvalor_usd_mill / g.capital_usd_mill * 100).unstack(0)
+            ser2 = pd.DataFrame({'mundo_moseley': agr.get('Moseley'), 'mundo_tssi': agr.get('TSSI')})
+            for c in ('USA', 'CHN'):
+                for i, k in (('Moseley', 'moseley'), ('TSSI', 'tssi')):
+                    ser2[f'{c}_{k}'] = MT[(MT.pais == c) & (MT.interpretacion == i)].set_index('anio').r * 100
+            ser2.index.name = 'anio'
+            M = MT[MT.interpretacion == 'Moseley']; mu_ = M[M.anio == u]
+            rr = MR[MR.anio == u].groupby('nombre').apply(lambda t: pd.Series({
+                'transferencia_pct': np.average(t.transferencia_pct_valor, weights=t.produccion_usd_mill),
+                'tasa_efectiva': np.average(t.tasa_efectiva.clip(-1, 5), weights=t.produccion_usd_mill) * 100,
+                'tasa_en_valores': np.average(t.tasa_en_valores, weights=t.produccion_usd_mill) * 100})).sort_values('transferencia_pct').reset_index()
+            mos = dict(serie=_rows(ser2.round(2)), redistribuido_pct=float(mu_.plusvalor_redistribuido_pct.median()),
+                       cv_efectivas=float(mu_.cv_tasas_efectivas.median()), cv_valores=float(mu_.cv_tasas_en_valores.median()),
+                       pct_igualacion=float((M.cv_tasas_efectivas < M.cv_tasas_en_valores).mean() * 100),
+                       pct_pp_mejor=float((M.desv_mercado_pp < M.desv_mercado_valor).mean() * 100),
+                       desv_valor=float(mu_.desv_mercado_valor.median() * 100), desv_pp=float(mu_.desv_mercado_pp.median() * 100),
+                       ramas=json.loads(rr.round(2).to_json(orient='records')))
+        _w(f'{d}/transformacion.json', dict(serie=_rows(ser), anio_ramas=u, ramas=json.loads(ramas.round(3).to_json(orient='records')), moseley=mos,
                                              comercio=_rows(comj), ponderada=json.loads(W.round(3).to_json(orient='records')) if not W.empty else [],
                                              n_paises=int(dd.pais.nunique()), pct_spearman_pos=float((dd.spearman_precio_valor_composicion > 0).mean() * 100)))
+    fz = ee.get('fuerzas')
+    if fz:
+        _w(f'{d}/fuerzas.json', dict(eeuu=_rows(fz['eeuu'].astype(float).round(3)), desc={k: (round(v, 3) if isinstance(v, float) else v) for k, v in fz['desc'].items()},
+                                      mundo=json.loads(fz['mundo'].round(3).to_json(orient='records')) if fz.get('mundo') is not None else []))
     if ee.get('ct') is not None:
         I = ee['ct']['I'].copy(); I.index.name = 'anio'
         _w(f'{d}/contratendencias.json', dict(indicadores=_rows(I.astype(float).round(3)), fases=json.loads(ee['ct']['F'].round(4).to_json(orient='records')),
@@ -108,7 +133,7 @@ def escribir(ee, mu, dir_site):
     try: sha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], text=True).strip()
     except Exception: sha = None  # noqa: BLE001
     meta = dict(actualizado=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), commit=sha,
-                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, contratendencias=ee.get('ct') is not None, transformacion=bool(ee.get('transformacion')), eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(ee['principal']), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
+                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, contratendencias=ee.get('ct') is not None, transformacion=bool(ee.get('transformacion')), fuerzas=bool(ee.get('fuerzas')), eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(ee['principal']), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
                 mundo_fin=int(mu['fin']), mundo_horas=mu.get('horas') is not None, mundo_fuente=mu['fuente'], mundo_n=mu['n'], mundo_nbal=mu['nbal'], mundo_medidas=mu['medidas'])
     _w(f'{d}/meta.json', meta)
     return meta

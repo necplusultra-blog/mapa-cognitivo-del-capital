@@ -40,6 +40,7 @@ Además hay atajos para los elementos que se llenan con datos. No cambies los id
 | `[[cifra hm-n \| etiqueta \| nota]]` | una cifra destacada; varias seguidas forman una fila |
 | `:::como Título` … `:::` | un desplegable de explicación («¿Cómo se calcula?») |
 | `:::como+ Título` … `:::` | lo mismo, abierto por defecto |
+| `:::lectura claves \| Título` … `:::` | una tarjeta de lectura teórica (sección «Seis lecturas»); al pasar el cursor se destacan las líneas indicadas en `claves` (separadas por comas; vacío = todas) |
 
 ## Encabezado de cada archivo
 

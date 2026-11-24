@@ -13,7 +13,7 @@
   --tinta: #182235;      /* texto y trazo principal */
   --gris: #5d6878;       /* texto secundario */
   --estilete: #b8203a;   /* acento único */
-  --c0: #b8203a; --c1: #1d6d78; --c2: #6a4c9c; --c3: #a8731a; --c4: #4b5566;
+  --c0: #b8203a; --c1: #1d6d78; --c2: #6a4c9c; --c3: #a8731a; --c4: #4b5566; --c5: #2f7a3f;
   --down: #b8203a; --up: #1d6d78; --dep: #a8731a;
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
   --sans: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
@@ -23,7 +23,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root { --papel: #0f141d; --hoja: #161d29; --reticula: #263142; --tinta: #e3e8ef; --gris: #9aa5b5;
-          --estilete: #ef5b73; --c0: #ef5b73; --c1: #4fb3bf; --c2: #a58be0; --c3: #e0ac4f; --c4: #9aa5b5; --down: #ef5b73; --up: #4fb3bf; }
+          --estilete: #ef5b73; --c0: #ef5b73; --c1: #4fb3bf; --c2: #a58be0; --c3: #e0ac4f; --c4: #9aa5b5; --c5: #6cc07a; --down: #ef5b73; --up: #4fb3bf; }
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
@@ -151,3 +151,10 @@ body.doc main table { max-width: 60rem; }
 
 /* Explicación en lenguaje llano de cada gráfico */
 p.llano { max-width: 46rem; font-size: 1.02rem; line-height: 1.6; border-left: 2px solid var(--c1); padding: .1rem 0 .1rem .9rem; margin: .8rem 0 1rem; }
+
+/* tarjetas de las seis lecturas del debate */
+article.lectura { max-width: 46rem; margin: 14px 0; padding: 12px 18px 4px; border-left: 4px solid var(--tinta); background: var(--hoja);
+                  cursor: pointer; transition: background .15s, box-shadow .15s; }
+article.lectura h3 { margin: 0 0 6px; font: 600 1rem/1.35 var(--sans); }
+article.lectura p { margin: .4rem 0 .7rem; font-size: .98rem; }
+article.lectura.activa, article.lectura:focus { outline: none; box-shadow: 0 0 0 1px var(--tinta); }

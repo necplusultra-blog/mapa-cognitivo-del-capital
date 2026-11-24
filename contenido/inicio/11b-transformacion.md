@@ -47,6 +47,27 @@ Una hora de trabajo en China no cuenta lo mismo que una en EE.UU. en el mercado 
 [[leyenda l-tf-pond]]
 [[grafico c-tf-pond]]
 
+### La transformación según Moseley, con la variante temporal (TSSI) como contraste
+
+La medición anterior calcula valores en horas. Ésta sigue la interpretación de Moseley, que el sismógrafo adopta como central: los costos en dinero —los insumos y los salarios— son los mismos para los valores y para los precios de producción, y lo que cambia es sólo cómo se reparte el plusvalor. En valores, cada rama tendría el plusvalor que producen sus propios obreros; en precios de producción, cada rama recibe una ganancia proporcional al capital que adelanta. La diferencia es el plusvalor que la competencia traslada de unas ramas a otras. La variante temporal (TSSI) valúa los insumos y el capital a los precios con que entraron en la producción: en los años de inflación da tasas más altas, y en la crisis de 2009 converge con la central.
+{: .llano }
+
+[[cifra tf-red | Parte del plusvalor que la igualación de las tasas traslada entre ramas, {{.tf-anio}} (mediana de los países) | Moseley]]
+[[cifra tf-rm | Tasa de ganancia de las ramas productivas de los 43 países, {{.tf-anio}} (Moseley) | 2000: {{tf-rm0}} · TSSI {{.tf-anio}}: {{tf-rt}}]]
+[[cifra tf-cve | Dispersión de las tasas de ganancia efectivas entre ramas (coef. de variación, mediana) | si cada rama realizara su propio plusvalor: {{tf-cvv}}]]
+[[cifra tf-igu | Países y años en que la competencia reduce la dispersión de las tasas | desviación del mercado respecto de los valores: {{tf-dv}}; de los precios de producción: {{tf-dpp}}]]
+
+[[leyenda l-tf-mt]]
+[[grafico c-tf-mt]]
+
+Tasa = plusvalor de las ramas productivas / (capital fijo + capital variable anual), en %. 43 países: suma en dólares. La TSSI empieza en 2001 porque necesita los precios del año anterior.
+{: .nota }
+
+Las ramas que ganan con la igualación son las de mucho capital por trabajador —agua, electricidad, minería, telecomunicaciones, transporte marítimo—; las que ceden plusvalor son las de mucho trabajo vivo: construcción, informática, servicios profesionales, hotelería, pesca. Las tasas efectivas están más cerca entre sí que las tasas «en valores», como espera la teoría, aunque la igualación es parcial. En cambio, los precios de mercado no quedan sistemáticamente más cerca de los precios de producción que de los valores: sólo en el {{tf-ppm}} de los países y años. Las dos mediciones no coinciden en todas las ramas: la agricultura cede valor medida en horas, pero gana con la igualación en la de Moseley, porque aquí el ingreso de los campesinos y demás trabajadores por cuenta propia entra por su monto en dinero, no por sus horas de trabajo.
+{: .llano }
+
+[[tabla t-tf-mr: Rama ({{.tf-anio}}) | Transferencia por la igualación (% del valor) | Tasa si realizara su propio plusvalor | Tasa efectiva]]
+
 :::como ¿Cómo se calculan los valores y las desviaciones?
 1. **Valores por rama.** Para cada país y año, con la tabla insumo-producto nacional de WIOD (en dólares): λ<sub>p</sub> = (l<sub>p</sub> + λ̄<sub>p</sub> · M<sub>pp</sub>) · (I − A<sub>pp</sub>)<sup>−1</sup>. l = horas trabajadas por dólar de producción (todos los ocupados, incluidos los trabajadores por cuenta propia, porque también producen mercancías; horas de WIOD SEA; en China, 46 h × 50 semanas); A = insumos nacionales por dólar de producto; M = insumos importados; λ̄ = horas medias contenidas en un dólar exportado de cada producto en el mundo (promedio de los 43 países ponderado por sus exportaciones), que se resuelve por iteración.
 2. **Ramas que no producen valor.** Sólo entran las ramas productivas. Los insumos que vienen del comercio, las finanzas, los servicios jurídicos y la publicidad, el inmobiliario, la administración pública, la educación, la salud y los hogares no transfieren valor: son gastos pagados con plusvalor (tratamiento de Shaikh y Tonak). Educación y salud quedan fuera porque las tablas no separan su parte capitalista.
@@ -54,5 +75,7 @@ Una hora de trabajo en China no cuenta lo mismo que una en EE.UU. en el mercado 
 4. **Comercio.** Horas entregadas = Σ λ<sub>j</sub> · exportaciones<sub>j</sub>; horas recibidas = Σ λ̄<sub>j</sub> · importaciones<sub>j</sub> × (exportaciones / importaciones), para no confundir la transferencia con el déficit comercial. Sólo productos de ramas productivas. Cubre los 43 países de WIOD, no el resto del mundo, por eso las cifras son menores que las de la aproximación de la sección de contratendencias, que abarca más de cien países.
 5. **Ponderación mundial.** Para cada país, μ<sub>c</sub> = PIB en dólares corrientes / horas trabajadas (Banco Mundial y PWT); peso w<sub>c</sub> = μ<sub>c</sub> / μ medio de las horas productivas de los 42 países. Masa ponderada = Σ plustrabajo<sub>c</sub> × w<sub>c</sub>. El total de horas no cambia; se redistribuye según la productividad nacional en el mercado mundial. Después del último año de la PWT se mantiene el último peso.
 
-Interpretación: los valores por rama no son «trabajo incorporado» como una propiedad física de los productos, sino una aproximación al tiempo de trabajo socialmente necesario como determinación de la totalidad social. Se calculan de manera simultánea (valores y precios del mismo año); la variante temporal (TSSI) está pendiente.
+Interpretación: los valores por rama no son «trabajo incorporado» como una propiedad física de los productos, sino una aproximación al tiempo de trabajo socialmente necesario como determinación de la totalidad social. Se calculan de manera simultánea (valores y precios del mismo año).
+
+**Moseley y TSSI (F4 v2).** En moneda nacional, por país y año, con las ramas productivas: c<sub>j</sub> = insumos de ramas productivas (nacionales e importados, de la tabla insumo-producto convertida con la producción de WIOD SEA); v<sub>j</sub> = remuneración de los asalariados; a<sub>j</sub> = ingreso laboral de los trabajadores por cuenta propia (producen valor, no plusvalor); K<sub>j</sub> = stock nominal de capital. S = Σ (producción − c − v − a), que incluye los insumos de ramas improductivas, pagados con plusvalor; e = S / V; r = S / (Σ K + Σ V). Valor: W<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub>(1 + e). Precio de producción: PP<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub> + r (K<sub>j</sub> + v<sub>j</sub>). Ambas sumas coinciden con la producción total, y el plusvalor total con la ganancia total. Transferencia = (PP<sub>j</sub> − W<sub>j</sub>) / W<sub>j</sub>; parte redistribuida = Σ |PP − W| / 2 / S. Tasa efectiva = (producción − c − v − a) / (K + v); tasa en valores = e · v / (K + v); dispersión: coeficiente de variación ponderado por el capital. **TSSI:** los insumos se deflactan con el índice de precios de los insumos de cada rama (II_PI<sub>t</sub> / II_PI<sub>t−1</sub>) y el capital adelantado es el stock del año anterior.
 :::

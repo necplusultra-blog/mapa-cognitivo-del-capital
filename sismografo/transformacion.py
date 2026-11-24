@@ -35,6 +35,23 @@ Qué se calcula
    horas trabajadas (Banco Mundial y PWT). Masa mundial ponderada = Σ plustrabajo_c · w_c. Equivale a convertir el
    plusvalor de cada país, medido en dólares, a horas con la expresión monetaria media del mercado mundial.
 
+5. F4 v2 — interpretación de Moseley (central) y variante temporal TSSI (contraste). Por país y año, con las ramas
+   productivas y todo en moneda nacional (WIOD SEA; las tablas insumo-producto se convierten con GO_SEA / GO_NIOT):
+       c_j = insumos de ramas productivas (nacionales e importados);  v_j = remuneración de los asalariados (COMP);
+       K_j = stock nominal de capital fijo;  a_j = ingreso laboral de los trabajadores por cuenta propia (LAB − COMP),
+       que produce valor pero no plusvalor;  S = Σ (GO_j − c_j − v_j − a_j), que incluye los insumos de ramas
+       improductivas (gastos pagados con plusvalor);  e = S / V;  r = S / (Σ K + Σ V)  (la tasa del sitio, pv/(c + v)).
+   Moseley: c y v son las magnitudes dinerarias efectivas y son las mismas para valores y precios de producción:
+       valor            W_j  = c_j + a_j + v_j (1 + e)                 (tasa de plusvalor uniforme)
+       precio de prod.  PP_j = c_j + a_j + v_j + r (K_j + v_j)
+   Σ W = Σ PP = Σ GO, y el plusvalor total es igual a la ganancia total: la transformación sólo redistribuye.
+   TSSI: los insumos se valúan a los precios con que entraron a la producción, c_j / (II_PI_t / II_PI_t−1), y el capital
+   adelantado es el stock al cierre del año anterior; el valor nuevo es Σ GO − Σ c^T. Con ello cambian S, e y r.
+   Medidas: desviación media de los mercados respecto de W y de PP; parte del plusvalor redistribuida
+   (Σ |PP − W| / 2 / S); dispersión (coeficiente de variación ponderado por el capital) de las tasas de ganancia
+   efectivas por rama frente a las tasas «en valores» e·v_j/(K_j + v_j): si la competencia iguala las tasas, la
+   dispersión efectiva debe ser menor que la que habría si cada rama realizara su propio plusvalor.
+
 Interpretación: el sitio trabaja en el nivel agregado macromonetario, donde la transformación no altera ni la masa ni la
 tasa de plusvalor totales. Los valores por rama no son «trabajo incorporado» natural: son una aproximación al tiempo
 de trabajo socialmente necesario como determinación de la totalidad social, que permite ver cómo la formación de los
@@ -174,9 +191,12 @@ def calcular(dir_datos, dir_out, mundo_paises=None):
     R.to_csv(os.path.join(dir_out, 'transformacion_ramas.csv'), index=False)
     D.to_csv(os.path.join(dir_out, 'transformacion_desviaciones.csv'), index=False)
     C.to_csv(os.path.join(dir_out, 'transformacion_comercio.csv'), index=False)
+    MT, MR = moseley_tssi(N, S, anios)
+    MT.to_csv(os.path.join(dir_out, 'transformacion_moseley_tssi.csv'), index=False)
+    MR.to_csv(os.path.join(dir_out, 'transformacion_moseley_ramas.csv'), index=False)
     W = ponderacion_mundial(dir_datos, mundo_paises) if mundo_paises is not None else pd.DataFrame()
     if not W.empty: W.to_csv(os.path.join(dir_out, 'transformacion_masa_ponderada.csv'), index=False)
-    return dict(R=R, D=D, C=C, W=W)
+    return dict(R=R, D=D, C=C, W=W, MT=MT, MR=MR)
 
 
 def ponderacion_mundial(dir_datos, P, variante='educación y salud públicas fuera'):
@@ -209,3 +229,61 @@ def ponderacion_mundial(dir_datos, P, variante='educación y salud públicas fue
                           peso_china=float(w.get('CHN', np.nan)), peso_india=float(w.get('IND', np.nan)), peso_eeuu=float(w.get('USA', np.nan)),
                           pct_china_ponderado=float((g.plustrabajo_mill_h[ok] * w).get('CHN', 0) / (g.plustrabajo_mill_h[ok] * w).sum() * 100)))
     return pd.DataFrame(filas)
+
+
+def _cv(x, w):
+    """Coeficiente de variación ponderado."""
+    ok = np.isfinite(x) & np.isfinite(w) & (w > 0)
+    if ok.sum() < 5: return np.nan
+    m = np.average(x[ok], weights=w[ok])
+    return float(np.sqrt(np.average((x[ok] - m) ** 2, weights=w[ok])) / abs(m)) if m else np.nan
+
+
+def moseley_tssi(N, S, anios):
+    """F4 v2: valores y precios de producción con la interpretación de Moseley y la variante temporal (TSSI)."""
+    p = PROD; rp = np.array(RAMAS)[p]
+    filas, ramas = [], []
+    for c, d in N.items():
+        prev = None
+        for y in anios:
+            x, A, M, exp, imp, = _matrices(d, y)[:5]
+            try:
+                g = S.loc[(c, y)].reindex(RAMAS).astype(float)
+            except KeyError:
+                prev = None; continue
+            go_sea = g['GO'].values
+            if x.sum() <= 0 or not np.nansum(go_sea) > 0: prev = None; continue
+            fx = np.nansum(go_sea) / x.sum()                                     # moneda nacional por dólar
+            Z = (A + M) * x                                                      # insumos (columnas = rama que compra)
+            cj = Z[np.ix_(p, p)].sum(axis=0) * fx                                # insumos productivos, moneda nacional
+            GO = x[p] * fx; v = g['COMP'].values[p]; K = g['K'].values[p]
+            ce = np.where(np.isfinite(g['LAB'].values[p]), g['LAB'].values[p], v) - v  # ingreso laboral de los no asalariados
+            ce = np.where(np.isfinite(ce) & (ce > 0), ce, 0.0)
+            ok = (GO > 0) & np.isfinite(v) & np.isfinite(K) & (K > 0)
+            if ok.sum() < 10: prev = None; continue
+            def medir(cc, KK, var):
+                Sx = float((GO[ok] - cc[ok] - v[ok] - ce[ok]).sum()); V = float(v[ok].sum())
+                e = Sx / V; r = Sx / (float(KK[ok].sum()) + V)
+                W = cc + ce + v * (1 + e); PP = cc + ce + v + r * (KK + v)
+                with np.errstate(divide='ignore', invalid='ignore'):
+                    rate = (GO - cc - v - ce) / (KK + v); rate_w = e * v / (KK + v)
+                res = dict(pais=c, anio=y, interpretacion=var, e=e, r=r,
+                           desv_mercado_valor=float((GO[ok] * np.abs(W[ok] / GO[ok] - 1)).sum() / GO[ok].sum()),
+                           desv_mercado_pp=float((GO[ok] * np.abs(PP[ok] / GO[ok] - 1)).sum() / GO[ok].sum()),
+                           plusvalor_redistribuido_pct=float(np.abs(PP[ok] - W[ok]).sum() / 2 / Sx * 100),
+                           cv_tasas_efectivas=_cv(rate[ok], (KK + v)[ok]), cv_tasas_en_valores=_cv(rate_w[ok], (KK + v)[ok]),
+                           plusvalor_usd_mill=Sx / fx, capital_usd_mill=(float(KK[ok].sum()) + V) / fx)
+                return res, W, PP, rate, rate_w
+            res, W, PP, rate, rate_w = medir(cj, K, 'Moseley')
+            filas.append(res)
+            for j in np.where(ok)[0]:
+                ramas.append(dict(pais=c, anio=y, rama=rp[j], nombre=NOMBRES.get(rp[j], rp[j]), produccion_usd_mill=GO[j] / fx,
+                                  valor_sobre_precio=W[j] / GO[j], pp_sobre_precio=PP[j] / GO[j], transferencia_pct_valor=(PP[j] - W[j]) / W[j] * 100,
+                                  tasa_efectiva=rate[j], tasa_en_valores=rate_w[j], tasa_general=res['r']))
+            if prev is not None:
+                pi = g['II_PI'].values[p] / prev['II_PI']
+                pi = np.where(np.isfinite(pi) & (pi > 0), pi, np.nanmedian(pi[np.isfinite(pi) & (pi > 0)]) if np.isfinite(pi).any() else 1.0)
+                Kp = np.where(np.isfinite(prev['K']) & (prev['K'] > 0), prev['K'], K)
+                filas.append(medir(cj / pi, Kp, 'TSSI')[0])
+            prev = dict(II_PI=g['II_PI'].values[p], K=K)
+    return pd.DataFrame(filas), pd.DataFrame(ramas)

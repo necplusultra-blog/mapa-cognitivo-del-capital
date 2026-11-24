@@ -1,4 +1,4 @@
-const C = ['var(--c0)', 'var(--c1)', 'var(--c2)', 'var(--c3)', 'var(--c4)'];
+const C = ['var(--c0)', 'var(--c1)', 'var(--c2)', 'var(--c3)', 'var(--c4)', 'var(--c5)'];
 const f1 = d3.format(',.1f'), f2 = d3.format('.2f'), f0 = d3.format(',.0f');
 const get = (n) => fetch(`data/${n}.json`, { cache: 'no-cache' }).then((r) => r.json());
 const $ = (id) => document.getElementById(id);
@@ -29,8 +29,8 @@ function lineChart(id, rows, series, o = {}) {
   series.forEach((s, i) => {
     const pts = rows.filter((r) => r[s.key] != null); const cut = o.prov != null && o.prov >= 0 ? o.prov : Infinity;
     const ln = d3.line().x((r) => x(r.anio)).y((r) => y(+r[s.key])); const col = C[(s.c ?? i) % C.length];
-    svg.append('path').datum(pts.filter((r) => r.anio < cut)).attr('d', ln).style('fill', 'none').style('stroke', col).style('stroke-width', 2);
-    if (cut !== Infinity) svg.append('path').datum(pts.filter((r) => r.anio >= cut - 1)).attr('d', ln).style('fill', 'none').style('stroke', col).style('stroke-width', 2).attr('stroke-dasharray', '4,3');
+    svg.append('path').datum(pts.filter((r) => r.anio < cut)).attr('d', ln).attr('data-key', s.key).style('fill', 'none').style('stroke', col).style('stroke-width', 2);
+    if (cut !== Infinity) svg.append('path').datum(pts.filter((r) => r.anio >= cut - 1)).attr('d', ln).attr('data-key', s.key).style('fill', 'none').style('stroke', col).style('stroke-width', 2).attr('stroke-dasharray', '4,3');
   });
   const tip = d3.select(el).append('div').attr('class', 'tip').style('display', 'none');
   const rule = svg.append('line').attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--muted)').style('display', 'none');
@@ -137,6 +137,90 @@ function drawCT(CT) {
   graf('c-ct-f', 'l-ct-f', [['ganancias_financieras_pct_domesticas', 'Ganancias financieras / ganancias corporativas domésticas'], ['intereses_netos_pct_excedente_nfc', 'Intereses netos / excedente neto (no financieras)'], ['dividendos_pct_ganancia_neta_nfc', 'Dividendos / ganancia después de impuestos (no financieras)'], ['emision_neta_acciones_pct_va_nfc', 'Emisión neta de acciones / valor agregado (no financieras)']], { ...pct, ref: 0 });
 }
 
+// Seis lecturas del debate: series, cifras de las tarjetas, tabla y resaltado de líneas
+const REFS = [['nfc_ebe_cc', 'No financiero, costo corriente (tipo Duménil-Lévy)'], ['corp_ebe_hc', 'Corporativo, costo histórico (tipo Kliman)'],
+  ['emp_todo_cc', 'Empresarial, todo productivo (línea de base)'], ['emp_ramas_cc', 'Plusvalor ampliado por ramas (tipo Shaikh-Tonak)'],
+  ['emp_intra_cc', 'Plusvalor ampliado intra-rama, desde 1972 (tipo Moseley)'], ['emp_ramas_cv', 'Plusvalor por ramas sobre c + v (tipo Roberts-Carchedi)']];
+function drawLecturas(ref, masa, mtasas, decadas) {
+  const en = (k, a) => { const r = ref.find((q) => q.anio === a); return r ? r[k] : null; };
+  const ult = (k) => { const v = ref.filter((q) => q[k] != null); return v[v.length - 1]; };
+  const p1 = (v) => (v == null ? '—' : f1(v));
+  const fin = ref[ref.length - 1].anio;
+  document.querySelectorAll('.lx-fin').forEach((e) => { e.textContent = fin; });
+  set('lx-ra-48', p1(en('emp_ramas_cc', 1948))); set('lx-ra-82', p1(en('emp_ramas_cc', 1982))); set('lx-ra-u', p1(ult('emp_ramas_cc').emp_ramas_cc) + ` % en ${fin}`);
+  set('lx-in-82', p1(en('emp_intra_cc', 1982)));
+  const inMax = ref.filter((q) => q.emp_intra_cc != null).reduce((a, b) => (b.emp_intra_cc > a.emp_intra_cc ? b : a));
+  set('lx-in-max', `${f1(inMax.emp_intra_cc)} % en ${inMax.anio}`); set('lx-in-u', p1(ult('emp_intra_cc').emp_intra_cc));
+  set('lx-dl-65', p1(en('nfc_ebe_cc', 1965))); set('lx-dl-82', p1(en('nfc_ebe_cc', 1982))); set('lx-dl-u', p1(ult('nfc_ebe_cc').nfc_ebe_cc) + ` % en ${fin}`);
+  set('lx-dl-rec', d3.format('+.0f')((ult('nfc_ebe_cc').nfc_ebe_cc / en('nfc_ebe_cc', 1982) - 1) * 100) + ' %');
+  const klMax = ref.filter((q) => q.anio < 1970).reduce((a, b) => (b.corp_ebe_hc > a.corp_ebe_hc ? b : a));
+  set('lx-kl-max', `${f1(klMax.corp_ebe_hc)} % en ${klMax.anio}`); set('lx-kl-19', p1(en('corp_ebe_hc', 2019))); set('lx-kl-u', p1(ult('corp_ebe_hc').corp_ebe_hc));
+  set('lx-cv-48', p1(en('emp_ramas_cv', 1948))); set('lx-cv-u', p1(ult('emp_ramas_cv').emp_ramas_cv) + ` % en ${fin}`);
+  const w = mtasas.filter((r) => r.neta_K_con != null), w07 = w.find((r) => r.anio === 2007), wz = w[w.length - 1];
+  set('lx-w-07', w07 ? f1(w07.neta_K_con) : '—'); set('lx-w-u', `${f1(wz.neta_K_con)} % en ${wz.anio}`);
+  const mi = masa.filter((r) => r.e_intra != null), mz = masa[masa.length - 1];
+  set('lx-e72', f2(mi[0].e_intra)); set('lx-eu', `${f2(mi[mi.length - 1].e_intra)} en ${mi[mi.length - 1].anio}`);
+  const kv = (a) => { const r = masa.find((q) => q.anio === a); return r ? f2(r.kv_ramas) : '—'; };
+  set('lx-kv82', kv(1982)); set('lx-kv00', kv(2000)); set('lx-kvu', `${f2(mz.kv_ramas)} en ${mz.anio}`);
+  set('lx-dec-rob', String(decadas.filter((r) => r.clase.startsWith('robusto')).length)); set('lx-dec-n', String(decadas.length));
+  const tb = $('t-lect');
+  if (tb) {
+    tb.replaceChildren();
+    REFS.forEach(([k, l]) => {
+      const u = ult(k), b = en(k, 1982); const tr = document.createElement('tr');
+      [l, p1(en(k, 1948)), p1(en(k, 1965)), p1(b), p1(en(k, 2007)), `${p1(u[k])} (${u.anio})`, b ? d3.format('+.0f')((u[k] / b - 1) * 100) + ' %' : '—']
+        .forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); });
+      tb.append(tr);
+    });
+  }
+  const arts = [...document.querySelectorAll('article.lectura')];
+  const idx = Object.fromEntries(REFS.map(([k], i) => [k, i]));
+  let fija = null;
+  const marcar = (a) => {
+    const ks = a && a.dataset.series ? a.dataset.series.split(',') : null;
+    d3.select('#c-ref').selectAll('path[data-key]').style('opacity', function () { return !a || !ks || ks.includes(this.dataset.key) ? 1 : 0.13; })
+      .style('stroke-width', function () { return a && ks && ks.includes(this.dataset.key) ? 3.2 : 2; });
+    arts.forEach((x) => x.classList.toggle('activa', x === a));
+  };
+  arts.forEach((a) => {
+    const k = (a.dataset.series || '').split(',')[0];
+    a.style.borderLeftColor = k in idx ? C[idx[k] % C.length] : 'var(--tinta)';
+    a.onmouseenter = a.onfocus = () => { if (!fija) marcar(a); };
+    a.onmouseleave = a.onblur = () => { if (!fija) marcar(null); };
+    a.onclick = () => { fija = fija === a ? null : a; marcar(fija || a); };
+  });
+}
+
+// Fuerzas productivas y tiempo disponible
+function drawFZ(F) {
+  if (!F || !F.eeuu || !F.eeuu.length) return;
+  $('fuerzas').hidden = false;
+  const U = F.eeuu, a = U[0], z = U[U.length - 1], dsc = F.desc, h = (v) => f1(v) + ' h';
+  document.querySelectorAll('.fz-ini').forEach((e) => { e.textContent = a.anio; });
+  document.querySelectorAll('.fz-fin').forEach((e) => { e.textContent = z.anio; });
+  set('fz-niv', h(z.necesario_nivel_inicial_h)); set('fz-nec', h(z.necesario_efectivo_h));
+  set('fz-lib', h(dsc.liberado_h)); set('fz-plus-pct', f0(dsc.plustrabajo_pct) + ' %'); set('fz-cons-pct', f0(dsc.consumo_pct) + ' %'); set('fz-jor', '0 h');
+  const s1 = [['necesario_efectivo_h', 'Trabajo necesario efectivo'], ['necesario_nivel_inicial_h', `Tiempo que bastaría para el salario real de ${a.anio}`], ['plustrabajo_h', 'Plustrabajo']];
+  legend('l-fz', s1.map((x) => x[1]));
+  lineChart('c-fz', U, s1.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' h', tipfmt: (v) => d3.format('.1f')(v) + ' h', aria: 'Tiempo liberado por la fuerza productiva en EE.UU.' });
+  const tb = $('t-fz');
+  if (tb) {
+    tb.replaceChildren();
+    [['Tiempo liberado respecto de ' + a.anio, dsc.liberado_h, 100], ['convertido en plustrabajo', dsc.plustrabajo_h, dsc.plustrabajo_pct],
+      ['convertido en más consumo obrero', dsc.consumo_h, dsc.consumo_pct], ['convertido en una jornada normal más corta', dsc.jornada_h, 0]]
+      .forEach(([l, v, p]) => { const tr = document.createElement('tr'); [l, f1(v), f0(p) + ' %'].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
+  }
+  const M = F.mundo || [];
+  if (M.length) {
+    const m = M[M.length - 1];
+    document.querySelectorAll('.fz-wfin').forEach((e) => { e.textContent = m.anio; });
+    set('fz-wmin', f0(m.min_productivo_dia) + ' min'); set('fz-wnec', f0(m.min_necesario_dia) + ' min'); set('fz-wpct', f0(m.poblacion_pct_mundo) + ' %');
+    const s2 = [['min_productivo_dia', 'Trabajo productivo'], ['min_plustrabajo_dia', 'de él, plustrabajo'], ['min_necesario_dia', 'de él, trabajo necesario']];
+    legend('l-fzw', s2.map((x) => x[1]));
+    lineChart('c-fzw', M, s2.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' min', tipfmt: (v) => d3.format('.0f')(v) + ' min', prov: (M.find((r) => r.poblacion_extrapolada) || {}).anio ?? -1, aria: 'Minutos diarios de trabajo productivo por habitante' });
+  }
+}
+
 let D = {};
 function draw() {
   const { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens } = D;
@@ -149,9 +233,9 @@ function draw() {
   const cn = mmasa.filter((r) => r.china_pct_K != null);
   set('k-cn', f1(cn[cn.length - 1].china_pct_K) + ' %'); set('k-cn00', f1(mmasa.find((r) => r.anio === 2000).china_pct_K) + ' %');
   lineChart('c-bandas', bandas, [{ key: 'p50', label: 'Mediana' }], { bands: [['p10', 'p90'], ['p25', 'p75']], ref: 100, tipfmt: d3.format('.1f'), aria: 'Abanico del multiverso de la tasa de ganancia de EE.UU.', tipExtra: (r) => [['P90', r.p90], ['P75', r.p75], ['P25', r.p25], ['P10', r.p10]] });
-  const refS = [['nfc_ebe_cc', 'No financiero, EBE, costo corriente (tipo Duménil-Lévy)'], ['corp_ebe_hc', 'Corporativo, EBE, costo histórico (tipo Kliman)'], ['emp_todo_cc', 'Empresarial, todo trabajo productivo'], ['emp_ramas_cc', 'Plusvalor ampliado, por ramas'], ['emp_intra_cc', 'Plusvalor ampliado, corrección intra-rama (desde 1972)'], ['emp_ramas_cv', 'Plusvalor ampliado por ramas, pv/(c + v)']];
-  legend('l-ref', refS.map((s) => s[1]));
-  lineChart('c-ref', ref, refS.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Cinco medidas de la tasa de ganancia de EE.UU.' });
+  legend('l-ref', REFS.map((s) => s[1]));
+  lineChart('c-ref', ref, REFS.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Seis medidas de la tasa de ganancia de EE.UU., a la manera de las corrientes del debate' });
+  drawLecturas(ref, masa, mtasas, decadas);
   set('m-trim', meta.eeuu_trim_fin);
   const tr = trim.map((r, i) => ({ ...r, anio: i, t: r.trimestre }));
   const trS = [['nfc_ebe', 'No financiero, excedente neto'], ['nfc_despues_imp', 'No financiero, después de impuestos'], ['corp_ebe', 'Corporativo total, excedente neto']];
@@ -223,6 +307,18 @@ function drawTF(T) {
   const s2 = [['altos_ingresos', 'Países de altos ingresos (de los 43)'], ['USA', 'EE.UU.'], ['DEU', 'Alemania'], ['JPN', 'Japón'], ['CHN', 'China'], ['IND', 'India']];
   legend('l-tf-com', s2.map((x) => x[1]));
   lineChart('c-tf-com', T.comercio, s2.map(([key, label]) => ({ key, label })), { tipfmt: (v) => d3.format(',.0f')(v) + ' mil millones de h', ref: 0, aria: 'Trabajo incorporado en el comercio exterior' });
+  const MS = T.moseley;
+  if (MS && MS.serie) {
+    set('tf-red', f0(MS.redistribuido_pct) + ' %'); set('tf-cve', f2(MS.cv_efectivas)); set('tf-cvv', f2(MS.cv_valores)); set('tf-igu', f0(MS.pct_igualacion) + ' %');
+    set('tf-dv', f1(MS.desv_valor) + ' %'); set('tf-dpp', f1(MS.desv_pp) + ' %'); set('tf-ppm', f0(MS.pct_pp_mejor) + ' %');
+    const z2 = MS.serie[MS.serie.length - 1], a2 = MS.serie[0];
+    set('tf-rm0', f1(a2.mundo_moseley) + ' %'); set('tf-rm', f1(z2.mundo_moseley) + ' %'); set('tf-rt', f1(z2.mundo_tssi) + ' %');
+    const s4 = [['mundo_moseley', '43 países: Moseley (central)'], ['mundo_tssi', '43 países: TSSI'], ['USA_moseley', 'EE.UU.: Moseley'], ['USA_tssi', 'EE.UU.: TSSI'], ['CHN_moseley', 'China: Moseley'], ['CHN_tssi', 'China: TSSI']];
+    legend('l-tf-mt', s4.map((x) => x[1]));
+    lineChart('c-tf-mt', MS.serie, s4.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Tasa de ganancia de las ramas productivas, Moseley y TSSI' });
+    const tm = $('t-tf-mr');
+    if (tm) { tm.replaceChildren(); MS.ramas.forEach((r) => { const tr = document.createElement('tr'); [r.nombre, d3.format('+.1f')(r.transferencia_pct) + ' %', f1(r.tasa_en_valores) + ' %', f1(r.tasa_efectiva) + ' %'].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tm.append(tr); }); }
+  }
   if (T.ponderada && T.ponderada.length) {
     const W = T.ponderada, w = W[W.length - 1];
     set('tf-pond', f0(w.plustrabajo_ponderado_mmh)); set('tf-sinpond', f0(w.plustrabajo_mmh)); set('tf-cnp', f1(w.pct_china_ponderado) + ' %');
@@ -276,6 +372,7 @@ Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_d
   if (meta.mundo_horas) Promise.all([get('mundo_horas'), get('mundo_horas_paises')]).then(([H, Pz]) => { D.H = H; D.Pz = Pz; drawHM(H, Pz, meta); });
   if (meta.contratendencias) get('contratendencias').then((CT) => { D.CT = CT; $('contratendencias').hidden = false; drawCT(CT); });
   if (meta.transformacion) get('transformacion').then((TF) => { D.TF = TF; drawTF(TF); });
+  if (meta.fuerzas) get('fuerzas').then((FZ) => { D.FZ = FZ; drawFZ(FZ); });
   if (meta.ia) Promise.all([get('ia_agregado'), get('ia_empresas')]).then(([A, E]) => { D.iaA = A; D.iaE = E; drawIA(A, E); });
-  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); if (D.TF) drawTF(D.TF); }, 150); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); if (D.TF) drawTF(D.TF); if (D.FZ) drawFZ(D.FZ); }, 150); });
 }).catch((e) => { const l = document.querySelector('.lede'); if (l) l.insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });

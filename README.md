@@ -2,7 +2,9 @@
 
 **Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, organizado como un multiverso de especificaciones teóricamente explícitas.**
 
-Un sismógrafo no predice el terremoto: registra temblores y rupturas. Este repositorio descarga datos públicos, recalcula cientos de especificaciones de la tasa de ganancia y detecta de forma endógena sus quiebres de tendencia. Cada especificación está ligada a una decisión teórica del debate marxista (trabajo productivo e improductivo, costo histórico o corriente, propiedad intelectual, etc.). El objetivo es mostrar qué conclusiones resisten todas las decisiones y cuáles dependen de la teoría que se adopte.
+El objetivo del sismógrafo es dar cuenta de las tendencias fundamentales de la producción capitalista contemporánea, mediante el estudio de diversos datos empíricos y el cruce de las principales interpretaciones marxistas, que se ponen a leer los mismos datos. Registra también el estado de las fuerzas productivas: el tiempo que libera la reducción relativa del trabajo necesario y en qué lo convierte el capital.
+
+Un sismógrafo no predice el terremoto: registra temblores y rupturas. Este repositorio descarga datos públicos, recalcula cientos de especificaciones de la tasa de ganancia y detecta de forma endógena sus quiebres de tendencia. Cada especificación está ligada a una decisión teórica del debate marxista (trabajo productivo e improductivo, costo histórico o corriente, propiedad intelectual, etc.), para mostrar qué conclusiones resisten todas las decisiones y cuáles dependen de la teoría que se adopte.
 
 Sitio público: https://necplusultra-blog.github.io/sismografo-del-capital/
 

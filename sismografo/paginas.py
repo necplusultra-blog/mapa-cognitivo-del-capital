@@ -13,6 +13,8 @@ Atajos disponibles en los textos:
   [[cifra id | etiqueta | nota]] una cifra destacada; varias seguidas forman una fila
   :::como Título             abre un desplegable de explicación (se cierra con una línea ::: )
   :::como+ Título            lo mismo, pero abierto por defecto
+  :::lectura claves | Título una tarjeta de lectura teórica; al pasar sobre ella se destacan en el gráfico las series
+                             indicadas (claves separadas por comas; vacío = todas). Se cierra con una línea :::
 Encabezado opcional de cada archivo (entre líneas ---): id (ancla), menu (texto del índice lateral),
 oculta: si (la sección aparece sólo cuando hay datos), lugar: portada | pie.
 """
@@ -41,7 +43,7 @@ def _inline(s):
 
 
 def _bloques(texto):
-    out, cifras = [], []
+    out, cifras, pila = [], [], []
 
     def volcar():
         if cifras:
@@ -72,9 +74,15 @@ def _bloques(texto):
             continue
         m = re.match(r'^:::como(\+)?\s+(.*)$', t)
         if m:
+            pila.append('</details>')
             out.append(f'\n<details class="como"{" open" if m.group(1) else ""} markdown="1">\n<summary>{m.group(2)}</summary>\n'); continue
+        m = re.match(r'^:::lectura\s+([\w,\s-]*?)\s*\|\s*(.*)$', t)
+        if m:
+            claves = ','.join(k.strip() for k in m.group(1).split(',') if k.strip())
+            pila.append('</article>')
+            out.append(f'\n<article class="lectura" data-series="{claves}" tabindex="0" markdown="1">\n<h3>{html.escape(m.group(2))}</h3>\n'); continue
         if t == ':::':
-            out.append('\n</details>\n'); continue
+            out.append('\n' + (pila.pop() if pila else '</details>') + '\n'); continue
         out.append(linea)
     volcar()
     return _inline('\n'.join(out))

@@ -5,6 +5,12 @@ menu: Marco interpretativo
 ---
 ## Marco interpretativo
 
+**Objetivo.** El sismógrafo busca dar cuenta de las tendencias fundamentales de la producción capitalista contemporánea. Para eso combina tres operaciones, cada una documentada en esta página:
+
+1. **Traducir datos empíricos a categorías.** Cuentas nacionales, empleo, horas, stocks de capital, comercio y matrices insumo-producto se convierten en tasa y masa de plusvalor, composición del capital, tiempo de trabajo necesario y plustrabajo, con decisiones teóricas explícitas (§3 a §13).
+2. **Cruzar interpretaciones.** Seis corrientes del debate marxista leen los mismos datos, para ver qué resiste a todas las lecturas y qué depende de cada una (§6). La lectura crítica de esas corrientes se hace desde el marco de la investigación doctoral.
+3. **Registrar el estado de las fuerzas productivas.** El tiempo que libera la reducción relativa del trabajo necesario, y en qué lo convierte el capital, se mide junto con la ganancia: es la base material de la posibilidad del tiempo disponible (§9).
+
 Los datos se interpretan desde la crítica marxiana de la economía política. La ganancia es una forma de aparición del plusvalor; el plusvalor es trabajo impago de los obreros productivamente explotados; la tasa de ganancia es la relación entre el plusvalor y el capital global adelantado, es decir, la suma del capital constante y el capital variable: pv/(c + v). La masa de plusvalor es el producto de la tasa de plusvalor (pv/v, el grado de explotación) por el número de obreros productivamente explotados.
 
 Las estadísticas oficiales no están construidas con estas categorías, así que traducirlas exige decisiones teóricas. El sitio no esconde esas decisiones en un único número: las convierte en *bifurcaciones* de un multiverso y muestra qué resultados resisten todas ellas y cuáles dependen de la teoría adoptada.
