@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Metodología — Sismógrafo del capital</title>
-<link rel="stylesheet" href="style.css?v=aff3b6f2611242234">
+<link rel="stylesheet" href="style.css?v=08798262611242312">
 </head>
 <body class="doc">
 <a class="saltar" href="#contenido">Ir al contenido</a>
@@ -87,15 +87,16 @@
 </section>
 <section id="plusvalor" class="seccion">
 <h2 id="plusvalor-ampliado-lectura-macromonetaria">Plusvalor ampliado (lectura macromonetaria)</h2>
-<div class="f">pv = VA<sub>empresarial</sub> − VA<sub>vivienda arrendada</sub> − v</div>
+<div class="f">pv = VA<sub>empresarial</sub> − VA<sub>vivienda arrendada</sub> − SF<sub>hogares</sub> − v</div>
 
 <ul>
 <li><strong>VA<sub>empresarial</sub></strong>: valor agregado bruto del sector empresarial de las cuentas nacionales (<code>A195RC</code>).</li>
 <li><strong>VA<sub>vivienda arrendada</sub></strong>: valor agregado de la vivienda (<code>A2009C</code>) menos el de los hogares (<code>B701RC</code>), que corresponde a la vivienda ocupada por sus dueños. Se excluye porque es renta, no producción capitalista.</li>
+<li><strong>SF<sub>hogares</sub></strong>: servicios financieros que los hogares pagan con sus salarios (explotación secundaria; decisión del autor, 24 nov. 2026): gasto de consumo personal en servicios financieros (<code>DFNLRC</code>: intereses implícitos y comisiones) × remuneración / ingreso personal (<code>A033RC</code> / <code>A065RC</code>). Es plusvalor desplazado desde el salario hacia el capital financiero, no plusvalor producido; se registra aparte como indicador (sección «Qué cuenta como plusvalor» de la página principal).</li>
 <li><strong>v</strong>: remuneración del trabajo productivo según la variante elegida.</li>
 </ul>
 <p>pv incluye las ganancias, los intereses, las rentas, los impuestos a la producción y los salarios improductivos, que son deducciones de la masa global de plusvalor. La tasa de plusvalor es e = pv/v. En la variante neta se resta la depreciación del capital no residencial del sector empresarial.</p>
-<p>Siguiendo a Moseley (<em>Money and Totality</em>), el capital constante y el variable se toman como magnitudes dinerarias dadas (precios efectivos). Por eso no hace falta «transformar» valores en precios para medir la tasa agregada.</p>
+<p>Siguiendo a Moseley (2016), el capital constante y el variable se toman como magnitudes dinerarias dadas (precios efectivos). Por eso no hace falta «transformar» valores en precios para medir la tasa agregada.</p>
 </section>
 <section id="multiverso" class="seccion">
 <h2 id="el-multiverso-de-especificaciones">El multiverso de especificaciones</h2>
@@ -276,6 +277,7 @@
 
 <p>Los países se ponderan por stock de capital (cn) o por PIB (cgdpo), con y sin China, en un panel balanceado desde 1960 o no balanceado. La masa de ganancia bruta en dólares es Σ (1 − labsh) · PIB real. La PWT mide la economía total: no distingue trabajo productivo de improductivo.</p>
 <p><strong>Masa mundial en horas.</strong> Aplica el mismo criterio por ramas del punto 3, país por país, y suma. Hay tres tramos de fuentes; los tres usan las mismas definiciones.</p>
+<p><strong>Ajustes del bloque B en la medición central (decisión del autor, 24 nov. 2026).</strong> Al plusvalor de cada país se le suma la renta que las ramas de mercado pagan por locales y oficinas (consumo intermedio de productos inmobiliarios L68: plusvalor producido y cedido a la propiedad territorial, B3) y se le restan los servicios financieros que los hogares pagan con sus salarios (consumo final de K64–K66 × participación del trabajo en el ingreso, PWT labsh: plusvalor desplazado desde el salario, B4), ambos como proporción del valor agregado de mercado según las tablas insumo-producto de WIOD (después de 2014, proporciones de 2014): e' = e + (B3 − B4) · (1 + e + cp/v). La columna <code>e_sin_ajuste_b</code> de <code>mundo_horas_paises.csv</code> conserva la tasa sin estos ajustes.</p>
 <p><strong>(a) 2000–2014: WIOD, Cuentas Socioeconómicas 2016</strong> (43 países; Taiwán queda excluido por anomalías). Para cada país:</p>
 <ul>
 <li><strong>Ramas improductivas por circulación:</strong> comercio (G45–G47), finanzas y seguros (K64–K66), servicios jurídicos, contables y de dirección (M69–M70), publicidad (M73).</li>
