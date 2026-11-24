@@ -6,7 +6,7 @@ oculta: true
 ---
 ## El campo de las contratendencias
 
-Marx expone seis causas que contrarrestan la caída tendencial de la tasa de ganancia: la elevación del grado de explotación, la reducción del salario por debajo de su valor, el abaratamiento de los elementos del capital constante, la sobrepoblación relativa, el comercio exterior y el aumento del capital accionario. No son fuerzas externas que corrijan la tendencia desde fuera: las producen las mismas causas que producen la caída. Esta sección reúne, para cada una, indicadores observables, y empieza por la pregunta central: en cada fase, ¿qué sostuvo o hundió la tasa de ganancia?
+Marx (2021, pp. 297–307) expone seis causas que contrarrestan la caída tendencial de la tasa de ganancia: la elevación del grado de explotación, la reducción del salario por debajo de su valor, el abaratamiento de los elementos del capital constante, la sobrepoblación relativa, el comercio exterior y el aumento del capital accionario. No son fuerzas externas que corrijan la tendencia desde fuera: las producen las mismas causas que producen la caída. Esta sección reúne, para cada una, indicadores observables, y empieza por la pregunta central: en cada fase, ¿qué sostuvo o hundió la tasa de ganancia?
 
 ### Qué movió la tasa en cada fase
 

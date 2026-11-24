@@ -43,7 +43,7 @@ Horas trabajadas en el año por todos los obreros productivos de EE.UU. × e / (
 5. **Masa de plustrabajo.** H × e / (1 + e) = N × horas por obrero × e / (1 + e), en miles de millones de horas al año. Esto da el segundo gráfico.
 6. **Descomposición.** Entre el primer y el último año, cada factor aporta ln(factor<sub>fin</sub>/factor<sub>inicio</sub>) / ln(masa<sub>fin</sub>/masa<sub>inicio</sub>); los tres aportes suman 100 %.
 
-El supuesto clave de la lectura macromonetaria (Moseley) es que v es el salario efectivamente pagado, así que la proporción monetaria pv/v es también la proporción entre plustrabajo y trabajo necesario.
+El supuesto clave de la lectura macromonetaria (Moseley, 2016) es que v es el salario efectivamente pagado, así que la proporción monetaria pv/v es también la proporción entre plustrabajo y trabajo necesario.
 :::
 
 ### ¿De dónde viene el crecimiento de la masa de plustrabajo?

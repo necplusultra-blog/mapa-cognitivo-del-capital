@@ -5,7 +5,7 @@ menu: Hacia el campo de las contratendencias
 ---
 ## Hacia el campo de las contratendencias
 
-La primera medición permite formular la pregunta por la crisis contemporánea de manera más precisa. No se trata de cuán cerca está el capital de un tope, sino de cómo articula hoy el campo de sus contratendencias. Los resultados sugieren cuatro rasgos de esa articulación, que el módulo de contratendencias deberá contrastar:
+La primera medición permite formular la pregunta por la crisis contemporánea de manera más precisa. No se trata de cuán cerca está el capital de un tope, sino de cómo articula hoy el campo de sus contratendencias. Los resultados sugieren cuatro rasgos de la articulación de las contratendencias que Marx expone (Marx, 2021, pp. 297–307), que el módulo de contratendencias deberá contrastar:
 
 1. **La elevación del grado de explotación** sostiene la tasa en EE.UU. desde 1982, pero rinde cada vez menos plustrabajo por obrero: opera en la forma asintótica que corresponde a una barrera que sólo puede tensionarse.
 2. **El abaratamiento del capital constante** compensó la composición creciente entre 1982 y 2000, pero la composición volvió a subir después. Su eficacia no es una tendencia, sino una fase.

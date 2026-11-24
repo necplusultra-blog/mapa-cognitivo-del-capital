@@ -25,5 +25,5 @@ La maquinaria, la ciencia aplicada a la producción y, hoy, la inteligencia arti
 
 La medición no indica que esa posibilidad vaya a realizarse, ni cuándo. Ninguna serie estadística mide la distancia a la negación del capital. Lo que muestra es que la posibilidad existe, que crece con el desarrollo de la fuerza productiva y que la relación de capital la bloquea en cada paso. Que el tiempo disponible deje de existir en antítesis con el plustrabajo no es algo que el capital pueda hacer: sólo puede hacerlo la praxis de quienes hoy reproducen esa relación.
 
-Marx, K. (2016b). *Elementos fundamentales para la crítica de la economía política (Grundrisse) 1857–1858*, t. 2. México: Siglo XXI. — Marx, K. (2018). *El Capital*, t. I, vol. 1. Buenos Aires: Siglo XXI.
+Las referencias completas están al final de esta página.
 {: .nota }

@@ -20,7 +20,7 @@ A ellas se agrega una línea de base, **empresarial, todo productivo** (variante
 
 Todas son netas, incluyen la propiedad intelectual, no incluyen existencias ni ajuste por utilización, y usan todo el capital. Son definiciones «a la manera de» los autores: la replicación numérica exacta de sus series está en preparación (tarea F1.2). Los diagnósticos que el sitio atribuye a cada corriente resumen sus tesis publicadas; la lectura crítica de las seis es la de la investigación doctoral y está en la [Lectura](lectura.html#seis-lecturas).
 
-**Referencias.**
+**Referencias** (todas las obras citadas en el sitio están en la [bibliografía, §16](#bibliografia)).
 - Carchedi, G. y Roberts, M. (2022). *Capitalism in the 21st Century: Through the Prism of Value*. Londres: Pluto Press.
 - Duménil, G. y Lévy, D. (2004). *Capital Resurgent: Roots of the Neoliberal Revolution*. Cambridge (MA): Harvard University Press.
 - Duménil, G. y Lévy, D. (2011). *The Crisis of Neoliberalism*. Cambridge (MA): Harvard University Press.

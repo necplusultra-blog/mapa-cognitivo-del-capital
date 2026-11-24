@@ -221,6 +221,36 @@ function drawFZ(F) {
   }
 }
 
+// Auditoría, bloque B: supuestos del plusvalor (sensibilidad)
+function drawBB(B) {
+  if (!B || !B.eeuu || !B.eeuu.length) return;
+  $('supuestos').hidden = false;
+  const E = B.eeuu, z = E[E.length - 1], e72 = E.find((r) => r.anio === 1972) || E[0], e48 = E[0];
+  document.querySelectorAll('.bb-fin').forEach((e) => { e.textContent = z.anio; });
+  set('bb-fh', f1(z.fin_hogares_pct_pv_b) + ' %'); set('bb-fh48', f1(e48.fin_hogares_pct_pv_b) + ' %');
+  set('bb-sup', f0(z.supervision_pct_v_ramas) + ' %'); set('bb-sup72', f0(e72.supervision_pct_v_ramas) + ' %');
+  set('bb-ec', f2(z.e_c_b4)); set('bb-ec0', f2(z.e_c));
+  const s1 = [['r_b', 'Por ramas, pv/(c + v)'], ['r_b_b4', 'Por ramas, sin servicios financieros de los hogares'], ['r_c', 'Intra-rama, pv/(c + v)'], ['r_c_b4', 'Intra-rama, sin servicios financieros de los hogares']];
+  legend('l-bb', s1.map((x) => x[1]));
+  lineChart('c-bb', E, s1.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Tasa de ganancia de EE.UU. con y sin los servicios financieros de los hogares' });
+  const s2 = [['fin_hogares_pct_pv_b', 'Servicios financieros pagados por los hogares / plusvalor (por ramas)'], ['supervision_pct_v_ramas', 'Remuneración que no es de obreros de producción y no supervisores / v por ramas']];
+  legend('l-bb2', s2.map((x) => x[1]));
+  lineChart('c-bb2', E, s2.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Explotación secundaria y supervisión' });
+  const M = B.mundo || [], tb = $('t-bbm');
+  if (M.length && tb) {
+    tb.replaceChildren();
+    const anios = [...new Set(M.map((r) => r.anio))].sort(); const sel = [anios[0], 2014, anios[anios.length - 1]].filter((a, i, x) => anios.includes(a) && x.indexOf(a) === i);
+    const vars = ['base', 'B3: + renta comercial', 'B4: − servicios financieros de los hogares', 'B3 y B4'];
+    vars.forEach((v) => { const tr = document.createElement('tr'); const base = (a) => M.find((r) => r.anio === a && r.variante === 'base');
+      const cel = [v === 'base' ? 'Central' : v];
+      sel.forEach((a) => { const r = M.find((q) => q.anio === a && q.variante === v); cel.push(r ? `${f0(r.plustrabajo_mmh)} (e = ${f2(r.e_horas)})` : '—'); });
+      const u = M.find((q) => q.anio === sel[sel.length - 1] && q.variante === v), b = base(sel[sel.length - 1]);
+      cel.push(u && b ? d3.format('+.1f')((u.plustrabajo_mmh / b.plustrabajo_mmh - 1) * 100) + ' %' : '—');
+      cel.forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
+    set('bb-a0', String(sel[0])); set('bb-a1', String(sel[1])); set('bb-a2', String(sel[2]));
+  }
+}
+
 let D = {};
 function draw() {
   const { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens } = D;
@@ -248,7 +278,7 @@ function draw() {
   decadas.forEach((r) => { const tr = document.createElement('tr'); const c = r.clase.includes('baja') ? 'down' : r.clase.includes('sube') ? 'up' : 'dep';
     [[r.tramo], [f1(r.pct_baja) + ' %'], [r.clase, c]].forEach(([t, k]) => { const td = document.createElement('td'); td.textContent = t; if (k) td.className = k; tr.append(td); }); tb.append(tr); });
   legend('l-masa', ['Por ramas (desde 1948)', 'Corrección intra-rama (desde 1972)']);
-  lineChart('c-masa', masa, [{ key: 'masa_ramas', label: 'Por ramas' }, { key: 'masa_intra', label: 'Intra-rama' }], { tipfmt: d3.format(',.0f'), aria: 'Masa real de plusvalor' });
+  lineChart('c-masa', masa, [{ key: 'masa_ramas', label: 'Por ramas' }, { key: 'masa_intra', label: 'Intra-rama' }], { tipfmt: d3.format(',.0f'), aria: 'Masa de plusvalor en poder de compra' });
   lineChart('c-e', masa, [{ key: 'e_ramas', label: 'Por ramas' }, { key: 'e_intra', label: 'Intra-rama' }], { yfmt: d3.format('.1f'), aria: 'Tasa de plusvalor' });
   set('m-wsrc', `${meta.mundo_fuente}. ${meta.mundo_nbal} países con datos continuos desde 1960 (de ${meta.mundo_n}). Ponderación por stock de capital. Tasas en %.`);
   const wk = Object.keys(mtasas[0]).filter((k) => k !== 'anio');
@@ -372,7 +402,8 @@ Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_d
   if (meta.mundo_horas) Promise.all([get('mundo_horas'), get('mundo_horas_paises')]).then(([H, Pz]) => { D.H = H; D.Pz = Pz; drawHM(H, Pz, meta); });
   if (meta.contratendencias) get('contratendencias').then((CT) => { D.CT = CT; $('contratendencias').hidden = false; drawCT(CT); });
   if (meta.transformacion) get('transformacion').then((TF) => { D.TF = TF; drawTF(TF); });
+  if (meta.bloque_b) get('bloque_b').then((BB) => { D.BB = BB; drawBB(BB); });
   if (meta.fuerzas) get('fuerzas').then((FZ) => { D.FZ = FZ; drawFZ(FZ); });
   if (meta.ia) Promise.all([get('ia_agregado'), get('ia_empresas')]).then(([A, E]) => { D.iaA = A; D.iaE = E; drawIA(A, E); });
-  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); if (D.TF) drawTF(D.TF); if (D.FZ) drawFZ(D.FZ); }, 150); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); if (D.TF) drawTF(D.TF); if (D.FZ) drawFZ(D.FZ); if (D.BB) drawBB(D.BB); }, 150); });
 }).catch((e) => { const l = document.querySelector('.lede'); if (l) l.insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });
