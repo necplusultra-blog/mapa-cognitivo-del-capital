@@ -41,6 +41,7 @@
   </ul></nav>
   <main id="contenido">
 <section id="cifras" class="seccion cifras-portada">
+<p class="llano">Cuatro números para empezar: cómo está hoy la tasa de ganancia de EE.UU. comparada con su promedio histórico; cuántos dólares de plusvalor obtiene el capital por cada dólar que paga en salarios a los obreros productivos; cuánto plusvalor se produce en total, descontada la inflación; y qué parte del capital del mundo está hoy en China.</p>
 <div class="cifras"><div class="cifra"><div class="valor" id="k-med">—</div><div class="etiqueta">Mediana del multiverso de EE.UU. en el último año (100 = promedio del periodo)</div><div class="nota">1982: <span id="k-med82">—</span></div></div><div class="cifra"><div class="valor" id="k-e">—</div><div class="etiqueta">Tasa de plusvalor S/V de EE.UU., con corrección intra-rama</div><div class="nota">1972: <span id="k-e72">—</span></div></div><div class="cifra"><div class="valor" id="k-masa">—</div><div class="etiqueta">Masa real de plusvalor de EE.UU. (miles de millones de USD de 2017)</div><div class="nota">1948: <span id="k-masa48">—</span></div></div><div class="cifra"><div class="valor" id="k-cn">—</div><div class="etiqueta">Peso de China en el capital mundial</div><div class="nota">2000: <span id="k-cn00">—</span></div></div></div>
 
 <details class="como">
@@ -56,6 +57,7 @@
 <section id="multiverso" class="seccion">
 <h2 id="eeuu-el-abanico-del-multiverso">EE.UU.: el abanico del multiverso</h2>
 <p><span id="m-n">—</span> especificaciones de la tasa de ganancia de EE.UU., cada una normalizada a su promedio del periodo (= 100). La banda clara cubre los percentiles 10 a 90; la oscura, 25 a 75; la línea es la mediana.</p>
+<p class="llano">No hay una sola manera de medir la tasa de ganancia: depende de qué se cuente como ganancia y qué como capital, y cada corriente teórica decide distinto. En lugar de elegir una, el sismógrafo calcula todas las combinaciones razonables y las dibuja juntas. La línea es el valor típico; las bandas, cuánto se separan las mediciones entre sí. Si la banda es estrecha, las teorías coinciden; si es ancha, el resultado depende de la teoría. Lo que hay que mirar es la forma: la tasa cae hasta comienzos de los ochenta, se recupera después y en ningún momento describe una caída continua hacia cero.</p>
 <figure class="placa"><div class="chart" id="c-bandas"></div></figure>
 
 <details class="como">
@@ -66,6 +68,7 @@
 </section>
 <section id="referencias" class="seccion">
 <h2 id="seis-lecturas-del-debate-en-niveles">Seis lecturas del debate, en niveles</h2>
+<p class="llano">Cada línea es la tasa de ganancia calculada a la manera de una corriente del debate marxista. No coinciden en el nivel, porque cuentan cosas distintas como ganancia y como capital. Lo que importa es si coinciden en el movimiento. Las que miden el plusvalor en sentido amplio —todo el valor nuevo que no vuelve a los trabajadores productivos— siguen hoy por debajo de su nivel de posguerra; las que miden sólo la ganancia que se quedan las empresas se recuperan más. La diferencia indica que, desde los ochenta, la ganancia apropiada se recuperó más que el plusvalor producido.</p>
 <div class="legend" id="l-ref"></div>
 <figure class="placa"><div class="chart" id="c-ref"></div></figure>
 
@@ -86,6 +89,7 @@
 <section id="trimestral" class="seccion">
 <h2 id="estimacion-trimestral-hasta">Estimación trimestral, hasta <span id="m-trim">—</span></h2>
 <p>Tasa corporativa neta a costo corriente de EE.UU., en %. Los trimestres posteriores al último dato anual de capital usan un stock extrapolado y son provisionales (tramo punteado).</p>
+<p class="llano">La tasa de ganancia de las corporaciones de EE.UU., trimestre a trimestre, para ver los movimientos más recientes antes de que se publiquen las cifras anuales. Los últimos puntos son provisionales: cambian cuando el gobierno de EE.UU. revisa sus datos.</p>
 <div class="legend" id="l-trim"></div>
 <figure class="placa"><div class="chart" id="c-trim"></div></figure>
 
@@ -97,9 +101,11 @@
 <section id="quiebres" class="seccion">
 <h2 id="quiebres-endogenos">Quiebres endógenos</h2>
 <p>Cuántas especificaciones detectan un quiebre de tendencia en cada año. Ningún corte se fija de antemano.</p>
+<p class="llano">Un procedimiento estadístico busca, en cada una de las mediciones del multiverso, los años en que la tasa cambia de rumbo, sin que nadie le diga dónde buscar. Cada barra cuenta en cuántas mediciones aparece un cambio de rumbo en ese año. Las barras altas son los temblores que casi todas registran. Sirven para contrastar las periodizaciones de la teoría con lo que los datos marcan por sí solos.</p>
 <figure class="placa"><div class="chart short" id="c-quiebres"></div></figure>
 
 <h3 id="sensibilidad-del-detector">Sensibilidad del detector</h3>
+<p class="llano">La búsqueda se repite con reglas más o menos exigentes. Si los mismos años aparecen con todas, no son un efecto del método.</p>
 <div class="tablewrap"><table><thead><tr><th>Configuración</th><th>Quiebres por especificación</th><th>Años más frecuentes (n.º de especificaciones)</th></tr></thead><tbody id="t-sens"></tbody></table></div>
 
 <details class="como">
@@ -109,6 +115,7 @@
 </section>
 <section id="robustez" class="seccion">
 <h2 id="que-conclusiones-resisten-todas-las-decisiones">Qué conclusiones resisten todas las decisiones</h2>
+<p class="llano">Para cada paso de una década a la siguiente, la tabla cuenta en qué porcentaje de las mediciones la tasa baja. Si baja en casi todas (o sube en casi todas), el movimiento no depende de la teoría elegida; si baja en unas y sube en otras, la conclusión depende de cómo se mida. Es la manera de separar lo que muestran los datos de lo que pone la teoría.</p>
 <div class="tablewrap"><table><thead><tr><th>Tramo</th><th>% de especificaciones con baja</th><th>Clasificación</th></tr></thead><tbody id="t-dec"></tbody></table></div>
 
 <details class="como">
@@ -121,6 +128,7 @@
 <div class="legend" id="l-masa"></div>
 
 <h3 id="masa-real-de-plusvalor-miles-de-millones-de-usd-de-2017">Masa real de plusvalor (miles de millones de USD de 2017)</h3>
+<p class="llano">Arriba, cuánto plusvalor se produce en total cada año, descontada la inflación. Abajo, cuánto plusvalor obtiene el capital por cada dólar de salario de los trabajadores productivos: el grado de explotación expresado en dinero. La masa crece casi sin pausa y se multiplica por nueve desde 1948. La tasa de plusvalor baja hasta 1982 y sube desde entonces. Junto con la tasa de ganancia del multiverso, muestran la ley de dos caras de la acumulación: la misma dinámica que agranda la masa de plusvalor presiona la tasa de ganancia hacia abajo, y el capital responde aumentando la explotación.</p>
 <figure class="placa"><div class="chart" id="c-masa"></div></figure>
 
 <h3 id="tasa-de-plusvalor-sv">Tasa de plusvalor S/V</h3>
@@ -143,11 +151,13 @@
 <div class="cifras"><div class="cifra"><div class="valor" id="t-n">—</div><div class="etiqueta">Obreros productivos explotados en EE.UU., <span class="t-fin">—</span> (millones)</div><div class="nota"><span class="t-ini">—</span>: <span id="t-n0">—</span></div></div><div class="cifra"><div class="valor" id="t-nec">—</div><div class="etiqueta">Trabajo necesario en una semana de <span id="t-sem">—</span> h</div><div class="nota"><span class="t-ini">—</span>: <span id="t-nec0">—</span></div></div><div class="cifra"><div class="valor" id="t-plus">—</div><div class="etiqueta">Plustrabajo semanal por obrero</div><div class="nota"><span class="t-ini">—</span>: <span id="t-plus0">—</span></div></div><div class="cifra"><div class="valor" id="t-masa">—</div><div class="etiqueta">Masa anual de plustrabajo en EE.UU. (miles de millones de horas)</div><div class="nota"><span class="t-ini">—</span>: <span id="t-masa0">—</span></div></div></div>
 
 <h3 id="eeuu-la-semana-del-obrero-productivo-dividida-en-trabajo-necesario-y-plustrabajo-horas">EE.UU.: la semana del obrero productivo, dividida en trabajo necesario y plustrabajo (horas)</h3>
+<p class="llano">Una semana de trabajo de un obrero productivo típico de EE.UU., partida en dos. La parte de abajo son las horas en que produce el equivalente de su salario (trabajo necesario); la de arriba, las horas en que trabaja para el capital sin recibir nada a cambio (plustrabajo). Con los años, la parte necesaria se achica porque cada hora produce más, pero cada vez se achica menos: entre 1972 y 1982 se redujo 1,6 horas; entre 2007 y 2025, 0,3. Y el plustrabajo por obrero casi no cambia, porque la semana tiene un largo dado y el trabajo necesario nunca puede llegar a cero.</p>
 <p class="nota">Cada año, las horas semanales promedio de un obrero productivo se reparten según la tasa de plusvalor del mismo año: horas necesarias = jornada / (1 + e); plustrabajo = jornada × e / (1 + e). Fuente de las horas: BLS, encuesta de establecimientos (CES).</p>
 <div class="legend" id="l-sem"></div>
 <figure class="placa"><div class="chart" id="c-sem"></div></figure>
 
 <h3 id="eeuu-masa-anual-de-plustrabajo-miles-de-millones-de-horas">EE.UU.: masa anual de plustrabajo (miles de millones de horas)</h3>
+<p class="llano">Suma las horas de plustrabajo de todos los obreros productivos de EE.UU. en un año. Se multiplica por más de dos desde 1972, y casi todo ese crecimiento viene de que hay más obreros, no de que cada uno trabaje más horas para el capital. Las caídas coinciden con las recesiones, cuando se despide a millones.</p>
 <p class="nota">Horas trabajadas en el año por todos los obreros productivos de EE.UU. × e / (1 + e). Es la suma de las horas impagas, no un promedio.</p>
 <figure class="placa"><div class="chart" id="c-hplus"></div></figure>
 
@@ -165,9 +175,11 @@
 </details>
 <h3 id="de-donde-viene-el-crecimiento-de-la-masa-de-plustrabajo">¿De dónde viene el crecimiento de la masa de plustrabajo?</h3>
 <p><span id="t-desc-intro">—</span></p>
+<p class="llano">La tabla separa ese crecimiento en tres causas: más obreros, jornadas más largas o más cortas, y una proporción mayor de plustrabajo dentro de la jornada.</p>
 <div class="tablewrap"><table><thead><tr><th>Factor</th><th>Se multiplica por</th><th>Aporte al crecimiento (en logaritmos)</th></tr></thead><tbody id="t-desc"></tbody></table></div>
 
 <h3 id="expresion-monetaria-del-tiempo-de-trabajo-en-eeuu">Expresión monetaria del tiempo de trabajo en EE.UU.</h3>
+<p class="llano">Cuántos dólares de valor nuevo representa, en promedio, una hora de trabajo productivo. Es el puente que permite leer las cifras en dinero como cifras en tiempo de trabajo. En dólares corrientes sube con la inflación; en dólares de 2017 sube mucho menos.</p>
 <p class="nota">Valor nuevo (v + pv) por hora de trabajo productivo: cuántos dólares representa una hora de trabajo social productivo. Es la relación que permite pasar del dinero al tiempo y del tiempo al dinero.</p>
 <div class="legend" id="l-melt"></div>
 <figure class="placa"><div class="chart" id="c-melt"></div></figure>
@@ -180,10 +192,12 @@
 <section id="mundo" class="seccion">
 <h2 id="mundo-tasa-y-masa-de-ganancia">Mundo: tasa y masa de ganancia</h2>
 <p class="nota"><span id="m-wsrc">—</span></p>
+<p class="llano">La tasa de ganancia de la economía mundial, sumando 79 países con los datos de la Penn World Table. Se mantiene estable durante casi medio siglo y cae desde 2008, en buena parte por el peso creciente de China, donde se acumuló una masa enorme de capital en poco tiempo. Sin China, la caída es menor.</p>
 <div class="legend" id="l-mundo"></div>
 <figure class="placa"><div class="chart" id="c-mundo"></div></figure>
 
 <h3 id="masa-mundial-de-ganancia-bruta">Masa mundial de ganancia bruta</h3>
+<p class="llano">La masa total de ganancia del mundo, en dólares constantes. Mientras la tasa cae, la masa sigue creciendo: el mismo patrón de dos caras que en EE.UU.</p>
 <div class="legend" id="l-wmasa"></div>
 <figure class="placa"><div class="chart short" id="c-wmasa"></div></figure>
 
@@ -195,14 +209,16 @@
 </section>
 <section id="horas-mundo" class="seccion" hidden>
 <h2 id="masa-mundial-de-plusvalor-en-horas-de-trabajo-2000">Masa mundial de plusvalor en horas de trabajo, 2000–<span id="hm-fin">—</span></h2>
-<p>El mismo criterio que en EE.UU., aplicado rama por rama a <span id="hm-np">—</span> países que suman la mayor parte de la producción mundial. Hasta <span id="hm-base">—</span>, cuentas por rama de WIOD. Desde <span class="hm-base1">—</span>, cuentas por rama de la OCDE para los países que las publican (<span id="hm-nocde">—</span> en el último año), encuestas de la OIT por sección de actividad para Brasil, Indonesia, India, Rusia, México y Turquía, y extensión agregada de la OIT para China. El tramo punteado marca que todo lo posterior a <span class="hm-base0">—</span> se encadena al nivel de WIOD. Para cada país, e = pv/v con los asalariados de las ramas productivas, y la masa de plustrabajo = horas de esos asalariados × e/(1+e). La versión neta resta del plusvalor el consumo de capital fijo de las ramas de mercado.</p>
+<p>El mismo criterio que en EE.UU., aplicado rama por rama a <span id="hm-np">—</span> países que suman la mayor parte de la producción mundial. Hasta <span id="hm-base">—</span>, cuentas por rama de WIOD. Desde <span class="hm-base1">—</span>, cuentas por rama de la OCDE para los países que las publican (<span id="hm-nocde">—</span> en el último año), cuentas nacionales por rama de la ONU para el excedente de Brasil e India, encuestas de la OIT por sección de actividad para el empleo y las horas de Brasil, Indonesia, India, Rusia, México y Turquía, y extensión agregada de la OIT para China. El tramo punteado marca que todo lo posterior a <span class="hm-base0">—</span> se encadena al nivel de WIOD. Para cada país, e = pv/v con los asalariados de las ramas productivas, y la masa de plustrabajo = horas de esos asalariados × e/(1+e). La versión neta resta del plusvalor el consumo de capital fijo de las ramas de mercado.</p>
 <div class="cifras"><div class="cifra"><div class="valor" id="hm-n">—</div><div class="etiqueta">Asalariados productivos en el mundo, <span class="hm-fin">—</span> (millones)</div><div class="nota"><span class="hm-base0">—</span>: <span id="hm-n14">—</span></div></div><div class="cifra"><div class="valor" id="hm-masa">—</div><div class="etiqueta">Masa anual de plustrabajo, bruta (miles de millones de horas)</div><div class="nota">2000: <span id="hm-masa0">—</span>; <span class="hm-base0">—</span>: <span id="hm-masa14">—</span></div></div><div class="cifra"><div class="valor" id="hm-masan">—</div><div class="etiqueta">Masa neta de depreciación (miles de millones de horas)</div><div class="nota">2000: <span id="hm-masan0">—</span></div></div><div class="cifra"><div class="valor" id="hm-e">—</div><div class="etiqueta">Tasa de plusvalor mundial en horas, bruta y neta</div><div class="nota">China aporta <span id="hm-cn">—</span> de la masa; India, <span id="hm-in">—</span></div></div></div>
 
 <h3 id="masa-mundial-de-plustrabajo-miles-de-millones-de-horas-al-ano">Masa mundial de plustrabajo (miles de millones de horas al año)</h3>
+<p class="llano">Horas de trabajo no pagado que el capital obtiene en un año en los 42 países medidos, que reúnen la mayor parte de la producción mundial. La línea bruta cuenta todo el plustrabajo; la neta descuenta la parte del valor nuevo que sólo repone las máquinas y los edificios gastados. La bruta crece casi sin interrupción; la neta deja de crecer desde 2018. El tramo punteado indica que desde 2015 las cifras se encadenan a las de 2014.</p>
 <div class="legend" id="l-hm"></div>
 <figure class="placa"><div class="chart" id="c-hm"></div></figure>
 
 <h3 id="tasa-de-plusvalor-mundial-en-horas-plustrabajo-trabajo-necesario">Tasa de plusvalor mundial en horas: plustrabajo / trabajo necesario</h3>
+<p class="llano">Cuántas horas trabaja para el capital un asalariado productivo del mundo por cada hora que trabaja para reponer su salario. Es casi constante: en promedio, el capital mundial no ha elevado el grado de explotación en este siglo. La masa crece porque hay más asalariados, no porque cada uno trabaje más para el capital. La versión neta baja, porque cada hora de trabajo pone en movimiento más capital fijo que hay que reponer.</p>
 <div class="legend" id="l-hme"></div>
 <figure class="placa"><div class="chart short" id="c-hme"></div></figure>
 
@@ -223,16 +239,18 @@
 <ol>
 <li><strong>Capital variable (v):</strong> remuneración de los asalariados de las ramas productivas (WIOD: COMP; OCDE: D1).</li>
 <li><strong>Plusvalor (pv):</strong> valor agregado bruto de las ramas de mercado (todas menos L68, O84, T, U y, en la segunda variante, educación y salud) − ingreso laboral imputado a los trabajadores por cuenta propia − v. Ese ingreso es LAB − COMP en WIOD y, en la OCDE, no asalariados × remuneración media por asalariado de la misma sección. Los salarios de las ramas de circulación quedan dentro de pv: son deducciones de la masa global de plusvalor.</li>
-<li><strong>Tasa de plusvalor:</strong> e = pv/v, en moneda nacional, de modo que no hace falta convertir monedas. Desde 2015, e se encadena al nivel WIOD de 2014 con la variación medida por rama en la OCDE (tabla 6) o, donde no la hay, con la participación del trabajo de la OIT: e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>]. En los países medidos por sección con la OIT, además, 1 + e<sub>t</sub> se multiplica por q<sub>b</sub>/q<sub>t</sub>, donde q es la parte productiva de la masa salarial: si crece la masa salarial productiva, crece v y baja e.</li>
+<li><strong>Tasa de plusvalor:</strong> e = pv/v, en moneda nacional, de modo que no hace falta convertir monedas. Desde 2015, e se encadena al nivel WIOD de 2014 con la variación medida por rama en la OCDE (tabla 6) o, donde no la hay, con la participación del trabajo de la OIT: e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>]. En Brasil e India (2015–2020), e se mide rama por rama con las cuentas nacionales de la ONU (tabla 2.6: remuneración, ingreso mixto y valor agregado por sección) y se encadena igual. En los demás países medidos por sección con la OIT, 1 + e<sub>t</sub> se multiplica por q<sub>b</sub>/q<sub>t</sub>, donde q es la parte productiva de la masa salarial: si crece la masa salarial productiva, crece v y baja e.</li>
 <li><strong>Versión neta:</strong> e<sub>neta</sub> = e − r, con r = consumo de capital fijo de las ramas de mercado / v. En la OCDE se mide por rama (P51C). Donde no hay medición, r = (δ·K/Y de la PWT) × valor agregado de mercado / v, calibrado con el cociente OCDE/PWT de 2014 del propio país o, fuera de la OCDE, con la mediana de esos cocientes (<span id="hm-kmed">—</span>), porque la depreciación de la PWT incluye viviendas y capital público.</li>
 <li><strong>Masa en horas:</strong> plustrabajo = H × e / (1 + e) para cada país, sumado sobre todos. La tasa mundial en horas es Σ plustrabajo / Σ trabajo necesario. Las observaciones con e fuera de (0, 8) se excluyen por anomalías de los datos: <span id="hm-excl">—</span>.</li>
 </ol>
 </details>
 <h3 id="los-mayores-nucleos-de-plustrabajo">Los mayores núcleos de plustrabajo, <span class="hm-fin">—</span></h3>
+<p class="llano">Los países donde se produce más plustrabajo. China e India suman casi dos tercios del total.</p>
 <div class="tablewrap"><table><thead><tr><th>País</th><th>Asalariados productivos (millones)</th><th>e bruta</th><th>e neta</th><th>Plustrabajo bruto (miles de millones de horas)</th><th>% del total</th><th>Fuente de e</th></tr></thead><tbody id="t-hm"></tbody></table></div>
 
 <h3 id="cuanto-pesa-cada-supuesto-variante-central-con-china">Cuánto pesa cada supuesto (variante central, con China)</h3>
 <p class="nota">Cada fila cambia un solo supuesto respecto de la estimación central. Las filas marcadas como contraste no son lecturas alternativas del criterio adoptado: muestran cuánto pesan en la masa mundial los jornaleros eventuales de India y la agricultura asalariada de India y China.</p>
+<p class="llano">Cada fila cambia un solo supuesto y muestra cuánto cambia el total. Sirve para saber qué cifras son firmes y cuáles dependen de decisiones.</p>
 <div class="tablewrap"><table><thead><tr><th>Año</th><th>Caso</th><th>Plustrabajo (miles de millones de horas)</th><th>Asalariados productivos (millones)</th><th>Diferencia</th><th>Nota</th></tr></thead><tbody id="t-hms"></tbody></table></div>
 
 <details class="como">
@@ -263,11 +281,13 @@
 <p>Marx expone seis causas que contrarrestan la caída tendencial de la tasa de ganancia: la elevación del grado de explotación, la reducción del salario por debajo de su valor, el abaratamiento de los elementos del capital constante, la sobrepoblación relativa, el comercio exterior y el aumento del capital accionario. No son fuerzas externas que corrijan la tendencia desde fuera: las producen las mismas causas que producen la caída. Esta sección reúne, para cada una, indicadores observables, y empieza por la pregunta central: en cada fase, ¿qué sostuvo o hundió la tasa de ganancia?</p>
 <h3 id="que-movio-la-tasa-en-cada-fase">Qué movió la tasa en cada fase</h3>
 <p>La tasa de ganancia puede escribirse como r = e · v/K: sube si sube la tasa de plusvalor e y baja si sube la composición K/V. Las fases no se eligen de antemano: sus límites son los años de quiebre más frecuentes en el multiverso (<span id="ct-cortes">—</span>). Cada barra mide, en logaritmos, cuánto aportó cada factor al cambio de la tasa en esa fase.</p>
+<p class="llano">La tasa de ganancia sube si el capital obtiene más plusvalor por cada dólar de salario (tasa de plusvalor) y baja si necesita más capital por cada dólar de salario (composición). En cada periodo, las barras muestran cuánto empujó cada fuerza. Si la barra de la tasa de plusvalor es más alta que la caída por la composición, la tasa de ganancia sube; si no, baja. Así se ve qué contratendencia sostuvo la ganancia en cada etapa y cuándo dejó de hacerlo.</p>
 <div class="legend" id="l-ct-fases"></div>
 <figure class="placa"><div class="chart" id="c-ct-fases"></div></figure>
 
 <p class="nota">Criterio por ramas, desde 1948. Una barra de la composición por debajo de cero significa que el capital por unidad de capital variable creció y presionó la tasa hacia abajo.</p>
 <p class="nota">Desde 1972 la composición en valor puede separarse en dos partes: la composición técnica (capital a precios constantes por hora de trabajo productivo) y el precio relativo del capital respecto del salario por hora. Que la primera empuje hacia abajo mientras la segunda empuja hacia arriba es la forma observable del abaratamiento del capital constante.</p>
+<p class="llano">El mismo cálculo, con la composición separada en dos partes: cuánto capital físico hay por hora de trabajo (crece siempre) y cuánto cuesta ese capital comparado con el salario (baja: las máquinas se abaratan respecto del trabajo).</p>
 <div class="legend" id="l-ct-fases-i"></div>
 <figure class="placa"><div class="chart" id="c-ct-fases-i"></div></figure>
 
@@ -275,6 +295,7 @@
 
 <h3 id="resiste-la-descomposicion-a-todas-las-decisiones-teoricas">¿Resiste la descomposición a todas las decisiones teóricas?</h3>
 <p class="nota">La misma descomposición, repetida para las 16 especificaciones de cada criterio de trabajo productivo (costo corriente o histórico, neta o bruta, con o sin propiedad intelectual, todo el capital o sólo el de las ramas productivas). Cada celda da la mediana y, entre paréntesis, el rango de los percentiles 10 a 90. La última columna indica en qué porcentaje de las especificaciones en que la composición sube, la elevación de la tasa de plusvalor alcanza a compensarla.</p>
+<p class="llano">La tabla repite el cálculo con todas las mediciones del multiverso. Si el resultado de una fase se mantiene en casi todas, no depende de la teoría.</p>
 <div class="tablewrap"><table><thead><tr><th>Criterio</th><th>Fase</th><th>Aporte de e</th><th>Aporte de K/V</th><th>Especificaciones en que la tasa sube</th><th>e compensa la composición</th></tr></thead><tbody id="t-ct-fm"></tbody></table></div>
 
 <details class="como">
@@ -283,29 +304,35 @@
 </details>
 <h3 id="1-elevacion-del-grado-de-explotacion">1. Elevación del grado de explotación</h3>
 <p>La tasa de plusvalor es el indicador directo (véase la sección «La ley bifacética»). Aquí se compara el producto por hora del sector empresarial no agrícola con la remuneración real por hora: la distancia entre ambas curvas es la parte de la productividad que no vuelve a los trabajadores.</p>
+<p class="llano">Si los trabajadores producen más por hora pero su salario real crece menos, la diferencia queda para el capital. La distancia entre las dos líneas es esa diferencia, acumulada desde 1972.</p>
 <div class="legend" id="l-ct-a"></div>
 <figure class="placa"><div class="chart" id="c-ct-a"></div></figure>
 
 <p class="nota">La extensión del tiempo de trabajo no aparece en las horas pagadas por establecimiento, que bajan. Dos indicios de su desplazamiento fuera de un solo empleo: la proporción de ocupados con más de un empleo y la de quienes trabajan a tiempo parcial sin quererlo. Ninguno mide la intensidad del trabajo, que sigue sin indicador.</p>
+<p class="llano">Dos señales de que el tiempo de trabajo se estira por fuera de las horas pagadas en un empleo: la gente que necesita dos o más empleos y la que trabaja menos horas de las que quiere.</p>
 <div class="legend" id="l-ct-a2"></div>
 <figure class="placa"><div class="chart short" id="c-ct-a2"></div></figure>
 
 <h3 id="2-reduccion-del-salario-por-debajo-de-su-valor">2. Reducción del salario por debajo de su valor</h3>
 <p>El valor de la fuerza de trabajo no se observa directamente; lo que sí se observa es el salario real de los obreros de producción y no supervisores. Un salario real que durante décadas queda por debajo de su nivel de 1972, mientras la productividad se multiplica, indica una compresión del salario que la sola elevación de la productividad no explica.</p>
+<p class="llano">Lo que puede comprar con el salario de una hora un obrero de producción, descontada la inflación.</p>
 <div class="legend" id="l-ct-b"></div>
 <figure class="placa"><div class="chart" id="c-ct-b"></div></figure>
 
 <h3 id="3-abaratamiento-de-los-elementos-del-capital-constante">3. Abaratamiento de los elementos del capital constante</h3>
+<p class="llano">Tres índices sobre las máquinas, edificios y equipos. La composición técnica dice cuánto capital físico hay por hora de trabajo: crece sin parar. Los otros dos dicen cuánto cuesta ese capital comparado con el salario y con el consumo: bajan. El capital necesita cada vez más medios de producción por obrero, pero cada uno es más barato, y eso frena la caída de la tasa.</p>
 <div class="legend" id="l-ct-c"></div>
 <figure class="placa"><div class="chart short" id="c-ct-c"></div></figure>
 
 <p class="nota">Índices, 1972 = 100. La composición técnica crece mucho más que la composición en valor porque cada unidad de capital se abarata respecto del trabajo.</p>
 <h3 id="4-sobrepoblacion-relativa">4. Sobrepoblación relativa</h3>
+<p class="llano">Cuánta gente está disponible para que el capital la emplee: desempleados y subempleados en EE.UU.; en el mundo, desempleados y trabajadores por cuenta propia o familiares. El empleo vulnerable mundial baja porque cientos de millones de personas pasan a trabajar como asalariados.</p>
 <div class="legend" id="l-ct-d"></div>
 <figure class="placa"><div class="chart" id="c-ct-d"></div></figure>
 
 <p class="nota">La sobrepoblación relativa no es sólo desempleo: incluye a quienes trabajan por cuenta propia o en el trabajo familiar, disponibles para ser absorbidos por el capital. En la escala mundial, su reabsorción es la principal fuente del crecimiento de la masa de plusvalor (véase la masa mundial en horas).</p>
 <h3 id="5-comercio-exterior">5. Comercio exterior</h3>
+<p class="llano">Qué parte de las ganancias de las corporaciones de EE.UU. proviene del extranjero, y cuánto pesa el comercio en la economía mundial.</p>
 <div class="legend" id="l-ct-e"></div>
 <figure class="placa"><div class="chart" id="c-ct-e"></div></figure>
 
@@ -319,10 +346,12 @@
 <p>Supuestos: lo que un país exporta incorpora las horas por dólar promedio de su economía, y lo que importa, el contenido medio de las exportaciones mundiales; no se rastrean los insumos intermedios, para lo que haría falta una matriz insumo-producto mundial; se cuentan todas las horas trabajadas, no sólo las productivas. La transferencia no crea plusvalor: lo redistribuye entre capitales y formaciones nacionales.</p>
 </details>
 <h3 id="6-capital-accionario-y-capital-que-devenga-interes">6. Capital accionario y capital que devenga interés</h3>
+<p class="llano">Qué parte de la ganancia se va a las finanzas: las ganancias del sector financiero, los intereses y los dividendos que pagan las empresas no financieras, y cuántas acciones emiten o recompran.</p>
 <div class="legend" id="l-ct-f"></div>
 <figure class="placa"><div class="chart" id="c-ct-f"></div></figure>
 
 <p class="nota">El capital ficticio son títulos sobre plustrabajo futuro. El valor de mercado de las acciones de las corporaciones no financieras crece mucho más que su deuda y que el producto: su validación exige una masa de plusvalor que todavía no se ha producido.</p>
+<p class="llano">El valor en bolsa de las corporaciones no financieras de EE.UU. comparado con el producto del país, y su deuda. El valor en bolsa pasa de un tercio a más del doble del producto: son títulos que sólo pueden pagarse con plustrabajo que todavía no se ha producido.</p>
 <div class="legend" id="l-ct-f2"></div>
 <figure class="placa"><div class="chart short" id="c-ct-f2"></div></figure>
 
@@ -347,14 +376,17 @@
 <h2 id="las-corporaciones-de-la-inteligencia-artificial">Las corporaciones de la inteligencia artificial</h2>
 <p>Microsoft, Alphabet, Amazon, Meta, Nvidia, Oracle, Broadcom y AMD, según sus estados financieros ante la SEC. En <span id="ia-fin">—</span> se apropiaron del <span id="ia-pct-corp">—</span> de las ganancias corporativas de EE.UU. y de alrededor del <span id="ia-pct-mundo">—</span> de la masa mundial de ganancia bruta; su inversión equivale al <span id="ia-pct-inv">—</span> de la inversión privada no residencial de EE.UU.</p>
 <h3 id="tasa-de-ganancia-grupo-ia-frente-al-sector-no-financiero">Tasa de ganancia: grupo IA frente al sector no financiero</h3>
+<p class="llano">La ganancia de ocho grandes empresas de la inteligencia artificial por cada dólar de capital fijo, comparada con la del conjunto de las empresas no financieras. Ganan mucho más por dólar invertido, no porque sus trabajadores produzcan más plusvalor, sino porque controlan una condición que todo el capital necesita y se apropian de plusvalor producido en otras partes.</p>
 <div class="legend" id="l-ia1"></div>
 <figure class="placa"><div class="chart" id="c-ia1"></div></figure>
 
 <h3 id="peso-del-grupo-ia">Peso del grupo IA (%)</h3>
+<p class="llano">Qué parte de las ganancias, de la inversión y del capital concentran esas ocho empresas.</p>
 <div class="legend" id="l-ia2"></div>
 <figure class="placa"><div class="chart" id="c-ia2"></div></figure>
 
 <h3 id="ganancia-operativa-sobre-capital-fijo-por-empresa">Ganancia operativa sobre capital fijo, por empresa (%)</h3>
+<p class="llano">La misma tasa, empresa por empresa.</p>
 <div class="tablewrap"><table><thead id="t-ia-h"></thead><tbody id="t-ia"></tbody></table></div>
 
 <details class="como">

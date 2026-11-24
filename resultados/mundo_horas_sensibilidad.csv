@@ -6,10 +6,10 @@ anio,caso,plustrabajo_mmh,obreros_mill,diferencia_pct,nota
 2014,India: nivel de asalariados de la OIT,1171.2333204192685,929.1307941801865,-22.340282639385357,"asalariados productivos de India × 0.29 (asalariados OIT / WIOD en 2014). Contraste: excluye a los jornaleros eventuales, que según el criterio adoptado son productivos"
 2014,India y China: agricultura fuera,1333.2716578335742,1014.0524386465604,-11.596179593653854,"Contraste: excluye la agricultura de ambos países, que según el criterio adoptado es productiva cuando su salario es capital"
 2014,China: método anterior (participación general),1556.7573664637587,1151.1818863520466,3.222248693669738,participación de asalariados de toda la economía aplicada también a la agricultura
-2025,Estimación central (bruta),1610.644218082248,1236.729935925563,0.0,
-2025,Neta de depreciación,1348.7687998430201,1236.729935925563,-16.259048106293527,pv − consumo de capital fijo de las ramas de mercado
-2025,China: 44 h semanales,1586.2331029076172,1236.729935925563,-1.5156118837775678,jornada supuesta (central: 46 h × 50 semanas)
-2025,China: 49 h semanales,1647.2608908441941,1236.729935925563,2.273417825666346,jornada supuesta (central: 46 h × 50 semanas)
-2025,India: nivel de asalariados de la OIT,1266.849844945057,1028.1342710721938,-21.3451468224645,"asalariados productivos de India × 0.29 (asalariados OIT / WIOD en 2014). Contraste: excluye a los jornaleros eventuales, que según el criterio adoptado son productivos"
-2025,India y China: agricultura fuera,1432.1103485916929,1121.6076196860201,-11.084624865392733,"Contraste: excluye la agricultura de ambos países, que según el criterio adoptado es productiva cuando su salario es capital"
-2025,China: método anterior (participación general),1662.1605073589578,1271.0074654062523,3.1984896911652516,participación de asalariados de toda la economía aplicada también a la agricultura
+2025,Estimación central (bruta),1618.8700543844557,1236.729935925563,0.0,
+2025,Neta de depreciación,1360.40800035533,1236.729935925563,-15.96558373101794,pv − consumo de capital fijo de las ramas de mercado
+2025,China: 44 h semanales,1594.4589392098248,1236.729935925563,-1.5079107250466017,jornada supuesta (central: 46 h × 50 semanas)
+2025,China: 49 h semanales,1655.486727146402,1236.729935925563,2.261866087569886,jornada supuesta (central: 46 h × 50 semanas)
+2025,India: nivel de asalariados de la OIT,1270.2858522862377,1028.1342710721938,-21.53256224328397,"asalariados productivos de India × 0.29 (asalariados OIT / WIOD en 2014). Contraste: excluye a los jornaleros eventuales, que según el criterio adoptado son productivos"
+2025,India y China: agricultura fuera,1437.878713599291,1121.6076196860201,-11.180103078377302,"Contraste: excluye la agricultura de ambos países, que según el criterio adoptado es productiva cuando su salario es capital"
+2025,China: método anterior (participación general),1670.3863436611655,1271.0074654062523,3.182237458601822,participación de asalariados de toda la economía aplicada también a la agricultura
