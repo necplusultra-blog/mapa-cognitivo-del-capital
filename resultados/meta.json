@@ -1,8 +1,9 @@
 {
- "actualizado": "2026-11-24 02:34 UTC",
- "commit": "95b2b0f",
+ "actualizado": "2026-11-24 03:04 UTC",
+ "commit": "718c3dc",
  "eeuu_fin": 2025,
  "ia": true,
+ "contratendencias": true,
  "eeuu_trim_fin": "2026Q2",
  "eeuu_n": 288,
  "eeuu_n_intra": 64,
