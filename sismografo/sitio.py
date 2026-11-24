@@ -70,7 +70,7 @@ def escribir(ee, mu, dir_site):
         top = (P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].sort_values('plustrabajo_mill_h', ascending=False)
                [['pais', 'obreros_mill', 'e', 'plustrabajo_mill_h', 'china_estimada']].head(15))
         top['pct'] = top.plustrabajo_mill_h / P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].plustrabajo_mill_h.sum() * 100
-        _w(f'{d}/mundo_horas_paises.json', dict(anio=ult, n_paises=int(P[P.anio == ult].pais.nunique()), paises=json.loads(top.round(3).to_json(orient='records')),
+        _w(f'{d}/mundo_horas_paises.json', dict(anio=ult, n_paises=int(P[P.anio == ult].pais.nunique()), base_wiod=int(P[~P.extension].anio.max()), paises=json.loads(top.round(3).to_json(orient='records')),
                                                  excluidos=sorted({x['pais'] for x in mu['horas']['excluidos']})))
     me = mu['MW'].reset_index(); me['quiebres'] = me['quiebres'].astype(str)
     _w(f'{d}/mundo_especificaciones.json', json.loads(me.to_json(orient='records')))

@@ -26,10 +26,10 @@
 </ol></nav>
 
 <h2 id="marco">1. Marco interpretativo</h2>
-<p>Los datos se interpretan desde la crítica marxiana de la economía política. La ganancia es una forma de aparición del plusvalor; el plusvalor es trabajo impago de los obreros productivamente explotados; la tasa de ganancia es la relación entre el plusvalor y el capital adelantado. La masa de plusvalor es el producto de la tasa de plusvalor (pv/v, el grado de explotación) por el número de obreros productivamente explotados.</p>
+<p>Los datos se interpretan desde la crítica marxiana de la economía política. La ganancia es una forma de aparición del plusvalor; el plusvalor es trabajo impago de los obreros productivamente explotados; la tasa de ganancia es la relación entre el plusvalor y el capital global adelantado, es decir, la suma del capital constante y el capital variable: pv/(c + v). La masa de plusvalor es el producto de la tasa de plusvalor (pv/v, el grado de explotación) por el número de obreros productivamente explotados.</p>
 <p>Las estadísticas oficiales no están construidas con estas categorías, así que traducirlas exige decisiones teóricas. El sitio no esconde esas decisiones en un único número: las convierte en <em>bifurcaciones</em> de un multiverso y muestra qué resultados resisten todas ellas y cuáles dependen de la teoría adoptada.</p>
 <p>Las series muestran la manifestación fenoménica de determinaciones categoriales; no las demuestran. Tampoco miden la «distancia» del capital a un tope: lo que permiten observar es el modo concreto en que se despliega la dinámica de la tasa y la masa de plusvalor y el campo de sus contratendencias.</p>
-<p>La interpretación teórica es de la investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital</em> (ICSyH-BUAP). En particular, el criterio de trabajo productivo sigue el Capítulo Primero, §1.3. El procesamiento de los datos (descarga, limpieza, empalmes, cálculo y visualización) se programó con asistencia de inteligencia artificial. Las decisiones teóricas que lo orientan son las que se declaran aquí.</p>
+<p>La interpretación teórica procede de la investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología del Instituto de Ciencias Sociales y Humanidades «Alfonso Vélez Pliego» (BUAP), que concluirá en agosto de 2029. Su marco sobre la tendencia decreciente de la tasa de ganancia y sus contratendencias está publicado en: Jiménez Cea, P. I. (2026). The immanent dialectic of capital: Falling rate of profit and the crisis of late capitalism. <em>Capital &amp; Class</em>. <a href="https://doi.org/10.1177/03098168261503922">https://doi.org/10.1177/03098168261503922</a>. El procesamiento de los datos (descarga, limpieza, empalmes, cálculo y visualización) se programó con asistencia de inteligencia artificial; las decisiones teóricas que lo orientan son las declaradas en esta página.</p>
 
 <h2 id="fuentes">2. Fuentes y frecuencia</h2>
 <ul>
@@ -144,6 +144,15 @@
 <li>Se excluyen las observaciones con e fuera de (0, 8), que se registran en <code>mundo_horas_excluidos.csv</code>; por ahora, Taiwán en todos los años.</li>
 <li>Por las diferencias de definición (bruta, sin corrección intra-rama, educación y salud), la e de EE.UU. en esta serie no coincide con la de la sección de EE.UU.</li>
 </ul>
+<p><b>Extensión 2015–2025 (OIT).</b> WIOD termina en 2014. Para los años posteriores, cada país se encadena desde su nivel de 2014:</p>
+<div class="f">e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>] · N<sub>t</sub> = N<sub>2014</sub> × A<sub>t</sub>/A<sub>2014</sub> · h<sub>t</sub> = h<sub>2014</sub> × hs<sub>t</sub>/hs<sub>2014</sub></div>
+<ul>
+<li><b>LS</b>: participación del trabajo en el ingreso de la OIT (indicador ODS 10.4.1, <code>LAP_2GDP_NOC_RT</code>).</li>
+<li><b>A</b>: asalariados totales según las estimaciones modeladas y armonizadas de la OIT (<code>EMP_2EMP_SEX_STE_NB</code>). La proporción productiva de cada país se mantiene en su nivel de 2014. Las series por sección de la OIT (<code>EES_TEES_SEX_ECO_NB</code>) combinan encuestas con quiebres (Reino Unido, Corea, India), así que sólo se usarán cuando se armonicen.</li>
+<li><b>hs</b>: horas semanales efectivamente trabajadas por ocupado (<code>HOW_TEMP_SEX_ECO_NB</code>). Si faltan, h se mantiene constante.</li>
+<li>Los vacíos intermedios se interpolan y los años finales sin dato repiten el último valor.</li>
+</ul>
+<p>Es una extensión encadenada, no una medición por rama: supone que la composición interna de cada país cambia como sus agregados. La fuente de cada país y año queda registrada en <code>mundo_horas_paises.csv</code>.</p>
 
 <h2 id="ia">12. Corporaciones de la inteligencia artificial</h2>
 <p>El grupo son Microsoft, Alphabet (con Google Inc. antes de 2015), Amazon, Meta, Nvidia, Oracle, Broadcom (con Avago antes de 2018) y AMD, según sus estados XBRL ante la SEC. Los años son calendario, según el «frame» de la SEC o, si falta, el año que más cubre el ejercicio fiscal. Huecos de un año en los saldos se interpolan.</p>
@@ -168,7 +177,7 @@
 <ul>
 <li>Todavía no hay corrección intra-rama antes de 1972 ni para la agricultura.</li>
 <li>Las series de referencia son definiciones a la manera de los autores. La replicación numérica exacta está pendiente, igual que la variante en valores-trabajo vía matrices insumo-producto.</li>
-<li>La escala mundial con división productivo/improductivo y en horas cubre por ahora 2000–2014 y 42 países (WIOD), con China estimada. La extensión a años recientes y a más países (OIT, KLEMS) está en preparación.</li>
+<li>La masa mundial en horas cubre 42 países: medición por rama entre 2000 y 2014 (WIOD) y extensión encadenada con la OIT entre 2015 y 2025. Una medición por rama para años recientes (cuentas por industria de la OCDE y la ONU, KLEMS) y la ampliación a más países están en preparación.</li>
 <li>Los deflactores de equipos informáticos son hedónicos y pueden exagerar el abaratamiento del capital constante.</li>
 <li>Las estimaciones trimestrales recientes, la masa mundial de 2024–2025 y las participaciones del grupo IA en años sin PWT son provisionales.</li>
 </ul>

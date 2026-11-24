@@ -87,10 +87,10 @@
 
   <section id="horas-mundo" hidden>
   <h2>Masa mundial de plusvalor en horas de trabajo (2000–<span id="hm-fin">—</span>)</h2>
-  <p>El mismo criterio que en EE.UU., aplicado rama por rama a <span id="hm-np">—</span> países que suman la mayor parte de la producción mundial (WIOD). Para cada país, e = pv/v con los asalariados de las ramas productivas, y la masa de plustrabajo = horas de esos asalariados × e/(1+e). El ingreso laboral de los trabajadores por cuenta propia no se cuenta como plusvalor, porque no son asalariados del capital. Educación y salud se tratan en dos variantes: productivas, o fuera de la producción capitalista por ser mayoritariamente públicas.</p>
+  <p>El mismo criterio que en EE.UU., aplicado rama por rama a <span id="hm-np">—</span> países que suman la mayor parte de la producción mundial: cuentas por rama de WIOD hasta <span id="hm-base">—</span> y, desde <span class="hm-base1">—</span>, extensión encadenada con datos de la OIT (tramo punteado). Para cada país, e = pv/v con los asalariados de las ramas productivas, y la masa de plustrabajo = horas de esos asalariados × e/(1+e). El ingreso laboral de los trabajadores por cuenta propia no se cuenta como plusvalor, porque no son asalariados del capital. Educación y salud se tratan en dos variantes: productivas, o fuera de la producción capitalista por ser mayoritariamente públicas.</p>
   <section class="kpis">
     <div class="card"><div class="muted">Asalariados productivos, <span class="hm-fin">—</span> (millones)</div><div class="big" id="hm-n">—</div></div>
-    <div class="card"><div class="muted">Masa anual de plustrabajo (miles de millones de horas)</div><div class="big" id="hm-masa">—</div><div class="muted">2000: <span id="hm-masa0">—</span></div></div>
+    <div class="card"><div class="muted">Masa anual de plustrabajo (miles de millones de horas)</div><div class="big" id="hm-masa">—</div><div class="muted">2000: <span id="hm-masa0">—</span> · 2014: <span id="hm-masa14">—</span></div></div>
     <div class="card"><div class="muted">Tasa de plusvalor mundial en horas (plustrabajo/trabajo necesario)</div><div class="big" id="hm-e">—</div></div>
     <div class="card"><div class="muted">Parte de China en la masa mundial de plustrabajo (estimada)</div><div class="big" id="hm-cn">—</div></div>
   </section>
@@ -98,7 +98,7 @@
   <div class="chart" id="c-hm"></div>
   <h3>Los mayores núcleos de plustrabajo, <span class="hm-fin">—</span></h3>
   <div class="tablewrap"><table><thead><tr><th>País</th><th>Asalariados productivos (millones)</th><th>e = pv/v</th><th>Plustrabajo (miles de millones de horas)</th><th>% del total</th></tr></thead><tbody id="t-hm"></tbody></table></div>
-  <p class="muted">Advertencias: el valor agregado es bruto, sin depreciación, así que e está sobrestimada respecto de una medida neta. China no informa asalariados ni horas en WIOD: se estiman con la participación de asalariados de la OIT y una jornada supuesta de 46 horas semanales. Se excluyen las observaciones con e fuera de (0, 8), por anomalías de los datos: <span id="hm-excl">—</span>. En India, los asalariados incluyen trabajo eventual. Por diferencias de definición, la e de EE.UU. aquí no coincide con la de la sección de EE.UU. Aún no hay corrección intra-rama. La extensión a años recientes y a más países (OIT, KLEMS) está en preparación.</p>
+  <p class="muted">Advertencias: el valor agregado es bruto, sin depreciación, así que e está sobrestimada respecto de una medida neta. China no informa asalariados ni horas en WIOD: se estiman con la participación de asalariados de la OIT y una jornada supuesta de 46 horas semanales. Se excluyen las observaciones con e fuera de (0, 8), por anomalías de los datos: <span id="hm-excl">—</span>. En India, los asalariados incluyen trabajo eventual y su crecimiento estimado por la OIT desde 2014 (+64 %) es el más incierto del panel; como India pesa mucho en la masa, conviene leer su parte con cautela. Por diferencias de definición, la e de EE.UU. aquí no coincide con la de la sección de EE.UU. Aún no hay corrección intra-rama. Desde 2015 las cifras son una extensión encadenada (no una medición por rama): e se mueve con la participación del trabajo en el ingreso, los asalariados con el empleo asalariado total (proporción productiva de 2014) y las horas con las horas por ocupado, todo según la OIT; véase la metodología.</p>
   </section>
 
   <section id="ia" hidden>
@@ -128,7 +128,7 @@
       <li><b>Frecuencia.</b> Se actualiza cada mes. Los datos cambian cuando las fuentes publican: el BEA, cada trimestre y en su revisión anual de septiembre; la PWT, cada pocos años.</li>
     </ul>
   </details>
-  <footer class="muted">Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. Descargas: <a href="descargas/">resultados en CSV</a>. <a href="metodologia.html">Metodología</a>. Investigación doctoral de Pablo Ignacio Jiménez Cea, «Los límites inmanentes del capital» (ICSyH-BUAP).</footer>
+  <footer class="muted">Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. Descargas: <a href="descargas/">resultados en CSV</a>. <a href="metodologia.html">Metodología</a>. Investigación doctoral de Pablo Ignacio Jiménez Cea, «Los límites inmanentes del capital», aprobada para su candidatura al Doctorado en Sociología (ICSyH-BUAP), que concluirá en agosto de 2029. Marco teórico: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</footer>
 </main>
 <script src="app.js"></script>
 </body>

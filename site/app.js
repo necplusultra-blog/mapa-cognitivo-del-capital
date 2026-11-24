@@ -104,12 +104,13 @@ function drawHM(H, Pz, meta) {
   set('hm-fin', z.anio); document.querySelectorAll('.hm-fin').forEach((e) => { e.textContent = z.anio; });
   set('hm-np', String(Pz.n_paises || '—'));
   set('hm-n', f0(z['obreros_mill' + k('productivas', 'con China')])); set('hm-masa', f0(z['plustrabajo_mmh' + k('productivas', 'con China')]));
-  set('hm-masa0', f0(a['plustrabajo_mmh' + k('productivas', 'con China')])); set('hm-e', f2(z['e_horas' + k('productivas', 'con China')]));
+  set('hm-masa0', f0(a['plustrabajo_mmh' + k('productivas', 'con China')])); const b = H.find((r) => r.anio === Pz.base_wiod); if (b) set('hm-masa14', f0(b['plustrabajo_mmh' + k('productivas', 'con China')])); set('hm-e', f2(z['e_horas' + k('productivas', 'con China')]));
   set('hm-cn', f1(z['pct_china' + k('productivas', 'con China')]) + ' %');
   const ser = [['productivas', 'con China'], ['productivas', 'sin China'], ['fuera', 'con China'], ['fuera', 'sin China']];
   const lab = ser.map(([v, c]) => `Educación y salud ${v === 'fuera' ? 'fuera' : 'productivas'}, ${c}`);
   legend('l-hm', lab);
-  lineChart('c-hm', H, ser.map(([v, c], i) => ({ key: 'plustrabajo_mmh' + k(v, c), label: lab[i] })), { tipfmt: d3.format(',.0f'), aria: 'Masa mundial de plustrabajo en horas' });
+  lineChart('c-hm', H, ser.map(([v, c], i) => ({ key: 'plustrabajo_mmh' + k(v, c), label: lab[i] })), { tipfmt: d3.format(',.0f'), prov: Pz.base_wiod + 1, aria: 'Masa mundial de plustrabajo en horas' });
+  set('hm-base', Pz.base_wiod); document.querySelectorAll('.hm-base1').forEach((e) => { e.textContent = Pz.base_wiod + 1; });
   const tb = $('t-hm'); tb.replaceChildren();
   Pz.paises.forEach((r) => { const tr = document.createElement('tr'); [r.pais + (r.china_estimada ? ' (estimado)' : ''), f1(r.obreros_mill), f2(r.e), f1(r.plustrabajo_mill_h / 1000), f1(r.pct) + ' %'].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
   set('hm-excl', Pz.excluidos.length ? Pz.excluidos.join(', ') : 'ninguna');

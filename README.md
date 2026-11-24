@@ -10,7 +10,7 @@ Sitio público: https://necplusultra-blog.github.io/sismografo-del-capital/
 
 - **EE.UU., desde 1948.** 240 especificaciones en una ventana común, más 32 con corrección intra-rama desde 1972.
   - Sector corporativo y no financiero: excedente neto, ganancia antes y después de impuestos.
-  - Sector empresarial: *plusvalor ampliado* según el criterio de trabajo productivo de Jiménez Cea, *Los límites inmanentes del capital*, cap. 1, §1.3.
+  - Sector empresarial: *plusvalor ampliado* según el criterio de trabajo productivo declarado en la metodología del sitio.
   - Bifurcaciones: costo corriente o histórico, neta o bruta, propiedad intelectual dentro o fuera del capital, existencias, utilización de capacidad, y capital total o sólo productivo.
 - **Masa real de plusvalor, tasa de plusvalor S/V y composición K/V**, por ramas y con corrección intra-rama (trabajadores de producción y no supervisores, BLS).
 - **Quiebres endógenos** por especificación: tendencias lineales por tramos con selección por BIC, más un análisis de sensibilidad (tramo mínimo de 6, 8 o 10 años; criterio BIC o LWZ). Ningún corte se fija de antemano.
@@ -51,6 +51,6 @@ Todas son públicas y no requieren claves:
 - Datos derivados, gráficos y textos: CC BY 4.0 (`LICENSE-DATA.md`).
 - Para citar, véase `CITATION.cff`.
 
-Investigación doctoral de Pablo Ignacio Jiménez Cea.
+Investigación doctoral de Pablo Ignacio Jiménez Cea, *Los límites inmanentes del capital* (Doctorado en Sociología, ICSyH-BUAP; candidatura aprobada, conclusión prevista en agosto de 2029). Marco teórico: Jiménez Cea, P. I. (2026). The immanent dialectic of capital: Falling rate of profit and the crisis of late capitalism. *Capital & Class*. https://doi.org/10.1177/03098168261503922
 
 Jiménez Cea, P. I. (2026). *Sismógrafo del capital: multiverso de la tasa de ganancia* [software y datos]. https://github.com/necplusultra-blog/sismografo-del-capital

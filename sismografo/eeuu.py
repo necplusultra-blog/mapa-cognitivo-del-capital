@@ -1,7 +1,7 @@
 """EE.UU.: multiverso de la tasa de ganancia, plusvalor ampliado y quiebres endógenos.
 
-Criterio productivo/improductivo: Capítulo Primero de «Los límites inmanentes del capital»
-(Jiménez Cea), sección 1.3 y nota 2. Improductivo: comercio, finanzas y seguros, inmobiliario
+Criterio productivo/improductivo de la investigación «Los límites inmanentes del capital»
+(Jiménez Cea). Improductivo: comercio, finanzas y seguros, inmobiliario
 y servicios jurídicos. El trabajo que produce software, I+D y otros productos de propiedad
 intelectual en empresas capitalistas es productivo.
 """

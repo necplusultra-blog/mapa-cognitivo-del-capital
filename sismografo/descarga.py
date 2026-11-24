@@ -23,7 +23,7 @@ BEA_FILES = {
     'GDPbyInd_VA_NAICS_1947-1997.xls': f'{BEA}/industry/xls/GDPbyInd_VA_NAICS_1947-1997.xls',
 }
 FRED_SERIES = ['BOGZ1FL105020005A', 'CUMFNS', 'AWHMAN']
-CES_SUPERSECTORES = {  # código CES: (nombre, productivo según el Capítulo Primero)
+CES_SUPERSECTORES = {  # código CES: (nombre, productivo según el criterio de la metodología)
     '10000000': ('Minería y explotación forestal', True), '20000000': ('Construcción', True),
     '30000000': ('Manufactura', True), '41420000': ('Comercio mayorista', False),
     '42000000': ('Comercio minorista', False), '43000000': ('Transporte y almacenamiento', True),
