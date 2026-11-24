@@ -107,7 +107,7 @@ def calcular(dir_datos, dir_out, ee):
     W = _banco_mundial()
     if not W.empty: I = I.join(W.reindex(I.index))
     if mh := ee.get('horas_mundo'):
-        A = mh['A']; a = A[(A.variante == 'educación y salud productivas') & (A.china == 'con China')].set_index('anio')
+        A = mh['A']; a = A[(A.variante == 'educación y salud públicas fuera') & (A.china == 'con China')].set_index('anio')
         I['asalariados_productivos_mundo_mill'] = a['obreros_mill'].reindex(I.index)
         I['pct_china_india_masa_mundial'] = (a['pct_china'] + a['pct_india']).reindex(I.index)
         I['semana_horas_productivas_mundo'] = a['semana_horas'].reindex(I.index)

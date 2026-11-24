@@ -25,12 +25,14 @@ BEA_FILES = {
 FRED_SERIES = ['BOGZ1FL105020005A', 'CUMFNS', 'AWHMAN',
                # contratendencias (véase contratendencias.py)
                'OPHNFB', 'COMPRNFB', 'AHETPI', 'CPIAUCSL', 'TDSP', 'U6RATE', 'LNS12300060', 'BOGZ1FU103164103A',
-               'LNS12026619', 'LNS12032194', 'CE16OV', 'NCBEILQ027S', 'BCNSDODNS', 'GDP']
+               'LNS12026619', 'LNS12032194', 'CE16OV', 'NCBEILQ027S', 'BCNSDODNS', 'GDP',
+               # depuración de supersectores (eeuu.fraccion_capitalista): jurídicos, contables, salud, educación, asistencia, org. religiosas y civiles
+               'CES6054110001', 'CES6054120001', 'USPBS', 'CES6561000001', 'CES6562000001', 'CES6562400001', 'USEHS', 'CES8081300001', 'USSERV']
 CES_SUPERSECTORES = {  # código CES: (nombre, productivo según el criterio de la metodología)
     '10000000': ('Minería y explotación forestal', True), '20000000': ('Construcción', True),
     '30000000': ('Manufactura', True), '41420000': ('Comercio mayorista', False),
     '42000000': ('Comercio minorista', False), '43000000': ('Transporte y almacenamiento', True),
-    '44220000': ('Servicios públicos', True), '50000000': ('Información', True),
+    '44220000': ('Electricidad, gas y agua', True), '50000000': ('Información', True),
     '55000000': ('Actividades financieras', False), '60000000': ('Servicios profesionales y empresariales', True),
     '65000000': ('Educación y salud privadas', True), '70000000': ('Ocio y hospitalidad', True),
     '80000000': ('Otros servicios', True),
@@ -90,6 +92,9 @@ def descargar_ocde(dir_datos):
     for nombre, df, key in (('t6', 'DF_TABLE6', f'A.{areas}.S1.S1.B1G+D1+P51C._Z.{acts}._Z.XDC.V.N.'),
                             ('t7', 'DF_TABLE7', f'A.{areas}.S1.S1.SAL+SELF+EMP._Z.{acts}._Z.PS+H._Z.N.')):
         _con_cache(OCDE.format(df=df, key=key), os.path.join(d, f'ocde_{nombre}.csv'), f'ocde_{nombre}.csv')
+    # empleo por sector institucional (gobierno general S13, instituciones sin fines de lucro S15): parte pública de P y Q
+    _con_cache(OCDE.format(df='DF_TABLE3_EMP_SECTOR', key=f'A.{areas}.S1+S13+S15._Z.EMP._Z._Z._Z.PS._Z.N.'),
+               os.path.join(d, 'ocde_sectores.csv'), 'ocde_sectores.csv')
 
 
 def descargar_todo(dir_datos, mundo=True):

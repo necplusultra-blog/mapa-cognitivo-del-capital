@@ -21,6 +21,9 @@ FUERA = ['L68', 'O84', 'T', 'U']
 PUBLICAS = ['P85', 'Q']
 AGRO = ['A01', 'A02', 'A03']
 VARIANTES = (('educación y salud productivas', True), ('educación y salud fuera', False))
+# Variante central (decisión del autor): sólo la parte capitalista de educación y salud es productiva; la pública y la
+# sin fines de lucro quedan fuera (publico.py). Se obtiene combinando las dos variantes anteriores.
+CENTRAL = 'educación y salud públicas fuera'
 HORAS_CHINA = 46 * 50   # horas anuales por asalariado (supuesto explícito: 46 h semanales, 50 semanas)
 CACHE_ILO = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'datos_cache', 'ilo_chn_asalariados.csv')
 
@@ -150,6 +153,17 @@ def calcular(dir_datos, dir_out):
         if not X.empty: P = pd.concat([P, X], ignore_index=True)
     except Exception as e:  # noqa: BLE001
         print('Extensión OIT omitida:', repr(e))
+    G = pd.DataFrame()
+    try:
+        from sismografo import publico
+        G = publico.proporciones(dir_datos, sorted(P.pais.unique()), sorted(P.anio.unique()))
+        # EE.UU.: a la parte pública (OIT) se suma la parte sin fines de lucro de la educación y la salud privadas
+        u = G.pais == 'USA'
+        G.loc[u, 'g'] = G.loc[u, 'g'] + (1 - G.loc[u, 'g']) * 0.46; G.loc[u, 'fuente_g'] += ' + sin fines de lucro (BLS)'
+        P = pd.concat([P, publico.variante_privada(P, G, CENTRAL, VARIANTES[0][0], VARIANTES[1][0])], ignore_index=True)
+        G.to_csv(os.path.join(dir_out, 'mundo_horas_parte_publica.csv'), index=False)
+    except Exception as e:  # noqa: BLE001
+        print('Variante con educación y salud públicas fuera omitida:', repr(e))
     P['e_neta'] = P.e - P.r
     P['plustrabajo_mill_h'] = P.horas_mill * P.e / (1 + P.e)
     P['plustrabajo_neto_mill_h'] = P.horas_mill * P.e_neta / (1 + P.e_neta)
@@ -189,7 +203,8 @@ def sensibilidad(P, SB, share_ees, piv):
     base_wiod = int(P.loc[~P.extension, 'anio'].max()); fin = int(P.anio.max())
     out = []
     for y in (base_wiod, fin):
-        g = P[(P.variante == var) & (P.anio == y)].copy()
+        vc = CENTRAL if (P.variante == CENTRAL).any() else var
+        g = P[(P.variante == vc) & (P.anio == y)].copy()
         tot = g.plustrabajo_mill_h.sum()
 
         def fila(caso, total, obreros, nota):
@@ -197,6 +212,10 @@ def sensibilidad(P, SB, share_ees, piv):
                             diferencia_pct=(total / tot - 1) * 100, nota=nota))
         fila('Estimación central (bruta)', tot, g.obreros_mill.sum(), '')
         fila('Neta de depreciación', g.plustrabajo_neto_mill_h.sum(), g.obreros_mill.sum(), 'pv − consumo de capital fijo de las ramas de mercado')
+        for v_, caso_, nota_ in ((VARIANTES[0][0], 'Educación y salud públicas incluidas', 'contraste: cuenta como productivo el trabajo pagado con impuestos'),
+                                 (VARIANTES[1][0], 'Educación y salud enteras fuera', 'contraste: excluye también las escuelas y clínicas capitalistas')):
+            gv = P[(P.variante == v_) & (P.anio == y)]
+            if vc != v_ and not gv.empty: fila(caso_, gv.plustrabajo_mill_h.sum(), gv.obreros_mill.sum(), nota_)
         chn = g[g.pais == 'CHN']
         for h in (44, 49):
             dif = chn.plustrabajo_mill_h.sum() * (h * 50 / HORAS_CHINA - 1)

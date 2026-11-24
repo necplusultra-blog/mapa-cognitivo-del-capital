@@ -13,6 +13,8 @@ En la lectura macromonetaria, v es el salario efectivamente pagado. La tasa e = 
 
 <div class="f">trabajo necesario = jornada / (1 + e) · plustrabajo = jornada × e / (1 + e)</div>
 
+La jornada que se divide es una jornada de tiempo completo de 40 horas. La semana media pagada de la encuesta de establecimientos (H / N / 52) no es una jornada: promedia tiempo completo y parcial, y baja sobre todo por la composición del empleo (41 horas en manufactura, 24 en ocio y hospitalidad). Además son horas pagadas, no trabajadas. La masa de plustrabajo usa las horas totales H, que no dependen de esa distinción.
+
 <div class="f">masa de plustrabajo (horas) = H × e / (1 + e) = N × horas por obrero × e / (1 + e)</div>
 
 La descomposición del crecimiento de la masa entre el primer y el último año usa logaritmos: cada factor aporta ln(factor<sub>fin</sub>/factor<sub>inicio</sub>) / ln(masa<sub>fin</sub>/masa<sub>inicio</sub>). Los tres aportes suman 100 %.

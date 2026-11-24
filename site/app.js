@@ -178,7 +178,7 @@ function draw() {
 
 function drawHM(H, Pz, meta) {
   $('horas-mundo').hidden = false;
-  const k = (v, c) => `__educación y salud ${v}__${c}`, K = k('productivas', 'con China');
+  const k = (v, c) => `__educación y salud ${v}__${c}`, K = k('públicas fuera', 'con China');
   const z = H[H.length - 1], a = H[0], b = H.find((r) => r.anio === Pz.base_wiod) || a;
   set('hm-fin', z.anio); document.querySelectorAll('.hm-fin').forEach((e) => { e.textContent = z.anio; });
   document.querySelectorAll('.hm-base0').forEach((e) => { e.textContent = Pz.base_wiod; });
@@ -191,7 +191,7 @@ function drawHM(H, Pz, meta) {
   set('hm-e', f2(z['e_horas' + K]) + ' · ' + f2(z['e_horas_neta' + K]));
   set('hm-cn', f1(z['pct_china' + K]) + ' %'); set('hm-in', f1(z['pct_india' + K]) + ' %');
   const ser = [['plustrabajo_mmh' + K, 'Bruta (central)'], ['plustrabajo_neto_mmh' + K, 'Neta de depreciación'],
-    ['plustrabajo_mmh' + k('productivas', 'sin China'), 'Bruta, sin China'], ['plustrabajo_mmh' + k('fuera', 'con China'), 'Bruta, educación y salud fuera']];
+    ['plustrabajo_mmh' + k('públicas fuera', 'sin China'), 'Bruta, sin China'], ['plustrabajo_mmh' + k('productivas', 'con China'), 'Bruta, con educación y salud públicas']];
   legend('l-hm', ser.map((x) => x[1]));
   lineChart('c-hm', H, ser.map(([key, label]) => ({ key, label })), { tipfmt: d3.format(',.0f'), prov: Pz.base_wiod + 1, aria: 'Masa mundial de plustrabajo en horas' });
   const se = [['e_horas' + K, 'Bruta'], ['e_horas_neta' + K, 'Neta de depreciación']];
@@ -233,11 +233,11 @@ function drawTiempo(T, Dc) {
   document.querySelectorAll('.t-fin').forEach((e) => { e.textContent = z.anio; });
   document.querySelectorAll('.t-ini').forEach((e) => { e.textContent = a.anio; });
   set('t-n', f1(z.obreros_productivos_mill)); set('t-n0', f1(a.obreros_productivos_mill));
-  set('t-sem', f1(z.semana_horas)); set('t-nec', f1(z.semana_necesario) + ' h'); set('t-nec0', f1(a.semana_necesario) + ' h');
-  set('t-plus', f1(z.semana_plustrabajo) + ' h'); set('t-plus0', f1(a.semana_plustrabajo) + ' h');
+  set('t-sem', '40'); set('t-nec', f1(z.semana_tc_necesario) + ' h'); set('t-nec0', f1(a.semana_tc_necesario) + ' h');
+  set('t-plus', f1(z.semana_tc_plustrabajo) + ' h'); set('t-plus0', f1(a.semana_tc_plustrabajo) + ' h');
   set('t-masa', f1(z.horas_plustrabajo_mmh)); set('t-masa0', f1(a.horas_plustrabajo_mmh));
-  legend('l-sem', ['Trabajo necesario', 'Plustrabajo']);
-  lineChart('c-sem', T, [{ key: 'semana_necesario', label: 'Necesario' }, { key: 'semana_plustrabajo', label: 'Plustrabajo' }], { yfmt: (v) => v + ' h', tipfmt: (v) => d3.format('.1f')(v) + ' h', aria: 'Trabajo necesario y plustrabajo semanal' });
+  legend('l-sem', ['Trabajo necesario (semana de 40 h)', 'Plustrabajo (semana de 40 h)', 'Semana media pagada (tiempo completo y parcial)']);
+  lineChart('c-sem', T, [{ key: 'semana_tc_necesario', label: 'Necesario' }, { key: 'semana_tc_plustrabajo', label: 'Plustrabajo' }, { key: 'semana_horas', label: 'Semana media pagada' }], { yfmt: (v) => v + ' h', tipfmt: (v) => d3.format('.1f')(v) + ' h', aria: 'Trabajo necesario y plustrabajo semanal' });
   lineChart('c-hplus', T, [{ key: 'horas_plustrabajo_mmh', label: 'Plustrabajo' }], { tipfmt: d3.format(',.1f'), aria: 'Masa anual de plustrabajo en horas' });
   set('t-desc-intro', `Entre ${Dc.desde} y ${Dc.hasta} la masa anual de plustrabajo se multiplica por ${f2(Dc.factor_total)}: horas de plustrabajo = obreros × horas por obrero × e/(1+e).`);
   const tb = $('t-desc'); tb.replaceChildren();

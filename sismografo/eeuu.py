@@ -94,6 +94,35 @@ def comp_improductiva(D):
     return U.reindex(D.YEARS), {'1997 NAICS/NAICS87-97': round(r1, 4), '1987 NAICS/SIC72': round(r2, 4)}
 
 
+# Proporción de los empleos de cada supersector que no corresponde a capital que se valoriza (2022, BLS y
+# Nonprofit Employment Data Project, GMU): instituciones sin fines de lucro (501(c)(3)). El BLS indica que estas
+# proporciones casi no cambian entre 2007 y 2022; se mantienen constantes.
+ONG_EDU, ONG_SALUD, ONG_ASIST, ONG_ORG = 0.70, 0.43, 0.40, 0.60
+
+
+def fraccion_capitalista(D, code):
+    """Fracción de los obreros de producción de un supersector CES que es trabajo asalariado por capital productivo.
+    - Servicios profesionales y empresariales: se restan servicios jurídicos (5411) y contables (5412), ramas de
+      circulación según el criterio por ramas (M69–M70). La publicidad (5418) no tiene serie mensual en FRED.
+    - Educación y salud privadas: se resta la parte empleada por instituciones sin fines de lucro.
+    - Otros servicios: se resta la parte sin fines de lucro de las organizaciones religiosas, civiles y similares (813).
+    Antes de 1990 (sin detalle por industria) se usa la proporción de 1990."""
+    f = lambda s: _fred_anual(os.path.join(D.dir_fred, s + '.csv')).reindex(D.YEARS)
+    try:
+        if code == '60000000':
+            r = 1 - (f('CES6054110001') + f('CES6054120001')) / f('USPBS')
+        elif code == '65000000':
+            salud = f('CES6562000001') - f('CES6562400001')
+            r = 1 - (ONG_EDU * f('CES6561000001') + ONG_SALUD * salud + ONG_ASIST * f('CES6562400001')) / f('USEHS')
+        elif code == '80000000':
+            r = 1 - ONG_ORG * f('CES8081300001') / f('USSERV')
+        else:
+            return pd.Series(1.0, index=D.YEARS)
+        return r.bfill().ffill()
+    except FileNotFoundError:
+        return pd.Series(1.0, index=D.YEARS)
+
+
 def v_produccion(D):
     """Corrección intra-rama (D2c): salarios de trabajadores de producción y no supervisores en
     supersectores productivos (BLS CES), escalados por la razón remuneración/salarios del sector empresarial."""
@@ -104,6 +133,7 @@ def v_produccion(D):
         ahe = _fred_anual(os.path.join(D.dir_fred, f'CES{code}08.csv'))
         hrs_path = os.path.join(D.dir_fred, f'CES{code}07.csv')
         hrs = _fred_anual(hrs_path if os.path.exists(hrs_path) and code != '30000000' else os.path.join(D.dir_fred, 'AWHMAN.csv'))
+        emp = emp * fraccion_capitalista(D, code).reindex(emp.index).fillna(1.0)
         pay = emp * 1000 * ahe * hrs * 52 / 1e6   # millones de USD
         tot = pay if tot is None else tot + pay
         n_, h_ = emp / 1000, emp * 1000 * hrs * 52 / 1e6        # millones de trabajadores; millones de horas al año
@@ -215,6 +245,10 @@ def calcular(dir_datos, dir_out):
     c['semana_horas'] = H_ / N_ / 52
     c['semana_necesario'] = c['semana_horas'] / (1 + c['e'])
     c['semana_plustrabajo'] = c['semana_horas'] - c['semana_necesario']
+    # Semana media pagada (CES): promedio de tiempo completo y parcial; baja sobre todo por composición. Para la
+    # jornada de un obrero de tiempo completo se usa la semana legal de 40 h con la misma e.
+    c['semana_tc_necesario'] = 40 / (1 + c['e'])
+    c['semana_tc_plustrabajo'] = 40 - c['semana_tc_necesario']
     c['plusvalor_por_obrero_real'] = c['S_real_2017'] / N_                       # USD de 2017 por obrero productivo
     c['expresion_monetaria_hora'] = (c['S'] + c['V']) / H_                        # USD corrientes de valor nuevo por hora
     c['expresion_monetaria_hora_real'] = c['expresion_monetaria_hora'] / DEFL.reindex(c.index) * 100

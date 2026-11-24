@@ -34,7 +34,7 @@ def escribir(ee, mu, dir_site):
     masa = pd.DataFrame({'masa_ramas': mb['S_real_2017'] / 1000, 'masa_intra': mc['S_real_2017'] / 1000,
                          'e_ramas': mb['e'], 'e_intra': mc['e'], 'kv_ramas': mb['K_V'], 'kv_intra': mc['K_V']}).round(3)
     masa.index.name = 'anio'; _w(f'{d}/eeuu_masa.json', _rows(masa))
-    tiempo = mc[['obreros_productivos_mill', 'horas_plustrabajo_mill', 'semana_horas', 'semana_necesario', 'semana_plustrabajo',
+    tiempo = mc[['obreros_productivos_mill', 'horas_plustrabajo_mill', 'semana_horas', 'semana_necesario', 'semana_plustrabajo', 'semana_tc_necesario', 'semana_tc_plustrabajo',
                  'e', 'plusvalor_por_obrero_real', 'expresion_monetaria_hora', 'expresion_monetaria_hora_real']].copy()
     tiempo['horas_plustrabajo_mmh'] = tiempo.pop('horas_plustrabajo_mill') / 1000   # miles de millones de horas
     tiempo = tiempo.astype(float).round(3); tiempo.index.name = 'anio'
@@ -69,12 +69,12 @@ def escribir(ee, mu, dir_site):
         piv.columns = ['__'.join(c) for c in piv.columns]; piv.index.name = 'anio'
         _w(f'{d}/mundo_horas.json', _rows(piv.astype(float).round(3)))
         ult = int(P.anio.max())
-        top = (P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].sort_values('plustrabajo_mill_h', ascending=False)
+        top = (P[(P.anio == ult) & (P.variante == 'educación y salud públicas fuera')].sort_values('plustrabajo_mill_h', ascending=False)
                [['pais', 'obreros_mill', 'e', 'e_neta', 'plustrabajo_mill_h', 'china_estimada', 'fuente_e', 'fuente_obreros']].head(15))
-        top['pct'] = top.plustrabajo_mill_h / P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].plustrabajo_mill_h.sum() * 100
+        top['pct'] = top.plustrabajo_mill_h / P[(P.anio == ult) & (P.variante == 'educación y salud públicas fuera')].plustrabajo_mill_h.sum() * 100
         _w(f'{d}/mundo_horas_paises.json', dict(anio=ult, n_paises=int(P[P.anio == ult].pais.nunique()), base_wiod=int(P[~P.extension].anio.max()), paises=json.loads(top.round(3).to_json(orient='records')),
                                                  excluidos=sorted({x['pais'] for x in mu['horas']['excluidos']}),
-                                                 fuentes_e=P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].fuente_e.value_counts().to_dict(),
+                                                 fuentes_e=P[(P.anio == ult) & (P.variante == 'educación y salud públicas fuera')].fuente_e.value_counts().to_dict(),
                                                  sensibilidad=json.loads(mu['horas']['S'].round(3).to_json(orient='records')),
                                                  k_mediana=mu['horas'].get('k_mediana'),
                                                  diagnostico_ocde=json.loads(mu['horas']['diag'].round(3).to_json(orient='records'))))
