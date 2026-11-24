@@ -61,12 +61,23 @@ def escribir(ee, mu, dir_site):
     mm = pd.DataFrame({'masa_mundial': mu['masa']['masa_mundial'] / 1e6, 'masa_sin_china': mu['masa']['masa_sin_china'] / 1e6,
                        'china_pct_K': mu['peso'].get('CN') * 100, 'eeuu_pct_K': mu['peso'].get('US') * 100}).round(2)
     mm.index.name = 'anio'; _w(f'{d}/mundo_masa.json', _rows(mm))
+    if mu.get('horas') is not None:
+        A = mu['horas']['A']; P = mu['horas']['P']
+        piv = A.pivot_table(index='anio', columns=['variante', 'china'], values=['plustrabajo_mmh', 'e_horas', 'obreros_mill', 'pct_china'])
+        piv.columns = ['__'.join(c) for c in piv.columns]; piv.index.name = 'anio'
+        _w(f'{d}/mundo_horas.json', _rows(piv.astype(float).round(3)))
+        ult = int(P.anio.max())
+        top = (P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].sort_values('plustrabajo_mill_h', ascending=False)
+               [['pais', 'obreros_mill', 'e', 'plustrabajo_mill_h', 'china_estimada']].head(15))
+        top['pct'] = top.plustrabajo_mill_h / P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].plustrabajo_mill_h.sum() * 100
+        _w(f'{d}/mundo_horas_paises.json', dict(anio=ult, n_paises=int(P[P.anio == ult].pais.nunique()), paises=json.loads(top.round(3).to_json(orient='records')),
+                                                 excluidos=sorted({x['pais'] for x in mu['horas']['excluidos']})))
     me = mu['MW'].reset_index(); me['quiebres'] = me['quiebres'].astype(str)
     _w(f'{d}/mundo_especificaciones.json', json.loads(me.to_json(orient='records')))
     try: sha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], text=True).strip()
     except Exception: sha = None  # noqa: BLE001
     meta = dict(actualizado=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), commit=sha,
                 eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(P), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
-                mundo_fin=int(mu['fin']), mundo_fuente=mu['fuente'], mundo_n=mu['n'], mundo_nbal=mu['nbal'], mundo_medidas=mu['medidas'])
+                mundo_fin=int(mu['fin']), mundo_horas=mu.get('horas') is not None, mundo_fuente=mu['fuente'], mundo_n=mu['n'], mundo_nbal=mu['nbal'], mundo_medidas=mu['medidas'])
     _w(f'{d}/meta.json', meta)
     return meta

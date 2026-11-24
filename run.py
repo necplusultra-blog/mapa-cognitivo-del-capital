@@ -4,7 +4,7 @@
     python run.py --sin-descarga  # recalcula con los datos ya descargados
 """
 import argparse, json, os
-from sismografo import descarga, eeuu, ia, mundo, sitio, trimestral
+from sismografo import descarga, eeuu, horas_mundo, ia, mundo, sitio, trimestral
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 
@@ -20,6 +20,10 @@ if __name__ == '__main__':
     ee = eeuu.calcular(a.datos, out)
     ee['trim'] = trimestral.calcular(a.datos, out, ee['F'])
     mu = mundo.calcular(a.datos, out)
+    try:
+        mu['horas'] = horas_mundo.calcular(a.datos, out)
+    except Exception as e:  # noqa: BLE001
+        print('Masa mundial en horas omitida:', repr(e)); mu['horas'] = None
     try:
         ee['ia'] = ia.calcular(a.datos, out, ee['F'], ee['N'])
     except Exception as e:  # noqa: BLE001 — el módulo IA no debe detener la actualización
