@@ -72,6 +72,23 @@ def _con_cache(url, dest, nombre):
     return False
 
 
+PAISES_OCDE = ['AUS', 'AUT', 'BEL', 'BGR', 'CAN', 'CHE', 'CYP', 'CZE', 'DEU', 'DNK', 'ESP', 'EST', 'FIN', 'FRA', 'GBR', 'GRC',
+               'HRV', 'HUN', 'IRL', 'ITA', 'JPN', 'KOR', 'LTU', 'LUX', 'LVA', 'MEX', 'MLT', 'NLD', 'NOR', 'POL', 'PRT', 'ROU',
+               'SVK', 'SVN', 'SWE', 'TUR', 'USA']
+ACT_OCDE = list('ABCDEFGHIJKLMNOPQRSTU') + ['M69_70', 'M69', 'M70', 'M73', '_T']
+OCDE = 'https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NAMAIN10@{df},/{key}?startPeriod=2014&format=csvfile'
+
+
+def descargar_ocde(dir_datos):
+    """Cuentas nacionales por rama de la OCDE: tabla 6 (valor agregado, remuneración, consumo de capital fijo)
+    y tabla 7 (asalariados y no asalariados, personas y horas), desde 2014."""
+    d = os.path.join(dir_datos, 'ocde'); os.makedirs(d, exist_ok=True)
+    areas, acts = '+'.join(PAISES_OCDE), '+'.join(ACT_OCDE)
+    for nombre, df, key in (('t6', 'DF_TABLE6', f'A.{areas}.S1.S1.B1G+D1+P51C._Z.{acts}._Z.XDC.V.N.'),
+                            ('t7', 'DF_TABLE7', f'A.{areas}.S1.S1.SAL+SELF+EMP._Z.{acts}._Z.PS+H._Z.N.')):
+        _con_cache(OCDE.format(df=df, key=key), os.path.join(d, f'ocde_{nombre}.csv'), f'ocde_{nombre}.csv')
+
+
 def descargar_todo(dir_datos, mundo=True):
     os.makedirs(dir_datos, exist_ok=True)
     bea = os.path.join(dir_datos, 'bea'); os.makedirs(bea, exist_ok=True)
@@ -82,6 +99,7 @@ def descargar_todo(dir_datos, mundo=True):
     for s in ids:
         fred_csv(s, fred)
     if mundo:
+        descargar_ocde(dir_datos)
         w = os.path.join(dir_datos, 'wiod'); os.makedirs(w, exist_ok=True)
         _con_cache(WIOD_SEA, os.path.join(w, 'Socio_Economic_Accounts.xlsx'), 'wiod_sea.xlsx')
         pwt = os.path.join(dir_datos, 'pwt'); os.makedirs(pwt, exist_ok=True)

@@ -25,20 +25,46 @@
     <div class="card"><div class="muted">Masa real de plusvalor EE.UU. (miles de millones USD 2017)</div><div class="big" id="k-masa">—</div><div class="muted">1948: <span id="k-masa48">—</span></div></div>
     <div class="card"><div class="muted">Peso de China en el capital mundial</div><div class="big" id="k-cn">—</div><div class="muted">2000: <span id="k-cn00">—</span></div></div>
   </section>
+  <details class="como"><summary>¿Cómo se calculan estas cuatro cifras?</summary>
+    <ul>
+      <li><b>Mediana del multiverso.</b> Para cada año, la mediana de las tasas de todas las especificaciones del multiverso principal, después de dividir cada una por su propio promedio del periodo y multiplicar por 100.</li>
+      <li><b>S/V con corrección intra-rama.</b> S = valor agregado del sector empresarial (BEA, A195RC) − valor agregado de la vivienda arrendada (A2009C − B701RC) − depreciación del capital no residencial del sector − V. V = remuneración de los obreros de producción y no supervisores de las ramas productivas: empleo × salario por hora × horas semanales × 52 por supersector (BLS, CES), escalado por la razón remuneración/salarios para incluir prestaciones.</li>
+      <li><b>Masa real de plusvalor.</b> El mismo S, con V de todas las ramas productivas (criterio por ramas), deflactado con el deflactor del PIB (2017 = 100).</li>
+      <li><b>Peso de China en el capital mundial.</b> Stock de capital de China a PPA corrientes (cn, Penn World Table 11.0) sobre la suma de los países con datos.</li>
+    </ul>
+  </details>
 
   <h2>EE.UU.: el abanico del multiverso</h2>
   <p class="muted"><span id="m-n">—</span> especificaciones, cada una normalizada a su promedio del periodo (=100). Banda clara: percentiles 10–90; oscura: 25–75; línea: mediana.</p>
   <div class="chart" id="c-bandas"></div>
+  <details class="como"><summary>¿Cómo se calcula este gráfico?</summary>
+    <p>Cada especificación es una tasa anual r = numerador / K. El numerador cambia según la bifurcación (excedente neto, ganancia antes o después de impuestos, plusvalor ampliado por ramas); K es siempre el stock neto de activos fijos del BEA a fin de año, a costo corriente o histórico, con o sin propiedad intelectual y existencias, y todo el capital o sólo el de ramas productivas. La lista de bifurcaciones está en la <a href="metodologia.html#multiverso">metodología, §5</a>.</p>
+    <p>Para poder comparar especificaciones de niveles distintos, cada serie se divide por su promedio del periodo y se multiplica por 100. Luego, para cada año, se calculan los percentiles 10, 25, 50, 75 y 90 de todas las series. El abanico no es un intervalo de confianza: muestra cuánto depende el nivel de la tasa de las decisiones teóricas.</p>
+    <p><b>Denominador.</b> En las especificaciones actuales el denominador es el capital fijo adelantado (K); el capital variable no se suma. Es la convención de la literatura empírica, porque v rota varias veces al año y su stock adelantado no se publica. Una variante con c + v está registrada como decisión pendiente.</p>
+  </details>
 
   <h2>Cinco lecturas del debate, en niveles</h2>
   <div class="legend" id="l-ref"></div>
   <div class="chart" id="c-ref"></div>
   <p class="muted">Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico).</p>
+  <details class="como"><summary>¿Cómo se calcula este gráfico?</summary>
+    <ul>
+      <li><b>Tipo Duménil-Lévy:</b> excedente neto de explotación de las corporaciones no financieras (NIPA 1.14) / su stock neto de activos fijos a costo corriente.</li>
+      <li><b>Tipo Kliman:</b> excedente neto de las corporaciones (total) / stock neto a costo histórico.</li>
+      <li><b>Empresarial, todo productivo:</b> (valor agregado empresarial − vivienda arrendada − depreciación − toda la remuneración del sector) / stock neto no residencial del sector.</li>
+      <li><b>Plusvalor ampliado por ramas:</b> igual, pero restando sólo la remuneración de las ramas productivas (se excluyen comercio, finanzas y seguros, inmobiliario y servicios jurídicos).</li>
+      <li><b>Plusvalor ampliado intra-rama</b> (desde 1972): se resta sólo la remuneración de los obreros de producción y no supervisores de esas ramas.</li>
+    </ul>
+    <p>Todas incluyen la propiedad intelectual en K, sin existencias ni ajuste por utilización. Son definiciones «a la manera de» los autores, no réplicas de sus series.</p>
+  </details>
 
   <h2>Estimación trimestral (hasta <span id="m-trim">—</span>)</h2>
   <p class="muted">Tasa corporativa neta a costo corriente, en %: ganancias trimestrales (tasa anual) sobre el stock de capital interpolado por trimestre. Los trimestres posteriores al último dato anual de capital usan un stock extrapolado (tramo punteado) y son provisionales.</p>
   <div class="legend" id="l-trim"></div>
   <div class="chart" id="c-trim"></div>
+  <details class="como"><summary>¿Cómo se calcula este gráfico?</summary>
+    <p>Numerador: ganancias trimestrales de las corporaciones (NIPA 1.14, tasa anual desestacionalizada). Denominador: stock neto de activos fijos a costo corriente del año anterior y del año en curso, interpolado linealmente por trimestre: K<sub>t</sub> = K<sub>a−1</sub> + (K<sub>a</sub> − K<sub>a−1</sub>)·t/4. Después del último año publicado por el BEA, K se extrapola con el crecimiento del último año; esos trimestres son provisionales y se dibujan punteados.</p>
+  </details>
 
   <h2>Quiebres endógenos</h2>
   <p class="muted">Cuántas especificaciones detectan un quiebre de tendencia en cada año (tendencias lineales por tramos, tramo mínimo de 8 años, número de quiebres por BIC). Ningún corte se fija de antemano.</p>
@@ -46,9 +72,15 @@
 
   <h3>Sensibilidad del detector</h3>
   <div class="tablewrap"><table><thead><tr><th>Configuración</th><th>Quiebres por especificación</th><th>Años más frecuentes (n.º de especificaciones)</th></tr></thead><tbody id="t-sens"></tbody></table></div>
+  <details class="como"><summary>¿Cómo se calculan los quiebres?</summary>
+    <p>A cada especificación se le ajustan tendencias lineales por tramos, con hasta 5 quiebres y un tramo mínimo de h años, por programación dinámica (como en Bai y Perron). El número de quiebres m se elige minimizando BIC = n·ln(SCR/n) + k·ln(n), con k = 3m + 2. El gráfico suma, año por año, cuántas especificaciones ponen un quiebre en ese año. La tabla repite el cálculo con h = 6 y h = 10, y con el criterio LWZ, más exigente. Ningún año se fija de antemano.</p>
+  </details>
 
   <h2>Qué conclusiones resisten todas las decisiones</h2>
   <div class="tablewrap"><table><thead><tr><th>Tramo</th><th>% de especificaciones con baja</th><th>Clasificación</th></tr></thead><tbody id="t-dec"></tbody></table></div>
+  <details class="como"><summary>¿Cómo se calcula esta tabla?</summary>
+    <p>Para cada especificación del multiverso principal se calcula el promedio de cada década (y del tramo 2020 al último año). Luego se cuenta qué porcentaje de especificaciones tiene un promedio menor que en la década anterior. «Robusto: baja» si ese porcentaje es ≥ 90 %; «robusto: sube» si es ≤ 10 %; «dependiente de la teoría» en los demás casos. Las décadas son unidades de reporte, no cortes teóricos.</p>
+  </details>
 
   <h2>La ley bifacética: masa y tasa de plusvalor</h2>
   <div class="legend" id="l-masa"></div>
@@ -56,6 +88,9 @@
     <div><h3>Masa real de plusvalor</h3><div class="chart" id="c-masa"></div></div>
     <div><h3>Tasa de plusvalor S/V</h3><div class="chart" id="c-e"></div></div>
   </div>
+  <details class="como"><summary>¿Cómo se calculan estos gráficos?</summary>
+    <p>S = valor agregado bruto del sector empresarial − valor agregado de la vivienda arrendada − depreciación del capital no residencial del sector (costo corriente) − V. <b>Por ramas</b>: V es la remuneración de todos los asalariados de las ramas productivas (PIB por industria del BEA, con empalmes SIC–NAICS en 1987 y 1997). <b>Intra-rama</b>: V es sólo la remuneración de los obreros de producción y no supervisores de esas ramas (BLS, CES), desde 1972. La masa real es S deflactado con el deflactor del PIB (2017 = 100), en miles de millones de dólares. La tasa es S/V.</p>
+  </details>
 
   <h2 id="tiempo">Del dinero al tiempo de trabajo</h2>
   <p>La masa de plusvalor es el producto de la tasa de plusvalor (pv/v, el grado de explotación) por el número de obreros productivamente explotados. Medida en dinero, la tasa de plusvalor de los obreros productivos expresa la proporción entre plustrabajo y trabajo necesario en su jornada: de cada semana de trabajo, una fracción 1/(1+e) reproduce el valor de su fuerza de trabajo y una fracción e/(1+e) es plustrabajo. Con las horas efectivamente trabajadas por los obreros de producción y no supervisores de las ramas productivas (BLS), la masa de plusvalor puede leerse directamente en horas de trabajo impago.</p>
@@ -72,11 +107,25 @@
   <h3>¿De dónde viene el crecimiento de la masa de plustrabajo?</h3>
   <p class="muted" id="t-desc-intro">—</p>
   <div class="tablewrap"><table><thead><tr><th>Factor</th><th>Se multiplica por</th><th>Aporte al crecimiento (en logaritmos)</th></tr></thead><tbody id="t-desc"></tbody></table></div>
+  <details class="como"><summary>¿Cómo se calcula el número de obreros productivos y la masa de plustrabajo de EE.UU.?</summary>
+    <ol>
+      <li><b>Obreros productivos (N).</b> Suma del empleo de los trabajadores de producción y no supervisores (BLS, encuesta CES, series 06) de los supersectores productivos: minería y explotación forestal, construcción, manufactura, transporte y almacenamiento, servicios públicos, información, servicios profesionales y empresariales, educación y salud privadas, ocio y hospitalidad, otros servicios. Quedan fuera el comercio, las finanzas, el gobierno, los supervisores y la agricultura (la CES no la cubre). Promedio anual, en millones.</li>
+      <li><b>Horas (H).</b> Para cada supersector, empleo × horas semanales promedio (series 07; en manufactura, AWHMAN) × 52.</li>
+      <li><b>Tasa de plusvalor (e).</b> S/V del gráfico anterior, en su variante intra-rama.</li>
+      <li><b>Jornada.</b> Horas semanales por obrero = H / N / 52; trabajo necesario = jornada / (1 + e); plustrabajo = jornada × e / (1 + e).</li>
+      <li><b>Masa de plustrabajo.</b> H × e / (1 + e) = N × horas por obrero × e / (1 + e), en miles de millones de horas al año.</li>
+      <li><b>Descomposición.</b> Entre el primer y el último año, cada factor aporta ln(factor<sub>fin</sub>/factor<sub>inicio</sub>) / ln(masa<sub>fin</sub>/masa<sub>inicio</sub>); los tres aportes suman 100 %.</li>
+    </ol>
+    <p>El supuesto clave de la lectura macromonetaria es que v es el salario efectivamente pagado, así que la proporción monetaria pv/v es también la proporción entre plustrabajo y trabajo necesario.</p>
+  </details>
   <h3>Expresión monetaria del tiempo de trabajo</h3>
   <p class="muted">Valor nuevo (v + pv) por hora de trabajo productivo: cuántos dólares representa una hora de trabajo social productivo. Es la relación que permite pasar del dinero al tiempo y del tiempo al dinero.</p>
   <div class="legend" id="l-melt"></div>
   <div class="chart" id="c-melt"></div>
-  <p class="muted">Supuestos: lectura macromonetaria (Moseley), en la que v es el salario efectivamente pagado; sólo obreros de producción y no supervisores de las ramas productivas, desde 1972 y sin la agricultura. Para la escala mundial, el número de obreros productivos requiere los datos por rama de la fase de ampliación mundial (OIT y KLEMS); por ahora la masa mundial se expresa sólo en dinero.</p>
+  <details class="como"><summary>¿Cómo se calcula este gráfico?</summary>
+    <p>Expresión monetaria del tiempo de trabajo = (V + S) / H: el valor nuevo creado por los obreros productivos (intra-rama), en dólares, dividido por sus horas. La serie en dólares de 2017 divide por el deflactor del PIB.</p>
+  </details>
+  <p class="muted">Supuestos: lectura macromonetaria (Moseley), en la que v es el salario efectivamente pagado; sólo obreros de producción y no supervisores de las ramas productivas, desde 1972 y sin la agricultura. La escala mundial en horas está más abajo.</p>
 
   <h2>Mundo</h2>
   <p class="muted" id="m-wsrc">—</p>
@@ -84,15 +133,54 @@
   <div class="chart" id="c-mundo"></div>
   <div class="legend" id="l-wmasa"></div>
   <div class="chart" id="c-wmasa"></div>
+  <details class="como"><summary>¿Cómo se calculan estos gráficos?</summary>
+    <p><b>Tasas</b> (Penn World Table 11.0, por país): bruta = (1 − labsh)·cgdpo / cn; neta = ((1 − labsh)·cgdpo − δ·cn) / cn; tasa interna de retorno real (irr) de la propia PWT. labsh es la participación del trabajo, cgdpo el PIB a PPA corrientes, cn el stock de capital a PPA corrientes y δ la tasa de depreciación. El promedio mundial pondera cada país por su stock de capital, en el panel de países con datos continuos desde 1960, con y sin China. Otras ponderaciones y paneles están en las descargas (mundo_especificaciones.csv).</p>
+    <p><b>Masa</b>: Σ (1 − labsh)·rgdpna sobre el mismo panel, en billones de dólares de 2021 (rgdpna: PIB real de cuentas nacionales). La PWT mide la economía total: no distingue trabajo productivo e improductivo, así que esta masa es ganancia bruta en sentido amplio, no plusvalor. Para eso está la sección siguiente.</p>
+  </details>
 
   <section id="horas-mundo" hidden>
   <h2>Masa mundial de plusvalor en horas de trabajo (2000–<span id="hm-fin">—</span>)</h2>
-  <p>El mismo criterio que en EE.UU., aplicado rama por rama a <span id="hm-np">—</span> países que suman la mayor parte de la producción mundial: cuentas por rama de WIOD hasta <span id="hm-base">—</span> y, desde <span class="hm-base1">—</span>, extensión encadenada con datos de la OIT (tramo punteado). Para cada país, e = pv/v con los asalariados de las ramas productivas, y la masa de plustrabajo = horas de esos asalariados × e/(1+e). El ingreso laboral de los trabajadores por cuenta propia no se cuenta como plusvalor, porque no son asalariados del capital. Educación y salud se tratan en dos variantes: productivas, o fuera de la producción capitalista por ser mayoritariamente públicas.</p>
+  <p>El mismo criterio que en EE.UU., aplicado rama por rama a <span id="hm-np">—</span> países que suman la mayor parte de la producción mundial. Hasta <span id="hm-base">—</span>, cuentas por rama de WIOD. Desde <span class="hm-base1">—</span>, cuentas por rama de la OCDE para los países que las publican (<span id="hm-nocde">—</span> en el último año) y, para el resto, extensión encadenada con la OIT (tramo punteado: todo lo posterior a <span class="hm-base0">—</span> se encadena al nivel de WIOD). Para cada país, e = pv/v con los asalariados de las ramas productivas, y la masa de plustrabajo = horas de esos asalariados × e/(1+e). La versión neta resta del plusvalor el consumo de capital fijo de las ramas de mercado.</p>
   <section class="kpis">
-    <div class="card"><div class="muted">Asalariados productivos, <span class="hm-fin">—</span> (millones)</div><div class="big" id="hm-n">—</div></div>
-    <div class="card"><div class="muted">Masa anual de plustrabajo (miles de millones de horas)</div><div class="big" id="hm-masa">—</div><div class="muted">2000: <span id="hm-masa0">—</span> · 2014: <span id="hm-masa14">—</span></div></div>
-    <div class="card"><div class="muted">Tasa de plusvalor mundial en horas (plustrabajo/trabajo necesario)</div><div class="big" id="hm-e">—</div></div>
-    <div class="card"><div class="muted">Parte de China en la masa mundial de plustrabajo (estimada)</div><div class="big" id="hm-cn">—</div></div>
+    <div class="card"><div class="muted">Asalariados productivos, <span class="hm-fin">—</span> (millones)</div><div class="big" id="hm-n">—</div><div class="muted"><span class="hm-base0">—</span>: <span id="hm-n14">—</span></div></div>
+    <div class="card"><div class="muted">Masa anual de plustrabajo, bruta (miles de millones de horas)</div><div class="big" id="hm-masa">—</div><div class="muted">2000: <span id="hm-masa0">—</span> · <span class="hm-base0">—</span>: <span id="hm-masa14">—</span></div></div>
+    <div class="card"><div class="muted">Neta de depreciación (miles de millones de horas)</div><div class="big" id="hm-masan">—</div><div class="muted">2000: <span id="hm-masan0">—</span></div></div>
+    <div class="card"><div class="muted">Tasa de plusvalor mundial en horas, bruta · neta</div><div class="big" id="hm-e">—</div><div class="muted">China: <span id="hm-cn">—</span> de la masa · India: <span id="hm-in">—</span></div></div>
+  </section>
+  <h3>Masa mundial de plustrabajo (miles de millones de horas al año)</h3>
+  <div class="legend" id="l-hm"></div>
+  <div class="chart" id="c-hm"></div>
+  <h3>Tasa de plusvalor mundial en horas: plustrabajo / trabajo necesario</h3>
+  <div class="legend" id="l-hme"></div>
+  <div class="chart short" id="c-hme"></div>
+  <details class="como" open><summary>¿Cómo se calcula el número de trabajadores productivos?</summary>
+    <ol>
+      <li><b>2000–<span class="hm-base0">—</span> (WIOD, Cuentas Socioeconómicas 2016).</b> Para cada país se suman los asalariados (EMPE) y sus horas (H_EMPE) de las ramas productivas. Se excluyen las ramas de circulación (comercio G45–G47, finanzas y seguros K64–K66, servicios jurídicos, contables y de dirección M69–M70, publicidad M73) y las que están fuera de la producción capitalista (inmobiliario L68, administración pública O84, hogares T, organismos extraterritoriales U). Educación (P85) y salud (Q) cuentan como productivas en la variante central y como fuera de la producción capitalista en la otra, porque en muchos países son mayoritariamente públicas. Los trabajadores por cuenta propia no se cuentan: no son asalariados del capital.</li>
+      <li><b>China.</b> WIOD no distingue asalariados en China. Se toma el total de asalariados de las estimaciones modeladas de la OIT y se reparte entre las ramas no agrícolas en proporción a su ocupación en WIOD: s = asalariados OIT / (ocupación OIT × (1 − peso agrícola WIOD)). Los asalariados productivos son la ocupación de las ramas productivas no agrícolas × s; la agricultura china, casi enteramente familiar, se trata como trabajo por cuenta propia. Las horas suponen una jornada de 46 h semanales y 50 semanas (sensibilidad: 44 y 49 h).</li>
+      <li><b>Desde <span class="hm-base1">—</span>, países de la OCDE (tabla 7 de cuentas nacionales).</b> Asalariados (SAL) y sus horas, por sección CIIU rev. 4, con el mismo criterio de ramas. La serie se encadena al nivel WIOD de 2014: N<sub>t</sub> = N<sub>WIOD,2014</sub> × N<sub>OCDE,t</sub> / N<sub>OCDE,2014</sub>; las horas por asalariado, igual. Cuando un país no informa las divisiones M69–M70 y M73, su peso en la sección M se toma de WIOD 2014.</li>
+      <li><b>Desde <span class="hm-base1">—</span>, resto de los países (OIT).</b> N<sub>t</sub> = N<sub>2014</sub> × asalariados totales<sub>t</sub> / asalariados totales<sub>2014</sub> (estimaciones modeladas de la OIT), manteniendo la proporción productiva de 2014; las horas por ocupado siguen las horas semanales de la OIT. <b>India</b> es la excepción: WIOD cuenta como asalariados a los regulares y a los jornaleros eventuales, mientras que la serie de la OIT sólo recoge a los regulares y crece mucho más rápido. Para India, N se extiende con la ocupación total de la OIT por la proporción de trabajadores no cuenta propia de las encuestas oficiales (NSS 2011-12 y PLFS 2017-18 a 2023-24).</li>
+      <li>El total mundial es la suma de los países. La fuente de cada país y año está en <a href="descargas/">mundo_horas_paises.csv</a>.</li>
+    </ol>
+  </details>
+  <details class="como" open><summary>¿Cómo se calcula la masa mundial de plusvalor?</summary>
+    <ol>
+      <li><b>Capital variable (v):</b> remuneración de los asalariados de las ramas productivas (WIOD: COMP; OCDE: D1).</li>
+      <li><b>Plusvalor (pv):</b> valor agregado bruto de las ramas de mercado (todas menos L68, O84, T, U y, en la segunda variante, educación y salud) − ingreso laboral imputado a los trabajadores por cuenta propia − v. Ese ingreso es LAB − COMP en WIOD y, en la OCDE, no asalariados × remuneración media por asalariado de la misma sección. Los salarios de las ramas de circulación quedan dentro de pv: son deducciones de la masa global de plusvalor.</li>
+      <li><b>Tasa de plusvalor:</b> e = pv/v, en moneda nacional, de modo que no hace falta convertir monedas. Desde 2015, e se encadena al nivel WIOD de 2014 con la variación medida por rama en la OCDE (tabla 6) o, donde no la hay, con la participación del trabajo de la OIT: e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>].</li>
+      <li><b>Versión neta:</b> e<sub>neta</sub> = e − r, con r = consumo de capital fijo de las ramas de mercado / v. En la OCDE se mide por rama (P51C). Donde no hay medición, r = (δ·K/Y de la PWT) × valor agregado de mercado / v, calibrado con el cociente OCDE/PWT de 2014 del propio país o, fuera de la OCDE, con la mediana de esos cocientes (<span id="hm-kmed">—</span>), porque la depreciación de la PWT incluye viviendas y capital público.</li>
+      <li><b>Masa en horas:</b> plustrabajo = H × e / (1 + e) para cada país, sumado sobre todos. La tasa mundial en horas es Σ plustrabajo / Σ trabajo necesario. Las observaciones con e fuera de (0, 8) se excluyen por anomalías de los datos: <span id="hm-excl">—</span>.</li>
+    </ol>
+  </details>
+  <h3>Los mayores núcleos de plustrabajo, <span class="hm-fin">—</span></h3>
+  <div class="tablewrap"><table><thead><tr><th>País</th><th>Asalariados productivos (millones)</th><th>e bruta</th><th>e neta</th><th>Plustrabajo bruto (miles de millones de horas)</th><th>% del total</th><th>Fuente de e</th></tr></thead><tbody id="t-hm"></tbody></table></div>
+  <h3>Sensibilidad a los supuestos (variante central, con China)</h3>
+  <p class="muted">Cada fila cambia un solo supuesto respecto de la estimación central. India y China concentran la incertidumbre: decidir si sus jornaleros eventuales y su agricultura forman parte del trabajo productivamente explotado mueve la masa mundial en más de un 10 %.</p>
+  <div class="tablewrap"><table><thead><tr><th>Año</th><th>Caso</th><th>Plustrabajo (miles de millones de horas)</th><th>Asalariados productivos (millones)</th><th>Diferencia</th><th>Nota</th></tr></thead><tbody id="t-hms"></tbody></table></div>
+  <details class="como"><summary>Diagnóstico del empalme OCDE–WIOD en 2014</summary>
+    <p class="muted">Si las dos fuentes miden lo mismo, los cocientes de 2014 deberían estar cerca de 1. El nivel lo pone WIOD; la OCDE sólo aporta la variación posterior.</p>
+    <div class="tablewrap"><table><thead><tr><th>País</th><th>e WIOD</th><th>e OCDE</th><th>Asalariados OCDE/WIOD</th><th>Horas OCDE/WIOD</th><th>r PWT</th><th>r OCDE</th><th>Último año OCDE</th></tr></thead><tbody id="t-hmd"></tbody></table></div>
+  </details>
+  <p class="muted">Advertencias: las cifras posteriores a 2014 son encadenadas, no niveles medidos de nuevo; en los países de la OCDE la variación sí se mide por rama. China es una estimación. India pesa mucho en la masa y su número de asalariados es el más incierto del panel (véase la tabla de sensibilidad). No hay corrección intra-rama en la escala mundial. Por diferencias de definición, la e de EE.UU. aquí no coincide con la de la sección de EE.UU.</p>
   </section>
   <div class="legend" id="l-hm"></div>
   <div class="chart" id="c-hm"></div>
@@ -112,6 +200,15 @@
   <div class="chart" id="c-ia2"></div>
   <h3>Ganancia operativa sobre capital fijo, por empresa (%)</h3>
   <div class="tablewrap"><table><thead id="t-ia-h"></thead><tbody id="t-ia"></tbody></table></div>
+  <details class="como"><summary>¿Cómo se calculan estos gráficos?</summary>
+    <ul>
+      <li><b>Tasa del grupo IA:</b> Σ ganancia operativa / Σ activos totales de las ocho empresas (XBRL de la SEC: OperatingIncomeLoss, Assets; años calendario).</li>
+      <li><b>No financiero de EE.UU.:</b> excedente neto de las corporaciones no financieras / su stock neto a costo histórico sin propiedad intelectual, porque la contabilidad empresarial no capitaliza la I+D propia.</li>
+      <li><b>Sin el grupo IA:</b> (ganancia no financiera − ganancia operativa del grupo) / (K no financiero − propiedad, planta y equipo netos del grupo).</li>
+      <li><b>Pesos:</b> ganancia antes de impuestos del grupo / ganancias corporativas de EE.UU. (NIPA); inversión en activos fijos del grupo / inversión privada no residencial; ganancia antes de impuestos / masa mundial de ganancia bruta de la PWT convertida a dólares corrientes.</li>
+      <li><b>Tabla:</b> ganancia operativa / propiedad, planta y equipo netos de cada empresa, en %.</li>
+    </ul>
+  </details>
   <p class="muted">Advertencias: (1) las ganancias de estas empresas son consolidadas a escala mundial; el agregado no financiero de EE.UU. es doméstico, de modo que la tasa «sin IA» es aproximada. (2) El capital es contable, a costo histórico, y la I+D propia no se capitaliza; por eso la comparación es con la especificación NIPA a costo histórico y sin propiedad intelectual. (3) La ganancia apropiada no es plusvalor producido: estas participaciones miden apropiación, que incluye rentas y transferencias, no formación de plusvalor. (4) La masa mundial de los años sin Penn World Table usa la última participación salarial disponible.</p>
   </section>
 
@@ -122,9 +219,9 @@
       <li><b>Plusvalor ampliado.</b> Valor agregado del sector empresarial, sin vivienda arrendada, menos la remuneración del trabajo productivo. Incluye ganancias, intereses, rentas, impuestos y salarios improductivos (lectura macromonetaria, Moseley).</li>
       <li><b>Trabajo productivo/improductivo.</b> Por ramas: comercio, finanzas y seguros, inmobiliario y servicios jurídicos son improductivos. Con corrección intra-rama (desde 1972): V incluye sólo a los trabajadores de producción y no supervisores de las ramas productivas (BLS). El trabajo que produce software e I+D en empresas capitalistas es productivo.</li>
       <li><b>Bifurcaciones del multiverso.</b> Sector (corporativo o no financiero), medida de ganancia, costo corriente o histórico, neta o bruta, propiedad intelectual dentro o fuera de K, existencias, utilización de capacidad y K total o sólo productivo.</li>
-      <li><b>Masa mundial en horas.</b> Cuentas Socioeconómicas de WIOD (2016), con asalariados, horas, remuneración y valor agregado por rama para 43 países entre 2000 y 2014; participación de asalariados de la OIT para China.</li>
+      <li><b>Masa mundial en horas.</b> Cuentas Socioeconómicas de WIOD (2016) por rama para 43 países entre 2000 y 2014; desde 2015, cuentas por rama de la OCDE (tablas 6 y 7) y, donde no las hay, extensión con la OIT; depreciación de la OCDE y de la PWT para la versión neta.</li>
       <li><b>Corporaciones de la IA.</b> Estados financieros XBRL de la SEC (ganancia operativa, ganancia antes de impuestos, propiedad, planta y equipo netos, activos totales, inversión en activos fijos). OpenAI y Anthropic no publican estados auditados.</li>
-      <li><b>Fuentes.</b> BEA (cuentas nacionales, activos fijos, PIB por industria), Reserva Federal (Z.1, G.17), BLS (CES) y Penn World Table 11.0.</li>
+      <li><b>Fuentes.</b> BEA (cuentas nacionales, activos fijos, PIB por industria), Reserva Federal (Z.1, G.17), BLS (CES) y Penn World Table 11.0, WIOD, OCDE, OIT, NSS/PLFS (India) y SEC.</li>
       <li><b>Frecuencia.</b> Se actualiza cada mes. Los datos cambian cuando las fuentes publican: el BEA, cada trimestre y en su revisión anual de septiembre; la PWT, cada pocos años.</li>
     </ul>
   </details>

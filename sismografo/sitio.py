@@ -63,15 +63,20 @@ def escribir(ee, mu, dir_site):
     mm.index.name = 'anio'; _w(f'{d}/mundo_masa.json', _rows(mm))
     if mu.get('horas') is not None:
         A = mu['horas']['A']; P = mu['horas']['P']
-        piv = A.pivot_table(index='anio', columns=['variante', 'china'], values=['plustrabajo_mmh', 'e_horas', 'obreros_mill', 'pct_china'])
+        piv = A.pivot_table(index='anio', columns=['variante', 'china'], values=['plustrabajo_mmh', 'plustrabajo_neto_mmh', 'e_horas', 'e_horas_neta',
+                                                                                 'obreros_mill', 'pct_china', 'pct_india', 'pct_ocde_rama'])
         piv.columns = ['__'.join(c) for c in piv.columns]; piv.index.name = 'anio'
         _w(f'{d}/mundo_horas.json', _rows(piv.astype(float).round(3)))
         ult = int(P.anio.max())
         top = (P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].sort_values('plustrabajo_mill_h', ascending=False)
-               [['pais', 'obreros_mill', 'e', 'plustrabajo_mill_h', 'china_estimada']].head(15))
+               [['pais', 'obreros_mill', 'e', 'e_neta', 'plustrabajo_mill_h', 'china_estimada', 'fuente_e', 'fuente_obreros']].head(15))
         top['pct'] = top.plustrabajo_mill_h / P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].plustrabajo_mill_h.sum() * 100
         _w(f'{d}/mundo_horas_paises.json', dict(anio=ult, n_paises=int(P[P.anio == ult].pais.nunique()), base_wiod=int(P[~P.extension].anio.max()), paises=json.loads(top.round(3).to_json(orient='records')),
-                                                 excluidos=sorted({x['pais'] for x in mu['horas']['excluidos']})))
+                                                 excluidos=sorted({x['pais'] for x in mu['horas']['excluidos']}),
+                                                 fuentes_e=P[(P.anio == ult) & (P.variante == 'educación y salud productivas')].fuente_e.value_counts().to_dict(),
+                                                 sensibilidad=json.loads(mu['horas']['S'].round(3).to_json(orient='records')),
+                                                 k_mediana=mu['horas'].get('k_mediana'),
+                                                 diagnostico_ocde=json.loads(mu['horas']['diag'].round(3).to_json(orient='records'))))
     me = mu['MW'].reset_index(); me['quiebres'] = me['quiebres'].astype(str)
     _w(f'{d}/mundo_especificaciones.json', json.loads(me.to_json(orient='records')))
     try: sha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], text=True).strip()

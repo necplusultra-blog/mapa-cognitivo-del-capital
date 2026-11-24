@@ -21,3 +21,7 @@ h2 { font-size: 1.25rem; margin: 40px 0 6px; } h3 { font-size: 1rem; margin: 16p
 th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--line); } th { color:var(--muted); font-size:.8rem; font-weight:600; }
 .down { color:var(--down); } .up { color:var(--up); } .dep { color:var(--dep); }
 details { margin-top:40px; } li { margin-bottom:6px; } a { color: var(--c1); } footer { margin-top:40px; }
+
+details.como { margin:10px 0 22px; padding:8px 14px; border-left:3px solid var(--line); background:var(--panel); border-radius:4px; font-size:.93rem; }
+details.como summary { cursor:pointer; font-weight:600; color:var(--c1); }
+details.como ol, details.como ul { padding-left:20px; }

@@ -37,6 +37,7 @@
 <li><b>Reserva Federal</b>, vía FRED: existencias de las corporaciones no financieras (Z.1, <code>BOGZ1FL105020005A</code>) y utilización de capacidad manufacturera (G.17, <code>CUMFNS</code>).</li>
 <li><b>BLS</b> (Bureau of Labor Statistics), encuesta CES vía FRED: empleo, horas semanales y salario por hora de los trabajadores de producción y no supervisores, por supersector.</li>
 <li><b>Penn World Table 11.0</b> (Feenstra, Inklaar y Timmer): participación salarial, capital, depreciación, tasa interna de retorno y PIB de 185 países, 1950–2023.</li>
+<li><b>OCDE</b>, cuentas nacionales anuales por rama (tablas 6 y 7, desde 2014). <b>OIT</b> (ILOSTAT): participación del trabajo, asalariados, ocupación y horas. Encuestas <b>NSS y PLFS</b> de India: distribución de los ocupados por situación en el empleo.</li>
 <li><b>WIOD</b>, Cuentas Socioeconómicas 2016: valor agregado, remuneración, asalariados y horas por rama, para 43 países, 2000–2014.</li>
 <li><b>Banco Mundial</b>: PIB en dólares corrientes.</li>
 <li><b>SEC</b>: estados financieros XBRL de las corporaciones de la IA.</li>
@@ -125,34 +126,34 @@
 <p><b>Tasa (Penn World Table 11.0).</b></p>
 <div class="f">bruta = (1 − labsh) · cgdpo / cn · neta = ((1 − labsh) · cgdpo − δ · cn) / cn · IRR: tasa interna de retorno real de la PWT</div>
 <p>Los países se ponderan por stock de capital (cn) o por PIB (cgdpo), con y sin China, en un panel balanceado desde 1960 o no balanceado. La masa de ganancia bruta en dólares es Σ (1 − labsh) · PIB real. La PWT mide la economía total: no distingue trabajo productivo de improductivo.</p>
-<p><b>Masa mundial en horas (WIOD).</b> Aplica el mismo criterio por ramas del punto 3 a las Cuentas Socioeconómicas de WIOD, con 43 países y el resto del mundo, entre 2000 y 2014. Para cada país:</p>
+<p><b>Masa mundial en horas.</b> Aplica el mismo criterio por ramas del punto 3, país por país, y suma. Hay tres tramos de fuentes; los tres usan las mismas definiciones.</p>
+<p><b>(a) 2000–2014: WIOD, Cuentas Socioeconómicas 2016</b> (43 países; Taiwán queda excluido por anomalías). Para cada país:</p>
 <ul>
-<li><b>N</b>: asalariados de las ramas productivas.</li>
-<li><b>H</b>: sus horas.</li>
-<li><b>v</b>: su remuneración.</li>
-<li><b>pv</b>: valor agregado bruto de las ramas de mercado (sin inmobiliario, administración pública, hogares ni organismos extraterritoriales), menos el ingreso laboral imputado a los trabajadores por cuenta propia (LAB − COMP, porque no son asalariados del capital), menos v.</li>
-<li><b>e = pv/v</b>; plustrabajo = H·e/(1+e).</li>
+<li><b>Ramas improductivas por circulación:</b> comercio (G45–G47), finanzas y seguros (K64–K66), servicios jurídicos, contables y de dirección (M69–M70), publicidad (M73).</li>
+<li><b>Fuera de la producción capitalista:</b> inmobiliario (L68, renta), administración pública (O84), hogares empleadores (T), organismos extraterritoriales (U). Educación (P85) y salud (Q): productivas en la variante central; fuera, en la segunda variante, porque en muchos países se financian con rédito.</li>
+<li><b>N</b> = Σ<sub>productivas</sub> asalariados (EMPE) · <b>H</b> = Σ<sub>productivas</sub> horas de los asalariados (H_EMPE) · <b>v</b> = Σ<sub>productivas</sub> remuneración (COMP).</li>
+<li><b>pv</b> = Σ<sub>mercado</sub> VA − Σ<sub>mercado</sub> (LAB − COMP) − v. LAB − COMP es el ingreso laboral imputado a los trabajadores por cuenta propia, que no son asalariados del capital.</li>
 </ul>
-<p>Las ramas improductivas son las mismas que en EE.UU. (comercio, finanzas y seguros, inmobiliario, servicios jurídicos y contables), más la publicidad. Educación y salud se tratan en dos variantes, porque en muchos países son mayoritariamente públicas, es decir, financiadas con rédito.</p>
-<p>El agregado mundial de e se calcula en horas: Σ plustrabajo / Σ trabajo necesario.</p>
-<p>Advertencias:</p>
-<ul>
-<li>El valor agregado es bruto, así que e está sobrestimada respecto de una medida neta.</li>
-<li>No hay corrección intra-rama.</li>
-<li>China no informa asalariados ni horas en WIOD. Se estiman con la participación de asalariados de la OIT (estimaciones modeladas) aplicada al empleo de las ramas productivas, con una jornada supuesta de 46 h semanales y 50 semanas. Su remuneración también se escala por esa participación.</li>
-<li>En India, los asalariados de WIOD incluyen trabajo eventual y su e es alta.</li>
-<li>Se excluyen las observaciones con e fuera de (0, 8), que se registran en <code>mundo_horas_excluidos.csv</code>; por ahora, Taiwán en todos los años.</li>
-<li>Por las diferencias de definición (bruta, sin corrección intra-rama, educación y salud), la e de EE.UU. en esta serie no coincide con la de la sección de EE.UU.</li>
-</ul>
-<p><b>Extensión 2015–2025 (OIT).</b> WIOD termina en 2014. Para los años posteriores, cada país se encadena desde su nivel de 2014:</p>
+<div class="f">e = pv / v · plustrabajo = H · e / (1 + e) · trabajo necesario = H / (1 + e) · e mundial en horas = Σ plustrabajo / Σ trabajo necesario</div>
+<p><b>China.</b> WIOD no distingue asalariados en China (COMP = LAB). Con la OIT (estimaciones modeladas, <code>EMP_2EMP_SEX_STE_NB</code>) se calcula la proporción de asalariados entre los ocupados no agrícolas:</p>
+<div class="f">s<sub>t</sub> = asalariados OIT<sub>t</sub> / [ocupados OIT<sub>t</sub> × (1 − peso agrícola WIOD<sub>t</sub>)], con tope 1</div>
+<p>En las ramas no agrícolas, la remuneración y la ocupación se multiplican por s; en la agricultura (A01–A03), casi enteramente familiar, s = 0 y toda su remuneración se trata como ingreso de cuenta propia. Horas: 46 h semanales × 50 semanas por asalariado. El método anterior, que aplicaba la proporción de asalariados de toda la economía también a la agricultura, se conserva en el cuadro de sensibilidad (+3 %).</p>
+<p><b>(b) 2015–último año, países de la OCDE: cuentas nacionales por rama</b> (tablas 6 y 7 de la OCDE, SNA 2008: <code>DSD_NAMAIN10@DF_TABLE6</code> y <code>@DF_TABLE7</code>). Mismo criterio a nivel de sección CIIU rev. 4: improductivas G, K, M69–M70, M73; fuera L, O, T, U (y P, Q en la segunda variante).</p>
+<div class="f">v = Σ<sub>prod</sub> D1 · cp = Σ<sub>mercado</sub> SELF<sub>personas</sub> × D1/SAL<sub>personas</sub> · pv = Σ<sub>mercado</sub> B1G − cp − v · N = Σ<sub>prod</sub> SAL<sub>personas</sub> · H = Σ<sub>prod</sub> SAL<sub>horas</sub> · r = Σ<sub>mercado</sub> P51C / v</div>
+<p>Las series OCDE se encadenan al nivel WIOD de 2014: X<sub>t</sub> = X<sub>WIOD,2014</sub> × X<sub>OCDE,t</sub> / X<sub>OCDE,2014</sub>, para X = e, N, horas por asalariado y r. Así WIOD fija el nivel y la OCDE aporta la variación medida por rama. Reglas de completitud: T y U faltantes valen cero; si faltan secciones todas productivas y de mercado (Japón: E, N, S), su suma se obtiene como residuo del total; si un país no informa M69–M70 y M73, su peso en M se toma de WIOD 2014; una sección sin dato de no asalariados vale cero; e sólo se encadena mientras la imputación de no asalariados sea la misma que en 2014. Corea queda fuera (le faltan secciones improductivas). México, Turquía, Chipre y Malta no publican asalariados por rama: su e sale de la OCDE y su N de la OIT. Después del último año OCDE de cada país, la serie continúa con la variación OIT. Los cocientes OCDE/WIOD de 2014 se publican como diagnóstico (<code>mundo_horas_ocde_diagnostico.csv</code>): en la mayoría de los países están entre 0,95 y 1,05 para N y para H.</p>
+<p><b>(c) 2015–2025, resto de los países: extensión encadenada con la OIT.</b></p>
 <div class="f">e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>] · N<sub>t</sub> = N<sub>2014</sub> × A<sub>t</sub>/A<sub>2014</sub> · h<sub>t</sub> = h<sub>2014</sub> × hs<sub>t</sub>/hs<sub>2014</sub></div>
 <ul>
-<li><b>LS</b>: participación del trabajo en el ingreso de la OIT (indicador ODS 10.4.1, <code>LAP_2GDP_NOC_RT</code>).</li>
-<li><b>A</b>: asalariados totales según las estimaciones modeladas y armonizadas de la OIT (<code>EMP_2EMP_SEX_STE_NB</code>). La proporción productiva de cada país se mantiene en su nivel de 2014. Las series por sección de la OIT (<code>EES_TEES_SEX_ECO_NB</code>) combinan encuestas con quiebres (Reino Unido, Corea, India), así que sólo se usarán cuando se armonicen.</li>
-<li><b>hs</b>: horas semanales efectivamente trabajadas por ocupado (<code>HOW_TEMP_SEX_ECO_NB</code>). Si faltan, h se mantiene constante.</li>
-<li>Los vacíos intermedios se interpolan y los años finales sin dato repiten el último valor.</li>
+<li><b>LS</b>: participación del trabajo en el ingreso (OIT, ODS 10.4.1, <code>LAP_2GDP_NOC_RT</code>).</li>
+<li><b>A</b>: asalariados totales, estimaciones modeladas y armonizadas de la OIT (<code>EMP_2EMP_SEX_STE_NB</code>); la proporción productiva de 2014 se mantiene. Las series por sección (<code>EES_TEES_SEX_ECO_NB</code>) tienen quiebres de encuesta y no se usan.</li>
+<li><b>India</b>: WIOD cuenta como asalariados a los regulares y a los jornaleros eventuales, como las encuestas NSS; la serie de asalariados de la OIT sólo recoge a los regulares (91 millones en 2014, frente a 315 millones en WIOD) y crece un 64 % hasta 2025. Por eso, para India, A<sub>t</sub> = ocupados OIT<sub>t</sub> × (1 − proporción de cuenta propia<sub>t</sub>), con la proporción de cuenta propia en estatus usual de NSS 2011-12 (52,2 %) y PLFS 2017-18 (52,2 %), 2021-22 (55,8 %), 2022-23 (57,3 %) y 2023-24 (58,4 %), interpolada y mantenida después del último dato. Resultado: +13 % de asalariados entre 2014 y 2025, en vez de +64 %.</li>
+<li><b>hs</b>: horas semanales por ocupado (<code>HOW_TEMP_SEX_ECO_NB</code>); si faltan, constantes.</li>
 </ul>
-<p>Es una extensión encadenada, no una medición por rama: supone que la composición interna de cada país cambia como sus agregados. La fuente de cada país y año queda registrada en <code>mundo_horas_paises.csv</code>.</p>
+<p><b>Versión neta de depreciación.</b> e<sub>neta</sub> = e − r, con r = consumo de capital fijo de las ramas de mercado / v. En los países de la OCDE, r se mide por rama (P51C) desde 2014. En los demás años y países:</p>
+<div class="f">r = k · (δ·K/Y)<sub>PWT</sub> × VA<sub>mercado</sub> / v · con VA<sub>mercado</sub>/v = 1 + e + cp/v en los años encadenados</div>
+<p>(δ·K/Y)<sub>PWT</sub> = delta · cn / cgdpo de la Penn World Table (último valor mantenido después de 2023). Como esa depreciación abarca todo el capital fijo, incluidas viviendas y capital público, se calibra con k = r<sub>OCDE,2014</sub> / r<sub>PWT,2014</sub> del propio país o, fuera de la OCDE, con la mediana de esos cocientes (0,76). La tabla de calibración está en <code>mundo_horas_calibracion_depreciacion.csv</code>. En la versión neta, la caída de e tras 2008 refleja sobre todo el alza de la depreciación medida por la PWT en China e India; es una estimación, no una medición por rama.</p>
+<p><b>Sensibilidad</b> (<code>mundo_horas_sensibilidad.csv</code>). Cada fila cambia un solo supuesto: versión neta; jornada china de 44 o 49 h; India con el nivel de asalariados de la OIT (sólo regulares); agricultura de India y China fuera de la producción capitalista; método anterior para China. Si los jornaleros eventuales y la agricultura de India y China forman parte del trabajo productivamente explotado es una decisión teórica abierta, que mueve la masa mundial entre un 11 % y un 22 %.</p>
+<p>Otras advertencias: no hay corrección intra-rama; por diferencias de definición, la e de EE.UU. en esta serie no coincide con la de la sección de EE.UU.; las observaciones con e fuera de (0, 8) se excluyen y se registran en <code>mundo_horas_excluidos.csv</code>. La fuente de e, N y r de cada país y año está en <code>mundo_horas_paises.csv</code>.</p>
 
 <h2 id="ia">12. Corporaciones de la inteligencia artificial</h2>
 <p>El grupo son Microsoft, Alphabet (con Google Inc. antes de 2015), Amazon, Meta, Nvidia, Oracle, Broadcom (con Avago antes de 2018) y AMD, según sus estados XBRL ante la SEC. Los años son calendario, según el «frame» de la SEC o, si falta, el año que más cubre el ejercicio fiscal. Huecos de un año en los saldos se interpolan.</p>
@@ -177,7 +178,7 @@
 <ul>
 <li>Todavía no hay corrección intra-rama antes de 1972 ni para la agricultura.</li>
 <li>Las series de referencia son definiciones a la manera de los autores. La replicación numérica exacta está pendiente, igual que la variante en valores-trabajo vía matrices insumo-producto.</li>
-<li>La masa mundial en horas cubre 42 países: medición por rama entre 2000 y 2014 (WIOD) y extensión encadenada con la OIT entre 2015 y 2025. Una medición por rama para años recientes (cuentas por industria de la OCDE y la ONU, KLEMS) y la ampliación a más países están en preparación.</li>
+<li>La masa mundial en horas cubre 42 países: medición por rama entre 2000 y 2014 (WIOD); desde 2015, variación medida por rama en los países de la OCDE y extensión encadenada con la OIT en el resto, incluidos China, India, Indonesia, Brasil y Rusia, que concentran la mayor parte de la masa. La medición por rama de esos países (cuentas por industria de la ONU, KLEMS nacionales) está pendiente.</li>
 <li>Los deflactores de equipos informáticos son hedónicos y pueden exagerar el abaratamiento del capital constante.</li>
 <li>Las estimaciones trimestrales recientes, la masa mundial de 2024–2025 y las participaciones del grupo IA en años sin PWT son provisionales.</li>
 </ul>
@@ -191,7 +192,8 @@ python run.py                 # descarga, calcula y escribe resultados/ y site/d
 <li><code>eeuu.py</code>: multiverso, plusvalor y tiempo de trabajo.</li>
 <li><code>trimestral.py</code>: estimación trimestral.</li>
 <li><code>mundo.py</code>: PWT.</li>
-<li><code>horas_mundo.py</code>: WIOD.</li>
+<li><code>ocde_ramas.py</code>: medición por rama con las cuentas de la OCDE.</li>
+<li><code>horas_mundo.py</code>: masa mundial en horas (WIOD, OCDE, OIT; versión neta; sensibilidad).</li>
 <li><code>ia.py</code>: corporaciones de la IA.</li>
 <li><code>quiebres.py</code>: detector de quiebres.</li>
 <li><code>sitio.py</code>: JSON del sitio.</li>

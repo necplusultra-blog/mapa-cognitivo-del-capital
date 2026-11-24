@@ -99,20 +99,34 @@ function draw() {
 
 function drawHM(H, Pz, meta) {
   $('horas-mundo').hidden = false;
-  const k = (v, c) => `__educación y salud ${v}__${c}`;
-  const z = H[H.length - 1], a = H[0];
+  const k = (v, c) => `__educación y salud ${v}__${c}`, K = k('productivas', 'con China');
+  const z = H[H.length - 1], a = H[0], b = H.find((r) => r.anio === Pz.base_wiod) || a;
   set('hm-fin', z.anio); document.querySelectorAll('.hm-fin').forEach((e) => { e.textContent = z.anio; });
-  set('hm-np', String(Pz.n_paises || '—'));
-  set('hm-n', f0(z['obreros_mill' + k('productivas', 'con China')])); set('hm-masa', f0(z['plustrabajo_mmh' + k('productivas', 'con China')]));
-  set('hm-masa0', f0(a['plustrabajo_mmh' + k('productivas', 'con China')])); const b = H.find((r) => r.anio === Pz.base_wiod); if (b) set('hm-masa14', f0(b['plustrabajo_mmh' + k('productivas', 'con China')])); set('hm-e', f2(z['e_horas' + k('productivas', 'con China')]));
-  set('hm-cn', f1(z['pct_china' + k('productivas', 'con China')]) + ' %');
-  const ser = [['productivas', 'con China'], ['productivas', 'sin China'], ['fuera', 'con China'], ['fuera', 'sin China']];
-  const lab = ser.map(([v, c]) => `Educación y salud ${v === 'fuera' ? 'fuera' : 'productivas'}, ${c}`);
-  legend('l-hm', lab);
-  lineChart('c-hm', H, ser.map(([v, c], i) => ({ key: 'plustrabajo_mmh' + k(v, c), label: lab[i] })), { tipfmt: d3.format(',.0f'), prov: Pz.base_wiod + 1, aria: 'Masa mundial de plustrabajo en horas' });
-  set('hm-base', Pz.base_wiod); document.querySelectorAll('.hm-base1').forEach((e) => { e.textContent = Pz.base_wiod + 1; });
+  document.querySelectorAll('.hm-base0').forEach((e) => { e.textContent = Pz.base_wiod; });
+  document.querySelectorAll('.hm-base1').forEach((e) => { e.textContent = Pz.base_wiod + 1; });
+  set('hm-np', String(Pz.n_paises || '—')); set('hm-base', Pz.base_wiod);
+  set('hm-nocde', String((Pz.fuentes_e || {})['OCDE por rama'] || 0));
+  set('hm-n', f0(z['obreros_mill' + K])); set('hm-n14', f0(b['obreros_mill' + K]));
+  set('hm-masa', f0(z['plustrabajo_mmh' + K])); set('hm-masa0', f0(a['plustrabajo_mmh' + K])); set('hm-masa14', f0(b['plustrabajo_mmh' + K]));
+  set('hm-masan', f0(z['plustrabajo_neto_mmh' + K])); set('hm-masan0', f0(a['plustrabajo_neto_mmh' + K]));
+  set('hm-e', f2(z['e_horas' + K]) + ' · ' + f2(z['e_horas_neta' + K]));
+  set('hm-cn', f1(z['pct_china' + K]) + ' %'); set('hm-in', f1(z['pct_india' + K]) + ' %');
+  const ser = [['plustrabajo_mmh' + K, 'Bruta (central)'], ['plustrabajo_neto_mmh' + K, 'Neta de depreciación'],
+    ['plustrabajo_mmh' + k('productivas', 'sin China'), 'Bruta, sin China'], ['plustrabajo_mmh' + k('fuera', 'con China'), 'Bruta, educación y salud fuera']];
+  legend('l-hm', ser.map((x) => x[1]));
+  lineChart('c-hm', H, ser.map(([key, label]) => ({ key, label })), { tipfmt: d3.format(',.0f'), prov: Pz.base_wiod + 1, aria: 'Masa mundial de plustrabajo en horas' });
+  const se = [['e_horas' + K, 'Bruta'], ['e_horas_neta' + K, 'Neta de depreciación']];
+  legend('l-hme', se.map((x) => x[1]));
+  lineChart('c-hme', H, se.map(([key, label]) => ({ key, label })), { yfmt: d3.format('.1f'), tipfmt: d3.format('.2f'), prov: Pz.base_wiod + 1, aria: 'Tasa de plusvalor mundial en horas' });
+  const fila = (tb, vals) => { const tr = document.createElement('tr'); vals.forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); };
   const tb = $('t-hm'); tb.replaceChildren();
-  Pz.paises.forEach((r) => { const tr = document.createElement('tr'); [r.pais + (r.china_estimada ? ' (estimado)' : ''), f1(r.obreros_mill), f2(r.e), f1(r.plustrabajo_mill_h / 1000), f1(r.pct) + ' %'].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
+  Pz.paises.forEach((r) => fila(tb, [r.pais + (r.china_estimada ? ' (estimado)' : ''), f1(r.obreros_mill), f2(r.e), r.e_neta == null ? '—' : f2(r.e_neta), f1(r.plustrabajo_mill_h / 1000), f1(r.pct) + ' %', r.fuente_e || '—']));
+  const ts = $('t-hms'); ts.replaceChildren();
+  (Pz.sensibilidad || []).forEach((r) => fila(ts, [r.anio, r.caso, f0(r.plustrabajo_mmh), f0(r.obreros_mill), (r.diferencia_pct > 0 ? '+' : '') + f1(r.diferencia_pct) + ' %', r.nota || '']));
+  const td = $('t-hmd'); td.replaceChildren();
+  const g = (x, f) => (x == null ? '—' : f(x));
+  (Pz.diagnostico_ocde || []).forEach((r) => fila(td, [r.pais, g(r.e_wiod_2014, f2), g(r.e_ocde_2014, f2), g(r.N_ocde_sobre_wiod, f2), g(r.H_ocde_sobre_wiod, f2), g(r.r_pwt_2014, f2), g(r.r_ocde_2014, f2), g(r.ultimo_anio_e, String)]));
+  set('hm-kmed', Pz.k_mediana == null ? '—' : f2(Pz.k_mediana));
   set('hm-excl', Pz.excluidos.length ? Pz.excluidos.join(', ') : 'ninguna');
 }
 
