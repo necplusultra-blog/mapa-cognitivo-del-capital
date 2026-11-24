@@ -1,0 +1,12 @@
+---
+seccion: "05b La transformación"
+id: transformacion
+menu: Valores, precios y mercado mundial
+---
+## Valores, precios y mercado mundial
+
+La formación de los precios no crea ni destruye plusvalor: lo redistribuye. Las tablas insumo-producto de 43 países permiten verlo rama por rama entre 2000 y 2014. Los precios de mercado se apartan de los valores en un 28 % en promedio, y la dirección de la desviación es la que Marx anticipó: en casi todos los países, las ramas con más capital por unidad de trabajo venden por encima de su valor y las de más trabajo vivo, por debajo. La agricultura, la pesca, el textil y la hotelería ceden valor; la refinación de petróleo, la minería, la energía, los metales y la química se lo apropian. La igualación de las tasas de ganancia es un mecanismo de transferencia desde donde se explota más trabajo vivo hacia donde se acumula más capital.
+
+La misma lógica opera entre países. Contando el trabajo contenido en los insumos, China e India entregan cada una, en 2014, más de 100 mil millones de horas de trabajo más de las que reciben en su comercio, y los países de altos ingresos reciben unas 300 mil millones dentro del grupo de 43 países. Y en el mercado mundial una hora de trabajo nacional no vale lo mismo en todas partes: si se pondera cada hora por la productividad monetaria de su país, la parte de China en la masa mundial de plustrabajo baja del 34 % al 19 %, aunque crece rápido.
+
+Esto precisa la lectura de la masa mundial. Medida en horas de trabajo explotado, la masa descansa sobre todo en China e India; medida en horas del mercado mundial, el centro conserva un peso mucho mayor, porque sus horas valen más. Las dos medidas son verdaderas a la vez: el capital mundial reabsorbe población en la periferia, y el plusvalor que allí se produce se realiza y se redistribuye, en buena parte, en los términos del centro. El límite que enfrenta el capital no es la escasez de trabajo vivo explotable, sino la exigencia creciente de capital y de apropiación para convertirlo en valor que cuente en el mercado mundial.

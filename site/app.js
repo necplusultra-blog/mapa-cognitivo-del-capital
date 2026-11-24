@@ -209,6 +209,29 @@ function drawHM(H, Pz, meta) {
   set('hm-excl', Pz.excluidos.length ? Pz.excluidos.join(', ') : 'ninguna');
 }
 
+function drawTF(T) {
+  $('transformacion').hidden = false;
+  const S = T.serie, z = S[S.length - 1];
+  set('tf-desv', f1(z.desv_mediana) + ' %'); set('tf-rho', f2(z.spearman_mediana)); set('tf-pos', f0(T.pct_spearman_pos) + ' %');
+  set('tf-anio', T.anio_ramas); set('tf-n', T.n_paises);
+  const s1 = [['desv_mediana', 'Mediana de los países'], ['desv_USA', 'EE.UU.'], ['desv_DEU', 'Alemania'], ['desv_CHN', 'China'], ['desv_IND', 'India']];
+  legend('l-tf-desv', s1.map((x) => x[1]));
+  lineChart('c-tf-desv', S, s1.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Desviación media de los precios respecto de los valores' });
+  const tb = $('t-tf-ramas'); tb.replaceChildren();
+  T.ramas.forEach((r) => { const tr = document.createElement('tr'); [r.nombre, f2(r.precio_valor), r.composicion == null ? '—' : f1(r.composicion)].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
+  const s2 = [['altos_ingresos', 'Países de altos ingresos (de los 43)'], ['USA', 'EE.UU.'], ['DEU', 'Alemania'], ['JPN', 'Japón'], ['CHN', 'China'], ['IND', 'India']];
+  legend('l-tf-com', s2.map((x) => x[1]));
+  lineChart('c-tf-com', T.comercio, s2.map(([key, label]) => ({ key, label })), { tipfmt: (v) => d3.format(',.0f')(v) + ' mil millones de h', ref: 0, aria: 'Trabajo incorporado en el comercio exterior' });
+  if (T.ponderada && T.ponderada.length) {
+    const W = T.ponderada, w = W[W.length - 1];
+    set('tf-pond', f0(w.plustrabajo_ponderado_mmh)); set('tf-sinpond', f0(w.plustrabajo_mmh)); set('tf-cnp', f1(w.pct_china_ponderado) + ' %');
+    set('tf-wcn', f2(w.peso_china)); set('tf-win', f2(w.peso_india)); set('tf-wus', f2(w.peso_eeuu));
+    const s3 = [['plustrabajo_mmh', 'Horas de trabajo explotado (sin ponderar)'], ['plustrabajo_ponderado_mmh', 'Horas del mercado mundial (ponderadas por productividad)']];
+    legend('l-tf-pond', s3.map((x) => x[1]));
+    lineChart('c-tf-pond', W, s3.map(([key, label]) => ({ key, label })), { tipfmt: d3.format(',.0f'), aria: 'Masa mundial de plustrabajo ponderada' });
+  }
+}
+
 function drawIA(A, E) {
   if (!A || !A.length) return;
   $('ia').hidden = false;
@@ -251,6 +274,7 @@ Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_d
   Promise.all([get('eeuu_tiempo'), get('eeuu_descomposicion')]).then(([T, Dc]) => { D.T = T; D.Dc = Dc; drawTiempo(T, Dc); });
   if (meta.mundo_horas) Promise.all([get('mundo_horas'), get('mundo_horas_paises')]).then(([H, Pz]) => { D.H = H; D.Pz = Pz; drawHM(H, Pz, meta); });
   if (meta.contratendencias) get('contratendencias').then((CT) => { D.CT = CT; $('contratendencias').hidden = false; drawCT(CT); });
+  if (meta.transformacion) get('transformacion').then((TF) => { D.TF = TF; drawTF(TF); });
   if (meta.ia) Promise.all([get('ia_agregado'), get('ia_empresas')]).then(([A, E]) => { D.iaA = A; D.iaE = E; drawIA(A, E); });
-  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); }, 150); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); if (D.TF) drawTF(D.TF); }, 150); });
 }).catch((e) => { const l = document.querySelector('.lede'); if (l) l.insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });

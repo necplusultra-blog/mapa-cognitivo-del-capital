@@ -78,6 +78,26 @@ def escribir(ee, mu, dir_site):
                                                  sensibilidad=json.loads(mu['horas']['S'].round(3).to_json(orient='records')),
                                                  k_mediana=mu['horas'].get('k_mediana'),
                                                  diagnostico_ocde=json.loads(mu['horas']['diag'].round(3).to_json(orient='records'))))
+    tf = ee.get('transformacion')
+    if tf and not tf.get('D', pd.DataFrame()).empty:
+        D, R, C, W = tf['D'], tf['R'], tf['C'], tf['W']
+        ser = D.groupby('anio').agg(desv_mediana=('desviacion_media', 'median'), spearman_mediana=('spearman_precio_valor_composicion', 'median'))
+        for c in ('USA', 'DEU', 'CHN', 'IND'):
+            ser['desv_' + c] = D[D.pais == c].set_index('anio').desviacion_media
+        ser = (ser * 100).round(2); ser['spearman_mediana'] = ser['spearman_mediana'] / 100; ser.index.name = 'anio'
+        u = int(R.anio.max()); r = R[R.anio == u]
+        ramas = (r.groupby('nombre').apply(lambda t: pd.Series({'precio_valor': (t.precio_valor * t.produccion_musd).sum() / t.produccion_musd.sum(),
+                                                               'composicion': t.composicion_K_v.replace([np.inf, -np.inf], np.nan).median()}))
+                 .sort_values('precio_valor').reset_index())
+        com = C.pivot_table(index='anio', columns='pais', values='transferencia_mill_h') / 1000
+        grupos = pd.read_csv(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'datos_cache', 'banco_mundial_grupos.csv')).set_index('iso3').ingreso
+        alto = [c for c in com.columns if grupos.get(c) == 'High income']
+        comj = pd.DataFrame({'altos_ingresos': com[alto].sum(axis=1), **{c: com.get(c) for c in ('USA', 'DEU', 'JPN', 'CHN', 'IND')}}).round(2)
+        comj.index.name = 'anio'
+        dd = D[D.anio == u]
+        _w(f'{d}/transformacion.json', dict(serie=_rows(ser), anio_ramas=u, ramas=json.loads(ramas.round(3).to_json(orient='records')),
+                                             comercio=_rows(comj), ponderada=json.loads(W.round(3).to_json(orient='records')) if not W.empty else [],
+                                             n_paises=int(dd.pais.nunique()), pct_spearman_pos=float((dd.spearman_precio_valor_composicion > 0).mean() * 100)))
     if ee.get('ct') is not None:
         I = ee['ct']['I'].copy(); I.index.name = 'anio'
         _w(f'{d}/contratendencias.json', dict(indicadores=_rows(I.astype(float).round(3)), fases=json.loads(ee['ct']['F'].round(4).to_json(orient='records')),
@@ -88,7 +108,7 @@ def escribir(ee, mu, dir_site):
     try: sha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], text=True).strip()
     except Exception: sha = None  # noqa: BLE001
     meta = dict(actualizado=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), commit=sha,
-                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, contratendencias=ee.get('ct') is not None, eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(ee['principal']), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
+                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, contratendencias=ee.get('ct') is not None, transformacion=bool(ee.get('transformacion')), eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(ee['principal']), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
                 mundo_fin=int(mu['fin']), mundo_horas=mu.get('horas') is not None, mundo_fuente=mu['fuente'], mundo_n=mu['n'], mundo_nbal=mu['nbal'], mundo_medidas=mu['medidas'])
     _w(f'{d}/meta.json', meta)
     return meta
