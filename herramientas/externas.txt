@@ -1,6 +1,4 @@
 # nombre_de_archivo URL   (una por línea; se descarga en datos_cache/externo/)
-india_klems_2024.xlsx https://rbidocs.rbi.org.in/rdocs/content/docs/INDIAKLEMS08072024.xlsx
-un_sna_206_chn.zip https://data.un.org/Handlers/DownloadHandler.ashx?DataFilter=group_code:206;country_code:156&DataMartId=SNA&Format=csv&c=2,3,4,6,7,8,9,10,11,12,13&s=_cr_engNameOrderBy:asc,fiscal_year:desc,_grIt_code:asc
-un_sna_data_206.html https://data.un.org/Data.aspx?d=SNA&f=group_code%3a206
-un_sna_data_204.html https://data.un.org/Data.aspx?d=SNA&f=group_code%3a204
-un_ws_dataflow.xml https://data.un.org/ws/rest/dataflow/
+un_datacommon.js https://data.un.org/_Scripts/DataCommon.js
+un_data.js https://data.un.org/_Scripts/Data.js
+un_na_main_dsd.xml https://data.un.org/ws/rest/datastructure/UNSD/NA_MAIN/latest?references=children
