@@ -1,44 +1,3741 @@
+
 <!DOCTYPE html>
-<html><head>
-<meta http-equiv="Pragma" content="no-cache"/>
-<meta http-equiv="Expires" content="-1"/>
-<meta http-equiv="CacheControl" content="no-cache"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<link rel="shortcut icon" href="data:;base64,iVBORw0KGgo="/>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><title>
+	Home | Official website of Reserve Bank of India
+</title><meta name="description" content="Official website of Reserve Bank of India" /><meta name="author" content="author" /><meta name="viewport" content="width=device-width" /><link href="Styles/960.css?v=3.0" rel="stylesheet" type="text/css" />
+    <link href="Includes1/rbi.css?v=7.3" rel="stylesheet" type="text/css" />
+    <link href="JQuery/css/jquery-ui-1.8.18.custom2.css" rel="stylesheet" type="text/css" /><link href="includes/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script  src="/js/libs/modernizr-2.5.3.min.js"></script>
+    <script  src="js/libs/jquery.min.js"></script>
+
+   
+    <style >
+        .RegEntButton a {
+            text-decoration: none;
+            color: #FFFFFF;
+            display: block;
+        }
+
+        .RegEntButton {
+            background: url(#) no-repeat scroll 218px 10px rgb(29, 85, 164);
+            border-bottom: 1px solid rgb(204, 204, 204);
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            float: left;
+            font-family: Arial,Helvetica,sans-serif;
+            font-size: 12px;
+            padding: 5px 39px 5px 10px;
+            width: 195px;
+        }
+
+        .over {
+            background: #dd9435 url(#) no-repeat scroll 218px 10px;
+            color: #fff;
+        }
+
+        .blink_me {
+            color: #fff !important;
+            font-size: 14px;
+            font-weight: bolder !important;
+            background: #ef9623;
+            -webkit-animation-name: blinker;
+            -webkit-animation-duration: 3s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-name: blinker;
+            -moz-animation-duration: 3s;
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
+            animation-name: blinker;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .widthslides {
+            width: 230px !important;
+        }
+
+        @-moz-keyframes blinker {
+            0% {
+                opacity: 1.0;
+            }
+
+            50% {
+                opacity: 0.0;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        @-webkit-keyframes blinker {
+            0% {
+                opacity: 1.0;
+            }
+
+            50% {
+                opacity: 0.0;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        @keyframes blinker {
+            0% {
+                opacity: 1.0;
+            }
+
+            50% {
+                opacity: 0.0;
+            }
+
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        .ui-dialog {
+            z-index: 1000 !important;
+            width: auto !important;
+            padding: 0 !important;
+            border: 2px solid #efd1aa !important;
+        }
+
+        .ui-front {
+            z-index: 1000 !important;
+        }
+
+        .ui-widget-overlay {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            opacity: 0.9;
+            z-index: 0 !important;
+        }
+
+
+        #slides {
+            position: relative;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            list-style-type: none;
+        }
+
+        .slide {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 1;
+            -webkit-transition: opacity 1s;
+            -moz-transition: opacity 1s;
+            -o-transition: opacity 1s;
+            transition: opacity 1s;
+        }
+
+        .showing {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .modalButton {
+            text-decoration: none;
+            color: #FFFFFF;
+            background: rgb(32, 93, 177);
+            font-weight: 600;
+        }
+
+             .modalButton:focus {
+                
+                color:rgb(32 103 201);
+                background-color:#ffffff;
+            }
+
+            .modalButton:hover {
+                
+                color: rgb(32 103 201);
+                background-color:#ffffff;
+            }
+
+        .accordionButton {
+            width: 195px !important;
+            margin: 0px !important;
+            text-transform: none !important;
+        }
+
+        .logo {
+            margin: 10px 0 17px 0;
+        }
+	.blogo {
+		
+            margin: 8px 0 0 0;
+        }
+        .logolist {
+            list-style-type: none;
+            margin: 0px;
+            column-count: 2;
+            padding: 1px;
+        }
+
+        .banner_text .title {
+            border: none !important;
+        }
+
+        .demo3 {
+            height: auto !important;
+        }
+
+        footer h2 {
+            border-bottom: #949494 solid 2px;
+        }
+
+        .top-newmenu {
+            height: auto;
+            min-height: 35px;
+        }
+
+        .accordionContent h3 {
+            font-size: 13px;
+            color: #000 !important;
+            font-weight: bold;
+            text-transform: none;
+            border-bottom: #666 dotted 1px !important;
+            width: auto !important;
+        }
+
+        .accordionContent th {
+            text-align: left;
+            border-bottom: #666 dotted 1px !important;
+            width: 52%;
+        }
+.mclosebtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 2px 10px;
+    font-weight: bold;
+}
+    </style>
+<style >
+    .blink_msm {
+        -webkit-animation-name: blinker;
+        -webkit-animation-duration: 3s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-name: blinker;
+        -moz-animation-duration: 3s;
+        -moz-animation-timing-function: linear;
+        -moz-animation-iteration-count: infinite;
+        animation-name: blinker;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+
+    .sr-only {
+position: absolute;
+left: -9999px;
+}
+.newweb{
+background: url(/images/linkback.png);
+    height: 47px;
+    min-width: 100%;    
+    background-repeat: repeat;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px 3px lightgrey;
+	padding: 0 15px;
+}
+
+.slider{width:248px;height:130px;margin:auto;overflow:hidden; position:relative;}
+.slides01{display:flex; width:750px;transition:transform 0.8s ease-in-out;}
+.slides01 div{width: 250px; text-align:center;}
+.slides01 img{flex-shrink:0;}
+.slide-play{position:absolute;    bottom: 11px;
+    left: 95px;}
+.slide-play a{font-size: 16px; cursor: pointer; background: no-repeat; border: 0px; color: #fff;text-decoration: none; padding: 3px; background-color:#545454;}
+
+
+
+</style>
+<style >
+.finPubFormPlus{
+        background: url("/images/plus_Home.png") no-repeat scroll 212px 5px #205DB1;
+        cursor: pointer;
+	background-color: rgb(247, 232, 213) !important;
+    	color: black;
+    }
+.finPubFormMinus {
+    background: url(/images/minus_Home.png) no-repeat scroll 212px 5px #205DB1;
+    cursor: pointer;
+}
+
+    .finIORSFormPlus {
+        background: url("/images/plus_Home.png") no-repeat scroll 212px 5px #205DB1;
+        cursor: pointer;
+        background-color: rgb(247, 232, 213) !important;
+        color: black;
+    }
+
+    .finIORSFormMinus {
+        background: url(/images/minus_Home.png) no-repeat scroll 212px 5px #205DB1;
+        cursor: pointer;
+    }
+
+</style>
+</head>
+<body onload="return (event.keyCode != 13);">
+    <div id="dialog" title="Financial Literacy Week (June 5-9, 2017)" style="text-align: center; display: none;">
+        
+    </div>
+    
+    <form method="post" action="./" id="Form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTk2NTAzNjU1MGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFCUNoZWNrQm94Mb4N0aeA9SymZ06Fk5K1riO8hHC9TBUOZ9N09LTDNnoC" />
+</div>
 
 <script type="text/javascript">
-(function(){
-window["bobcmn"] = "101110101010112000000062000000052000000062000000012a07da9d1200000096200000000200000002300000000300000000300000006/TSPD/300000008TSPD_10130000000cTSPD_101_DID300000005https3000000f008c70ea5e1ab200020135ab8a0fac9c6d00b48bbd0a934bf2409b12d7e2b10b83a0fb2dfc1bc2c60087d22e53e0a48007dc30d86206667a014885a56863396ddd6e9acde5988f5f09524f9f5638a02dc7edd930d6c35ba841d1ffbc8bbb05370c952158347558c577bc527374e308bf6097c38d5a939d997300000002TS200000000200000000";
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
 
-window["failureConfig"] = "524f6f70732e2e2e2e736f6d657468696e672077656e742077726f6e672e2e2e2e20796f757220737570706f72742069642069733a2025444f534c372e6368616c6c656e67652e737570706f72745f6964252e1331313238353631333034393730373537333435062f545350442f171801";window.jkE=!!window.jkE;try{(function(){(function(){var O={decrypt:function(O){try{return JSON.parse(function(O){O=O.split("l");var Z="";for(var S=0;S<O.length;++S)Z+=String.fromCharCode(O[S]);return Z}(O))}catch(S){}}};return O={configuration:O.decrypt("123l34l97l99l116l105l118l101l34l58l34l110l111l34l44l34l100l101l98l117l103l103l105l110l103l34l58l34l110l111l34l44l34l109l111l100l117l108l101l49l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l50l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l51l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l52l34l58l34l101l110l97l98l108l101l100l34l125")}})();
-var ZO=80;try{var SO,iO,jO=z(768)?0:1,LO=z(388)?0:1,Oz=z(514)?0:1,sz=z(863)?0:1,Sz=z(502)?0:1,jz=z(629)?0:1,lz=z(825)?0:1;for(var Lz=(z(234),0);Lz<iO;++Lz)jO+=(z(685),2),LO+=(z(910),2),Oz+=(z(116),2),sz+=z(192)?1:2,Sz+=z(587)?1:2,jz+=(z(607),2),lz+=z(47)?3:2;SO=jO+LO+Oz+sz+Sz+jz+lz;window.Ss===SO&&(window.Ss=++SO)}catch(OZ){window.Ss=SO}var zZ=!0;
-function sZ(O){var Z=60;!O||document[s(Z,178,165,175,165,158,165,168,165,176,181,143,176,157,176,161)]&&document[s(Z,178,165,175,165,158,165,168,165,176,181,143,176,157,176,161)]!==s(Z,178,165,175,165,158,168,161)||(zZ=!1);return zZ}function _(O){var Z=arguments.length,S=[],J=1;while(J<Z)S[J-1]=arguments[J++]-O;return String.fromCharCode.apply(String,S)}function s(O){var Z=arguments.length,S=[];for(var J=1;J<Z;++J)S.push(arguments[J]-O);return String.fromCharCode.apply(String,S)}function _Z(){}
-sZ(window[_Z[I(1086774,ZO)]]===_Z);sZ(typeof ie9rgb4!==I(1242178186119,ZO));sZ(RegExp("\x3c")[I(1372125,ZO)](function(){return"\x3c"})&!RegExp(I(42809,ZO))[I(1372125,ZO)](function(){return"'x3'+'d';"}));
-var iZ=window[_(ZO,177,196,196,177,179,184,149,198,181,190,196)]||RegExp(_(ZO,189,191,178,185,204,177,190,180,194,191,185,180),I(-62,ZO))[I(1372125,ZO)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),lZ=+new Date+(z(607)?463020:6E5),LZ,oZ,zs,Zs=window[s(ZO,195,181,196,164,185,189,181,191,197,196)],_s=iZ?z(781)?35421:3E4:z(655)?8483:6E3;
-document[_(ZO,177,180,180,149,198,181,190,196,156,185,195,196,181,190,181,194)]&&document[_(ZO,177,180,180,149,198,181,190,196,156,185,195,196,181,190,181,194)](_(ZO,198,185,195,185,178,185,188,185,196,201,179,184,177,190,183,181),function(O){var Z=27;document[_(Z,145,132,142,132,125,132,135,132,143,148,110,143,124,143,128)]&&(document[_(Z,145,132,142,132,125,132,135,132,143,148,110,143,124,143,128)]===I(1058781956,Z)&&O[_(Z,132,142,111,141,144,142,143,128,127)]?zs=!0:document[_(Z,145,132,142,132,
-125,132,135,132,143,148,110,143,124,143,128)]===s(Z,145,132,142,132,125,135,128)&&(LZ=+new Date,zs=!1,is()))});function is(){if(!document[_(4,117,121,105,118,125,87,105,112,105,103,120,115,118)])return!0;var O=+new Date;if(O>lZ&&(z(127)?721320:6E5)>O-LZ)return sZ(!1);var Z=sZ(oZ&&!zs&&LZ+_s<O);LZ=O;oZ||(oZ=!0,Zs(function(){oZ=!1},z(283)?0:1));return Z}is();var Is=[z(734)?18933977:17795081,z(64)?27611931586:2147483647,z(464)?1508891854:1558153217];
-function ls(O){var Z=23;O=typeof O===I(1743045653,Z)?O:O[s(Z,139,134,106,139,137,128,133,126)](z(135)?41:36);var S=window[O];if(!S||!S[s(Z,139,134,106,139,137,128,133,126)])return;var J=""+S;window[O]=function(O,Z){oZ=!1;return S(O,Z)};window[O][s(Z,139,134,106,139,137,128,133,126)]=function(){return J}}for(var Ls=(z(86),0);Ls<Is[I(1294399125,ZO)];++Ls)ls(Is[Ls]);sZ(!1!==window[_(ZO,186,187,149)]);window.IZ=window.IZ||{};window.IZ.Oj="08eafd4d7e02000112d70bd77bcf9ffdebd5a3fab37a5ef0ec5ea4667bdb62d2402f310fada8d86efd51df34a2a236a384d70a307b96efca3257ddabcafb8330ce20192a3fd81beb6467dd8078e3c801144afb9ba2efd0c28e0acb3b0095aaa8cda4163826ac49edcdef6a55c445b84dc2288097915316f588359858c7d29e5266f3640adac7a98e57f13ead4ea5f0361d9249abd97e04e3f25681b8a062762495008e6c4df1bc62dfcdae372e8add014757ea709e60fd2b80d0b167a1581ce1980a541c3691def8eed518ca8ec938a13f1a4101ea35b71715bf98f5e9f2c48f3e0aaf8711f16d1fdbd71a0029809a506ef19364ce18ca9c3d9f993626f1b3ec9482e9c60e6d4084";
-function os(O){var Z=+new Date,S;!document[_(4,117,121,105,118,125,87,105,112,105,103,120,115,118,69,112,112)]||Z>lZ&&(z(343)?689139:6E5)>Z-LZ?S=sZ(!1):(S=sZ(oZ&&!zs&&LZ+_s<Z),LZ=Z,oZ||(oZ=!0,Zs(function(){oZ=!1},z(591)?0:1)));return!(arguments[O]^S)}function z(O){return 84>O}function I(O,Z){O+=Z;return O.toString(36)}(function zS(Z){Z&&"number"!==typeof Z||("number"!==typeof Z&&(Z=1E3),Z=Math.max(Z,1),setInterval(function(){zS(Z-10)},Z))})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
 
-})();
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8D0E13E6" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAoNEP+BcYox8bQWoC8cpiq6oRCr7j10BNyMBx5ZdwO4h83IfYFEMdbtkmb6zzJSc2CLrBfuDtX7nV3nL+5njT0xpTvjNMInTm7jDqH04NfPDGQ6cu1iZ73N7YF2NPAmCyQ/q33cCQLgaFQSElESF1pcG6ARGh77hh0/r4ObuL1TAsg3NivnNEt6QsKSovCCK9uFguE6+HxtA+ZzHEk/Ov1NyFS7CWXb7fWiXNUARyoEubrEey+jGqrrtaXxrACY04Q=" />
+</div>
+        <div id="dialogLan" title="" style="text-align: center; display: none;">
+            <div class="title-content">
+                
+                <h2 lang="hi" style="color: rgb(32, 93, 177) !important; font-size: 20px !important; font-weight: bolder !important; border: none; margin-top:35px;">भारतीय रिज़र्व बैंक की आधिकारिक वेबसाइट में आपका स्वागत है </h2>
+                <h2 style="color: rgb(32, 93, 177) !important; font-size: 20px !important; font-weight: bolder !important; border: none; text-transform: none;" id="ui-dialog-title-dialogLan">Welcome to official website of Reserve Bank of India</h2>
+                <br />
+                <br />
+                
+                <span lang="hi" style="color: #923F17; font-size: 1.6em; font-weight: normal; margin: 10px 0 0;">वेबसाइट देखने  के लिए अपनी पसंदीदा भाषा का चयन करें</span><br />
+                <span style="color: #923F17; font-size: 1.6em; font-weight: normal; margin: 10px 0 0;">Select your Preferred Language to Access the Website</span>
+                <br />
+                <div style="margin-top: 20px;">
+                    <span style="z-index: 10001; position: relative; font-size: 13px; font-weight: bold"><input id="CheckBox1" type="checkbox" name="CheckBox1" /><label for="CheckBox1"> मेरा चयनित विकल्प याद रखें / Remember my choice</label></span>
+                </div>
+                <br />
+                <div class="nav-four" style="margin: 0 auto; text-align: center; color: white;">
+                    <button id="Button1" type="button" class="modalButton" style="padding: 7px 5%; font-size: 14px;" onclick="return setHindi();" aria-label="Website in Hindi" title="Website in Hindi">हिंदी</button>
+                    <button id="Button2" type="button" class="modalButton" style="padding: 8px 2.5%; margin-left: 11%; font-size: 14px;" onclick="return setEnglish();" aria-label="Website in English" title="Website in English">English</button>
+                </div>
+		<button id="btnClose" type="button" title="Close Dialog" class="mclosebtn"  onclick="javascript:jQuery('#dialogLan').dialog('close');" aria-label="close dialog"><span aria-hidden="true"> X</span></button>
+            </div>
+
+        </div>
+
+        
+<script  src="/js/libs/jquery.min.js"></script>
+<script  src="/JQuery/ui/jquery.ui.revampRBI.js"></script>
+
+<script >
+
+
+    //Redirect to mobile site start
+    function detectmob() {
+        if (screen.width <= 599 || screen.Height <= 975) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    if (detectmob()) {
+        window.location.href = "https://m.rbi.org.in" + window.location.pathname;
+
+
+    }
+    //Redirect to mobile site End
+    $(document).ready(function () {
+        Search();
+    });
+
+    function Search() {
+        highlightTextAutocomplete();
+        $(".autoSuggest").autocomplete({
+
+
+            source: function (request, response) {
+                var param = { keyWord: document.getElementById('txtSearch1').value };
+
+		var strSearch = trim(document.getElementById('txtSearch1').value);
+                var strFilterChars = new RegExp("^[0-9a-zA-Z ]*$");
+                if (!strFilterChars.test(strSearch)) {
+                    alert("Please remove special characters from search text");
+			document.getElementById('txtSearch1').value='';
+			return;
+                }
+                else{
+
+                $.ajax({
+                    url: "../Home.aspx/GetKeywords",
+                    data: JSON.stringify(param),
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    dataFilter: function (data) { return data; },
+                    success: function (data) {
+
+                        if (data.d.length > 0) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    value: RemoveSpecialChars(item)
+
+                                }
+                            }))
+                        }
+                        else {
+                            response([{ label: "No results found", value: "" }]);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                       
+                    }
+                });
+	      }
+            },
+
+          
+            minLength: 3
+
+        });
+    }
+
+    function highlightTextAutocomplete() {
+
+        var oldFn = $.ui.autocomplete.prototype._renderItem;
+
+        $.ui.autocomplete.prototype._renderItem = function (ul, item) {
+
+            var t = String(item.value).replace(
+                new RegExp(this.term, "gi"),
+                "<span class='ui-state-highlight'>$&</span>");
+            if (item.value != "") {
+                return $("<li class='borderAutocomplete'></li>")
+                  .data("item.autocomplete", item)
+                  .append("<a role='link'>" + t + "</a>")
+                  .appendTo(ul);
+            }
+
+            else {
+                return $("<li></li>")
+                  .data("item.autocomplete", item)
+                  .append("")
+                  .appendTo(ul);
+            }
+        };
+    }
+
+    function RemoveSpecialChars(inputText) {
+        var filteredString = inputText.replace(/[\*\^\'\!\@\$\.\#\(\)\-\?\<\>\;\"\&\+\{\}\:]/g, '');        
+        return filteredString;
+    }
+
+</script>
+<header>
+<div class="top_setting">
+    <div class="container_12">
+        <div class="grid_5 top_settings">
+            <a href="#mainsection" aria-label="Skip to main content">Skip to main content </a><span >
+                | </span><span id="TimeInfo"></span>
+           
+        </div>
+        <div id="UsrFontCntr_tblThemes" style="float: right" class="grid_4 prefix_3 top_settings">
+		<ul style="margin:0px;padding:0px;">
+           <li class="fonts"> 
+                <a id="UsrFontCntr_LinkBtnSpace" role="button" title="Increase Letter Spacing" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnSpace&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/letspace.png" alt="Increase Letter Spacing" />
+                                <span id="UsrFontCntr_spanBtnSpace" class="sr-only">Not Pressed</span></a>                                
+            </li>
+            <li class="fonts">
+                <a id="UsrFontCntr_LinkBtnFontIncrease" role="button" title="Increase Font Size" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnFontIncrease&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/font-increase.gif" alt="Increase Font Size" />
+                    
+                </a>
+            </li>
+            <li class="fonts">
+                <a id="UsrFontCntr_LinkBtnFontRegular" role="button" title="Regular Font Size" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnFontRegular&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/font-reset.gif" alt="Regular Font Size" />
+                    
+                </a>
+            </li>
+            <li class="fonts">
+                <a id="UsrFontCntr_LinkBtnFontDecrease" role="button" title="Decrease Font Size" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnFontDecrease&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/font-decrease.gif" alt="Decrease Font Size" />
+                    
+                </a>
+            </li></ul>
+		    <ul style="margin:0px;padding:0px;">
+            <li class="black">
+                <a id="UsrFontCntr_LinkBtnAccessibilty" role="button" title="Apply Dark Theme" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnAccessibilty&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/dark-theme.gif" alt="Apply Dark Theme" />
+                    
+                </a>
+            </li>
+            <li class="white">
+                <a id="UsrFontCntr_LinkBtnUndoAccessibilty" role="button" title="Apply Normal Theme" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnUndoAccessibilty&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/bright-theme.gif" alt="Apply Normal Theme" />
+                    
+                </a>
+            </li>
+
+    <li class="white">
+            <a id="UsrFontCntr_LinkBtnGreyScale" role="button" title="Apply Grey Theme" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnGreyScale&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/graytheme.gif" alt="Apply Grey Theme" />
+                                
+                                </a></li>
+		</ul>
+		<div>
+                <a href="#" onclick="javascript:window.print();" id="A1" title="Print This Page" role="button">
+                <img src="/images/print-icon.png" alt="Print this page" class="print" />
+            </a></div>
+            <div style="float: right">
+                <label style="margin-right: 6px; ">
+                    Change Language </label>
+              
+                <a href="#" onclick="SetLink();" class="link1"  title="Change language to Hindi">हिंदी</a>
+            </div>
+           
+        </div>
+        
+        <div class="clearfix">
+        </div>
+    </div>
+</div>
+
+<div class="container_12">
+    <div class="grid_4" >
+        
+        <div class="logo">
+            <a href="home.aspx"  >
+            <img src="/images/rbi-company-logo.jpg"  alt="Logo of Official website of Reserve Bank of India" /></a>
+        </div>
+
+    </div>    
+
+    <div class="grid_5" role="search" style="float: right; text-align:right;">
+        <label for="searchbox" class="search_label">
+            Search the Website</label>
+        <input name="UsrFontCntr$txtSearch1" type="text" maxlength="103" id="txtSearch1" class="search_box autoSuggest" title="Search the Website" aria-label="Search the Website" onkeydown="return LoadSearchData(&#39;txtSearch1&#39;,event.keyCode);" placeHolder="Search" />
+        <button id="btnSearch" onclick="return LoadSearchData('btnSearch',event.keyCode);"
+            type="button" class="search_button">
+            Search</button>
+    </div>
+
+	<div class="grid_2"  style="float: right;text-align:center;">
+        <div class="blogo">
+           
+            <img src="images/BBBP_Logo_4.png" style="width:47%;" alt="Beti Bachao Beti Padhao Logo">
+        </div>
+    	</div>
+
+    <div class="clearfix">
+    </div>
+</div>
+</header>
+<!--  NAVIGATION START-->
+<nav aria-label="Main">
+     <div class="menu"><div class="centermenu">
+<ul class="menu">
+  <li><a href="https://rbi.org.in/home.aspx">Home</a></li>
+<li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-Sub1">About Us ▼</a>
+ <ul class="submenu1" id="Ab-Sub1" >
+	 <li><a href="../scripts/AboutUsDisplay.aspx">About Us</a></li>
+     <li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-org">Organisation & Functions <span aria-hidden="true">▶</span></a>
+		 <ul class="submenu1" id="Ab-org">             
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=OrganizationStructure.htm">Organisation Structure</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=Depts.htm">Departments</a></li>
+            <li><a href="../scripts/Regionaloffices.aspx">Offices</a></li>
+			<li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-tra">Training Establishment <span aria-hidden="true">▶</span></a>                
+				<ul class="submenu1" id="Ab-tra">
+                    <li ><a href="https://cab.rbi.org.in" target="_blank" >College of Agricultural Banking</a></li>
+                    <li ><a href="../scripts/rbsc.aspx" id="CBNotifications">Reserve Bank Staff College</a></li>
+					<li ><a href="https://cos.rbi.org.in/" id="CBSupervisors" target="_blank">College of Supervisors</a></li>
+                </ul>
+            </li>
+            <li><a href="../scripts/OccasionalPublications.aspx?head=RBI%27s%20Functions%20and%20Working">RBI's Functions and Working</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=PastGovernors.htm">Governors</a></li>
+			<li><a href="../scripts/AboutUsDisplay.aspx?pg=deputygovernors.htm">Deputy Governors</a></li>
+			<li><a href="../scripts/AboutUsDisplay.aspx?pg=ExecutiveDirectors.htm">Executive Directors</a></li>
+        </ul>		
+	 </li>
+<li><a href="../scripts/AboutUsDisplay.aspx?pg=MediaKit.htm">Media Kit</a></li>
+	 <li><a href="../scripts/CommunicationPolicy.aspx">Communication Policy of RBI</a></li>
+	 
+     <li>
+        <a href="#" aria-expanded="false" role="button" aria-controls="Ab-soi">Sources of Information <span aria-hidden="true">▶</span></a>
+        <ul class="submenu1" id="Ab-soi">
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#AP">Annual Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#HP">Half-yearly Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#QP">Quarterly Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#MP">Monthly Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#WP">Weekly Publications</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#OP">Occasional Publications</a></li>
+            <li><a href="../scripts/SDDSview.aspx">SDDS</a></li>
+            <li><a href="../scripts/BS_NSDPDisplay.aspx">NSDP</a></li>
+            <li><a href="../scripts/Statistics.aspx">Data Releases</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#PS">Publications available on Subscription</a></li>
+            <li><a href="../scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#GI">General Information</a></li>	  
+        </ul>
+     </li>  
+	 <li><a href="../scripts/Project1.aspx">RBI History</a></li>
+	 <li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-mus">Museum <span aria-hidden="true">▶</span></a>
+		<ul class="submenu1" id="Ab-mus">
+			<li><a href="https://therbimuseum.rbi.org.in/" target="_blank">The RBI Museum</a></li>
+			<li><a href="../scripts/ic_museum.aspx">RBI Monetary Museum</a></li>
+         </ul>
+	 </li>
+</ul>
+</li>
+  <li>
+    <a href="#" aria-expanded="false" role="button" aria-controls="No-Sub1">Notifications ▼</a>
+    <ul class="submenu1" id="No-Sub1">
+      <li><a href="../Scripts/NotificationUser.aspx">Notifications </a></li>
+             <li><a href="../Scripts/BS_ViewMasterDirections.aspx">Master Directions </a></li>
+             <li><a href="../Scripts/BS_ViewMasterCirculardetails.aspx">Master Circulars </a></li> 
+	     <li><a href="../Scripts/Fs_AmendmentDirections.aspx">Amendment Directions </a></li> 
+	     <li><a href="#" aria-expanded="false" role="button" aria-controls="No-draft">Draft Notifications/Guidelines <span aria-hidden="true">▶</span></a>
+		<ul class="submenu1" id="No-draft">
+			<li><a href="../Scripts/DraftNotificationsGuildelines.aspx">Draft Notifications/Guidelines</a></li>
+			<li><a href="../Scripts/BS_ViewREwiseDraftDirections.aspx">Draft Directions (RE-wise)</a></li> 
+         	</ul>
+	     </li>
+                    
+             <li><a href="../Scripts/BS_CircularIndexDisplay.aspx">Index To RBI Circulars </a></li> 
+             <li><a href="../Scripts/BS_ViewListofstandalonecirculars.aspx">Standalone Circulars </a></li>
+             <li><a href="../Scripts/NotificationUserWithdrawnCircular.aspx">Circulars Withdrawn </a></li>
+
+      
+    </ul>
+  </li>
+
+  <li><a href="../Scripts/BS_PressReleaseDisplay.aspx">Press Releases</a></li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="Sp-Sub1">Speeches & Media Interactions ▼</a>
+	<ul class="submenu1" id="Sp-Sub1">
+	  <li><a href="../Scripts/BS_ViewSpeeches.aspx">Speeches</a></li>
+      <li><a href="../Scripts/BS_ViewInterviews.aspx">Media Interactions</a></li>
+      <li><a href="../Scripts/Lectures.aspx">Memorial Lectures</a></li>
+      <li><a href="../Scripts/BS_ViewPodcast.aspx">Podcasts</a></li>
+	</ul>
+  </li>
+  <li><a href="#"  aria-expanded="false" role="button" aria-controls="Pu-Sub1">Publications ▼</a>
+		<ul class="submenu1" id="Pu-Sub1">
+			<li><a href="../Scripts/Publications.aspx?publication=Biennial">Biennial</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Annual">Annual</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=HalfYearly">Half-Yearly</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Quarterly">Quarterly</a></li>
+		    <li><a href="../Scripts/Publications.aspx?publication=Bimonthly">Bi-monthly</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Monthly">Monthly</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Weekly">Weekly</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Occasional">Occasional</a></li>
+            <li><a href="../Scripts/Publications.aspx?publication=Reports">Reports</a></li>
+		    <li><a href="../Scripts/OccasionalPublications.aspx?head=Working%20Papers">Working Papers</a></li>
+		</ul>
+	</li>				  
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="Le-Sub1">Legal Framework ▼</a>
+	<ul class="submenu1" id="Le-Sub1">
+	   <li><a href="../Scripts/Act.aspx">Act </a></li>
+       <li><a href="../Scripts/Rules.aspx">Rules </a></li>
+       <li><a href="../Scripts/Regulations.aspx">Regulations </a></li> 
+       <li class="last"><a href="../Scripts/Schemes.aspx">Schemes </a></li>
+	   </ul>
+  </li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="Re-Sub1">Research ▼</a>
+		<ul class="submenu1" id="Re-Sub1">
+			<li><a href="/Scripts/ExternalResearchSchemes.aspx">External Research Schemes</a></li>
+			<li><a href="/Scripts/OccasionalPapers.aspx">RBI Occasional Papers</a></li>
+			<li><a href="/Scripts/OccasionalPublications.aspx?head=Working%20Papers">Working Papers</a></li>
+			<li><a href="/Scripts/BS_ViewBulletin.aspx">RBI Bulletin</a></li>
+			<li><a href="/Scripts/Project1.aspx">History</a></li>
+			<li><a href="/Scripts/Occas_DRG_Studies.aspx">DRG Studies</a></li>
+			<li><a href="/Scripts/KLEMS.aspx">KLEMS</a></li>
+			<li class="last"><a href="/Scripts/StateStatisticsFinances.aspx">State Statistics and Finances</a></li>
+        </ul>
+  </li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="St-Sub1">Statistics ▼</a>
+		<ul class="submenu1" id="St-Sub1">
+		  <li><a href="../Scripts/Statistics.aspx">Data Releases</a></li>
+          <li><a href="https://data.rbi.org.in" target="_blank">Database on Indian Economy</a></li>
+          <li><a href="../scripts/FS_PDS.aspx">Public Debt Statistics</a></li>
+		</ul> 
+  </li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="St-Sub1">Regulatory Reporting ▼</a>
+		<ul class="submenu1">
+			<li><a href="../scripts/BS_Listofallreturns.aspx">List of Returns</a></li>
+			<li><a href="../scripts/DataDefinition.aspx">Data Definition</a></li>
+			<li><a href="../scripts/ValidationRules.aspx">Validation rules/ Taxonomy</a></li>
+			<li><a href="../scripts/ReportingPlaform.aspx">List of RBI Reporting Portals</a></li>
+			<li class="last"><a href="../scripts/ReportingFAQ.aspx">FAQs of RBI Reporting Portals</a></li>
+		</ul>
+   </li>
+</ul>
+</div></div>
+
+</nav>
+<!--  NAVIGATION END-->
+<!--HEADER END-->
+<!--SLIDESHOW START-->
+<main>
+<div class="container_12">
+    <!-- slideshow -->
+    <div class="grid_12 slideshow">
+        <div id="demo3" class="demo3">
+	   <div class="slider" style="float:left;margin-left: 20px;">
+                 <div class="slides01" style="transform: translateX(-500px);">
+                     <div>
+                    <img src="../images/Slide-01.png" alt="Mumbai Regional office old building"></div>
+                    <div> <img src="../images/Slide-02.png" alt="Delhi Regional office building"></div>
+                    <div> <img src="../images/Slide-03.png" alt="Mumbai Regional office new building"></div>
+                
+                 </div>
+                 <span class="slide-play">
+                      <a href="#" onclick="playSlider()" title="Play Banner Image">►</a>
+                      <a href="#" onclick="pauseSlider()" title="Pause Banner Image">⏸</a>
+                 </span>
+            </div>
+
+            <div class="banner_text">
+               
+                <h1 class="sr-only">Home-Reserve Bank of India</h1>
+                <h2 class="title" style="color:black;">PREAMBLE </h2>
+
+                <p class="txt" style="text-align: justify; padding-right: 1em;color:black;">
+                    “to regulate the issue of Bank notes and keeping of reserves with a view to securing
+                    monetary stability in India and generally to operate the currency and credit system
+                    of the country to its advantage; to have a modern monetary policy framework to meet
+                    the challenge of an increasingly complex economy, to maintain price stability while
+                    keeping in mind the objective of growth.”
+                </p>
+            </div>
+            
+		
+        </div>
+    </div>
+    <!-- /slideshow -->
+</div>
+
+<!--SLIDESHOW END-->
+<!--WEB TICKER START-->
+<div class="container_12">
+
+        <div class="grid_12">
+            <div id="marquee" class="grid_12 alpha omega ticker">
+               
+                </div>
+               
+            <div class="clearfix"></div>
+        </div>
+
+</div>
+
+
+<script >
+
+     function SetLink() {
+        
+        var txt="This will lead you to Hindi (हिन्दी) language website. Are you sure you want to switch to this language?"
+        if(window.confirm(txt)==true){
+            //document.cookie = 'preferLang' + '=;secure; expires=Thu, 01-Jan-70 00:00:01 GMT;path=/;';
+            window.location.replace("https://www.rbi.org.in/hindi/");
+        }
+        else 
+        {
+            event.preventDefault();
+            return false;
+        }
+        
+    }
+
+    
+
+    $(document).ready(function () {        
+       
+    });
+    function changemarquee() {
+        document.getElementById("marquee").innerHTML = "<marquee scrollamount=\"5\" onmouseover=\"stop();\"  onmouseout=\"start();\" style=\"color:white\">&nbsp;&nbsp;<a target=\"_blank\" href=\"https://youtube.com/live/PAa-wdH__8k?feature=share\">Live telecast of Monetary Policy statement by RBI Governor at 10:00 AM on October 01, 2025</a></marquee>";
+    }
+
+
+
+	const allMenuItems = document.querySelectorAll("nav ul li");
+	
+	allMenuItems.forEach(item => {
+		item.addEventListener("focusin", (event) => {	
+			const MenuText =event.target.textContent;
+			const allMenuItems1 = document.querySelectorAll(".hasSubmenu");
+			allMenuItems1.forEach(item1 => {
+				if (MenuText === 'Press Releases')
+				{	
+					
+					item1.classList.remove('focused');
+					rollback(item1)
+					item1.classList.remove('open');
+				}
+			});
+			
+		});
+	});
+
+
+const menuItems = document.querySelectorAll(".hasSubmenu");
+menuItems.forEach(item => {
+	item.addEventListener("mouseenter", (event) => {
+		item.className="hasSubmenu open focused"
+		expandThis(item);
+	});
+	item.addEventListener("mouseleave", (event) => {		
+		rollback(item)
+		item.className="hasSubmenu"
+	});
+	item.addEventListener("focusin", (event) => {		
+		const allMenuItems = document.querySelectorAll("nav ul li");
+		allMenuItems.forEach(item1 => {
+			item1.classList.remove('focused');
+			if(item!==item1)
+			rollback(item1)
+			item1.classList.remove('open');	
+		});							
+		item.classList.add('focused');
+	});
+	item.addEventListener("focusout", (event) => {
+		
+		if(!item.className.includes('focused')){
+		
+		rollback(item)
+		item.className="hasSubmenu"
+		}
+		item.classList.remove('focused');
+		item.classList.remove('open');
+	});
+
+    item.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+		if(item.className.includes("hasSubmenu open")){
+			rollback(item)
+			item.className="hasSubmenu"
+		}
+		else{
+          	item.className="hasSubmenu open focused"
+		var ele=item.querySelectorAll("a")[0];
+		
+		expandThis(item);	
+		}
+				
+        }
+	
+    });
+	
+});
+function expandThis(menu){
+ var $targetul = $(menu).children("ul:eq(0)")
+				    if ($targetul.queue().length <= 1) 
+				        if (this.istopheader)
+					$targetul.css({ left: $(this).children('a').eq(0).position().left, top: $mainmenu.position().top + this._dimensions.h - 2 })
+				            
+				    if (document.all && !window.XMLHttpRequest) 
+				        $mainmenu.find('ul').css({ overflow: (this.istopheader) ? 'hidden' : 'visible' })
+					
+					
+				    $targetul.dequeue().stop(true, true).slideDown(droplinemenu.animateduration.over)
+}
+const menuItemsf = document.querySelectorAll("nav .midmenu ul li");
+
+menuItemsf.forEach(item => {
+    item.addEventListener("keydown", (event) => {
+	
+	if(item.className.includes("last") ){
+		 if (pressedKeys['shift'] && event.key === "Tab"){}else{
+		var lastItem = document.getElementsByClassName('hasSubmenu open');
+		rollback(lastItem[0])
+		lastItem[0].className="hasSubmenu";
+		}
+	}
+	
+	});
+	
+	});
+	
+
+function rollback(menu){
+ var $targetul = $(menu).children("ul:eq(0)")
+$targetul.dequeue().stop(true, true).slideUp(droplinemenu.animateduration.out);
+
+}
+
+
+
+function setLetterSpace(val) {
+    
+	
+    if (false) {
+                    document.body.setAttribute("style", "letter-spacing:1px; line-height:20px; word-spacing:2px;");
+       
+    }
+    else {
+                    document.body.removeAttribute("style");
+    }
+    return false;
+
+    
+    }
+   
+
+ //image slider 
+ let slides01 = document.querySelector(".slides01");
+    let total = document.querySelectorAll(".slides01 div").length;
+    let index = 0;
+    let interval = null;
+
+    function showSlide() {
+        slides01.style.transform = `translateX(-${index * 250}px)`;
+        index = (index + 1) % total;
+
+    }
+
+    function playSlider() {
+        if (!interval) {
+            interval = setInterval(showSlide, 2000);
+        }
+    }
+
+    function pauseSlider() {
+        clearInterval(interval);
+        interval = null;
+    }
+
+    // Auto play on load
+    playSlider();
+
+
+// Toggle submenu
+    document.querySelectorAll('.menu li > a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const submenu = this.nextElementSibling;
+
+            if (submenu && submenu.classList.contains('submenu1')) {linkMessage();
+                e.preventDefault();
+                e.stopPropagation();
+
+                const parentLi = this.parentElement;
+
+                // Close sibling menus ONLY (not entire menu)
+                closeSiblings(parentLi);   
+ 
+
+                
+ 
+                const isExpanded=link.getAttribute('aria-expanded') ==='true';
+                link.setAttribute('aria-expanded',!isExpanded);
+                submenu.hidden=isExpanded;
+                
+                submenu.setAttribute('aria-hidden', isExpanded);
+                setTimeout(()=>{
+                    // Toggle current submenu
+                    submenu.classList.toggle('show', !isExpanded);
+            },50);
+
+        }
+        });
+    });
+
+    //  Close only sibling menus (important fix)
+    function closeSiblings(currentLi) {
+        const siblings = currentLi.parentElement.children;
+
+        Array.from(siblings).forEach(li => {
+            if (li !== currentLi) {
+            const submenus = li.querySelectorAll('.submenu1');
+        submenus.forEach(menu => menu.classList.remove('show'));
+    }
+    });
+    }
+
+    //  Click outside → close all
+    document.addEventListener('click', function () {
+		
+        document.querySelectorAll('.menu li > a').forEach(menu => {
+		if(menu.hasAttribute('aria-expanded')){
+            menu.setAttribute('aria-expanded','false');
+		}
+	
+    });
+
+    document.querySelectorAll('.submenu1').forEach(menu => {
+        menu.setAttribute('aria-hidden','true');
+    menu.classList.remove('show');
+	
+
+    });
+    });
+
+    //  Prevent closing when clicking inside menu
+    document.querySelector('.menu').addEventListener('click', function (e) {linkMessage();
+        e.stopPropagation();
+    });
+
+
+    //  Keyboard support
+    document.querySelectorAll('.menu li > a').forEach(link => {
+        link.addEventListener('keydown', function (e) {
+            const submenu = this.nextElementSibling;
+
+            if ((e.key === 'Enter' || e.key === ' ') && submenu) {
+                e.preventDefault();
+
+                const parentLi = this.parentElement;
+                closeSiblings(parentLi);
+
+
+                const isExpanded=link.getAttribute('aria-expanded') ==='true';
+                link.setAttribute('aria-expanded',!isExpanded);
+                submenu.hidden=isExpanded;
+                submenu.setAttribute('aria-hidden', isExpanded);
+                setTimeout(()=>{
+                    // Toggle current submenu
+                    submenu.classList.toggle('show', !isExpanded);
+            },50);
+
+
+            
+        }
+
+          if (e.key === 'Escape') {
+        document.querySelectorAll('.submenu').forEach(menu => {
+            menu.classList.remove('show');
+    });
+    this.blur();
+    }
+    });
+    });
+    // When focusing main menu items → close other submenus
+    document.querySelectorAll('.menu > li > a').forEach(item => {
+        item.addEventListener('focus', function() {
+
+            document.querySelectorAll('.submenu1').forEach(menu => {
+                // keep only the submenu that belongs to this item (if any)
+                if (menu !== this.nextElementSibling) {
+                
+
+            document.querySelectorAll('.menu li > a').forEach(menu => {
+                if(menu.hasAttribute('aria-expanded'))
+                menu.setAttribute('aria-expanded','false');
+		
+            document.querySelectorAll('.submenu1').forEach(menu => {
+                menu.setAttribute('aria-hidden','true');
+            
+            // Toggle current submenu
+            menu.classList.remove('show');
+           
+
+
+        });
+
+	
+    });
+
+    }
+    });
+
+    });
+    });
+
+    //  Close submenu when focus leaves it (TAB navigation)
+    document.querySelectorAll('.menu li').forEach(li => {
+        li.addEventListener('focusout', function (e) {
+            // Check if focus is still inside this <li>
+            if (!li.contains(e.relatedTarget)) {
+                const submenu = li.querySelector('.submenu1');
+                if (submenu) {
+                    submenu.classList.remove('show');
+                    if(li.querySelector('a').hasAttribute('aria-expanded'))
+                        li.querySelector('a').setAttribute('aria-expanded','false');
+	
+
+                    submenu.setAttribute('aria-hidden','true');
+                }
+            }
+        });
+    });
+   
+
+    function LoadSearchData(id, key) {
+        if (id == "txtSearch1") {
+            if (key == 13) {
+                validateSearchText();
+                return false;
+            }
+        }
+        else validateSearchText();
+        return true;
+    }
+    function validateSearchText() {
+        if (validation()) {
+            var strloc = new String(document.location.href.toString());
+            if (strloc.indexOf("SearchResults.aspx") == -1) {//             
+                window.open("/scripts/SearchResults.aspx?search=" + document.getElementById("txtSearch1").value,"_self");
+            }
+            else window.open("/scripts/SearchResults.aspx?search=" + document.getElementById("txtSearch1").value,"_self");
+        }
+    }
+    function validation() {
+        strSearch = trim(document.getElementById('txtSearch1').value);
+        if (strSearch == "") { alert('Please enter the search text'); return false; }
+        else {
+           
+            var strFilterChars = new RegExp("^[0-9a-zA-Z ]*$");
+            if (!strFilterChars.test(strSearch)) { alert("Please remove special characters from search text"); return false; }
+        }
+        return true;
+    }
+    function trim(value) {
+        value = value.replace(/^\s+/, '');
+        value = value.replace(/\s+$/, '');
+        return value;
+    }
 
 </script>
 
-<script type="text/javascript" src="/TSPD/08c70ea5e1ab20003f19b359353e99d2558c4605544209f81048087195aed5a0d829b1f8b2597cb9?type=5"></script>
-<noscript>Please enable JavaScript to view the page content.<br/>Your support ID is: 1128561304970757345.<link rel="stylesheet" href="/TSPD/?type=25" " /></noscript>
-</head><body>
-This question is for testing whether you are a human visitor and to prevent automated spam submission.
-<br>
-<img src="data:image/png;base64,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" alt="Red dot" /> <audio id="captcha_audio"> <source src="data:audio/mpeg;base64,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">Audio is not supported in your browser.</audio><img onclick="document.getElementById('captcha_audio').play()" src="data:image/png;base64,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" style="cursor: pointer;" /> <a href="#" id="bottle"> 
-<img src="data:image/png;base64,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" alt="bottle" class="thumbnails" /></a>
+        <div class="container_12">
+            <div>
+            <!--  CURRENT RATES START-->
+            
+                <a id="mainsection" href="#"></a>
+                <div class="grid_3">
+   
 
-<br>
-<b>What code is in the image?</b>
-<input type = "text" id="ans" name = "answer" value = "" />
+		<h2 style="text-transform: none;">1. <span class="blue">Current</span> Rates</h2>
+           
+                <div id="wrapper">
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Policy&nbsp; Rates</a>
+    </h3>
+    <div class="accordionContent">
+        <table style="border-collapse:collapse; border:0;">
+            <tr>
+                <th>
+                    Policy Repo Rate
+                </th>
+                <td>
+                    :
+                    5.50%
+                </td>
+            </tr>
 
-<br>
-<button id="jar" type="button">submit</button>
+            <tr>
+                <th>
+                    Standing Deposit Facility Rate
+                </th>
+                <td>
+                    :
+                    5.25%
+                </td>
+            </tr>
 
-<br>
-<br>
-Your support ID is: 1128561304970757345 .</body></html>
+            <tr>
+                <th>
+                    Marginal Standing Facility Rate
+                </th>
+                <td>
+                    :
+                    5.75%
+                </td>
+            </tr>
+            <tr>
+                <th style="width:50%">
+                    Bank Rate
+                </th>
+                <td style="width:50%">
+                    :
+                    5.75%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Fixed Reverse Repo Rate
+                </th>
+                <td>
+                    :
+                    3.35%
+                </td>
+            </tr>
+           
+
+
+        </table>
+    </div>
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Reserve &nbsp;Ratios</a>
+    </h3>
+    <div class="accordionContent">
+        <table style="border-collapse:collapse; border:0; width:100%;">
+            <tr>
+                <th style="width:50%">
+                    CRR
+                </th>
+                <td style="width:50%">
+                    :
+                    3.00%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    SLR
+                </th>
+                <td>
+                    :
+                    18.00%
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Exchange &nbsp;Rates</a>
+    </h3>
+    <div class="accordionContent">
+        <table style="border-collapse:collapse; border:0; width:100%;">
+
+            <tr>
+                <th style="width:65%">
+                    INR / 1 USD
+                </th>
+                <td>
+                    :
+                    92.7968
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    INR / 1 GBP
+                </th>
+                <td>
+                    :
+                    121.7905
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    INR / 1 EUR
+                </th>
+                <td>
+                    :
+                    102.0403
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    INR / 100 JPY
+                </th>
+                <td>
+                    :
+                    58.3900
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    INR / 1 AED
+                </th>
+                <td>
+                    :
+                    25.2656
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    INR / 10000 IDR
+                </th>
+                <td>
+                    :
+                    51.0000
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    INR / 1 RUB*
+                </th>
+                <td>
+                    :
+                    1.1323
+                </td>
+            </tr>
+
+
+        </table>
+        <div>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="subText"> (As at 1.00pm of November 23, 2026) </span>
+            </div>
+
+            <div style="border-bottom:1px dotted #333;">
+                <span class="subText"> *(As at 3.00pm of November 23, 2026)</span>
+            </div>
+
+            <div style="border-bottom:1px dotted #333;">
+                <span class="subText"> (Source : FBIL) </span><br />
+            </div>
+            <div style="border-bottom:1px dotted #333;">
+                <a class="link1" href="/scripts/ReferenceRateArchive.aspx" style="float: right;">Archives</a>
+            </div>
+        </div>
+            
+        
+    </div>
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Lending / Deposit &nbsp;Rates</a>
+    </h3>
+    <div class="accordionContent">
+        <table style="border-collapse:collapse; border:0; width:100%;">
+            <tr>
+                <th style="width:52%">
+                    Base Rate
+                </th>
+                <td>
+                    :
+                    8.40% - 10.00%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    MCLR (Overnight)
+                </th>
+                <td>
+                    :
+                    7.85% - 8.10%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Savings Deposit Rate
+                </th>
+                <td>
+                    :
+                    2.50%
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Term Deposit Rate > 1 Year
+                </th>
+                <td>
+                    :
+                    6.00% - 6.80%
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3 class="accordionButton">
+        <a href="javascript:void(0);" aria-expanded="false" role="button">Market&nbsp; Trends</a>
+    </h3>
+    <div class="accordionContent">
+        <h3>Money Market</h3>
+        <div>
+            <table style="border-collapse:collapse; border:0; width:100%;">
+
+                <tr>
+                    <th style="width:45%">Call Rates</th>
+                    <td>
+                        :
+                        -%
+                        *
+                    </td>
+                </tr>
+            </table>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="red">*</span><span class="subText"> as on <!--January 27, 2026--> November 22, 2026</span>
+            </div>
+        </div>
+       
+
+
+        <h3>Government Securities Market</h3>
+        <div>
+            <table style="border-collapse:collapse; border:0; ">
+                <tbody>
+                    <tr>
+                        <th>
+                            6.20% GS 2029
+                        </th>
+                        <td>: 6.9010% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            6.53% GS 2031
+                        </th>
+                        <td>: 7.1269% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            6.94% GS 2036
+                        </th>
+                        <td>: 7.2629% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            7.06% GS 2041
+                        </th>
+                        <td>: 7.4387% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            7.63% GS 2056
+                        </th>
+                        <td>: 7.7409% #</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            91 day T-bills
+                        </th>
+                        <td>
+                            :
+                            5.8602%*
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            182 day T-bills
+                        </th>
+                        <td>
+                            :
+                            6.5300%*
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            364 day T-bills
+                        </th>
+                        <td>
+                            :
+                            6.6300%*
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="red">*</span><span class="subText"> cut-off at the last auction</span>
+            </div>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="red">#</span><span class="subText"> as on <!--January 27, 2026--> November 19, 2026 </span>
+            </div>
+        </div>
+       
+
+        <h3>
+            Capital Market
+        </h3>
+        <div>
+            <table style="border-collapse:collapse; border:0; ">
+                <tr>
+                    <th>
+                        S&P BSE Sensex
+                    </th>
+                    <td>
+                        :
+                        83919.71
+                        *
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Nifty 50
+                    </th>
+                    <td>
+                        :
+                        25800.60
+                        *
+                    </td>
+                </tr>
+               
+            </table>
+            <div style="border-bottom:1px dotted #333;">
+                <span class="red">*</span><span class="subText"> as on <!--January 27, 2026--> November 20, 2026</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+
+        $(".subText").css('font-size', '14px !important');
+
+/*changemarquee();*/
+
+    });
+
+function changemarquee() {
+         document.getElementById("marquee").innerHTML = "<marquee scrollamount=\"5\" onmouseover=\"stop();\"  onmouseout=\"start();\" style=\"color:white\">&nbsp;&nbsp;<a target=\"_blank\" href=\"https://www.youtube.com/live/IZwc7rT_us0?si=BvkfM3LvjKMaF-2f\">Live telecast of Post Policy Press Conference at 12:00 noon on Wednesday, October 07, 2026 </a></marquee>";
+    }
+</script>
+
+		<div>&nbsp;</div>
+                    <h2 style="text-transform: none;">2.<span class="blue">Connect </span>2 Regulate</h2>
+                <div class="RegEntButton"><a href="https://www.rbi.org.in/scripts/Bs_Connect2Regulate.aspx">Connect 2 Regulate</a></div>
+                     <div>&nbsp;</div>
+                <h2 style="text-transform: none;">3. <span class="blue">RBI </span>Regulated Entities</h2>
+                <div class="RegEntButton"><a href="https://www.rbi.org.in/scripts/FinancialAgents.aspx">RBI Regulated Entities</a></div>
+                    <div>
+                    <ul class="logolist" >
+<li>
+<a href="https://cms.rbi.org.in" target="_blank">
+<img src="../images/Lodgecomplaint_New_15092025.png" style="height: 107px;width: 105px;margin: 0px 9px 4px 7px;" alt="Reserve Bank of India Lodge a complaint">
+</a>
+</li>
+<li>
+<a href="https://www.rbi.org.in/scripts/MANI.aspx" target="_blank">
+<img src="../images/MANI_LOGO.JPG" style="height:108px;width: 108px;" alt="Mobile Aided Note Identifier">
+</a>
+</li>
+<li>
+<a href="https://therbimuseum.rbi.org.in" target="_blank">
+<img src="../images/The-RBI-Museum_New_AP.png" style="height:108px;width: 108px;" alt="The RBI Museum">
+</a>
+</li>
+<li>
+<a href="https://fintech.rbi.org.in" target="_blank">
+<img src="../images/logo_for_rbi_website.png" style="height: 100px;width: 87px;margin: 1px 5px -3px 15px;" alt="Fintech">
+</a>
+</li>
+                   <li><a href="https://rbiretaildirect.org.in" target="_blank"><img src="../images/RBI_Retail_Direct_logo_New.jpg" style="height: 101px;width: 108px;margin: 12px 0px -3px 5px;" alt="RBI Retail Direct"></a></li>
+                   <li><a href="https://udgam.rbi.org.in" target="_blank"><img src="../images/UDGAM_Portal_Text.png" style="height: 100px;width: 90px;margin: 1px 5px -3px 15px;" alt="UDGAM"></a></li>
+                   
+                   <li><a href="https://pravaah.rbi.org.in" target="_blank"><img src="../images/PRAVAAHLOGOText.png" alt="PRAVAAH" style="height: 105px;width: 80px;margin: 12px 0px -3px 26px;"></a></li>
+		           <li><a href="https://rbi.org.in/scripts/rbidata.aspx" target="_blank"><img src="../images/RBIDATA_Logo.png" style="height: 101px;width: 85px;margin: 2px 0px 0px 20px;" alt="RBIDATA app"></a></li>
+
+
+<li style="column-span:all;"><a href="https://Rbikehtahai.rbi.org.in" target="_blank"><img src="../images/RBI_KEHTA_HAI_ICON_New_Eng.png" style="height: 126px;width: 197px;margin-left: 22px;margin-top: 18px;" alt="RBI Kehta Hai Jaankaar Baniye Satark Rahiye"></a>        </li>            
+</ul>
+</div>
+                
+                </div>
+		
+            
+            <!--  CURRENT RATES END-->
+            <!--WHAT'S NEW START-->
+            
+                <div class="grid_6">        
+
+                <div id="div_alternate" class="alternate_link">
+                <!--<h3><span class="blue">Alternate </span>Links</h3>-->
+
+
+                <span id="lblAlternateLinks"></span>
+                </div>
+                <div id="example-two">
+                 <ul class="nav" style="margin: 15px 0px 0px 1px;" role="tablist">
+                    <li class="nav-one" role="presentation"><a id="whatsnew" href="#whats_new" class="current" aria-controls="whats_new" role="tab" aria-selected= "true" style="font-size:14px;padding-top:15px">What's New</a></li>
+                    <li class="nav-two" role="presentation" style="border-right: #d1cfcf solid 1px;"><a href="#sections_today" id="sectionstoday" tabindex="-1" role="tab" aria-controls="sections_today" aria-selected="false" style="font-size:14px;padding-right: 5px;">Sections<br/>Updated Today</a></li>
+
+ 
+                    <!--<li class="nav-three" ><a href="#coming_soon" id="comingsoon" style="background:#ef9623;font-size:14px">Coming Soon</a></li>--> 
+
+		            <li class="nav-four" role="presentation" style="border-right: #d1cfcf solid 0px;"><a href="#Citizen_Corner" id="A2" tabindex="-1" role="tab" aria-controls="Citizen_Corner" aria-selected="false" style="font-size:14px;padding-top:15px">Citizen's Corner</a></li>
+			       
+                   <!-- <li class="nav-three"><div class="nav-four" style="float:right;line-height: 1.4;font-weight: 600;height: 29px; background: rgb(32, 93, 177);">
+                    <a href="https://www.rbi.org.in/rekyc/" style="padding:5px;padding-top:30%;font-size:14px;text-decoration: none;color:#FFFFFF;background: rgb(32, 93, 177);" class="current rekyc">ReKYC</a></div></li>-->
+                  </ul>
+			<div style="float: right;line-height: 1.4;font-weight: 600;background: rgb(32, 93, 177);display: table-cell;margin-top:-33px;position: relative;margin-right: 24%;">
+                    <a href="https://www.rbi.org.in/rekyc/" target="_blank" style="padding:14px;font-size:14px;text-decoration: none;color:#FFFFFF;background: rgb(32, 93, 177);" class="current rekyc">ReKYC</a></div>
+                  <div class="list-wrap">
+                   <div id="whats_new" role="tabpanel" aria-labelledby="whatsnew">             
+                     
+                       <ul><li><a href="https://www.rbi.org.in/scripts/BS_SpeechesView.aspx?Id=1592" >Government Securities Market: Deepening Liquidity, Broadening Participation and Strengthening Resilience – the Expanding Role of Primary Dealers - Address by Shri Rohit Jain, Deputy Governor at the Primary Dealers’ Association of India (PDAI) Seminar 2026 on November 23, 2026 in Mumbai</a></li><li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=64032" >Governor, Reserve Bank of India meets Managing Directors & Chief Executive Officers of select NBFCs, HFCs and Industry Representatives in Mumbai on November 23, 2026</a></li><li><a href="https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=64031" >Governor, Reserve Bank of India meets Chairpersons and Managing Directors & Chief Executive Officers of select UCBs and Industry Representatives in Mumbai on November 23, 2026</a></li><li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=64026" >RBI issues Draft Amendment Directions for ‘Preventive Safeguards for Electronic Banking Transactions (EBTs)’</a></li><li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=64025" >RBI releases 2026 list of Domestic Systemically Important Banks (D-SIBs)</a></li><li><a href="https://www.rbi.org.in/scripts/BS_SpeechesView.aspx?Id=1591" >Rebasing the Key Macro Series: From Better Measurement to Better Policy - Inaugural Address by Dr. Poonam Gupta, Deputy Governor, at the ‘Data Users Conference on the new series of GDP, CPI and IIP’, Organised by the Ministry of Statistics and Programme Implementation (MoSPI) in Mumbai on November 23, 2026</a></li><li><a href="https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=64009" >Reserve Bank issues Foreign Exchange Management (Export and Import of Goods and Services) (Second Amendment) Regulations, 2026</a></li><li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=64002" >Finances of Panchayati Raj Institutions</a></li><li><a href="https://www.rbi.org.in/Scripts/BS_SpeechesView.aspx?Id=1590" >The Customer at the Centre: Building a Responsible, Resilient and Sustainable Microfinance Sector - Keynote address delivered by Shri Shirish Chandra Murmu, Deputy Governor, at MFIN event in Mumbai, on November 13, 2026</a></li><li><a href="https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63974" >Developments in India’s Balance of Payments for the Month of September 2026</a></li><li><a href="https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63951" >Supersession of Board of Directors of Abhyudaya Co-operative Bank Ltd., Mumbai - Extension of period</a></li><li><a href="https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63941" >Census on Foreign Liabilities and Assets of Indian Direct Investment Entities for 2025-26</a></li><li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63925" >Consolidation of Instructions Related to Priority Sector Lending – Drafts for Comments</a></li><li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63914" >Constitution of the Technical Consultative Committee for Financial Markets (TCCFM)</a></li><li><a href="https://www.rbi.org.in/scripts/BS_SpeechesView.aspx?Id=1587" >Leading Today, Building for Tomorrow - Special address by Shri Swaminathan J, Deputy Governor at the Leadership Conference of Indian Bank in Chennai on October 23, 2026</a></li><li><a href="https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63901" >Processing of Applications Received Under the Citizen’s Charter Status as on October 31, 2026</a></li><li><a href="https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63892" >625<sup>th</sup> Meeting of Central Board of the Reserve Bank of India</a></li><li><a href="https://www.rbi.org.in/scripts/BS_SpeechesView.aspx?Id=1586" >Economic Resilience, Thinner Buffers, Emerging Risks Globally: Where Does India Stand? - Address by Dr. Poonam Gupta, Deputy Governor, Reserve Bank of India, at the Business Standard BFSI Insight Summit</a></li><li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63873" >Reserve Bank holds 36<sup>th</sup> Conference of State Finance Secretaries</a></li><li><a href="https://www.rbi.org.in/scripts/BS_SpeechesView.aspx?Id=1585" >&#2327;&#2357;&#2352;&#2381;&#2344;&#2352; &#2325;&#2366; &#2360;&#2381;&#2357;&#2366;&#2327;&#2340; &#2360;&#2306;&#2348;&#2379;&#2343;&#2344; - RBI &#2325;&#2375; &#2337;&#2375;&#2335;&#2366; &#2360;&#2375;&#2306;&#2335;&#2352; &#2324;&#2352; &#2360;&#2366;&#2311;&#2348;&#2352; &#2360;&#2369;&#2352;&#2325;&#2381;&#2359;&#2366; &#2346;&#2381;&#2352;&#2358;&#2367;&#2325;&#2381;&#2359;&#2339; &#2360;&#2306;&#2360;&#2381;&#2341;&#2366;&#2344; &#2325;&#2366;  &#2313;&#2342;&#2381;&#2328;&#2366;&#2335;&#2344;</a></li><li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63862" >Hon’ble Prime Minister of India inaugurates the Reserve Bank of India’s Data Centre and Cybersecurity Training Institute in Bhubaneswar, Odisha</a></li><li><a href="https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=63859" >RBI Bulletin – October 2026</a></li><li><a href="https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63858" >RBI issues Reserve Bank of India (Commercial Banks – Forthcoming Instructions) Second Amendment Directions, 2026 on Minimum Capital Requirements for Operational Risk</a></li><li><a href="https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63854" >RBI issues guidelines on the implementation of Leverage Ratio 2017 Standard</a></li><li><a href="https://rbi.org.in/scripts/BS_SpeechesView.aspx?Id=1584" >Growth with Responsibility: The Next Balance Sheet - Special Address by Shri Swaminathan J, Deputy Governor, Reserve Bank of India at the FE Modern BFSI Summit 2026 in Mumbai on October 15, 2026</a></li><li><a href="https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63839" >Minutes of the Monetary Policy Committee Meeting, October 5 to 7, 2026</a></li><li><a href="https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63812" >RBI issues Frequently Asked Questions on Foreign Exchange Risk Reserve</a></li><li><a href="https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13739&Mode=0" >Risk Management  and Inter-Bank Dealings</a></li><li><a href="https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63784" >RBI announces special window for Public Sector Oil Marketing Companies to meet dollar requirements</a></li><li><a href="https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63783" >RBI Announces Regulatory Measures for the Foreign Exchange Market</a></li><li><a href="https://opportunities.rbi.org.in/Scripts/resultsnew.aspx" >Recruitment related Announcements</a></li><li style="text-align: right"><a href="scripts/NewLinkDetails.aspx" ><span class="sr-only">View</span>More <span class="sr-only">what’s new items</span></a></li></ul>
+                      <div class="readmore"><div id="TimeNew"></div></div>
+                    </div>
+                    <div id="sections_today" class="hide" role="tabpanel" aria-labelledby="sectionstoday">            
+                       
+                      <ul><li><a href="Scripts/BS_ViewSpeeches.aspx" >Speeches & Media Interactions</a><li><a href="scripts/BS_ViewTenders.aspx" >Tenders</a></ul>
+                      <div class="readmore"><div id="TimeToday"></div></div>
+                    </div>
+                    <div id="coming_soon" class="hide" role="tabpanel">             
+                      
+                    
+                      <div class="readmore"><div id="TimeSoon"></div></div>
+                    </div>
+                    <div id="Citizen_Corner" class="hide" role="tabpanel" aria-labelledby="A2">             
+                        <ul>
+
+				<li><a href="https://rbikehtahai.rbi.org.in/" target="_blank">RBI Kehta Hai</a></li>
+                            <li><a href="https://indiancurrency.rbi.org.in" target="_blank">Indian Currency</a></li>
+                             <li><a href="https://rbi.org.in/Scripts/CitiChart.aspx" >Citizen's Charter</a></li>
+                            <li><a href="https://rbi.org.in/Scripts/Complaints.aspx" >Complaints</a>
+                           
+                            </li>
+                           
+                            <li><a href="https://www.rbi.org.in/scripts/FinancialAgents.aspx">RBI Regulated Entities</a>
+                           
+                            </li>
+
+                            <li><a href="https://opportunities.rbi.org.in/scripts/index.aspx" target="_blank">Opportunities @RBI</a></li>
+                            <li><a href="https://rbi.org.in/Scripts/HolidayMatrixDisplay.aspx" >Bank Holidays</a></li>
+                            
+                            <li><a href="https://rbi.org.in/Scripts/Righttoinfoact.aspx" >Right to Information Act</a></li>
+                            <li><a href="https://shabdavali.rbi.org.in" target="_blank">Banking Glossary</a></li>
+                            <li><a href="https://rbi.org.in/Scripts/helpdesk.aspx" >Contact Us</a></li>
+                        <li><a href="https://data.rbi.org.in/BOE/OpenDocument/opendoc/custom.jsp?sIDType=CUID&iDocID=ARfEgy.WNSVIvFfvSIVmBCw" target="_blank">DLA’s deployed by Regulated Entities</a></li>
+
+                        </ul>
+                        <div class="readmore"><div id="TimeToday1"></div></div>
+                    </div>
+
+                      <div id="Your_Money" class="hide" role="tabpanel" aria-labelledby="A3" style="position: relative; top: 0px; left: 0px;">   
+                            <ul>                           
+                            <li><a href="https://rbidocs.rbi.org.in/rdocs/content/pdfs/YourMoneyYourRightBanner_English.pdf" target="_blank">Your Money, Your Right </a></li>
+                            <li><a href="https://rbidocs.rbi.org.in/rdocs/content/PDFs/YourMoneyYourRightBooklet_English.pdf" target="_blank">Unclaimed Assets - Booklet</a></li>
+
+                            </ul>
+                           <div class="readmore"><div id="TimeToday2"></div></div>
+                            </div>
+			
+                  </div>
+                </div>
+                </div>
+            
+            <!--WHAT'S NEW END-->
+            <!--FUNCTIONWISE SITES START-->
+            <section>
+                <div class="grid_3 omega">
+                <h2><span class="blue">Functionwise</span> Sites</h2>
+                 <div role="menubar" id="wrapper1" class="grid_subtree archives alpha">
+   
+    <h3 class="accordionButton" id="MP" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="menu" aria-controls="MPContent" href="javascript:void(0);">Monetary Policy</a>
+    </h3>
+
+    <div class="accordionContent" id="MPContent" aria-owns="MP">
+        <ul role="menu" class="accordionlist">
+            <li><a role="menuitem"  href="../scripts/FS_Overview.aspx?fn=2752" id="MPOverview">Overview</a></li>
+            <li><a role="menuitem"  href="../scripts/Annualpolicy.aspx" id="MPIDs">Monetary Policy Statements</a></li>           
+            <li >
+                <a role="menuitem" href="../scripts/FS_Notification.aspx?fn=2752" id="MPNotifications" >
+                    Notifications
+                </a>
+            </li>          
+            <li >
+                <a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=2752" id="MPPR" >
+                    Press
+                    Release
+                </a>
+            </li>          
+            <li><a role="menuitem"  href="../scripts/FS_Speeches.aspx?fn=2752" id="MPSpeech">Speeches</a></li>           
+        </ul>
+    </div>
+
+  
+
+    <h3 class="accordionButton" id="BB" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="BBContent" href="javascript:void(0);">Banker to Governments and Banks</a>
+    </h3>
+
+    <div class="accordionContent" id="BBContent" aria-owns="BB">
+        <ul role="menu" class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2758" id="BBOverview">Overview</a></li>           
+            <li >
+                <a href="../scripts/FS_Notification.aspx?fn=2758" id="BBNotifications" role="menuitem">
+                    Notifications
+                </a>
+            </li>        
+            <li >
+                <a href="../scripts/FS_PressRelease.aspx?fn=2758" id="BBPR" role="menuitem">
+                    Press
+                    Release
+                </a>
+            </li>          
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=2758" id="BBSpeech">Speeches</a></li>
+	    <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=2758" id="BBFAQ">FAQs</a></li>
+            <li>
+                <a role="menuitem" href="../Scripts/FS_Glossary.aspx?fn=2758" id="BBGlossary">
+                    Glossary
+                </a>
+            </li>
+          
+        </ul>
+    </div>
+
+   
+    <h3 class="accordionButton" id="IC" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="ICContent" href="javascript:void(0);">Currency Management</a>
+    </h3>
+
+    <div class="accordionContent" id="ICContent" aria-owns="IC">
+        <ul role="menu"   class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2753" id="ICOverview">Overview</a></li>
+           
+            <li >
+                <a href="../scripts/FS_Notification.aspx?fn=2753" id="ICNotifications" role="menuitem">
+                    Notifications
+                </a>
+            </li>
+         
+            <li >
+                <a href="../scripts/FS_PressRelease.aspx?fn=2753" id="ICPR" role="menuitem">
+                    Press
+                    Release
+                </a>
+            </li>
+            
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=2753" id="ICSpeech">Speeches</a></li>
+            <li><a role="menuitem" href="../Scripts/CurrencyData.aspx">Currency Data</a></li>
+          
+            <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=2753" id="ICFAQ">FAQs</a></li>
+            <li >
+                <a href="../scripts/FS_RTI_Diclosure_Logs.aspx?fn=2753" id="ICRTI" role="menuitem">
+                    Right to Information Act- Disclosure log
+                </a>
+            </li>
+            <li><a role="menuitem" href="https://indiancurrency.rbi.org.in" target="_blank">Indian Currency</a></li>
+            <li><a role="menuitem" href="https://rbi.org.in/scripts/MANI.aspx">MANI-Mobile Aided Note Identifier</a></li>
+            <li><a role="menuitem" href="../scripts/bs_viewcontent.aspx?Id=3270">All You Wanted To Know About SBNs</a></li>
+            <li><a role="menuitem" href="https://rbi.org.in/Scripts/MSM_Demonetisation.aspx">Mint Street Memos</a></li>
+            <li><a role="menuitem" href="../Scripts/FS_Notification.aspx?fn=2753&fnn=2769">History/Records</a></li>
+
+        </ul>
+    </div>
+
+   
+
+    <h3 class="accordionButton" id="CS" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="CSContent" href="javascript:void(0);">Consumer Education and Protection</a>
+    </h3>
+
+    <div class="accordionContent" id="CSContent" aria-owns="CS">
+        <ul role="menu" class="accordionlist" >
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2745" id="CSOverview">Overview</a></li>
+           
+            <li >
+                <a role="menuitem" href="../scripts/FS_Notification.aspx?fn=2745" id="CSNotifications">
+                    Notifications
+                </a>
+            </li>
+         
+            <li >
+                <a role="menuitem" href="../Scripts/FS_PressRelease.aspx?fn=2745" id="CSPR">
+                    Press
+                    Release
+                </a>
+            </li>
+           
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=2745" id="CSSpeech">Speeches</a></li>
+        
+
+            <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=2745" id="CSFAQ">FAQs</a></li>
+
+            <li >
+                <a role="menuitem" href="../scripts/FS_RTI_Diclosure_Logs.aspx?fn=2745" id="CSRTI">
+                    Right to Information Act- Disclosure log
+                </a>
+            </li>
+            <li >
+                <a role="menuitem" href="../Scripts/FS_UsefulInfoCustomer.aspx?fn=2745" id="CSUsefulInfoCustomer">
+                    Information Useful to Customer
+                </a>
+            </li>
+            <li >
+                <a role="menuitem" href="https://www.rbi.org.in/commonperson/English/Scripts/Home.aspx"
+                   id="CSCommon" target="_blank">For Common Person</a>
+            </li>
+         
+        </ul>
+    </div>
+
+
+    
+    <h3 class="accordionButton" id="BDMG" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="BDMGContent" href="javascript:void(0);">Debt Management</a>
+    </h3>
+
+    <div class="accordionContent" id="BDMGContent" aria-owns="BDMG">
+        <ul role="menu" class="accordionlist">
+            <li >
+                <a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2757" id="BDMGOverview">
+                    Overview
+                </a>
+            </li>
+           
+            <li >
+                <a role="menuitem" href="../scripts/FS_Notification.aspx?fn=2757" id="BDMGNotifications">
+                    Notifications
+                </a>
+            </li>
+            <li><a role="menuitem" href="../scripts/FS_Forms.aspx?fn=2757" id="BDMGForms">Forms</a></li>
+        
+            <li >
+                <a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=2757" id="BDMGPR">
+                    Press
+                    Release
+                </a>
+            </li>
+            
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=2757" id="BDMGSpeech">Speeches</a></li>
+            
+            <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=2757" id="BDMGFAQ">FAQs</a></li>
+           
+            <li><a role="menuitem" href="../scripts/FS_PDS.aspx" id="BDMGPDS">Public Debt Statistics</a></li>
+        </ul>
+    </div>
+
+
+  
+    <h3 class="accordionButton" id="ED" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="EDContent" href="javascript:void(0);">Enforcement</a>
+    </h3>
+
+    <div class="accordionContent" id="EDContent" aria-owns="ED" >
+        <ul role="menu"  class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2766" id="EDOverview">Overview</a></li>
+            <li >
+                <a role="menuitem" href="../scripts/FS_Notification.aspx?fn=2766" id="EDONotifications">
+                    Notifications
+                </a>
+            </li>
+            <li><a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=2766" id="EDPR">Press Release</a></li>
+
+        </ul>
+    </div>
+
+   
+    <h3 class="accordionButton" id="EIO" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="EIOContent" href="javascript:void(0);">External Investments and Operations </a>
+    </h3>
+    <div class="accordionContent" id="EIOContent" aria-owns="EIO">
+        <ul role="menu"   class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2767" id="EIOverview">Overview</a></li>
+            <li><a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=2767" id="EIOPR">Press Release</a></li>
+            <li><a role="menuitem" href="https://rbi.org.in/Scripts/BS_ViewWSS.aspx" id="EIOStat">Statistics</a></li>
+
+        </ul>
+    </div>
+
+   
+    <h3 class="accordionButton" id="RC" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="RCContent" href="javascript:void(0);">Financial Inclusion and Development</a>
+    </h3>
+    <div class="accordionContent" id="RCContent" aria-owns="RC">
+        <ul role="menu" class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2754" id="RCOverview">Overview</a></li>
+           
+            <li >
+                <a role="menuitem" href="../scripts/FS_Notification.aspx?fn=2754" id="RCNotifications">
+                    Notifications
+                </a>
+            </li>
+           
+            <li >
+                <a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=2754" id="RCPR">
+                    Press
+                    Release
+                </a>
+            </li>
+           
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=2754" id="RCSpeech">Speeches</a></li>
+           
+
+            <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=2754" id="RCFAQ">FAQs</a></li>
+            <li >
+                <a role="menuitem" href="../scripts/FS_RTI_Diclosure_Logs.aspx?fn=2754" id="RCRTI">
+                    Right to Information Act- Disclosure log
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+   
+    <h3 class="accordionButton" id="FM" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="FMContent" href="javascript:void(0);">Financial Markets</a>
+    </h3>
+
+    <div class="accordionContent" id="FMContent" aria-owns="FM">
+        <ul role="menu"   class="accordionlist">
+            <li >
+                <a role="menuitem" href="../scripts/FS_Overview.aspx?fn=6" id="FMOverview">
+                    Overview
+                </a>
+            </li>
+           
+            <li >
+                <a role="menuitem" href="../scripts/FS_Notification.aspx?fn=6" id="FMNotifications">
+                    Notifications
+                </a>
+            </li>
+          
+            <li >
+                <a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=6" id="FMPR">
+                    Press Release
+                </a>
+            </li>
+            <li >
+                <a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=6" id="FMSpeech">
+                    Speeches
+                </a>
+            </li>
+            <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=6" id="FMFAQ">FAQs</a></li>
+            <li >
+                <a role="menuitem" href="../scripts/FS_RTI_Diclosure_Logs.aspx?fn=6" id="FMRTI">
+                    Right to Information Act- Disclosure log
+                </a>
+            </li>
+            <li >
+                <a role="menuitem" href="../scripts/financialmarketswatch.aspx">
+                    Financial Markets
+                    Watch
+                </a>
+            </li>
+            <li class="noBorder"><a role="menuitem" href="../Scripts/FS_Notification.aspx?fn=6&fnn=2769">History/Records</a></li>
+        </ul>
+    </div>
+
+  
+    <h3 class="accordionButton" id="FSU" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="FSUContent" href="javascript:void(0);">Financial Stability Analysis</a>
+    </h3>
+
+    <div class="accordionContent" id="FSUContent" aria-owns="FSU" >
+        <ul role ="menu"  class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2768" id="FSUverview">Overview</a></li>
+            <li><a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=2768" id="FSUPR">Press Release</a></li>
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=2768" id="FSSpeech">Speeches</a></li>
+            <li><a role="menuitem" href="https://rbi.org.in/Scripts/FsReports.aspx" id="FSUSpeech">Reports</a></li>
+
+        </ul>
+    </div>
+
+   
+    <h3 class="accordionButton" id="FINEIO" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="FINEIOContent" href="javascript:void(0);">FinTech</a>
+    </h3>
+    <div class="accordionContent" id="FINEIOContent" style="display: none;" aria-owns="FINEIO">
+        <ul role="menu"   class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2765" id="FIEIOverview">Overview</a></li>
+			<li><a role="menuitem" href="../scripts/FS_Notification.aspx?fn=2765" id="FINEIONotifications">Notifications</a></li>
+            <li><a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=2765" id="FINEIOPR">Press Release</a></li>
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=2765" id="FINEIOStat">Speeches</a></li>
+            <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=2765" id="FINEIOFAQ">FAQs</a></li>
+			<li class="finPubFormPlus" id="FINEIONB" >
+                <a href="javascript:void(0);" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="finPubFormContent" id="fintechPubform">
+                    <span class="finPubFormPlus" >Publications / Forms</span>
+                </a>
+
+                <ul class="finPubSubSection" role="menu" style="display: none;" id="finPubFormContent">
+                    <li  style="background: none;color: black;">
+                        <a  href="../scripts/FS_Publications.aspx" id="finPubOverview">Publications</a>
+                    </li>
+
+                    <li class="noBorder" style="background: none;color: black;"><a  href="../scripts/FS_Forms.aspx?fn=2765" id="finPubHISTORY" >Forms</a></li>
+                </ul>
+            </li>
+
+            <li class="finIORSFormPlus" id="FINEIORSNB">
+                <a href="javascript:void(0);" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="finIORSFormContent" id="fintechIORSform">
+                    <span class="finIORSFormPlus">RBI Initiatives</span>
+                </a>
+
+                <ul class="finIORSSubSection" role="menu" style="display: none;" id="finIORSFormContent">
+
+                    <li style="background: none;color: black;"><a  href="https://fintech.rbi.org.in/FT_RegSandbox" id="finRS" target="_blank">Regulatory Sandbox</a></li>
+                    <li style="background: none;color: black;">
+                        <a  href="../scripts/FS_InterOperableRegSandbox.aspx" id="finIORS" >Inter- operable Regulatory Sandbox </a>
+                    </li>
+                    <li style="background: none;color: black;"><a  href="../scripts/FS_InnovationHub.aspx" id="finRBIH">Reserve Bank Innovation Hub</a></li>
+                    <li style="background: none;color: black;"><a  href="https://fintech.rbi.org.in/FT_HaRBInger" target="_blank" id="finHaRBInger2021">HaRBInger 2021</a></li>
+                    <li style="background: none;color: black;"><a  href="https://fintech.rbi.org.in/FT_HaRBInger_2023" target="_blank" id="finHaRBInger2023">HaRBInger 2023</a></li>
+                    <li style="background: none;color: black;"><a  href="https://fintech.rbi.org.in/FT_HaRBInger_2024" target="_blank" id="finHaRBInger2024">HaRBInger 2024</a></li>
+                    <li style="background: none;color: black;"><a  href="https://fintech.rbi.org.in/FT_HaRBInger_2025" target="_blank" id="finHaRBInger2025">HaRBInger 2025</a></li>
+                    <li class="noBorder" style="background: none;color: black;"><a  href="https://techsprint.rbi.org.in/G20TechSprint_2023" target="_blank" id="finG20Tech">G20 TechSprint 2023</a></li>
+                </ul>
+            </li>
+
+          
+        </ul>
+    </div>
+
+ 
+    <h3 class="accordionButton" id="FEMA" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="FEMAContent" href="javascript:void(0);">Foreign Exchange Management</a>
+    </h3>
+    <div class="accordionContent" id="FEMAContent" aria-owns="FEMA">
+        <ul role="menu" class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=5" id="FEMAOverview">Overview</a></li>
+	    <li><a role="menuitem" href="../Scripts/femaview.aspx?femaid=66" id="FEMARules">Rules</a></li>
+            <li><a role="menuitem" href="../Scripts/BS_viewfemanewnotification.aspx" id="FEMAReg">Regulations</a></li>
+            <li><a role="menuitem" href="../scripts/FS_Notification.aspx?fn=5&fnn=2764" id="FEMAMD">Master Directions</a></li>
+            <li><a role="menuitem" href="../Scripts/BS_ApCircularsDisplay.aspx" id="FEMACir">Circulars</a></li>
+           
+            <li><a role="menuitem" href="../scripts/FS_Forms.aspx?fn=5" id="FEMAForms">Forms</a></li>
+          
+            <li >
+                <a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=5" id="FEMAPR">
+                    Press
+                    Release
+                </a>
+            </li>
+           
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=5" id="FEMASpeech">Speeches</a></li>
+          
+            <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=5" id="FEMAFAQ">FAQs</a></li>
+            <li >
+                <a role="menuitem" href="../scripts/FS_RTI_Diclosure_Logs.aspx?fn=5" id="FEMARTI">
+                    Right to Information Act- Disclosure log
+                </a>
+            </li>
+            <li><a role="menuitem" href="../scripts/Fema.aspx" id="FEMAF">FEMA</a></li>
+            
+            <li><a role="menuitem" href="../scripts/FS_Notification.aspx?fn=5&fnn=2769">History/Records</a></li>
+
+           
+        </ul>
+    </div>
+
+    
+    <h3 class="accordionButton" id="IR" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="IRContent" href="javascript:void(0);">International Relations</a>
+    </h3>
+
+    <div class="accordionContent" id="IRContent" aria-owns="IR">
+        <ul role="menu" class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2779" id="IROverview">Overview</a></li>
+            <li><a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=2779" id="IRPR">Press Release</a></li>
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=2779" id="IRSpeech">Speeches</a></li>
+            <li><a role="menuitem" href="../scripts/InternationalRelationsReports.aspx" id="IRReport">Reports and Publications</a></li>
+        </ul>
+    </div>
+
+    
+    <h3 class="accordionButton" id="PSS" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="PSSContent" href="javascript:void(0);">Payment and Settlement Systems</a>
+    </h3>
+
+    <div class="accordionContent" id="PSSContent" aria-owns="PSS">
+        <ul role="menu"   class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=9" id="PSSOverview">Overview</a></li>
+            
+            <li >
+                <a role="menuitem" href="../scripts/FS_Notification.aspx?fn=9" id="PSSNotifications">
+                    Notifications
+                </a>
+            </li>
+            <!--<li >
+                <a role="menuitem" href="../Scripts/FS_report.aspx" id="PSSReport">
+                    Reports
+                </a>
+            </li>-->
+            
+            <li >
+                <a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=9" id="PSSPR">
+                    Press
+                    Release
+                </a>
+            </li>
+            
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=9" id="PSSSpeech">Speeches</a></li>
+            
+            <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=9" id="PSSFAQ">FAQs</a></li>
+
+            <li>
+                <a role="menuitem" href="../scripts/FS_RTI_Diclosure_Logs.aspx?fn=9" id="PSSRTI">
+                    Right to Information Act- Disclosure log
+                </a>
+            </li>
+            <li>
+                <a role="menuitem" href="../Scripts/FS_UsefulInfoCustomer.aspx?fn=9" id="PSSUsefulInfo">
+                    Information Useful to Banks/FIs
+                </a>
+            </li>
+           <!-- <li>
+                <a role="menuitem" href="../Scripts/FS_CustomerAwareness.aspx?fn=9" id="PSCustomerAwareness">
+                    Customer Awareness
+                </a>
+            </li>-->
+            <li >
+                <a role="menuitem" href="../Scripts/FS_PaymentsData.aspx?fn=9" id="PSPaymentsData">
+                    Payments Data
+                </a>
+            </li>
+            <li >
+                <a role="menuitem" href="../Scripts/FS_ArchivesHistory.aspx?fn=9" id="PSArchivesHistory">
+                    History/Records
+                </a>
+            </li>
+            <!--<li>
+                <a role="menuitem" href="../Scripts/FS_UsefulExternalLinks.aspx?fn=9" id="PSUsefulExternalLinks">
+                    Useful External Links
+                </a>
+            </li>
+            <li>
+                <a role="menuitem" href="../Scripts/FS_Glossary.aspx?fn=9" id="PSGlossary">
+                    Glossary
+                </a>
+            </li>-->
+            
+        </ul>
+    </div>
+    
+    
+
+    <h3 class="accordionButton" id="RG" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="BRContent" href="javascript:void(0);">Regulation</a>
+    </h3>
+
+    <div class="accordionContent" id="BRContent" aria-owns="RG" >
+        <ul role="menu"  class="accordionlist">
+
+            <li id="RegDOR" style="background: no-repeat scroll 212px 5px #205DB1;">
+                <a role="menuitem" href="../Scripts/BS_ViewMasterDirections.aspx?did=401">
+                    <span style="color: #ffffff;">
+                        <!--Department of Regulation-->
+                        Master Directions
+                    </span>
+                </a>
+            </li>
+
+           
+
+            <li id="RegSC" style="background: no-repeat scroll 212px 5px #205DB1;">
+                <a role="menuitem" href="../Scripts/BS_ViewListofstandalonecirculars.aspx">
+                    <span style="color: #ffffff;">
+                        Standalone Circulars
+                    </span>
+                </a>
+            </li>
+
+	   <li id="RegMasterCirculars" style="background: no-repeat scroll 212px 5px #205DB1;">
+                <a role="menuitem" href="../Scripts/BS_ViewMasterCirculardetails.aspx?did=401">
+                    <span style="color: #ffffff;">
+                        Master Circulars
+                    </span>
+                </a>
+            </li>
+
+            <li id="RegDraftDirections" style="background: no-repeat scroll 212px 5px #205DB1;">
+                <a role="menuitem" href="../Scripts/BS_ViewREwiseDraftDirections.aspx?did=2783">
+                    <span style="color: #ffffff;">
+                        Draft Directions (RE Wise)
+                    </span>
+                </a>
+            </li>
+
+            <li id="RegAD" style="background: no-repeat scroll 212px 5px #205DB1;">
+                <a role="menuitem" href="../Scripts/Fs_AmendmentDirections.aspx">
+                    <span style="color: #ffffff;">
+                        Amendment Directions
+                    </span>
+                </a>
+            </li>
+
+            <li id="RegWC" style="background: no-repeat scroll 212px 5px #205DB1;">
+                <a role="menuitem" href="../Scripts/NotificationUserWithdrawnCircularDOR.aspx">
+                    <span style="color: #ffffff;">
+                        Circulars Withdrawn
+                    </span>
+                </a>
+            </li>
+
+            <li class="commBankingPlus" id="CB">
+                <a href="javascript:void(0);" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="CBContent" id="regComBank">
+                    <span class="commBankingPlus">
+                        Commercial Banking
+                    </span>
+                </a>
+               
+                <ul class="commBankingSubSection" style="display: none;" role="menu" id="CBContent">
+                    <li >
+                        <a  href="../scripts/FS_Overview.aspx?fn=2" id="CBOverview">
+                            Overview
+                        </a>
+                    </li>
+                    <li >
+                        <a  href="../scripts/SustainableFinanceGroup.aspx" id="CBSustainableFinanceGroup">
+                            Sustainable Finance
+                        </a>
+                    </li>
+                    
+                    <li><a  href="../scripts/FS_Forms.aspx?fn=2" id="CBForms">Forms</a></li>
+                    <li>
+                        <a  href="../scripts/FS_PressRelease.aspx?fn=2" id="CBPR">
+                            Press Release
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a  href="../scripts/FS_RTI_Diclosure_Logs.aspx?fn=2" id="CBRTI">
+                            Right to Information Act- Disclosure log
+                        </a>
+                    </li>
+                    <li ><a  href="../scripts/BS_ForBankers.aspx" id="CBFB">For Bankers</a></li>
+                    <li class="noBorder"><a href="../Scripts/FS_Notification.aspx?fn=2&fnn=2769" id="CBHISTORY">History/Records</a></li>
+                </ul>
+            </li>
+            <li class="coopBankingPlus" id="COPB">
+                <a href="javascript:void(0);" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="COPBContent" id="regCOPB">
+                    <span class="coopBankingPlus">
+                        Co-operative Banking
+                    </span>
+                </a>
+                
+                <ul class="coopBankingSubSection" style="display: none;" role="menu" id="COPBContent">
+                    <li >
+                        <a  href="../scripts/FS_Overview.aspx?fn=2755" id="COPBOverview">
+                            Overview
+                        </a>
+                    </li>
+                   
+                    <li><a  href="../scripts/FS_Forms.aspx?fn=2755" id="COPBForms">Forms</a></li>
+                    <li >
+                        <a  href="../scripts/FS_PressRelease.aspx?fn=2755" id="COPBPR">
+                            Press
+                            Release
+                        </a>
+                    </li>
+                    
+                    <li >
+                        <a  href="../scripts/FS_RTI_Diclosure_Logs.aspx?fn=2755" id="COPBRTI">
+                            Right to Information Act- Disclosure log
+                        </a>
+                    </li>
+                    <li class="noBorder"><a  href="../Scripts/FS_Notification.aspx?fn=2755&fnn=2769" id="COPBHISTORY">History/Records</a></li>
+                </ul>
+            </li>
+            <li class="nonBankingPlus" id="NB">
+                <a href="javascript:void(0);" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="NBContent" id="regNonBanking">
+                    <span class="nonBankingPlus">
+                        Non-Banking
+                    </span>
+                </a>
+                
+                <ul role="menu" class="nonBankingSubSection" style="display: none;" id="NBContent">
+                    <li >
+                        <a  href="../scripts/FS_Overview.aspx?fn=14" id="NBOverview1">
+                            Overview
+                        </a>
+                    </li>
+                    
+                    <li><a  href="../scripts/FS_Forms.aspx?fn=14" id="NBForms">Forms</a></li>
+                    <li >
+                        <a  href="../scripts/FS_PressRelease.aspx?fn=14" id="NBPR">
+                            Press
+                            Release
+                        </a>
+                    </li>
+                   
+                    <li >
+                        <a  href="../scripts/FS_RTI_Diclosure_Logs.aspx?fn=14" id="NBRTI">
+                            Right to Information Act- Disclosure log
+                        </a>
+                    </li>
+                    <li ><a  href="../Scripts/BS_NBFCList.aspx" id="NBFC">NBFCs</a></li>
+                   
+                    <li ><a  href="../Scripts/FS_Notification.aspx?fn=14&fnn=2769" id="NBHISTORY">History/Records</a></li>
+                </ul>
+            </li>
+            <li class="finMarketPlus" id="RFM">
+                <a href="javascript:void(0);" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="RFMContent" id="regRFM">
+                    <span class="finMarketPlus" style="color: #ffffff;">
+                        DEA Fund
+                    </span>
+                </a>
+                <ul class="finMarketSubSection" style="display: none;" role="menu" id="RFMContent">
+                    <li >
+                        <a  href="../scripts/ListOfDocumentsRelatedDEAFund.aspx" id="DEAFund1">
+                            List Of Documents
+                        </a>
+                    </li>
+                    <li >
+                        <a  href="../scripts/ListOfEntitiesRegisteredWithDEAFund.aspx" id="DEAFund2">
+                            List Of Entities
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li id="HBRG" style="background: no-repeat scroll 212px 5px #205DB1;">
+                <a role="menuitem" href="../Scripts/OccasionalPublications.aspx?head=Handbook%20on%20Regulations%20at%20a%20Glance">
+                    <span style="color: #ffffff;">
+                        Handbook on Regulations at a Glance
+                    </span>
+                </a>
+
+            </li>
+            <li id="FFFR" style="background: no-repeat scroll 212px 5px #205DB1;">
+                <a role="menuitem" href="../Scripts/FrameworkforFormulationofRegulations.aspx">
+                    <span style="color: #ffffff; font-size: 11.5px;">
+                        Framework for Formulation of Regulations
+                    </span>
+                </a>
+
+            </li>
+            
+        </ul>
+    </div>
+
+    <h3 class="accordionButton" id="Super" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="SuperContent" href="javascript:void(0);">Supervision</a>
+    </h3>
+
+
+    <div class="accordionContent" id="SuperContent" aria-owns="Super">
+        <ul role="menu"   class="accordionlist">
+            <li><a role="menuitem" href="../Scripts/BS_ViewMasterDirections.aspx?did=402">Master Directions</a></li>
+            <li><a role="menuitem" href="../Scripts/NotificationUserWithdrawnCircularDOS.aspx">Circulars Withdrawn</a></li>
+        </ul>
+    </div>
+
+
+   
+
+
+    
+
+    <h3 class="accordionButton" id="RND" role="presentation">
+        <a role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="RNDContent" href="javascript:void(0);">Research</a>
+    </h3>
+
+
+    <div class="accordionContent" id="RNDContent" aria-owns="RND" >
+        <ul role="menu"  class="accordionlist">
+            <li><a role="menuitem" href="../scripts/FS_Overview.aspx?fn=2759" id="RNDOverview">Overview</a></li>
+           
+            <li >
+                <a role="menuitem" href="../scripts/FS_Notification.aspx?fn=2759" id="RNDNotifications">
+                    Notifications
+                </a>
+            </li>
+            <li><a role="menuitem" href="../scripts/FS_Forms.aspx?fn=2759" id="RNDForms">Forms</a></li>
+            
+            <li >
+                <a role="menuitem" href="../scripts/FS_PressRelease.aspx?fn=2759" id="RNDPR">
+                    Press
+                    Release
+                </a>
+            </li>
+            <li><a role="menuitem" href="../Scripts/OccasionalPublications.aspx?head=Working%20Papers">Working Papers</a></li>
+            
+            <li><a role="menuitem" href="../scripts/FS_Speeches.aspx?fn=2759" id="RNDSpeech">Speeches</a></li>
+
+            <li><a role="menuitem" href="../scripts/FS_FAQs.aspx?fn=2759" id="RNDFAQ">FAQs</a></li>
+
+            <li><a role="menuitem" href="../Scripts/ExternalResearchSchemes.aspx">Research Portal</a></li>
+           
+        </ul>
+    </div>
+
+   
+   
+    
+	
+ 
+   
+
+   
+</div>
+
+    
+
+   
+   
+<script>
+    $(document).ready(function () {
+        $("#regComBank").click(function (e) {
+            if (e.target == e.currentTarget) {
+                $(".commBankingSubSection").slideToggle();
+                $(".commBankingPlus").toggleClass("commBankingMinus");
+		if($("#CB a").attr("aria-expanded")=="true"){
+			$("#CB a").attr("aria-expanded","false");
+		}
+		else{
+			$("#CB a").attr("aria-expanded","true");
+		}		
+		$("#COPB a").attr("aria-expanded","false");
+		$("#NB a").attr("aria-expanded","false");
+		$("#RFM a").attr("aria-expanded","false");		
+                $("#CB > span").toggleClass("txtBold");
+
+                $(".coopBankingSubSection").slideUp();
+                $(".coopBankingPlus").removeClass("coopBankingMinus");
+		
+                $("#COPB > span").removeClass("txtBold");
+
+                $(".nonBankingSubSection").slideUp();
+                $(".nonBankingPlus").removeClass("nonBankingMinus");
+                $("#NB > span").removeClass("txtBold");
+
+                $(".finMarketSubSection").slideUp();
+                $(".finMarketPlus").removeClass("finMarketMinus");
+                $("#RFM > span").removeClass("txtBold");
+            }
+        });
+	 $(".commBankingPlus").click(function (e) {
+            if (e.target == e.currentTarget) {
+                $(".commBankingSubSection").slideToggle();
+                $(".commBankingPlus").toggleClass("commBankingMinus");
+		if($("#CB a").attr("aria-expanded")=="true"){
+			$("#CB a").attr("aria-expanded","false");
+		}
+		else{
+			$("#CB a").attr("aria-expanded","true");
+		}		
+		$("#COPB a").attr("aria-expanded","false");
+		$("#NB a").attr("aria-expanded","false");
+		$("#RFM a").attr("aria-expanded","false");		
+                $("#CB > span").toggleClass("txtBold");
+
+                $(".coopBankingSubSection").slideUp();
+                $(".coopBankingPlus").removeClass("coopBankingMinus");
+		
+                $("#COPB > span").removeClass("txtBold");
+
+                $(".nonBankingSubSection").slideUp();
+                $(".nonBankingPlus").removeClass("nonBankingMinus");
+                $("#NB > span").removeClass("txtBold");
+
+                $(".finMarketSubSection").slideUp();
+                $(".finMarketPlus").removeClass("finMarketMinus");
+                $("#RFM > span").removeClass("txtBold");
+            }
+        });
+
+
+        $("#regCOPB").click(function (e) {
+            if (e.target == e.currentTarget) {
+                $(".coopBankingSubSection").slideToggle();
+                $(".coopBankingPlus").toggleClass("coopBankingMinus");
+		if($("#COPB a").attr("aria-expanded")=="true"){
+			$("#COPB a").attr("aria-expanded","false");
+		}
+		else{
+			$("#COPB a").attr("aria-expanded","true");
+		}		
+		$("#CB a").attr("aria-expanded","false");
+		$("#NB a").attr("aria-expanded","false");
+		$("#RFM a").attr("aria-expanded","false");		
+                $("#COPB > span").toggleClass("txtBold");
+
+                $(".commBankingSubSection").slideUp();
+                $(".commBankingPlus").removeClass("commBankingMinus");
+                $("#CB > span").removeClass("txtBold");
+
+                $(".nonBankingSubSection").slideUp();
+                $(".nonBankingPlus").removeClass("nonBankingMinus");
+                $("#NB > span").removeClass("txtBold");
+
+                $(".finMarketSubSection").slideUp();
+                $(".finMarketPlus").removeClass("finMarketMinus");
+                $("#RFM > span").removeClass("txtBold");
+
+            }
+        });
+	$(".coopBankingPlus").click(function (e) {
+            if (e.target == e.currentTarget) {
+                $(".coopBankingSubSection").slideToggle();
+                $(".coopBankingPlus").toggleClass("coopBankingMinus");
+		if($("#COPB a").attr("aria-expanded")=="true"){
+			$("#COPB a").attr("aria-expanded","false");
+		}
+		else{
+			$("#COPB a").attr("aria-expanded","true");
+		}		
+		$("#CB a").attr("aria-expanded","false");
+		$("#NB a").attr("aria-expanded","false");
+		$("#RFM a").attr("aria-expanded","false");		
+                $("#COPB > span").toggleClass("txtBold");
+
+                $(".commBankingSubSection").slideUp();
+                $(".commBankingPlus").removeClass("commBankingMinus");
+                $("#CB > span").removeClass("txtBold");
+
+                $(".nonBankingSubSection").slideUp();
+                $(".nonBankingPlus").removeClass("nonBankingMinus");
+                $("#NB > span").removeClass("txtBold");
+
+                $(".finMarketSubSection").slideUp();
+                $(".finMarketPlus").removeClass("finMarketMinus");
+                $("#RFM > span").removeClass("txtBold");
+
+            }
+        });
+
+	$("#regNonBanking").click(function (e) {
+            if (e.target == e.currentTarget) {
+                $(".nonBankingSubSection").slideToggle();
+                $(".nonBankingPlus").toggleClass("nonBankingMinus");
+		if($("#NB a").attr("aria-expanded")=="true"){
+			$("#NB a").attr("aria-expanded","false");
+		}
+		else{
+			$("#NB a").attr("aria-expanded","true");
+		}
+		$("#COPB a").attr("aria-expanded","false");
+		$("#CB a").attr("aria-expanded","false");
+		$("#RFM a").attr("aria-expanded","false");
+                $("#NB > span").toggleClass("txtBold");
+
+                $(".commBankingSubSection").slideUp();
+                $(".commBankingPlus").removeClass("commBankingMinus");
+                $("#CB > span").removeClass("txtBold");
+
+                $(".coopBankingSubSection").slideUp();
+                $(".coopBankingPlus").removeClass("coopBankingMinus");
+                $("#COPB > span").removeClass("txtBold");
+
+                $(".finMarketSubSection").slideUp();
+                $(".finMarketPlus").removeClass("finMarketMinus");
+                $("#RFM > span").removeClass("txtBold");
+            }
+        });
+        $(".nonBankingPlus").click(function (e) {
+            if (e.target == e.currentTarget) {
+                $(".nonBankingSubSection").slideToggle();
+                $(".nonBankingPlus").toggleClass("nonBankingMinus");
+		if($("#NB a").attr("aria-expanded")=="true"){
+			$("#NB a").attr("aria-expanded","false");
+		}
+		else{
+			$("#NB a").attr("aria-expanded","true");
+		}
+		$("#COPB a").attr("aria-expanded","false");
+		$("#CB a").attr("aria-expanded","false");
+		$("#RFM a").attr("aria-expanded","false");
+                $("#NB > span").toggleClass("txtBold");
+
+                $(".commBankingSubSection").slideUp();
+                $(".commBankingPlus").removeClass("commBankingMinus");
+                $("#CB > span").removeClass("txtBold");
+
+                $(".coopBankingSubSection").slideUp();
+                $(".coopBankingPlus").removeClass("coopBankingMinus");
+                $("#COPB > span").removeClass("txtBold");
+
+                $(".finMarketSubSection").slideUp();
+                $(".finMarketPlus").removeClass("finMarketMinus");
+                $("#RFM > span").removeClass("txtBold");
+            }
+        });
+
+	$("#regRFM").click(function (e) {
+            if (e.target == e.currentTarget) {
+                $(".finMarketSubSection").slideToggle();
+                $(".finMarketPlus").toggleClass("finMarketMinus");
+		if($("#RFM a").attr("aria-expanded")=="true"){
+			$("#RFM a").attr("aria-expanded","false");
+		}
+		else{
+			$("#RFM a").attr("aria-expanded","true");
+		}
+		$("#COPB a").attr("aria-expanded","false");
+		$("#CB a").attr("aria-expanded","false");
+               	$("#NB a").attr("aria-expanded","false");
+                $("#RFM > span").toggleClass("txtBold");
+
+
+                $(".commBankingSubSection").slideUp();
+                $(".commBankingPlus").removeClass("commBankingMinus");
+                $("#CB > span").removeClass("txtBold");
+
+                $(".coopBankingSubSection").slideUp();
+                $(".coopBankingPlus").removeClass("coopBankingMinus");
+                $("#COPB > span").removeClass("txtBold");
+
+                $(".nonBankingSubSection").slideUp();
+                $(".nonBankingPlus").removeClass("nonBankingMinus");
+            }  $("#NB > span").removeClass("txtBold");
+        });
+        $(".finMarketPlus").click(function (e) {
+            if (e.target == e.currentTarget) {
+                $(".finMarketSubSection").slideToggle();
+                $(".finMarketPlus").toggleClass("finMarketMinus");
+		if($("#RFM a").attr("aria-expanded")=="true"){
+			$("#RFM a").attr("aria-expanded","false");
+		}
+		else{
+			$("#RFM a").attr("aria-expanded","true");
+		}
+		$("#COPB a").attr("aria-expanded","false");
+		$("#CB a").attr("aria-expanded","false");
+               	$("#NB a").attr("aria-expanded","false");
+                $("#RFM > span").toggleClass("txtBold");
+
+
+                $(".commBankingSubSection").slideUp();
+                $(".commBankingPlus").removeClass("commBankingMinus");
+                $("#CB > span").removeClass("txtBold");
+
+                $(".coopBankingSubSection").slideUp();
+                $(".coopBankingPlus").removeClass("coopBankingMinus");
+                $("#COPB > span").removeClass("txtBold");
+
+                $(".nonBankingSubSection").slideUp();
+                $(".nonBankingPlus").removeClass("nonBankingMinus");
+            }  $("#NB > span").removeClass("txtBold");
+        });
+	
+
+	$("#fintechPubform").click(function (e) {
+            if (e.target == e.currentTarget) {
+		
+                $(".finPubSubSection").slideToggle();
+                $(".finPubFormPlus").toggleClass("finPubFormMinus");
+		if($("#FINEIONB a:first").attr("aria-expanded")=="true"){
+			$("#FINEIONB a:first").attr("aria-expanded","false");
+		}
+		else{
+		
+			
+			$("#FINEIONB a:first").attr("aria-expanded","true");
+			
+		
+		
+            }}
+	});
+
+	$("#fintechIORSform").click(function (e) {
+	    if (e.target == e.currentTarget) {
+	       
+	        $(".finIORSSubSection").slideToggle();
+	        $(".finIORSFormPlus").toggleClass("finIORSFormMinus");
+	        if ($("#FINEIORSNB a:first").attr("aria-expanded") == "true") {
+	            $("#FINEIORSNB a:first").attr("aria-expanded", "false");
+	        }
+	        else {
+	            $("#FINEIORSNB a:first").attr("aria-expanded", "true");
+	        }
+
+	    }
+	});
+
+
+	
+
+	$(".finPubFormPlus").click(function (e) {
+            if (e.target == e.currentTarget) {
+		
+                $(".finPubSubSection").slideToggle();
+                $(".finPubFormPlus").toggleClass("finPubFormMinus");
+		if($("#FINEIONB a:first").attr("aria-expanded")=="true"){
+			$("#FINEIONB a:first").attr("aria-expanded","false");
+		}
+		else{		
+			
+			//$("#FINEIONB a").attr("aria-expanded","true");
+			$("#FINEIONB a:first").attr("aria-expanded","true");
+		
+		
+            }}
+	});
+
+	$(".finIORSFormPlus").click(function (e) {
+	    if (e.target == e.currentTarget) {
+	       
+	        $(".finIORSSubSection").slideToggle();
+	        $(".finIORSFormPlus").toggleClass("finIORSFormMinus");
+	        if ($("#FINEIORSNB a:first").attr("aria-expanded") == "true") {
+	            $("#FINEIORSNB a:first").attr("aria-expanded", "false");
+	        }
+	        else {
+	            $("#FINEIORSNB a:first").attr("aria-expanded", "true");
+	        }
+
+	    }
+	});
+
+	
+
+
+
+    });
+</script>
+
+
+                </div>
+            </section>
+            <!--FUNCTIONWISE SITES END-->
+            <div class="clearfix">
+            </div>
+        </div> </div>
+        </main>
+       
+        <div class="clearfix">
+        </div>
+        <a href="#top" class="scrollToTop" id="backToTop">Top</a>
+<div id="backDiv" style=" text-align:center;" >
+<a href="javascript:history.back()" class="paraheader">Back to previous page</a><br/>
+<span id="lblGetLastUpdateDate" class="paraheader"></span>
+</div>
+<footer class="footer">
+
+<div class="footer">
+  <div class="container_12">    
+      <div class="grid_9" style="width: 833px !important; ">
+          
+          <h2><span class="blue">More</span> Links :</h2>
+          
+		<ul class="footerlist" style="column-count:4">
+                  <li ><a href="/Scripts/HolidayMatrixDisplay.aspx">Bank Holidays</a></li>
+                  <li ><a href="https://shabdavali.rbi.org.in/">Banking Glossary</a></li>
+                  <li ><a href="/Scripts/CitiChart.aspx">Citizen's Charter</a></li>
+                  <li ><a href="/Scripts/Complaints.aspx">Complaints</a></li>
+                  <li ><a href="/Scripts/contactus.aspx">Contact Us</a></li>
+  		<li ><a href="https://www.rbi.org.in/scripts/bs_viewcontent.aspx?Id=3894">COVID-19 Measures</a></li>
+                  <li ><a target="_blank" href="https://ncfe.org.in/e-lms">E-LMS</a></li>
+                  <li ><a href="/Scripts/EventsDisplay.aspx">Events</a></li>
+                  <li ><a href="/Scripts/FAQDisplay.aspx">FAQs</a></li>
+                  <li ><a target="_blank" href="https://www.rbi.org.in/FinancialEducation/">Financial Education</a></li>
+		<li ><a href="/Scripts/BS_ViewForms.aspx">Forms</a></li>
+                  <li ><a href="/Scripts/IFSCMICRDetails.aspx">IFSC/MICR Codes</a></li>
+                  <li><a href="/Scripts/OtherLinks.aspx">Important Websites</a></li>
+                  <li><a target="_blank" href="https://opportunities.rbi.org.in/scripts/index.aspx">Opportunities<span>@</span>RBI</a></li>
+                  <li><a href="/Scripts/rbi_clarification.aspx">RBI Clarifications</a></li>
+ 		<li><a target="_blank" href="https://rbikehtahai.rbi.org.in/">RBI Kehta Hai</a></li>
+                  <li><a href="https://rbidocs.rbi.org.in/rdocs/content/pdfs/Utkarsh202910042026.pdf" target="_blank">RBI’s Vision and Values <img src="../Images/pdf.gif" alt="PDF document" style="padding-bottom: 4px; width:12px; border:0; vertical-align:middle;"> (652 KB)</a></li>
+                  <li><a href="/Scripts/Righttoinfoact.aspx">Right to Information Act</a></li>
+                  <li><a href="/Scripts/BS_ViewTenders.aspx">Tenders</a></li>
+                  
+              </ul>
+      </div>
+
+    <div class="grid_3" style="width:197px !important">
+      
+        <h2><span class="blue">Follow</span> RBI</h2>
+      <ul class="footerlist">
+        
+
+          <li style="float: left;background: url(/images/footer_list_arrow.gif) left 8px no-repeat;"><a href="/Scripts/rss.aspx"><img src="/images/rss-icon.png" alt="RSS Icon" class="rss">RSS</a></li>
+
+        
+          <li>
+              <a href="https://twitter.com/RBI" target="_blank" class="twitter">
+                  <img src="/images/Twitter_New.png" alt="Twitter Icon" class="videos" style="padding-left: 18%; width:14px;">Twitter
+              </a>
+          </li>
+
+        
+
+          <li style="float: left;"><a href="https://www.youtube.com/channel/UCIfCOl43tunZVNYafeC4RQA" class="videos" target="_blank"><img src="/images/youtube.png" alt="YouTube Icon" class="videos">YouTube</a></li>
+
+          <li>
+              <a href="https://instagram.com/reservebankofindia" class="videos" target="_blank">
+                  <img src="/images/Instagram.jpg" alt="Instagram Icon" class="videos" style="padding-left: 5%; width:14px;">Instagram
+              </a>
+          </li>
+          <li style="float: left;"><a href="https://www.facebook.com/RBIsays" class="videos" target="_blank"><img src="/images/Facebook.jpg" style="width:14px;" alt="Facebook Icon" class="videos">Facebook</a></li>
+          <li>
+              <a href="https://www.linkedin.com/company/reservebankofindia" class="videos" target="_blank">
+                  <img src="/images/LinkedinIcon1.png" alt="LinkedIn Icon" class="" style="padding-left: 4%;width: 17px;background: bottom no-repeat;display: block;float: left;margin: 2px 3px 0 1px;">LinkedIn
+              </a>
+          </li>
+      </ul>
+	<a href="https://www.india.gov.in" class="videos" target="_blank">
+                  <img src="/images/indiaGov.png" alt="National Portal of India logo" class="">
+              </a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="copyright">
+    <div class="container_12">
+     <div class="grid_6 pull_left">&copy; Reserve Bank of India. All Rights Reserved. </div>
+        <div class="grid_5 pull_right"><a href="/Scripts/sitemap.aspx">Sitemap</a> <span aria-hidden="true">|</span> <a href="/Scripts/Disclaimer.aspx">Disclaimer</a></div>
+        <div class="clearfix"></div>
+
+        <div class="grid_6 pull_left">Website owned and managed by Reserve Bank of India. Contact us on helpdoc[at]rbi[dot]org[dot]in</div>
+        <div class="grid_5 pull_right">Website last updated date: Nov 24, 2026</div>
+        <div class="clearfix"></div>
+	<div class="grid_6 pull_left"><a href="https://www.rbi.org.in/scripts/wim.aspx">Web Information Manager</a></div>
+	<div class="grid_5 pull_right"><a href="https://rbidocs.rbi.org.in/rdocs/content/pdfs/Accessibility20012026.pdf" target="_blank">Accessibility Statement
+	<img alt="PDF - Accessibility Statement" style="padding: 1px; width:16px; border:0; vertical-align:middle;" src="../Images/pdf.gif" > (133 KB)
+	</a><span aria-hidden="true"> |</span><a href="/scripts/ScreenReader.aspx" title="Information related to screen reader">Screen Reader and Accessibility Help</a></div>
+	<div class="clearfix"></div>
+        <div class="grid_12 pull_left">Supports: Google Chrome 147+ | Firefox 150+ | Microsoft Edge Version 147+ | Safari 17+</div>
+        
+        <div class="clearfix"></div>
+    </div>
+  </div>
+  
+
+
+
+</div>
+
+</footer>
+
+<script src="/js/ReplaceURL.js" ></script>
+<script >
+
+
+    //this is for floating TOP link
+    
+    $(document).ready(function () {
+
+        var offset = 230;
+        var duration = 500;
+
+
+        jQuery(window).scroll(function () {
+            if (jQuery(this).scrollTop() > offset) {
+                jQuery('.scrollToTop').fadeIn(duration);
+                
+            } else {
+                jQuery('.scrollToTop').fadeOut(duration);
+                
+            }
+        });
+
+        
+	$('.page_title').attr('tabindex','-1');
+        $('.scrollToTop').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 800);
+		$('.page_title').focus(); 
+            return false;
+        });
+	
+
+
+	if(!window.location.href.includes("Home.aspx") && !window.location.href.includes("home.aspx"))
+{ 
+if( window.location.href.includes(".aspx")){
+var div= document.getElementById('backDiv');
+	div.removeAttribute("hidden");}
+else{
+var div1= document.getElementById('backDiv');
+	div1.setAttribute("hidden","true");}
+}
+else{
+
+
+	var div1= document.getElementById('backDiv');
+	div1.setAttribute("hidden","true");}
+    });
+
+
+  
+    $(window).scroll(function () {
+
+        if ($('div.banner2').length) {
+
+            if ($(window).scrollTop() >= 265) {
+                $('#menubar').css("position", "fixed");
+                $('#menubar').css("width", "240px");
+                $('#menubar').css("margin-top", "-281px");
+                $('.content_area').css("margin-left", "252px");
+
+                $('.sidebar_nav').css("position", "fixed");
+                $('.sidebar_nav').css("margin-top", "-200px");
+                $('.sidebar_nav').css("width", "236px");
+
+
+             
+
+            }
+
+            else {
+                $('#menubar').css("position", "");
+                $('#menubar').css("width", "");
+                $('#menubar').css("margin-top", "");
+                $('.content_area').css("margin-left", "");
+
+                $('.sidebar_nav').css("position", "");
+                $('.sidebar_nav').css("margin-top", "");
+                $('.sidebar_nav').css("width", "");
+
+
+
+         
+            }
+
+        }
+
+        else if ($(window).scrollTop() >= 185) {
+            $('#menubar').css("position", "fixed");
+            $('#menubar').css("width", "240px");
+            $('#menubar').css("margin-top", "-200px");
+            $('.content_area').css("margin-left", "252px");
+
+            $('.sidebar_nav').css("position", "fixed");
+            $('.sidebar_nav').css("margin-top", "-200px");
+            $('.sidebar_nav').css("width", "236px");
+
+
+          
+		var treeheight=0;
+		if($('#treeYear').height()>0){treeheight=$('#treeYear').height();}
+	    	if($(window).scrollTop() >= $('#example-min').height()-treeheight)
+		{			 
+			$('#menubar').css("position", "absolute");
+            		
+			$('#menubar').css("margin-top", "");
+			$('#menubar').css("top", $('#example-min').height()+100-treeheight +"px");
+		}
+		else{$('#menubar').css("position", "fixed"); $('#menubar').css("top", "");}
+		
+        }
+
+        else {
+            $('#menubar').css("position", "");
+            $('#menubar').css("width", "");
+            $('#menubar').css("margin-top", "");
+            $('.content_area').css("margin-left", "");
+
+            $('.sidebar_nav').css("position", "");
+            $('.sidebar_nav').css("margin-top", "");
+            $('.sidebar_nav').css("width", "");
+
+
+       
+        }
+     
+
+       
+    });
+	
+      
+    $(document).ready(function () {
+	
+	
+		  $('.window .close').click(function (e) {
+            //Cancel the link behavior
+            e.preventDefault();
+            $.cookie('feedback_Cookie', 'Yes', { expires: 365, path: '/' });
+            $('#maskWN').hide();
+            $('.window').hide();
+            var scroll = $(window).scrollTop();
+            $("html").scrollTop(scroll);
+        });
+		
+		 $('#maskWN').click(function () {
+            $(this).hide();
+            $.cookie('feedback_Cookie', 'Yes', { expires: 365, path: '/' });
+            $('.window').hide();
+
+        });
+
+        
+
+        //if close button is clicked
+        $('.window .close').click(function (e) {
+            //Cancel the link behavior
+            e.preventDefault();
+            $.cookie('feedback_Cookie', 'Yes', { expires: 365, path: '/' });
+            $('#mask').hide();
+            $('.window').hide();
+            var scroll = $(window).scrollTop();
+            $("html").scrollTop(scroll);
+        });
+
+        //if mask is clicked
+        $('#mask').click(function () {
+            $(this).hide();
+            $('.window').hide();
+        });
+        $('#feedbackbtn').click(function () {
+            var id = '#dialog';
+
+            //Get the screen height and width
+            var maskHeight = $(document).height();
+            var maskWidth = $(window).width();
+
+            //Set heigth and width to mask to fill up the whole screen
+            
+            $('#mask').css({ 'width': '100%', 'height': '100%', 'position': 'fixed' });
+
+            //transition effect
+            $('#mask').fadeIn(500);
+            $('#mask').fadeTo("slow", 0.9);
+
+            //Get the window height and width
+            var winH = $(window).height();
+            var winW = $(window).width();
+
+            //Set the popup window to center
+            $(id).css('top', winH / 2 - $(id).height() / 2);
+            $(id).css('left', winW / 2 - $(id).width() / 2);
+
+            //transition effect
+            $(id).fadeIn(2000);
+        });
+
+        $('.submit').click(function () {
+            var Name = $("[id*=txtFeedbackName]").val();
+            var Email = $("[id*=txtFeedbackEmail]").val();
+            var Comments = $("[id*=txtFeedbackComments]").val();
+            if (Name == "") {
+
+                alert("Please enter your name");
+                $("[id*=txtFeedbackName]").focus();
+                return false;
+            }
+            else if (Email == "") {
+                alert("Please enter your email");
+                $("[id*=txtFeedbackEmail]").focus();
+                return false;
+            }
+            else if (Email != "" && !ValidateEmail(Email)) {
+                alert("Please enter a valid email address");
+                $("[id*=txtFeedbackEmail]").focus();
+                return false;
+            }
+
+            else if (Comments == "") {
+
+                alert("Please enter some comments");
+                $("[id*=txtFeedbackComments]").focus();
+                return false;
+            }
+
+            else {
+                $('[id*=Button1]').attr('disabled', 'disabled');
+
+                var param = { Name: Name, EmailID: Email, Comments: Comments };
+                $.ajax({
+                    type: "POST",
+                    url: "../Home.aspx/SaveFeedback",
+                    data: JSON.stringify(param),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+
+                    success: function (response) {
+
+                        if (response.d == "0") {
+                            alert("Thank you for your feedback");
+                            $.cookie('feedback_Cookie', 'Yes', { expires: 365, path: '/' });
+                            $('#mask').hide();
+                            $('.window').hide();
+                            $('[id*=Button1]').removeAttr('disabled');
+                            $("[id*=txtFeedbackName]").val("");
+                            $("[id*=txtFeedbackEmail]").val("");
+                            $("[id*=txtFeedbackComments]").val("");
+                        }
+                        else {
+                            alert("Please try again");
+                            $('[id*=Button1]').removeAttr('disabled');
+
+
+                        }
+
+                    }
+                });
+            }
+
+        });
+
+        function ValidateEmail(email) {
+            var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            return expr.test(email);
+        };
+
+       
+
+        $('a.style1').each(function () {
+
+            var $this = $(this);
+            var aHref = $this.attr('class');
+            $this.attr('class', aHref.replace('style1', 'links'));
+        });
+
+		
+   });
+
+  function isExternal(url) {
+	if(url){url=url.toLowerCase();
+       if(url=='#' || url=='javascript:void(0);' || url.includes('javascript')||url=='' )
+	{ return false;} 
+	else{//return (url.indexOf("rbi.org.in")==-1)
+	
+	if(url.indexOf("www.rbi.org.in")==-1 || url.indexOf("https://rbi.org.in")==-1)
+		{	
+			if(url.indexOf("rbi.org.in")==-1)		
+    				return "external";
+			else if(url.indexOf("www.rbi.org.in")==-1 && url.indexOf(".rbi.org.in")>0 && url.indexOf("rbidocs.rbi.org.in")==-1)
+				{return "subdomain";}
+			else if(url.indexOf("financialeducation")>0 || url.indexOf("commonperson")>0 || url.indexOf("/rekyc/")>0 || url.indexOf("rbi90years")>0 ){
+				return "subsite";}
+			
+		}
+	
+	}}
+    }
+    document.addEventListener("click", function () {
+	linkMessage();
+        
+    });
+function linkMessage(){
+	if (event.target.tagName.toLowerCase() === "a") {
+            if (isExternal(event.target.href)=="external") {
+
+                if (confirm("You are being redirected to an external website that opens in a new tab. Please note that Reserve Bank of India will not be held responsible for external websites content in any manner.")) {
+
+                    return;
+                }
+                else {
+                   
+                    event.preventDefault();
+                    return;
+                }
+            }
+	    if (isExternal(event.target.href)=="subdomain") {
+	    	 if (confirm("You are being redirected to a subdomain that will open in a new browser tab. The subdomain may have a different header, footer, and navigation structure from the main website. Continue?")) {
+                    return;
+                }
+                else {
+                   
+                    event.preventDefault();
+                    return;
+                }
+	    }
+		if (isExternal(event.target.href)=="subsite") {
+	    	 if (confirm("You are being redirected to a subsite that will open in a new browser tab. The subsite may have a different header, footer, and navigation structure from the main website. Some design elements and links may vary from the primary site experience. Continue?")) {
+                    return;
+                }
+                else {
+                   
+                    event.preventDefault();
+                    return;
+                }
+	    }
+        }
+	else if (event.target.tagName.toLowerCase() === "img") {
+		$(event.target).preventDefault;		
+		if($(event.target).parent('a').length){
+			 if (isExternal($(event.target).parent('a').prop('href'))==="external") {
+                		if (confirm("You are being redirected to an external website that opens in a new tab. Please note that Reserve Bank of India will not be held responsible for external websites content in any manner.")) {
+                    		return;
+               		 }
+
+                	else {                   
+                    		event.preventDefault();
+                    		return;
+                	}}
+			if (isExternal($(event.target).parent('a').prop('href'))==="subdomain") {
+                		if (confirm("You are being redirected to a subdomain that will open in a new browser tab. The subdomain may have a different header, footer, and navigation structure from the main website. Continue?")) {
+                    		return;
+               		 	}
+
+                		else {                   
+                    		event.preventDefault();
+                    		return;
+                		}
+			}
+			if (isExternal(event.target.href)=="subsite") {
+	    	 	if (confirm("You are being redirected to a subsite that will open in a new browser tab. The subsite may have a different header, footer, and navigation structure from the main website. Some design elements and links may vary from the primary site experience. Continue?")) {
+                    	return;
+                	}
+                	else {
+                   
+                    		event.preventDefault();
+                    	return;
+                	}
+	    		}
+	}}
+	const link = event.target.closest('a[target="_blank"]');
+	if(link){ 
+		event.preventDefault();
+		const docRegx = /\.(pdf|docx?|xlsx?|zip?|xls|doc)$/i;
+		if(docRegx.test(link)){
+			if(/\.pdf$/i.test(link))
+			{	
+				if(confirm("This PDF will open in a new browser tab. Do you want to continue?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.docx$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this document?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.doc$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this document?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.xlsx$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this document?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.xls$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this document?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.zip$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this file?")){
+				window.open(link.href,"_blank");}
+			}
+		}
+
+		else 
+		if(confirm("This link will open in a new browser tab. Do you want to continue?")){
+			window.open(link.href,"_blank");
+		}
+	}
+		if (event.target.tagName.toLowerCase() === "button") {
+		if($(event.target).parent('a').length>0){
+			const link1 = event.target.closest('a[target="_blank"]');
+		if(link1){
+			event.preventDefault();
+			if(confirm("This link will open in a new browser tab. Do you want to continue?")){
+				window.open(link.href,"_blank");
+			}
+		}
+		}
+	}
+}
+
+</script>
+<script >
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61369961-1', 'auto');
+  ga('send', 'pageview');
+
+document.querySelectorAll('table.tablebg').forEach(table => {
+    const anchors = table.querySelectorAll('a[href^="#"]:not([href="#"])');
+
+    const hasInPageAnchorsInThisTableOnly = Array.from(anchors).some(a => {
+        // Find the closest table ancestor of this anchor
+        const closestTable = a.closest('table');
+    
+        // Only count it if it belongs to the current table (not a nested one)
+        return closestTable === table;
+    });
+
+    if (!hasInPageAnchorsInThisTableOnly) {
+       // table.setAttribute('role', 'presentation');
+       //} else {
+       //    table.removeAttribute('role'); 
+	if(table.closest('td')){
+	if(table.querySelector('th'))
+	{	
+		table.removeAttribute('role');
+	}
+	else{
+        table.setAttribute('role', 'presentation');
+		}
+	}
+	else{
+        table.setAttribute('role', 'presentation');
+		}
+    }
+});
+$('.brd-ptable1').attr('role','presentation');
+$('html').attr('lang', 'en');
+document.querySelectorAll('br').forEach(br => {br.setAttribute('aria-hidden','true');});
+$('#doublescroll').children('table').filter(':first').attr("role", "presentation");
+$('.page_title').nextAll('table').first().attr("role", "presentation");
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+$('.tableheader b').each(function () {
+		var curEle= $(this);
+           $(curEle).replaceWith("<h2 class='dop_header'>"+$(curEle).html()+"</h2>")
+        });
+ });
+
+//  tooltip 
+var TooltipManager = {
+    _tip: null, // Create the tooltip element once 
+init: function() {
+    if (!this._tip) {
+    
+        this._tip = $('<div id="js-custom-tooltip"></div>').css({
+            "position": "absolute", "background": '#ffffca', "color":"#000", "padding": "2px 5px", "border-radius": "0px", "font-size": "11px","font-family":"Sans-serif", "z-index": "10000", "pointer-events": "none","border":"1px solid #767676", "box-shadow":"2px 2px 3px rgba(0,0,0,0.2)","white-space":"nowrap"
+        }).appendTo('body');
+        
+    }
+}, 
+show: function(element, text) {
+    this.init(); 
+var $el = $(element); // Update text and position 
+    
+this._tip.text(text).show();
+var pos = $el.offset(); 
+this._tip.css({
+    top: pos.top + this._tip.outerHeight()  + "px", // Show above 
+    left: pos.left + ($el.outerWidth() / 2) - (this._tip.outerWidth() / 2) + "px"
+});
+    }, hide: function() { if (this._tip) this._tip.hide(); }
+}; // Apply to all elements that have a ToolTip (ToolTip renders as 'title') 
+$(document).ready(function() {
+   
+    $('body').on('focusin', 'input, button, a, select, textarea, img', function() {
+        var title = $(this).attr('title'); if (title) {
+    
+            
+      
+            TooltipManager.show(this, title);
+        }
+    }).on('focusout', 'input, button, a, select, textarea, img', function() { 
+       
+            TooltipManager.hide();
+       
+    }); // Dismiss on Escape key
+    $(document).keyup(function(e) { if (e.key === "Escape") TooltipManager.hide(); });
+});
+
+//breadcrumb current page announce
+$(document).ready(function(){
+
+const breadcrumbList = document.querySelector('.breadcrumbs');
+
+    if (breadcrumbList) {
+        const listItems = breadcrumbList.querySelectorAll('li');
+    
+        if (listItems.length > 0) {
+            
+            const lastItem = $('.breadcrumbs li').filter(function(){ return $.trim($(this).text())!=="";}).last().attr('aria-current', 'page').css('background','none'); //remove extra icons from empty breadcrumbs
+            $('.breadcrumbs li').filter(function(){ return $.trim($(this).text())==="" && $(this).children().length===0;}).attr('role','presentation');
+	    
+       		$('.breadcrumbs li').filter(function(){
+			if($(this).children().length!==0)
+			{
+				if($(this).children().text() ===""){}
+			}
+		});
+            const lastLink =lastItem.find('a');
+            if (lastLink) {
+                lastLink.attr('aria-current', 'page');               
+                
+            }
+		if($('.breadcrumbs li').last().find('a').length>0)
+		{			
+			const $a = $('.breadcrumbs li').last().find('a');
+			$('<span>',{class: $a.attr('class'), text: $a.text()}).replaceAll($a).attr('aria-current', 'page').css('background','none');
+		}
+		
+		if($('.breadcrumbs li').last().find('span').length>0)
+		{
+			
+			if($('.breadcrumbs li').last().find('span')[0].innerText==='')
+			{
+				$('.breadcrumbs li').last().find('span').removeAttr('aria-current');				
+			}
+			else{
+				$('.breadcrumbs li').last().find('span').filter(function(){ return $(this).attr('role')!=='presentation';}).last().attr('aria-current', 'page').css('background','none');					
+			}		
+		}
+		$('.breadcrumbs li').filter(function(){ return $.trim($(this).text())!=="";}).removeAttr('role','presentation'); 
+		$('.breadcrumbs li').filter(function(){ return $.trim($(this).text())==="" }).css('background','none');//remove extra icons from empty breadcrumbs
+        }
+    }
+});
+
+//document.addEventListener("DOMContentLoaded", () => {
+//    document.querySelectorAll('img').forEach(img => {
+//      try {
+//        const url = new URL(img.src);
+//        img.crossOrigin = "anonymous";
+//        img.src = window.location.origin + url.pathname + url.search + url.hash;
+//      } catch (e) {}
+//    });
+//  });
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+setLetterSpace(false)//]]>
+</script>
+</form>
+
+<script  src="JQuery/ui/jquery.ui.revampRBI.js"></script>
+<script  src="js/script.js?v=1.2"></script>
+<script  src="js/ImgSaveDisable.js"></script>
+<script  src="js/jquery.easing.min.1.3.js"></script>
+<script  src="js/jquery.jcontent.0.8.min.js?v=1.0"></script>
+<script  src="js/misc.js"></script>
+<script  src="js/rightpanel.js"></script>
+<script >
+    jQuery.browser = {};
+    (function () {
+        jQuery.browser.msie = false;
+        jQuery.browser.version = 0;
+        if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+            jQuery.browser.msie = true;
+            jQuery.browser.version = RegExp.$1;
+        }
+    })();
+</script>
+
+    <script>
+		
+        function setEnglish() {
+            var chkBox = document.getElementById('CheckBox1');
+            if (chkBox.checked) {
+                var d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                document.cookie = "preferLang=English; expires=" + d.toUTCString()+"; path=/; sameSite=Lax";
+                jQuery('#dialogLan').dialog('close');
+            }
+            else {
+		                        
+                document.cookie = "preferLang=English; path=/; sameSite=Lax";
+                jQuery('#dialogLan').dialog('close');
+		            
+            }	       
+
+        }
+        function setHindi() {
+            var chkBox = document.getElementById('CheckBox1');
+		        
+            if (chkBox.checked) {
+                var d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+		           
+                document.cookie = "preferLang=Hindi; expires=" + d.toUTCString()+"; path=/; sameSite=Lax";
+
+                window.location.replace("https://www.rbi.org.in/hindi/");
+            }
+            else {
+                window.location.replace("https://www.rbi.org.in/hindi/");
+            }
+        }
+
+
+        jQuery.curCSS = function(element, prop, val) {
+            return jQuery(element).css(prop, val);
+        };
+
+        //function LoadSearchData(id, key) {
+        //    if (id == "txtSearch1") {
+        //        if (key == 13) {
+        //            validateSearchText();
+        //            return false;
+        //        }
+        //    }
+        //    else validateSearchText();
+        //    return true;
+        //}
+        //function validateSearchText() {
+        //    strSearch = trim(document.getElementById('txtSearch1').value);
+		       
+        //    if (strSearch == "") { alert('Please enter the search text'); }
+        //    else {
+		       
+        //        var strFilterChars = new RegExp("^[0-9a-zA-Z ]*$");
+        //        if (!strFilterChars.test(strSearch)) alert("Please remove special characters from search text");
+        //        else window.open("scripts/SearchResults.aspx?search=" + document.getElementById("txtSearch1").value,"_self");
+        //    }
+        //}
+        function trim(value) {
+            value = value.replace(/^\s+/, '');
+            value = value.replace(/\s+$/, '');
+            return value;
+        }
+		</script>
+
+<script>
+    var serverDateTime = new Date('11/24/2026 11:26:13'); //take current DB time and increment it
+    var montharray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    var dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    var mode;
+    function updateTime() {
+        if (serverDateTime != 'Invalid Date') {
+            document.getElementById('TimeNew').innerHTML = serverDateTime;
+            document.getElementById('TimeToday').innerHTML = serverDateTime;
+            document.getElementById('TimeSoon').innerHTML = serverDateTime;
+            document.getElementById('TimeInfo').innerHTML = serverDateTime;
+
+            var serverMonthValue = serverDateTime.getMonth() + 1;
+            var serverDayValue = serverDateTime.getDate();
+            var serverYearValue = serverDateTime.getFullYear();
+            var serverHoursValue = serverDateTime.getHours();
+            var serverMinutesValue = serverDateTime.getMinutes();
+            var serverSecondsValue = serverDateTime.getSeconds();
+            var hours12;
+            serverSecondsValue++;
+
+            if (serverSecondsValue >= 60) //increment minute if seconds count reach 60
+            {
+                serverSecondsValue -= 60;
+                serverMinutesValue++;
+            }
+            if (serverMinutesValue >= 60) //increment hour if seconds count reach 60
+            {
+                serverMinutesValue -= 60;
+                serverHoursValue++;
+            }
+            if (serverHoursValue >= 24) //increment day if hours count reach 24
+            {
+                serverHoursValue -= 24;
+                serverDayValue++;
+            }
+
+            //if seconds count reach 60,minutes count reach 60,hours count reach 24 and month count reach 12
+            //at time change increment year
+            if (serverSecondsValue >= 60 && serverMinutesValue >= 60 && serverHoursValue >= 24 && serverMonthValue >= 12)
+            { serverYearValue++; }
+
+            //adjusting display of hour for 12 hour clock.
+            if (serverHoursValue > 12)
+                hours12 = serverHoursValue - 12;
+            else if (serverHoursValue == 0)
+                hours12 = 12;
+            else
+                hours12 = serverHoursValue;
+
+            //if hours range between 12 to 24 set mode to PM otherwise AM.
+            if (serverHoursValue >= 12 && serverHoursValue <= 24)
+                mode = "PM";
+            else
+                mode = "AM";
+
+            serverDateTime = new Date(Date.parse(serverMonthValue + '/' + serverDayValue + '/' + serverYearValue + ' ' + serverHoursValue + ':' + serverMinutesValue + ':' + serverSecondsValue));
+            serverHoursValue = serverDateTime.getHours();
+            serverMinutesValue = serverDateTime.getMinutes();
+            serverSecondsValue = serverDateTime.getSeconds();
+
+            if (hours12 < 10)
+                hours12 = "0" + hours12;
+            if (serverMinutesValue < 10)
+                serverMinutesValue = "0" + serverMinutesValue;
+            if (serverSecondsValue < 10)
+                serverSecondsValue = "0" + serverSecondsValue;
+
+            var UpdatedTime = hours12 + ":" + serverMinutesValue + ":" + serverSecondsValue + " " + mode + " " + dayarray[serverDateTime.getDay()] + ", " + montharray[serverDateTime.getMonth()] + " " + serverDateTime.getDate() + ", " + serverDateTime.getFullYear();
+            document.getElementById('TimeNew').innerHTML = UpdatedTime;
+            document.getElementById('TimeToday').innerHTML = UpdatedTime;
+            document.getElementById('TimeToday1').innerHTML = UpdatedTime;
+            document.getElementById('TimeToday2').innerHTML = UpdatedTime;
+            document.getElementById('TimeSoon').innerHTML = UpdatedTime;
+            document.getElementById('TimeInfo').innerHTML = UpdatedTime;
+        }
+    }
+    window.setInterval(updateTime, 1000); //function call to display time
+
+    function changeHref(URL)
+    { $('#MoreURL').attr("value", URL); }
+
+    function openHref() {
+        if (document.getElementById('MoreURL').value == '') {
+            document.getElementById('MoreURL').value = 'https://rbi.org.in';
+            window.open("https://rbi.org.in");
+        }
+        else
+            window.open(document.getElementById('MoreURL').value);
+    }
+    
+
+    
+
+	
+
+    $(document).ready(function () {
+    
+        document.getElementById("backToTop").style.visibility = "hidden";
+
+        var DisplayDialoglang = 'true';
+
+        // for maintaining English lang selection for current session only by nish
+        var chkSession = ''; 
+            if (chkSession === "false") {
+                DisplayDialoglang = false;
+            } 
+
+        $(function () {
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            var name = "preferLang=";
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) {
+                    DisplayDialoglang = 'false';
+                    var prefLang = c.substring(name.length, c.length);
+                    if (prefLang == "Hindi") {
+                        window.location.replace("https://www.rbi.org.in/hindi/");
+                    }
+                }
+            }
+            if (DisplayDialoglang === 'true') {
+                document.getElementById('dialogLan').style.display = 'block';
+
+                $("#dialogLan").dialog({
+                    height: 'auto',
+                    width: 200,                   
+                    modal: true,
+                    open: function () {                        
+                    },
+                    close: function () {
+                        $(document).unbind('click');
+                    }
+                });
+                $(".ui-resizable-se").hide();
+                $(".ui-dialog-titlebar").hide();
+	
+            }
+            else {
+                $("#dialogLan").hide();
+            }
+        });
+	
+	const popup = document.getElementById('dialogLan');
+	
+	this.addEventListener('click', function(e){
+	if($('#dialogLan').hasClass("ui-dialog-content")){
+	if($('#dialogLan').dialog('isOpen')=== true){
+		if(e.target.name =='CheckBox1')		
+		{
+			popup.focus(); 
+			
+		}
+		else{
+		e.preventDefault();
+		popup.focus();
+		}
+		}}
+	});
+
+
+    
+    });
+  
+
+    function overlayclickclose() {
+  
+
+        jQuery('#dialog').dialog('close');
+  
+    };
+    
+    
+
+    var slides = document.querySelectorAll('#slides .slide');
+    var currentSlide = 0;
+    var slideInterval = setInterval(nextSlide, 2000);
+
+    function nextSlide() {
+        if (slides.length > 0) {
+            slides[currentSlide].className = 'slide';
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].className = 'slide showing';
+        }
+    }
+
+    function Pause() {
+        clearInterval(slideInterval);
+    }
+
+    function Play() {
+        slideInterval = setInterval(nextSlide, 2000);
+    }
+
+   
+     function setLang1() {
+   
+var param={key:'1'};
+        jQuery.ajax({
+            type: "POST",
+	    data: JSON.stringify(param),
+            url: "../Home.aspx/SetSessionLang1",
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function(data) {
+                    return data;        
+            } ,        
+        
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+//alert(textStatus);
+            }
+        });
+   
+    }
+
+function setLang(isChecked,lang) {
+   
+var param={key:isChecked,lan:lang};
+        jQuery.ajax({            
+            url: "../Home.aspx/SetSessionLang",
+            data: JSON.stringify(param),
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function(data) {
+                    return data;        
+            } ,     
+        
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+//alert("A:"+textStatus);
+            }
+        });
+   
+    }
+
+    //Added to keep focus inside popup dialog by ni
+    document.addEventListener("keydown",function(e)
+    {
+        if(e.shiftKey && (e.key==='Tab' || e.keyCode===9))
+        {
+            if(e.target.id=="CheckBox1"){
+                Button2.focus();
+                e.preventDefault();
+            }	
+        }
+        else if (e.key==='Tab' || e.keyCode===9)
+        {
+            if(e.target.id=="Button2"){
+                btnClose.focus();
+                e.preventDefault();
+            }
+		if(e.target.id=="btnClose"){
+                CheckBox1.focus();
+                e.preventDefault();
+            }
+		
+        }
+    });
+	
+
+
+    const tabItems = document.querySelectorAll("#example-two ul li");
+    tabItems.forEach(item => {
+        item.addEventListener("keydown", (event) => {
+            if(event.key==="ArrowRight"){
+                if(event.target.textContent==="What's New"){					
+                    $('#sectionstoday').click();$('#sectionstoday').focus();
+    }
+    
+    if(event.target.textContent.includes("Updated Today")){				
+        $('#A2').click();$('#A2').focus();
+    }
+  
+    }
+    if(event.key==="ArrowLeft"){
+  
+       
+	 if(event.target.textContent.includes("Updated Today")){				
+            $('#whatsnew').click();$('#whatsnew').focus();
+        }
+        if(event.target.textContent==="Citizen's Corner"){					
+            $('#sectionstoday').click();$('#sectionstoday').focus();
+        }
+    }
+    });
+    });
+</script>
+</body>
+</html>
