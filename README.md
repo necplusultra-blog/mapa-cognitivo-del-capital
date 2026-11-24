@@ -6,6 +6,8 @@ El objetivo del sismógrafo es dar cuenta de las tendencias fundamentales de la 
 
 Un sismógrafo no predice el terremoto: registra temblores y rupturas. Este repositorio descarga datos públicos, recalcula cientos de especificaciones de la tasa de ganancia y detecta de forma endógena sus quiebres de tendencia. Cada especificación está ligada a una decisión teórica del debate marxista (trabajo productivo e improductivo, costo histórico o corriente, propiedad intelectual, etc.), para mostrar qué conclusiones resisten todas las decisiones y cuáles dependen de la teoría que se adopte.
 
+Es un trabajo que se realiza en el marco del proyecto de tesis doctoral de Pablo Ignacio Jiménez Cea, *Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe* (Doctorado en Sociología, ICSyH-BUAP), con una beca de la Secretaría de Ciencia, Humanidades, Tecnología e Innovación (SECIHTI), número 4052073. Agradezco a la clase trabajadora mexicana, que con su trabajo hace posible esta beca, y espero estar dándole un uso útil.
+
 Sitio público: https://necplusultra-blog.github.io/sismografo-del-capital/
 
 ## Qué calcula

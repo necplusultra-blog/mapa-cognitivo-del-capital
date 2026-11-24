@@ -50,8 +50,8 @@ a:hover { color: var(--estilete); }
 .portada { padding: clamp(32px, 6vw, 88px) clamp(20px, 4vw, 56px) 28px; max-width: 1320px;
             display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(24px, 5vw, 80px); align-items: start; }
 .portada h1, .portada .actualizacion { grid-column: 1 / -1; }
-.portada .lede { grid-column: 1; }
-.portada p:not(.lede):not(.actualizacion) { grid-column: 2; margin-top: .35em; }
+.portada .lede { grid-column: 1; grid-row: span 2; }
+.portada p:not(.lede):not(.actualizacion):not(.agradecimiento) { grid-column: 2; margin-top: .35em; }
 @media (max-width: 900px) { .portada { display: block; } }
 .portada h1 { font-weight: 300; font-size: clamp(3.2rem, 10.5vw, 8.6rem); line-height: .9; letter-spacing: -.035em;
               margin: 0 0 .45em; font-variation-settings: "opsz" 72; }
@@ -158,3 +158,7 @@ article.lectura { max-width: 46rem; margin: 14px 0; padding: 12px 18px 4px; bord
 article.lectura h3 { margin: 0 0 6px; font: 600 1rem/1.35 var(--sans); }
 article.lectura p { margin: .4rem 0 .7rem; font-size: .98rem; }
 article.lectura.activa, article.lectura:focus { outline: none; box-shadow: 0 0 0 1px var(--tinta); }
+
+/* agradecimiento de la portada */
+.portada .agradecimiento { grid-column: 1 / -1; max-width: 62rem; margin: .4em 0 1em; padding: .2rem 0 .2rem .9rem;
+                           border-left: 2px solid var(--estilete); font-family: var(--sans); font-size: .92rem; line-height: 1.5; color: var(--tinta); }
