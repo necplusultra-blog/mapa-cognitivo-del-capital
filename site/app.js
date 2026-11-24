@@ -213,7 +213,8 @@ function drawTF(T) {
   $('transformacion').hidden = false;
   const S = T.serie, z = S[S.length - 1];
   set('tf-desv', f1(z.desv_mediana) + ' %'); set('tf-rho', f2(z.spearman_mediana)); set('tf-pos', f0(T.pct_spearman_pos) + ' %');
-  set('tf-anio', T.anio_ramas); set('tf-n', T.n_paises);
+  document.querySelectorAll('.tf-anio').forEach((e) => { e.textContent = T.anio_ramas; });
+  document.querySelectorAll('.tf-n').forEach((e) => { e.textContent = T.n_paises; });
   const s1 = [['desv_mediana', 'Mediana de los países'], ['desv_USA', 'EE.UU.'], ['desv_DEU', 'Alemania'], ['desv_CHN', 'China'], ['desv_IND', 'India']];
   legend('l-tf-desv', s1.map((x) => x[1]));
   lineChart('c-tf-desv', S, s1.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Desviación media de los precios respecto de los valores' });
