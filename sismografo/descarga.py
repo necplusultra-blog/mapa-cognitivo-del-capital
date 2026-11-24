@@ -33,6 +33,7 @@ CES_SUPERSECTORES = {  # código CES: (nombre, productivo según el Capítulo Pr
     '80000000': ('Otros servicios', True),
 }
 PWT_DTA = 'https://dataverse.nl/api/access/datafile/554030'  # pwt110.dta
+WIOD_SEA = 'https://dataverse.nl/api/access/datafile/199095'  # WIOD 2016, Socio_Economic_Accounts.xlsx (2000–2014)
 PWT_FRED_VARS = {'LABSHP': 'A156NRUG', 'RKNANP': 'A666NRUG', 'RGDPNA': 'A666NRUG', 'CKSPPP': 'A666NRUG', 'RGDPES': 'A666NRUG'}
 
 
@@ -62,6 +63,15 @@ def fred_csv(series, dest_dir):
     return _get(f'https://fred.stlouisfed.org/graph/fredgraph.csv?id={series}', os.path.join(dest_dir, series + '.csv'))
 
 
+def _con_cache(url, dest, nombre):
+    cache = os.path.join(os.path.dirname(CACHE_PWT), nombre)
+    if _get(url, dest):
+        os.makedirs(os.path.dirname(cache), exist_ok=True); shutil.copy(dest, cache); return True
+    if os.path.exists(cache):
+        print(f'{nombre}: la fuente no respondió; se usa la copia guardada'); shutil.copy(cache, dest); return True
+    return False
+
+
 def descargar_todo(dir_datos, mundo=True):
     os.makedirs(dir_datos, exist_ok=True)
     bea = os.path.join(dir_datos, 'bea'); os.makedirs(bea, exist_ok=True)
@@ -72,6 +82,8 @@ def descargar_todo(dir_datos, mundo=True):
     for s in ids:
         fred_csv(s, fred)
     if mundo:
+        w = os.path.join(dir_datos, 'wiod'); os.makedirs(w, exist_ok=True)
+        _con_cache(WIOD_SEA, os.path.join(w, 'Socio_Economic_Accounts.xlsx'), 'wiod_sea.xlsx')
         pwt = os.path.join(dir_datos, 'pwt'); os.makedirs(pwt, exist_ok=True)
         dest = os.path.join(pwt, 'pwt110.dta')
         if _get(PWT_DTA, dest):
