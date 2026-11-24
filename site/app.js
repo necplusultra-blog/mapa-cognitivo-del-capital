@@ -58,6 +58,36 @@ function bars(id, rows) {
     .on('pointerleave', () => tip.style('display', 'none'));
 }
 
+function drawSismo(bandas, quiebres) {
+  const el = $('sismo'); if (!el) return; el.replaceChildren();
+  const W = el.clientWidth, H = el.clientHeight, mt = 34, mb = 26, pad = Math.max(20, Math.min(56, W * 0.04));
+  const rows = bandas.map((r) => ({ ...r, anio: +r.anio }));
+  const x = d3.scaleLinear().domain(d3.extent(rows, (r) => r.anio)).range([pad, W - pad]);
+  const y = d3.scaleLinear().domain([d3.min(rows, (r) => r.p10), d3.max(rows, (r) => r.p90)]).nice().range([H - mb, mt]);
+  const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('aria-hidden', 'true');
+  svg.append('path').datum(rows).attr('class', 'banda').attr('d', d3.area().curve(d3.curveMonotoneX).x((r) => x(r.anio)).y0((r) => y(r.p10)).y1((r) => y(r.p90)));
+  const traza = svg.append('path').datum(rows).attr('class', 'traza').attr('d', d3.line().curve(d3.curveMonotoneX).x((r) => x(r.anio)).y((r) => y(r.p50)));
+  // los tres años con más quiebres detectados, separados al menos cinco años entre sí
+  const top = []; [...quiebres].sort((a, b) => b.n - a.n).forEach((q) => { if (top.length < 3 && top.every((t) => Math.abs(t.anio - q.anio) >= 5)) top.push(q); });
+  const g = svg.selectAll('g.marca-q').data(top).join('g').attr('class', 'marca-q').attr('transform', (q) => `translate(${x(q.anio)},0)`);
+  g.append('line').attr('y1', 6).attr('y2', 22); g.append('text').attr('x', 6).attr('y', 18).text((q) => q.anio);
+  const dec = rows.map((r) => r.anio).filter((a) => a % 10 === 0);
+  svg.selectAll('text.anio').data(dec).join('text').attr('class', 'anio').attr('x', (a) => x(a)).attr('y', H - 8).attr('text-anchor', 'middle').text((a) => a);
+  const ult = rows[rows.length - 1];
+  svg.append('circle').attr('cx', x(ult.anio)).attr('cy', y(ult.p50)).attr('r', 3.5).style('fill', 'var(--estilete)');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !drawSismo.hecho) {
+    const L = traza.node().getTotalLength();
+    traza.attr('stroke-dasharray', `${L} ${L}`).attr('stroke-dashoffset', L).transition().duration(2600).ease(d3.easeCubicInOut).attr('stroke-dashoffset', 0);
+  }
+  drawSismo.hecho = true;
+}
+
+function indiceActivo() {
+  const links = [...document.querySelectorAll('.indice a')]; if (!links.length || !('IntersectionObserver' in window)) return;
+  const obs = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) links.forEach((a) => a.classList.toggle('activa', a.getAttribute('href') === '#' + e.target.id)); }), { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('main > section[id]').forEach((s) => obs.observe(s));
+}
+
 let D = {};
 function draw() {
   const { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens } = D;
@@ -70,7 +100,7 @@ function draw() {
   const cn = mmasa.filter((r) => r.china_pct_K != null);
   set('k-cn', f1(cn[cn.length - 1].china_pct_K) + ' %'); set('k-cn00', f1(mmasa.find((r) => r.anio === 2000).china_pct_K) + ' %');
   lineChart('c-bandas', bandas, [{ key: 'p50', label: 'Mediana' }], { bands: [['p10', 'p90'], ['p25', 'p75']], ref: 100, tipfmt: d3.format('.1f'), aria: 'Abanico del multiverso de la tasa de ganancia de EE.UU.', tipExtra: (r) => [['P90', r.p90], ['P75', r.p75], ['P25', r.p25], ['P10', r.p10]] });
-  const refS = [['nfc_ebe_cc', 'No financiero, EBE, costo corriente (tipo Duménil-Lévy)'], ['corp_ebe_hc', 'Corporativo, EBE, costo histórico (tipo Kliman)'], ['emp_todo_cc', 'Empresarial, todo trabajo productivo'], ['emp_ramas_cc', 'Plusvalor ampliado, por ramas'], ['emp_intra_cc', 'Plusvalor ampliado, corrección intra-rama (desde 1972)']];
+  const refS = [['nfc_ebe_cc', 'No financiero, EBE, costo corriente (tipo Duménil-Lévy)'], ['corp_ebe_hc', 'Corporativo, EBE, costo histórico (tipo Kliman)'], ['emp_todo_cc', 'Empresarial, todo trabajo productivo'], ['emp_ramas_cc', 'Plusvalor ampliado, por ramas'], ['emp_intra_cc', 'Plusvalor ampliado, corrección intra-rama (desde 1972)'], ['emp_ramas_cv', 'Plusvalor ampliado por ramas, pv/(c + v)']];
   legend('l-ref', refS.map((s) => s[1]));
   lineChart('c-ref', ref, refS.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Cinco medidas de la tasa de ganancia de EE.UU.' });
   set('m-trim', meta.eeuu_trim_fin);
@@ -168,9 +198,9 @@ function drawTiempo(T, Dc) {
 }
 
 Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_decadas', 'eeuu_masa', 'mundo_tasas', 'mundo_masa', 'eeuu_trimestral', 'eeuu_sensibilidad'].map(get)).then(([meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens]) => {
-  D = { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens }; draw();
+  D = { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens }; draw(); drawSismo(bandas, quiebres); indiceActivo();
   Promise.all([get('eeuu_tiempo'), get('eeuu_descomposicion')]).then(([T, Dc]) => { D.T = T; D.Dc = Dc; drawTiempo(T, Dc); });
   if (meta.mundo_horas) Promise.all([get('mundo_horas'), get('mundo_horas_paises')]).then(([H, Pz]) => { D.H = H; D.Pz = Pz; drawHM(H, Pz, meta); });
   if (meta.ia) Promise.all([get('ia_agregado'), get('ia_empresas')]).then(([A, E]) => { D.iaA = A; D.iaE = E; drawIA(A, E); });
-  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); }, 150); });
-}).catch((e) => { document.querySelector('.lede').insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); }, 150); });
+}).catch((e) => { const l = document.querySelector('.lede'); if (l) l.insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });

@@ -4,7 +4,7 @@
     python run.py --sin-descarga  # recalcula con los datos ya descargados
 """
 import argparse, json, os
-from sismografo import descarga, eeuu, horas_mundo, ia, mundo, sitio, trimestral
+from sismografo import descarga, eeuu, horas_mundo, ia, mundo, paginas, sitio, trimestral
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 
@@ -28,6 +28,7 @@ if __name__ == '__main__':
         ee['ia'] = ia.calcular(a.datos, out, ee['F'], ee['N'])
     except Exception as e:  # noqa: BLE001 — el módulo IA no debe detener la actualización
         print('Módulo IA omitido:', repr(e)); ee['ia'] = None
+    paginas.construir(os.path.join(RAIZ, 'site'))   # textos editables de contenido/ → site/*.html
     meta = sitio.escribir(ee, mu, os.path.join(RAIZ, 'site'))
     import glob, shutil
     desc = os.path.join(RAIZ, 'site', 'descargas'); os.makedirs(desc, exist_ok=True)

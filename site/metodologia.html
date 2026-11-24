@@ -5,167 +5,256 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Metodología — Sismógrafo del capital</title>
 <link rel="stylesheet" href="style.css">
-<style>.sc h2{margin-top:36px}.sc code{font-size:.9em;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:0 4px}.sc .f{font-family:Georgia,serif;font-size:1.05rem;background:var(--panel);border-left:3px solid var(--c0);padding:8px 14px;margin:10px 0}.sc nav ol{columns:2;font-size:.9rem}</style>
 </head>
-<body>
-<main class="sc">
-<p class="kicker"><a href="./">← Sismógrafo del capital</a></p>
-<h1>Metodología</h1>
+<body class="doc">
+<a class="saltar" href="#contenido">Ir al contenido</a>
+<header class="barra">
+  <a class="marca" href="./">Sismógrafo del capital</a>
+  <nav aria-label="Páginas"><a href="metodologia.html" aria-current="page">Metodología</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/sismografo-del-capital">Código</a></nav>
+</header>
+<div class="portada">
+<h1 id="metodologia">Metodología</h1>
 <p class="lede">Todo lo que el sitio muestra se puede auditar: cada cifra sale de fuentes públicas, de decisiones teóricas declaradas en esta página y de un código abierto que cualquiera puede ejecutar. Si algo aquí no coincide con el código, manda el código: <a href="https://github.com/necplusultra-blog/sismografo-del-capital">repositorio</a>.</p>
-<p class="muted">Última actualización de los datos: <span id="m-act">—</span> · versión del código: <span id="m-commit">—</span></p>
-
-<nav><ol>
-<li><a href="#marco">Marco interpretativo</a></li><li><a href="#fuentes">Fuentes y frecuencia</a></li>
-<li><a href="#productivo">Trabajo productivo e improductivo</a></li><li><a href="#plusvalor">Plusvalor ampliado</a></li>
-<li><a href="#multiverso">El multiverso de especificaciones</a></li><li><a href="#referencias">Las cinco lecturas de referencia</a></li>
-<li><a href="#quiebres">Quiebres endógenos</a></li><li><a href="#robustez">Robustez por décadas</a></li>
-<li><a href="#tiempo">Del dinero al tiempo de trabajo</a></li><li><a href="#trimestral">Estimación trimestral</a></li>
-<li><a href="#mundo">Escala mundial</a></li><li><a href="#ia">Corporaciones de la IA</a></li>
-<li><a href="#empalmes">Empalmes y ajustes</a></li><li><a href="#limites">Limitaciones conocidas</a></li>
+<p class="actualizacion">Datos actualizados el <span id="m-act">—</span>. Versión del código: <span id="m-commit">—</span>.</p>
+</div>
+<div class="cuerpo">
+  <nav class="indice" aria-label="Secciones"><p>Secciones</p><ol>
+<li><a href="#marco">Marco interpretativo</a></li>
+<li><a href="#fuentes">Fuentes y frecuencia</a></li>
+<li><a href="#productivo">Trabajo productivo e improductivo</a></li>
+<li><a href="#plusvalor">Plusvalor ampliado (lectura macromonetaria)</a></li>
+<li><a href="#multiverso">El multiverso de especificaciones</a></li>
+<li><a href="#referencias">Las seis lecturas de referencia</a></li>
+<li><a href="#quiebres">Quiebres endógenos</a></li>
+<li><a href="#robustez">Robustez por décadas</a></li>
+<li><a href="#tiempo">Del dinero al tiempo de trabajo</a></li>
+<li><a href="#trimestral">Estimación trimestral</a></li>
+<li><a href="#mundo">Escala mundial</a></li>
+<li><a href="#ia">Corporaciones de la inteligencia artificial</a></li>
+<li><a href="#empalmes">Empalmes y ajustes</a></li>
+<li><a href="#limites">Limitaciones conocidas</a></li>
 <li><a href="#reproducir">Cómo reproducir y citar</a></li>
-</ol></nav>
-
-<h2 id="marco">1. Marco interpretativo</h2>
+  </ol></nav>
+  <main id="contenido">
+<section id="marco" class="seccion">
+<h2 id="marco-interpretativo">Marco interpretativo</h2>
 <p>Los datos se interpretan desde la crítica marxiana de la economía política. La ganancia es una forma de aparición del plusvalor; el plusvalor es trabajo impago de los obreros productivamente explotados; la tasa de ganancia es la relación entre el plusvalor y el capital global adelantado, es decir, la suma del capital constante y el capital variable: pv/(c + v). La masa de plusvalor es el producto de la tasa de plusvalor (pv/v, el grado de explotación) por el número de obreros productivamente explotados.</p>
 <p>Las estadísticas oficiales no están construidas con estas categorías, así que traducirlas exige decisiones teóricas. El sitio no esconde esas decisiones en un único número: las convierte en <em>bifurcaciones</em> de un multiverso y muestra qué resultados resisten todas ellas y cuáles dependen de la teoría adoptada.</p>
 <p>Las series muestran la manifestación fenoménica de determinaciones categoriales; no las demuestran. Tampoco miden la «distancia» del capital a un tope: lo que permiten observar es el modo concreto en que se despliega la dinámica de la tasa y la masa de plusvalor y el campo de sus contratendencias.</p>
 <p>La interpretación teórica procede de la investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología del Instituto de Ciencias Sociales y Humanidades «Alfonso Vélez Pliego» (BUAP), que concluirá en agosto de 2029. Su marco sobre la tendencia decreciente de la tasa de ganancia y sus contratendencias está publicado en: Jiménez Cea, P. I. (2026). The immanent dialectic of capital: Falling rate of profit and the crisis of late capitalism. <em>Capital &amp; Class</em>. <a href="https://doi.org/10.1177/03098168261503922">https://doi.org/10.1177/03098168261503922</a>. El procesamiento de los datos (descarga, limpieza, empalmes, cálculo y visualización) se programó con asistencia de inteligencia artificial; las decisiones teóricas que lo orientan son las declaradas en esta página.</p>
-
-<h2 id="fuentes">2. Fuentes y frecuencia</h2>
+</section>
+<section id="fuentes" class="seccion">
+<h2 id="fuentes-y-frecuencia">Fuentes y frecuencia</h2>
 <ul>
-<li><b>BEA</b> (Bureau of Economic Analysis): cuentas nacionales anuales y trimestrales (archivos <code>NipaDataA</code>, <code>NipaDataQ</code>), activos fijos (<code>FixedAssets</code>), y PIB por industria (SIC 1947–1987, NAICS 1987–1997, NAICS 1997–).</li>
-<li><b>Reserva Federal</b>, vía FRED: existencias de las corporaciones no financieras (Z.1, <code>BOGZ1FL105020005A</code>) y utilización de capacidad manufacturera (G.17, <code>CUMFNS</code>).</li>
-<li><b>BLS</b> (Bureau of Labor Statistics), encuesta CES vía FRED: empleo, horas semanales y salario por hora de los trabajadores de producción y no supervisores, por supersector.</li>
-<li><b>Penn World Table 11.0</b> (Feenstra, Inklaar y Timmer): participación salarial, capital, depreciación, tasa interna de retorno y PIB de 185 países, 1950–2023.</li>
-<li><b>OCDE</b>, cuentas nacionales anuales por rama (tablas 6 y 7, desde 2014). <b>OIT</b> (ILOSTAT): participación del trabajo, asalariados, ocupación y horas. Encuestas <b>NSS y PLFS</b> de India: distribución de los ocupados por situación en el empleo.</li>
-<li><b>WIOD</b>, Cuentas Socioeconómicas 2016: valor agregado, remuneración, asalariados y horas por rama, para 43 países, 2000–2014.</li>
-<li><b>Banco Mundial</b>: PIB en dólares corrientes.</li>
-<li><b>SEC</b>: estados financieros XBRL de las corporaciones de la IA.</li>
+<li><strong>BEA</strong> (Bureau of Economic Analysis): cuentas nacionales anuales y trimestrales (archivos <code>NipaDataA</code>, <code>NipaDataQ</code>), activos fijos (<code>FixedAssets</code>), y PIB por industria (SIC 1947–1987, NAICS 1987–1997, NAICS 1997–).</li>
+<li><strong>Reserva Federal</strong>, vía FRED: existencias de las corporaciones no financieras (Z.1, <code>BOGZ1FL105020005A</code>) y utilización de capacidad manufacturera (G.17, <code>CUMFNS</code>).</li>
+<li><strong>BLS</strong> (Bureau of Labor Statistics), encuesta CES vía FRED: empleo, horas semanales y salario por hora de los trabajadores de producción y no supervisores, por supersector.</li>
+<li><strong>Penn World Table 11.0</strong> (Feenstra, Inklaar y Timmer): participación salarial, capital, depreciación, tasa interna de retorno y PIB de 185 países, 1950–2023.</li>
+<li><strong>OCDE</strong>, cuentas nacionales anuales por rama (tablas 6 y 7, desde 2014). <strong>OIT</strong> (ILOSTAT): participación del trabajo, asalariados, ocupación y horas. Encuestas <strong>NSS y PLFS</strong> de India: distribución de los ocupados por situación en el empleo.</li>
+<li><strong>WIOD</strong>, Cuentas Socioeconómicas 2016: valor agregado, remuneración, asalariados y horas por rama, para 43 países, 2000–2014.</li>
+<li><strong>Banco Mundial</strong>: PIB en dólares corrientes.</li>
+<li><strong>SEC</strong>: estados financieros XBRL de las corporaciones de la IA.</li>
 </ul>
 <p>El sitio se recalcula el día 3 de cada mes y cada vez que cambia el código. Las cifras cambian cuando las fuentes publican: el BEA, cada trimestre y en su revisión anual de septiembre, que puede revisar toda la historia; la PWT, cada pocos años. Las versiones anteriores de los resultados quedan en el historial del repositorio.</p>
-
-<h2 id="productivo">3. Trabajo productivo e improductivo</h2>
-<p><b>Criterio.</b> Es productivo el trabajo que se intercambia por dinero como capital en la esfera de la producción y produce plusvalor. El contenido concreto de la actividad es indiferente, así que el trabajo de las empresas capitalistas de educación, salud o software es productivo. Hay dos clases de trabajo improductivo:</p>
+</section>
+<section id="productivo" class="seccion">
+<h2 id="trabajo-productivo-e-improductivo">Trabajo productivo e improductivo</h2>
+<p><strong>Criterio.</strong> Es productivo el trabajo que se intercambia por dinero como capital en la esfera de la producción y produce plusvalor. El contenido concreto de la actividad es indiferente, así que el trabajo de las empresas capitalistas de educación, salud o software es productivo. Hay dos clases de trabajo improductivo:</p>
 <ul>
 <li>el trabajo intercambiado por capital en la circulación, cuyo salario es una deducción de la masa global de plusvalor (<em>faux frais</em>);</li>
 <li>el trabajo intercambiado por rédito: Estado, servicios personales, instituciones sin fines de lucro.</li>
 </ul>
 <p>El trabajo que produce software, I+D y otros productos de propiedad intelectual en empresas capitalistas es productivo.</p>
-<p><b>Por ramas (variante b).</b> Son improductivas el comercio mayorista y minorista, las finanzas y seguros, la actividad inmobiliaria y de alquiler, y los servicios jurídicos. El resto del sector empresarial es productivo.</p>
-<p><b>Corrección intra-rama (variante c, desde 1972).</b> Dentro de las ramas productivas, sólo cuentan como capital variable los trabajadores de producción y no supervisores, según el BLS. Para cada supersector productivo:</p>
+<p><strong>Por ramas (variante b).</strong> Son improductivas el comercio mayorista y minorista, las finanzas y seguros, la actividad inmobiliaria y de alquiler, y los servicios jurídicos. El resto del sector empresarial es productivo.</p>
+<p><strong>Corrección intra-rama (variante c, desde 1972).</strong> Dentro de las ramas productivas, sólo cuentan como capital variable los trabajadores de producción y no supervisores, según el BLS. Para cada supersector productivo:</p>
 <div class="f">masa salarial = empleo × salario por hora × horas semanales × 52</div>
+
 <p>La suma de esas masas salariales se escala por la razón remuneración/salarios del sector empresarial, para incluir las prestaciones. La manufactura usa la serie de horas <code>AWHMAN</code>. La agricultura queda fuera, porque la CES no la cubre.</p>
 <p>Supersectores productivos: minería y explotación forestal, construcción, manufactura, transporte y almacenamiento, servicios públicos, información, servicios profesionales y empresariales, educación y salud privadas, ocio y hospitalidad, otros servicios. Improductivos: comercio mayorista, comercio minorista, actividades financieras.</p>
-<p><b>Variante a.</b> Todo el trabajo asalariado del sector empresarial es productivo. Sirve como comparación con las medidas convencionales.</p>
-
-<h2 id="plusvalor">4. Plusvalor ampliado (lectura macromonetaria)</h2>
+<p><strong>Variante a.</strong> Todo el trabajo asalariado del sector empresarial es productivo. Sirve como comparación con las medidas convencionales.</p>
+</section>
+<section id="plusvalor" class="seccion">
+<h2 id="plusvalor-ampliado-lectura-macromonetaria">Plusvalor ampliado (lectura macromonetaria)</h2>
 <div class="f">pv = VA<sub>empresarial</sub> − VA<sub>vivienda arrendada</sub> − v</div>
+
 <ul>
-<li><b>VA<sub>empresarial</sub></b>: valor agregado bruto del sector empresarial de las cuentas nacionales (<code>A195RC</code>).</li>
-<li><b>VA<sub>vivienda arrendada</sub></b>: valor agregado de la vivienda (<code>A2009C</code>) menos el de los hogares (<code>B701RC</code>), que corresponde a la vivienda ocupada por sus dueños. Se excluye porque es renta, no producción capitalista.</li>
-<li><b>v</b>: remuneración del trabajo productivo según la variante elegida.</li>
+<li><strong>VA<sub>empresarial</sub></strong>: valor agregado bruto del sector empresarial de las cuentas nacionales (<code>A195RC</code>).</li>
+<li><strong>VA<sub>vivienda arrendada</sub></strong>: valor agregado de la vivienda (<code>A2009C</code>) menos el de los hogares (<code>B701RC</code>), que corresponde a la vivienda ocupada por sus dueños. Se excluye porque es renta, no producción capitalista.</li>
+<li><strong>v</strong>: remuneración del trabajo productivo según la variante elegida.</li>
 </ul>
 <p>pv incluye las ganancias, los intereses, las rentas, los impuestos a la producción y los salarios improductivos, que son deducciones de la masa global de plusvalor. La tasa de plusvalor es e = pv/v. En la variante neta se resta la depreciación del capital no residencial del sector empresarial.</p>
 <p>Siguiendo a Moseley (<em>Money and Totality</em>), el capital constante y el variable se toman como magnitudes dinerarias dadas (precios efectivos). Por eso no hace falta «transformar» valores en precios para medir la tasa agregada.</p>
-
-<h2 id="multiverso">5. El multiverso de especificaciones</h2>
+</section>
+<section id="multiverso" class="seccion">
+<h2 id="el-multiverso-de-especificaciones">El multiverso de especificaciones</h2>
 <p>El multiverso principal (1948–) combina estas bifurcaciones y suma <span id="m-n">—</span> especificaciones. Cada una se normaliza a su propio promedio del periodo (=100) y el sitio muestra sus percentiles 10, 25, 50, 75 y 90.</p>
-<div class="tablewrap"><table><thead><tr><th>Bifurcación</th><th>Opciones</th><th>Posición asociada</th></tr></thead><tbody>
-<tr><td>Sector</td><td>corporativo total · corporativo no financiero · sector empresarial</td><td>—</td></tr>
-<tr><td>Numerador (corporativo)</td><td>excedente neto de explotación · ganancia antes de impuestos · ganancia después de impuestos</td><td>Duménil-Lévy, Kliman</td></tr>
-<tr><td>Numerador (empresarial)</td><td>excedente amplio (todo productivo) · plusvalor ampliado por ramas · plusvalor ampliado intra-rama (familia aparte, desde 1972)</td><td>Shaikh-Tonak, Moseley</td></tr>
-<tr><td>Valuación del capital</td><td>costo corriente · costo histórico</td><td>Duménil-Lévy, Roberts · Kliman</td></tr>
-<tr><td>Neta o bruta</td><td>neta de depreciación · bruta (ganancia + depreciación sobre stock neto)</td><td>—</td></tr>
-<tr><td>Propiedad intelectual</td><td>dentro de K · fuera de K (se trata como gasto: ganancia − inversión en PPI + su depreciación)</td><td>debate sobre la transferencia de valor de los PPI</td></tr>
-<tr><td>Existencias</td><td>sin · con existencias (Z.1) en K</td><td>—</td></tr>
-<tr><td>Utilización de capacidad</td><td>sin ajuste · r × (u medio / u)</td><td>—</td></tr>
-<tr><td>Alcance de K (empresarial)</td><td>todo el capital no residencial · sólo el de ramas productivas (excluye comercio, finanzas y seguros, servicios jurídicos)</td><td>Moseley, Shaikh-Tonak</td></tr>
-</tbody></table></div>
+<table>
+<thead>
+<tr>
+<th>Bifurcación</th>
+<th>Opciones</th>
+<th>Posición asociada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sector</td>
+<td>corporativo total · corporativo no financiero · sector empresarial</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Numerador (corporativo)</td>
+<td>excedente neto de explotación · ganancia antes de impuestos · ganancia después de impuestos</td>
+<td>Duménil-Lévy, Kliman</td>
+</tr>
+<tr>
+<td>Numerador (empresarial)</td>
+<td>excedente amplio (todo productivo) · plusvalor ampliado por ramas · plusvalor ampliado intra-rama (familia aparte, desde 1972)</td>
+<td>Shaikh-Tonak, Moseley</td>
+</tr>
+<tr>
+<td>Valuación del capital</td>
+<td>costo corriente · costo histórico</td>
+<td>Duménil-Lévy, Roberts · Kliman</td>
+</tr>
+<tr>
+<td>Neta o bruta</td>
+<td>neta de depreciación · bruta (ganancia + depreciación sobre stock neto)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Propiedad intelectual</td>
+<td>dentro de K · fuera de K (se trata como gasto: ganancia − inversión en PPI + su depreciación)</td>
+<td>debate sobre la transferencia de valor de los PPI</td>
+</tr>
+<tr>
+<td>Existencias</td>
+<td>sin · con existencias (Z.1) en K</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Utilización de capacidad</td>
+<td>sin ajuste · r × (u medio / u)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Denominador (empresarial)</td>
+<td>K: capital fijo adelantado · K + V: capital fijo más capital variable, pv/(c + v)</td>
+<td>definición de Marx de la tasa de ganancia</td>
+</tr>
+<tr>
+<td>Alcance de K (empresarial)</td>
+<td>todo el capital no residencial · sólo el de ramas productivas (excluye comercio, finanzas y seguros, servicios jurídicos)</td>
+<td>Moseley, Shaikh-Tonak</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Denominador.</strong> La tasa de ganancia se define como pv/(c + v), plusvalor sobre el capital global adelantado. En la bifurcación K + V, v es la remuneración anual del trabajo productivo de la misma variante (a, b o c). Usar el flujo anual equivale a suponer una sola rotación del capital variable por año: si v rota n veces, el capital variable adelantado es v/n y la tasa queda entre las dos variantes publicadas (K y K + V). Las cuentas nacionales no publican el número de rotaciones. La bifurcación sólo existe en el sector empresarial, donde v está definido; en las especificaciones corporativas el denominador es K.</p>
 <p>K es siempre el stock neto de activos fijos del BEA (fin de año). En el sector empresarial se excluyen las instituciones sin fines de lucro y los hogares. La lista completa de especificaciones, con todas sus series, está en las <a href="descargas/">descargas</a> (<code>eeuu_especificaciones.csv</code>, <code>eeuu_multiverso_tasas.csv</code>).</p>
-
-<h2 id="referencias">6. Las cinco lecturas de referencia</h2>
+</section>
+<section id="referencias" class="seccion">
+<h2 id="las-seis-lecturas-de-referencia">Las seis lecturas de referencia</h2>
 <ul>
-<li><b>Tipo Duménil-Lévy</b>: corporativo no financiero, excedente neto, costo corriente.</li>
-<li><b>Tipo Kliman</b>: corporativo total, excedente neto, costo histórico.</li>
-<li><b>Empresarial, todo productivo</b>: variante a.</li>
-<li><b>Plusvalor ampliado por ramas</b>: variante b.</li>
-<li><b>Plusvalor ampliado intra-rama</b>: variante c, desde 1972.</li>
+<li><strong>Tipo Duménil-Lévy</strong>: corporativo no financiero, excedente neto, costo corriente.</li>
+<li><strong>Tipo Kliman</strong>: corporativo total, excedente neto, costo histórico.</li>
+<li><strong>Empresarial, todo productivo</strong>: variante a.</li>
+<li><strong>Plusvalor ampliado por ramas</strong>: variante b.</li>
+<li><strong>Plusvalor ampliado intra-rama</strong>: variante c, desde 1972.</li>
+<li><strong>Plusvalor ampliado por ramas, pv/(c + v)</strong>: variante b con el capital variable anual sumado al denominador.</li>
 </ul>
-<p>Todas son netas, incluyen la propiedad intelectual, no incluyen existencias ni ajuste por utilización, y usan todo el capital. Son definiciones «a la manera de» los autores; la replicación numérica exacta de sus series está en preparación.</p>
-
-<h2 id="quiebres">7. Quiebres endógenos</h2>
+<p>Todas son netas, incluyen la propiedad intelectual, no incluyen existencias ni ajuste por utilización, y usan todo el capital. Salvo la última, su denominador es K. Son definiciones «a la manera de» los autores; la replicación numérica exacta de sus series está en preparación.</p>
+</section>
+<section id="quiebres" class="seccion">
+<h2 id="quiebres-endogenos">Quiebres endógenos</h2>
 <p>A cada especificación se le ajustan tendencias lineales por tramos (sin continuidad obligatoria entre tramos, como en Bai-Perron), con un tramo mínimo de h años y hasta 5 quiebres. El número de quiebres se elige por criterio de información:</p>
 <div class="f">BIC = n·ln(SCR/n) + k·ln(n) · LWZ = n·ln(SCR/n) + 0,299·k·(ln n)<sup>2,1</sup> · k = 3m + 2</div>
-<p>Las fechas de quiebre nunca se fijan de antemano. El gráfico cuenta cuántas especificaciones detectan un quiebre en cada año (configuración base: h = 8, BIC). La tabla de sensibilidad repite el cálculo con h = 6, 10 y con LWZ.</p>
 
-<h2 id="robustez">8. Robustez por décadas</h2>
+<p>Las fechas de quiebre nunca se fijan de antemano. El gráfico cuenta cuántas especificaciones detectan un quiebre en cada año (configuración base: h = 8, BIC). La tabla de sensibilidad repite el cálculo con h = 6, 10 y con LWZ.</p>
+</section>
+<section id="robustez" class="seccion">
+<h2 id="robustez-por-decadas">Robustez por décadas</h2>
 <p>Para cada par de décadas consecutivas se calcula, en el multiverso principal, el porcentaje de especificaciones cuyo promedio decenal baja. La clasificación es:</p>
 <ul>
-<li><b>robusto: baja</b>, si baja en ≥ 90 % de las especificaciones;</li>
-<li><b>robusto: sube</b>, si baja en ≤ 10 %;</li>
-<li><b>dependiente de la teoría</b>, en cualquier otro caso.</li>
+<li><strong>robusto: baja</strong>, si baja en ≥ 90 % de las especificaciones;</li>
+<li><strong>robusto: sube</strong>, si baja en ≤ 10 %;</li>
+<li><strong>dependiente de la teoría</strong>, en cualquier otro caso.</li>
 </ul>
 <p>Las décadas son unidades de reporte, no cortes teóricos.</p>
-
-<h2 id="tiempo">9. Del dinero al tiempo de trabajo</h2>
+</section>
+<section id="tiempo" class="seccion">
+<h2 id="del-dinero-al-tiempo-de-trabajo">Del dinero al tiempo de trabajo</h2>
 <p>Se usa la variante c: obreros de producción y no supervisores de las ramas productivas, desde 1972.</p>
 <div class="f">N = Σ empleo productivo · H = Σ empleo × horas semanales × 52</div>
+
 <p>En la lectura macromonetaria, v es el salario efectivamente pagado. La tasa e = pv/v medida en dinero expresa entonces la proporción entre plustrabajo y trabajo necesario en la jornada de esos obreros:</p>
 <div class="f">trabajo necesario = jornada / (1 + e) · plustrabajo = jornada × e / (1 + e)</div>
-<div class="f">masa de plustrabajo (horas) = H × e / (1 + e) = N × horas por obrero × e / (1 + e)</div>
-<p>La descomposición del crecimiento de la masa entre el primer y el último año usa logaritmos: cada factor aporta ln(factor<sub>fin</sub>/factor<sub>inicio</sub>) / ln(masa<sub>fin</sub>/masa<sub>inicio</sub>). Los tres aportes suman 100 %.</p>
-<p>La <b>expresión monetaria del tiempo de trabajo</b> es (v + pv) / H: el valor nuevo, en dólares, que representa una hora de trabajo productivo. Se presenta en dólares corrientes y deflactada por el deflactor del PIB.</p>
-<p>Supuestos: el valor de la fuerza de trabajo se aproxima por el salario pagado; las horas son las horas pagadas que informa la CES; los supervisores de las ramas productivas no forman parte de v, y sus salarios quedan dentro de pv.</p>
 
-<h2 id="trimestral">10. Estimación trimestral</h2>
+<div class="f">masa de plustrabajo (horas) = H × e / (1 + e) = N × horas por obrero × e / (1 + e)</div>
+
+<p>La descomposición del crecimiento de la masa entre el primer y el último año usa logaritmos: cada factor aporta ln(factor<sub>fin</sub>/factor<sub>inicio</sub>) / ln(masa<sub>fin</sub>/masa<sub>inicio</sub>). Los tres aportes suman 100 %.</p>
+<p>La <strong>expresión monetaria del tiempo de trabajo</strong> es (v + pv) / H: el valor nuevo, en dólares, que representa una hora de trabajo productivo. Se presenta en dólares corrientes y deflactada por el deflactor del PIB.</p>
+<p>Supuestos: el valor de la fuerza de trabajo se aproxima por el salario pagado; las horas son las horas pagadas que informa la CES; los supervisores de las ramas productivas no forman parte de v, y sus salarios quedan dentro de pv.</p>
+</section>
+<section id="trimestral" class="seccion">
+<h2 id="estimacion-trimestral">Estimación trimestral</h2>
 <p>Numerador: ganancias trimestrales de NIPA 1.14, en tasa anual desestacionalizada. Denominador: stock neto de capital fijo a costo corriente, interpolado linealmente entre fines de año:</p>
 <div class="f">K<sub>a,t</sub> = K<sub>a−1</sub> + (K<sub>a</sub> − K<sub>a−1</sub>) · t/4</div>
-<p>Después del último año publicado, K se extrapola con el crecimiento del último año; esos trimestres se marcan como provisionales (tramo punteado).</p>
 
-<h2 id="mundo">11. Escala mundial</h2>
-<p><b>Tasa (Penn World Table 11.0).</b></p>
+<p>Después del último año publicado, K se extrapola con el crecimiento del último año; esos trimestres se marcan como provisionales (tramo punteado).</p>
+</section>
+<section id="mundo" class="seccion">
+<h2 id="escala-mundial">Escala mundial</h2>
+<p><strong>Tasa (Penn World Table 11.0).</strong></p>
 <div class="f">bruta = (1 − labsh) · cgdpo / cn · neta = ((1 − labsh) · cgdpo − δ · cn) / cn · IRR: tasa interna de retorno real de la PWT</div>
+
 <p>Los países se ponderan por stock de capital (cn) o por PIB (cgdpo), con y sin China, en un panel balanceado desde 1960 o no balanceado. La masa de ganancia bruta en dólares es Σ (1 − labsh) · PIB real. La PWT mide la economía total: no distingue trabajo productivo de improductivo.</p>
-<p><b>Masa mundial en horas.</b> Aplica el mismo criterio por ramas del punto 3, país por país, y suma. Hay tres tramos de fuentes; los tres usan las mismas definiciones.</p>
-<p><b>(a) 2000–2014: WIOD, Cuentas Socioeconómicas 2016</b> (43 países; Taiwán queda excluido por anomalías). Para cada país:</p>
+<p><strong>Masa mundial en horas.</strong> Aplica el mismo criterio por ramas del punto 3, país por país, y suma. Hay tres tramos de fuentes; los tres usan las mismas definiciones.</p>
+<p><strong>(a) 2000–2014: WIOD, Cuentas Socioeconómicas 2016</strong> (43 países; Taiwán queda excluido por anomalías). Para cada país:</p>
 <ul>
-<li><b>Ramas improductivas por circulación:</b> comercio (G45–G47), finanzas y seguros (K64–K66), servicios jurídicos, contables y de dirección (M69–M70), publicidad (M73).</li>
-<li><b>Fuera de la producción capitalista:</b> inmobiliario (L68, renta), administración pública (O84), hogares empleadores (T), organismos extraterritoriales (U). Educación (P85) y salud (Q): productivas en la variante central; fuera, en la segunda variante, porque en muchos países se financian con rédito.</li>
-<li><b>N</b> = Σ<sub>productivas</sub> asalariados (EMPE) · <b>H</b> = Σ<sub>productivas</sub> horas de los asalariados (H_EMPE) · <b>v</b> = Σ<sub>productivas</sub> remuneración (COMP).</li>
-<li><b>pv</b> = Σ<sub>mercado</sub> VA − Σ<sub>mercado</sub> (LAB − COMP) − v. LAB − COMP es el ingreso laboral imputado a los trabajadores por cuenta propia, que no son asalariados del capital.</li>
+<li><strong>Ramas improductivas por circulación:</strong> comercio (G45–G47), finanzas y seguros (K64–K66), servicios jurídicos, contables y de dirección (M69–M70), publicidad (M73).</li>
+<li><strong>Fuera de la producción capitalista:</strong> inmobiliario (L68, renta), administración pública (O84), hogares empleadores (T), organismos extraterritoriales (U). Educación (P85) y salud (Q): productivas en la variante central; fuera, en la segunda variante, porque en muchos países se financian con rédito.</li>
+<li><strong>N</strong> = Σ<sub>productivas</sub> asalariados (EMPE) · <strong>H</strong> = Σ<sub>productivas</sub> horas de los asalariados (H_EMPE) · <strong>v</strong> = Σ<sub>productivas</sub> remuneración (COMP).</li>
+<li><strong>pv</strong> = Σ<sub>mercado</sub> VA − Σ<sub>mercado</sub> (LAB − COMP) − v. LAB − COMP es el ingreso laboral imputado a los trabajadores por cuenta propia, que no son asalariados del capital.</li>
 </ul>
 <div class="f">e = pv / v · plustrabajo = H · e / (1 + e) · trabajo necesario = H / (1 + e) · e mundial en horas = Σ plustrabajo / Σ trabajo necesario</div>
-<p><b>China.</b> WIOD no distingue asalariados en China (COMP = LAB). Con la OIT (estimaciones modeladas, <code>EMP_2EMP_SEX_STE_NB</code>) se calcula la proporción de asalariados entre los ocupados no agrícolas:</p>
-<div class="f">s<sub>t</sub> = asalariados OIT<sub>t</sub> / [ocupados OIT<sub>t</sub> × (1 − peso agrícola WIOD<sub>t</sub>)], con tope 1</div>
-<p>En las ramas no agrícolas, la remuneración y la ocupación se multiplican por s; en la agricultura (A01–A03), casi enteramente familiar, s = 0 y toda su remuneración se trata como ingreso de cuenta propia. Horas: 46 h semanales × 50 semanas por asalariado. El método anterior, que aplicaba la proporción de asalariados de toda la economía también a la agricultura, se conserva en el cuadro de sensibilidad (+3 %).</p>
-<p><b>(b) 2015–último año, países de la OCDE: cuentas nacionales por rama</b> (tablas 6 y 7 de la OCDE, SNA 2008: <code>DSD_NAMAIN10@DF_TABLE6</code> y <code>@DF_TABLE7</code>). Mismo criterio a nivel de sección CIIU rev. 4: improductivas G, K, M69–M70, M73; fuera L, O, T, U (y P, Q en la segunda variante).</p>
-<div class="f">v = Σ<sub>prod</sub> D1 · cp = Σ<sub>mercado</sub> SELF<sub>personas</sub> × D1/SAL<sub>personas</sub> · pv = Σ<sub>mercado</sub> B1G − cp − v · N = Σ<sub>prod</sub> SAL<sub>personas</sub> · H = Σ<sub>prod</sub> SAL<sub>horas</sub> · r = Σ<sub>mercado</sub> P51C / v</div>
-<p>Las series OCDE se encadenan al nivel WIOD de 2014: X<sub>t</sub> = X<sub>WIOD,2014</sub> × X<sub>OCDE,t</sub> / X<sub>OCDE,2014</sub>, para X = e, N, horas por asalariado y r. Así WIOD fija el nivel y la OCDE aporta la variación medida por rama. Reglas de completitud: T y U faltantes valen cero; si faltan secciones todas productivas y de mercado (Japón: E, N, S), su suma se obtiene como residuo del total; si un país no informa M69–M70 y M73, su peso en M se toma de WIOD 2014; una sección sin dato de no asalariados vale cero; e sólo se encadena mientras la imputación de no asalariados sea la misma que en 2014. Corea queda fuera (le faltan secciones improductivas). México, Turquía, Chipre y Malta no publican asalariados por rama: su e sale de la OCDE y su N de la OIT. Después del último año OCDE de cada país, la serie continúa con la variación OIT. Los cocientes OCDE/WIOD de 2014 se publican como diagnóstico (<code>mundo_horas_ocde_diagnostico.csv</code>): en la mayoría de los países están entre 0,95 y 1,05 para N y para H.</p>
-<p><b>(c) 2015–2025, resto de los países: extensión encadenada con la OIT.</b></p>
-<div class="f">e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>] · N<sub>t</sub> = N<sub>2014</sub> × A<sub>t</sub>/A<sub>2014</sub> · h<sub>t</sub> = h<sub>2014</sub> × hs<sub>t</sub>/hs<sub>2014</sub></div>
-<ul>
-<li><b>LS</b>: participación del trabajo en el ingreso (OIT, ODS 10.4.1, <code>LAP_2GDP_NOC_RT</code>).</li>
-<li><b>A</b>: asalariados totales, estimaciones modeladas y armonizadas de la OIT (<code>EMP_2EMP_SEX_STE_NB</code>); la proporción productiva de 2014 se mantiene. Las series por sección (<code>EES_TEES_SEX_ECO_NB</code>) tienen quiebres de encuesta y no se usan.</li>
-<li><b>India</b>: WIOD cuenta como asalariados a los regulares y a los jornaleros eventuales, como las encuestas NSS; la serie de asalariados de la OIT sólo recoge a los regulares (91 millones en 2014, frente a 315 millones en WIOD) y crece un 64 % hasta 2025. Por eso, para India, A<sub>t</sub> = ocupados OIT<sub>t</sub> × (1 − proporción de cuenta propia<sub>t</sub>), con la proporción de cuenta propia en estatus usual de NSS 2011-12 (52,2 %) y PLFS 2017-18 (52,2 %), 2021-22 (55,8 %), 2022-23 (57,3 %) y 2023-24 (58,4 %), interpolada y mantenida después del último dato. Resultado: +13 % de asalariados entre 2014 y 2025, en vez de +64 %.</li>
-<li><b>hs</b>: horas semanales por ocupado (<code>HOW_TEMP_SEX_ECO_NB</code>); si faltan, constantes.</li>
-</ul>
-<p><b>Versión neta de depreciación.</b> e<sub>neta</sub> = e − r, con r = consumo de capital fijo de las ramas de mercado / v. En los países de la OCDE, r se mide por rama (P51C) desde 2014. En los demás años y países:</p>
-<div class="f">r = k · (δ·K/Y)<sub>PWT</sub> × VA<sub>mercado</sub> / v · con VA<sub>mercado</sub>/v = 1 + e + cp/v en los años encadenados</div>
-<p>(δ·K/Y)<sub>PWT</sub> = delta · cn / cgdpo de la Penn World Table (último valor mantenido después de 2023). Como esa depreciación abarca todo el capital fijo, incluidas viviendas y capital público, se calibra con k = r<sub>OCDE,2014</sub> / r<sub>PWT,2014</sub> del propio país o, fuera de la OCDE, con la mediana de esos cocientes (0,76). La tabla de calibración está en <code>mundo_horas_calibracion_depreciacion.csv</code>. En la versión neta, la caída de e tras 2008 refleja sobre todo el alza de la depreciación medida por la PWT en China e India; es una estimación, no una medición por rama.</p>
-<p><b>Sensibilidad</b> (<code>mundo_horas_sensibilidad.csv</code>). Cada fila cambia un solo supuesto: versión neta; jornada china de 44 o 49 h; India con el nivel de asalariados de la OIT (sólo regulares); agricultura de India y China fuera de la producción capitalista; método anterior para China. Si los jornaleros eventuales y la agricultura de India y China forman parte del trabajo productivamente explotado es una decisión teórica abierta, que mueve la masa mundial entre un 11 % y un 22 %.</p>
-<p>Otras advertencias: no hay corrección intra-rama; por diferencias de definición, la e de EE.UU. en esta serie no coincide con la de la sección de EE.UU.; las observaciones con e fuera de (0, 8) se excluyen y se registran en <code>mundo_horas_excluidos.csv</code>. La fuente de e, N y r de cada país y año está en <code>mundo_horas_paises.csv</code>.</p>
 
-<h2 id="ia">12. Corporaciones de la inteligencia artificial</h2>
+<p><strong>China.</strong> WIOD no distingue asalariados en China (COMP = LAB). Con la OIT (estimaciones modeladas, <code>EMP_2EMP_SEX_STE_NB</code>) se calcula la proporción de asalariados entre los ocupados no agrícolas:</p>
+<div class="f">s<sub>t</sub> = asalariados OIT<sub>t</sub> / [ocupados OIT<sub>t</sub> × (1 − peso agrícola WIOD<sub>t</sub>)], con tope 1</div>
+
+<p>En las ramas no agrícolas, la remuneración y la ocupación se multiplican por s; en la agricultura (A01–A03), casi enteramente familiar, s = 0 y toda su remuneración se trata como ingreso de cuenta propia. Horas: 46 h semanales × 50 semanas por asalariado. El método anterior, que aplicaba la proporción de asalariados de toda la economía también a la agricultura, se conserva en el cuadro de sensibilidad (+3 %).</p>
+<p><strong>(b) 2015–último año, países de la OCDE: cuentas nacionales por rama</strong> (tablas 6 y 7 de la OCDE, SNA 2008: <code>DSD_NAMAIN10@DF_TABLE6</code> y <code>@DF_TABLE7</code>). Mismo criterio a nivel de sección CIIU rev. 4: improductivas G, K, M69–M70, M73; fuera L, O, T, U (y P, Q en la segunda variante).</p>
+<div class="f">v = Σ<sub>prod</sub> D1 · cp = Σ<sub>mercado</sub> SELF<sub>personas</sub> × D1/SAL<sub>personas</sub> · pv = Σ<sub>mercado</sub> B1G − cp − v · N = Σ<sub>prod</sub> SAL<sub>personas</sub> · H = Σ<sub>prod</sub> SAL<sub>horas</sub> · r = Σ<sub>mercado</sub> P51C / v</div>
+
+<p>Las series OCDE se encadenan al nivel WIOD de 2014: X<sub>t</sub> = X<sub>WIOD,2014</sub> × X<sub>OCDE,t</sub> / X<sub>OCDE,2014</sub>, para X = e, N, horas por asalariado y r. Así WIOD fija el nivel y la OCDE aporta la variación medida por rama. Reglas de completitud: T y U faltantes valen cero; si faltan secciones todas productivas y de mercado (Japón: E, N, S), su suma se obtiene como residuo del total; si un país no informa M69–M70 y M73, su peso en M se toma de WIOD 2014; una sección sin dato de no asalariados vale cero; e sólo se encadena mientras la imputación de no asalariados sea la misma que en 2014. Corea queda fuera (le faltan secciones improductivas). México, Turquía, Chipre y Malta no publican asalariados por rama: su e sale de la OCDE y su N de la OIT. Después del último año OCDE de cada país, la serie continúa con la variación OIT. Los cocientes OCDE/WIOD de 2014 se publican como diagnóstico (<code>mundo_horas_ocde_diagnostico.csv</code>): en la mayoría de los países están entre 0,95 y 1,05 para N y para H.</p>
+<p><strong>(c) 2015–2025, resto de los países: extensión encadenada con la OIT.</strong></p>
+<div class="f">e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>] · N<sub>t</sub> = N<sub>2014</sub> × A<sub>t</sub>/A<sub>2014</sub> · h<sub>t</sub> = h<sub>2014</sub> × hs<sub>t</sub>/hs<sub>2014</sub></div>
+
+<ul>
+<li><strong>LS</strong>: participación del trabajo en el ingreso (OIT, ODS 10.4.1, <code>LAP_2GDP_NOC_RT</code>).</li>
+<li><strong>A</strong>: asalariados totales, estimaciones modeladas y armonizadas de la OIT (<code>EMP_2EMP_SEX_STE_NB</code>); la proporción productiva de 2014 se mantiene. Las series por sección (<code>EES_TEES_SEX_ECO_NB</code>) tienen quiebres de encuesta y no se usan.</li>
+<li><strong>India</strong>: WIOD cuenta como asalariados a los regulares y a los jornaleros eventuales, como las encuestas NSS; la serie de asalariados de la OIT sólo recoge a los regulares (91 millones en 2014, frente a 315 millones en WIOD) y crece un 64 % hasta 2025. Por eso, para India, A<sub>t</sub> = ocupados OIT<sub>t</sub> × (1 − proporción de cuenta propia<sub>t</sub>), con la proporción de cuenta propia en estatus usual de NSS 2011-12 (52,2 %) y PLFS 2017-18 (52,2 %), 2021-22 (55,8 %), 2022-23 (57,3 %) y 2023-24 (58,4 %), interpolada y mantenida después del último dato. Resultado: +13 % de asalariados entre 2014 y 2025, en vez de +64 %.</li>
+<li><strong>hs</strong>: horas semanales por ocupado (<code>HOW_TEMP_SEX_ECO_NB</code>); si faltan, constantes.</li>
+</ul>
+<p><strong>Versión neta de depreciación.</strong> e<sub>neta</sub> = e − r, con r = consumo de capital fijo de las ramas de mercado / v. En los países de la OCDE, r se mide por rama (P51C) desde 2014. En los demás años y países:</p>
+<div class="f">r = k · (δ·K/Y)<sub>PWT</sub> × VA<sub>mercado</sub> / v · con VA<sub>mercado</sub>/v = 1 + e + cp/v en los años encadenados</div>
+
+<p>(δ·K/Y)<sub>PWT</sub> = delta · cn / cgdpo de la Penn World Table (último valor mantenido después de 2023). Como esa depreciación abarca todo el capital fijo, incluidas viviendas y capital público, se calibra con k = r<sub>OCDE,2014</sub> / r<sub>PWT,2014</sub> del propio país o, fuera de la OCDE, con la mediana de esos cocientes (0,76). La tabla de calibración está en <code>mundo_horas_calibracion_depreciacion.csv</code>. En la versión neta, la caída de e tras 2008 refleja sobre todo el alza de la depreciación medida por la PWT en China e India; es una estimación, no una medición por rama.</p>
+<p><strong>Sensibilidad</strong> (<code>mundo_horas_sensibilidad.csv</code>). Cada fila cambia un solo supuesto: versión neta; jornada china de 44 o 49 h; India con el nivel de asalariados de la OIT (sólo regulares); agricultura de India y China fuera de la producción capitalista; método anterior para China. <strong>Criterio adoptado</strong> (decisión teórica del autor): los jornaleros eventuales son trabajadores productivos siempre que su plustrabajo se convierta en plusvalor, sea cual sea la duración de su empleo; el trabajo agrícola es productivo siempre que el salario de esos obreros sea dinero invertido como capital, y no dinero gastado como simple medio de circulación para comprar un trabajo improductivo. Por eso la estimación central los incluye. Las filas «India: nivel de asalariados de la OIT» y «agricultura fuera» no son interpretaciones alternativas del criterio: muestran cuánto pesan esos trabajadores en la masa (entre 11 % y 22 %). El límite práctico del criterio es estadístico: las cuentas no permiten separar a los jornaleros contratados por empresas capitalistas de los contratados por hogares para su consumo; los segundos sólo se excluyen cuando aparecen en la rama de hogares empleadores (T).</p>
+<p>Otras advertencias: no hay corrección intra-rama; por diferencias de definición, la e de EE.UU. en esta serie no coincide con la de la sección de EE.UU.; las observaciones con e fuera de (0, 8) se excluyen y se registran en <code>mundo_horas_excluidos.csv</code>. La fuente de e, N y r de cada país y año está en <code>mundo_horas_paises.csv</code>.</p>
+</section>
+<section id="ia" class="seccion">
+<h2 id="corporaciones-de-la-inteligencia-artificial">Corporaciones de la inteligencia artificial</h2>
 <p>El grupo son Microsoft, Alphabet (con Google Inc. antes de 2015), Amazon, Meta, Nvidia, Oracle, Broadcom (con Avago antes de 2018) y AMD, según sus estados XBRL ante la SEC. Los años son calendario, según el «frame» de la SEC o, si falta, el año que más cubre el ejercicio fiscal. Huecos de un año en los saldos se interpolan.</p>
 <ul>
-<li><b>Tasa del grupo</b>: ganancia operativa / activos totales, y ganancia operativa / propiedad, planta y equipo netos.</li>
-<li><b>Comparación</b>: con la especificación no financiera a costo histórico y sin propiedad intelectual, porque los estados contables no capitalizan la I+D propia.</li>
-<li><b>Tasa «sin IA»</b>: (ganancia no financiera − ganancia operativa del grupo) / (K no financiero − capital fijo del grupo).</li>
-<li><b>Participaciones</b>: ganancia antes de impuestos del grupo frente a las ganancias corporativas de EE.UU. y frente a la masa mundial de ganancia bruta en dólares corrientes (Σ (1 − labsh) × PIB del Banco Mundial); inversión del grupo frente a la inversión privada no residencial.</li>
+<li><strong>Tasa del grupo</strong>: ganancia operativa / activos totales, y ganancia operativa / propiedad, planta y equipo netos.</li>
+<li><strong>Comparación</strong>: con la especificación no financiera a costo histórico y sin propiedad intelectual, porque los estados contables no capitalizan la I+D propia.</li>
+<li><strong>Tasa «sin IA»</strong>: (ganancia no financiera − ganancia operativa del grupo) / (K no financiero − capital fijo del grupo).</li>
+<li><strong>Participaciones</strong>: ganancia antes de impuestos del grupo frente a las ganancias corporativas de EE.UU. y frente a la masa mundial de ganancia bruta en dólares corrientes (Σ (1 − labsh) × PIB del Banco Mundial); inversión del grupo frente a la inversión privada no residencial.</li>
 </ul>
 <p>Advertencias: las ganancias del grupo son consolidadas mundiales, mientras que el agregado de EE.UU. es doméstico. Y estas participaciones miden plusvalor <em>apropiado</em>, que incluye rentas y transferencias, no plusvalor <em>formado</em>.</p>
-
-<h2 id="empalmes">13. Empalmes y ajustes</h2>
+</section>
+<section id="empalmes" class="seccion">
+<h2 id="empalmes-y-ajustes">Empalmes y ajustes</h2>
 <p>La remuneración de las ramas improductivas se empalma por cociente en los años de solapamiento:</p>
 <ul>
 <li>SIC 1972 (1947–1986) → NAICS (1987–1996) → NAICS (1997–).</li>
@@ -173,8 +262,9 @@
 <li>Antes de 1987 el comercio minorista incluye los restaurantes (clasificación SIC).</li>
 <li>Si el PIB por industria va un año detrás de las cuentas nacionales, se extiende la última proporción de remuneración improductiva.</li>
 </ul>
-
-<h2 id="limites">14. Limitaciones conocidas</h2>
+</section>
+<section id="limites" class="seccion">
+<h2 id="limitaciones-conocidas">Limitaciones conocidas</h2>
 <ul>
 <li>Todavía no hay corrección intra-rama antes de 1972 ni para la agricultura.</li>
 <li>Las series de referencia son definiciones a la manera de los autores. La replicación numérica exacta está pendiente, igual que la variante en valores-trabajo vía matrices insumo-producto.</li>
@@ -182,10 +272,12 @@
 <li>Los deflactores de equipos informáticos son hedónicos y pueden exagerar el abaratamiento del capital constante.</li>
 <li>Las estimaciones trimestrales recientes, la masa mundial de 2024–2025 y las participaciones del grupo IA en años sin PWT son provisionales.</li>
 </ul>
-
-<h2 id="reproducir">15. Cómo reproducir y citar</h2>
+</section>
+<section id="reproducir" class="seccion">
+<h2 id="como-reproducir-y-citar">Cómo reproducir y citar</h2>
 <pre><code>pip install -r requirements.txt
-python run.py                 # descarga, calcula y escribe resultados/ y site/data/</code></pre>
+python run.py                 # descarga, calcula y escribe resultados/ y site/data/
+</code></pre>
 <p>Módulos:</p>
 <ul>
 <li><code>sismografo/descarga.py</code>: fuentes.</li>
@@ -200,13 +292,18 @@ python run.py                 # descarga, calcula y escribe resultados/ y site/d
 </ul>
 <p>Licencias: código MIT; datos derivados y textos CC BY 4.0.</p>
 <p>Cita: Jiménez Cea, P. I. (2026). <em>Sismógrafo del capital: multiverso de la tasa de ganancia</em>. https://github.com/necplusultra-blog/sismografo-del-capital</p>
-<p class="muted"><a href="./">← volver al sismógrafo</a></p>
-</main>
+</section>
+  </main>
+</div>
+<footer class="pie">
+<p>Investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología (ICSyH-BUAP), que concluirá en agosto de 2029. Marco teórico: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
+<p>Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. <a href="descargas/">Descargas</a>. <a href="metodologia.html">Metodología</a>. <a href="https://github.com/necplusultra-blog/sismografo-del-capital/tree/main/contenido">Editar los textos</a>.</p>
+</footer>
 <script>
 fetch('data/meta.json', { cache: 'no-cache' }).then((r) => r.json()).then((m) => {
   const s = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
   s('m-act', m.actualizado); s('m-commit', m.commit || '—'); s('m-n', m.eeuu_n);
-  s('m-emp', Object.entries(m.empalmes || {}).map(([k, v]) => `${k}: ${v}`).join(' · '));
+  s('m-emp', Object.entries(m.empalmes || {}).map(([k, v]) => `${k}: ${v}`).join('; '));
 });
 </script>
 </body>

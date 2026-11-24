@@ -6,7 +6,7 @@ on:
     - cron: '17 9 3 * *'    # el día 3 de cada mes, 09:17 UTC
   push:
     branches: [main]
-    paths: ['sismografo/**', 'site/*.html', 'site/*.js', 'site/*.css', 'run.py', 'requirements.txt']
+    paths: ['sismografo/**', 'contenido/**', 'plantillas/**', 'site/*.js', 'site/*.css', 'site/vendor/**', 'run.py', 'requirements.txt']
 
 permissions:
   contents: write
@@ -40,7 +40,7 @@ jobs:
         run: |
           git config user.name "sismografo-bot"
           git config user.email "sismografo-bot@users.noreply.github.com"
-          git add resultados site/data site/descargas datos_cache
+          git add resultados site/data site/descargas site/index.html site/metodologia.html datos_cache
           if git diff --cached --quiet; then echo "Sin cambios en los datos"; else
             git commit -m "Actualización automática de datos ($(date -u +%Y-%m-%d))" && git push; fi
       - uses: actions/upload-pages-artifact@v3

@@ -22,7 +22,8 @@ def escribir(ee, mu, dir_site):
     ref = pd.DataFrame({
         'nfc_ebe_cc': R['C|nfc|nos|cc|neta|ppi-incl|noinv|noutil'], 'corp_ebe_hc': R['C|corp|nos|hc|neta|ppi-incl|noinv|noutil'],
         'emp_todo_cc': R['B|a|cc|neta|ppi-incl|K-todo|noutil'], 'emp_ramas_cc': R['B|b|cc|neta|ppi-incl|K-todo|noutil'],
-        'emp_intra_cc': R['B|c|cc|neta|ppi-incl|K-todo|noutil']}) * 100
+        'emp_intra_cc': R['B|c|cc|neta|ppi-incl|K-todo|noutil'],
+        'emp_ramas_cv': R['B|b|cc|neta|ppi-incl|K-todo|noutil|den-KV']}) * 100
     ref.index.name = 'anio'; _w(f'{d}/eeuu_referencias.json', _rows(ref.round(2)))
     cnt = {int(y): 0 for y in R.index}
     for c in P:
@@ -82,7 +83,7 @@ def escribir(ee, mu, dir_site):
     try: sha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], text=True).strip()
     except Exception: sha = None  # noqa: BLE001
     meta = dict(actualizado=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), commit=sha,
-                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(P), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
+                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(ee['principal']), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
                 mundo_fin=int(mu['fin']), mundo_horas=mu.get('horas') is not None, mundo_fuente=mu['fuente'], mundo_n=mu['n'], mundo_nbal=mu['nbal'], mundo_medidas=mu['medidas'])
     _w(f'{d}/meta.json', meta)
     return meta

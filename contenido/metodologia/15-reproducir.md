@@ -1,0 +1,26 @@
+---
+id: reproducir
+menu: Cómo reproducir y citar
+---
+## Cómo reproducir y citar
+
+```
+pip install -r requirements.txt
+python run.py                 # descarga, calcula y escribe resultados/ y site/data/
+```
+
+Módulos:
+
+- `sismografo/descarga.py`: fuentes.
+- `eeuu.py`: multiverso, plusvalor y tiempo de trabajo.
+- `trimestral.py`: estimación trimestral.
+- `mundo.py`: PWT.
+- `ocde_ramas.py`: medición por rama con las cuentas de la OCDE.
+- `horas_mundo.py`: masa mundial en horas (WIOD, OCDE, OIT; versión neta; sensibilidad).
+- `ia.py`: corporaciones de la IA.
+- `quiebres.py`: detector de quiebres.
+- `sitio.py`: JSON del sitio.
+
+Licencias: código MIT; datos derivados y textos CC BY 4.0.
+
+Cita: Jiménez Cea, P. I. (2026). *Sismógrafo del capital: multiverso de la tasa de ganancia*. https://github.com/necplusultra-blog/sismografo-del-capital

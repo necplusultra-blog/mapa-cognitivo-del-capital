@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metodología — Sismógrafo del capital</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="doc">
+<a class="saltar" href="#contenido">Ir al contenido</a>
+<header class="barra">
+  <a class="marca" href="./">Sismógrafo del capital</a>
+  <nav aria-label="Páginas"><a href="metodologia.html" aria-current="page">Metodología</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/sismografo-del-capital">Código</a></nav>
+</header>
+<div class="portada">
+{{portada}}
+</div>
+<div class="cuerpo">
+  <nav class="indice" aria-label="Secciones"><p>Secciones</p><ol>
+{{menu}}
+  </ol></nav>
+  <main id="contenido">
+{{contenido}}
+  </main>
+</div>
+<footer class="pie">
+{{pie}}
+</footer>
+<script>
+fetch('data/meta.json', { cache: 'no-cache' }).then((r) => r.json()).then((m) => {
+  const s = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
+  s('m-act', m.actualizado); s('m-commit', m.commit || '—'); s('m-n', m.eeuu_n);
+  s('m-emp', Object.entries(m.empalmes || {}).map(([k, v]) => `${k}: ${v}`).join('; '));
+});
+</script>
+</body>
+</html>

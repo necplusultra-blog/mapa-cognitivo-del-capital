@@ -142,7 +142,9 @@ def calcular(dir_datos, dir_out):
         r = p / K
         return r * (D.CU.mean() / D.CU) if util else r
 
-    def bus(prod, val, gross, ipp, kscope, util):
+    def bus(prod, val, gross, ipp, kscope, util, den='K'):
+        """den='K+V': denominador = capital fijo adelantado + capital variable (flujo salarial anual del año).
+        El flujo anual supone una rotación al año del capital variable; con más rotaciones el v adelantado sería menor."""
         kc, dc = ('k1', 'm1') if val == 'cc' else ('k3', 'm3')
         sub = lambda pre, t: D.fa(pre, f'ntotl1{t}') - D.fa(pre, f'ntotl8{t}') - D.fa(pre, f'ntotl5{t}')
         K = sub(kc, 'es00'); Dv = sub(dc, 'es00')
@@ -152,20 +154,20 @@ def calcular(dir_datos, dir_out):
             S_ = S_ - sub('i3', 'ip00') + (0 if gross else sub(dc, 'ip00')); K = K - sub(kc, 'ip00')
         if kscope == 'prod':
             for t in ('n42001es00', 'n44RT1es00', 'n52001es00', 'n54111es00'): K = K - D.fa(kc, t)
-        r = S_ / K
+        r = S_ / (K + V[prod]) if den == 'K+V' else S_ / K
         return (r * (D.CU.mean() / D.CU) if util else r), S_, K
 
     rows, meta = [], []
     for sector, profit, val, gross, ipp, inv, util in itertools.product(['corp', 'nfc'], ['nos', 'pbt', 'pat'], ['cc', 'hc'], [False, True], ['incl', 'excl'], [False, True], [False, True]):
         sid = f'C|{sector}|{profit}|{val}|{"bruta" if gross else "neta"}|ppi-{ipp}|{"inv" if inv else "noinv"}|{"util" if util else "noutil"}'
         rows.append(corp(sector, profit, val, gross, ipp, inv, util).rename(sid))
-        meta.append(dict(id=sid, familia='corporativa', D6=sector, D1=profit, D2='a', D3=val, D4='bruta' if gross else 'neta', D5=ipp, inventarios=inv, D8=util, K='todo'))
-    for prod, val, gross, ipp, kscope, util in itertools.product(['a', 'b', 'c'], ['cc', 'hc'], [False, True], ['incl', 'excl'], ['todo', 'prod'], [False, True]):
+        meta.append(dict(id=sid, familia='corporativa', D6=sector, D1=profit, D2='a', D3=val, D4='bruta' if gross else 'neta', D5=ipp, inventarios=inv, D8=util, K='todo', denominador='K'))
+    for prod, val, gross, ipp, kscope, util, den in itertools.product(['a', 'b', 'c'], ['cc', 'hc'], [False, True], ['incl', 'excl'], ['todo', 'prod'], [False, True], ['K', 'K+V']):
         if prod == 'a' and kscope == 'prod': continue
-        sid = f'B|{prod}|{val}|{"bruta" if gross else "neta"}|ppi-{ipp}|K-{kscope}|{"util" if util else "noutil"}'
-        rows.append(bus(prod, val, gross, ipp, kscope, util)[0].rename(sid))
+        sid = f'B|{prod}|{val}|{"bruta" if gross else "neta"}|ppi-{ipp}|K-{kscope}|{"util" if util else "noutil"}' + ('|den-KV' if den == 'K+V' else '')
+        rows.append(bus(prod, val, gross, ipp, kscope, util, den)[0].rename(sid))
         meta.append(dict(id=sid, familia={'a': 'empresarial: todo productivo', 'b': 'empresarial: plusvalor ampliado (por ramas)', 'c': 'empresarial: plusvalor ampliado (corrección intra-rama)'}[prod],
-                         D6='empresarial', D1='excedente amplio' if prod == 'a' else 'plusvalor ampliado', D2=prod, D3=val, D4='bruta' if gross else 'neta', D5=ipp, inventarios=False, D8=util, K=kscope))
+                         D6='empresarial', D1='excedente amplio' if prod == 'a' else 'plusvalor ampliado', D2=prod, D3=val, D4='bruta' if gross else 'neta', D5=ipp, inventarios=False, D8=util, K=kscope, denominador=den))
     R = pd.concat(rows, axis=1); M = pd.DataFrame(meta).set_index('id')
     principal = [c for c in R.columns if not c.startswith('B|c|')]
     Rc = R[[c for c in R.columns if c.startswith('B|c|')]].loc[INICIO_C:]

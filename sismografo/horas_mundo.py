@@ -193,7 +193,7 @@ def sensibilidad(P, SB, share_ees, piv):
             k = ees_ind.get(base_wiod, np.nan) / piv['EMPE'].loc['IND'][base_wiod].sum()   # ambos en miles
             fila('India: nivel de asalariados de la OIT', tot - ind.plustrabajo_mill_h.sum() * (1 - k),
                  g.obreros_mill.sum() - ind.obreros_mill.sum() * (1 - k),
-                 f'asalariados productivos de India × {k:.2f} (asalariados OIT / asalariados WIOD en {base_wiod}): la serie de la OIT solo recoge el trabajo asalariado regular, no a los jornaleros eventuales')
+                 f'asalariados productivos de India × {k:.2f} (asalariados OIT / WIOD en {base_wiod}). Contraste: excluye a los jornaleros eventuales, que según el criterio adoptado son productivos')
         # agricultura fuera para India y China: se aplica la razón calculada en el año base WIOD a ambos años
         for caso, paises in (('India y China: agricultura fuera', ('IND', 'CHN')),):
             nuevo, obreros = tot, g.obreros_mill.sum()
@@ -205,7 +205,7 @@ def sensibilidad(P, SB, share_ees, piv):
                 pt_b = b.horas_mill * b.e / (1 + b.e); pt_s = sb.horas_mill * sb.e / (1 + sb.e)
                 gc = g[g.pais == c].iloc[0]
                 nuevo += gc.plustrabajo_mill_h * (pt_s / pt_b - 1); obreros += gc.obreros_mill * (sb.obreros_mill / b.obreros_mill - 1)
-            fila(caso, nuevo, obreros, 'las ramas agrícolas (A01–A03) de ambos países se tratan como fuera de la producción capitalista')
+            fila(caso, nuevo, obreros, 'Contraste: excluye la agricultura de ambos países, que según el criterio adoptado es productiva cuando su salario es capital')
         sb = SB[(SB.variante == var) & (SB.caso == 'China: método anterior')]
         if not sb.empty and not chn.empty:
             sb = sb.iloc[0]; b = P[(P.variante == var) & (P.pais == 'CHN') & (P.anio == base_wiod)].iloc[0]
