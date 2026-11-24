@@ -1,3 +1,3 @@
-OK un_datacommon.js 1587 bytes application/javascript https://data.un.org/_Scripts/DataCommon.js
-OK un_data.js 17679 bytes application/javascript https://data.un.org/_Scripts/Data.js
-ERROR un_na_main_dsd.xml <HTTPError 404: 'Not Found'> https://data.un.org/ws/rest/datastructure/UNSD/NA_MAIN/latest?references=children
+OK un_popup.js 7213 bytes application/javascript https://data.un.org/_Scripts/PopupLibrary.js
+OK un_206_chn_legacy.zip 297 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:206;country_code:156&DataMartId=SNA&Format=csv
+ERROR un_206_chn_page1.html <HTTPError 404: 'Not Found'> https://data.un.org/Handlers/DataHandler.ashx?Service=page&Page=1&DataFilter=group_code:206;country_code:156&DataMartId=SNA&UserQuery=&c=2,3,4,6,7,8,9,10,11,12,13&s=_cr_engNameOrderBy:asc,fiscal_year:desc,_grIt_code:asc
