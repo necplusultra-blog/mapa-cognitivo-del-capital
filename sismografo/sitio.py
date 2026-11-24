@@ -81,6 +81,7 @@ def escribir(ee, mu, dir_site):
     if ee.get('ct') is not None:
         I = ee['ct']['I'].copy(); I.index.name = 'anio'
         _w(f'{d}/contratendencias.json', dict(indicadores=_rows(I.astype(float).round(3)), fases=json.loads(ee['ct']['F'].round(4).to_json(orient='records')),
+                                              fases_multiverso=json.loads(ee['ct']['FM'].round(4).to_json(orient='records')),
                                               cortes=ee['ct']['cortes']))
     me = mu['MW'].reset_index(); me['quiebres'] = me['quiebres'].astype(str)
     _w(f'{d}/mundo_especificaciones.json', json.loads(me.to_json(orient='records')))

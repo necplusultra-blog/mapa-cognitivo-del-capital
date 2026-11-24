@@ -157,7 +157,7 @@ def calcular(dir_datos, dir_out):
         r = S_ / (K + V[prod]) if den == 'K+V' else S_ / K
         return (r * (D.CU.mean() / D.CU) if util else r), S_, K
 
-    rows, meta = [], []
+    rows, meta, SK = [], [], {}
     for sector, profit, val, gross, ipp, inv, util in itertools.product(['corp', 'nfc'], ['nos', 'pbt', 'pat'], ['cc', 'hc'], [False, True], ['incl', 'excl'], [False, True], [False, True]):
         sid = f'C|{sector}|{profit}|{val}|{"bruta" if gross else "neta"}|ppi-{ipp}|{"inv" if inv else "noinv"}|{"util" if util else "noutil"}'
         rows.append(corp(sector, profit, val, gross, ipp, inv, util).rename(sid))
@@ -165,7 +165,9 @@ def calcular(dir_datos, dir_out):
     for prod, val, gross, ipp, kscope, util, den in itertools.product(['a', 'b', 'c'], ['cc', 'hc'], [False, True], ['incl', 'excl'], ['todo', 'prod'], [False, True], ['K', 'K+V']):
         if prod == 'a' and kscope == 'prod': continue
         sid = f'B|{prod}|{val}|{"bruta" if gross else "neta"}|ppi-{ipp}|K-{kscope}|{"util" if util else "noutil"}' + ('|den-KV' if den == 'K+V' else '')
-        rows.append(bus(prod, val, gross, ipp, kscope, util, den)[0].rename(sid))
+        r_, S_b, K_b = bus(prod, val, gross, ipp, kscope, util, den)
+        rows.append(r_.rename(sid))
+        if not util and den == 'K': SK[sid] = (S_b, K_b, V[prod])   # para la descomposición de contratendencias
         meta.append(dict(id=sid, familia={'a': 'empresarial: todo productivo', 'b': 'empresarial: plusvalor ampliado (por ramas)', 'c': 'empresarial: plusvalor ampliado (corrección intra-rama)'}[prod],
                          D6='empresarial', D1='excedente amplio' if prod == 'a' else 'plusvalor ampliado', D2=prod, D3=val, D4='bruta' if gross else 'neta', D5=ipp, inventarios=False, D8=util, K=kscope, denominador=den))
     R = pd.concat(rows, axis=1); M = pd.DataFrame(meta).set_index('id')
@@ -222,4 +224,4 @@ def calcular(dir_datos, dir_out):
     M.to_csv(os.path.join(dir_out, 'eeuu_especificaciones.csv'))
     for k, v in masa.items(): v.to_csv(os.path.join(dir_out, f'eeuu_masa_plusvalor_{k}.csv'), index_label='anio')
     pd.DataFrame({'COMP_U': COMP_U, 'V_ramas': V['b'], 'V_intra_rama': V['c'], 'COMP_empresarial': COMP_BUS}).to_csv(os.path.join(dir_out, 'eeuu_salarios.csv'), index_label='anio')
-    return dict(F=D.F, N=D.N, sens=sens, R=R, M=M, principal=principal, Rc=Rc, trans=trans, masa=masa, empalmes=empalmes, fin=D.FIN)
+    return dict(F=D.F, N=D.N, sens=sens, R=R, M=M, principal=principal, Rc=Rc, trans=trans, masa=masa, empalmes=empalmes, fin=D.FIN, SK=SK)

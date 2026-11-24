@@ -24,7 +24,8 @@ BEA_FILES = {
 }
 FRED_SERIES = ['BOGZ1FL105020005A', 'CUMFNS', 'AWHMAN',
                # contratendencias (véase contratendencias.py)
-               'OPHNFB', 'COMPRNFB', 'AHETPI', 'CPIAUCSL', 'TDSP', 'U6RATE', 'LNS12300060', 'BOGZ1FU103164103A']
+               'OPHNFB', 'COMPRNFB', 'AHETPI', 'CPIAUCSL', 'TDSP', 'U6RATE', 'LNS12300060', 'BOGZ1FU103164103A',
+               'LNS12026619', 'LNS12032194', 'CE16OV', 'NCBEILQ027S', 'BCNSDODNS', 'GDP']
 CES_SUPERSECTORES = {  # código CES: (nombre, productivo según el criterio de la metodología)
     '10000000': ('Minería y explotación forestal', True), '20000000': ('Construcción', True),
     '30000000': ('Manufactura', True), '41420000': ('Comercio mayorista', False),

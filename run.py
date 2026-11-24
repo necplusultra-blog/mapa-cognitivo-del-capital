@@ -4,7 +4,7 @@
     python run.py --sin-descarga  # recalcula con los datos ya descargados
 """
 import argparse, json, os
-from sismografo import contratendencias, descarga, eeuu, horas_mundo, ia, mundo, paginas, sitio, trimestral
+from sismografo import contratendencias, descarga, intercambio, eeuu, horas_mundo, ia, mundo, paginas, sitio, trimestral
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 
@@ -29,6 +29,10 @@ if __name__ == '__main__':
     except Exception as e:  # noqa: BLE001 — el módulo IA no debe detener la actualización
         print('Módulo IA omitido:', repr(e)); ee['ia'] = None
     ee['horas_mundo'] = mu.get('horas')
+    try:
+        ee['intercambio'] = intercambio.calcular(a.datos, out)
+    except Exception as e:  # noqa: BLE001
+        print('Intercambio en horas omitido:', repr(e)); ee['intercambio'] = None
     try:
         ee['ct'] = contratendencias.calcular(a.datos, out, ee)
     except Exception as e:  # noqa: BLE001

@@ -272,6 +272,10 @@
 
 <div class="tablewrap"><table><thead><tr><th>Variante</th><th>Fase</th><th>Cambio de la tasa</th><th>Aporte de e</th><th>Aporte de K/V</th><th>Composición técnica</th><th>Precio relativo</th></tr></thead><tbody id="t-ct-fases"></tbody></table></div>
 
+<h3 id="resiste-la-descomposicion-a-todas-las-decisiones-teoricas">¿Resiste la descomposición a todas las decisiones teóricas?</h3>
+<p class="nota">La misma descomposición, repetida para las 16 especificaciones de cada criterio de trabajo productivo (costo corriente o histórico, neta o bruta, con o sin propiedad intelectual, todo el capital o sólo el de las ramas productivas). Cada celda da la mediana y, entre paréntesis, el rango de los percentiles 10 a 90. La última columna indica en qué porcentaje de las especificaciones en que la composición sube, la elevación de la tasa de plusvalor alcanza a compensarla.</p>
+<div class="tablewrap"><table><thead><tr><th>Criterio</th><th>Fase</th><th>Aporte de e</th><th>Aporte de K/V</th><th>Especificaciones en que la tasa sube</th><th>e compensa la composición</th></tr></thead><tbody id="t-ct-fm"></tbody></table></div>
+
 <details class="como">
 <summary>¿Cómo se calcula esta descomposición?</summary>
 <p>Para cada fase entre los años a<sub>0</sub> y a<sub>1</sub>: Δln r = Δln e − Δln(K/V), con e = S/V y K/V tomados de la sección «La ley bifacética» (plusvalor ampliado neto del sector empresarial; K a costo corriente; V por ramas desde 1948 o intra-rama desde 1972). En la variante intra-rama, K/V = (K<sub>real</sub>/H) · (P<sub>K</sub>/w): K<sub>real</sub> es K deflactado por el precio implícito del capital fijo privado no residencial (stock a costo corriente sobre índice de cantidad del BEA, 2017 = 1); H son las horas de los obreros productivos (BLS) y w = V/H. Los años de corte son los cinco años de quiebre más frecuentes en el multiverso principal (configuración base: tramo mínimo de 8 años, BIC), separados entre sí por al menos seis años. Las descargas incluyen la tabla completa (contratendencias_fases.csv).</p>
@@ -280,6 +284,10 @@
 <p>La tasa de plusvalor es el indicador directo (véase la sección «La ley bifacética»). Aquí se compara el producto por hora del sector empresarial no agrícola con la remuneración real por hora: la distancia entre ambas curvas es la parte de la productividad que no vuelve a los trabajadores.</p>
 <div class="legend" id="l-ct-a"></div>
 <figure class="placa"><div class="chart" id="c-ct-a"></div></figure>
+
+<p class="nota">La extensión del tiempo de trabajo no aparece en las horas pagadas por establecimiento, que bajan. Dos indicios de su desplazamiento fuera de un solo empleo: la proporción de ocupados con más de un empleo y la de quienes trabajan a tiempo parcial sin quererlo. Ninguno mide la intensidad del trabajo, que sigue sin indicador.</p>
+<div class="legend" id="l-ct-a2"></div>
+<figure class="placa"><div class="chart short" id="c-ct-a2"></div></figure>
 
 <h3 id="2-reduccion-del-salario-por-debajo-de-su-valor">2. Reducción del salario por debajo de su valor</h3>
 <p>El valor de la fuerza de trabajo no se observa directamente; lo que sí se observa es el salario real de los obreros de producción y no supervisores. Un salario real que durante décadas queda por debajo de su nivel de 1972, mientras la productividad se multiplica, indica una compresión del salario que la sola elevación de la productividad no explica.</p>
@@ -300,9 +308,22 @@
 <div class="legend" id="l-ct-e"></div>
 <figure class="placa"><div class="chart" id="c-ct-e"></div></figure>
 
+<p class="nota"><strong>Transferencia de tiempo de trabajo por comercio exterior.</strong> En el mercado mundial, los países de productividad más alta reciben más trabajo a cambio de menos. El gráfico estima cuántas horas de trabajo ajeno se apropia cada país o grupo por año: las horas incorporadas en lo que importa menos las incorporadas en lo que exporta, en miles de millones de horas. Positivo significa apropiación; negativo, cesión.</p>
+<div class="legend" id="l-ct-e2"></div>
+<figure class="placa"><div class="chart" id="c-ct-e2"></div></figure>
+
+<details class="como">
+<summary>¿Cómo se calcula la transferencia de horas?</summary>
+<p>Para cada país, h = horas trabajadas en el año (ocupados × horas anuales por ocupado, Penn World Table 11.0) / PIB en dólares corrientes (Banco Mundial). El contenido medio en horas de un dólar de exportaciones mundiales es h<sub>X</sub> = Σ exportaciones × h / Σ exportaciones. La transferencia neta de un país es importaciones × h<sub>X</sub> − exportaciones × h. Se usan los países con datos de horas (unos 120, desde 2005); los grupos de ingreso son los del Banco Mundial.</p>
+<p>Supuestos: lo que un país exporta incorpora las horas por dólar promedio de su economía, y lo que importa, el contenido medio de las exportaciones mundiales; no se rastrean los insumos intermedios, para lo que haría falta una matriz insumo-producto mundial; se cuentan todas las horas trabajadas, no sólo las productivas. La transferencia no crea plusvalor: lo redistribuye entre capitales y formaciones nacionales.</p>
+</details>
 <h3 id="6-capital-accionario-y-capital-que-devenga-interes">6. Capital accionario y capital que devenga interés</h3>
 <div class="legend" id="l-ct-f"></div>
 <figure class="placa"><div class="chart" id="c-ct-f"></div></figure>
+
+<p class="nota">El capital ficticio son títulos sobre plustrabajo futuro. El valor de mercado de las acciones de las corporaciones no financieras crece mucho más que su deuda y que el producto: su validación exige una masa de plusvalor que todavía no se ha producido.</p>
+<div class="legend" id="l-ct-f2"></div>
+<figure class="placa"><div class="chart short" id="c-ct-f2"></div></figure>
 
 <p class="nota">La emisión neta de acciones negativa significa que las corporaciones no financieras recompran más acciones de las que emiten: transfieren ganancia a los accionistas en lugar de acumularla.</p>
 <details class="como">
@@ -313,6 +334,9 @@
 <li><strong>Capital constante:</strong> precio implícito de la inversión no residencial (NIPA A008RD) sobre el índice de precios del consumo personal (DPCERG); composición técnica y precio relativo como en la descomposición por fases.</li>
 <li><strong>Sobrepoblación relativa:</strong> tasa de empleo de 25 a 54 años (LNS12300060) y subutilización laboral U-6 (U6RATE), BLS; empleo vulnerable y desempleo mundiales, estimaciones modeladas de la OIT publicadas por el Banco Mundial (SL.EMP.VULN.ZS, SL.UEM.TOTL.ZS).</li>
 <li><strong>Comercio exterior:</strong> ganancias corporativas recibidas del resto del mundo (NIPA B933RC) sobre las ganancias corporativas totales (A051RC), desde 1998; comercio mundial sobre PIB (Banco Mundial, NE.TRD.GNFS.ZS).</li>
+<li><strong>Extensión del tiempo de trabajo:</strong> ocupados con más de un empleo (LNS12026619, desde 1994) y a tiempo parcial por razones económicas (LNS12032194), sobre el total de ocupados (CE16OV), BLS.</li>
+<li><strong>Transferencia por comercio exterior:</strong> véase el desplegable de la transferencia de horas.</li>
+<li><strong>Capital ficticio:</strong> valor de mercado de las acciones emitidas por las corporaciones no financieras (Z.1, NCBEILQ027S) y su deuda en títulos y préstamos (BCNSDODNS), sobre el PIB (GDP).</li>
 <li><strong>Capital financiero:</strong> ganancias de las corporaciones financieras sobre las ganancias domésticas (A587RC / A445RC), desde 1998; intereses netos de las corporaciones no financieras sobre su excedente neto (B471RC / W326RC); dividendos sobre ganancia después de impuestos (B467RC / A466RC); emisión neta de acciones de las corporaciones no financieras (Z.1, FU103164103) sobre su valor agregado bruto (A455RC).</li>
 </ul>
 <p>Ninguno de estos indicadores mide por sí solo una contratendencia: son manifestaciones observables que deben leerse junto con la tasa y la masa de plusvalor. Todos están en las descargas (contratendencias_indicadores.csv).</p>

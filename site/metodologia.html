@@ -264,6 +264,11 @@
 <div class="f">K/V = (K<sub>real</sub> / H) · (P<sub>K</sub> / w) · P<sub>K</sub> = K<sub>costo corriente</sub> / (índice de cantidad × K<sub>2017</sub> / 100) · w = V / H</div>
 
 <p>El índice de cantidad y el stock a costo corriente son los del capital fijo privado no residencial del BEA (kcntotl1es00, k1ntotl1es00); K y V son los de la variante intra-rama. Los años de corte son los cinco años de quiebre más frecuentes en el multiverso principal (h = 8, BIC), con al menos seis años de separación: la periodización no se fija de antemano.</p>
+<p><strong>Robustez sobre el multiverso.</strong> La descomposición se repite para cada especificación empresarial sin ajuste por utilización y con denominador K (16 por criterio de trabajo productivo: costo corriente o histórico, neta o bruta, con o sin propiedad intelectual, todo el capital o sólo el productivo). Se publican la mediana y los percentiles 10 y 90 de los aportes, el porcentaje de especificaciones en que la tasa sube y, entre las especificaciones en que la composición sube, el porcentaje en que Δln e ≥ Δln(K/V) (contratendencias_fases_multiverso.csv).</p>
+<p><strong>Transferencia de tiempo de trabajo por comercio exterior.</strong> Para cada país, h = H / PIB, con H = ocupados × horas anuales (PWT 11.0) y el PIB en dólares corrientes a tipo de cambio de mercado (Banco Mundial):</p>
+<div class="f">h<sub>X</sub> = Σ<sub>j</sub> X<sub>j</sub> h<sub>j</sub> / Σ<sub>j</sub> X<sub>j</sub> · T<sub>i</sub> = M<sub>i</sub> · h<sub>X</sub> − X<sub>i</sub> · h<sub>i</sub></div>
+
+<p>T &gt; 0 indica apropiación de tiempo de trabajo ajeno. Se incluyen los años con al menos 100 países con horas (desde 2005). Es una aproximación sin insumos intermedios; una matriz insumo-producto mundial (OCDE ICIO) permitiría rastrear el contenido en horas de cada flujo (intercambio_horas.csv, intercambio_horas_paises.csv).</p>
 <p><strong>Indicadores por contratendencia.</strong></p>
 <table>
 <thead>
@@ -276,8 +281,8 @@
 <tbody>
 <tr>
 <td>Elevación del grado de explotación</td>
-<td>tasa de plusvalor; producto por hora y remuneración real por hora; horas semanales</td>
-<td>BEA, BLS (OPHNFB, COMPRNFB)</td>
+<td>tasa de plusvalor; producto por hora y remuneración real por hora; horas semanales; pluriempleo y tiempo parcial involuntario</td>
+<td>BEA, BLS (OPHNFB, COMPRNFB, LNS12026619, LNS12032194, CE16OV)</td>
 </tr>
 <tr>
 <td>Reducción del salario por debajo de su valor</td>
@@ -296,17 +301,17 @@
 </tr>
 <tr>
 <td>Comercio exterior</td>
-<td>ganancias recibidas del resto del mundo; comercio mundial sobre PIB</td>
-<td>BEA (B933RC, A051RC), Banco Mundial</td>
+<td>ganancias recibidas del resto del mundo; comercio mundial sobre PIB; transferencia neta de horas por país y grupo de ingreso</td>
+<td>BEA (B933RC, A051RC), Banco Mundial, PWT</td>
 </tr>
 <tr>
 <td>Capital accionario y que devenga interés</td>
-<td>ganancias financieras; intereses netos y dividendos de las no financieras; emisión neta de acciones</td>
+<td>ganancias financieras; intereses netos y dividendos de las no financieras; emisión neta de acciones; valor de mercado de las acciones y deuda de las no financieras sobre el PIB</td>
 <td>BEA (A587RC, A445RC, B471RC, W326RC, B467RC, A466RC, A455RC), Reserva Federal Z.1</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Limitaciones.</strong> El valor de la fuerza de trabajo no se observa: el salario real es un indicio, no una medida de su distancia al valor. La intensidad del trabajo, el trabajo de plataformas y la extensión de la jornada fuera de las horas pagadas todavía no tienen indicadores. El comercio exterior se observa por la apropiación de ganancias y el volumen de comercio, no por la transferencia de valor medida en tiempo de trabajo, que exige matrices insumo-producto mundiales.</p>
+<p><strong>Limitaciones.</strong> El valor de la fuerza de trabajo no se observa: el salario real es un indicio, no una medida de su distancia al valor. La intensidad del trabajo, el trabajo de plataformas y la extensión de la jornada fuera de las horas pagadas todavía no tienen indicadores. La transferencia de horas por comercio exterior no rastrea los insumos intermedios.</p>
 </section>
 <section id="empalmes" class="seccion">
 <h2 id="empalmes-y-ajustes">Empalmes y ajustes</h2>

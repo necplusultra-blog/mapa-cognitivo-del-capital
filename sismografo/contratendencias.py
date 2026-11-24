@@ -67,6 +67,9 @@ def calcular(dir_datos, dir_out, ee):
     I['productividad_hora_idx'] = prod / prod.get(1972) * 100
     I['remuneracion_real_hora_idx'] = salreal / salreal.get(1972) * 100
     I['semana_horas_productivas'] = c['semana_horas'].reindex(Y)
+    ocup = fred('CE16OV')
+    I['pluriempleo_pct_ocupados'] = fred('LNS12026619') / ocup * 100          # extensión del tiempo de trabajo fuera de un empleo
+    I['tiempo_parcial_involuntario_pct'] = fred('LNS12032194') / ocup * 100
 
     # B) Reducción del salario por debajo de su valor
     ahe, cpi = fred('AHETPI'), fred('CPIAUCSL')
@@ -97,6 +100,9 @@ def calcular(dir_datos, dir_out, ee):
     I['intereses_netos_pct_excedente_nfc'] = N('B471RC') / N('W326RC') * 100
     I['dividendos_pct_ganancia_neta_nfc'] = N('B467RC') / N('A466RC') * 100
     I['emision_neta_acciones_pct_va_nfc'] = fred('BOGZ1FU103164103A') / N('A455RC') * 100
+    pib = fred('GDP') * 1000                                                     # millones de USD
+    I['acciones_nfc_valor_mercado_pct_pib'] = fred('NCBEILQ027S') / pib * 100
+    I['deuda_nfc_pct_pib'] = fred('BCNSDODNS') / pib * 100
 
     W = _banco_mundial()
     if not W.empty: I = I.join(W.reindex(I.index))
@@ -104,6 +110,13 @@ def calcular(dir_datos, dir_out, ee):
         A = mh['A']; a = A[(A.variante == 'educación y salud productivas') & (A.china == 'con China')].set_index('anio')
         I['asalariados_productivos_mundo_mill'] = a['obreros_mill'].reindex(I.index)
         I['pct_china_india_masa_mundial'] = (a['pct_china'] + a['pct_india']).reindex(I.index)
+        I['semana_horas_productivas_mundo'] = a['semana_horas'].reindex(I.index)
+    if (ic := ee.get('intercambio')) is not None:
+        X = ic['A'].set_index('anio')
+        for col, nom in (('altos_ingresos_mmh', 'transferencia_horas_altos_ingresos_mmh'), ('razon_altos_ingresos', 'razon_intercambio_horas_altos_ingresos'),
+                         ('altos_ingresos_pct_horas', 'transferencia_pct_horas_altos_ingresos'), ('USA_mmh', 'transferencia_horas_eeuu_mmh'),
+                         ('CHN_mmh', 'transferencia_horas_china_mmh'), ('IND_mmh', 'transferencia_horas_india_mmh')):
+            I[nom] = X[col].reindex(I.index)
     I.to_csv(os.path.join(dir_out, 'contratendencias_indicadores.csv'))
 
     # descomposición de la tasa por fases endógenas
@@ -122,4 +135,33 @@ def calcular(dir_datos, dir_out, ee):
             filas.append(fila)
     F = pd.DataFrame(filas)
     F.to_csv(os.path.join(dir_out, 'contratendencias_fases.csv'), index=False)
-    return dict(I=I, F=F, cortes=cortes)
+    FM = fases_multiverso(ee, cortes, Y)
+    FM.to_csv(os.path.join(dir_out, 'contratendencias_fases_multiverso.csv'), index=False)
+    return dict(I=I, F=F, FM=FM, cortes=cortes)
+
+
+def fases_multiverso(ee, cortes, Y):
+    """La misma descomposición para cada especificación empresarial del multiverso (criterio por ramas o intra-rama;
+    costo corriente o histórico; neta o bruta; con o sin propiedad intelectual; todo el capital o sólo el productivo;
+    sin ajuste por utilización y con denominador K). Resume la distribución de los aportes en cada fase."""
+    filas = []
+    for fam, pref in (('por ramas', 'B|b|'), ('intra-rama', 'B|c|')):
+        specs = {k: v for k, v in ee['SK'].items() if k.startswith(pref)}
+        if not specs: continue
+        ini = Y[0] if fam == 'por ramas' else int(ee['masa']['c'].index[0])
+        lims = [ini] + [y for y in cortes if y > ini + 2] + [Y[-1]]
+        for a0, a1 in zip(lims[:-1], lims[1:]):
+            de, dk, dr = [], [], []
+            for S, K, V in specs.values():
+                e0, e1, k0, k1 = S.get(a0) / V.get(a0), S.get(a1) / V.get(a1), K.get(a0) / V.get(a0), K.get(a1) / V.get(a1)
+                if min(e0, e1, k0, k1) <= 0 or any(pd.isna([e0, e1, k0, k1])): continue
+                de.append(np.log(e1 / e0)); dk.append(np.log(k1 / k0)); dr.append(np.log(e1 / e0) - np.log(k1 / k0))
+            de, dk, dr = map(np.array, (de, dk, dr))
+            q = lambda x, p: float(np.percentile(x, p))
+            filas.append(dict(variante=fam, desde=a0, hasta=a1, especificaciones=len(de),
+                              aporte_e_p10=q(de, 10), aporte_e_mediana=q(de, 50), aporte_e_p90=q(de, 90),
+                              aporte_kv_p10=q(-dk, 10), aporte_kv_mediana=q(-dk, 50), aporte_kv_p90=q(-dk, 90),
+                              dln_tasa_mediana=q(dr, 50), pct_tasa_sube=float((dr > 0).mean() * 100),
+                              pct_composicion_sube=float((dk > 0).mean() * 100),
+                              pct_e_compensa=float(((dk > 0) & (de >= dk)).sum() / max((dk > 0).sum(), 1) * 100)))
+    return pd.DataFrame(filas)
