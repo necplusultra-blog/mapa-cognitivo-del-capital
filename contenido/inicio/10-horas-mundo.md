@@ -1,7 +1,7 @@
 ---
 id: horas-mundo
 menu: Masa mundial en horas
-oculta: si
+oculta: true
 ---
 ## Masa mundial de plusvalor en horas de trabajo, 2000–{{hm-fin}}
 

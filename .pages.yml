@@ -1,0 +1,88 @@
+# Configuración de Pages CMS (https://app.pagescms.org) para editar los textos del sitio.
+# Cada archivo de contenido/ es una sección de una página; el número inicial del nombre fija el orden.
+# Al guardar, Pages CMS hace un commit y GitHub Actions reconstruye y publica el sitio (~5 min).
+# Guía de los atajos ([[grafico ...]], {{cifra}}, :::como ...): contenido/LEEME.md
+
+media:
+  input: site/imagenes
+  output: imagenes
+
+content:
+  - name: inicio
+    label: Página principal
+    type: collection
+    path: contenido/inicio
+    format: yaml-frontmatter
+    exclude: [LEEME.md]
+    fields: &campos
+      - name: menu
+        label: Título en el índice lateral
+        type: string
+        description: Si se deja vacío, la sección no aparece en el índice.
+      - name: id
+        label: Ancla (identificador del enlace)
+        type: string
+        description: "No cambiar en secciones existentes: lo usan los enlaces y el código (p. ej. horas-mundo)."
+      - name: oculta
+        label: Mostrar sólo cuando haya datos
+        type: boolean
+        description: Para secciones que dependen de cálculos opcionales (masa mundial en horas, IA, contratendencias).
+      - name: lugar
+        label: Lugar especial
+        type: select
+        options:
+          values: [portada, pie]
+        description: Vacío = sección normal. «portada» = encabezado de la página; «pie» = pie de página.
+      - name: clase
+        label: Clase CSS (avanzado)
+        type: string
+      - name: body
+        label: Texto (Markdown)
+        type: code
+        options:
+          format: markdown
+        description: "Markdown. Atajos: {{cifra}}, [[grafico id]], [[leyenda id]], [[tabla id: Col | Col]], [[cifra id | etiqueta | nota]], ':::como Título' … ':::'. Guía completa en contenido/LEEME.md."
+    view:
+      primary: menu
+      fields: [menu, id]
+
+  - name: lectura
+    label: Primera lectura de los resultados
+    type: collection
+    path: contenido/lectura
+    format: yaml-frontmatter
+    fields: *campos
+    view:
+      primary: menu
+      fields: [menu, id]
+
+  - name: metodologia
+    label: Metodología
+    type: collection
+    path: contenido/metodologia
+    format: yaml-frontmatter
+    fields: *campos
+    view:
+      primary: menu
+      fields: [menu, id]
+
+  - name: guia
+    label: Guía de edición
+    type: file
+    path: contenido/LEEME.md
+    format: raw
+
+  - name: avanzado
+    label: Avanzado
+    type: group
+    items:
+      - name: plantillas
+        label: Plantillas de las páginas (HTML)
+        type: collection
+        path: plantillas
+        format: raw
+      - name: estilo
+        label: Hoja de estilos (CSS)
+        type: file
+        path: site/style.css
+        format: raw

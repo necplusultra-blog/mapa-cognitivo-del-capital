@@ -1,7 +1,7 @@
 ---
 id: contratendencias
 menu: Contratendencias
-oculta: si
+oculta: true
 ---
 ## El campo de las contratendencias
 

@@ -1,6 +1,8 @@
 # Cómo editar los textos del sitio
 
-Todo el texto del sitio vive en esta carpeta, en archivos Markdown. Puedes editarlos desde GitHub sin instalar nada:
+Todo el texto del sitio vive en esta carpeta, en archivos Markdown. La forma más cómoda de editarlos es **Pages CMS** (https://app.pagescms.org → repositorio sismografo-del-capital): cada página aparece como una colección y cada sección como una entrada, con el texto en un editor Markdown. Al guardar, Pages CMS hace un commit y el sitio se publica solo en unos cinco minutos. La configuración está en `.pages.yml`, en la raíz del repositorio.
+
+También puedes editarlos directamente en GitHub, sin instalar nada:
 
 1. Abre el archivo (por ejemplo, `inicio/08-tiempo.md`).
 2. Pulsa el lápiz («Edit this file»).

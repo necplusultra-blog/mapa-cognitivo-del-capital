@@ -18,19 +18,19 @@ oculta: si (la sección aparece sólo cuando hay datos), lugar: portada | pie.
 """
 import glob, html, os, re
 
-import markdown
+import markdown, yaml
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EXT = ['extra', 'attr_list', 'md_in_html', 'sane_lists', 'toc']
 
 
 def _front(texto):
+    """Encabezado YAML entre líneas --- (lo escribe también Pages CMS). Valores vacíos o nulos se ignoran."""
     meta = {}
-    m = re.match(r'^---\n(.*?)\n---\n', texto, re.S)
+    m = re.match(r'^---\s*\n(.*?)\n---\s*\n', texto, re.S)
     if m:
-        for linea in m.group(1).splitlines():
-            if ':' in linea:
-                k, v = linea.split(':', 1); meta[k.strip()] = v.strip()
+        datos = yaml.safe_load(m.group(1)) or {}
+        meta = {k: (str(v).lower() if isinstance(v, bool) else str(v)) for k, v in datos.items() if v not in (None, '')}
         texto = texto[m.end():]
     return meta, texto
 
