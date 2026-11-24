@@ -92,8 +92,18 @@ def _md(texto):
     return markdown.markdown(_bloques(texto), extensions=EXT, output_format='html5')
 
 
+def _version():
+    """Marca de versión para app.js y style.css: evita que el navegador use copias viejas después de una actualización."""
+    import subprocess, time
+    try:
+        return subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], cwd=RAIZ, text=True).strip() + time.strftime('%y%m%d%H%M')
+    except Exception:  # noqa: BLE001
+        return time.strftime('%y%m%d%H%M')
+
+
 def construir(dir_site=None):
     dir_site = dir_site or os.path.join(RAIZ, 'site')
+    version = _version()
     for pagina in ('inicio', 'lectura', 'metodologia'):
         partes, menu, lugares = [], [], {'portada': [], 'pie': []}
         for fn in sorted(glob.glob(os.path.join(RAIZ, 'contenido', pagina, '*.md'))):
@@ -109,7 +119,8 @@ def construir(dir_site=None):
                 menu.append(f'<li><a href="#{sid}">{html.escape(meta["menu"])}</a></li>')
         plantilla = open(os.path.join(RAIZ, 'plantillas', f'{pagina}.html'), encoding='utf-8').read()
         salida = (plantilla.replace('{{contenido}}', '\n'.join(partes)).replace('{{menu}}', '\n'.join(menu))
-                  .replace('{{portada}}', '\n'.join(lugares['portada'])).replace('{{pie}}', '\n'.join(lugares['pie'])))
+                  .replace('{{portada}}', '\n'.join(lugares['portada'])).replace('{{pie}}', '\n'.join(lugares['pie']))
+                  .replace('{{version}}', version))
         nombre = 'index.html' if pagina == 'inicio' else f'{pagina}.html'
         open(os.path.join(dir_site, nombre), 'w', encoding='utf-8').write(salida)
 
