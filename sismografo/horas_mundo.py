@@ -133,6 +133,11 @@ def calcular(dir_datos, dir_out):
                 R.to_csv(os.path.join(dir_out, 'mundo_horas_ocde_ramas.csv'), index=False)
         except Exception as e:  # noqa: BLE001
             print('Medición OCDE por rama omitida:', repr(e))
+        try:
+            X, diag_ilo = combinar_ilo(P, X, piv)
+            diag_ilo.to_csv(os.path.join(dir_out, 'mundo_horas_ilo_secciones.csv'), index=False)
+        except Exception as e:  # noqa: BLE001
+            print('Medición OIT por sección omitida:', repr(e))
         if not X.empty: P = pd.concat([P, X], ignore_index=True)
     except Exception as e:  # noqa: BLE001
         print('Extensión OIT omitida:', repr(e))
@@ -251,6 +256,48 @@ def _encadenar(base, idx_o, idx_i, anios):
         else:
             out[y] = (out[ultimo] * idx_i[y] / idx_i[ultimo]) if ultimo is not None else idx_i[y]
     return pd.Series(out), ultimo
+
+
+PAISES_ILO = ['BRA', 'CHN', 'IDN', 'IND', 'RUS', 'MEX', 'TUR', 'CYP', 'MLT']
+
+
+def combinar_ilo(P, X, piv):
+    """Medición por sección (OIT) para los países sin asalariados por rama en la OCDE (véase ilo_ramas.py)."""
+    from sismografo import ilo_ramas
+    dir_cache = os.path.join(os.path.dirname(CACHE_ILO), 'ilo')
+    base_wiod = int(P.anio.max()); X = X.copy(); diag = []
+    for c in PAISES_ILO:
+        for variante, publicas_prod in VARIANTES:
+            m = (X.pais == c) & (X.variante == variante)
+            if not m.any(): continue
+            ind = ilo_ramas.indicadores(c, piv, dir_cache, publicas_prod)
+            if ind.empty or ind.ps.dropna().empty: continue
+            b = int(ind.ps.dropna().index.min())
+            anios = sorted(X.loc[m, 'anio'])
+            ind = ind.reindex(sorted(set(ind.index) | set(anios))).sort_index()
+            ps = ind.ps.ffill(); hp = ind.get('hp', pd.Series(dtype=float)).ffill(); q = ind.get('q', pd.Series(dtype=float)).ffill()
+            fila_b = P[(P.pais == c) & (P.variante == variante) & (P.anio == b)] if b == base_wiod else X[m & (X.anio == b)]
+            if fila_b.empty: continue
+            hpw_b = float(fila_b.horas_mill.iloc[0] / fila_b.obreros_mill.iloc[0])
+            tiene_h = b in hp.index and not pd.isna(hp.get(b)) and hp.notna().sum() > 1
+            tiene_q = b in q.index and not pd.isna(q.get(b)) and q.notna().sum() > 1
+            for i in X.index[m & (X.anio >= b)]:
+                y = int(X.at[i, 'anio'])
+                N = X.at[i, 'obreros_mill'] * ps[y] / ps[b]
+                H = N * hpw_b * hp[y] / hp[b] if tiene_h else X.at[i, 'horas_mill'] * ps[y] / ps[b]
+                X.at[i, 'obreros_mill'], X.at[i, 'horas_mill'] = N, H
+                X.at[i, 'fuente_obreros'] = f'OIT por sección ({ind.fuente_secciones.dropna().iloc[0]})'
+                if tiene_h: X.at[i, 'fuente_horas'] = 'OIT por sección'
+                if tiene_q and X.at[i, 'fuente_e'] != 'OCDE por rama':
+                    X.at[i, 'e'] = (1 + X.at[i, 'e']) * q[b] / q[y] - 1
+                    X.at[i, 'fuente_e'] = 'OIT (participación del trabajo) + masa salarial por sección'
+            if variante == VARIANTES[0][0]:
+                ult = int(ind.ps.dropna().index.max())
+                diag.append(dict(pais=c, fuente=ind.fuente_secciones.dropna().iloc[0], desde=b, hasta=ult,
+                                 ps_inicio=ps[b], ps_fin=ps[ult], horas_por_seccion=tiene_h, masa_salarial_por_seccion=tiene_q,
+                                 hp_inicio=hp.get(b) if tiene_h else np.nan, hp_fin=hp.get(ult) if tiene_h else np.nan,
+                                 q_inicio=q.get(b) if tiene_q else np.nan, q_fin=q.get(ult) if tiene_q else np.nan))
+    return X, pd.DataFrame(diag)
 
 
 def combinar_ocde(P, X, R, dep):

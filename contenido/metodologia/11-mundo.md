@@ -34,7 +34,17 @@ En las ramas no agrícolas, la remuneración y la ocupación se multiplican por 
 
 Las series OCDE se encadenan al nivel WIOD de 2014: X<sub>t</sub> = X<sub>WIOD,2014</sub> × X<sub>OCDE,t</sub> / X<sub>OCDE,2014</sub>, para X = e, N, horas por asalariado y r. Así WIOD fija el nivel y la OCDE aporta la variación medida por rama. Reglas de completitud: T y U faltantes valen cero; si faltan secciones todas productivas y de mercado (Japón: E, N, S), su suma se obtiene como residuo del total; si un país no informa M69–M70 y M73, su peso en M se toma de WIOD 2014; una sección sin dato de no asalariados vale cero; e sólo se encadena mientras la imputación de no asalariados sea la misma que en 2014. Corea queda fuera (le faltan secciones improductivas). México, Turquía, Chipre y Malta no publican asalariados por rama: su e sale de la OCDE y su N de la OIT. Después del último año OCDE de cada país, la serie continúa con la variación OIT. Los cocientes OCDE/WIOD de 2014 se publican como diagnóstico (`mundo_horas_ocde_diagnostico.csv`): en la mayoría de los países están entre 0,95 y 1,05 para N y para H.
 
-**(c) 2015–2025, resto de los países: extensión encadenada con la OIT.**
+**(b′) Desde 2014, países sin asalariados por rama en la OCDE: encuestas de la OIT por sección.** Para Brasil, Indonesia, India, Rusia, México, Turquía, Chipre y Malta se usan las series de ILOSTAT por sección CIIU rev. 4: asalariados (`EES_TEES_SEX_ECO_NB`), horas semanales efectivas (`HOW_TEMP_SEX_ECO_NB`) e ingreso medio mensual en moneda nacional (`EAR_EMTA_SEX_ECO_CUR_NB`), siempre de una sola encuesta por país (la que cubre más años desde 2014). Con el mismo criterio de ramas, y con el peso de M69–M70 y M73 dentro de M tomado de WIOD 2014:
+
+<div class="f">ps = asalariados productivos / asalariados · hp = horas medias de las secciones productivas · q = masa salarial productiva / masa salarial</div>
+
+Desde el primer año b de la encuesta (2014 en la mayoría; India 2018; Rusia 2017), el resultado de la extensión agregada se corrige así:
+
+<div class="f">N<sub>t</sub> = N<sup>agregado</sup><sub>t</sub> × ps<sub>t</sub>/ps<sub>b</sub> · h<sub>t</sub> = h<sub>b</sub> × hp<sub>t</sub>/hp<sub>b</sub> · 1 + e<sub>t</sub> = (1 + e<sup>agregado</sup><sub>t</sub>) × q<sub>b</sub>/q<sub>t</sub></div>
+
+En México y Turquía, e proviene de las cuentas por rama de la OCDE y sólo se corrigen N y h. Después del último año de la encuesta se mantienen las proporciones. China no publica asalariados por sección en ILOSTAT (su encuesta de fuerza de trabajo sólo se difunde agregada desde 2016), así que queda en la extensión agregada. El diagnóstico por país está en `mundo_horas_ilo_secciones.csv`. Limitaciones: la serie de asalariados de India en la OIT sólo recoge a los trabajadores regulares, de modo que su proporción productiva se mide entre ellos; las secciones no separan M69–M70 y M73.
+
+**(c) 2015–2025, extensión agregada con la OIT** (base de todos los países fuera de la OCDE y único método para China).
 
 <div class="f">e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>] · N<sub>t</sub> = N<sub>2014</sub> × A<sub>t</sub>/A<sub>2014</sub> · h<sub>t</sub> = h<sub>2014</sub> × hs<sub>t</sub>/hs<sub>2014</sub></div>
 
