@@ -1,11 +1,11 @@
 {
- "actualizado": "2026-11-24 02:05 UTC",
- "commit": "342d006",
+ "actualizado": "2026-11-24 02:34 UTC",
+ "commit": "95b2b0f",
  "eeuu_fin": 2025,
  "ia": true,
  "eeuu_trim_fin": "2026Q2",
- "eeuu_n": 2184,
- "eeuu_n_intra": 32,
+ "eeuu_n": 288,
+ "eeuu_n_intra": 64,
  "empalmes": {
   "1997 NAICS/NAICS87-97": 1.0071,
   "1987 NAICS/SIC72": 0.8741
