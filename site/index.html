@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sismógrafo del capital — tasa y masa de ganancia y de plusvalor</title>
 <meta name="description" content="Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, en dinero y en tiempo de trabajo: EE.UU. y mundo, como multiverso de especificaciones teóricamente explícitas.">
-<link rel="stylesheet" href="style.css?v=49a93e82611242130">
+<link rel="stylesheet" href="style.css?v=aff3b6f2611242234">
 <script src="vendor/d3.min.js"></script>
 </head>
 <body>
@@ -40,19 +40,20 @@
 <li><a href="#contratendencias">Contratendencias</a></li>
 <li><a href="#ia">Corporaciones de la IA</a></li>
 <li><a href="#transformacion">Valores y precios</a></li>
+<li><a href="#supuestos">Supuestos en discusión</a></li>
 <li><a href="#alcance">Alcance y fuentes</a></li>
   </ul></nav>
   <main id="contenido">
 <section id="cifras" class="seccion cifras-portada">
-<p class="llano">Cuatro números para empezar: cómo está hoy la tasa de ganancia de EE.UU. comparada con su promedio histórico; cuántos dólares de plusvalor obtiene el capital por cada dólar que paga en salarios a los obreros productivos; cuánto plusvalor se produce en total, descontada la inflación; y qué parte del capital del mundo está hoy en China.</p>
-<div class="cifras"><div class="cifra"><div class="valor" id="k-med">—</div><div class="etiqueta">Mediana del multiverso de EE.UU. en el último año (100 = promedio del periodo)</div><div class="nota">1982: <span id="k-med82">—</span></div></div><div class="cifra"><div class="valor" id="k-e">—</div><div class="etiqueta">Tasa de plusvalor S/V de EE.UU., con corrección intra-rama</div><div class="nota">1972: <span id="k-e72">—</span></div></div><div class="cifra"><div class="valor" id="k-masa">—</div><div class="etiqueta">Masa real de plusvalor de EE.UU. (miles de millones de USD de 2017)</div><div class="nota">1948: <span id="k-masa48">—</span></div></div><div class="cifra"><div class="valor" id="k-cn">—</div><div class="etiqueta">Peso de China en el capital mundial</div><div class="nota">2000: <span id="k-cn00">—</span></div></div></div>
+<p class="llano">Cuatro números para empezar: cómo está hoy la tasa de ganancia de EE.UU. comparada con su promedio histórico; cuántos dólares de plusvalor obtiene el capital por cada dólar que paga en salarios a los obreros productivos; cuánto plusvalor se produce en total, medido en lo que puede comprar; y qué parte del capital del mundo está hoy en China.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="k-med">—</div><div class="etiqueta">Mediana del multiverso de EE.UU. en el último año (100 = promedio del periodo)</div><div class="nota">1982: <span id="k-med82">—</span></div></div><div class="cifra"><div class="valor" id="k-e">—</div><div class="etiqueta">Tasa de plusvalor S/V de EE.UU., con corrección intra-rama</div><div class="nota">1972: <span id="k-e72">—</span></div></div><div class="cifra"><div class="valor" id="k-masa">—</div><div class="etiqueta">Masa de plusvalor de EE.UU. en poder de compra (miles de millones de USD de 2017)</div><div class="nota">1948: <span id="k-masa48">—</span></div></div><div class="cifra"><div class="valor" id="k-cn">—</div><div class="etiqueta">Peso de China en el capital mundial</div><div class="nota">2000: <span id="k-cn00">—</span></div></div></div>
 
 <details class="como">
 <summary>¿Cómo se calculan estas cuatro cifras?</summary>
 <ul>
 <li><strong>Mediana del multiverso.</strong> Para cada año, la mediana de las tasas de todas las especificaciones del multiverso principal, después de dividir cada una por su propio promedio del periodo y multiplicar por 100.</li>
 <li><strong>S/V con corrección intra-rama.</strong> S = valor agregado del sector empresarial (BEA, A195RC) − valor agregado de la vivienda arrendada (A2009C − B701RC) − depreciación del capital no residencial del sector − V. V = remuneración de los obreros de producción y no supervisores de las ramas productivas: empleo × salario por hora × horas semanales × 52 por supersector (BLS, CES), escalado por la razón remuneración/salarios para incluir prestaciones.</li>
-<li><strong>Masa real de plusvalor.</strong> El mismo S, con V de todas las ramas productivas (criterio por ramas), deflactado con el deflactor del PIB (2017 = 100).</li>
+<li><strong>Masa de plusvalor en poder de compra.</strong> El mismo S, con V de todas las ramas productivas (criterio por ramas), deflactado con el deflactor del PIB (2017 = 100).</li>
 <li><strong>Peso de China en el capital mundial.</strong> Stock de capital de China a PPA corrientes (cn, Penn World Table 11.0) sobre la suma de los países con datos.</li>
 </ul>
 </details>
@@ -152,7 +153,7 @@
 
 <details class="como">
 <summary>¿Cómo se calculan los quiebres?</summary>
-<p>A cada especificación se le ajustan tendencias lineales por tramos, con hasta 5 quiebres y un tramo mínimo de h años, por programación dinámica (como en Bai y Perron). El número de quiebres m se elige minimizando BIC = n·ln(SCR/n) + k·ln(n), con k = 3m + 2. El gráfico suma, año por año, cuántas especificaciones ponen un quiebre en ese año (configuración base: h = 8, BIC). La tabla repite el cálculo con h = 6 y h = 10, y con el criterio LWZ, más exigente.</p>
+<p>A cada especificación se le ajustan tendencias lineales por tramos, con hasta 5 quiebres y un tramo mínimo de h años, por programación dinámica (como en Bai y Perron, 2003). El número de quiebres m se elige minimizando BIC = n·ln(SCR/n) + k·ln(n), con k = 3m + 2. El gráfico suma, año por año, cuántas especificaciones ponen un quiebre en ese año (configuración base: h = 8, BIC). La tabla repite el cálculo con h = 6 y h = 10, y con el criterio LWZ, más exigente.</p>
 </details>
 </section>
 <section id="robustez" class="seccion">
@@ -169,8 +170,8 @@
 <h2 id="la-ley-bifacetica-masa-y-tasa-de-plusvalor-en-eeuu">La ley bifacética: masa y tasa de plusvalor en EE.UU.</h2>
 <div class="legend" id="l-masa"></div>
 
-<h3 id="masa-real-de-plusvalor-miles-de-millones-de-usd-de-2017">Masa real de plusvalor (miles de millones de USD de 2017)</h3>
-<p class="llano">Arriba, cuánto plusvalor se produce en total cada año, descontada la inflación. Abajo, cuánto plusvalor obtiene el capital por cada dólar de salario de los trabajadores productivos: el grado de explotación expresado en dinero. La masa crece casi sin pausa y se multiplica por nueve desde 1948. La tasa de plusvalor baja hasta 1982 y sube desde entonces. Junto con la tasa de ganancia del multiverso, muestran la ley de dos caras de la acumulación: la misma dinámica que agranda la masa de plusvalor presiona la tasa de ganancia hacia abajo, y el capital responde aumentando la explotación.</p>
+<h3 id="masa-de-plusvalor-en-poder-de-compra-miles-de-millones-de-usd-de-2017">Masa de plusvalor en poder de compra (miles de millones de USD de 2017)</h3>
+<p class="llano">Arriba, cuánto plusvalor se produce en total cada año, expresado en lo que ese dinero puede comprar a precios de 2017. No es una medida del valor, que se mide en tiempo de trabajo (véase la sección en horas), sino de la masa de valores de uso que el plusvalor permite apropiarse. Abajo, cuánto plusvalor obtiene el capital por cada dólar de salario de los trabajadores productivos: el grado de explotación expresado en dinero. La masa crece casi sin pausa y se multiplica por nueve desde 1948. La tasa de plusvalor baja hasta 1982 y sube desde entonces. Junto con la tasa de ganancia del multiverso, muestran la ley de dos caras de la acumulación: la misma dinámica que agranda la masa de plusvalor presiona la tasa de ganancia hacia abajo, y el capital responde aumentando la explotación.</p>
 <figure class="placa"><div class="chart" id="c-masa"></div></figure>
 
 <h3 id="tasa-de-plusvalor-sv">Tasa de plusvalor S/V</h3>
@@ -183,7 +184,7 @@
 <li><strong>Por ramas:</strong> V es la remuneración de todos los asalariados de las ramas productivas (PIB por industria del BEA, con empalmes SIC–NAICS en 1987 y 1997).</li>
 <li><strong>Intra-rama:</strong> V es sólo la remuneración de los obreros de producción y no supervisores de esas ramas (BLS, CES), desde 1972.</li>
 </ul>
-<p>La masa real es S deflactado con el deflactor del PIB (2017 = 100). La tasa es S/V.</p>
+<p>La masa en poder de compra es S deflactado con el deflactor del PIB (2017 = 100). Deflactar el plusvalor mezcla valor y valor de uso: la serie dice cuántos bienes puede comprar el plusvalor, no cuánto trabajo impago contiene. La medida adecuada del valor es la masa de plustrabajo en horas (sección «EE.UU. en horas de trabajo»). La tasa es S/V.</p>
 </details>
 </section>
 <section id="tiempo" class="seccion">
@@ -213,7 +214,7 @@
 <li><strong>Masa de plustrabajo.</strong> H × e / (1 + e) = N × horas por obrero × e / (1 + e), en miles de millones de horas al año. Esto da el segundo gráfico.</li>
 <li><strong>Descomposición.</strong> Entre el primer y el último año, cada factor aporta ln(factor<sub>fin</sub>/factor<sub>inicio</sub>) / ln(masa<sub>fin</sub>/masa<sub>inicio</sub>); los tres aportes suman 100 %.</li>
 </ol>
-<p>El supuesto clave de la lectura macromonetaria (Moseley) es que v es el salario efectivamente pagado, así que la proporción monetaria pv/v es también la proporción entre plustrabajo y trabajo necesario.</p>
+<p>El supuesto clave de la lectura macromonetaria (Moseley, 2016) es que v es el salario efectivamente pagado, así que la proporción monetaria pv/v es también la proporción entre plustrabajo y trabajo necesario.</p>
 </details>
 <h3 id="de-donde-viene-el-crecimiento-de-la-masa-de-plustrabajo">¿De dónde viene el crecimiento de la masa de plustrabajo?</h3>
 <p><span id="t-desc-intro">—</span></p>
@@ -350,7 +351,7 @@
 </section>
 <section id="contratendencias" class="seccion" hidden>
 <h2 id="el-campo-de-las-contratendencias">El campo de las contratendencias</h2>
-<p>Marx expone seis causas que contrarrestan la caída tendencial de la tasa de ganancia: la elevación del grado de explotación, la reducción del salario por debajo de su valor, el abaratamiento de los elementos del capital constante, la sobrepoblación relativa, el comercio exterior y el aumento del capital accionario. No son fuerzas externas que corrijan la tendencia desde fuera: las producen las mismas causas que producen la caída. Esta sección reúne, para cada una, indicadores observables, y empieza por la pregunta central: en cada fase, ¿qué sostuvo o hundió la tasa de ganancia?</p>
+<p>Marx (2021, pp. 297–307) expone seis causas que contrarrestan la caída tendencial de la tasa de ganancia: la elevación del grado de explotación, la reducción del salario por debajo de su valor, el abaratamiento de los elementos del capital constante, la sobrepoblación relativa, el comercio exterior y el aumento del capital accionario. No son fuerzas externas que corrijan la tendencia desde fuera: las producen las mismas causas que producen la caída. Esta sección reúne, para cada una, indicadores observables, y empieza por la pregunta central: en cada fase, ¿qué sostuvo o hundió la tasa de ganancia?</p>
 <h3 id="que-movio-la-tasa-en-cada-fase">Qué movió la tasa en cada fase</h3>
 <p>La tasa de ganancia puede escribirse como r = e · v/K: sube si sube la tasa de plusvalor e y baja si sube la composición K/V. Las fases no se eligen de antemano: sus límites son los años de quiebre más frecuentes en el multiverso (<span id="ct-cortes">—</span>). Cada barra mide, en logaritmos, cuánto aportó cada factor al cambio de la tasa en esa fase.</p>
 <p class="llano">La tasa de ganancia sube si el capital obtiene más plusvalor por cada dólar de salario (tasa de plusvalor) y baja si necesita más capital por cada dólar de salario (composición). En cada periodo, las barras muestran cuánto empujó cada fuerza. Si la barra de la tasa de plusvalor es más alta que la caída por la composición, la tasa de ganancia sube; si no, baja. Así se ve qué contratendencia sostuvo la ganancia en cada etapa y cuándo dejó de hacerlo.</p>
@@ -499,7 +500,7 @@
 <figure class="placa"><div class="chart" id="c-tf-pond"></div></figure>
 
 <h3 id="la-transformacion-segun-moseley-con-la-variante-temporal-tssi-como-contraste">La transformación según Moseley, con la variante temporal (TSSI) como contraste</h3>
-<p class="llano">La medición anterior calcula valores en horas. Ésta sigue la interpretación de Moseley, que el sismógrafo adopta como central: los costos en dinero —los insumos y los salarios— son los mismos para los valores y para los precios de producción, y lo que cambia es sólo cómo se reparte el plusvalor. En valores, cada rama tendría el plusvalor que producen sus propios obreros; en precios de producción, cada rama recibe una ganancia proporcional al capital que adelanta. La diferencia es el plusvalor que la competencia traslada de unas ramas a otras. La variante temporal (TSSI) valúa los insumos y el capital a los precios con que entraron en la producción: en los años de inflación da tasas más altas, y en la crisis de 2009 converge con la central.</p>
+<p class="llano">La medición anterior calcula valores en horas. Ésta sigue la interpretación de Moseley (2016), que el sismógrafo adopta como central: los costos en dinero —los insumos y los salarios— son los mismos para los valores y para los precios de producción, y lo que cambia es sólo cómo se reparte el plusvalor. En valores, cada rama tendría el plusvalor que producen sus propios obreros; en precios de producción, cada rama recibe una ganancia proporcional al capital que adelanta. La diferencia es el plusvalor que la competencia traslada de unas ramas a otras. La variante temporal (TSSI; Kliman, 2007) valúa los insumos y el capital a los precios con que entraron en la producción: en los años de inflación da tasas más altas, y en la crisis de 2009 converge con la central.</p>
 <div class="cifras"><div class="cifra"><div class="valor" id="tf-red">—</div><div class="etiqueta">Parte del plusvalor que la igualación de las tasas traslada entre ramas, <span class="tf-anio">—</span> (mediana de los países)</div><div class="nota">Moseley</div></div><div class="cifra"><div class="valor" id="tf-rm">—</div><div class="etiqueta">Tasa de ganancia de las ramas productivas de los 43 países, <span class="tf-anio">—</span> (Moseley)</div><div class="nota">2000: <span id="tf-rm0">—</span> · TSSI <span class="tf-anio">—</span>: <span id="tf-rt">—</span></div></div><div class="cifra"><div class="valor" id="tf-cve">—</div><div class="etiqueta">Dispersión de las tasas de ganancia efectivas entre ramas (coef. de variación, mediana)</div><div class="nota">si cada rama realizara su propio plusvalor: <span id="tf-cvv">—</span></div></div><div class="cifra"><div class="valor" id="tf-igu">—</div><div class="etiqueta">Países y años en que la competencia reduce la dispersión de las tasas</div><div class="nota">desviación del mercado respecto de los valores: <span id="tf-dv">—</span>; de los precios de producción: <span id="tf-dpp">—</span></div></div></div>
 
 <div class="legend" id="l-tf-mt"></div>
@@ -513,13 +514,43 @@
 <summary>¿Cómo se calculan los valores y las desviaciones?</summary>
 <ol>
 <li><strong>Valores por rama.</strong> Para cada país y año, con la tabla insumo-producto nacional de WIOD (en dólares): λ<sub>p</sub> = (l<sub>p</sub> + λ̄<sub>p</sub> · M<sub>pp</sub>) · (I − A<sub>pp</sub>)<sup>−1</sup>. l = horas trabajadas por dólar de producción (todos los ocupados, incluidos los trabajadores por cuenta propia, porque también producen mercancías; horas de WIOD SEA; en China, 46 h × 50 semanas); A = insumos nacionales por dólar de producto; M = insumos importados; λ̄ = horas medias contenidas en un dólar exportado de cada producto en el mundo (promedio de los 43 países ponderado por sus exportaciones), que se resuelve por iteración.</li>
-<li><strong>Ramas que no producen valor.</strong> Sólo entran las ramas productivas. Los insumos que vienen del comercio, las finanzas, los servicios jurídicos y la publicidad, el inmobiliario, la administración pública, la educación, la salud y los hogares no transfieren valor: son gastos pagados con plusvalor (tratamiento de Shaikh y Tonak). Educación y salud quedan fuera porque las tablas no separan su parte capitalista.</li>
+<li><strong>Ramas que no producen valor.</strong> Sólo entran las ramas productivas. Los insumos que vienen del comercio, las finanzas, los servicios jurídicos y la publicidad, el inmobiliario, la administración pública, la educación, la salud y los hogares no transfieren valor: son gastos pagados con plusvalor (tratamiento de Shaikh y Tonak, 1994). Educación y salud quedan fuera porque las tablas no separan su parte capitalista.</li>
 <li><strong>Precio-valor.</strong> μ = Σ producción / Σ λ · producción (dólares por hora, ramas productivas); precio-valor de la rama j = μ · λ<sub>j</sub>; precio/valor = 1 / (μ · λ<sub>j</sub>). Desviación media = Σ producción<sub>j</sub> · |μλ<sub>j</sub> − 1| / Σ producción<sub>j</sub>. Correlación: Spearman, entre ramas, de precio/valor con K/v (stock de capital nominal sobre ingreso del trabajo, asalariado y por cuenta propia, WIOD SEA).</li>
 <li><strong>Comercio.</strong> Horas entregadas = Σ λ<sub>j</sub> · exportaciones<sub>j</sub>; horas recibidas = Σ λ̄<sub>j</sub> · importaciones<sub>j</sub> × (exportaciones / importaciones), para no confundir la transferencia con el déficit comercial. Sólo productos de ramas productivas. Cubre los 43 países de WIOD, no el resto del mundo, por eso las cifras son menores que las de la aproximación de la sección de contratendencias, que abarca más de cien países.</li>
 <li><strong>Ponderación mundial.</strong> Para cada país, μ<sub>c</sub> = PIB en dólares corrientes / horas trabajadas (Banco Mundial y PWT); peso w<sub>c</sub> = μ<sub>c</sub> / μ medio de las horas productivas de los 42 países. Masa ponderada = Σ plustrabajo<sub>c</sub> × w<sub>c</sub>. El total de horas no cambia; se redistribuye según la productividad nacional en el mercado mundial. Después del último año de la PWT se mantiene el último peso.</li>
 </ol>
 <p>Interpretación: los valores por rama no son «trabajo incorporado» como una propiedad física de los productos, sino una aproximación al tiempo de trabajo socialmente necesario como determinación de la totalidad social. Se calculan de manera simultánea (valores y precios del mismo año).</p>
 <p><strong>Moseley y TSSI (F4 v2).</strong> En moneda nacional, por país y año, con las ramas productivas: c<sub>j</sub> = insumos de ramas productivas (nacionales e importados, de la tabla insumo-producto convertida con la producción de WIOD SEA); v<sub>j</sub> = remuneración de los asalariados; a<sub>j</sub> = ingreso laboral de los trabajadores por cuenta propia (producen valor, no plusvalor); K<sub>j</sub> = stock nominal de capital. S = Σ (producción − c − v − a), que incluye los insumos de ramas improductivas, pagados con plusvalor; e = S / V; r = S / (Σ K + Σ V). Valor: W<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub>(1 + e). Precio de producción: PP<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub> + r (K<sub>j</sub> + v<sub>j</sub>). Ambas sumas coinciden con la producción total, y el plusvalor total con la ganancia total. Transferencia = (PP<sub>j</sub> − W<sub>j</sub>) / W<sub>j</sub>; parte redistribuida = Σ |PP − W| / 2 / S. Tasa efectiva = (producción − c − v − a) / (K + v); tasa en valores = e · v / (K + v); dispersión: coeficiente de variación ponderado por el capital. <strong>TSSI:</strong> los insumos se deflactan con el índice de precios de los insumos de cada rama (II_PI<sub>t</sub> / II_PI<sub>t−1</sub>) y el capital adelantado es el stock del año anterior.</p>
+</details>
+</section>
+<section id="supuestos" class="seccion" hidden>
+<h2 id="supuestos-en-discusion-que-cuenta-como-plusvalor">Supuestos en discusión: qué cuenta como plusvalor</h2>
+<p class="llano">Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría de Marx tienen orígenes distintos. Esta sección muestra tres de esas mezclas y cuánto cambian las cifras si se las separa. La medición central del sitio todavía no incorpora estos ajustes: se presentan para que se pueda ver qué conclusiones dependen de ellos.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="bb-fh">—</div><div class="etiqueta">Servicios financieros pagados por los hogares de EE.UU., como parte del plusvalor, <span class="bb-fin">—</span></div><div class="nota">1948: <span id="bb-fh48">—</span></div></div><div class="cifra"><div class="valor" id="bb-ec">—</div><div class="etiqueta">Tasa de plusvalor intra-rama de EE.UU. sin esos pagos, <span class="bb-fin">—</span></div><div class="nota">con ellos (central): <span id="bb-ec0">—</span></div></div><div class="cifra"><div class="valor" id="bb-sup">—</div><div class="etiqueta">Parte de la remuneración de las ramas productivas de EE.UU. que no es de obreros de producción y no supervisores, <span class="bb-fin">—</span></div><div class="nota">1972: <span id="bb-sup72">—</span></div></div></div>
+
+<h3 id="explotacion-secundaria-lo-que-los-hogares-pagan-a-las-finanzas">Explotación secundaria: lo que los hogares pagan a las finanzas</h3>
+<p class="llano">El valor agregado de los bancos y aseguradoras se cuenta dentro del plusvalor. Pero una parte creciente lo pagan los hogares —intereses implícitos en préstamos y depósitos, comisiones— con sus salarios y otros ingresos. Eso no es plusvalor producido por el trabajo productivo, sino una deducción posterior del ingreso: lo que Marx llamó explotación secundaria (<em>El Capital</em>, Libro III, cap. XXXVI). En EE.UU. pasó de ser una fracción mínima del plusvalor en la posguerra a cerca de una décima parte. Si se descuenta, la tasa de ganancia queda más baja y su recuperación desde 1982 es menor: una parte de la «recuperación» es, en realidad, un traslado desde los salarios.</p>
+<div class="legend" id="l-bb"></div>
+<figure class="placa"><div class="chart" id="c-bb"></div></figure>
+
+<div class="legend" id="l-bb2"></div>
+<figure class="placa"><div class="chart" id="c-bb2"></div></figure>
+
+<h3 id="supervision-y-direccion">Supervisión y dirección</h3>
+<p class="llano">Marx distingue (<em>El Capital</em>, Libro III, cap. XXIII) el trabajo de dirección, necesario en toda cooperación, del trabajo de vigilancia, que nace del antagonismo entre capital y trabajo. Las estadísticas no los separan. El sitio usa dos cotas: el criterio por ramas cuenta a todos los asalariados de las ramas productivas, gerentes incluidos, como capital variable; el criterio intra-rama cuenta sólo a los obreros de producción y no supervisores, y deja los sueldos de supervisión dentro del plusvalor. La segunda línea del gráfico anterior muestra que la distancia entre ambas cotas crece: la parte de la remuneración que va a supervisores, gerentes y personal no productivo dentro de las ramas productivas sube desde los setenta. Es el fenómeno que Duménil y Lévy (2011) leen como ascenso de los cuadros gerenciales, y Moseley (1991) como crecimiento del trabajo improductivo.</p>
+<h3 id="mundo-renta-comercial-y-servicios-financieros-de-los-hogares-miles-de-millones-de-horas-de-plustrabajo">Mundo: renta comercial y servicios financieros de los hogares (miles de millones de horas de plustrabajo)</h3>
+<p class="llano">En la escala mundial el sitio deja fuera del plusvalor todo el inmobiliario, aunque la renta que pagan las empresas por sus locales es plusvalor cedido a la propiedad territorial (subestima), y deja dentro los servicios financieros que pagan los hogares (sobrestima). Los dos ajustes van en sentidos opuestos y casi se compensan: la masa mundial de plustrabajo cambia en menos de un 2 % con cualquiera de ellos.</p>
+<div class="tablewrap"><table><thead><tr><th>Variante</th><th><span id="bb-a0">—</span></th><th><span id="bb-a1">—</span></th><th><span id="bb-a2">—</span></th><th>Cambio en el último año</th></tr></thead><tbody id="t-bbm"></tbody></table></div>
+
+<details class="como">
+<summary>¿Cómo se calculan estas variantes?</summary>
+<ul>
+<li><strong>B4, explotación secundaria.</strong> EE.UU.: se resta del plusvalor el gasto de consumo personal en servicios financieros (NIPA, cuadro 2.4.5, serie DFNLRC: intereses implícitos —FISIM— más comisiones). Mundo: se resta el consumo final de los hogares de productos de las finanzas y los seguros (K64–K66, nacionales e importados; tablas insumo-producto de WIOD) como proporción del valor agregado de las ramas de mercado. Es una cota superior: también pagan servicios financieros los hogares capitalistas.</li>
+<li><strong>B3, renta comercial (sólo mundo).</strong> Se suma el consumo intermedio de productos inmobiliarios (L68) de las ramas de mercado, como proporción de su valor agregado (WIOD). En EE.UU. no hace falta: el plusvalor del sector empresarial ya incluye el inmobiliario comercial y excluye sólo la vivienda.</li>
+<li><strong>Aplicación.</strong> Para cada país, e' = e + ajuste × (valor agregado de mercado / v); plustrabajo = horas × e' / (1 + e'). Después de 2014 se mantienen las proporciones de 2014 de cada país.</li>
+<li><strong>B2, supervisión.</strong> 1 − v intra-rama / v por ramas: la parte de la remuneración de las ramas productivas que no corresponde a obreros de producción y no supervisores. Incluye a supervisores y gerentes, pero también diferencias de cobertura entre la encuesta de establecimientos (BLS) y las cuentas por industria (BEA), por lo que es una aproximación.</li>
+<li><strong>Pendientes.</strong> B5, el salario social neto (impuestos que pagan los trabajadores y transferencias que reciben), todavía no se calcula.</li>
+</ul>
 </details>
 </section>
 <section id="alcance" class="seccion">
@@ -534,6 +565,6 @@
 <p>Investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología (ICSyH-BUAP), que concluirá en agosto de 2029. Marco teórico: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
 <p>Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. <a href="descargas/">Descargas</a>. <a href="metodologia.html">Metodología</a>. <a href="https://github.com/necplusultra-blog/sismografo-del-capital/tree/main/contenido">Editar los textos</a>.</p>
 </footer>
-<script src="app.js?v=49a93e82611242130"></script>
+<script src="app.js?v=aff3b6f2611242234"></script>
 </body>
 </html>
