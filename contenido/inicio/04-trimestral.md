@@ -7,6 +7,9 @@ menu: Estimación trimestral
 
 Tasa corporativa neta a costo corriente de EE.UU., en %. Los trimestres posteriores al último dato anual de capital usan un stock extrapolado y son provisionales (tramo punteado).
 
+La tasa de ganancia de las corporaciones de EE.UU., trimestre a trimestre, para ver los movimientos más recientes antes de que se publiquen las cifras anuales. Los últimos puntos son provisionales: cambian cuando el gobierno de EE.UU. revisa sus datos.
+{: .llano }
+
 [[leyenda l-trim]]
 [[grafico c-trim]]
 

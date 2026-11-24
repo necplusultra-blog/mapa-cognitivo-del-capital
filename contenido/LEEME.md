@@ -56,3 +56,7 @@ El pie de página está repetido en las tres páginas (`99-pie.md` de cada carpe
 ## Diseño
 
 El aspecto visual está en `site/style.css` y el marco de cada página en `plantillas/`. Las fórmulas y los cálculos están en `sismografo/`. Si cambias un método, actualiza también su explicación aquí.
+
+## Explicación en lenguaje llano
+
+Cada gráfico lleva, antes del gráfico, un párrafo que lo explica en palabras simples. Se escribe como un párrafo normal seguido, en la línea siguiente, de `{: .llano }`. El detalle técnico va en el desplegable `:::como`.

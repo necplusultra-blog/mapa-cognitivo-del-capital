@@ -148,3 +148,6 @@ body.doc main table { max-width: 60rem; }
 
 .pie { padding: 40px clamp(20px, 4vw, 56px) 64px; border-top: 1px solid var(--reticula); font: .88rem/1.55 var(--sans); color: var(--gris); }
 .pie p { max-width: 52rem; }
+
+/* Explicación en lenguaje llano de cada gráfico */
+p.llano { max-width: 46rem; font-size: 1.02rem; line-height: 1.6; border-left: 2px solid var(--c1); padding: .1rem 0 .1rem .9rem; margin: .8rem 0 1rem; }

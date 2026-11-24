@@ -12,6 +12,9 @@ Marx expone seis causas que contrarrestan la caída tendencial de la tasa de gan
 
 La tasa de ganancia puede escribirse como r = e · v/K: sube si sube la tasa de plusvalor e y baja si sube la composición K/V. Las fases no se eligen de antemano: sus límites son los años de quiebre más frecuentes en el multiverso ({{ct-cortes}}). Cada barra mide, en logaritmos, cuánto aportó cada factor al cambio de la tasa en esa fase.
 
+La tasa de ganancia sube si el capital obtiene más plusvalor por cada dólar de salario (tasa de plusvalor) y baja si necesita más capital por cada dólar de salario (composición). En cada periodo, las barras muestran cuánto empujó cada fuerza. Si la barra de la tasa de plusvalor es más alta que la caída por la composición, la tasa de ganancia sube; si no, baja. Así se ve qué contratendencia sostuvo la ganancia en cada etapa y cuándo dejó de hacerlo.
+{: .llano }
+
 [[leyenda l-ct-fases]]
 [[grafico c-ct-fases]]
 
@@ -20,6 +23,9 @@ Criterio por ramas, desde 1948. Una barra de la composición por debajo de cero 
 
 Desde 1972 la composición en valor puede separarse en dos partes: la composición técnica (capital a precios constantes por hora de trabajo productivo) y el precio relativo del capital respecto del salario por hora. Que la primera empuje hacia abajo mientras la segunda empuja hacia arriba es la forma observable del abaratamiento del capital constante.
 {: .nota }
+
+El mismo cálculo, con la composición separada en dos partes: cuánto capital físico hay por hora de trabajo (crece siempre) y cuánto cuesta ese capital comparado con el salario (baja: las máquinas se abaratan respecto del trabajo).
+{: .llano }
 
 [[leyenda l-ct-fases-i]]
 [[grafico c-ct-fases-i]]
@@ -31,6 +37,9 @@ Desde 1972 la composición en valor puede separarse en dos partes: la composici�
 La misma descomposición, repetida para las 16 especificaciones de cada criterio de trabajo productivo (costo corriente o histórico, neta o bruta, con o sin propiedad intelectual, todo el capital o sólo el de las ramas productivas). Cada celda da la mediana y, entre paréntesis, el rango de los percentiles 10 a 90. La última columna indica en qué porcentaje de las especificaciones en que la composición sube, la elevación de la tasa de plusvalor alcanza a compensarla.
 {: .nota }
 
+La tabla repite el cálculo con todas las mediciones del multiverso. Si el resultado de una fase se mantiene en casi todas, no depende de la teoría.
+{: .llano }
+
 [[tabla t-ct-fm: Criterio | Fase | Aporte de e | Aporte de K/V | Especificaciones en que la tasa sube | e compensa la composición]]
 
 :::como ¿Cómo se calcula esta descomposición?
@@ -41,11 +50,17 @@ Para cada fase entre los años a<sub>0</sub> y a<sub>1</sub>: Δln r = Δln e �
 
 La tasa de plusvalor es el indicador directo (véase la sección «La ley bifacética»). Aquí se compara el producto por hora del sector empresarial no agrícola con la remuneración real por hora: la distancia entre ambas curvas es la parte de la productividad que no vuelve a los trabajadores.
 
+Si los trabajadores producen más por hora pero su salario real crece menos, la diferencia queda para el capital. La distancia entre las dos líneas es esa diferencia, acumulada desde 1972.
+{: .llano }
+
 [[leyenda l-ct-a]]
 [[grafico c-ct-a]]
 
 La extensión del tiempo de trabajo no aparece en las horas pagadas por establecimiento, que bajan. Dos indicios de su desplazamiento fuera de un solo empleo: la proporción de ocupados con más de un empleo y la de quienes trabajan a tiempo parcial sin quererlo. Ninguno mide la intensidad del trabajo, que sigue sin indicador.
 {: .nota }
+
+Dos señales de que el tiempo de trabajo se estira por fuera de las horas pagadas en un empleo: la gente que necesita dos o más empleos y la que trabaja menos horas de las que quiere.
+{: .llano }
 
 [[leyenda l-ct-a2]]
 [[grafico c-ct-a2 corto]]
@@ -54,10 +69,16 @@ La extensión del tiempo de trabajo no aparece en las horas pagadas por establec
 
 El valor de la fuerza de trabajo no se observa directamente; lo que sí se observa es el salario real de los obreros de producción y no supervisores. Un salario real que durante décadas queda por debajo de su nivel de 1972, mientras la productividad se multiplica, indica una compresión del salario que la sola elevación de la productividad no explica.
 
+Lo que puede comprar con el salario de una hora un obrero de producción, descontada la inflación.
+{: .llano }
+
 [[leyenda l-ct-b]]
 [[grafico c-ct-b]]
 
 ### 3. Abaratamiento de los elementos del capital constante
+
+Tres índices sobre las máquinas, edificios y equipos. La composición técnica dice cuánto capital físico hay por hora de trabajo: crece sin parar. Los otros dos dicen cuánto cuesta ese capital comparado con el salario y con el consumo: bajan. El capital necesita cada vez más medios de producción por obrero, pero cada uno es más barato, y eso frena la caída de la tasa.
+{: .llano }
 
 [[leyenda l-ct-c]]
 [[grafico c-ct-c corto]]
@@ -67,6 +88,9 @@ El valor de la fuerza de trabajo no se observa directamente; lo que sí se obser
 
 ### 4. Sobrepoblación relativa
 
+Cuánta gente está disponible para que el capital la emplee: desempleados y subempleados en EE.UU.; en el mundo, desempleados y trabajadores por cuenta propia o familiares. El empleo vulnerable mundial baja porque cientos de millones de personas pasan a trabajar como asalariados.
+{: .llano }
+
 [[leyenda l-ct-d]]
 [[grafico c-ct-d]]
 
@@ -74,6 +98,9 @@ La sobrepoblación relativa no es sólo desempleo: incluye a quienes trabajan po
 {: .nota }
 
 ### 5. Comercio exterior
+
+Qué parte de las ganancias de las corporaciones de EE.UU. proviene del extranjero, y cuánto pesa el comercio en la economía mundial.
+{: .llano }
 
 [[leyenda l-ct-e]]
 [[grafico c-ct-e]]
@@ -92,11 +119,17 @@ Supuestos: lo que un país exporta incorpora las horas por dólar promedio de su
 
 ### 6. Capital accionario y capital que devenga interés
 
+Qué parte de la ganancia se va a las finanzas: las ganancias del sector financiero, los intereses y los dividendos que pagan las empresas no financieras, y cuántas acciones emiten o recompran.
+{: .llano }
+
 [[leyenda l-ct-f]]
 [[grafico c-ct-f]]
 
 El capital ficticio son títulos sobre plustrabajo futuro. El valor de mercado de las acciones de las corporaciones no financieras crece mucho más que su deuda y que el producto: su validación exige una masa de plusvalor que todavía no se ha producido.
 {: .nota }
+
+El valor en bolsa de las corporaciones no financieras de EE.UU. comparado con el producto del país, y su deuda. El valor en bolsa pasa de un tercio a más del doble del producto: son títulos que sólo pueden pagarse con plustrabajo que todavía no se ha producido.
+{: .llano }
 
 [[leyenda l-ct-f2]]
 [[grafico c-ct-f2 corto]]

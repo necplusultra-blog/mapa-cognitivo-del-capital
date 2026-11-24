@@ -5,6 +5,9 @@ menu: Seis lecturas del debate
 ---
 ## Seis lecturas del debate, en niveles
 
+Cada línea es la tasa de ganancia calculada a la manera de una corriente del debate marxista. No coinciden en el nivel, porque cuentan cosas distintas como ganancia y como capital. Lo que importa es si coinciden en el movimiento. Las que miden el plusvalor en sentido amplio —todo el valor nuevo que no vuelve a los trabajadores productivos— siguen hoy por debajo de su nivel de posguerra; las que miden sólo la ganancia que se quedan las empresas se recuperan más. La diferencia indica que, desde los ochenta, la ganancia apropiada se recuperó más que el plusvalor producido.
+{: .llano }
+
 [[leyenda l-ref]]
 [[grafico c-ref]]
 

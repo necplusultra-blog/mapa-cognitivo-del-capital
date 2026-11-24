@@ -5,6 +5,9 @@ menu: Qué resiste todas las decisiones
 ---
 ## Qué conclusiones resisten todas las decisiones
 
+Para cada paso de una década a la siguiente, la tabla cuenta en qué porcentaje de las mediciones la tasa baja. Si baja en casi todas (o sube en casi todas), el movimiento no depende de la teoría elegida; si baja en unas y sube en otras, la conclusión depende de cómo se mida. Es la manera de separar lo que muestran los datos de lo que pone la teoría.
+{: .llano }
+
 [[tabla t-dec: Tramo | % de especificaciones con baja | Clasificación]]
 
 :::como ¿Cómo se calcula esta tabla?

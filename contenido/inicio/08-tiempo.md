@@ -16,6 +16,9 @@ Todo lo de esta sección se refiere **sólo a EE.UU.** y a los obreros de produc
 
 ### EE.UU.: la semana del obrero productivo, dividida en trabajo necesario y plustrabajo (horas)
 
+Una semana de trabajo de un obrero productivo típico de EE.UU., partida en dos. La parte de abajo son las horas en que produce el equivalente de su salario (trabajo necesario); la de arriba, las horas en que trabaja para el capital sin recibir nada a cambio (plustrabajo). Con los años, la parte necesaria se achica porque cada hora produce más, pero cada vez se achica menos: entre 1972 y 1982 se redujo 1,6 horas; entre 2007 y 2025, 0,3. Y el plustrabajo por obrero casi no cambia, porque la semana tiene un largo dado y el trabajo necesario nunca puede llegar a cero.
+{: .llano }
+
 Cada año, las horas semanales promedio de un obrero productivo se reparten según la tasa de plusvalor del mismo año: horas necesarias = jornada / (1 + e); plustrabajo = jornada × e / (1 + e). Fuente de las horas: BLS, encuesta de establecimientos (CES).
 {: .nota }
 
@@ -23,6 +26,9 @@ Cada año, las horas semanales promedio de un obrero productivo se reparten seg�
 [[grafico c-sem]]
 
 ### EE.UU.: masa anual de plustrabajo (miles de millones de horas)
+
+Suma las horas de plustrabajo de todos los obreros productivos de EE.UU. en un año. Se multiplica por más de dos desde 1972, y casi todo ese crecimiento viene de que hay más obreros, no de que cada uno trabaje más horas para el capital. Las caídas coinciden con las recesiones, cuando se despide a millones.
+{: .llano }
 
 Horas trabajadas en el año por todos los obreros productivos de EE.UU. × e / (1 + e). Es la suma de las horas impagas, no un promedio.
 {: .nota }
@@ -44,9 +50,15 @@ El supuesto clave de la lectura macromonetaria (Moseley) es que v es el salario 
 
 {{t-desc-intro}}
 
+La tabla separa ese crecimiento en tres causas: más obreros, jornadas más largas o más cortas, y una proporción mayor de plustrabajo dentro de la jornada.
+{: .llano }
+
 [[tabla t-desc: Factor | Se multiplica por | Aporte al crecimiento (en logaritmos)]]
 
 ### Expresión monetaria del tiempo de trabajo en EE.UU.
+
+Cuántos dólares de valor nuevo representa, en promedio, una hora de trabajo productivo. Es el puente que permite leer las cifras en dinero como cifras en tiempo de trabajo. En dólares corrientes sube con la inflación; en dólares de 2017 sube mucho menos.
+{: .llano }
 
 Valor nuevo (v + pv) por hora de trabajo productivo: cuántos dólares representa una hora de trabajo social productivo. Es la relación que permite pasar del dinero al tiempo y del tiempo al dinero.
 {: .nota }

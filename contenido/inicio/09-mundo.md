@@ -8,10 +8,16 @@ menu: Tasa mundial
 {{m-wsrc}}
 {: .nota }
 
+La tasa de ganancia de la economía mundial, sumando 79 países con los datos de la Penn World Table. Se mantiene estable durante casi medio siglo y cae desde 2008, en buena parte por el peso creciente de China, donde se acumuló una masa enorme de capital en poco tiempo. Sin China, la caída es menor.
+{: .llano }
+
 [[leyenda l-mundo]]
 [[grafico c-mundo]]
 
 ### Masa mundial de ganancia bruta
+
+La masa total de ganancia del mundo, en dólares constantes. Mientras la tasa cae, la masa sigue creciendo: el mismo patrón de dos caras que en EE.UU.
+{: .llano }
 
 [[leyenda l-wmasa]]
 [[grafico c-wmasa corto]]
