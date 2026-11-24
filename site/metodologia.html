@@ -24,7 +24,7 @@
 <li><a href="#productivo">Trabajo productivo e improductivo</a></li>
 <li><a href="#plusvalor">Plusvalor ampliado (lectura macromonetaria)</a></li>
 <li><a href="#multiverso">El multiverso de especificaciones</a></li>
-<li><a href="#referencias">Las seis lecturas de referencia</a></li>
+<li><a href="#referencias">Las seis lecturas del debate</a></li>
 <li><a href="#quiebres">Quiebres endógenos</a></li>
 <li><a href="#robustez">Robustez por décadas</a></li>
 <li><a href="#tiempo">Del dinero al tiempo de trabajo</a></li>
@@ -40,6 +40,12 @@
   <main id="contenido">
 <section id="marco" class="seccion">
 <h2 id="marco-interpretativo">Marco interpretativo</h2>
+<p><strong>Objetivo.</strong> El sismógrafo busca dar cuenta de las tendencias fundamentales de la producción capitalista contemporánea. Para eso combina tres operaciones, cada una documentada en esta página:</p>
+<ol>
+<li><strong>Traducir datos empíricos a categorías.</strong> Cuentas nacionales, empleo, horas, stocks de capital, comercio y matrices insumo-producto se convierten en tasa y masa de plusvalor, composición del capital, tiempo de trabajo necesario y plustrabajo, con decisiones teóricas explícitas (§3 a §13).</li>
+<li><strong>Cruzar interpretaciones.</strong> Seis corrientes del debate marxista leen los mismos datos, para ver qué resiste a todas las lecturas y qué depende de cada una (§6). La lectura crítica de esas corrientes se hace desde el marco de la investigación doctoral.</li>
+<li><strong>Registrar el estado de las fuerzas productivas.</strong> El tiempo que libera la reducción relativa del trabajo necesario, y en qué lo convierte el capital, se mide junto con la ganancia: es la base material de la posibilidad del tiempo disponible (§9).</li>
+</ol>
 <p>Los datos se interpretan desde la crítica marxiana de la economía política. La ganancia es una forma de aparición del plusvalor; el plusvalor es trabajo impago de los obreros productivamente explotados; la tasa de ganancia es la relación entre el plusvalor y el capital global adelantado, es decir, la suma del capital constante y el capital variable: pv/(c + v). La masa de plusvalor es el producto de la tasa de plusvalor (pv/v, el grado de explotación) por el número de obreros productivamente explotados.</p>
 <p>Las estadísticas oficiales no están construidas con estas categorías, así que traducirlas exige decisiones teóricas. El sitio no esconde esas decisiones en un único número: las convierte en <em>bifurcaciones</em> de un multiverso y muestra qué resultados resisten todas ellas y cuáles dependen de la teoría adoptada.</p>
 <p>Las series muestran la manifestación fenoménica de determinaciones categoriales; no las demuestran. Tampoco miden la «distancia» del capital a un tope: lo que permiten observar es el modo concreto en que se despliega la dinámica de la tasa y la masa de plusvalor y el campo de sus contratendencias.</p>
@@ -157,16 +163,62 @@
 <p>K es siempre el stock neto de activos fijos del BEA (fin de año). En el sector empresarial se excluyen las instituciones sin fines de lucro y los hogares. La lista completa de especificaciones, con todas sus series, está en las <a href="descargas/">descargas</a> (<code>eeuu_especificaciones.csv</code>, <code>eeuu_multiverso_tasas.csv</code>).</p>
 </section>
 <section id="referencias" class="seccion">
-<h2 id="las-seis-lecturas-de-referencia">Las seis lecturas de referencia</h2>
-<ul>
-<li><strong>Tipo Duménil-Lévy</strong>: corporativo no financiero, excedente neto, costo corriente.</li>
-<li><strong>Tipo Kliman</strong>: corporativo total, excedente neto, costo histórico.</li>
-<li><strong>Empresarial, todo productivo</strong>: variante a.</li>
-<li><strong>Plusvalor ampliado por ramas</strong>: variante b.</li>
-<li><strong>Plusvalor ampliado intra-rama</strong>: variante c, desde 1972.</li>
-<li><strong>Plusvalor ampliado por ramas, pv/(c + v)</strong>: variante b con el capital variable anual sumado al denominador.</li>
-</ul>
-<p>Todas son netas, incluyen la propiedad intelectual, no incluyen existencias ni ajuste por utilización, y usan todo el capital. Salvo la última, su denominador es K. Son definiciones «a la manera de» los autores; la replicación numérica exacta de sus series está en preparación.</p>
+<h2 id="las-seis-lecturas-del-debate">Las seis lecturas del debate</h2>
+<p>El sismógrafo pone a seis corrientes del debate marxista a leer los mismos datos. Para cinco de ellas calcula una tasa «a la manera de» sus autores; la sexta, la de Heinrich, no propone una medida y se contrasta con el abanico completo del multiverso.</p>
+<table>
+<thead>
+<tr>
+<th>Lectura</th>
+<th>Medida que la representa</th>
+<th>Especificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shaikh (y Tonak)</td>
+<td>Plusvalor ampliado por ramas</td>
+<td>variante b: valor agregado empresarial − remuneración de las ramas productivas, sobre K</td>
+</tr>
+<tr>
+<td>Moseley</td>
+<td>Plusvalor ampliado intra-rama</td>
+<td>variante c (desde 1972): se resta sólo la remuneración de los obreros de producción y no supervisores</td>
+</tr>
+<tr>
+<td>Kliman</td>
+<td>Corporativo, costo histórico</td>
+<td>excedente neto corporativo sobre K a costo histórico</td>
+</tr>
+<tr>
+<td>Duménil y Lévy</td>
+<td>No financiero, costo corriente</td>
+<td>excedente neto de las corporaciones no financieras sobre K a costo corriente</td>
+</tr>
+<tr>
+<td>Roberts y Carchedi</td>
+<td>pv/(c + v) y tasa mundial</td>
+<td>variante b con el capital variable anual en el denominador; tasa neta mundial de la Penn World Table</td>
+</tr>
+<tr>
+<td>Heinrich</td>
+<td>(ninguna)</td>
+<td>el abanico del multiverso y la tabla de robustez por décadas</td>
+</tr>
+</tbody>
+</table>
+<p>A ellas se agrega una línea de base, <strong>empresarial, todo productivo</strong> (variante a), que no distingue trabajo productivo e improductivo.</p>
+<p>Todas son netas, incluyen la propiedad intelectual, no incluyen existencias ni ajuste por utilización, y usan todo el capital. Son definiciones «a la manera de» los autores: la replicación numérica exacta de sus series está en preparación (tarea F1.2). Los diagnósticos que el sitio atribuye a cada corriente resumen sus tesis publicadas; la lectura crítica de las seis es la de la investigación doctoral y está en la <a href="lectura.html#seis-lecturas">Lectura</a>.</p>
+<p><strong>Referencias.</strong>
+- Carchedi, G. y Roberts, M. (2022). <em>Capitalism in the 21st Century: Through the Prism of Value</em>. Londres: Pluto Press.
+- Duménil, G. y Lévy, D. (2004). <em>Capital Resurgent: Roots of the Neoliberal Revolution</em>. Cambridge (MA): Harvard University Press.
+- Duménil, G. y Lévy, D. (2011). <em>The Crisis of Neoliberalism</em>. Cambridge (MA): Harvard University Press.
+- Heinrich, M. (2013). Crisis Theory, the Law of the Tendency of the Profit Rate to Fall, and Marx's Studies in the 1870s. <em>Monthly Review</em>, 64(11).
+- Heinrich, M. (2014). <em>Die Wissenschaft vom Wert</em> (6.ª ed.). Münster: Westfälisches Dampfboot.
+- Kliman, A. (2012). <em>The Failure of Capitalist Production: Underlying Causes of the Great Recession</em>. Londres: Pluto Press.
+- Moseley, F. (1991). <em>The Falling Rate of Profit in the Postwar United States Economy</em>. Londres: Macmillan.
+- Roberts, M. (2016). <em>The Long Depression</em>. Chicago: Haymarket Books.
+- Shaikh, A. (2016). <em>Capitalism: Competition, Conflict, Crises</em>. Nueva York: Oxford University Press.
+- Shaikh, A. y Tonak, E. A. (1994). <em>Measuring the Wealth of Nations: The Political Economy of National Accounts</em>. Cambridge: Cambridge University Press.</p>
 </section>
 <section id="quiebres" class="seccion">
 <h2 id="quiebres-endogenos">Quiebres endógenos</h2>
@@ -199,6 +251,14 @@
 <p>La descomposición del crecimiento de la masa entre el primer y el último año usa logaritmos: cada factor aporta ln(factor<sub>fin</sub>/factor<sub>inicio</sub>) / ln(masa<sub>fin</sub>/masa<sub>inicio</sub>). Los tres aportes suman 100 %.</p>
 <p>La <strong>expresión monetaria del tiempo de trabajo</strong> es (v + pv) / H: el valor nuevo, en dólares, que representa una hora de trabajo productivo. Se presenta en dólares corrientes y deflactada por el deflactor del PIB.</p>
 <p>Supuestos: el valor de la fuerza de trabajo se aproxima por el salario pagado; las horas son las horas pagadas que informa la CES; los supervisores de las ramas productivas no forman parte de v, y sus salarios quedan dentro de pv.</p>
+<h3 id="fuerzas-productivas-y-tiempo-disponible">Fuerzas productivas y tiempo disponible</h3>
+<p>El módulo <code>fuerzas.py</code> usa las mismas series para registrar cuánto tiempo libera el desarrollo de la fuerza productiva y en qué lo convierte el capital.</p>
+<ul>
+<li><strong>Tiempo necesario al nivel de vida de 1972</strong> (EE.UU.): 40 × w̃<sub>1972</sub> / μ̃<sub>t</sub>, donde w̃ es la remuneración real por hora de los obreros productivos (V / H) y μ̃ el valor nuevo real por hora productiva ((V + S) / H), ambos con el deflactor del PIB. Son las horas semanales que bastarían, con la productividad de cada año, para producir el salario real de 1972.</li>
+<li><strong>Destino del tiempo liberado</strong> respecto de 1972, en una jornada de 40 horas: más consumo obrero = trabajo necesario efectivo − tiempo al nivel de 1972; más plustrabajo = plustrabajo<sub>t</sub> − plustrabajo<sub>1972</sub>; reducción de la jornada de referencia = 0. Las tres partes suman exactamente el tiempo liberado.</li>
+<li><strong>Mundo:</strong> horas anuales de trabajo productivo, de plustrabajo y necesario (la diferencia) de los países medidos rama por rama, por habitante de esos países (población de la Penn World Table, extrapolada después de su último año con el crecimiento medio de los tres años anteriores), en minutos por día.</li>
+</ul>
+<p>Supuestos y límites: el deflactor del PIB no es el de la canasta obrera; el trabajo productivo para el capital no es todo el trabajo socialmente necesario (quedan fuera los servicios públicos, los cuidados, el trabajo doméstico y el campesino); las cifras no estiman la jornada de una sociedad emancipada, en la que el trabajo necesario incluiría los fondos comunes de reposición, ampliación y servicios. Resultados: <code>fuerzas_eeuu.csv</code> y <code>fuerzas_mundo.csv</code>.</p>
 </section>
 <section id="trimestral" class="seccion">
 <h2 id="estimacion-trimestral">Estimación trimestral</h2>
@@ -345,7 +405,8 @@
 <p><strong>Precios y valores.</strong> μ = Σ<sub>p</sub> x<sub>j</sub> / Σ<sub>p</sub> λ<sub>j</sub> x<sub>j</sub> (dólares por hora); precio-valor<sub>j</sub> = μ λ<sub>j</sub>; desviación media = Σ x<sub>j</sub> |μλ<sub>j</sub> − 1| / Σ x<sub>j</sub>. La correlación de rangos de Spearman entre precio/valor y la composición K/v (stock de capital nominal sobre ingreso del trabajo de la rama, LAB) contrasta la expectativa de Marx: los precios de producción superan a los valores donde la composición es alta.</p>
 <p><strong>Comercio exterior.</strong> Horas entregadas = Σ λ<sub>j</sub> X<sub>j</sub>; horas recibidas = Σ λ̄<sub>j</sub> M<sub>j</sub> × (X / M), con X y M las exportaciones e importaciones de productos de ramas productivas (las importaciones incluyen insumos y demanda final).</p>
 <p><strong>Ponderación del mercado mundial.</strong> w<sub>c</sub> = μ<sub>c</sub> / μ̄, con μ<sub>c</sub> = PIB en dólares corrientes / horas trabajadas (Banco Mundial, PWT) y μ̄ el promedio ponderado por las horas productivas de los 42 países de la masa mundial. Masa ponderada = Σ plustrabajo<sub>c</sub> w<sub>c</sub>. Se usan tipos de cambio de mercado, no paridades de poder adquisitivo, porque se trata de la valoración en el mercado mundial.</p>
-<p><strong>Decisiones pendientes y límites.</strong> Cálculo simultáneo: los valores y los precios son del mismo año; la variante temporal (TSSI, Kliman y Freeman) queda pendiente. Las tablas nacionales no dicen de qué país vienen los insumos importados; se valúan con el promedio mundial de cada producto. WIOD termina en 2014; la OCDE publica tablas mundiales hasta 2020 (ICIO), que permitirían extender la serie.</p>
+<p><strong>Interpretación de la transformación (F4 v2; decisión de Pablo, 24 nov. 2026).</strong> La interpretación central es la de Moseley: el capital constante y el variable se toman como las magnitudes dinerarias efectivamente adelantadas, idénticas en la determinación de los valores y de los precios de producción, de modo que la transformación sólo redistribuye el plusvalor total entre ramas. Valor de la rama j: W<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub>(1 + e); precio de producción: PP<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub> + r(K<sub>j</sub> + v<sub>j</sub>), con e = S/V y r = S/(K + V) del país, y a<sub>j</sub> el ingreso laboral de los no asalariados. Como contraste se calcula la variante temporal de sistema único (TSSI; Kliman y Freeman): los insumos se valúan a los precios con que entraron en la producción (índice de precios de los insumos de la rama del año anterior) y el capital adelantado es el stock al cierre del año anterior; el valor nuevo es la producción menos esos insumos. Resultados: <code>transformacion_moseley_tssi.csv</code> (por país y año) y <code>transformacion_moseley_ramas.csv</code> (por rama).</p>
+<p><strong>Decisiones pendientes y límites.</strong> Los valores en horas de la primera parte son simultáneos (valores y precios del mismo año). Las tablas nacionales no dicen de qué país vienen los insumos importados; se valúan con el promedio mundial de cada producto. WIOD termina en 2014; la OCDE publica tablas mundiales hasta 2020 (ICIO), que permitirían extender la serie.</p>
 </section>
 <section id="empalmes" class="seccion">
 <h2 id="empalmes-y-ajustes">Empalmes y ajustes</h2>
