@@ -14,3 +14,7 @@ un_204_ind.zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilt
 un_204_idn.zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:204;country_code:360&DataMartId=SNA&Format=csv
 un_204_bra.zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:204;country_code:76&DataMartId=SNA&Format=csv
 un_204_rus.zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:204;country_code:643&DataMartId=SNA&Format=csv
+# WIOD 2016: tablas insumo-producto nacionales 2000–2014 (fase de la transformación)
+wiod_niots.zip https://dataverse.nl/api/access/datafile/199099
+# India KLEMS (RBI, julio de 2024), nuevo sitio del banco
+india_klems_2024.xlsx https://website.rbi.org.in/documents/87730/38862282/INDIAKLEMS+database+July+2024.xlsx
