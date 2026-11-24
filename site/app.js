@@ -221,30 +221,29 @@ function drawFZ(F) {
   }
 }
 
-// Auditoría, bloque B: supuestos del plusvalor (sensibilidad)
+// Auditoría, bloque B: supuestos del plusvalor (B3 y B4 en la medición central desde el 24 nov. 2026)
 function drawBB(B) {
   if (!B || !B.eeuu || !B.eeuu.length) return;
   $('supuestos').hidden = false;
   const E = B.eeuu, z = E[E.length - 1], e72 = E.find((r) => r.anio === 1972) || E[0], e48 = E[0];
   document.querySelectorAll('.bb-fin').forEach((e) => { e.textContent = z.anio; });
-  set('bb-fh', f1(z.fin_hogares_pct_pv_b) + ' %'); set('bb-fh48', f1(e48.fin_hogares_pct_pv_b) + ' %');
+  set('bb-fh', f1(z.desplazado_pct_pv_b) + ' %'); set('bb-fh48', f1(e48.desplazado_pct_pv_b) + ' %');
   set('bb-sup', f0(z.supervision_pct_v_ramas) + ' %'); set('bb-sup72', f0(e72.supervision_pct_v_ramas) + ' %');
-  set('bb-ec', f2(z.e_c_b4)); set('bb-ec0', f2(z.e_c));
-  const s1 = [['r_b', 'Por ramas, pv/(c + v)'], ['r_b_b4', 'Por ramas, sin servicios financieros de los hogares'], ['r_c', 'Intra-rama, pv/(c + v)'], ['r_c_b4', 'Intra-rama, sin servicios financieros de los hogares']];
+  set('bb-ec', f2(z.e_c)); set('bb-ec0', f2(z.e_c_cuentas));
+  const s1 = [['r_b', 'Por ramas, pv/(c + v) (central)'], ['r_b_cuentas', 'Por ramas, con los pagos de los hogares'], ['r_c', 'Intra-rama, pv/(c + v) (central)'], ['r_c_cuentas', 'Intra-rama, con los pagos de los hogares']];
   legend('l-bb', s1.map((x) => x[1]));
-  lineChart('c-bb', E, s1.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Tasa de ganancia de EE.UU. con y sin los servicios financieros de los hogares' });
-  const s2 = [['fin_hogares_pct_pv_b', 'Servicios financieros pagados por los hogares / plusvalor (por ramas)'], ['supervision_pct_v_ramas', 'Remuneración que no es de obreros de producción y no supervisores / v por ramas']];
+  lineChart('c-bb', E, s1.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Tasa de ganancia de EE.UU. con y sin los servicios financieros que pagan los hogares' });
+  const s2 = [['desplazado_pct_pv_b', 'Plusvalor desplazado desde los salarios hacia las finanzas / plusvalor según las cuentas (por ramas)'], ['supervision_pct_v_ramas', 'Remuneración que no es de obreros de producción y no supervisores / v por ramas']];
   legend('l-bb2', s2.map((x) => x[1]));
   lineChart('c-bb2', E, s2.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Explotación secundaria y supervisión' });
   const M = B.mundo || [], tb = $('t-bbm');
   if (M.length && tb) {
     tb.replaceChildren();
     const anios = [...new Set(M.map((r) => r.anio))].sort(); const sel = [anios[0], 2014, anios[anios.length - 1]].filter((a, i, x) => anios.includes(a) && x.indexOf(a) === i);
-    const vars = ['base', 'B3: + renta comercial', 'B4: − servicios financieros de los hogares', 'B3 y B4'];
-    vars.forEach((v) => { const tr = document.createElement('tr'); const base = (a) => M.find((r) => r.anio === a && r.variante === 'base');
-      const cel = [v === 'base' ? 'Central' : v];
+    const vars = [...new Set(M.map((r) => r.variante))], cen = vars[0];
+    vars.forEach((v) => { const tr = document.createElement('tr'); const cel = [v];
       sel.forEach((a) => { const r = M.find((q) => q.anio === a && q.variante === v); cel.push(r ? `${f0(r.plustrabajo_mmh)} (e = ${f2(r.e_horas)})` : '—'); });
-      const u = M.find((q) => q.anio === sel[sel.length - 1] && q.variante === v), b = base(sel[sel.length - 1]);
+      const u = M.find((q) => q.anio === sel[sel.length - 1] && q.variante === v), b = M.find((q) => q.anio === sel[sel.length - 1] && q.variante === cen);
       cel.push(u && b ? d3.format('+.1f')((u.plustrabajo_mmh / b.plustrabajo_mmh - 1) * 100) + ' %' : '—');
       cel.forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
     set('bb-a0', String(sel[0])); set('bb-a1', String(sel[1])); set('bb-a2', String(sel[2]));

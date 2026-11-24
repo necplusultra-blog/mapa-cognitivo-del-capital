@@ -51,7 +51,7 @@ Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). 
 :::lectura emp_ramas_cv | Roberts y Carchedi: la ley como causa última de las crisis
 **Qué mira.** El plusvalor sobre el capital fijo más el capital variable, pv/(c + v), y la tasa mundial de ganancia.
 
-**Qué ve aquí.** La tasa de EE.UU. baja de {{lx-cv-48}} % en 1948 a {{lx-cv-u}}. La tasa mundial neta (Penn World Table) pasa de {{lx-w-07}} % en 2007 a {{lx-w-u}}. La composición K/V vuelve a subir después del año 2000 ({{lx-kv00}} → {{lx-kvu}}), y entre 2004 y 2018 la tasa cae en todas las especificaciones empresariales.
+**Qué ve aquí.** La tasa de EE.UU. baja de {{lx-cv-48}} % en 1948 a {{lx-cv-u}}. La tasa mundial neta (Penn World Table) pasa de {{lx-w-07}} % en 2007 a {{lx-w-u}}. La composición K/V vuelve a subir después del año 2000 ({{lx-kv00}} → {{lx-kvu}}), y en la fase que empieza en 2004 la tasa cae en todas las especificaciones empresariales.
 
 **Diagnóstico.** El aumento de la composición orgánica empuja la tasa hacia abajo en el largo plazo; las contratendencias sólo la frenan por un tiempo. Las crisis estallan cuando cae la masa de ganancia, y desde 2008 la economía mundial vive una «larga depresión» (Roberts, 2016; Carchedi y Roberts, 2022).
 :::
@@ -67,7 +67,7 @@ Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). 
 :::como ¿Cómo se calculan las líneas y la tabla?
 - **Tipo Duménil-Lévy:** excedente neto de explotación de las corporaciones no financieras (NIPA 1.14) / su stock neto de activos fijos a costo corriente.
 - **Tipo Kliman:** excedente neto de las corporaciones (total) / stock neto a costo histórico.
-- **Tipo Shaikh-Tonak (plusvalor ampliado por ramas):** (valor agregado empresarial − vivienda arrendada − depreciación − remuneración de las ramas productivas) / stock neto no residencial del sector. Se excluyen como ramas productivas el comercio, las finanzas y seguros, el inmobiliario y los servicios jurídicos.
+- **Tipo Shaikh-Tonak (plusvalor ampliado por ramas):** (valor agregado empresarial − vivienda arrendada − servicios financieros pagados por los hogares con sus salarios − depreciación − remuneración de las ramas productivas) / stock neto no residencial del sector. Se excluyen como ramas productivas el comercio, las finanzas y seguros, el inmobiliario y los servicios jurídicos.
 - **Tipo Moseley (plusvalor ampliado intra-rama,** desde 1972): igual, pero se resta sólo la remuneración de los obreros de producción y no supervisores de esas ramas.
 - **Tipo Roberts-Carchedi, pv/(c + v):** el plusvalor por ramas dividido por el capital fijo más el capital variable anual. Como v se toma como flujo anual, supone una sola rotación por año. La tasa mundial es la neta de la Penn World Table, ponderada por el capital, con China.
 - **Empresarial, todo productivo:** como la de Shaikh-Tonak, pero restando toda la remuneración del sector. Es la línea de base sin la distinción entre trabajo productivo e improductivo.

@@ -13,6 +13,8 @@ Los países se ponderan por stock de capital (cn) o por PIB (cgdpo), con y sin C
 
 **Masa mundial en horas.** Aplica el mismo criterio por ramas del punto 3, país por país, y suma. Hay tres tramos de fuentes; los tres usan las mismas definiciones.
 
+**Ajustes del bloque B en la medición central (decisión del autor, 24 nov. 2026).** Al plusvalor de cada país se le suma la renta que las ramas de mercado pagan por locales y oficinas (consumo intermedio de productos inmobiliarios L68: plusvalor producido y cedido a la propiedad territorial, B3) y se le restan los servicios financieros que los hogares pagan con sus salarios (consumo final de K64–K66 × participación del trabajo en el ingreso, PWT labsh: plusvalor desplazado desde el salario, B4), ambos como proporción del valor agregado de mercado según las tablas insumo-producto de WIOD (después de 2014, proporciones de 2014): e' = e + (B3 − B4) · (1 + e + cp/v). La columna `e_sin_ajuste_b` de `mundo_horas_paises.csv` conserva la tasa sin estos ajustes.
+
 **(a) 2000–2014: WIOD, Cuentas Socioeconómicas 2016** (43 países; Taiwán queda excluido por anomalías). Para cada país:
 
 - **Ramas improductivas por circulación:** comercio (G45–G47), finanzas y seguros (K64–K66), servicios jurídicos, contables y de dirección (M69–M70), publicidad (M73).

@@ -1,21 +1,21 @@
 ---
-seccion: "11c Supuestos en discusión"
+seccion: "11c Qué cuenta como plusvalor"
 id: supuestos
-menu: Supuestos en discusión
+menu: Qué cuenta como plusvalor
 oculta: si
 ---
-## Supuestos en discusión: qué cuenta como plusvalor
+## Qué cuenta como plusvalor: tres ajustes a las cuentas nacionales
 
-Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría de Marx tienen orígenes distintos. Esta sección muestra tres de esas mezclas y cuánto cambian las cifras si se las separa. La medición central del sitio todavía no incorpora estos ajustes: se presentan para que se pueda ver qué conclusiones dependen de ellos.
+Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría de Marx tienen orígenes distintos. El sismógrafo separa dos de ellas en su medición central: resta lo que los hogares pagan a las finanzas con sus salarios, que es plusvalor desplazado desde el salario y no plusvalor producido, y suma, en la escala mundial, la renta que las empresas pagan por sus locales, que sí es plusvalor producido. Esta sección muestra cuánto cambian las cifras respecto de la convención de las cuentas, y registra un tercer supuesto, el de la supervisión.
 {: .llano }
 
-[[cifra bb-fh | Servicios financieros pagados por los hogares de EE.UU., como parte del plusvalor, {{.bb-fin}} | 1948: {{bb-fh48}}]]
-[[cifra bb-ec | Tasa de plusvalor intra-rama de EE.UU. sin esos pagos, {{.bb-fin}} | con ellos (central): {{bb-ec0}}]]
+[[cifra bb-fh | Plusvalor desplazado desde los salarios hacia las finanzas en EE.UU., como parte del plusvalor de las cuentas, {{.bb-fin}} | 1948: {{bb-fh48}}]]
+[[cifra bb-ec | Tasa de plusvalor intra-rama de EE.UU., {{.bb-fin}} (central) | con los pagos de los hogares, como en las cuentas: {{bb-ec0}}]]
 [[cifra bb-sup | Parte de la remuneración de las ramas productivas de EE.UU. que no es de obreros de producción y no supervisores, {{.bb-fin}} | 1972: {{bb-sup72}}]]
 
 ### Explotación secundaria: lo que los hogares pagan a las finanzas
 
-El valor agregado de los bancos y aseguradoras se cuenta dentro del plusvalor. Pero una parte creciente lo pagan los hogares —intereses implícitos en préstamos y depósitos, comisiones— con sus salarios y otros ingresos. Eso no es plusvalor producido por el trabajo productivo, sino una deducción posterior del ingreso: lo que Marx llamó explotación secundaria (*El Capital*, Libro III, cap. XXXVI). En EE.UU. pasó de ser una fracción mínima del plusvalor en la posguerra a cerca de una décima parte. Si se descuenta, la tasa de ganancia queda más baja y su recuperación desde 1982 es menor: una parte de la «recuperación» es, en realidad, un traslado desde los salarios.
+El valor agregado de los bancos y aseguradoras entra en las cuentas como si todo fuera ganancia producida. Pero una parte creciente la pagan los hogares —intereses implícitos en préstamos y depósitos, comisiones— con salarios que ya se contaron como capital variable. Eso no es plusvalor nuevo, sino plusvalor desplazado desde el salario hacia el capital financiero: lo que Marx llamó explotación secundaria (*El Capital*, Libro III, cap. XXXVI). El sismógrafo lo resta del plusvalor en la parte que corresponde a los salarios y lo registra aparte, como un indicador de la transferencia y la anticipación de plusvalor. En EE.UU., ese desplazamiento pasó de una fracción mínima del plusvalor en la posguerra a una parte considerable. Si se lo dejara dentro, como en las cuentas, la tasa de ganancia sería más alta y su recuperación desde 1982 parecería mayor.
 {: .llano }
 
 [[leyenda l-bb]]
@@ -31,15 +31,15 @@ Marx distingue (*El Capital*, Libro III, cap. XXIII) el trabajo de dirección, n
 
 ### Mundo: renta comercial y servicios financieros de los hogares (miles de millones de horas de plustrabajo)
 
-En la escala mundial el sitio deja fuera del plusvalor todo el inmobiliario, aunque la renta que pagan las empresas por sus locales es plusvalor cedido a la propiedad territorial (subestima), y deja dentro los servicios financieros que pagan los hogares (sobrestima). Los dos ajustes van en sentidos opuestos y casi se compensan: la masa mundial de plustrabajo cambia en menos de un 2 % con cualquiera de ellos.
+En la escala mundial, la medición central suma la renta que las empresas pagan por sus locales (plusvalor cedido a la propiedad territorial) y resta los servicios financieros que los hogares pagan con sus salarios. Los dos ajustes van en sentidos opuestos y casi se compensan: la masa mundial de plustrabajo cambia muy poco respecto de la convención de las cuentas.
 {: .llano }
 
-[[tabla t-bbm: Variante | {{bb-a0}} | {{bb-a1}} | {{bb-a2}} | Cambio en el último año]]
+[[tabla t-bbm: Variante | {{bb-a0}} | {{bb-a1}} | {{bb-a2}} | Diferencia con la central, último año]]
 
-:::como ¿Cómo se calculan estas variantes?
-- **B4, explotación secundaria.** EE.UU.: se resta del plusvalor el gasto de consumo personal en servicios financieros (NIPA, cuadro 2.4.5, serie DFNLRC: intereses implícitos —FISIM— más comisiones). Mundo: se resta el consumo final de los hogares de productos de las finanzas y los seguros (K64–K66, nacionales e importados; tablas insumo-producto de WIOD) como proporción del valor agregado de las ramas de mercado. Es una cota superior: también pagan servicios financieros los hogares capitalistas.
-- **B3, renta comercial (sólo mundo).** Se suma el consumo intermedio de productos inmobiliarios (L68) de las ramas de mercado, como proporción de su valor agregado (WIOD). En EE.UU. no hace falta: el plusvalor del sector empresarial ya incluye el inmobiliario comercial y excluye sólo la vivienda.
-- **Aplicación.** Para cada país, e' = e + ajuste × (valor agregado de mercado / v); plustrabajo = horas × e' / (1 + e'). Después de 2014 se mantienen las proporciones de 2014 de cada país.
-- **B2, supervisión.** 1 − v intra-rama / v por ramas: la parte de la remuneración de las ramas productivas que no corresponde a obreros de producción y no supervisores. Incluye a supervisores y gerentes, pero también diferencias de cobertura entre la encuesta de establecimientos (BLS) y las cuentas por industria (BEA), por lo que es una aproximación.
-- **Pendientes.** B5, el salario social neto (impuestos que pagan los trabajadores y transferencias que reciben), todavía no se calcula.
+:::como ¿Cómo se calculan estos ajustes?
+- **B4, explotación secundaria (en la medición central).** EE.UU.: se resta del plusvalor ampliado el gasto de consumo personal en servicios financieros (NIPA, cuadro 2.4.5, serie DFNLRC: intereses implícitos —FISIM— más comisiones) multiplicado por la parte de la remuneración de los asalariados en el ingreso personal (A033RC / A065RC), para no restar lo que pagan los hogares con ingresos de la propiedad. Mundo: se resta el consumo final de los hogares de productos de las finanzas y los seguros (K64–K66, nacionales e importados; tablas insumo-producto de WIOD), como proporción del valor agregado de las ramas de mercado, multiplicado por la participación del trabajo en el ingreso (Penn World Table, labsh). Las medidas corporativas «a la manera de» Duménil-Lévy y Kliman no cambian.
+- **B3, renta comercial (en la medición central, sólo mundo).** Se suma el consumo intermedio de productos inmobiliarios (L68) de las ramas de mercado, como proporción de su valor agregado (WIOD). En EE.UU. no hace falta: el plusvalor del sector empresarial ya incluye el inmobiliario comercial y excluye sólo la vivienda.
+- **Aplicación en el mundo.** Para cada país, e' = e + (B3 − B4) × (valor agregado de mercado / v); plustrabajo = horas × e' / (1 + e'). Después de 2014 se mantienen las proporciones de 2014 de cada país.
+- **B2, supervisión.** 1 − v intra-rama / v por ramas: la parte de la remuneración de las ramas productivas que no corresponde a obreros de producción y no supervisores. Incluye a supervisores y gerentes, pero también diferencias de cobertura entre la encuesta de establecimientos (BLS) y las cuentas por industria (BEA): es una aproximación.
+- **Pendiente.** B5, el salario social neto (impuestos que pagan los trabajadores y transferencias que reciben), todavía no se calcula.
 :::

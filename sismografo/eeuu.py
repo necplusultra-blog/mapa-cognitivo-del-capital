@@ -158,6 +158,13 @@ def calcular(dir_datos, dir_out):
     COMP_U = (COMP_U / COMP_BUS).ffill() * COMP_BUS
     V = {'a': COMP_BUS, 'b': COMP_BUS - COMP_U, 'c': v_produccion(D)}
     GVA = D.s('N', 'A195RC') - (D.s('N', 'A2009C') - D.s('N', 'B701RC'))   # empresarial sin vivienda arrendada
+    # Explotación secundaria (auditoría B4; decisión del autor, 24 nov. 2026): los servicios financieros que los hogares
+    # pagan con sus salarios (FISIM y comisiones, NIPA 2.4.5) son plusvalor desplazado desde el salario, no plusvalor
+    # producido. Se restan del plusvalor ampliado en la parte que corresponde a los salarios (remuneración / ingreso
+    # personal). Las especificaciones corporativas («a la manera de» los autores) no cambian.
+    D.FH_TOTAL = D.s('N', 'DFNLRC')
+    D.FH = D.FH_TOTAL * D.s('N', 'A033RC') / D.s('N', 'A065RC')
+    GVA = GVA - D.FH
     DEFL = D.s('N', 'A191RD')
 
     def corp(sector, profit, val, gross, ipp, inv, util):
@@ -258,4 +265,4 @@ def calcular(dir_datos, dir_out):
     M.to_csv(os.path.join(dir_out, 'eeuu_especificaciones.csv'))
     for k, v in masa.items(): v.to_csv(os.path.join(dir_out, f'eeuu_masa_plusvalor_{k}.csv'), index_label='anio')
     pd.DataFrame({'COMP_U': COMP_U, 'V_ramas': V['b'], 'V_intra_rama': V['c'], 'COMP_empresarial': COMP_BUS}).to_csv(os.path.join(dir_out, 'eeuu_salarios.csv'), index_label='anio')
-    return dict(F=D.F, N=D.N, sens=sens, R=R, M=M, principal=principal, Rc=Rc, trans=trans, masa=masa, empalmes=empalmes, fin=D.FIN, SK=SK)
+    return dict(FH=D.FH, FH_TOTAL=D.FH_TOTAL, F=D.F, N=D.N, sens=sens, R=R, M=M, principal=principal, Rc=Rc, trans=trans, masa=masa, empalmes=empalmes, fin=D.FIN, SK=SK)

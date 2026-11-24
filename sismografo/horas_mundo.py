@@ -164,6 +164,10 @@ def calcular(dir_datos, dir_out):
         G.to_csv(os.path.join(dir_out, 'mundo_horas_parte_publica.csv'), index=False)
     except Exception as e:  # noqa: BLE001
         print('Variante con educación y salud públicas fuera omitida:', repr(e))
+    try:
+        P = ajuste_bloque_b(P, dir_datos)
+    except Exception as e:  # noqa: BLE001
+        print('Ajustes B3/B4 omitidos:', repr(e))
     P['e_neta'] = P.e - P.r
     P['plustrabajo_mill_h'] = P.horas_mill * P.e / (1 + P.e)
     P['plustrabajo_neto_mill_h'] = P.horas_mill * P.e_neta / (1 + P.e_neta)
@@ -177,6 +181,38 @@ def calcular(dir_datos, dir_out):
     S = sensibilidad(P, pd.DataFrame(sens_base), share_ees, piv)
     S.to_csv(os.path.join(dir_out, 'mundo_horas_sensibilidad.csv'), index=False)
     return dict(A=A, P=P, excluidos=excluidos, diag=diag, S=S, k_mediana=k_med)
+
+
+def ajuste_bloque_b(P, dir_datos):
+    """Auditoría B3 y B4 (decisión del autor, 24 nov. 2026), en la medición central:
+    B3: + renta que las ramas de mercado pagan por locales y oficinas (consumo intermedio de L68): plusvalor producido y
+        cedido a la propiedad territorial;
+    B4: − servicios financieros que los hogares pagan con sus salarios (consumo final de K64–K66 × participación del
+        trabajo en el ingreso, PWT labsh): plusvalor desplazado desde el salario, no producido.
+    Ambas como proporción del valor agregado de las ramas de mercado (WIOD; después de 2014, proporción de 2014).
+    e' = e + (b3 − b4) · VA_mercado / v, con VA_mercado / v = 1 + e + cp/v. Se conserva e sin ajuste."""
+    from sismografo.bloque_b import cuotas_wiod
+    W = cuotas_wiod()
+    if W.empty: return P
+    W = W.set_index(['pais', 'anio'])
+    ult = W.reset_index().sort_values('anio').groupby('pais').last()
+    fn = os.path.join(dir_datos, 'pwt', 'pwt110.dta')
+    if not os.path.exists(fn): fn = os.path.join(os.path.dirname(CACHE_ILO), 'pwt110.dta')
+    ls = pd.read_stata(fn, columns=['countrycode', 'year', 'labsh']).pivot_table(index='year', columns='countrycode', values='labsh')
+    ls = ls.reindex(range(int(ls.index.min()), int(P.anio.max()) + 1)).ffill()
+    P = P.copy()
+    cp = P.groupby(['pais', 'anio']).cp_v.transform('median') if 'cp_v' in P else 0.0
+    P['cp_v'] = P.cp_v.fillna(cp) if 'cp_v' in P else 0.0
+    def cuota(c, y, k):
+        try: return float(W.loc[(c, y), k])
+        except KeyError: return float(ult[k].get(c, np.nan))
+    P['b3_pct_va'] = [cuota(c, y, 'renta_pct_va') for c, y in zip(P.pais, P.anio)]
+    lab = [float(ls[c].get(y, np.nan)) if c in ls else np.nan for c, y in zip(P.pais, P.anio)]
+    P['b4_pct_va'] = [cuota(c, y, 'fin_hogares_pct_va') for c, y in zip(P.pais, P.anio)] * pd.Series(lab, index=P.index).fillna(0.55)
+    P['e_sin_ajuste_b'] = P.e
+    adj = (P.b3_pct_va.fillna(0) - P.b4_pct_va.fillna(0)) * (1 + P.e + P.cp_v.fillna(0))
+    P['e'] = (P.e + adj).clip(lower=0.01)
+    return P
 
 
 def agregar(P):
