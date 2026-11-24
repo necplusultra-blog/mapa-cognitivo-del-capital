@@ -32,6 +32,7 @@
 <li><a href="#mundo">Escala mundial</a></li>
 <li><a href="#ia">Corporaciones de la inteligencia artificial</a></li>
 <li><a href="#contratendencias">Contratendencias</a></li>
+<li><a href="#transformacion">La transformación</a></li>
 <li><a href="#empalmes">Empalmes y ajustes</a></li>
 <li><a href="#limites">Limitaciones conocidas</a></li>
 <li><a href="#reproducir">Cómo reproducir y citar</a></li>
@@ -332,6 +333,20 @@
 </table>
 <p><strong>Limitaciones.</strong> El valor de la fuerza de trabajo no se observa: el salario real es un indicio, no una medida de su distancia al valor. La intensidad del trabajo, el trabajo de plataformas y la extensión de la jornada fuera de las horas pagadas todavía no tienen indicadores. La transferencia de horas por comercio exterior no rastrea los insumos intermedios.</p>
 </section>
+<section id="transformacion" class="seccion">
+<h2 id="la-transformacion-valores-y-precios">La transformación: valores y precios</h2>
+<p><strong>Nivel agregado.</strong> El sismógrafo trabaja en el nivel macromonetario (Moseley; cercano a la «nueva interpretación» de Foley y Duménil): el plusvalor total es, por construcción, la suma de ganancias, intereses, rentas, impuestos a la producción y sueldos improductivos, y la expresión monetaria del tiempo de trabajo traduce dinero a horas. En ese nivel, el problema de la transformación no altera la masa ni la tasa de plusvalor. Lo que sí altera es la distribución del plusvalor entre ramas y países, que es lo que mide esta fase.</p>
+<p><strong>Fuente.</strong> Tablas insumo-producto nacionales de WIOD (versión de noviembre de 2016), 43 países, 56 ramas, 2000–2014, en millones de dólares, con la matriz de insumos nacionales y la de insumos importados; horas y ocupados de las cuentas socioeconómicas de WIOD.</p>
+<p><strong>Valores.</strong> Para las ramas productivas p:</p>
+<div class="f">λ<sub>p</sub> = (l<sub>p</sub> + λ̄<sub>p</sub> M<sub>pp</sub>) (I − A<sub>pp</sub>)<sup>−1</sup></div>
+
+<p>l<sub>j</sub> = horas trabajadas por todos los ocupados de la rama / producción bruta. Las horas de los no asalariados se aproximan con las horas por asalariado de la misma rama (H_EMPE / EMPE × EMP); en China, 46 h × 50 semanas por ocupado. Los trabajadores por cuenta propia cuentan para el valor (producen mercancías) aunque no para el plusvalor. λ̄<sub>j</sub> = Σ<sub>c</sub> λ<sub>cj</sub> X<sub>cj</sub> / Σ<sub>c</sub> X<sub>cj</sub>: contenido medio en horas de un dólar exportado del producto j. Se resuelve por iteración hasta que λ̄ no cambia.</p>
+<p>Las ramas de circulación (G, K, M69–M70, M73) y las que están fuera de la producción capitalista (L, O, P, Q, T, U) no producen valor, y sus productos usados como insumos no transfieren valor: son gastos pagados con plusvalor (Shaikh y Tonak). Educación y salud quedan enteras fuera porque las tablas no separan su parte capitalista.</p>
+<p><strong>Precios y valores.</strong> μ = Σ<sub>p</sub> x<sub>j</sub> / Σ<sub>p</sub> λ<sub>j</sub> x<sub>j</sub> (dólares por hora); precio-valor<sub>j</sub> = μ λ<sub>j</sub>; desviación media = Σ x<sub>j</sub> |μλ<sub>j</sub> − 1| / Σ x<sub>j</sub>. La correlación de rangos de Spearman entre precio/valor y la composición K/v (stock de capital nominal sobre ingreso del trabajo de la rama, LAB) contrasta la expectativa de Marx: los precios de producción superan a los valores donde la composición es alta.</p>
+<p><strong>Comercio exterior.</strong> Horas entregadas = Σ λ<sub>j</sub> X<sub>j</sub>; horas recibidas = Σ λ̄<sub>j</sub> M<sub>j</sub> × (X / M), con X y M las exportaciones e importaciones de productos de ramas productivas (las importaciones incluyen insumos y demanda final).</p>
+<p><strong>Ponderación del mercado mundial.</strong> w<sub>c</sub> = μ<sub>c</sub> / μ̄, con μ<sub>c</sub> = PIB en dólares corrientes / horas trabajadas (Banco Mundial, PWT) y μ̄ el promedio ponderado por las horas productivas de los 42 países de la masa mundial. Masa ponderada = Σ plustrabajo<sub>c</sub> w<sub>c</sub>. Se usan tipos de cambio de mercado, no paridades de poder adquisitivo, porque se trata de la valoración en el mercado mundial.</p>
+<p><strong>Decisiones pendientes y límites.</strong> Cálculo simultáneo: los valores y los precios son del mismo año; la variante temporal (TSSI, Kliman y Freeman) queda pendiente. Las tablas nacionales no dicen de qué país vienen los insumos importados; se valúan con el promedio mundial de cada producto. WIOD termina en 2014; la OCDE publica tablas mundiales hasta 2020 (ICIO), que permitirían extender la serie.</p>
+</section>
 <section id="empalmes" class="seccion">
 <h2 id="empalmes-y-ajustes">Empalmes y ajustes</h2>
 <p>La remuneración de las ramas improductivas se empalma por cociente en los años de solapamiento:</p>
@@ -346,7 +361,7 @@
 <h2 id="limitaciones-conocidas">Limitaciones conocidas</h2>
 <ul>
 <li>Todavía no hay corrección intra-rama antes de 1972 ni para la agricultura.</li>
-<li>Las series de referencia son definiciones a la manera de los autores. La replicación numérica exacta está pendiente, igual que la variante en valores-trabajo vía matrices insumo-producto.</li>
+<li>Las series de referencia son definiciones a la manera de los autores. La replicación numérica exacta está pendiente. Los valores-trabajo por rama (§ transformación) cubren 2000–2014, se calculan de manera simultánea y dejan fuera educación y salud; faltan la variante temporal (TSSI), las tablas mundiales con origen de los insumos y la extensión posterior a 2014.</li>
 <li>La masa mundial en horas cubre 42 países: medición por rama entre 2000 y 2014 (WIOD); desde 2015, variación medida por rama en los países de la OCDE, por sección de actividad con encuestas de la OIT en Brasil, Indonesia, India, Rusia, México y Turquía (empleo, horas y masa salarial), excedente y remuneración por rama con las cuentas nacionales de la ONU en Brasil e India (2015–2020) y extensión agregada en China. Fuera de esos años y países, el excedente sigue la participación agregada del trabajo. Faltan una fuente por sección para China (cuentas de la Oficina Nacional de Estadística), Indonesia y Rusia, y los KLEMS de India (la base del Banco de la Reserva de India bloquea las descargas automáticas).</li>
 <li>Los deflactores de equipos informáticos son hedónicos y pueden exagerar el abaratamiento del capital constante.</li>
 <li>Las estimaciones trimestrales recientes, la masa mundial de 2024–2025 y las participaciones del grupo IA en años sin PWT son provisionales.</li>
