@@ -86,7 +86,7 @@ def _md(texto):
 
 def construir(dir_site=None):
     dir_site = dir_site or os.path.join(RAIZ, 'site')
-    for pagina in ('inicio', 'metodologia'):
+    for pagina in ('inicio', 'lectura', 'metodologia'):
         partes, menu, lugares = [], [], {'portada': [], 'pie': []}
         for fn in sorted(glob.glob(os.path.join(RAIZ, 'contenido', pagina, '*.md'))):
             meta, texto = _front(open(fn, encoding='utf-8').read())

@@ -11,6 +11,7 @@ En unos cinco minutos, GitHub Actions reconstruye y publica el sitio. El avance 
 ## Carpetas
 
 - `inicio/`: la página principal. Hay un archivo por sección y el número inicial fija el orden. Para reordenar secciones, cambia los números de los nombres.
+- `lectura/`: la página «Primera lectura de los resultados», la interpretación teórica de la medición.
 - `metodologia/`: la página de metodología, también con un archivo por sección.
 
 ## Formato

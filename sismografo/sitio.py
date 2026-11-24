@@ -78,12 +78,16 @@ def escribir(ee, mu, dir_site):
                                                  sensibilidad=json.loads(mu['horas']['S'].round(3).to_json(orient='records')),
                                                  k_mediana=mu['horas'].get('k_mediana'),
                                                  diagnostico_ocde=json.loads(mu['horas']['diag'].round(3).to_json(orient='records'))))
+    if ee.get('ct') is not None:
+        I = ee['ct']['I'].copy(); I.index.name = 'anio'
+        _w(f'{d}/contratendencias.json', dict(indicadores=_rows(I.astype(float).round(3)), fases=json.loads(ee['ct']['F'].round(4).to_json(orient='records')),
+                                              cortes=ee['ct']['cortes']))
     me = mu['MW'].reset_index(); me['quiebres'] = me['quiebres'].astype(str)
     _w(f'{d}/mundo_especificaciones.json', json.loads(me.to_json(orient='records')))
     try: sha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], text=True).strip()
     except Exception: sha = None  # noqa: BLE001
     meta = dict(actualizado=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), commit=sha,
-                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(ee['principal']), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
+                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, contratendencias=ee.get('ct') is not None, eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(ee['principal']), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
                 mundo_fin=int(mu['fin']), mundo_horas=mu.get('horas') is not None, mundo_fuente=mu['fuente'], mundo_n=mu['n'], mundo_nbal=mu['nbal'], mundo_medidas=mu['medidas'])
     _w(f'{d}/meta.json', meta)
     return meta

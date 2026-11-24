@@ -88,6 +88,50 @@ function indiceActivo() {
   document.querySelectorAll('main > section[id]').forEach((s) => obs.observe(s));
 }
 
+function barrasFases(id, rows, series) {
+  const el = $(id); if (!el) return; el.replaceChildren();
+  const W = el.clientWidth || 640, H = 260, mt = 12, mb = 40, mr = 8;
+  const etiquetas = rows.map((r) => `${r.desde}–${r.hasta}`);
+  const vals = rows.flatMap((r) => series.map((s) => r[s.key] ?? 0));
+  const y = d3.scaleLinear().domain(d3.extent([0, ...vals])).nice().range([H - mb, mt]);
+  const svg = d3.select(el).append('svg').attr('width', '100%').attr('height', H).attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Descomposición de la tasa de ganancia por fases');
+  const gy = svg.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d3.format('+.2f')));
+  let ml = 0; gy.selectAll('text').each(function () { ml = Math.max(ml, this.getComputedTextLength()); }); ml += 12;
+  gy.attr('transform', `translate(${ml},0)`); gy.selectAll('.tick line').attr('x2', W - ml - mr);
+  const x0 = d3.scaleBand().domain(etiquetas).range([ml, W - mr]).padding(0.22);
+  const x1 = d3.scaleBand().domain(series.map((s) => s.key)).range([0, x0.bandwidth()]).padding(0.08);
+  svg.append('g').attr('transform', `translate(0,${H - mb})`).call(d3.axisBottom(x0));
+  svg.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y(0)).attr('y2', y(0)).style('stroke', 'var(--tinta)');
+  const tip = d3.select(el).append('div').attr('class', 'tip').style('display', 'none');
+  rows.forEach((r, i) => series.forEach((s, j) => {
+    const v = r[s.key]; if (v == null) return;
+    svg.append('rect').attr('x', x0(etiquetas[i]) + x1(s.key)).attr('width', x1.bandwidth()).attr('y', y(Math.max(0, v))).attr('height', Math.abs(y(v) - y(0))).style('fill', C[j % C.length])
+      .on('pointermove', () => tip.style('display', null).text(`${etiquetas[i]} · ${s.label}: ${d3.format('+.3f')(v)}`).style('left', Math.min(x0(etiquetas[i]), W - 260) + 'px').style('top', '6px'))
+      .on('pointerleave', () => tip.style('display', 'none'));
+  }));
+}
+
+function drawCT(CT) {
+  const I = CT.indicadores, F = CT.fases;
+  const desde = (keys) => I.filter((r) => keys.some((k) => r[k] != null));
+  const graf = (id, lid, ser, o = {}) => { const rows = desde(ser.map((x) => x[0])); legend(lid, ser.map((x) => x[1])); lineChart(id, rows, ser.map(([key, label]) => ({ key, label })), o); };
+  const pct = { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %' };
+  set('ct-cortes', CT.cortes.join(', '));
+  const fr = F.filter((r) => r.variante === 'por ramas'), fi = F.filter((r) => r.variante === 'intra-rama');
+  legend('l-ct-fases', ['Tasa de plusvalor e', 'Composición K/V (con signo invertido)', 'Cambio de la tasa (Δ ln r)']);
+  barrasFases('c-ct-fases', fr, [{ key: 'aporte_explotacion', label: 'e' }, { key: 'aporte_composicion', label: 'K/V' }, { key: 'dln_tasa', label: 'Δ ln r' }]);
+  legend('l-ct-fases-i', ['Tasa de plusvalor e', 'Composición técnica (signo invertido)', 'Precio relativo del capital (signo invertido)', 'Cambio de la tasa (Δ ln r)']);
+  barrasFases('c-ct-fases-i', fi, [{ key: 'aporte_explotacion', label: 'e' }, { key: 'aporte_comp_tecnica', label: 'técnica' }, { key: 'aporte_precio_relativo', label: 'precio relativo' }, { key: 'dln_tasa', label: 'Δ ln r' }]);
+  const tb = $('t-ct-fases'); tb.replaceChildren();
+  F.forEach((r) => { const tr = document.createElement('tr'); [r.variante, `${r.desde}–${r.hasta}`, (r.cambio_tasa_pct > 0 ? '+' : '') + f1(r.cambio_tasa_pct) + ' %', d3.format('+.3f')(r.aporte_explotacion), d3.format('+.3f')(r.aporte_composicion), r.aporte_comp_tecnica == null ? '—' : d3.format('+.3f')(r.aporte_comp_tecnica), r.aporte_precio_relativo == null ? '—' : d3.format('+.3f')(r.aporte_precio_relativo)].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
+  graf('c-ct-a', 'l-ct-a', [['productividad_hora_idx', 'Producto por hora (1972 = 100)'], ['remuneracion_real_hora_idx', 'Remuneración real por hora (1972 = 100)']], { tipfmt: d3.format('.1f') });
+  graf('c-ct-b', 'l-ct-b', [['salario_real_obreros_produccion', 'Salario real por hora de los obreros de producción (USD de 2017)']], { tipfmt: (v) => d3.format('.2f')(v) + ' USD' });
+  graf('c-ct-c', 'l-ct-c', [['composicion_tecnica_idx', 'Composición técnica: capital real por hora productiva'], ['precio_capital_sobre_salario_idx', 'Precio del capital / salario por hora'], ['precio_relativo_inversion_idx', 'Precio de la inversión / precio del consumo']], { tipfmt: d3.format('.1f'), ref: 100 });
+  graf('c-ct-d', 'l-ct-d', [['tasa_empleo_25_54_pct', 'EE.UU.: tasa de empleo de 25 a 54 años'], ['empleo_vulnerable_mundial_pct', 'Mundo: empleo vulnerable (cuenta propia y familiar)'], ['subempleo_u6_pct', 'EE.UU.: subutilización laboral (U-6)'], ['desempleo_mundial_pct', 'Mundo: desempleo']], pct);
+  graf('c-ct-e', 'l-ct-e', [['ganancias_del_resto_del_mundo_pct', 'Ganancias recibidas del resto del mundo / ganancias corporativas de EE.UU.'], ['comercio_mundial_pct_pib', 'Comercio mundial / PIB mundial']], pct);
+  graf('c-ct-f', 'l-ct-f', [['ganancias_financieras_pct_domesticas', 'Ganancias financieras / ganancias corporativas domésticas'], ['intereses_netos_pct_excedente_nfc', 'Intereses netos / excedente neto (no financieras)'], ['dividendos_pct_ganancia_neta_nfc', 'Dividendos / ganancia después de impuestos (no financieras)'], ['emision_neta_acciones_pct_va_nfc', 'Emisión neta de acciones / valor agregado (no financieras)']], { ...pct, ref: 0 });
+}
+
 let D = {};
 function draw() {
   const { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens } = D;
@@ -201,6 +245,7 @@ Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_d
   D = { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens }; draw(); drawSismo(bandas, quiebres); indiceActivo();
   Promise.all([get('eeuu_tiempo'), get('eeuu_descomposicion')]).then(([T, Dc]) => { D.T = T; D.Dc = Dc; drawTiempo(T, Dc); });
   if (meta.mundo_horas) Promise.all([get('mundo_horas'), get('mundo_horas_paises')]).then(([H, Pz]) => { D.H = H; D.Pz = Pz; drawHM(H, Pz, meta); });
+  if (meta.contratendencias) get('contratendencias').then((CT) => { D.CT = CT; $('contratendencias').hidden = false; drawCT(CT); });
   if (meta.ia) Promise.all([get('ia_agregado'), get('ia_empresas')]).then(([A, E]) => { D.iaA = A; D.iaE = E; drawIA(A, E); });
-  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); }, 150); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); }, 150); });
 }).catch((e) => { const l = document.querySelector('.lede'); if (l) l.insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });

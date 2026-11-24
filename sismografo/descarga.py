@@ -22,7 +22,9 @@ BEA_FILES = {
     'GDPbyInd_VA_SIC.xls': f'{BEA}/industry/xls/GDPbyInd_VA_SIC.xls',
     'GDPbyInd_VA_NAICS_1947-1997.xls': f'{BEA}/industry/xls/GDPbyInd_VA_NAICS_1947-1997.xls',
 }
-FRED_SERIES = ['BOGZ1FL105020005A', 'CUMFNS', 'AWHMAN']
+FRED_SERIES = ['BOGZ1FL105020005A', 'CUMFNS', 'AWHMAN',
+               # contratendencias (véase contratendencias.py)
+               'OPHNFB', 'COMPRNFB', 'AHETPI', 'CPIAUCSL', 'TDSP', 'U6RATE', 'LNS12300060', 'BOGZ1FU103164103A']
 CES_SUPERSECTORES = {  # código CES: (nombre, productivo según el criterio de la metodología)
     '10000000': ('Minería y explotación forestal', True), '20000000': ('Construcción', True),
     '30000000': ('Manufactura', True), '41420000': ('Comercio mayorista', False),

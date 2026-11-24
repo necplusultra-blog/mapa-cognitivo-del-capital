@@ -12,12 +12,12 @@
 <a class="saltar" href="#contenido">Ir al contenido</a>
 <header class="barra">
   <a class="marca" href="./">Sismógrafo del capital</a>
-  <nav aria-label="Páginas"><a href="metodologia.html">Metodología</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/sismografo-del-capital">Código</a></nav>
+  <nav aria-label="Páginas"><a href="lectura.html">Lectura</a><a href="metodologia.html">Metodología</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/sismografo-del-capital">Código</a></nav>
 </header>
 <div class="portada">
 <h1 id="sismografo-del-capital">Sismógrafo del capital</h1>
 <p class="lede">Un sismógrafo no predice el terremoto: registra temblores y rupturas. Este observatorio registra la tasa y la masa de ganancia y de plusvalor como un <em>multiverso</em> de especificaciones, cada una ligada a una decisión teórica explícita, y se actualiza cuando las fuentes publican datos nuevos.</p>
-<p>Los datos se interpretan desde la crítica marxiana de la economía política: la ganancia es una forma de aparición del plusvalor, y el plusvalor es trabajo impago de los obreros productivamente explotados. El sismógrafo usa inteligencia artificial para procesar las enormes cantidades de datos estadísticos y contables que lo hacen posible; las decisiones teóricas que orientan ese procesamiento son explícitas y se documentan en cada bifurcación. La <a href="metodologia.html">metodología completa</a> reúne fuentes, fórmulas, decisiones, empalmes y limitaciones, para que cualquier investigador pueda auditar los resultados.</p>
+<p>Los datos se interpretan desde la crítica marxiana de la economía política: la ganancia es una forma de aparición del plusvalor, y el plusvalor es trabajo impago de los obreros productivamente explotados. El sismógrafo usa inteligencia artificial para procesar las enormes cantidades de datos estadísticos y contables que lo hacen posible; las decisiones teóricas que orientan ese procesamiento son explícitas y se documentan en cada bifurcación. La <a href="metodologia.html">metodología completa</a> reúne fuentes, fórmulas, decisiones, empalmes y limitaciones, para que cualquier investigador pueda auditar los resultados. La <a href="lectura.html">primera lectura de los resultados</a> los interpreta desde la teoría de los límites inmanentes del capital.</p>
 <p class="actualizacion">Datos actualizados el <span id="m-act">—</span>. EE.UU. hasta <span id="m-fin">—</span>; mundo hasta <span id="m-wfin">—</span>.</p>
 </div>
 <figure class="sismo">
@@ -35,6 +35,7 @@
 <li><a href="#tiempo">EE.UU. en horas de trabajo</a></li>
 <li><a href="#mundo">Tasa mundial</a></li>
 <li><a href="#horas-mundo">Masa mundial en horas</a></li>
+<li><a href="#contratendencias">Contratendencias</a></li>
 <li><a href="#ia">Corporaciones de la IA</a></li>
 <li><a href="#alcance">Alcance y fuentes</a></li>
   </ul></nav>
@@ -255,6 +256,67 @@
 </div>
 </details>
 <p class="nota">Advertencias: las cifras posteriores a 2014 son encadenadas, no niveles medidos de nuevo; en los países de la OCDE la variación sí se mide por rama. China es una estimación. No hay corrección intra-rama en la escala mundial. Por diferencias de definición, la e de EE.UU. aquí no coincide con la de la sección de EE.UU.</p>
+</section>
+<section id="contratendencias" class="seccion" hidden>
+<h2 id="el-campo-de-las-contratendencias">El campo de las contratendencias</h2>
+<p>Marx expone seis causas que contrarrestan la caída tendencial de la tasa de ganancia: la elevación del grado de explotación, la reducción del salario por debajo de su valor, el abaratamiento de los elementos del capital constante, la sobrepoblación relativa, el comercio exterior y el aumento del capital accionario. No son fuerzas externas que corrijan la tendencia desde fuera: las producen las mismas causas que producen la caída. Esta sección reúne, para cada una, indicadores observables, y empieza por la pregunta central: en cada fase, ¿qué sostuvo o hundió la tasa de ganancia?</p>
+<h3 id="que-movio-la-tasa-en-cada-fase">Qué movió la tasa en cada fase</h3>
+<p>La tasa de ganancia puede escribirse como r = e · v/K: sube si sube la tasa de plusvalor e y baja si sube la composición K/V. Las fases no se eligen de antemano: sus límites son los años de quiebre más frecuentes en el multiverso (<span id="ct-cortes">—</span>). Cada barra mide, en logaritmos, cuánto aportó cada factor al cambio de la tasa en esa fase.</p>
+<div class="legend" id="l-ct-fases"></div>
+<figure class="placa"><div class="chart" id="c-ct-fases"></div></figure>
+
+<p class="nota">Criterio por ramas, desde 1948. Una barra de la composición por debajo de cero significa que el capital por unidad de capital variable creció y presionó la tasa hacia abajo.</p>
+<p class="nota">Desde 1972 la composición en valor puede separarse en dos partes: la composición técnica (capital a precios constantes por hora de trabajo productivo) y el precio relativo del capital respecto del salario por hora. Que la primera empuje hacia abajo mientras la segunda empuja hacia arriba es la forma observable del abaratamiento del capital constante.</p>
+<div class="legend" id="l-ct-fases-i"></div>
+<figure class="placa"><div class="chart" id="c-ct-fases-i"></div></figure>
+
+<div class="tablewrap"><table><thead><tr><th>Variante</th><th>Fase</th><th>Cambio de la tasa</th><th>Aporte de e</th><th>Aporte de K/V</th><th>Composición técnica</th><th>Precio relativo</th></tr></thead><tbody id="t-ct-fases"></tbody></table></div>
+
+<details class="como">
+<summary>¿Cómo se calcula esta descomposición?</summary>
+<p>Para cada fase entre los años a<sub>0</sub> y a<sub>1</sub>: Δln r = Δln e − Δln(K/V), con e = S/V y K/V tomados de la sección «La ley bifacética» (plusvalor ampliado neto del sector empresarial; K a costo corriente; V por ramas desde 1948 o intra-rama desde 1972). En la variante intra-rama, K/V = (K<sub>real</sub>/H) · (P<sub>K</sub>/w): K<sub>real</sub> es K deflactado por el precio implícito del capital fijo privado no residencial (stock a costo corriente sobre índice de cantidad del BEA, 2017 = 1); H son las horas de los obreros productivos (BLS) y w = V/H. Los años de corte son los cinco años de quiebre más frecuentes en el multiverso principal (configuración base: tramo mínimo de 8 años, BIC), separados entre sí por al menos seis años. Las descargas incluyen la tabla completa (contratendencias_fases.csv).</p>
+</details>
+<h3 id="1-elevacion-del-grado-de-explotacion">1. Elevación del grado de explotación</h3>
+<p>La tasa de plusvalor es el indicador directo (véase la sección «La ley bifacética»). Aquí se compara el producto por hora del sector empresarial no agrícola con la remuneración real por hora: la distancia entre ambas curvas es la parte de la productividad que no vuelve a los trabajadores.</p>
+<div class="legend" id="l-ct-a"></div>
+<figure class="placa"><div class="chart" id="c-ct-a"></div></figure>
+
+<h3 id="2-reduccion-del-salario-por-debajo-de-su-valor">2. Reducción del salario por debajo de su valor</h3>
+<p>El valor de la fuerza de trabajo no se observa directamente; lo que sí se observa es el salario real de los obreros de producción y no supervisores. Un salario real que durante décadas queda por debajo de su nivel de 1972, mientras la productividad se multiplica, indica una compresión del salario que la sola elevación de la productividad no explica.</p>
+<div class="legend" id="l-ct-b"></div>
+<figure class="placa"><div class="chart" id="c-ct-b"></div></figure>
+
+<h3 id="3-abaratamiento-de-los-elementos-del-capital-constante">3. Abaratamiento de los elementos del capital constante</h3>
+<div class="legend" id="l-ct-c"></div>
+<figure class="placa"><div class="chart short" id="c-ct-c"></div></figure>
+
+<p class="nota">Índices, 1972 = 100. La composición técnica crece mucho más que la composición en valor porque cada unidad de capital se abarata respecto del trabajo.</p>
+<h3 id="4-sobrepoblacion-relativa">4. Sobrepoblación relativa</h3>
+<div class="legend" id="l-ct-d"></div>
+<figure class="placa"><div class="chart" id="c-ct-d"></div></figure>
+
+<p class="nota">La sobrepoblación relativa no es sólo desempleo: incluye a quienes trabajan por cuenta propia o en el trabajo familiar, disponibles para ser absorbidos por el capital. En la escala mundial, su reabsorción es la principal fuente del crecimiento de la masa de plusvalor (véase la masa mundial en horas).</p>
+<h3 id="5-comercio-exterior">5. Comercio exterior</h3>
+<div class="legend" id="l-ct-e"></div>
+<figure class="placa"><div class="chart" id="c-ct-e"></div></figure>
+
+<h3 id="6-capital-accionario-y-capital-que-devenga-interes">6. Capital accionario y capital que devenga interés</h3>
+<div class="legend" id="l-ct-f"></div>
+<figure class="placa"><div class="chart" id="c-ct-f"></div></figure>
+
+<p class="nota">La emisión neta de acciones negativa significa que las corporaciones no financieras recompran más acciones de las que emiten: transfieren ganancia a los accionistas en lugar de acumularla.</p>
+<details class="como">
+<summary>¿De dónde salen estos indicadores?</summary>
+<ul>
+<li><strong>Explotación:</strong> producto por hora (OPHNFB) y remuneración real por hora (COMPRNFB) del sector empresarial no agrícola, BLS vía FRED, reindexados a 1972 = 100.</li>
+<li><strong>Salario:</strong> ingreso medio por hora de los trabajadores de producción y no supervisores (AHETPI, BLS) dividido por el índice de precios al consumidor (CPIAUCSL), en dólares de 2017. Servicio de la deuda de los hogares sobre el ingreso disponible (TDSP, Reserva Federal) en las descargas.</li>
+<li><strong>Capital constante:</strong> precio implícito de la inversión no residencial (NIPA A008RD) sobre el índice de precios del consumo personal (DPCERG); composición técnica y precio relativo como en la descomposición por fases.</li>
+<li><strong>Sobrepoblación relativa:</strong> tasa de empleo de 25 a 54 años (LNS12300060) y subutilización laboral U-6 (U6RATE), BLS; empleo vulnerable y desempleo mundiales, estimaciones modeladas de la OIT publicadas por el Banco Mundial (SL.EMP.VULN.ZS, SL.UEM.TOTL.ZS).</li>
+<li><strong>Comercio exterior:</strong> ganancias corporativas recibidas del resto del mundo (NIPA B933RC) sobre las ganancias corporativas totales (A051RC), desde 1998; comercio mundial sobre PIB (Banco Mundial, NE.TRD.GNFS.ZS).</li>
+<li><strong>Capital financiero:</strong> ganancias de las corporaciones financieras sobre las ganancias domésticas (A587RC / A445RC), desde 1998; intereses netos de las corporaciones no financieras sobre su excedente neto (B471RC / W326RC); dividendos sobre ganancia después de impuestos (B467RC / A466RC); emisión neta de acciones de las corporaciones no financieras (Z.1, FU103164103) sobre su valor agregado bruto (A455RC).</li>
+</ul>
+<p>Ninguno de estos indicadores mide por sí solo una contratendencia: son manifestaciones observables que deben leerse junto con la tasa y la masa de plusvalor. Todos están en las descargas (contratendencias_indicadores.csv).</p>
+</details>
 </section>
 <section id="ia" class="seccion" hidden>
 <h2 id="las-corporaciones-de-la-inteligencia-artificial">Las corporaciones de la inteligencia artificial</h2>
