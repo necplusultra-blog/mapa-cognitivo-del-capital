@@ -1,0 +1,28 @@
+name: Fuentes externas
+
+# Descarga fuentes que no son accesibles desde el entorno de desarrollo (ONU, RBI…) y las guarda en
+# datos_cache/externo/. Se ejecuta a mano o cuando cambia herramientas/externas.txt.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['herramientas/externas.txt', 'herramientas/descargar_externas.py']
+
+permissions:
+  contents: write
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python herramientas/descargar_externas.py
+      - name: Guardar
+        run: |
+          git config user.name "sismografo-bot"; git config user.email "actions@users.noreply.github.com"
+          git add datos_cache/externo
+          if ! git diff --cached --quiet; then git commit -m "Fuentes externas ($(date -u +%Y-%m-%d))" && (git push || (git pull --rebase -X theirs && git push)); fi
