@@ -1,3 +1,15 @@
-OK un_popup.js 7213 bytes application/javascript https://data.un.org/_Scripts/PopupLibrary.js
-OK un_206_chn_legacy.zip 297 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:206;country_code:156&DataMartId=SNA&Format=csv
-ERROR un_206_chn_page1.html <HTTPError 404: 'Not Found'> https://data.un.org/Handlers/DataHandler.ashx?Service=page&Page=1&DataFilter=group_code:206;country_code:156&DataMartId=SNA&UserQuery=&c=2,3,4,6,7,8,9,10,11,12,13&s=_cr_engNameOrderBy:asc,fiscal_year:desc,_grIt_code:asc
+OK un_206_chn.zip 297 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:206;country_code:156&DataMartId=SNA&Format=csv
+OK un_206_ind.zip 52719 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:206;country_code:356&DataMartId=SNA&Format=csv
+OK un_206_idn.zip 297 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:206;country_code:360&DataMartId=SNA&Format=csv
+OK un_206_bra.zip 49948 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:206;country_code:76&DataMartId=SNA&Format=csv
+OK un_206_rus.zip 10963 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:206;country_code:643&DataMartId=SNA&Format=csv
+OK un_203_chn.zip 297 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:203;country_code:156&DataMartId=SNA&Format=csv
+OK un_203_ind.zip 74962 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:203;country_code:356&DataMartId=SNA&Format=csv
+OK un_203_idn.zip 297 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:203;country_code:360&DataMartId=SNA&Format=csv
+OK un_203_bra.zip 33774 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:203;country_code:76&DataMartId=SNA&Format=csv
+OK un_203_rus.zip 36228 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:203;country_code:643&DataMartId=SNA&Format=csv
+OK un_204_chn.zip 1760 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:204;country_code:156&DataMartId=SNA&Format=csv
+OK un_204_ind.zip 20340 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:204;country_code:356&DataMartId=SNA&Format=csv
+OK un_204_idn.zip 4983 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:204;country_code:360&DataMartId=SNA&Format=csv
+OK un_204_bra.zip 6809 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:204;country_code:76&DataMartId=SNA&Format=csv
+OK un_204_rus.zip 1972 bytes application/zip https://data.un.org/legacy/Handlers/DownloadHandler.ashx?DataFilter=group_code:204;country_code:643&DataMartId=SNA&Format=csv
