@@ -1,4 +1,5 @@
 ---
+seccion: "01 Qué se le puede pedir a una medición"
 id: estatuto
 menu: Qué se le puede pedir a una medición
 ---

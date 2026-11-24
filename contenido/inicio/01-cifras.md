@@ -1,4 +1,5 @@
 ---
+seccion: "01 Cifras destacadas"
 id: cifras
 clase: seccion cifras-portada
 ---

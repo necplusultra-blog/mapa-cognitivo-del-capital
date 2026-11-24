@@ -1,4 +1,5 @@
 ---
+seccion: "09 Del dinero al tiempo de trabajo"
 id: tiempo
 menu: Del dinero al tiempo de trabajo
 ---

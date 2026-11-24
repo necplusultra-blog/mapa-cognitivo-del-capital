@@ -1,4 +1,5 @@
 ---
+seccion: "00 Portada (encabezado)"
 lugar: portada
 ---
 # Primera lectura de los resultados

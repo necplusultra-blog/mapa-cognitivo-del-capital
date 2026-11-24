@@ -1,4 +1,5 @@
 ---
+seccion: "00 Portada (encabezado)"
 lugar: portada
 ---
 # Metodología

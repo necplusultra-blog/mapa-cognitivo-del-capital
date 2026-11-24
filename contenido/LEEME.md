@@ -45,10 +45,13 @@ Además hay atajos para los elementos que se llenan con datos. No cambies los id
 
 El bloque entre las dos líneas `---` del comienzo controla la sección:
 
+- `seccion`: el nombre de la entrada en Pages CMS (ordena la lista; no aparece en el sitio).
 - `id`: el ancla del enlace (`#tiempo`).
 - `menu`: el texto que aparece en el índice lateral. Si falta, la sección no aparece en el índice.
 - `oculta: si`: la sección se muestra sólo cuando sus datos están disponibles.
 - `lugar: portada` o `lugar: pie`: el texto va en la portada o en el pie de página.
+
+El pie de página está repetido en las tres páginas (`99-pie.md` de cada carpeta): si lo cambias, cámbialo en las tres.
 
 ## Diseño
 

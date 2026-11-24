@@ -1,4 +1,5 @@
 ---
+seccion: "10b Contratendencias"
 id: contratendencias
 menu: Contratendencias
 oculta: true

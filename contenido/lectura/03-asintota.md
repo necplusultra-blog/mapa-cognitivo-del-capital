@@ -1,4 +1,5 @@
 ---
+seccion: "03 El trabajo necesario"
 id: asintota
 menu: El trabajo necesario
 ---

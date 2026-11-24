@@ -1,4 +1,5 @@
 ---
+seccion: "10 Masa mundial en horas"
 id: horas-mundo
 menu: Masa mundial en horas
 oculta: true

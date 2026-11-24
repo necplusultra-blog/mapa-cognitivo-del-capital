@@ -1,4 +1,5 @@
 ---
+seccion: "02 Una ley de dos caras"
 id: bifacetica
 menu: Una ley de dos caras
 ---

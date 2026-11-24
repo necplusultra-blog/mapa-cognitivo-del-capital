@@ -1,4 +1,5 @@
 ---
+seccion: "07 Masa y tasa de plusvalor"
 id: masa-tasa
 menu: Masa y tasa de plusvalor
 ---

@@ -15,6 +15,10 @@ content:
     format: yaml-frontmatter
     exclude: [LEEME.md]
     fields: &campos
+      - name: seccion
+        label: Nombre en la lista del editor
+        type: string
+        description: Sólo ordena y nombra la entrada en Pages CMS; no aparece en el sitio. Conviene empezar con el número de orden.
       - name: menu
         label: Título en el índice lateral
         type: string
@@ -43,8 +47,8 @@ content:
           format: markdown
         description: "Markdown. Atajos: {{cifra}}, [[grafico id]], [[leyenda id]], [[tabla id: Col | Col]], [[cifra id | etiqueta | nota]], ':::como Título' … ':::'. Guía completa en contenido/LEEME.md."
     view:
-      primary: menu
-      fields: [menu, id]
+      primary: seccion
+      fields: [seccion, id]
 
   - name: lectura
     label: Primera lectura de los resultados
@@ -53,8 +57,8 @@ content:
     format: yaml-frontmatter
     fields: *campos
     view:
-      primary: menu
-      fields: [menu, id]
+      primary: seccion
+      fields: [seccion, id]
 
   - name: metodologia
     label: Metodología
@@ -63,8 +67,8 @@ content:
     format: yaml-frontmatter
     fields: *campos
     view:
-      primary: menu
-      fields: [menu, id]
+      primary: seccion
+      fields: [seccion, id]
 
   - name: guia
     label: Guía de edición

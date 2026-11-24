@@ -1,4 +1,5 @@
 ---
+seccion: "06 Qué resiste todas las decisiones"
 id: robustez
 menu: Qué resiste todas las decisiones
 ---

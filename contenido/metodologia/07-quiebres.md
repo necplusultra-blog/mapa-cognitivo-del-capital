@@ -1,4 +1,5 @@
 ---
+seccion: "07 Quiebres endógenos"
 id: quiebres
 menu: Quiebres endógenos
 ---

@@ -1,4 +1,5 @@
 ---
+seccion: "04 Plusvalor ampliado (lectura macromonetaria)"
 id: plusvalor
 menu: Plusvalor ampliado (lectura macromonetaria)
 ---
