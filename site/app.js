@@ -425,6 +425,7 @@ function drawTF(T) {
     const I = T.icio; $('tf-icio').hidden = false;
     document.querySelectorAll('.tf-ifin').forEach((e) => { e.textContent = I.anio_fin; });
     set('tf-in', f0(I.n_paises)); set('tf-idesv', f1(I.desv_fin) + ' %');
+    const ci = I.comercio[I.comercio.length - 1]; if (ci) { set('tf-icalto', f0(ci.altos_ingresos)); set('tf-icchn', f0(ci.CHN)); set('tf-icind', f0(ci.IND)); }
     const s5 = [['desv_mediana', 'Mediana de los países'], ['desv_USA', 'EE.UU.'], ['desv_DEU', 'Alemania'], ['desv_CHN', 'China'], ['desv_IND', 'India'], ['desv_MEX', 'México']];
     legend('l-tf-idesv', s5.map((x) => x[1]));
     lineChart('c-tf-idesv', I.serie, s5.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Desviación media de los precios respecto de los valores con las tablas mundiales de la OCDE' });

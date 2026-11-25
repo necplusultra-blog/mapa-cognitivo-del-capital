@@ -1,10 +1,12 @@
-"""F4 v3: valores-trabajo con las tablas mundiales de la OCDE (ICIO, edición 2025, 2000–2022).
+"""F4 v3: valores-trabajo con las tablas mundiales de la OCDE (ICIO; edición 2026, versión «regular»/SML).
 
-Se ejecuta en GitHub Actions (workflow «ICIO OCDE»), porque los archivos de la OCDE pesan cientos de MB. El servidor de la
-OCDE rechaza las descargas automáticas: los zip se bajan a mano desde
-https://www.oecd.org/en/data/datasets/inter-country-input-output-tables.html (edición 2025, versión «regular»/SML) y se
-suben como adjuntos de la versión «icio-2025» del repositorio. El script procesa los que encuentre. Guarda sólo
-resultados compactos en datos_cache/externo/icio/.
+El servidor de la OCDE rechaza las descargas automáticas: los zip se bajan a mano desde
+https://www.oecd.org/en/data/datasets/inter-country-input-output-tables.html (versión «regular»/SML) y se procesan
+localmente (ICIO_TMP=<carpeta con los zip> ICIO_ZIPS="2020-2024_SML.zip ..." ICIO_BORRAR=0 python herramientas/icio.py)
+o se suben como adjuntos de la versión «icio-2025» del repositorio para el workflow «ICIO OCDE». El script procesa los
+que encuentre. Guarda sólo resultados compactos en datos_cache/externo/icio/. Hoy: 2020–2024 (edición 2026; 2023 y 2024
+son proyecciones de la OCDE). El empleo de TiM llega a 2022: después se mantiene su estructura por rama y se escala con la
+ocupación total de la PWT (fuente_horas = «TiM 2022 × ocupación PWT»).
 
 Qué calcula, para cada año
 --------------------------
@@ -43,9 +45,10 @@ TMP = os.environ.get('ICIO_TMP', '/tmp/icio')
 # Fuentes, en orden: los archivos que Pablo sube como adjuntos de la versión «icio-2025» del repositorio (el servidor de
 # la OCDE rechaza las descargas automáticas desde GitHub Actions) y, si no están, el servidor de la OCDE.
 BASES = os.environ.get('ICIO_BASES', 'https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/ '
-                       'https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/').split()
+                       'https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2026/').split()
 ZIPS = os.environ.get('ICIO_ZIPS', '1995-2000_SML.zip 2001-2005_SML.zip 2006-2010_SML.zip 2011-2015_SML.zip 2016-2022_SML.zip').split()
-ANIOS = range(2000, 2023)
+ANIOS = range(2000, 2025)
+ULT_TIM = 2022   # último año de TiM 2025; después, estructura de 2022 × ocupación total de la PWT
 UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36'}
 CERO = {'G', 'K', 'L', 'O', 'T', 'G45', 'G46', 'G47', 'K64', 'K65', 'K66', 'L68', 'O84'}
 ALIAS = {'C24A': 'C241_2431', 'C24B': 'C242_2432', 'C241': 'C241_2431', 'C242': 'C242_2432', 'C30A': 'C301', 'C30B': 'C302T309',
@@ -84,28 +87,37 @@ def _anio(nombre):
 
 
 def leer_tabla(f):
+    """Lee una tabla ICIO. Las etiquetas son «PAÍS_RAMA»; las regiones del resto del mundo tienen país con guion bajo
+    (p. ej. «A2_X_C26»), por eso la rama se identifica por sufijo con la lista de ramas de un país conocido."""
     d = pd.read_csv(f, index_col=0)
     d.index = d.index.astype(str).str.strip(); d.columns = d.columns.astype(str).str.strip()
-    filas = [r for r in d.index if '_' in r and r.split('_', 1)[0] not in NO_IND and r not in NO_IND]
-    filas = [r for r in filas if r in d.columns]
-    inds = set(r.split('_', 1)[1] for r in filas)
+    cand = [r for r in d.index if r not in NO_IND and r in d.columns]
+    ref = next((p for p in ('USA', 'DEU', 'FRA') if any(r.startswith(p + '_') for r in cand)), None)
+    inds = sorted({r[len(ref) + 1:] for r in cand if r.startswith(ref + '_')}, key=len, reverse=True)
+    def partir(r):
+        for k in inds:
+            if r.endswith('_' + k): return r[:-(len(k) + 1)], k
+        return None, None
+    filas = [r for r in cand if partir(r)[0] is not None]
     out = 'OUT' if 'OUT' in d.columns else ('TOTAL' if 'TOTAL' in d.columns else None)
     Z = d.loc[filas, filas].to_numpy(dtype=np.float64)
-    if out: x = d.loc[filas, out].to_numpy(dtype=np.float64)
-    else: x = d.loc['OUT', filas].to_numpy(dtype=np.float64)
+    x = d.loc[filas, out].to_numpy(dtype=np.float64) if out else d.loc['OUT', filas].to_numpy(dtype=np.float64)
     va = d.loc['VA', filas].to_numpy(dtype=np.float64) if 'VA' in d.index else x - Z.sum(axis=0)
-    fdc = [c for c in d.columns if c not in set(filas) and c != out and '_' in c and c.split('_', 1)[1] not in inds]
+    sf = set(filas)
+    fdc = [c for c in d.columns if c not in sf and c != out and '_' in c]
     F = d.loc[filas, fdc].to_numpy(dtype=np.float64)
-    pais_f = np.array([r.split('_', 1)[0] for r in filas]); rama_f = np.array([r.split('_', 1)[1] for r in filas])
-    pais_fd = np.array([c.split('_', 1)[0] for c in fdc])
+    pr = [partir(r) for r in filas]
+    pais_f = np.array([a for a, _ in pr]); rama_f = np.array([b for _, b in pr])
+    pais_fd = np.array([c.rsplit('_', 1)[0] for c in fdc])
     return dict(Z=np.nan_to_num(Z), x=np.nan_to_num(x), va=np.nan_to_num(va), F=np.nan_to_num(F), pais=pais_f, rama=rama_f, pais_fd=pais_fd)
 
 
 def insumos():
     tim = pd.read_csv(os.path.join(RAIZ, 'datos_cache', 'ocde_tim_2025.csv.gz'))
     tim = tim.set_index(['pais', 'actividad', 'anio']).EMPN_miles
-    pwt = pd.read_stata(os.path.join(RAIZ, 'datos_cache', 'pwt110.dta'), columns=['countrycode', 'year', 'avh'])
-    avh = pwt.dropna().set_index(['countrycode', 'year']).avh
+    pwt = pd.read_stata(os.path.join(RAIZ, 'datos_cache', 'pwt110.dta'), columns=['countrycode', 'year', 'avh', 'emp'])
+    avh = pwt[['countrycode', 'year', 'avh']].dropna().set_index(['countrycode', 'year']).avh
+    insumos.emp = pwt[['countrycode', 'year', 'emp']].dropna().set_index(['countrycode', 'year']).emp
     fg = os.path.join(RAIZ, 'resultados', 'mundo_horas_parte_publica.csv')
     G = pd.read_csv(fg).set_index(['pais', 'anio']).g if os.path.exists(fg) else pd.Series(dtype=float)
     fm = pd.read_csv(os.path.join(RAIZ, 'datos_cache', 'wiod_fraccion_productiva_M.csv')).set_index('pais').phi_M
@@ -137,19 +149,27 @@ def calcular_anio(T, y, tim, avh, G, fm):
     horas = np.full(n, np.nan); fuente = np.array(['imputada'] * n, dtype=object)
     codigos_tim = set(tim.index.get_level_values(1))
     sin_tim = set()
+    yt = min(y, ULT_TIM)
+    emp = getattr(insumos, 'emp', pd.Series(dtype=float))
+    def escala(c):
+        if y <= ULT_TIM: return 1.0
+        a = _serie_cercana(emp, c, min(y, 2023), np.nan); b = _serie_cercana(emp, c, ULT_TIM, np.nan)
+        return a / b if np.isfinite(a) and np.isfinite(b) and b > 0 else 1.0
+    esc = {c: escala(c) for c in np.unique(pais)}
+    etiqueta = 'TiM' if y <= ULT_TIM else 'TiM 2022 × ocupación PWT'
     for k in range(n):
         c, r = pais[k], rama[k]
         cod = r if r in codigos_tim else ALIAS.get(r)
         h_obr = _serie_cercana(avh, c, y, np.nan)
         if not np.isfinite(h_obr): h_obr = 2000.0
-        e = tim.get((c, cod, y), np.nan) if cod else np.nan
+        e = tim.get((c, cod, yt), np.nan) * esc[c] if cod else np.nan
         if cod is None: sin_tim.add(r)
         if np.isfinite(e):
-            horas[k] = e * h_obr / 1000; fuente[k] = 'TiM'                       # millones de horas
+            horas[k] = e * h_obr / 1000; fuente[k] = etiqueta                    # millones de horas
     # ramas sin correspondencia exacta en un país con datos: horas del total del país por dólar de valor agregado
     for c in np.unique(pais):
         m = pais == c
-        tot = tim.get((c, '_T', y), np.nan)
+        tot = tim.get((c, '_T', yt), np.nan) * esc[c]
         if np.isfinite(tot) and np.isnan(horas[m]).any():
             h_obr = _serie_cercana(avh, c, y, 2000.0)
             resto = tot * h_obr / 1000 - np.nansum(horas[m])
@@ -186,7 +206,7 @@ def calcular_anio(T, y, tim, avh, G, fm):
                                 horas_mill=horas[m][j], horas_por_dolar=lp[j], valor_precio=v[j], exportaciones_musd=exp[j],
                                 fuente_horas=fuente[m][j]))
         p = dict(pais=c, anio=y, expresion_monetaria_usd_hora=mu, desviacion_media=float((w[ok] * np.abs(v[ok] - 1)).sum() / w[ok].sum()),
-                 horas_totales_mill=htot, fuente_horas='TiM' if (fuente[m] == 'TiM').mean() > .5 else 'imputada')
+                 horas_totales_mill=htot, fuente_horas='TiM' if np.char.startswith(fuente[m].astype(str), 'TiM').mean() > .5 else 'imputada')
         if ex.sum() > 0 and im.sum() > 0:
             hrec = hm * ex.sum() / im.sum()
             p.update(horas_cedidas_mill=hx, horas_recibidas_mill=hrec, transferencia_mill_h=hrec - hx,
@@ -218,9 +238,10 @@ def main():
                 R += r; P += p
                 log(f'  {y}: {len(p)} economías calculadas en {time.time() - t0:.0f} s')
         if os.environ.get('ICIO_BORRAR', '1') == '1': os.remove(z)
-    if R:
-        pd.DataFrame(R).to_csv(os.path.join(DEST, 'icio_ramas.csv.gz'), index=False, compression='gzip', float_format='%.6g')
-        pd.DataFrame(P).to_csv(os.path.join(DEST, 'icio_paises.csv'), index=False, float_format='%.6g')
+    if not R:
+        print('No se encontró ningún archivo ICIO: no se cambian los resultados guardados.'); return
+    pd.DataFrame(R).to_csv(os.path.join(DEST, 'icio_ramas.csv.gz'), index=False, compression='gzip', float_format='%.6g')
+    pd.DataFrame(P).to_csv(os.path.join(DEST, 'icio_paises.csv'), index=False, float_format='%.6g')
     open(os.path.join(DEST, 'icio_registro.txt'), 'w').write('\n'.join(LOG) + '\n')
 
 

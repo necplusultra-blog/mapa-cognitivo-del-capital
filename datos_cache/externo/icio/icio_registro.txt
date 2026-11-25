@@ -1,11 +1,8 @@
 TiM: 81 economías; g: 1092 observaciones; φ_M: 39 países
-no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/1995-2000_SML.zip: <HTTPError 404: 'Not Found'>
-no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/1995-2000_SML.zip: <HTTPError 403: 'Forbidden'>
-no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/2001-2005_SML.zip: <HTTPError 404: 'Not Found'>
-no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/2001-2005_SML.zip: <HTTPError 403: 'Forbidden'>
-no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/2006-2010_SML.zip: <HTTPError 404: 'Not Found'>
-no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/2006-2010_SML.zip: <HTTPError 403: 'Forbidden'>
-no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/2011-2015_SML.zip: <HTTPError 404: 'Not Found'>
-no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/2011-2015_SML.zip: <HTTPError 403: 'Forbidden'>
-no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/2016-2022_SML.zip: <HTTPError 404: 'Not Found'>
-no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/2016-2022_SML.zip: <HTTPError 403: 'Forbidden'>
+2020-2024_SML.zip: ['2020_SML.csv', '2021_SML.csv', '2022_SML.csv', '2023_SML.csv', '2024_SML.csv']
+  2020: 4800 filas; ramas = ['A01', 'A02', 'A03', 'B05', 'B06', 'B07', 'B08', 'B09', 'C10T12', 'C13T15', 'C16', 'C17_18', 'C19', 'C20', 'C21', 'C22', 'C23', 'C24A', 'C24B', 'C25', 'C26', 'C27', 'C28', 'C29', 'C301', 'C302T309', 'C31T33', 'D', 'E', 'F', 'G', 'H49', 'H50', 'H51', 'H52', 'H53', 'I', 'J58T60', 'J61', 'J62_63', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']; economías = 96; demanda final = 576 columnas
+  2020: 96 economías calculadas en 20 s
+  2021: 96 economías calculadas en 20 s
+  2022: 96 economías calculadas en 21 s
+  2023: 96 economías calculadas en 22 s
+  2024: 96 economías calculadas en 21 s
