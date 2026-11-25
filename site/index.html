@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sismógrafo del capital — tasa y masa de ganancia y de plusvalor</title>
 <meta name="description" content="Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, en dinero y en tiempo de trabajo: EE.UU. y mundo, como multiverso de especificaciones teóricamente explícitas.">
-<link rel="stylesheet" href="style.css?v=6a925432611250528">
+<link rel="stylesheet" href="style.css?v=ad7098a2611250621">
 <script src="vendor/d3.min.js"></script>
 </head>
 <body>
@@ -40,6 +40,7 @@
 <li><a href="#mundo">Tasa mundial</a></li>
 <li><a href="#horas-mundo">Masa mundial en horas</a></li>
 <li><a href="#contratendencias">Contratendencias</a></li>
+<li><a href="#intensidad">Lo que las horas no ven</a></li>
 <li><a href="#ia">Corporaciones de la IA</a></li>
 <li><a href="#transformacion">Valores y precios</a></li>
 <li><a href="#supuestos">Qué cuenta como plusvalor</a></li>
@@ -501,6 +502,88 @@
 <p>Ninguno de estos indicadores mide por sí solo una contratendencia: son manifestaciones observables que deben leerse junto con la tasa y la masa de plusvalor. Todos están en las descargas (contratendencias_indicadores.csv).</p>
 </details>
 </section>
+<section id="intensidad" class="seccion">
+<h2 id="lo-que-las-horas-no-ven-intensidad-del-trabajo-y-trabajo-de-plataformas">Lo que las horas no ven: intensidad del trabajo y trabajo de plataformas</h2>
+<p class="llano">Todo el sismógrafo cuenta el trabajo en horas: una hora es una hora. Hay dos movimientos del capital contemporáneo que esa medida no registra bien, y los dos van en la misma dirección: hacen que la medición en horas <strong>subestime</strong> el plustrabajo. Esta sección no corrige las cifras; informa de ese sesgo, de su dirección y de lo que se sabe de su tamaño.</p>
+<h3 id="la-intensidad-del-trabajo">La intensidad del trabajo</h3>
+<p class="llano">Marx distingue, junto a la prolongación de la jornada y al aumento de la fuerza productiva, una tercera vía del plusvalor: la intensificación, es decir, más trabajo comprimido en el mismo tiempo, con menos poros en la jornada (Marx, 2018, cap. XIII). Una hora más intensa crea más valor que una hora de intensidad normal, pero en las cuentas aparece igual. Si la intensidad sube, la tasa de plusvalor en horas queda por debajo de la efectiva. No hay estadística que mida la intensidad directamente; las encuestas europeas de condiciones de trabajo preguntan desde 1991 si se trabaja a gran velocidad o con plazos ajustados. Lo que muestran es una intensificación fuerte entre 1991 y 2005 y una meseta alta desde entonces: un tercio de los trabajadores europeos trabaja a gran velocidad tres cuartos del tiempo o más.</p>
+<table>
+<thead>
+<tr>
+<th>Indicador (Encuesta Europea de Condiciones de Trabajo)</th>
+<th>Cobertura</th>
+<th>Valores</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trabaja a muy alta velocidad todo o casi todo el tiempo</td>
+<td>UE12 (1990–1991) y UE27 (2005)</td>
+<td>19 % → 26 %</td>
+</tr>
+<tr>
+<td>Trabaja a muy alta velocidad tres cuartos del tiempo o más</td>
+<td>UE (2005, 2010, 2015)</td>
+<td>35 % · 32 % · 33 %</td>
+</tr>
+<tr>
+<td>Trabaja con plazos ajustados tres cuartos del tiempo o más</td>
+<td>UE (2005, 2010, 2015)</td>
+<td>37 % · 35 % · 36 %</td>
+</tr>
+<tr>
+<td>Trabaja a alta velocidad tres cuartos del tiempo o más</td>
+<td>UE27 (2010, 2015, 2024)</td>
+<td>33 % · 33 % · 35 %</td>
+</tr>
+<tr>
+<td>Trabaja con plazos ajustados tres cuartos del tiempo o más</td>
+<td>UE27 (2010, 2015, 2024)</td>
+<td>33 % · 34 % · 34 %</td>
+</tr>
+</tbody>
+</table>
+<p class="nota">Fuentes: Eurofound (2007; 2016; 2025). Las cifras de cada fila no son comparables con las de otras filas: cambian la pregunta, el umbral y los países. La encuesta telefónica de 2021 (49 % trabajaba con frecuencia a alta velocidad) usó otro método y no se incluye.</p>
+<p>El sismógrafo no ajusta las horas por estos indicadores: son percepciones de los trabajadores, y cualquier factor de conversión entre «trabajar a gran velocidad» y valor producido sería arbitrario. Además, los datos son europeos: no hay una serie equivalente para EE.UU. ni para el resto del mundo. Lo que se puede afirmar es la dirección del sesgo: donde la intensidad sube o se mantiene alta, la medición en horas no exagera la explotación; si algo, la subestima.</p>
+<h3 id="el-trabajo-de-plataformas">El trabajo de plataformas</h3>
+<p class="llano">Los conductores de Uber, los repartidores y quienes hacen tareas en línea figuran en las estadísticas como trabajadores por cuenta propia. Con el criterio general del sismógrafo, el ingreso de los cuentapropistas no es plusvalor y no cuentan como obreros productivos. Pero en el criterio de esta investigación el trabajo de plataformas como el de Uber es trabajo productivo en el sentido de Marx: la plataforma opera como un capitalista que subsume el trabajo de los conductores. De la tarifa que paga el cliente, retiene una comisión —a menudo entre el 20 % y el 40 %— y entrega el resto al conductor. Esa comisión, descontados los costos de servidores, oficinas y programas, es la forma en que aparece el plusvalor extraído del trabajo vivo. El conductor trabaja una parte de su jornada para cubrir su subsistencia, la gasolina y el desgaste de su auto (trabajo necesario), y el resto para la plataforma (plustrabajo). Es una forma de salario a destajo (Marx, 2018, cap. XIX): da la apariencia de una libertad mayor que la del salario fijo y empuja al propio trabajador a alargar e intensificar su jornada. El capital de la plataforma —programas, algoritmos, marca— sólo se valoriza cuando el conductor se conecta y hace el viaje.</p>
+<p>Como las estadísticas los registran como cuentapropistas, la medición del sismógrafo deja fuera a estos trabajadores: también aquí el sesgo es hacia abajo. Su peso es todavía pequeño en EE.UU., pero crece en el mundo.</p>
+<table>
+<thead>
+<tr>
+<th>Indicador</th>
+<th>Valor</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EE.UU., trabajo intermediado por aplicaciones (mayo de 2017)</td>
+<td>1,6 millones de personas, 1,0 % del empleo</td>
+<td>BLS (2018), encuesta de trabajo contingente</td>
+</tr>
+<tr>
+<td>EE.UU., contratistas independientes (julio de 2023)</td>
+<td>11,9 millones, 7,4 % del empleo (incluye, entre otros, a los de plataformas)</td>
+<td>BLS (2024)</td>
+</tr>
+<tr>
+<td>Mundo, trabajadores de plataformas en línea (2023)</td>
+<td>entre 154 y 435 millones, del 4,4 % al 12,5 % de la fuerza de trabajo mundial</td>
+<td>Banco Mundial (2023)</td>
+</tr>
+</tbody>
+</table>
+<p class="nota">La estimación del Banco Mundial cubre sólo el trabajo en línea (tareas y servicios a distancia), no el que se hace en un lugar físico, como el transporte o el reparto; el límite superior incluye a quienes lo hacen como actividad secundaria. Según el mismo informe, la demanda de trabajo en línea por plataformas creció un 41 % entre 2016 y el primer trimestre de 2023. El BLS anunció cifras de trabajo por aplicaciones para 2023, todavía no publicadas.</p>
+<details class="como">
+<summary>¿De dónde vienen estos datos y por qué no cambian la medición?</summary>
+<ul>
+<li><strong>Intensidad.</strong> Eurofound, Encuesta Europea de Condiciones de Trabajo (EWCS), olas de 1991, 1995, 2000, 2005, 2010, 2015 y 2024. Las preguntas son: «¿Su trabajo implica trabajar a muy alta velocidad?» y «¿… trabajar con plazos ajustados?», con una escala de frecuencia; los porcentajes son de quienes responden «todo el tiempo», «casi todo el tiempo» o «alrededor de tres cuartos del tiempo», según la fila. La cobertura cambia con la ampliación de la Unión Europea.</li>
+<li><strong>Plataformas.</strong> BLS, Contingent Worker Supplement de la encuesta de población (CPS), mayo de 2017 (preguntas sobre trabajo intermediado electrónicamente, recodificadas por el BLS) y julio de 2023. Banco Mundial (2023), con dos métodos: registro de trabajadores en 545 plataformas (154 millones) y encuestas (hasta 435 millones).</li>
+<li><strong>Por qué no se ajustan las cifras.</strong> Para ajustar la intensidad haría falta convertir respuestas de percepción en horas de trabajo de intensidad normal, y no hay base para hacerlo. Para sumar a los trabajadores de plataformas haría falta su número, sus horas y su ingreso neto por país y año, que no existen como serie. Ambos casos quedan como sesgos declarados, hacia abajo, de la masa y de la tasa de plusvalor en horas.</li>
+</ul>
+</details>
+</section>
 <section id="ia" class="seccion" hidden>
 <h2 id="las-corporaciones-de-la-inteligencia-artificial">Las corporaciones de la inteligencia artificial</h2>
 <p>Microsoft, Alphabet, Amazon, Meta, Nvidia, Oracle, Broadcom y AMD, según sus estados financieros ante la SEC. En <span id="ia-fin">—</span> se apropiaron del <span id="ia-pct-corp">—</span> de las ganancias corporativas de EE.UU. y de alrededor del <span id="ia-pct-mundo">—</span> de la masa mundial de ganancia bruta; su inversión equivale al <span id="ia-pct-inv">—</span> de la inversión privada no residencial de EE.UU.</p>
@@ -664,6 +747,6 @@
 <p>Investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología (ICSyH-BUAP), que concluirá en agosto de 2029, realizada con una beca de la SECIHTI (número 4052073). Gracias a la clase trabajadora mexicana, que hace posible esta beca. Marco teórico: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
 <p>Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. <a href="descargas/">Descargas</a>. <a href="metodologia.html">Metodología</a>. <a href="https://github.com/necplusultra-blog/sismografo-del-capital/tree/main/contenido">Editar los textos</a>.</p>
 </footer>
-<script src="app.js?v=6a925432611250528"></script>
+<script src="app.js?v=ad7098a2611250621"></script>
 </body>
 </html>
