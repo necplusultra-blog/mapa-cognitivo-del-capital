@@ -116,7 +116,35 @@ def escribir(ee, mu, dir_site):
                        pct_pp_mejor=float((M.desv_mercado_pp < M.desv_mercado_valor).mean() * 100),
                        desv_valor=float(mu_.desv_mercado_valor.median() * 100), desv_pp=float(mu_.desv_mercado_pp.median() * 100),
                        ramas=json.loads(rr.round(2).to_json(orient='records')))
+        # Conciliación v1–v2 en las ramas con muchos cuentapropistas (agricultura): valor/precio en horas con y sin las horas
+        # de los cuentapropistas, frente al valor/precio de Moseley (W / producción)
+        conc, expl = [], None
+        if not MR.empty and 'valor_precio_solo_asalariado' in R:
+            zc = R.merge(MR[['pais', 'anio', 'rama', 'valor_sobre_precio']], on=['pais', 'anio', 'rama'])
+            zu = zc[zc.anio == u]
+            cc = zu.groupby('nombre').apply(lambda t: pd.Series({
+                'asalariados_pct': np.average(t.asalariados_pct, weights=t.produccion_musd),
+                'v1': np.average(t.valor_precio, weights=t.produccion_musd), 'v1_asalariados': np.average(t.valor_precio_solo_asalariado, weights=t.produccion_musd),
+                'moseley': np.average(t.valor_sobre_precio, weights=t.produccion_musd)})).sort_values('asalariados_pct').head(8).reset_index()
+            conc = json.loads(cc.round(3).to_json(orient='records'))
+            ag = zc[(zc.rama == 'A01') & ((zc.valor_precio - zc.valor_sobre_precio).abs() > 0.05)]
+            if len(ag): expl = float(((ag.valor_precio - ag.valor_precio_solo_asalariado) / (ag.valor_precio - ag.valor_sobre_precio)).median() * 100)
+        ic = {}
+        IP = tf.get('ICIO_P', pd.DataFrame())
+        if not IP.empty:
+            s_ = IP[IP.fuente_horas == 'TiM'].groupby('anio').agg(desv_mediana=('desviacion_media', 'median'))
+            for c in ('USA', 'DEU', 'CHN', 'IND', 'MEX', 'BRA'):
+                s_['desv_' + c] = IP[IP.pais == c].set_index('anio').desviacion_media
+            s_ = (s_ * 100).round(2); s_.index.name = 'anio'
+            cm = IP.pivot_table(index='anio', columns='pais', values='transferencia_mill_h') / 1000
+            alto_i = [c for c in cm.columns if grupos.get(c) == 'High income']
+            cmj = pd.DataFrame({'altos_ingresos': cm[alto_i].sum(axis=1), **{c: cm.get(c) for c in ('USA', 'DEU', 'JPN', 'CHN', 'IND', 'MEX', 'BRA')}}).round(2)
+            cmj.index.name = 'anio'
+            ui = int(IP.anio.max()); pu = IP[IP.anio == ui]
+            ic = dict(serie=_rows(s_), comercio=_rows(cmj), anio_fin=ui, n_paises=int((pu.fuente_horas == 'TiM').sum()),
+                      desv_fin=float(pu[pu.fuente_horas == 'TiM'].desviacion_media.median() * 100))
         _w(f'{d}/transformacion.json', dict(serie=_rows(ser), anio_ramas=u, ramas=json.loads(ramas.round(3).to_json(orient='records')), moseley=mos,
+                                             conciliacion=conc, conciliacion_explicada_pct=expl, icio=ic,
                                              comercio=_rows(comj), ponderada=json.loads(W.round(3).to_json(orient='records')) if not W.empty else [],
                                              n_paises=int(dd.pais.nunique()), pct_spearman_pos=float((dd.spearman_precio_valor_composicion > 0).mean() * 100)))
     fz = ee.get('fuerzas')

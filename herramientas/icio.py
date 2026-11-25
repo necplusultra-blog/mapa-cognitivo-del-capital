@@ -1,7 +1,10 @@
 """F4 v3: valores-trabajo con las tablas mundiales de la OCDE (ICIO, edición 2025, 2000–2022).
 
-Se ejecuta en GitHub Actions (workflow «ICIO OCDE»), porque los archivos de la OCDE no son accesibles desde el entorno de
-desarrollo y pesan cientos de MB. Guarda sólo resultados compactos en datos_cache/externo/icio/.
+Se ejecuta en GitHub Actions (workflow «ICIO OCDE»), porque los archivos de la OCDE pesan cientos de MB. El servidor de la
+OCDE rechaza las descargas automáticas: los zip se bajan a mano desde
+https://www.oecd.org/en/data/datasets/inter-country-input-output-tables.html (edición 2025, versión «regular»/SML) y se
+suben como adjuntos de la versión «icio-2025» del repositorio. El script procesa los que encuentre. Guarda sólo
+resultados compactos en datos_cache/externo/icio/.
 
 Qué calcula, para cada año
 --------------------------
@@ -37,7 +40,10 @@ import numpy as np, pandas as pd
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEST = os.path.join(RAIZ, 'datos_cache', 'externo', 'icio')
 TMP = os.environ.get('ICIO_TMP', '/tmp/icio')
-BASE = 'https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/'
+# Fuentes, en orden: los archivos que Pablo sube como adjuntos de la versión «icio-2025» del repositorio (el servidor de
+# la OCDE rechaza las descargas automáticas desde GitHub Actions) y, si no están, el servidor de la OCDE.
+BASES = os.environ.get('ICIO_BASES', 'https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/ '
+                       'https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/').split()
 ZIPS = os.environ.get('ICIO_ZIPS', '1995-2000_SML.zip 2001-2005_SML.zip 2006-2010_SML.zip 2011-2015_SML.zip 2016-2022_SML.zip').split()
 ANIOS = range(2000, 2023)
 UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36'}
@@ -56,17 +62,19 @@ def bajar(nombre):
     os.makedirs(TMP, exist_ok=True)
     dest = os.path.join(TMP, nombre)
     if os.path.exists(dest) and zipfile.is_zipfile(dest): return dest
-    for intento in range(3):
+    for base in BASES:
         try:
             t0 = time.time()
-            with urllib.request.urlopen(urllib.request.Request(BASE + nombre, headers=UA), timeout=600) as r, open(dest, 'wb') as f:
+            with urllib.request.urlopen(urllib.request.Request(base + nombre, headers=UA), timeout=600) as r, open(dest, 'wb') as f:
                 while True:
                     b = r.read(1 << 22)
                     if not b: break
                     f.write(b)
-            log(f'descargado {nombre}: {os.path.getsize(dest) / 1e6:.0f} MB en {time.time() - t0:.0f} s'); return dest
+            if zipfile.is_zipfile(dest):
+                log(f'descargado {base + nombre}: {os.path.getsize(dest) / 1e6:.0f} MB en {time.time() - t0:.0f} s'); return dest
+            log(f'{base + nombre}: el archivo recibido no es un zip')
         except Exception as e:  # noqa: BLE001
-            log(f'error al descargar {nombre} (intento {intento + 1}): {e!r}'); time.sleep(10)
+            log(f'no disponible {base + nombre}: {e!r}')
     return None
 
 

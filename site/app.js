@@ -402,6 +402,25 @@ function drawTF(T) {
     const tm = $('t-tf-mr');
     if (tm) { tm.replaceChildren(); MS.ramas.forEach((r) => { const tr = document.createElement('tr'); [r.nombre, d3.format('+.1f')(r.transferencia_pct) + ' %', f1(r.tasa_en_valores) + ' %', f1(r.tasa_efectiva) + ' %'].forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tm.append(tr); }); }
   }
+  const tc = $('t-tf-conc');
+  if (tc && T.conciliacion && T.conciliacion.length) {
+    tc.replaceChildren();
+    T.conciliacion.forEach((r) => { const tr = document.createElement('tr'); [r.nombre, f0(r.asalariados_pct) + ' %', f2(r.v1), f2(r.v1_asalariados), f2(r.moseley)].forEach((x) => { const td = document.createElement('td'); td.textContent = x; tr.append(td); }); tc.append(tr); });
+    const ag = T.conciliacion.find((r) => r.nombre === 'Agricultura');
+    if (ag) { set('tf-ag-v1', f2(ag.v1)); set('tf-ag-v1a', f2(ag.v1_asalariados)); set('tf-ag-mo', f2(ag.moseley)); set('tf-ag-as', f0(ag.asalariados_pct) + ' %'); }
+    if (T.conciliacion_explicada_pct != null) set('tf-ag-expl', f0(T.conciliacion_explicada_pct) + ' %');
+  }
+  if (T.icio && T.icio.serie && T.icio.serie.length) {
+    const I = T.icio; $('tf-icio').hidden = false;
+    document.querySelectorAll('.tf-ifin').forEach((e) => { e.textContent = I.anio_fin; });
+    set('tf-in', f0(I.n_paises)); set('tf-idesv', f1(I.desv_fin) + ' %');
+    const s5 = [['desv_mediana', 'Mediana de los países'], ['desv_USA', 'EE.UU.'], ['desv_DEU', 'Alemania'], ['desv_CHN', 'China'], ['desv_IND', 'India'], ['desv_MEX', 'México']];
+    legend('l-tf-idesv', s5.map((x) => x[1]));
+    lineChart('c-tf-idesv', I.serie, s5.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Desviación media de los precios respecto de los valores con las tablas mundiales de la OCDE' });
+    const s6 = [['altos_ingresos', 'Países de altos ingresos'], ['USA', 'EE.UU.'], ['DEU', 'Alemania'], ['CHN', 'China'], ['IND', 'India'], ['MEX', 'México']];
+    legend('l-tf-icom', s6.map((x) => x[1]));
+    lineChart('c-tf-icom', I.comercio, s6.map(([key, label]) => ({ key, label })), { tipfmt: (v) => d3.format(',.0f')(v) + ' mil millones de h', ref: 0, aria: 'Trabajo incorporado en el comercio exterior con las tablas mundiales de la OCDE' });
+  }
   if (T.ponderada && T.ponderada.length) {
     const W = T.ponderada, w = W[W.length - 1];
     set('tf-pond', f0(w.plustrabajo_ponderado_mmh)); set('tf-sinpond', f0(w.plustrabajo_mmh)); set('tf-cnp', f1(w.pct_china_ponderado) + ' %');

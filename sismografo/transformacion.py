@@ -14,8 +14,11 @@ Qué se calcula
          exportaciones de los 43 países), que valúa los insumos importados. Se resuelve por iteración.
    Sólo entran las ramas productivas (subíndice p). Los insumos que vienen de ramas de circulación (comercio, finanzas,
    servicios jurídicos, publicidad) o de fuera de la producción capitalista (inmobiliario, administración pública,
-   educación, salud, hogares) no transfieren valor: son gastos pagados con plusvalor (tratamiento de Shaikh y Tonak).
-   Educación y salud quedan fuera en esta primera versión, porque las tablas no separan su parte capitalista.
+   hogares) no transfieren valor: son gastos pagados con plusvalor (tratamiento de Shaikh y Tonak).
+   v3: educación (P85) y salud (Q) entran por su parte capitalista φ = 1 − g (g = parte pública y sin fines de lucro,
+   publico.py): λ = (l + (λ̄∘φ) M)(I − D_φ A)⁻¹, y sus magnitudes se multiplican por φ. Se supone que la parte capitalista
+   tiene la misma estructura de costos que la rama entera.
+   Conciliación con Moseley: valor/precio con sólo las horas de los asalariados (sin cuentapropistas).
 
 2. Desviación de los precios respecto de los valores. Con la expresión monetaria del tiempo de trabajo de cada país,
    μ = Σ producción bruta / Σ λ · producción bruta (ramas productivas), el «precio-valor» de un dólar de producto de la
@@ -79,7 +82,27 @@ NOMBRES = {'A01': 'Agricultura', 'A02': 'Silvicultura', 'A03': 'Pesca', 'B': 'Mi
            'F': 'Construcción', 'H49': 'Transporte terrestre', 'H50': 'Transporte marítimo', 'H51': 'Transporte aéreo',
            'H52': 'Almacenamiento', 'H53': 'Correo', 'I': 'Alojamiento y comidas', 'J58': 'Edición', 'J59_J60': 'Audiovisual',
            'J61': 'Telecomunicaciones', 'J62_J63': 'Informática', 'M71': 'Arquitectura e ingeniería', 'M72': 'Investigación',
-           'M74_M75': 'Otros servicios profesionales', 'N': 'Servicios administrativos', 'R_S': 'Otros servicios'}
+           'M74_M75': 'Otros servicios profesionales', 'N': 'Servicios administrativos', 'R_S': 'Otros servicios',
+           'P85': 'Educación (parte capitalista)', 'Q': 'Salud y asistencia (parte capitalista)'}
+PUB = [RAMAS.index('P85'), RAMAS.index('Q')]
+
+
+def _phi_fn(dir_out):
+    """Fracción capitalista de cada rama: 1 en las productivas, 0 en las de circulación y fuera de la producción, y 1 − g en
+    educación (P85) y salud (Q), con g = parte pública y sin fines de lucro (publico.py, guardada por horas_mundo)."""
+    fn = os.path.join(dir_out, 'mundo_horas_parte_publica.csv')
+    G = pd.read_csv(fn).set_index(['pais', 'anio']).g if os.path.exists(fn) else None
+    med = float(G.median()) if G is not None else 1.0
+    def phi(c, y):
+        f = PROD.astype(float).copy()
+        if G is not None:
+            g = G.get((c, y), np.nan)
+            if not np.isfinite(g):
+                gc = G.xs(c, level=0) if c in G.index.get_level_values(0) else None
+                g = float(gc.iloc[(gc.index.to_series() - y).abs().argmin()]) if gc is not None and len(gc) else med
+            f[PUB] = 1 - float(np.clip(g, 0, 1))
+        return f
+    return phi
 
 
 def _leer_niots():
@@ -141,7 +164,8 @@ def calcular(dir_datos, dir_out, mundo_paises=None):
         print('Transformación: faltan las tablas insumo-producto de WIOD (datos_cache/externo/wiod_niots.zip)'); return {}
     N = _leer_niots(); S = _sea(dir_datos)
     anios = sorted({int(a) for d in N.values() for a in d.anio.dropna().unique()})
-    p = PROD; I = np.eye(p.sum())
+    phi_de = _phi_fn(dir_out)
+    n = len(RAMAS); I = np.eye(n)
     ramas_f, desv_f, com_f = [], [], []
     for y in anios:
         datos = {}
@@ -151,52 +175,67 @@ def calcular(dir_datos, dir_out, mundo_paises=None):
             if H is None or x.sum() <= 0: continue
             with np.errstate(divide='ignore', invalid='ignore'):
                 l = np.where(x > 0, H / x, 0.0)                                          # horas por dólar
-            datos[c] = (x, A, M, exp, imp, l)
-        lbar = np.zeros(p.sum()); lam = {}
-        for _ in range(8):                                                               # converge en pocas vueltas
-            for c, (x, A, M, exp, imp, l) in datos.items():
-                Ainv = np.linalg.pinv(I - A[np.ix_(p, p)])
-                lam[c] = (l[p] + lbar @ M[np.ix_(p, p)]) @ Ainv
-            num = sum(lam[c] * datos[c][3][p] for c in lam); den = sum(datos[c][3][p] for c in lam)
+            # trabajo asalariado: horas de los asalariados (sin cuentapropistas), para la conciliación con Moseley
+            try:
+                g_ = S.loc[(c, y)].reindex(RAMAS)
+                asal = (g_['EMPE'].astype(float) / g_['EMP'].astype(float)).clip(0, 1).fillna(1.0).values
+            except KeyError:
+                asal = np.ones(n)
+            datos[c] = (x, A, M, exp, imp, l, phi_de(c, y), asal)
+        lbar = np.zeros(n); lam, lam_a = {}, {}
+        for _ in range(10):                                                              # converge en pocas vueltas
+            for c, (x, A, M, exp, imp, l, f, asal) in datos.items():
+                Ainv = np.linalg.inv(I - f[:, None] * A)                                 # sólo la parte capitalista del proveedor transfiere valor
+                lam[c] = (l + (lbar * f) @ M) @ Ainv
+                lam_a[c] = (l * asal + (lbar * f) @ M) @ Ainv
+            num = sum(lam[c] * datos[c][3] * datos[c][6] for c in lam); den = sum(datos[c][3] * datos[c][6] for c in lam)
             with np.errstate(divide='ignore', invalid='ignore'):
                 nuevo = np.where(den > 0, num / den, 0.0)
             if np.allclose(nuevo, lbar, rtol=1e-6): break
             lbar = nuevo
-        for c, (x, A, M, exp, imp, l) in datos.items():
-            xp, lp = x[p], lam[c]
-            ok = (xp > 0) & (lp > 0)
-            mu = xp[ok].sum() / (lp[ok] * xp[ok]).sum()                                   # dólares por hora
-            v = mu * lp
+        for c, (x, A, M, exp, imp, l, f, asal) in datos.items():
+            lp, la = lam[c], lam_a[c]
+            ok = (f > 0) & (x > 0) & (lp > 0)
+            w = f * x                                                                    # producción capitalista de cada rama
+            mu = w[ok].sum() / (lp[ok] * w[ok]).sum()                                    # dólares por hora
+            mu_a = w[ok].sum() / (la[ok] * w[ok]).sum()
+            v = mu * lp; va = mu_a * la
             try:
                 g = S.loc[(c, y)].reindex(RAMAS)
-                comp = (g['K'].astype(float) / g['LAB'].astype(float)).values[p]   # LAB incluye el ingreso laboral de los no asalariados
+                comp = (g['K'].astype(float) / g['LAB'].astype(float)).values   # LAB incluye el ingreso laboral de los no asalariados
             except KeyError:
-                comp = np.full(p.sum(), np.nan)
-            for j, r in enumerate(np.array(RAMAS)[p]):
+                comp = np.full(n, np.nan)
+            for j, r in enumerate(RAMAS):
                 if ok[j]:
-                    ramas_f.append(dict(pais=c, anio=y, rama=r, nombre=NOMBRES.get(r, r), produccion_musd=xp[j],
-                                        horas_por_dolar=lp[j], valor_precio=v[j], precio_valor=1 / v[j], composicion_K_v=comp[j]))
-            mad = float((xp[ok] * np.abs(v[ok] - 1)).sum() / xp[ok].sum())
+                    ramas_f.append(dict(pais=c, anio=y, rama=r, nombre=NOMBRES.get(r, r), fraccion_capitalista=f[j], produccion_musd=w[j],
+                                        horas_por_dolar=lp[j], valor_precio=v[j], precio_valor=1 / v[j], composicion_K_v=comp[j],
+                                        asalariados_pct=asal[j] * 100, valor_precio_solo_asalariado=va[j]))
+            mad = float((w[ok] * np.abs(v[ok] - 1)).sum() / w[ok].sum())
             cc = pd.DataFrame({'pv': 1 / v[ok], 'k': comp[ok]}).replace([np.inf, -np.inf], np.nan).dropna()
             rho = float(cc.pv.rank().corr(cc.k.rank())) if len(cc) > 5 else np.nan
             desv_f.append(dict(pais=c, anio=y, ramas=int(ok.sum()), desviacion_media=mad, spearman_precio_valor_composicion=rho,
-                               expresion_monetaria_usd_hora=mu))
-            Xp, Mp = exp[p].sum(), imp[p].sum()
-            hx = float((lp * exp[p]).sum()); hm = float((lbar * imp[p]).sum())
+                               expresion_monetaria_usd_hora=mu, educacion_salud_capitalista_pct=float(f[PUB].mean() * 100)))
+            ex, im = exp * f, imp * f
+            Xp, Mp = ex.sum(), im.sum()
+            hx = float((lp * ex).sum()); hm = float((lbar * im).sum())
             if Xp > 0 and Mp > 0:
-                hrec = hm * Xp / Mp
+                hrec = hm * Xp / Mp; htot = float((l * w).sum())
                 com_f.append(dict(pais=c, anio=y, horas_cedidas_mill=hx, horas_recibidas_mill=hrec, transferencia_mill_h=hrec - hx,
-                                  horas_totales_mill=float(datos[c][5][p] @ x[p]), transferencia_pct_horas=(hrec - hx) / float(datos[c][5][p] @ x[p]) * 100))
+                                  horas_totales_mill=htot, transferencia_pct_horas=(hrec - hx) / htot * 100))
     R = pd.DataFrame(ramas_f); D = pd.DataFrame(desv_f); C = pd.DataFrame(com_f)
     R.to_csv(os.path.join(dir_out, 'transformacion_ramas.csv'), index=False)
     D.to_csv(os.path.join(dir_out, 'transformacion_desviaciones.csv'), index=False)
     C.to_csv(os.path.join(dir_out, 'transformacion_comercio.csv'), index=False)
-    MT, MR = moseley_tssi(N, S, anios)
+    MT, MR = moseley_tssi(N, S, anios, phi_de)
     MT.to_csv(os.path.join(dir_out, 'transformacion_moseley_tssi.csv'), index=False)
     MR.to_csv(os.path.join(dir_out, 'transformacion_moseley_ramas.csv'), index=False)
     W = ponderacion_mundial(dir_datos, mundo_paises) if mundo_paises is not None else pd.DataFrame()
     if not W.empty: W.to_csv(os.path.join(dir_out, 'transformacion_masa_ponderada.csv'), index=False)
-    return dict(R=R, D=D, C=C, W=W, MT=MT, MR=MR)
+    # F4 v3: resultados con las tablas mundiales ICIO de la OCDE (2000–2022), calculados en Actions (herramientas/icio.py)
+    di = os.path.join(RAIZ, 'datos_cache', 'externo', 'icio')
+    IP = pd.read_csv(os.path.join(di, 'icio_paises.csv')) if os.path.exists(os.path.join(di, 'icio_paises.csv')) else pd.DataFrame()
+    if not IP.empty: IP.to_csv(os.path.join(dir_out, 'transformacion_icio_paises.csv'), index=False)
+    return dict(R=R, D=D, C=C, W=W, MT=MT, MR=MR, ICIO_P=IP)
 
 
 def ponderacion_mundial(dir_datos, P, variante='educación y salud públicas fuera'):
@@ -239,9 +278,10 @@ def _cv(x, w):
     return float(np.sqrt(np.average((x[ok] - m) ** 2, weights=w[ok])) / abs(m)) if m else np.nan
 
 
-def moseley_tssi(N, S, anios):
-    """F4 v2: valores y precios de producción con la interpretación de Moseley y la variante temporal (TSSI)."""
-    p = PROD; rp = np.array(RAMAS)[p]
+def moseley_tssi(N, S, anios, phi_de=None):
+    """F4 v2: valores y precios de producción con la interpretación de Moseley y la variante temporal (TSSI).
+    v3: educación y salud entran por su parte capitalista (fracción f = 1 − g de la rama, con la misma estructura)."""
+    rp = np.array(RAMAS)
     filas, ramas = [], []
     for c, d in N.items():
         prev = None
@@ -254,12 +294,13 @@ def moseley_tssi(N, S, anios):
             go_sea = g['GO'].values
             if x.sum() <= 0 or not np.nansum(go_sea) > 0: prev = None; continue
             fx = np.nansum(go_sea) / x.sum()                                     # moneda nacional por dólar
+            f = phi_de(c, y) if phi_de else PROD.astype(float)
             Z = (A + M) * x                                                      # insumos (columnas = rama que compra)
-            cj = Z[np.ix_(p, p)].sum(axis=0) * fx                                # insumos productivos, moneda nacional
-            GO = x[p] * fx; v = g['COMP'].values[p]; K = g['K'].values[p]
-            ce = np.where(np.isfinite(g['LAB'].values[p]), g['LAB'].values[p], v) - v  # ingreso laboral de los no asalariados
+            cj = (f @ Z) * f * fx                                                # insumos de la parte capitalista de los proveedores, moneda nacional
+            GO = x * f * fx; v = g['COMP'].values * f; K = g['K'].values * f
+            ce = (np.where(np.isfinite(g['LAB'].values), g['LAB'].values, g['COMP'].values) - g['COMP'].values) * f  # ingreso laboral de los no asalariados
             ce = np.where(np.isfinite(ce) & (ce > 0), ce, 0.0)
-            ok = (GO > 0) & np.isfinite(v) & np.isfinite(K) & (K > 0)
+            ok = (f > 0) & (GO > 0) & np.isfinite(v) & np.isfinite(K) & (K > 0)
             if ok.sum() < 10: prev = None; continue
             def medir(cc, KK, var):
                 Sx = float((GO[ok] - cc[ok] - v[ok] - ce[ok]).sum()); V = float(v[ok].sum())
@@ -281,9 +322,9 @@ def moseley_tssi(N, S, anios):
                                   valor_sobre_precio=W[j] / GO[j], pp_sobre_precio=PP[j] / GO[j], transferencia_pct_valor=(PP[j] - W[j]) / W[j] * 100,
                                   tasa_efectiva=rate[j], tasa_en_valores=rate_w[j], tasa_general=res['r']))
             if prev is not None:
-                pi = g['II_PI'].values[p] / prev['II_PI']
+                pi = g['II_PI'].values / prev['II_PI']
                 pi = np.where(np.isfinite(pi) & (pi > 0), pi, np.nanmedian(pi[np.isfinite(pi) & (pi > 0)]) if np.isfinite(pi).any() else 1.0)
                 Kp = np.where(np.isfinite(prev['K']) & (prev['K'] > 0), prev['K'], K)
                 filas.append(medir(cj / pi, Kp, 'TSSI')[0])
-            prev = dict(II_PI=g['II_PI'].values[p], K=K)
+            prev = dict(II_PI=g['II_PI'].values, K=K)
     return pd.DataFrame(filas), pd.DataFrame(ramas)

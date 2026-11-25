@@ -53,4 +53,6 @@ Todas las obras citadas en el sitio (portada, Lectura y metodología). Las fuent
 - Bai, J. y Perron, P. (1998). Estimating and testing linear models with multiple structural changes. *Econometrica*, 66(1), 47–78.
 - Bai, J. y Perron, P. (2003). Computation and analysis of multiple structural change models. *Journal of Applied Econometrics*, 18(1), 1–22.
 - Feenstra, R. C., Inklaar, R. y Timmer, M. P. (2015). The next generation of the Penn World Table. *American Economic Review*, 105(10), 3150–3182.
+- OCDE (2025a). *Inter-Country Input-Output (ICIO) Tables*, edición 2025. París: OCDE. https://www.oecd.org/en/data/datasets/inter-country-input-output-tables.html
+- OCDE (2025b). *Trade in Employment (TiM)*, edición 2025. París: OCDE. https://www.oecd.org/en/data/datasets/trade-in-employment.html
 - Timmer, M. P., Dietzenbacher, E., Los, B., Stehrer, R. y de Vries, G. J. (2015). An illustrated user guide to the World Input–Output Database: The case of global automotive production. *Review of International Economics*, 23(3), 575–605.
