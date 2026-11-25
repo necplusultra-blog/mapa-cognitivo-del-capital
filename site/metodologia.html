@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Metodología — Sismógrafo del capital</title>
-<link rel="stylesheet" href="style.css?v=dce0c862611250330">
+<link rel="stylesheet" href="style.css?v=4a93ff12611250339">
 </head>
 <body class="doc">
 <a class="saltar" href="#contenido">Ir al contenido</a>
@@ -306,7 +306,8 @@
 <li><strong>Destino del tiempo liberado</strong> respecto de 1972, en una jornada de 40 horas: más consumo obrero = trabajo necesario efectivo − tiempo al nivel de 1972; más plustrabajo = plustrabajo<sub>t</sub> − plustrabajo<sub>1972</sub>; reducción de la jornada de referencia = 0. Las tres partes suman exactamente el tiempo liberado.</li>
 <li><strong>Mundo:</strong> horas anuales de trabajo productivo, de plustrabajo y necesario (la diferencia) de los países medidos rama por rama, por habitante de esos países (población de la Penn World Table, extrapolada después de su último año con el crecimiento medio de los tres años anteriores), en minutos por día.</li>
 </ul>
-<p>Supuestos y límites: el deflactor del PIB no es el de la canasta obrera; el trabajo productivo para el capital no es todo el trabajo socialmente necesario (quedan fuera los servicios públicos, los cuidados, el trabajo doméstico y el campesino); las cifras no estiman la jornada de una sociedad emancipada, en la que el trabajo necesario incluiría los fondos comunes de reposición, ampliación y servicios. Resultados: <code>fuerzas_eeuu.csv</code> y <code>fuerzas_mundo.csv</code>.</p>
+<p><strong>Versión 2.</strong> (a) El tiempo al nivel de vida de 1972 se calcula también con el deflactor del gasto de consumo personal (PCE): 40 × w<sub>1972</sub> × (PCE<sub>t</sub>/PCE<sub>1972</sub>) / μ<sub>t</sub>. Da 6,9 horas en 2025, frente a 6,8 con el deflactor del PIB: el reparto del tiempo liberado apenas cambia (60 % a plustrabajo, 40 % a consumo). (b) Además de la jornada legal de 40 horas, se usa la semana habitual de los asalariados a tiempo completo (OCDE, a partir de la CPS; desde 1979): 41,2 horas en 1979 y 41,0 en 2025. Con ella, el plustrabajo semanal pasa de 27,8 a 31,1 horas. (c) En el mundo, una variante suma las horas de los asalariados de la educación y la salud públicas y sin fines de lucro, trabajo improductivo para el capital pero socialmente necesario: 9 minutos diarios por habitante en 2025, que llevan el total de 74 a 83 minutos.</p>
+<p>Supuestos y límites: el deflactor del PIB no es exactamente el de la canasta obrera (el PCE se usa como contraste; tampoco es la canasta obrera, sino el consumo de todos los hogares); el trabajo productivo para el capital no es todo el trabajo socialmente necesario (la variante mundial agrega sólo la educación y la salud públicas; quedan fuera la administración, los cuidados, el trabajo doméstico y el campesino); las cifras no estiman la jornada de una sociedad emancipada, en la que el trabajo necesario incluiría los fondos comunes de reposición, ampliación y servicios. Resultados: <code>fuerzas_eeuu.csv</code> y <code>fuerzas_mundo.csv</code>.</p>
 </section>
 <section id="trimestral" class="seccion">
 <h2 id="estimacion-trimestral">Estimación trimestral</h2>
