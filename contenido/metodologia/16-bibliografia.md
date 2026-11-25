@@ -50,6 +50,12 @@ Todas las obras citadas en el sitio (portada, Lectura y metodología). Las fuent
 
 **Métodos y bases de datos**
 
+- Banco Mundial [Datta, N., Rong, C., Singh, S., Stinshoff, C. et al.] (2023). *Working Without Borders: The Promise and Peril of Online Gig Work*. Washington, D.C.: Banco Mundial. http://hdl.handle.net/10986/40066
+- BLS (2018). Electronically mediated work: new questions in the Contingent Worker Supplement. *Monthly Labor Review*, septiembre. Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/cps/electronically-mediated-employment.htm
+- BLS (2024). *Contingent and Alternative Employment Arrangements — July 2023* (USDL-24-2267). Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/news.release/conemp.nr0.htm
+- Eurofound (2007). *Fourth European Working Conditions Survey*. Luxemburgo: Oficina de Publicaciones de la Unión Europea.
+- Eurofound (2016). *Sixth European Working Conditions Survey: Overview report*. Luxemburgo: Oficina de Publicaciones de la Unión Europea.
+- Eurofound (2025). *European Working Conditions Survey 2024: Overview report*. Luxemburgo: Oficina de Publicaciones de la Unión Europea.
 - Bai, J. y Perron, P. (1998). Estimating and testing linear models with multiple structural changes. *Econometrica*, 66(1), 47–78.
 - Bai, J. y Perron, P. (2003). Computation and analysis of multiple structural change models. *Journal of Applied Econometrics*, 18(1), 1–22.
 - Feenstra, R. C., Inklaar, R. y Timmer, M. P. (2015). The next generation of the Penn World Table. *American Economic Review*, 105(10), 3150–3182.

@@ -21,6 +21,7 @@ menu: Referencias
 
 **Lecturas del debate**
 
+- Banco Mundial [Datta, N., Rong, C., Singh, S., Stinshoff, C. et al.] (2023). *Working Without Borders: The Promise and Peril of Online Gig Work*. Washington, D.C.: Banco Mundial. http://hdl.handle.net/10986/40066
 - Carchedi, G. y Roberts, M. (Eds.). (2018). *World in Crisis: A Global Analysis of Marx's Law of Profitability*. Chicago: Haymarket Books.
 - Carchedi, G. y Roberts, M. (2022). *Capitalism in the 21st Century: Through the Prism of Value*. Londres: Pluto Press.
 - Duménil, G. y Lévy, D. (2002). The profit rate: Where and how much did it fall? Did it recover? (USA 1948–2000). *Review of Radical Political Economics*, 34(4), 437–461.
