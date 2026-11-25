@@ -135,11 +135,12 @@ def escribir(ee, mu, dir_site):
             s_ = IP[IP.fuente_horas == 'TiM'].groupby('anio').agg(desv_mediana=('desviacion_media', 'median'))
             for c in ('USA', 'DEU', 'CHN', 'IND', 'MEX', 'BRA'):
                 s_['desv_' + c] = IP[IP.pais == c].set_index('anio').desviacion_media
-            s_ = (s_ * 100).round(2); s_.index.name = 'anio'
+            todos = range(int(IP.anio.min()), int(IP.anio.max()) + 1)          # años sin tabla: filas vacías (cortan la línea)
+            s_ = (s_.reindex(todos) * 100).round(2); s_.index.name = 'anio'
             cm = IP.pivot_table(index='anio', columns='pais', values='transferencia_mill_h') / 1000
             alto_i = [c for c in cm.columns if grupos.get(c) == 'High income']
             cmj = pd.DataFrame({'altos_ingresos': cm[alto_i].sum(axis=1), **{c: cm.get(c) for c in ('USA', 'DEU', 'JPN', 'CHN', 'IND', 'MEX', 'BRA')}}).round(2)
-            cmj.index.name = 'anio'
+            cmj = cmj.reindex(todos); cmj.index.name = 'anio'
             ui = int(IP.anio.max()); pu = IP[IP.anio == ui]
             ic = dict(serie=_rows(s_), comercio=_rows(cmj), anio_fin=ui, n_paises=int((pu.fuente_horas == 'TiM').sum()),
                       desv_fin=float(pu[pu.fuente_horas == 'TiM'].desviacion_media.median() * 100))

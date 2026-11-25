@@ -4,8 +4,8 @@ El servidor de la OCDE rechaza las descargas automáticas: los zip se bajan a ma
 https://www.oecd.org/en/data/datasets/inter-country-input-output-tables.html (versión «regular»/SML) y se procesan
 localmente (ICIO_TMP=<carpeta con los zip> ICIO_ZIPS="2020-2024_SML.zip ..." ICIO_BORRAR=0 python herramientas/icio.py)
 o se suben como adjuntos de la versión «icio-2025» del repositorio para el workflow «ICIO OCDE». El script procesa los
-que encuentre. Guarda sólo resultados compactos en datos_cache/externo/icio/. Hoy: 2020–2024 (edición 2026; 2023 y 2024
-son proyecciones de la OCDE). El empleo de TiM llega a 2022: después se mantiene su estructura por rama y se escala con la
+que encuentre. Guarda sólo resultados compactos en datos_cache/externo/icio/. Hoy: 2000–2005 sin 2003 (edición 2025) y 2015–2024
+(edición 2026; 2023 y 2024 son proyecciones de la OCDE). El empleo de TiM llega a 2022: después se mantiene su estructura por rama y se escala con la
 ocupación total de la PWT (fuente_horas = «TiM 2022 × ocupación PWT»).
 
 Qué calcula, para cada año

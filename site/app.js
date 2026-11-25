@@ -29,8 +29,9 @@ function lineChart(id, rows, series, o = {}) {
   (o.bands || []).forEach((b, i) => svg.append('path').datum(rows).attr('d', d3.area().x((r) => x(r.anio)).y0((r) => y(+r[b[0]])).y1((r) => y(+r[b[1]]))).style('fill', C[0]).style('fill-opacity', i ? 0.3 : 0.14));
   if (o.ref != null) svg.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y(o.ref)).attr('y2', y(o.ref)).style('stroke', 'var(--muted)').attr('stroke-dasharray', '3,3');
   series.forEach((s, i) => {
-    const pts = rows.filter((r) => r[s.key] != null); const cut = o.prov != null && o.prov >= 0 ? o.prov : Infinity;
-    const ln = d3.line().x((r) => x(r.anio)).y((r) => y(+r[s.key])); const col = C[(s.c ?? i) % C.length];
+    // o.cortes: los años sin dato interrumpen la línea en vez de unir los extremos
+    const pts = o.cortes ? rows : rows.filter((r) => r[s.key] != null); const cut = o.prov != null && o.prov >= 0 ? o.prov : Infinity;
+    const ln = d3.line().defined((r) => r[s.key] != null).x((r) => x(r.anio)).y((r) => y(+r[s.key])); const col = C[(s.c ?? i) % C.length];
     svg.append('path').datum(pts.filter((r) => r.anio < cut)).attr('d', ln).attr('data-key', s.key).style('fill', 'none').style('stroke', col).style('stroke-width', 2);
     if (cut !== Infinity) svg.append('path').datum(pts.filter((r) => r.anio >= cut - 1)).attr('d', ln).attr('data-key', s.key).style('fill', 'none').style('stroke', col).style('stroke-width', 2).attr('stroke-dasharray', '4,3');
   });
@@ -428,10 +429,10 @@ function drawTF(T) {
     const ci = I.comercio[I.comercio.length - 1]; if (ci) { set('tf-icalto', f0(ci.altos_ingresos)); set('tf-icchn', f0(ci.CHN)); set('tf-icind', f0(ci.IND)); }
     const s5 = [['desv_mediana', 'Mediana de los países'], ['desv_USA', 'EE.UU.'], ['desv_DEU', 'Alemania'], ['desv_CHN', 'China'], ['desv_IND', 'India'], ['desv_MEX', 'México']];
     legend('l-tf-idesv', s5.map((x) => x[1]));
-    lineChart('c-tf-idesv', I.serie, s5.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Desviación media de los precios respecto de los valores con las tablas mundiales de la OCDE' });
+    lineChart('c-tf-idesv', I.serie, s5.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Desviación media de los precios respecto de los valores con las tablas mundiales de la OCDE', cortes: true });
     const s6 = [['altos_ingresos', 'Países de altos ingresos'], ['USA', 'EE.UU.'], ['DEU', 'Alemania'], ['CHN', 'China'], ['IND', 'India'], ['MEX', 'México']];
     legend('l-tf-icom', s6.map((x) => x[1]));
-    lineChart('c-tf-icom', I.comercio, s6.map(([key, label]) => ({ key, label })), { tipfmt: (v) => d3.format(',.0f')(v) + ' mil millones de h', ref: 0, aria: 'Trabajo incorporado en el comercio exterior con las tablas mundiales de la OCDE' });
+    lineChart('c-tf-icom', I.comercio, s6.map(([key, label]) => ({ key, label })), { tipfmt: (v) => d3.format(',.0f')(v) + ' mil millones de h', ref: 0, aria: 'Trabajo incorporado en el comercio exterior con las tablas mundiales de la OCDE', cortes: true });
   }
   if (T.ponderada && T.ponderada.length) {
     const W = T.ponderada, w = W[W.length - 1];
