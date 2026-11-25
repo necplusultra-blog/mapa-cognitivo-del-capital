@@ -5,7 +5,7 @@ lugar: portada
 ---
 # Mapa cognitivo del capitalismo contemporáneo
 
-El objetivo de este mapa cognitivo del capitalismo es dar cuenta de las tendencias fundamentales del capitalismo contemporáneo. Lo hace por dos vías que se cruzan: el estudio de una gran variedad de datos empíricos —estadísticas nacionales relativas a empleo, horas de trabajo, capital, comercio, matrices insumo-producto, así como estadísticas oficiales de organismos internacionales como OCDE, ONU, OIT relativas a las mismas materias—, traducidos a las categorías de la crítica de la economía política, y el cruce de las principales lecturas marxistas contemporáneas que investigan esos mismos datos. 
+El objetivo de este mapa cognitivo del capitalismo es dar cuenta de las tendencias fundamentales del capitalismo contemporáneo. Lo hace por dos vías que se convergen y se cruzan: el estudio de una gran variedad de datos empíricos —estadísticas nacionales relativas a empleo, horas de trabajo, capital, comercio, matrices insumo-producto, así como estadísticas oficiales de organismos internacionales como OCDE, ONU, OIT relativas a las mismas materias—, traducidos a las categorías de la crítica de la economía política, y el cruce de las principales lecturas marxistas contemporáneas que investigan esos mismos datos. 
 
 El fundamento teórico de este proyecto está, por consiguiente, en la crítica marxiana de la economía política —desplegada por Marx en escritos como *El Capital* y los *Grundrisse*, así como en los diversos manuscritos ligados a su proyecto de crítica inmanente de la sociedad capitalista— y en una apropiación crítica de sus diversas lecturas contemporáneas —como, por ejemplo, las de Moishe Postone, Michael Heinrich, Robert Kurz, Michael Roberts, entre otras—.
 
