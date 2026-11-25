@@ -146,6 +146,16 @@ def calcular(dir_datos, dir_out):
         except Exception as e:  # noqa: BLE001
             print('Medición ONU por rama omitida:', repr(e))
         try:
+            from sismografo import tim_ramas
+            RT = tim_ramas.calcular(share_ees, VARIANTES)
+            if not RT.empty:
+                X, diag_tim = combinar_un(P, X, RT, etiqueta='OCDE TiM por rama')
+                X = combinar_tim_obreros(P, X, RT)
+                RT.to_csv(os.path.join(dir_out, 'mundo_horas_tim_ramas.csv'), index=False)
+                diag_tim.to_csv(os.path.join(dir_out, 'mundo_horas_tim_diagnostico.csv'), index=False)
+        except Exception as e:  # noqa: BLE001
+            print('Medición TiM por rama (China) omitida:', repr(e))
+        try:
             X, diag_ilo = combinar_ilo(P, X, piv)
             diag_ilo.to_csv(os.path.join(dir_out, 'mundo_horas_ilo_secciones.csv'), index=False)
         except Exception as e:  # noqa: BLE001
@@ -322,7 +332,7 @@ def _encadenar(base, idx_o, idx_i, anios):
     return pd.Series(out), ultimo
 
 
-def combinar_un(P, X, RU):
+def combinar_un(P, X, RU, etiqueta='ONU por rama (tabla 2.6)'):
     """Tasa de plusvalor y depreciación medidas por rama en las cuentas oficiales de la ONU (véase un_ramas.py),
     encadenadas al nivel WIOD de 2014. Cada serie estadística (segmento) se encadena por separado; entre segmentos,
     y después del último, la variación es la de la extensión agregada."""
@@ -353,12 +363,37 @@ def combinar_un(P, X, RU):
             y = int(X.at[i, 'anio'])
             X.at[i, 'e'] = nuevo[y]; X.at[i, 'r'] = nuevo_r[y]
             if y in medidos:
-                X.at[i, 'fuente_e'] = 'ONU por rama (tabla 2.6)'
+                X.at[i, 'fuente_e'] = etiqueta
         if var == VARIANTES[0][0] and medidos:
             g0 = R[(R.anio == base)]
             diag.append(dict(pais=c, desde=base, hasta=max(medidos), e_wiod_2014=float(b.e.iloc[0]),
-                             e_onu_2014=float(g0.e.iloc[0]) if len(g0) else np.nan, e_2014_a_ultimo=float(nuevo[max(medidos)] / nuevo[base])))
+                             **{('e_onu_2014' if 'ONU' in etiqueta else 'e_tim_2014'): float(g0.e.iloc[0]) if len(g0) else np.nan}, e_2014_a_ultimo=float(nuevo[max(medidos)] / nuevo[base])))
     return X, pd.DataFrame(diag)
+
+
+def combinar_tim_obreros(P, X, RT):
+    """China: el número de asalariados productivos sigue, hasta 2022, la variación medida por rama con TiM (ocupados de las
+    ramas productivas × proporción asalariada s); después, la de la extensión agregada. Horas por asalariado constantes."""
+    base = int(P.anio.max()); X = X.copy()
+    for (c, var), R in RT.groupby(['pais', 'variante']):
+        m = (X.pais == c) & (X.variante == var)
+        b = P[(P.pais == c) & (P.variante == var) & (P.anio == base)]
+        R = R.set_index('anio').sort_index()
+        if not m.any() or b.empty or base not in R.index: continue
+        idx = R.obreros_productivos_mill / R.obreros_productivos_mill[base]
+        ult = int(R.index.max()); N0 = float(b.obreros_mill.iloc[0])
+        viejo = X.loc[m].set_index('anio').obreros_mill
+        hpw = float(b.horas_mill.iloc[0] / b.obreros_mill.iloc[0])
+        for i in X.index[m]:
+            y = int(X.at[i, 'anio'])
+            if y <= ult and y in idx.index:
+                N = N0 * idx[y]; X.at[i, 'fuente_obreros'] = 'OCDE TiM por rama'
+            elif y > ult and ult in viejo.index:
+                N = N0 * idx[ult] * viejo[y] / viejo[ult]
+            else:
+                continue
+            X.at[i, 'obreros_mill'] = N; X.at[i, 'horas_mill'] = N * hpw
+    return X
 
 
 PAISES_ILO = ['BRA', 'CHN', 'IDN', 'IND', 'RUS', 'MEX', 'TUR', 'CYP', 'MLT']
@@ -391,7 +426,7 @@ def combinar_ilo(P, X, piv):
                 X.at[i, 'obreros_mill'], X.at[i, 'horas_mill'] = N, H
                 X.at[i, 'fuente_obreros'] = f'OIT por sección ({ind.fuente_secciones.dropna().iloc[0]})'
                 if tiene_h: X.at[i, 'fuente_horas'] = 'OIT por sección'
-                if tiene_q and X.at[i, 'fuente_e'] not in ('OCDE por rama', 'ONU por rama (tabla 2.6)'):
+                if tiene_q and X.at[i, 'fuente_e'] not in ('OCDE por rama', 'ONU por rama (tabla 2.6)', 'OCDE TiM por rama'):
                     X.at[i, 'e'] = (1 + X.at[i, 'e']) * q[b] / q[y] - 1
                     X.at[i, 'fuente_e'] = 'OIT (participación del trabajo) + masa salarial por sección'
             if variante == VARIANTES[0][0]:
