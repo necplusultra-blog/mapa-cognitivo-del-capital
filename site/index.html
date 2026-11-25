@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sismógrafo del capital — tasa y masa de ganancia y de plusvalor</title>
 <meta name="description" content="Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, en dinero y en tiempo de trabajo: EE.UU. y mundo, como multiverso de especificaciones teóricamente explícitas.">
-<link rel="stylesheet" href="style.css?v=0d5405c2611242337">
+<link rel="stylesheet" href="style.css?v=d7285682611250134">
 <script src="vendor/d3.min.js"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
 <h1 id="sismografo-del-capital">Sismógrafo del capital</h1>
 <p class="lede">El objetivo del sismógrafo es dar cuenta de las tendencias fundamentales de la producción capitalista contemporánea. Lo hace por dos vías que se cruzan: el estudio de una gran variedad de datos empíricos —cuentas nacionales, empleo, horas de trabajo, capital, comercio, matrices insumo-producto—, traducidos a las categorías de la crítica de la economía política, y el cruce de las principales interpretaciones marxistas, que se ponen a leer los mismos datos. Un sismógrafo no predice el terremoto: registra temblores y rupturas.</p>
 <p>Registra la tasa y la masa de ganancia y de plusvalor como un <em>multiverso</em> de especificaciones, cada una ligada a una decisión teórica explícita, y se actualiza cuando las fuentes publican datos nuevos. Registra también el estado de las fuerzas productivas que el capital desarrolla: cuánto tiempo de trabajo hace falta para reproducir a quienes producen, y en qué convierte el capital el tiempo que ese desarrollo libera. En esa conversión está contenido, como posibilidad objetiva, el <a href="#fuerzas">tiempo disponible</a>.</p>
-<p>Los datos se interpretan desde la crítica marxiana de la economía política: la ganancia es una forma de aparición del plusvalor, y el plusvalor es trabajo impago de los obreros productivamente explotados. El sismógrafo usa inteligencia artificial para procesar las enormes cantidades de datos estadísticos y contables que lo hacen posible; las decisiones teóricas que orientan ese procesamiento son explícitas y se documentan en cada bifurcación. La <a href="metodologia.html">metodología completa</a> reúne fuentes, fórmulas, decisiones, empalmes y limitaciones, para que cualquier investigador pueda auditar los resultados. La <a href="lectura.html">primera lectura de los resultados</a> los interpreta desde la teoría de los límites inmanentes del capital.</p>
+<p>El sismógrafo pretende retomar y continuar el proyecto, necesariamente inconcluso, de la <a href="lectura.html#critica">crítica marxiana de la economía política</a>, no hacer economía política crítica. Por eso lo cualitativo va primero: la ganancia es una forma de aparición del plusvalor, el plusvalor es trabajo impago de los obreros productivamente explotados, y las cifras registran la manifestación de esas determinaciones conceptuales, no las demuestran. Como Marx procesó en vida una enorme cantidad de datos económicos para elaborar el concepto de capital, el sismógrafo usa inteligencia artificial para procesar los datos y las fuentes oficiales que hoy serían imposibles de reunir a mano; las decisiones teóricas que orientan ese procesamiento son explícitas y se documentan en cada bifurcación. La <a href="metodologia.html">metodología completa</a> reúne fuentes, fórmulas, decisiones, empalmes y limitaciones, para que cualquier investigador pueda auditar los resultados. La <a href="lectura.html">primera lectura de los resultados</a> los interpreta desde la teoría de los límites inmanentes del capital.</p>
 <p class="agradecimiento">El sismógrafo es un trabajo que se realiza en el marco de mi proyecto de tesis doctoral, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em> (Doctorado en Sociología, ICSyH «Alfonso Vélez Pliego», BUAP), que desarrollo con una beca de la Secretaría de Ciencia, Humanidades, Tecnología e Innovación (SECIHTI), número 4052073. Agradezco a la clase trabajadora mexicana, que con su trabajo hace posible esta beca, y espero estar dándole un uso útil. — Pablo Ignacio Jiménez Cea</p>
 <p class="actualizacion">Datos actualizados el <span id="m-act">—</span>. EE.UU. hasta <span id="m-fin">—</span>; mundo hasta <span id="m-wfin">—</span>.</p>
 </div>
@@ -290,6 +290,33 @@
 <div class="legend" id="l-hm"></div>
 <figure class="placa"><div class="chart" id="c-hm"></div></figure>
 
+<div hidden id="rn-bloque">
+<h3 id="resiste-el-estancamiento-de-la-masa-neta-distintas-estimaciones-de-la-depreciacion-de-china-e-india">¿Resiste el estancamiento de la masa neta? Distintas estimaciones de la depreciación de China e India</h3>
+<p class="llano">China e India aportan dos tercios de la masa mundial, y su depreciación es la estimación más incierta de toda la medición. Aquí se recalcula la masa neta con cinco estimaciones alternativas, cambiando sólo la depreciación de esos dos países: más baja y más alta que la central, la del Banco Mundial, la mediana de los demás países y la de 2018 congelada. En todas, la masa neta crece con fuerza entre 2000 y 2018 y después queda prácticamente plana: entre 2018 y el último año cambia <span id="rn-rango">—</span>. El estancamiento no es un efecto de la estimación de la depreciación.</p>
+<div class="legend" id="l-rn"></div>
+<figure class="placa">
+<div class="chart short" id="c-rn"></div>
+</figure>
+<div class="tablewrap">
+<table>
+<thead>
+<tr>
+<th>Depreciación de China e India</th>
+<th>2000</th>
+<th>2018</th>
+<th>Último año</th>
+<th>2000–2018</th>
+<th>2018–último año</th>
+</tr>
+</thead>
+<tbody id="t-rn"></tbody>
+</table>
+</div>
+<details class="como">
+<summary>¿Cómo se calculan estas variantes?</summary>
+<p>Sólo cambia la proporción depreciación/PIB de China e India; los demás países quedan como en la central. <strong>Central:</strong> Penn World Table, δ·K/Y. <strong>PWT × 0,8 y × 1,2:</strong> tasa de depreciación un 20 % menor o mayor. <strong>Banco Mundial:</strong> consumo de capital fijo en % del ingreso nacional bruto (NY.ADJ.DKAP.GN.ZS), con el último dato mantenido en los años siguientes. <strong>Mediana:</strong> la mediana de la depreciación/PIB de los demás países medidos ese año. <strong>Constante desde 2018:</strong> la proporción de 2018 congelada, para aislar el efecto de su aumento posterior. En todos los casos, r = depreciación/PIB × valor agregado de mercado / v; e<sub>neta</sub> = e − r; masa neta = horas × e<sub>neta</sub> / (1 + e<sub>neta</sub>), como en la central. Resultado: <code>mundo_neta_robustez.csv</code>.</p>
+</details>
+</div>
 <h3 id="tasa-de-plusvalor-mundial-en-horas-plustrabajo-trabajo-necesario">Tasa de plusvalor mundial en horas: plustrabajo / trabajo necesario</h3>
 <p class="llano">Cuántas horas trabaja para el capital un asalariado productivo del mundo por cada hora que trabaja para reponer su salario. Es casi constante: en promedio, el capital mundial no ha elevado el grado de explotación en este siglo. La masa crece porque hay más asalariados, no porque cada uno trabaje más para el capital. La versión neta baja, porque cada hora de trabajo pone en movimiento más capital fijo que hay que reponer.</p>
 <div class="legend" id="l-hme"></div>
@@ -525,8 +552,8 @@
 </details>
 </section>
 <section id="supuestos" class="seccion" hidden>
-<h2 id="que-cuenta-como-plusvalor-tres-ajustes-a-las-cuentas-nacionales">Qué cuenta como plusvalor: tres ajustes a las cuentas nacionales</h2>
-<p class="llano">Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría de Marx tienen orígenes distintos. El sismógrafo separa dos de ellas en su medición central: resta lo que los hogares pagan a las finanzas con sus salarios, que es plusvalor desplazado desde el salario y no plusvalor producido, y suma, en la escala mundial, la renta que las empresas pagan por sus locales, que sí es plusvalor producido. Esta sección muestra cuánto cambian las cifras respecto de la convención de las cuentas, y registra un tercer supuesto, el de la supervisión.</p>
+<h2 id="que-cuenta-como-plusvalor-cuatro-supuestos-frente-a-las-cuentas-nacionales">Qué cuenta como plusvalor: cuatro supuestos frente a las cuentas nacionales</h2>
+<p class="llano">Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría de Marx tienen orígenes distintos. El sismógrafo separa dos de ellas en su medición central: resta lo que los hogares pagan a las finanzas con sus salarios, que es plusvalor desplazado desde el salario y no plusvalor producido, y suma, en la escala mundial, la renta que las empresas pagan por sus locales, que sí es plusvalor producido. Esta sección muestra cuánto cambian las cifras respecto de la convención de las cuentas, y registra otros dos supuestos que se mantienen como sensibilidad: la supervisión y el salario social neto.</p>
 <div class="cifras"><div class="cifra"><div class="valor" id="bb-fh">—</div><div class="etiqueta">Plusvalor desplazado desde los salarios hacia las finanzas en EE.UU., como parte del plusvalor de las cuentas, <span class="bb-fin">—</span></div><div class="nota">1948: <span id="bb-fh48">—</span></div></div><div class="cifra"><div class="valor" id="bb-ec">—</div><div class="etiqueta">Tasa de plusvalor intra-rama de EE.UU., <span class="bb-fin">—</span> (central)</div><div class="nota">con los pagos de los hogares, como en las cuentas: <span id="bb-ec0">—</span></div></div><div class="cifra"><div class="valor" id="bb-sup">—</div><div class="etiqueta">Parte de la remuneración de las ramas productivas de EE.UU. que no es de obreros de producción y no supervisores, <span class="bb-fin">—</span></div><div class="nota">1972: <span id="bb-sup72">—</span></div></div></div>
 
 <h3 id="explotacion-secundaria-lo-que-los-hogares-pagan-a-las-finanzas">Explotación secundaria: lo que los hogares pagan a las finanzas</h3>
@@ -539,6 +566,13 @@
 
 <h3 id="supervision-y-direccion">Supervisión y dirección</h3>
 <p class="llano">Marx distingue (<em>El Capital</em>, Libro III, cap. XXIII) el trabajo de dirección, necesario en toda cooperación, del trabajo de vigilancia, que nace del antagonismo entre capital y trabajo. Las estadísticas no los separan. El sitio usa dos cotas: el criterio por ramas cuenta a todos los asalariados de las ramas productivas, gerentes incluidos, como capital variable; el criterio intra-rama cuenta sólo a los obreros de producción y no supervisores, y deja los sueldos de supervisión dentro del plusvalor. La segunda línea del gráfico anterior muestra que la distancia entre ambas cotas crece: la parte de la remuneración que va a supervisores, gerentes y personal no productivo dentro de las ramas productivas sube desde los setenta. Es el fenómeno que Duménil y Lévy (2011) leen como ascenso de los cuadros gerenciales, y Moseley (1991) como crecimiento del trabajo improductivo.</p>
+<h3 id="salario-social-neto-lo-que-el-estado-devuelve-y-lo-que-cobra">Salario social neto: lo que el Estado devuelve y lo que cobra</h3>
+<p class="llano">El Estado cobra impuestos y contribuciones a los trabajadores y les devuelve prestaciones: pensiones, seguro de desempleo, salud pública, educación. Si devolviera más de lo que cobra, estaría trasladando al salario una parte del plusvalor que recauda de los capitales; si devuelve menos, son los propios trabajadores quienes financian su seguridad social. Shaikh y Tonak (1994) llaman a esa diferencia salario social neto. En EE.UU. es pequeño y casi siempre negativo: los trabajadores pagan, en conjunto, algo más de lo que reciben. Sólo después de la crisis de 2008 y durante la pandemia fue positivo. Por eso no cambia las conclusiones, y el sitio lo muestra como sensibilidad.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="bb-ssn">—</div><div class="etiqueta">Salario social neto de EE.UU., <span class="bb-fin">—</span>, como parte de la remuneración de los asalariados</div><div class="nota">tasa de plusvalor intra-rama si se incluye: <span id="bb-essn">—</span> (central: <span id="bb-ec2">—</span>)</div></div></div>
+
+<div class="legend" id="l-bb3"></div>
+<figure class="placa"><div class="chart short" id="c-bb3"></div></figure>
+
 <h3 id="mundo-renta-comercial-y-servicios-financieros-de-los-hogares-miles-de-millones-de-horas-de-plustrabajo">Mundo: renta comercial y servicios financieros de los hogares (miles de millones de horas de plustrabajo)</h3>
 <p class="llano">En la escala mundial, la medición central suma la renta que las empresas pagan por sus locales (plusvalor cedido a la propiedad territorial) y resta los servicios financieros que los hogares pagan con sus salarios. Los dos ajustes van en sentidos opuestos y casi se compensan: la masa mundial de plustrabajo cambia muy poco respecto de la convención de las cuentas.</p>
 <div class="tablewrap"><table><thead><tr><th>Variante</th><th><span id="bb-a0">—</span></th><th><span id="bb-a1">—</span></th><th><span id="bb-a2">—</span></th><th>Diferencia con la central, último año</th></tr></thead><tbody id="t-bbm"></tbody></table></div>
@@ -550,7 +584,7 @@
 <li><strong>B3, renta comercial (en la medición central, sólo mundo).</strong> Se suma el consumo intermedio de productos inmobiliarios (L68) de las ramas de mercado, como proporción de su valor agregado (WIOD). En EE.UU. no hace falta: el plusvalor del sector empresarial ya incluye el inmobiliario comercial y excluye sólo la vivienda.</li>
 <li><strong>Aplicación en el mundo.</strong> Para cada país, e' = e + (B3 − B4) × (valor agregado de mercado / v); plustrabajo = horas × e' / (1 + e'). Después de 2014 se mantienen las proporciones de 2014 de cada país.</li>
 <li><strong>B2, supervisión.</strong> 1 − v intra-rama / v por ramas: la parte de la remuneración de las ramas productivas que no corresponde a obreros de producción y no supervisores. Incluye a supervisores y gerentes, pero también diferencias de cobertura entre la encuesta de establecimientos (BLS) y las cuentas por industria (BEA): es una aproximación.</li>
-<li><strong>Pendiente.</strong> B5, el salario social neto (impuestos que pagan los trabajadores y transferencias que reciben), todavía no se calcula.</li>
+<li><strong>B5, salario social neto (sensibilidad, desde 1959).</strong> Prestaciones recibidas por los hogares asalariados = (prestaciones sociales del gobierno, A063RC, + gasto público corriente en educación, NIPA 3.16) × remuneración / ingreso personal. Impuestos que pagan = impuestos personales (W055RC) × remuneración / ingreso personal + contribuciones a la seguridad social (A061RC; las patronales ya forman parte de la remuneración). Salario social neto = prestaciones − impuestos; la parte de los obreros productivos es proporcional a su remuneración. Variante: e = (S − SSN) / (V + SSN). Es una aproximación: asigna las prestaciones y los impuestos con la misma proporción salarial del ingreso personal.</li>
 </ul>
 </details>
 </section>
@@ -566,6 +600,6 @@
 <p>Investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología (ICSyH-BUAP), que concluirá en agosto de 2029, realizada con una beca de la SECIHTI (número 4052073). Gracias a la clase trabajadora mexicana, que hace posible esta beca. Marco teórico: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
 <p>Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. <a href="descargas/">Descargas</a>. <a href="metodologia.html">Metodología</a>. <a href="https://github.com/necplusultra-blog/sismografo-del-capital/tree/main/contenido">Editar los textos</a>.</p>
 </footer>
-<script src="app.js?v=0d5405c2611242337"></script>
+<script src="app.js?v=d7285682611250134"></script>
 </body>
 </html>
