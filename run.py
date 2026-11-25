@@ -4,7 +4,7 @@
     python run.py --sin-descarga  # recalcula con los datos ya descargados
 """
 import argparse, json, os
-from sismografo import replicacion, bloque_b, robustez_neta, contratendencias, descarga, fuerzas, intercambio, eeuu, horas_mundo, ia, mundo, paginas, sitio, transformacion, trimestral
+from sismografo import mapa, replicacion, bloque_b, robustez_neta, contratendencias, descarga, fuerzas, intercambio, eeuu, horas_mundo, ia, mundo, paginas, sitio, transformacion, trimestral
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 
@@ -60,6 +60,10 @@ if __name__ == '__main__':
         print('Replicación de las series de los autores omitida:', repr(e)); ee['replicacion'] = None
     paginas.construir(os.path.join(RAIZ, 'site'))   # textos editables de contenido/ → site/*.html
     meta = sitio.escribir(ee, mu, os.path.join(RAIZ, 'site'))
+    try:
+        mapa.construir()   # site/data/mapa.json: topología del mapa cognitivo (fondo y pestaña Mapa)
+    except Exception as e:  # noqa: BLE001
+        print('Mapa cognitivo omitido:', repr(e))
     import glob, shutil
     desc = os.path.join(RAIZ, 'site', 'descargas'); os.makedirs(desc, exist_ok=True)
     files = sorted(glob.glob(os.path.join(out, '*.csv')))

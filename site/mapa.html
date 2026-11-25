@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa — Mapa cognitivo del capital</title>
+<meta name="description" content="Lámina interactiva del proyecto: el eje categorial del capital, el multiverso efectivo de especificaciones con sus quiebres endógenos y el registro sismográfico de la tasa de ganancia.">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Pestaña Mapa: siempre en «fósforo» (fondo negro mate), con la tipografía del sitio. */
+body.pagina-mapa { --papel: #06070a; --hoja: #0d0f16; --reticula: #1f2130; --tinta: #e6e2f7; --gris: #8a86ad; --estilete: #ff4d6d;
+  background: #06070a; color: var(--tinta); height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+.pagina-mapa .barra { position: relative; background: rgba(6,7,10,.92); border-bottom: 1px solid #191a26; }
+.pagina-mapa nav a[aria-current] { color: #fff; text-decoration: underline; text-decoration-color: var(--estilete); }
+.escenario { position: relative; flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 372px; }
+.lamina { position: relative; min-width: 0; min-height: 0; }
+.rotulo { position: absolute; left: clamp(16px, 2.4vw, 34px); top: clamp(14px, 2.4vh, 28px); max-width: 30rem; pointer-events: none; }
+.rotulo h1 { margin: 0; font: 400 clamp(1.5rem, 2.4vw, 2.15rem)/1.08 var(--serif); letter-spacing: -.01em; color: #f3f0ff; }
+.rotulo h1 em { color: #b9a5ff; }
+.rotulo p { margin: .55rem 0 0; font: 400 .86rem/1.45 var(--sans); color: #9a96bf; max-width: 26rem; }
+.mandos { position: absolute; left: clamp(16px, 2.4vw, 34px); bottom: 16px; display: flex; gap: 6px; flex-wrap: wrap; }
+.mandos button, .lista-clave button, .panel .soltar { font: 500 .8rem var(--sans); color: #d9d4f2; background: rgba(13,15,22,.86); border: 1px solid #2a2c40;
+  min-height: 40px; padding: 0 12px; cursor: pointer; }
+.mandos button:hover, .lista-clave button:hover { border-color: #7b63e0; color: #fff; }
+.mandos .cuadrado { width: 40px; padding: 0; font-size: 1.05rem; }
+#estado { position: absolute; left: clamp(16px, 2.4vw, 34px); bottom: 64px; font: .78rem var(--sans); color: #b9a5ff; min-height: 1em; }
+.panel { border-left: 1px solid #191a26; background: #090a10; overflow: auto; padding: 22px 22px 30px; font-family: var(--sans); font-size: .9rem; }
+.panel .cod { font: .72rem 'IBM Plex Mono', ui-monospace, Menlo, monospace; color: #7d77aa; }
+.panel h2 { font: 500 1.08rem/1.25 'IBM Plex Mono', ui-monospace, Menlo, monospace; margin: .2rem 0 .1rem; color: #f3f0ff; overflow-wrap: anywhere; }
+.panel .sub { color: #8a86ad; font-size: .82rem; }
+.panel .sec { margin-top: 18px; padding-top: 14px; border-top: 1px solid #191a26; }
+.panel .lab { font-size: .74rem; color: #7d77aa; margin-bottom: 6px; }
+.panel p { margin: 0; font: 400 .98rem/1.5 var(--serif); color: #d4d0ea; }
+.panel ul { list-style: none; margin: 0; padding: 0; }
+.panel li { padding: 3px 0; color: #cfcae6; }
+.op { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 2px 10px; align-items: baseline; }
+.op .barra-op { grid-column: 1 / -1; height: 3px; background: #1c1d2c; }
+.op .barra-op i { display: block; height: 100%; background: linear-gradient(90deg, #6a3dff, #b9a5ff); }
+.op span:last-child { color: #8a86ad; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dec { display: grid; grid-template-columns: 9.5em minmax(0,1fr); gap: 2px 10px; font-size: .84rem; }
+.dec dt { color: #7d77aa; } .dec dd { margin: 0; color: #e6e2f7; }
+.chip { display: inline-block; font: .74rem 'IBM Plex Mono', ui-monospace, monospace; color: #ff8a9c; border: 1px solid #4a2030; padding: 1px 6px; margin: 2px 4px 2px 0; }
+.enl a { display: inline-block; margin: 4px 14px 0 0; font-size: .84rem; color: #d9d4f2; }
+.sparq { width: 100%; height: 56px; display: block; }
+.ley { display: grid; grid-template-columns: 30px minmax(0,1fr); gap: 7px 10px; align-items: center; font-size: .82rem; color: #b5b1d3; }
+.lista-clave { display: grid; gap: 4px; }
+.lista-clave button { text-align: left; font: .8rem 'IBM Plex Mono', ui-monospace, monospace; padding: 8px 10px; }
+.fijado { display: flex; justify-content: space-between; align-items: center; color: #b9a5ff; font-size: .76rem; margin-bottom: 10px; }
+.panel .soltar { min-height: 30px; font-size: .74rem; }
+.cifras { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+.cifras b { display: block; font: 400 1.5rem/1 var(--serif); color: #f3f0ff; }
+.cifras span { font-size: .74rem; color: #8a86ad; }
+@media (max-width: 900px) {
+  body.pagina-mapa { height: auto; overflow: auto; display: block; }
+  .escenario { display: block; }
+  .lamina { height: 62vh; }
+  .rotulo p { display: none; }
+  .panel { border-left: 0; border-top: 1px solid #191a26; }
+}
+</style>
+</head>
+<body class="pagina-mapa">
+<a class="saltar" href="#panel">Ir al panel</a>
+<header class="barra">
+  <a class="marca" href="./">Mapa cognitivo del capital</a>
+  <nav aria-label="Páginas"><a href="mapa.html" aria-current="page">Mapa</a><a href="lectura.html">Lectura</a><a href="metodologia.html">Metodología</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">Código</a></nav>
+</header>
+<div class="escenario">
+  <div class="lamina" id="lamina">
+    <div class="rotulo"><h1>Lámina del <em>multiverso</em></h1>
+      <p>Cada radio del abanico es una especificación de la tasa de ganancia; cada punto rojo, un quiebre de tendencia que esa especificación detecta. Donde los puntos se alinean, el quiebre resiste las decisiones teóricas.</p></div>
+    <div id="estado" aria-live="polite"></div>
+    <div class="mandos" role="toolbar" aria-label="Mandos del mapa">
+      <button class="cuadrado" id="mas" aria-label="Acercar">+</button><button class="cuadrado" id="menos" aria-label="Alejar">−</button>
+      <button id="encuadre">Encuadre</button><button id="png">Imagen PNG</button><button id="svg">SVG</button>
+    </div>
+  </div>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+</div>
+<script src="mapa-cognitivo.js"></script>
+<script>
+{
+  const panel = document.getElementById('panel'), estado = document.getElementById('estado');
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const di = (s, t) => { estado.textContent = t; clearTimeout(di.t); di.t = setTimeout(() => estado.textContent = '', 4000); };
+  let mapa = null;
+
+  function sparq(q) {
+    const a0 = 1948, a1 = 2025, w = 320, h = 56, mx = Math.max(1, ...Object.values(q));
+    let barras = '';
+    for (let a = a0; a <= a1; a++) { const v = q[a] || 0; if (!v) continue; const x = (a - a0) / (a1 - a0) * (w - 4) + 2, hh = Math.max(1.5, v / mx * (h - 16));
+      barras += `<rect x="${x.toFixed(1)}" y="${(h - 12 - hh).toFixed(1)}" width="2.6" height="${hh.toFixed(1)}" fill="#ff4d6d"/>`; }
+    const ejes = [1950, 1970, 1990, 2010].map(a => { const x = (a - a0) / (a1 - a0) * (w - 4) + 2; return `<text x="${x}" y="${h - 1}" font-size="8" fill="#6b65a0" text-anchor="middle">${a}</text>`; }).join('');
+    return `<svg class="sparq" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Quiebres por año"><line x1="0" x2="${w}" y1="${h - 12}" y2="${h - 12}" stroke="#2a2c40"/>${barras}${ejes}</svg>`;
+  }
+  function inicio() {
+    const E = mapa.escena(), m = E.D.meta || {};
+    const claves = E.nodos.filter(n => n.clave).sort((a, b) => a.cod.localeCompare(b.cod));
+    panel.innerHTML = `<div class="cod">índice de la lámina</div><h2>Cómo leer el mapa</h2>
+      <div class="sec cifras"><div><b>${E.eeuu.hojas.length}</b><span>especificaciones EE.UU.</span></div><div><b>${E.mundo.hojas.length}</b><span>especificaciones mundiales</span></div><div><b>${E.familias.reduce((s, f) => s + f.series.length, 0)}</b><span>series publicadas</span></div></div>
+      <div class="sec"><p>El eje horizontal expone la lógica categorial del capital. Del eje nacen el multiverso de EE.UU. (arriba) y el mundial (abajo, a la derecha): cada bifurcación es una decisión teórica explícita y cada hoja, una especificación publicada. El anillo exterior es el tiempo, de 1948 a hoy; los puntos rojos son los quiebres que detecta cada especificación.</p></div>
+      <div class="sec"><div class="lab">nodos clave</div><div class="lista-clave">${claves.map(n => `<button data-i="${E.nodos.indexOf(n)}">${esc(n.cod)} · ${esc(n.clave)}</button>`).join('')}</div></div>
+      <div class="sec"><div class="lab">leyenda</div><div class="ley">
+        <svg width="30" height="10"><path d="M0 5H30" stroke="#f6f4ff" stroke-width="1.6"/></svg><span>eje categorial</span>
+        <svg width="30" height="12"><path d="M0 11C10 11 10 2 30 2" stroke="#a88bff" fill="none"/></svg><span>decisión teórica (bifurcación)</span>
+        <svg width="30" height="10"><path d="M0 5H30" stroke="#9f8cff" stroke-opacity=".5"/><circle cx="12" cy="5" r="2" fill="#ff4d6d"/><circle cx="22" cy="5" r="2" fill="#ff4d6d"/></svg><span>una especificación y sus quiebres</span>
+        <svg width="30" height="10"><path d="M0 5H30" stroke="#7ddcff" stroke-dasharray="5 4"/></svg><span>empalme estadístico</span>
+        <svg width="30" height="12"><path d="M0 6L4 5 7 9 10 1 13 10 16 4 20 6 30 6" stroke="#6f71a3" fill="none"/></svg><span>registro: bandas p10–p90 y quiebres por año</span>
+      </div></div>
+      <div class="sec"><div class="lab">rueda o pellizco: zoom · arrastrar: desplazar · clic: fijar · Esc: soltar</div>
+      <div class="sub">Datos: ${esc(m.actualizado || '—')}. Topología real; la geometría sale de una semilla fija (${MapaCognitivo.SEED}).</div></div>`;
+  }
+  function mostrar(d, fijado) {
+    if (!d) return inicio();
+    let h = fijado ? `<div class="fijado"><span>Fijado</span><button class="soltar" data-soltar>Soltar · Esc</button></div>` : '';
+    h += `<div class="cod">${esc(d.cod || d.tipo)}${d.arbol ? ' · ' + esc(d.arbol) : ''}</div><h2>${esc(d.titulo)}</h2><div class="sub">${esc(d.sub || '')}</div>`;
+    if (d.texto) h += `<div class="sec"><p>${esc(d.texto)}</p></div>`;
+    if (d.opciones) {
+      const tot = d.opciones.reduce((s, o) => s + o[1], 0);
+      h += `<div class="sec"><div class="lab">decisión teórica explícita · ${esc(d.decision)}${d.posicion ? ' · ' + esc(d.posicion) : ''}</div><ul>${d.opciones.map(o => `<li class="op"><span>${esc(o[0])}</span><span>${o[1]} esp.</span><span class="barra-op"><i style="width:${(o[1] / tot * 100).toFixed(1)}%"></i></span></li>`).join('')}</ul></div>`;
+    }
+    if (d.decisiones) h += `<div class="sec"><div class="lab">decisiones de esta especificación</div><dl class="dec">${d.decisiones.map(x => `<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join('')}</dl></div>`;
+    if (d.anios) h += `<div class="sec"><div class="lab">quiebres endógenos detectados</div>${d.anios.length ? d.anios.map(a => `<span class="chip">${a}</span>`).join('') : '<span class="sub">ninguno</span>'}</div>`;
+    if (d.quiebres && d.n > 1) h += `<div class="sec"><div class="lab">quiebres por año en las ${d.n} especificaciones de esta rama</div>${sparq(d.quiebres)}</div>`;
+    if (d.ruta && d.ruta.length && !d.decisiones) h += `<div class="sec"><div class="lab">decisiones tomadas hasta aquí</div><dl class="dec">${d.ruta.map(x => `<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join('')}</dl></div>`;
+    if (d.series) h += `<div class="sec"><div class="lab">series</div><ul>${d.series.slice(0, 40).map(s => `<li><span class="cod">${esc(s)}</span></li>`).join('')}${d.series.length > 40 ? `<li class="sub">y ${d.series.length - 40} más</li>` : ''}</ul></div>`;
+    if (d.empalmes) h += `<div class="sec"><div class="lab">factores de empalme (meta.json)</div><dl class="dec">${d.empalmes.map(e => `<dt>${esc(e[0])}</dt><dd>× ${esc(e[1])}</dd>`).join('')}</dl></div>`;
+    if (d.enlaces) h += `<div class="sec enl">${d.enlaces.map(e => `<a href="${esc(e[0])}">${esc(e[1])} →</a>`).join('')}</div>`;
+    panel.innerHTML = h;
+  }
+  let guardar = null; if (window.claude && window.claude.use) window.claude.use('downloads').then(d => { guardar = d; }).catch(() => {});
+  function bajar(blob, nombre) { if (guardar) { guardar.save({ filename: nombre, data: blob }).catch(() => di(0, 'Descarga cancelada')); return; } const u = URL.createObjectURL(blob), a = document.createElement('a'); a.href = u; a.download = nombre; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 5000); }
+
+  mapa = MapaCognitivo.montar(document.getElementById('lamina'), { modo: 'mapa', alSeleccionar: mostrar, alListo: a => { mapa = a; inicio(); }, datos: window.MAPA_DATOS });
+  panel.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.hasAttribute('data-soltar')) return mapa.soltar();
+    if (b.dataset.i) mapa.enfocar(mapa.escena().nodos[+b.dataset.i], 2.2);
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') mapa.soltar(); if (e.key === '+' || e.key === '=') mapa.acercar(1.3); if (e.key === '-') mapa.acercar(1 / 1.3); });
+  document.getElementById('mas').onclick = () => mapa.acercar(1.35);
+  document.getElementById('menos').onclick = () => mapa.acercar(1 / 1.35);
+  document.getElementById('encuadre').onclick = () => mapa.encuadre();
+  document.getElementById('png').onclick = () => mapa.png(3200).then(b => { bajar(b, 'mapa-cognitivo-del-capital.png'); di(0, 'PNG de 3200 × 1800 px'); });
+  document.getElementById('svg').onclick = () => { bajar(new Blob([mapa.svg()], { type: 'image/svg+xml' }), 'mapa-cognitivo-del-capital.svg'); di(0, 'SVG vectorial descargado'); };
+}
+</script>
+</body>
+</html>
