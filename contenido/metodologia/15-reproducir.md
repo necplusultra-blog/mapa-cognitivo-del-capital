@@ -24,4 +24,4 @@ Módulos:
 
 Licencias: código MIT; datos derivados y textos CC BY 4.0.
 
-Cita: Jiménez Cea, P. I. (2026). *Sismógrafo del capital: multiverso de la tasa de ganancia*. https://github.com/necplusultra-blog/sismografo-del-capital
+Cita: Jiménez Cea, P. I. (2026). *Mapa cognitivo del capital: multiverso de la tasa de ganancia*. https://github.com/necplusultra-blog/mapa-cognitivo-del-capital

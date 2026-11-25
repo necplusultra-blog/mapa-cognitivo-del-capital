@@ -6,7 +6,7 @@ oculta: si
 ---
 ## Qué cuenta como plusvalor: cuatro supuestos frente a las cuentas nacionales
 
-Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría de Marx tienen orígenes distintos. El sismógrafo separa dos de ellas en su medición central: resta lo que los hogares pagan a las finanzas con sus salarios, que es plusvalor desplazado desde el salario y no plusvalor producido, y suma, en la escala mundial, la renta que las empresas pagan por sus locales, que sí es plusvalor producido. Esta sección muestra cuánto cambian las cifras respecto de la convención de las cuentas, y registra otros dos supuestos que se mantienen como sensibilidad: la supervisión y el salario social neto.
+Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría de Marx tienen orígenes distintos. El mapa cognitivo separa dos de ellas en su medición central: resta lo que los hogares pagan a las finanzas con sus salarios, que es plusvalor desplazado desde el salario y no plusvalor producido, y suma, en la escala mundial, la renta que las empresas pagan por sus locales, que sí es plusvalor producido. Esta sección muestra cuánto cambian las cifras respecto de la convención de las cuentas, y registra otros dos supuestos que se mantienen como sensibilidad: la supervisión y el salario social neto.
 {: .llano }
 
 [[cifra bb-fh | Plusvalor desplazado desde los salarios hacia las finanzas en EE.UU., como parte del plusvalor de las cuentas, {{.bb-fin}} | 1948: {{bb-fh48}}]]
@@ -15,14 +15,20 @@ Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría
 
 ### Explotación secundaria: lo que los hogares pagan a las finanzas
 
-El valor agregado de los bancos y aseguradoras entra en las cuentas como si todo fuera ganancia producida. Pero una parte creciente la pagan los hogares —intereses implícitos en préstamos y depósitos, comisiones— con salarios que ya se contaron como capital variable. Eso no es plusvalor nuevo, sino plusvalor desplazado desde el salario hacia el capital financiero: lo que Marx llamó explotación secundaria (*El Capital*, Libro III, cap. XXXVI). El sismógrafo lo resta del plusvalor en la parte que corresponde a los salarios y lo registra aparte, como un indicador de la transferencia y la anticipación de plusvalor. En EE.UU., ese desplazamiento pasó de una fracción mínima del plusvalor en la posguerra a una parte considerable. Si se lo dejara dentro, como en las cuentas, la tasa de ganancia sería más alta y su recuperación desde 1982 parecería mayor.
+El valor agregado de los bancos y aseguradoras entra en las cuentas como si todo fuera ganancia producida. Pero una parte creciente la pagan los hogares —intereses implícitos en préstamos y depósitos, comisiones— con salarios que ya se contaron como capital variable. Eso no es plusvalor nuevo, sino plusvalor desplazado desde el salario hacia el capital financiero: lo que Marx llamó explotación secundaria (*El Capital*, Libro III, cap. XXXVI). El mapa cognitivo lo resta del plusvalor en la parte que corresponde a los salarios y lo registra aparte, como un indicador de la transferencia y la anticipación de plusvalor. En EE.UU., ese desplazamiento pasó de una fracción mínima del plusvalor en la posguerra a una parte considerable. Si se lo dejara dentro, como en las cuentas, la tasa de ganancia sería más alta y su recuperación desde 1982 parecería mayor.
 {: .llano }
 
 [[leyenda l-bb]]
 [[grafico c-bb]]
 
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED); gasto de consumo personal en servicios financieros (NIPA 2.4.5, DFNLRC) e ingreso personal (NIPA 2.1). Cálculo propio.
+{: .fuente }
+
 [[leyenda l-bb2]]
 [[grafico c-bb2]]
+
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED). Cálculo propio (explotación secundaria y supervisión).
+{: .fuente }
 
 ### Supervisión y dirección
 
@@ -39,12 +45,18 @@ El Estado cobra impuestos y contribuciones a los trabajadores y les devuelve pre
 [[leyenda l-bb3]]
 [[grafico c-bb3 corto]]
 
+Fuentes: BEA: NIPA, remuneración e ingreso personal (A033RC, A065RC), prestaciones sociales (A063RC, G16029), impuestos personales y contribuciones sociales (W055RC, A061RC). Cálculo propio a la manera de Shaikh y Tonak (1994).
+{: .fuente }
+
 ### Mundo: renta comercial y servicios financieros de los hogares (miles de millones de horas de plustrabajo)
 
 En la escala mundial, la medición central suma la renta que las empresas pagan por sus locales (plusvalor cedido a la propiedad territorial) y resta los servicios financieros que los hogares pagan con sus salarios. Los dos ajustes van en sentidos opuestos y casi se compensan: la masa mundial de plustrabajo cambia muy poco respecto de la convención de las cuentas.
 {: .llano }
 
 [[tabla t-bbm: Variante | {{bb-a0}} | {{bb-a1}} | {{bb-a2}} | Diferencia con la central, último año]]
+
+Fuentes: WIOD (consumo intermedio de L68 y consumo de los hogares de K64–K66) y las fuentes de la masa mundial en horas. Cálculo propio.
+{: .fuente }
 
 :::como ¿Cómo se calculan estos ajustes?
 - **B4, explotación secundaria (en la medición central).** EE.UU.: se resta del plusvalor ampliado el gasto de consumo personal en servicios financieros (NIPA, cuadro 2.4.5, serie DFNLRC: intereses implícitos —FISIM— más comisiones) multiplicado por la parte de la remuneración de los asalariados en el ingreso personal (A033RC / A065RC), para no restar lo que pagan los hogares con ingresos de la propiedad. Mundo: se resta el consumo final de los hogares de productos de las finanzas y los seguros (K64–K66, nacionales e importados; tablas insumo-producto de WIOD), como proporción del valor agregado de las ramas de mercado, multiplicado por la participación del trabajo en el ingreso (Penn World Table, labsh). Las medidas corporativas «a la manera de» Duménil-Lévy y Kliman no cambian.

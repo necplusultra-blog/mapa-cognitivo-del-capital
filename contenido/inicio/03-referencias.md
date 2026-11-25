@@ -11,6 +11,9 @@ El debate marxista sobre la tasa de ganancia no discute sólo cifras: discute qu
 [[leyenda l-ref]]
 [[grafico c-ref]]
 
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED). Cada serie se construye con la definición de cada corriente (metodología, §6). Cálculo propio.
+{: .fuente }
+
 Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). Heinrich no propone una medida propia: su lectura se apoya en el abanico completo del multiverso de la sección anterior.
 {: .nota }
 
@@ -73,5 +76,5 @@ Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). 
 - **Empresarial, todo productivo:** como la de Shaikh-Tonak, pero restando toda la remuneración del sector. Es la línea de base sin la distinción entre trabajo productivo e improductivo.
 - **Tabla:** valor de cada tasa en los años indicados; la última columna es el cambio porcentual entre 1982 (el mínimo de las medidas empresariales amplias; en las de tipo Duménil-Lévy y Kliman el mínimo es 2001) y el último año.
 
-Todas incluyen la propiedad intelectual en K, sin existencias ni ajuste por utilización. Son definiciones «a la manera de» los autores, no réplicas de sus series: las series rehechas con la definición de cada autor están en la [sección siguiente](#replicacion). Los diagnósticos resumen las tesis publicadas de cada corriente; no son conclusiones del sismógrafo. Referencias completas en la [metodología, §6](metodologia.html#referencias).
+Todas incluyen la propiedad intelectual en K, sin existencias ni ajuste por utilización. Son definiciones «a la manera de» los autores, no réplicas de sus series: las series rehechas con la definición de cada autor están en la [sección siguiente](#replicacion). Los diagnósticos resumen las tesis publicadas de cada corriente; no son conclusiones del mapa cognitivo. Referencias completas en la [metodología, §6](metodologia.html#referencias).
 :::

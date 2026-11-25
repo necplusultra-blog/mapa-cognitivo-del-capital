@@ -25,6 +25,9 @@ Each year, the 40-hour week is divided according to that same year's rate of sur
 [[leyenda l-sem]]
 [[grafico c-sem]]
 
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED) (employment, weekly hours and hourly earnings of production and non-supervisory workers). Own calculation.
+{: .fuente }
+
 ### United States: annual mass of surplus labour (billion hours)
 
 It adds up the hours of surplus labour of all productive workers in the United States in a year. It has more than doubled since 1972, and almost all of that growth comes from there being more workers, not from each one working more hours for capital. The falls coincide with recessions, when millions are laid off.
@@ -34,6 +37,9 @@ Hours worked in the year by all productive workers in the United States × e / (
 {: .nota }
 
 [[grafico c-hplus]]
+
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED) (employment and weekly hours of production and non-supervisory workers). Own calculation.
+{: .fuente }
 
 :::como+ How are these data obtained?
 1. **Productive workers (N).** Sum of the employment of production and non-supervisory workers (BLS, CES survey, series 06) in the productive supersectors: mining and logging, construction, manufacturing, transportation and warehousing, utilities, information, professional and business services, private education and health, leisure and hospitality, other services. Excluded are trade, finance, government, supervisors and agriculture (which the CES does not cover). From three supersectors the part that is not productive capital is subtracted: from professional services, legal and accounting services (circulation industries); from private education and health, the part employed by non-profit institutions (70% of education, 43% of health and 40% of social assistance, according to the BLS for 2022); from other services, the non-profit part of religious and civic organisations (60%). Before 1990, lacking industry detail, the 1990 proportions are used. Annual average, in millions.
@@ -65,6 +71,9 @@ New value (v + pv) per hour of productive labour: how many dollars one hour of p
 
 [[leyenda l-melt]]
 [[grafico c-melt]]
+
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED); GDP deflator (BEA). Own calculation.
+{: .fuente }
 
 :::como How is this chart calculated?
 Monetary expression of labour time = (V + S) / H: the new value created by productive workers (within-industry), in dollars, divided by their hours. The series in 2017 dollars divides by the GDP deflator.

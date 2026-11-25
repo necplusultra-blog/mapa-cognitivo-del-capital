@@ -14,6 +14,9 @@ The rate of profit of the world economy, adding up 79 countries with data from t
 [[leyenda l-mundo]]
 [[grafico c-mundo]]
 
+Source: Penn World Table 11.0 (Feenstra, Inklaar and Timmer, 2015): labour share, GDP, capital, depreciation and internal rate of return. Own calculation.
+{: .fuente }
+
 ### World mass of gross profit
 
 The total mass of profit in the world, in constant dollars. While the rate falls, the mass keeps growing: the same two-sided pattern as in the United States.
@@ -21,6 +24,9 @@ The total mass of profit in the world, in constant dollars. While the rate falls
 
 [[leyenda l-wmasa]]
 [[grafico c-wmasa corto]]
+
+Source: Penn World Table 11.0 (Feenstra, Inklaar and Timmer, 2015). Own calculation.
+{: .fuente }
 
 :::como How are these charts calculated?
 **Rates** (Penn World Table 11.0, by country): gross = (1 − labsh)·cgdpo / cn; net = ((1 − labsh)·cgdpo − δ·cn) / cn; the PWT's own real internal rate of return (irr). labsh is the labour share, cgdpo GDP at current PPPs, cn the capital stock at current PPPs and δ the depreciation rate. The world average weights each country by its capital stock, in the panel of countries with continuous data since 1960, with and without China. Other weightings and panels are in the downloads (mundo_especificaciones.csv).

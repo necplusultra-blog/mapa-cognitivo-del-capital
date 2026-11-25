@@ -5,7 +5,7 @@ menu: The six readings in the debate
 ---
 ## The six readings in the debate
 
-The seismograph sets six currents of the Marxist debate to read the same data. For five of them it calculates a rate ‘in the manner of’ their authors; the sixth, Heinrich's (2013; 2014), does not propose a measure and is contrasted with the full spread of the multiverse.
+The cognitive map sets six currents of the Marxist debate to read the same data. For five of them it calculates a rate ‘in the manner of’ their authors; the sixth, Heinrich's (2013; 2014), does not propose a measure and is contrasted with the full spread of the multiverse.
 
 | Reading | Measure that represents it | Specification |
 |---|---|---|

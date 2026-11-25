@@ -21,6 +21,9 @@ For each industry we calculate how many hours of labour, direct and indirect, on
 [[leyenda l-tf-desv]]
 [[grafico c-tf-desv]]
 
+Sources: WIOD: national input–output tables and Socio-Economic Accounts 2016 (43 countries, 2000–2014); ILO (employees in China). Own calculation.
+{: .fuente }
+
 ### Who cedes value and who appropriates it ({{.tf-anio}}, {{.tf-n}} countries)
 
 Price/value below 1: the industry sells below the value it produces and cedes surplus value to other industries. Above 1: it sells above and appropriates surplus value produced elsewhere. Marx expected industries with much capital per worker (high composition) to sell above their value, and those with much living labour, below. The table confirms it: agriculture, fishing, textiles and hotels and restaurants cede value; petroleum refining, mining, energy, metals and chemicals appropriate it.
@@ -39,6 +42,9 @@ How many hours of other people's labour each country receives through its trade,
 [[leyenda l-tf-com]]
 [[grafico c-tf-com]]
 
+Sources: WIOD: world input–output table and Socio-Economic Accounts 2016; World Bank (income classification). Own calculation.
+{: .fuente }
+
 <div id="tf-icio" hidden markdown="1">
 
 ### To {{.tf-ifin}}, with the OECD world tables
@@ -52,8 +58,14 @@ The WIOD tables end in 2014. The OECD world tables (ICIO, 2026 edition) cover 84
 [[leyenda l-tf-idesv]]
 [[grafico c-tf-idesv]]
 
+Sources: OECD: inter-country input–output tables (ICIO, 2025 and 2026 editions) and employment by industry (TiM 2025); Penn World Table 11.0 (hours). Own calculation.
+{: .fuente }
+
 [[leyenda l-tf-icom]]
 [[grafico c-tf-icom]]
+
+Sources: OECD: ICIO (2025 and 2026 editions) and TiM 2025; Penn World Table 11.0; World Bank (income classification). Own calculation.
+{: .fuente }
 
 Billion hours. Positive: the country receives in its imports more hours than it delivers in its exports, for the same value in dollars.
 {: .nota }
@@ -68,9 +80,12 @@ An hour of labour in China does not count the same as one in the United States o
 [[leyenda l-tf-pond]]
 [[grafico c-tf-pond]]
 
+Sources: WIOD (input–output tables and Socio-Economic Accounts 2016) and the sources of the world mass in hours. Own calculation.
+{: .fuente }
+
 ### The transformation according to Moseley, with the temporal variant (TSSI) as a contrast
 
-The previous measurement calculates values in hours. This one follows the interpretation of Moseley (2016), which the seismograph adopts as central: the money costs—inputs and wages—are the same for values and for prices of production, and what changes is only how surplus value is distributed. In values, each industry would have the surplus value produced by its own workers; in prices of production, each industry receives a profit proportional to the capital it advances. The difference is the surplus value that competition shifts from some industries to others. The temporal variant (TSSI; Kliman, 2007) values inputs and capital at the prices at which they entered production: in years of inflation it gives higher rates, and in the 2009 crisis it converges with the central one.
+The previous measurement calculates values in hours. This one follows the interpretation of Moseley (2016), which the cognitive map adopts as central: the money costs—inputs and wages—are the same for values and for prices of production, and what changes is only how surplus value is distributed. In values, each industry would have the surplus value produced by its own workers; in prices of production, each industry receives a profit proportional to the capital it advances. The difference is the surplus value that competition shifts from some industries to others. The temporal variant (TSSI; Kliman, 2007) values inputs and capital at the prices at which they entered production: in years of inflation it gives higher rates, and in the 2009 crisis it converges with the central one.
 {: .llano }
 
 [[cifra tf-red | Share of surplus value that the equalisation of rates shifts between industries, {{.tf-anio}} (median of countries) | Moseley]]
@@ -80,6 +95,9 @@ The previous measurement calculates values in hours. This one follows the interp
 
 [[leyenda l-tf-mt]]
 [[grafico c-tf-mt]]
+
+Sources: WIOD: national input–output tables and Socio-Economic Accounts 2016 (including capital stocks); ILO (employees in China). Own calculation in the manner of Moseley and of the TSSI.
+{: .fuente }
 
 Rate = surplus value of the productive industries / (fixed capital + annual variable capital), in %. 43 countries: sum in dollars. The TSSI starts in 2001 because it needs the previous year's prices.
 {: .nota }

@@ -21,6 +21,9 @@ Hours of unpaid labour that capital obtains in a year in the 42 countries measur
 [[leyenda l-hm]]
 [[grafico c-hm]]
 
+Sources: WIOD, Socio-Economic Accounts 2016 and national input–output tables (2000–2014); OECD: national accounts by industry (tables 6 and 7) and TiM 2025 (China); UN: national accounts, table 2.6 (Brazil and India); ILO (ILOSTAT): employees, employment, hours and labour share; Penn World Table 11.0: depreciation and hours. Own calculation.
+{: .fuente }
+
 <div id="rn-bloque" hidden markdown="1">
 
 ### Does the stagnation of the net mass hold up? Different estimates of depreciation in China and India
@@ -30,6 +33,9 @@ China and India contribute two thirds of the world mass, and their depreciation 
 
 [[leyenda l-rn]]
 [[grafico c-rn corto]]
+
+Sources: WIOD, Socio-Economic Accounts 2016 and national input–output tables (2000–2014); OECD: national accounts by industry (tables 6 and 7) and TiM 2025 (China); UN: national accounts, table 2.6 (Brazil and India); ILO (ILOSTAT): employees, employment, hours and labour share; Penn World Table 11.0: depreciation and hours; World Bank: consumption of fixed capital (NY.ADJ.DKAP.GN.ZS). Own calculation.
+{: .fuente }
 
 [[tabla t-rn: Depreciation in China and India | 2000 | 2018 | Last year | 2000–2018 | 2018–last year]]
 
@@ -46,6 +52,9 @@ How many hours a productive wage earner in the world works for capital for each 
 
 [[leyenda l-hme]]
 [[grafico c-hme corto]]
+
+Sources: WIOD, Socio-Economic Accounts 2016 and national input–output tables (2000–2014); OECD: national accounts by industry (tables 6 and 7) and TiM 2025 (China); UN: national accounts, table 2.6 (Brazil and India); ILO (ILOSTAT): employees, employment, hours and labour share; Penn World Table 11.0: depreciation and hours. Own calculation.
+{: .fuente }
 
 :::como+ How is the number of productive workers calculated?
 **Criterion.** A wage earner is productive when his or her wage is money invested as capital and his or her surplus labour is converted into surplus value. That is why casual labourers count, whatever the duration of their employment, and so do agricultural wage earners when their wage is capital. Own-account (self-employed) workers do not count, nor do those who work for a wage that is a mere means of circulation: the state (except its enterprises that sell commodities for profit), non-profit institutions and employer households.

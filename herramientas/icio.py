@@ -44,7 +44,7 @@ DEST = os.path.join(RAIZ, 'datos_cache', 'externo', 'icio')
 TMP = os.environ.get('ICIO_TMP', '/tmp/icio')
 # Fuentes, en orden: los archivos que Pablo sube como adjuntos de la versión «icio-2025» del repositorio (el servidor de
 # la OCDE rechaza las descargas automáticas desde GitHub Actions) y, si no están, el servidor de la OCDE.
-BASES = os.environ.get('ICIO_BASES', 'https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/ '
+BASES = os.environ.get('ICIO_BASES', 'https://github.com/necplusultra-blog/mapa-cognitivo-del-capital/releases/download/icio-2025/ '
                        'https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2026/').split()
 ZIPS = os.environ.get('ICIO_ZIPS', '1995-2000_SML.zip 2001-2005_SML.zip 2006-2010_SML.zip 2011-2015_SML.zip 2016-2022_SML.zip').split()
 ANIOS = range(2000, 2025)

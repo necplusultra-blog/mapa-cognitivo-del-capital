@@ -43,7 +43,7 @@ PWT_FRED_VARS = {'LABSHP': 'A156NRUG', 'RKNANP': 'A666NRUG', 'RGDPNA': 'A666NRUG
 
 
 UA = ('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36 '
-      'sismografo-del-capital (+https://github.com/necplusultra-blog/sismografo-del-capital)')
+      'mapa-cognitivo-del-capital (+https://github.com/necplusultra-blog/mapa-cognitivo-del-capital)')
 
 
 def _get(url, dest, tries=3):

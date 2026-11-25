@@ -12,6 +12,9 @@ A statistical procedure searches, in each of the measurements of the multiverse,
 
 [[grafico c-quiebres corto]]
 
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED). Own break detector applied to the 288 specifications (Bai and Perron, 1998; 2003).
+{: .fuente }
+
 ### Sensitivity of the detector
 
 The search is repeated with more or less demanding rules. If the same years appear under all of them, they are not an artefact of the method.

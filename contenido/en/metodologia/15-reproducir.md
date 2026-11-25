@@ -24,4 +24,4 @@ Modules:
 
 Licences: code MIT; derived data and texts CC BY 4.0.
 
-Citation: Jiménez Cea, P. I. (2026). *Seismograph of Capital: multiverse of the rate of profit*. https://github.com/necplusultra-blog/sismografo-del-capital
+Citation: Jiménez Cea, P. I. (2026). *Cognitive Map of Capital: multiverse of the rate of profit*. https://github.com/necplusultra-blog/mapa-cognitivo-del-capital

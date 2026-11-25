@@ -5,7 +5,7 @@ menu: What the hours do not see
 ---
 ## What the hours do not see: labour intensity and platform work
 
-The whole seismograph counts labour in hours: an hour is an hour. There are two movements of contemporary capital that this measure does not register well, and both point in the same direction: they make the measurement in hours **underestimate** surplus labour. This section does not correct the figures; it reports that bias, its direction and what is known about its size.
+The whole cognitive map counts labour in hours: an hour is an hour. There are two movements of contemporary capital that this measure does not register well, and both point in the same direction: they make the measurement in hours **underestimate** surplus labour. This section does not correct the figures; it reports that bias, its direction and what is known about its size.
 {: .llano }
 
 ### The intensity of labour
@@ -24,14 +24,14 @@ Alongside the prolongation of the working day and the increase in productive for
 Sources: Eurofound (2007; 2016; 2025). The figures in each row are not comparable with those in other rows: the question, the threshold and the countries change. The 2021 telephone survey (49% frequently worked at high speed) used a different method and is not included.
 {: .nota }
 
-The seismograph does not adjust hours by these indicators: they are workers' perceptions, and any conversion factor between ‘working at high speed’ and value produced would be arbitrary. Moreover, the data are European: there is no equivalent series for the United States or for the rest of the world. What can be asserted is the direction of the bias: where intensity rises or remains high, the measurement in hours does not exaggerate exploitation; if anything, it underestimates it.
+The cognitive map does not adjust hours by these indicators: they are workers' perceptions, and any conversion factor between ‘working at high speed’ and value produced would be arbitrary. Moreover, the data are European: there is no equivalent series for the United States or for the rest of the world. What can be asserted is the direction of the bias: where intensity rises or remains high, the measurement in hours does not exaggerate exploitation; if anything, it underestimates it.
 
 ### Platform work
 
-Uber drivers, delivery riders and those who perform online tasks appear in the statistics as own-account (self-employed) workers. Under the seismograph's general criterion, the income of own-account workers is not surplus value and they do not count as productive workers. But under the criterion of this research, platform work such as Uber's is productive labour in Marx's sense: the platform operates as a capitalist that subsumes the labour of the drivers. From the fare paid by the customer, it retains a commission—often between 20% and 40%—and hands the rest to the driver. That commission, after deducting the costs of servers, offices and software, is the form in which the surplus value extracted from living labour appears. The driver works one part of the working day to cover subsistence, petrol and the wear and tear of the car (necessary labour), and the rest for the platform (surplus labour). It is a form of piece wages (Marx, 2018, ch. XIX): it gives the appearance of greater freedom than a fixed wage and pushes workers themselves to lengthen and intensify their working day. The platform's capital—software, algorithms, brand—is valorised only when the driver logs on and makes the trip.
+Uber drivers, delivery riders and those who perform online tasks appear in the statistics as own-account (self-employed) workers. Under the cognitive map's general criterion, the income of own-account workers is not surplus value and they do not count as productive workers. But under the criterion of this research, platform work such as Uber's is productive labour in Marx's sense: the platform operates as a capitalist that subsumes the labour of the drivers. From the fare paid by the customer, it retains a commission—often between 20% and 40%—and hands the rest to the driver. That commission, after deducting the costs of servers, offices and software, is the form in which the surplus value extracted from living labour appears. The driver works one part of the working day to cover subsistence, petrol and the wear and tear of the car (necessary labour), and the rest for the platform (surplus labour). It is a form of piece wages (Marx, 2018, ch. XIX): it gives the appearance of greater freedom than a fixed wage and pushes workers themselves to lengthen and intensify their working day. The platform's capital—software, algorithms, brand—is valorised only when the driver logs on and makes the trip.
 {: .llano }
 
-Because the statistics record them as own-account workers, the seismograph's measurement leaves these workers out: here too the bias is downwards. Their weight is still small in the United States, but it is growing worldwide.
+Because the statistics record them as own-account workers, the cognitive map's measurement leaves these workers out: here too the bias is downwards. Their weight is still small in the United States, but it is growing worldwide.
 
 | Indicator | Value | Source |
 |---|---|---|

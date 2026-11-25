@@ -21,6 +21,9 @@ Horas de trabajo no pagado que el capital obtiene en un año en los 42 países m
 [[leyenda l-hm]]
 [[grafico c-hm]]
 
+Fuentes: WIOD, Cuentas Socioeconómicas 2016 y tablas insumo-producto nacionales (2000–2014); OCDE: cuentas nacionales por rama (tablas 6 y 7) y TiM 2025 (China); ONU: cuentas nacionales, tabla 2.6 (Brasil e India); OIT (ILOSTAT): asalariados, ocupación, horas y participación del trabajo; Penn World Table 11.0: depreciación y horas. Cálculo propio.
+{: .fuente }
+
 <div id="rn-bloque" hidden markdown="1">
 
 ### ¿Resiste el estancamiento de la masa neta? Distintas estimaciones de la depreciación de China e India
@@ -30,6 +33,9 @@ China e India aportan dos tercios de la masa mundial, y su depreciación es la e
 
 [[leyenda l-rn]]
 [[grafico c-rn corto]]
+
+Fuentes: WIOD, Cuentas Socioeconómicas 2016 y tablas insumo-producto nacionales (2000–2014); OCDE: cuentas nacionales por rama (tablas 6 y 7) y TiM 2025 (China); ONU: cuentas nacionales, tabla 2.6 (Brasil e India); OIT (ILOSTAT): asalariados, ocupación, horas y participación del trabajo; Penn World Table 11.0: depreciación y horas; Banco Mundial: consumo de capital fijo (NY.ADJ.DKAP.GN.ZS). Cálculo propio.
+{: .fuente }
 
 [[tabla t-rn: Depreciación de China e India | 2000 | 2018 | Último año | 2000–2018 | 2018–último año]]
 
@@ -46,6 +52,9 @@ Cuántas horas trabaja para el capital un asalariado productivo del mundo por ca
 
 [[leyenda l-hme]]
 [[grafico c-hme corto]]
+
+Fuentes: WIOD, Cuentas Socioeconómicas 2016 y tablas insumo-producto nacionales (2000–2014); OCDE: cuentas nacionales por rama (tablas 6 y 7) y TiM 2025 (China); ONU: cuentas nacionales, tabla 2.6 (Brasil e India); OIT (ILOSTAT): asalariados, ocupación, horas y participación del trabajo; Penn World Table 11.0: depreciación y horas. Cálculo propio.
+{: .fuente }
 
 :::como+ ¿Cómo se calcula el número de trabajadores productivos?
 **Criterio.** Es productivo el asalariado cuyo salario es dinero invertido como capital y cuyo plustrabajo se convierte en plusvalor. Por eso cuentan los jornaleros eventuales, sea cual sea la duración de su empleo, y los asalariados agrícolas cuando su salario es capital. No cuentan los trabajadores por cuenta propia ni quienes trabajan por un salario que es simple medio de circulación: el Estado (salvo sus empresas que venden mercancías con fines de lucro), las instituciones sin fines de lucro y los hogares empleadores.

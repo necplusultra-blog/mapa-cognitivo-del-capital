@@ -14,9 +14,15 @@ Above, how much surplus value is produced in total each year, expressed in what 
 
 [[grafico c-masa]]
 
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED); GDP deflator (BEA). Own calculation.
+{: .fuente }
+
 ### Rate of surplus value S/V
 
 [[grafico c-e]]
+
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED). Own calculation.
+{: .fuente }
 
 :::como How are these charts calculated?
 S = gross value added of the business sector − value added of rental housing − financial services paid for by households out of their wages (secondary exploitation) − depreciation of the sector's non-residential capital (current cost) − V.

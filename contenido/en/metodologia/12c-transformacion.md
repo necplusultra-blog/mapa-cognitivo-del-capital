@@ -5,7 +5,7 @@ menu: The transformation
 ---
 ## The transformation: values and prices
 
-**Aggregate level.** The seismograph works at the macro-monetary level (Moseley, 2016; close to the ‘new interpretation’ of Foley, 1982, and Duménil, 1983): total surplus value is, by construction, the sum of profits, interest, rents, taxes on production and unproductive salaries, and the monetary expression of labour time translates money into hours. At that level, the transformation problem does not alter the mass or the rate of surplus value. What it does alter is the distribution of surplus value among industries and countries, which is what this phase measures.
+**Aggregate level.** The cognitive map works at the macro-monetary level (Moseley, 2016; close to the ‘new interpretation’ of Foley, 1982, and Duménil, 1983): total surplus value is, by construction, the sum of profits, interest, rents, taxes on production and unproductive salaries, and the monetary expression of labour time translates money into hours. At that level, the transformation problem does not alter the mass or the rate of surplus value. What it does alter is the distribution of surplus value among industries and countries, which is what this phase measures.
 
 **Source.** WIOD national input-output tables (November 2016 release), 43 countries, 56 industries, 2000–2014, in millions of dollars, with the domestic input matrix and the imported input matrix; hours and persons employed from the WIOD Socio-Economic Accounts.
 

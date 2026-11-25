@@ -6,7 +6,7 @@ oculta: si
 ---
 ## Productive forces and disposable time
 
-The seismograph also records something that the profit figures conceal: the state of the productive forces that capital develops. Every increase in the productivity of labour reduces the time needed to reproduce those who produce. Under the capital relation, this freed time is not turned into free time but into surplus labour. What this section shows is not the working day of a future society, but the possibility that capital itself creates and, in the same movement, turns into labour for itself.
+The cognitive map also records something that the profit figures conceal: the state of the productive forces that capital develops. Every increase in the productivity of labour reduces the time needed to reproduce those who produce. Under the capital relation, this freed time is not turned into free time but into surplus labour. What this section shows is not the working day of a future society, but the possibility that capital itself creates and, in the same movement, turns into labour for itself.
 {: .llano }
 
 [[cifra fz-niv | Hours per week that would suffice in {{.fz-fin}} to reproduce the real wage of {{.fz-ini}} (US) | actual necessary labour: {{fz-nec}}]]
@@ -26,6 +26,9 @@ An additional line values the 1972 wage at the prices of what workers consume (t
 [[leyenda l-fz]]
 [[grafico c-fz]]
 
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED); GDP and personal consumption expenditure deflators (BEA); usual full-time hours (OECD, from the Current Population Survey). Own calculation.
+{: .fuente }
+
 [[tabla t-fz: Destination of the time freed since the first year (40-hour week) | Hours per week | Share of the time freed]]
 
 ### World: daily minutes of productive labour per inhabitant
@@ -35,6 +38,9 @@ In the countries measured industry by industry ({{fz-wpct}} of the world populat
 
 [[leyenda l-fzw]]
 [[grafico c-fzw]]
+
+Sources: WIOD, Socio-Economic Accounts 2016 and national input–output tables (2000–2014); OECD: national accounts by industry (tables 6 and 7) and TiM 2025 (China); UN: national accounts, table 2.6 (Brazil and India); ILO (ILOSTAT): employees, employment, hours and labour share; Penn World Table 11.0: depreciation and hours; population: Penn World Table 11.0. Own calculation.
+{: .fuente }
 
 :::como How are these data calculated?
 **United States** (production and non-supervisory workers in the productive industries, within-industry variant, from 1972), for a full-time 40-hour week:

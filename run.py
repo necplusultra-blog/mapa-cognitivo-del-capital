@@ -1,4 +1,4 @@
-"""Sismógrafo del capital — corre el pipeline completo.
+"""Mapa cognitivo del capital — corre el pipeline completo.
 
     python run.py                 # descarga, calcula y escribe resultados/ y site/data/
     python run.py --sin-descarga  # recalcula con los datos ya descargados
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     files = sorted(glob.glob(os.path.join(out, '*.csv')))
     for fpath in files: shutil.copy(fpath, desc)
     with open(os.path.join(desc, 'index.html'), 'w') as f:
-        f.write('<!DOCTYPE html><meta charset="utf-8"><title>Descargas — Sismógrafo del capital</title>'
+        f.write('<!DOCTYPE html><meta charset="utf-8"><title>Descargas — Mapa cognitivo del capital</title>'
                 '<link rel="stylesheet" href="../style.css"><main class="sc"><h1>Descargas</h1>'
                 f'<p class="muted">Resultados en CSV, actualizados el {meta["actualizado"]}. Licencia CC BY 4.0.</p><ul>'
                 + ''.join(f'<li><a href="{os.path.basename(p)}">{os.path.basename(p)}</a></li>' for p in files)

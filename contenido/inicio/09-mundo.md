@@ -14,6 +14,9 @@ La tasa de ganancia de la economía mundial, sumando 79 países con los datos de
 [[leyenda l-mundo]]
 [[grafico c-mundo]]
 
+Fuente: Penn World Table 11.0 (Feenstra, Inklaar y Timmer, 2015): participación salarial, PIB, capital, depreciación y tasa interna de retorno. Cálculo propio.
+{: .fuente }
+
 ### Masa mundial de ganancia bruta
 
 La masa total de ganancia del mundo, en dólares constantes. Mientras la tasa cae, la masa sigue creciendo: el mismo patrón de dos caras que en EE.UU.
@@ -21,6 +24,9 @@ La masa total de ganancia del mundo, en dólares constantes. Mientras la tasa ca
 
 [[leyenda l-wmasa]]
 [[grafico c-wmasa corto]]
+
+Fuente: Penn World Table 11.0 (Feenstra, Inklaar y Timmer, 2015). Cálculo propio.
+{: .fuente }
 
 :::como ¿Cómo se calculan estos gráficos?
 **Tasas** (Penn World Table 11.0, por país): bruta = (1 − labsh)·cgdpo / cn; neta = ((1 − labsh)·cgdpo − δ·cn) / cn; tasa interna de retorno real (irr) de la propia PWT. labsh es la participación del trabajo, cgdpo el PIB a PPA corrientes, cn el stock de capital a PPA corrientes y δ la tasa de depreciación. El promedio mundial pondera cada país por su stock de capital, en el panel de países con datos continuos desde 1960, con y sin China. Otras ponderaciones y paneles están en las descargas (mundo_especificaciones.csv).

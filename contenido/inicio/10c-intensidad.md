@@ -5,7 +5,7 @@ menu: Lo que las horas no ven
 ---
 ## Lo que las horas no ven: intensidad del trabajo y trabajo de plataformas
 
-Todo el sismógrafo cuenta el trabajo en horas: una hora es una hora. Hay dos movimientos del capital contemporáneo que esa medida no registra bien, y los dos van en la misma dirección: hacen que la medición en horas **subestime** el plustrabajo. Esta sección no corrige las cifras; informa de ese sesgo, de su dirección y de lo que se sabe de su tamaño.
+Todo el mapa cognitivo cuenta el trabajo en horas: una hora es una hora. Hay dos movimientos del capital contemporáneo que esa medida no registra bien, y los dos van en la misma dirección: hacen que la medición en horas **subestime** el plustrabajo. Esta sección no corrige las cifras; informa de ese sesgo, de su dirección y de lo que se sabe de su tamaño.
 {: .llano }
 
 ### La intensidad del trabajo
@@ -24,14 +24,14 @@ Marx distingue, junto a la prolongación de la jornada y al aumento de la fuerza
 Fuentes: Eurofound (2007; 2016; 2025). Las cifras de cada fila no son comparables con las de otras filas: cambian la pregunta, el umbral y los países. La encuesta telefónica de 2021 (49 % trabajaba con frecuencia a alta velocidad) usó otro método y no se incluye.
 {: .nota }
 
-El sismógrafo no ajusta las horas por estos indicadores: son percepciones de los trabajadores, y cualquier factor de conversión entre «trabajar a gran velocidad» y valor producido sería arbitrario. Además, los datos son europeos: no hay una serie equivalente para EE.UU. ni para el resto del mundo. Lo que se puede afirmar es la dirección del sesgo: donde la intensidad sube o se mantiene alta, la medición en horas no exagera la explotación; si algo, la subestima.
+El mapa cognitivo no ajusta las horas por estos indicadores: son percepciones de los trabajadores, y cualquier factor de conversión entre «trabajar a gran velocidad» y valor producido sería arbitrario. Además, los datos son europeos: no hay una serie equivalente para EE.UU. ni para el resto del mundo. Lo que se puede afirmar es la dirección del sesgo: donde la intensidad sube o se mantiene alta, la medición en horas no exagera la explotación; si algo, la subestima.
 
 ### El trabajo de plataformas
 
-Los conductores de Uber, los repartidores y quienes hacen tareas en línea figuran en las estadísticas como trabajadores por cuenta propia. Con el criterio general del sismógrafo, el ingreso de los cuentapropistas no es plusvalor y no cuentan como obreros productivos. Pero en el criterio de esta investigación el trabajo de plataformas como el de Uber es trabajo productivo en el sentido de Marx: la plataforma opera como un capitalista que subsume el trabajo de los conductores. De la tarifa que paga el cliente, retiene una comisión —a menudo entre el 20 % y el 40 %— y entrega el resto al conductor. Esa comisión, descontados los costos de servidores, oficinas y programas, es la forma en que aparece el plusvalor extraído del trabajo vivo. El conductor trabaja una parte de su jornada para cubrir su subsistencia, la gasolina y el desgaste de su auto (trabajo necesario), y el resto para la plataforma (plustrabajo). Es una forma de salario a destajo (Marx, 2018, cap. XIX): da la apariencia de una libertad mayor que la del salario fijo y empuja al propio trabajador a alargar e intensificar su jornada. El capital de la plataforma —programas, algoritmos, marca— sólo se valoriza cuando el conductor se conecta y hace el viaje.
+Los conductores de Uber, los repartidores y quienes hacen tareas en línea figuran en las estadísticas como trabajadores por cuenta propia. Con el criterio general del mapa cognitivo, el ingreso de los cuentapropistas no es plusvalor y no cuentan como obreros productivos. Pero en el criterio de esta investigación el trabajo de plataformas como el de Uber es trabajo productivo en el sentido de Marx: la plataforma opera como un capitalista que subsume el trabajo de los conductores. De la tarifa que paga el cliente, retiene una comisión —a menudo entre el 20 % y el 40 %— y entrega el resto al conductor. Esa comisión, descontados los costos de servidores, oficinas y programas, es la forma en que aparece el plusvalor extraído del trabajo vivo. El conductor trabaja una parte de su jornada para cubrir su subsistencia, la gasolina y el desgaste de su auto (trabajo necesario), y el resto para la plataforma (plustrabajo). Es una forma de salario a destajo (Marx, 2018, cap. XIX): da la apariencia de una libertad mayor que la del salario fijo y empuja al propio trabajador a alargar e intensificar su jornada. El capital de la plataforma —programas, algoritmos, marca— sólo se valoriza cuando el conductor se conecta y hace el viaje.
 {: .llano }
 
-Como las estadísticas los registran como cuentapropistas, la medición del sismógrafo deja fuera a estos trabajadores: también aquí el sesgo es hacia abajo. Su peso es todavía pequeño en EE.UU., pero crece en el mundo.
+Como las estadísticas los registran como cuentapropistas, la medición del mapa cognitivo deja fuera a estos trabajadores: también aquí el sesgo es hacia abajo. Su peso es todavía pequeño en EE.UU., pero crece en el mundo.
 
 | Indicador | Valor | Fuente |
 |---|---|---|

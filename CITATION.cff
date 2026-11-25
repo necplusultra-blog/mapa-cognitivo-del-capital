@@ -1,14 +1,15 @@
 cff-version: 1.2.0
 message: "Si usas este software o sus datos, cítalo así."
-title: "Sismógrafo del capital: multiverso de la tasa de ganancia"
+title: "Mapa cognitivo del capital: tasa y masa de ganancia y de plusvalor (EE.UU. y mundo)"
+version: "1.0.0"
 type: software
 authors:
   - family-names: "Jiménez Cea"
     given-names: "Pablo Ignacio"
     orcid: "https://orcid.org/0000-0002-6977-9134"
     affiliation: "Instituto de Ciencias Sociales y Humanidades «Alfonso Vélez Pliego», BUAP"
-repository-code: "https://github.com/necplusultra-blog/sismografo-del-capital"
-url: "https://necplusultra-blog.github.io/sismografo-del-capital/"
+repository-code: "https://github.com/necplusultra-blog/mapa-cognitivo-del-capital"
+url: "https://necplusultra-blog.github.io/mapa-cognitivo-del-capital/"
 license: MIT
 keywords:
   - tasa de ganancia

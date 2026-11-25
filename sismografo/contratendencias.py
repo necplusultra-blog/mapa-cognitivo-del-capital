@@ -32,7 +32,7 @@ def _banco_mundial():
     filas = []
     try:
         for ind, nombre in WB_IND.items():
-            req = urllib.request.Request(WB.format(i=ind), headers={'User-Agent': 'Mozilla/5.0 sismografo-del-capital'})
+            req = urllib.request.Request(WB.format(i=ind), headers={'User-Agent': 'Mozilla/5.0 mapa-cognitivo-del-capital'})
             with urllib.request.urlopen(req, timeout=90) as r:
                 for x in json.loads(r.read())[1]:
                     if x['value'] is not None: filas.append(dict(serie=nombre, anio=int(x['date']), valor=float(x['value'])))

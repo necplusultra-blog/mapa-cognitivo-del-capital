@@ -1,6 +1,6 @@
 # Cómo editar los textos del sitio
 
-Todo el texto del sitio vive en esta carpeta, en archivos Markdown. La forma más cómoda de editarlos es **Pages CMS** (https://app.pagescms.org → repositorio sismografo-del-capital): cada página aparece como una colección y cada sección como una entrada, con el texto en un editor Markdown. Al guardar, Pages CMS hace un commit y el sitio se publica solo en unos cinco minutos. La configuración está en `.pages.yml`, en la raíz del repositorio.
+Todo el texto del sitio vive en esta carpeta, en archivos Markdown. La forma más cómoda de editarlos es **Pages CMS** (https://app.pagescms.org → repositorio mapa-cognitivo-del-capital): cada página aparece como una colección y cada sección como una entrada, con el texto en un editor Markdown. Al guardar, Pages CMS hace un commit y el sitio se publica solo en unos cinco minutos. La configuración está en `.pages.yml`, en la raíz del repositorio.
 
 También puedes editarlos directamente en GitHub, sin instalar nada:
 
@@ -69,3 +69,14 @@ El sitio tiene una versión en inglés británico en `site/en/` (index.html, rea
 - Si cambias un texto en español, cambia también el archivo del mismo nombre en `contenido/en/`. Los atajos (`{{…}}`, `[[…]]`, `:::como`) y los `id` del encabezado deben ser idénticos en las dos versiones; sólo se traducen las partes legibles.
 - Convenciones: inglés británico (labour, analyse, -ise), comillas simples, punto decimal y coma de miles (2.05; 1,077), glosario de los artículos del autor (borderline capitalism, tendential fall of the rate of profit, countertendencies, living labour, real subsumption). El glosario completo está en el historial del proyecto (doc 00 del Project).
 - Las etiquetas que el código escribe dentro de los gráficos y tablas (leyendas, nombres de países y de ramas, columnas) se traducen en `site/en/i18n.js`. Si una etiqueta nueva aparece en español en la versión inglesa, agrégala ahí.
+
+## Fuente de los datos de cada gráfico
+
+Debajo de cada gráfico va un párrafo con la fuente de los datos, con la clase `fuente`:
+
+```
+Fuentes: BEA: cuentas nacionales (NIPA) ...; BLS ... Cálculo propio.
+{: .fuente }
+```
+
+Es obligatorio: el mapa cognitivo se sostiene en que cada cifra pueda rastrearse hasta su fuente. Si un gráfico cambia de datos, se actualiza su fuente (también en `contenido/en/`, con «Source:» o «Sources:»).

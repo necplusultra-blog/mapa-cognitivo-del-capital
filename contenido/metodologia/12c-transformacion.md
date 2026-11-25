@@ -5,7 +5,7 @@ menu: La transformación
 ---
 ## La transformación: valores y precios
 
-**Nivel agregado.** El sismógrafo trabaja en el nivel macromonetario (Moseley, 2016; cercano a la «nueva interpretación» de Foley, 1982, y Duménil, 1983): el plusvalor total es, por construcción, la suma de ganancias, intereses, rentas, impuestos a la producción y sueldos improductivos, y la expresión monetaria del tiempo de trabajo traduce dinero a horas. En ese nivel, el problema de la transformación no altera la masa ni la tasa de plusvalor. Lo que sí altera es la distribución del plusvalor entre ramas y países, que es lo que mide esta fase.
+**Nivel agregado.** El mapa cognitivo trabaja en el nivel macromonetario (Moseley, 2016; cercano a la «nueva interpretación» de Foley, 1982, y Duménil, 1983): el plusvalor total es, por construcción, la suma de ganancias, intereses, rentas, impuestos a la producción y sueldos improductivos, y la expresión monetaria del tiempo de trabajo traduce dinero a horas. En ese nivel, el problema de la transformación no altera la masa ni la tasa de plusvalor. Lo que sí altera es la distribución del plusvalor entre ramas y países, que es lo que mide esta fase.
 
 **Fuente.** Tablas insumo-producto nacionales de WIOD (versión de noviembre de 2016), 43 países, 56 ramas, 2000–2014, en millones de dólares, con la matriz de insumos nacionales y la de insumos importados; horas y ocupados de las cuentas socioeconómicas de WIOD.
 

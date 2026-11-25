@@ -11,6 +11,9 @@ The Marxist debate on the rate of profit is not only about figures: it is about 
 [[leyenda l-ref]]
 [[grafico c-ref]]
 
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED). Each series is built with the definition of each current (methodology, §6). Own calculation.
+{: .fuente }
+
 Net rates in %, at current cost except the Kliman-type rate (historical cost). Heinrich does not propose a measure of his own: his reading rests on the full spread of the multiverse in the previous section.
 {: .nota }
 
@@ -73,5 +76,5 @@ Net rates in %, at current cost except the Kliman-type rate (historical cost). H
 - **Business sector, all productive:** like the Shaikh-Tonak rate, but subtracting all the compensation of the sector. It is the baseline without the distinction between productive and unproductive labour.
 - **Table:** value of each rate in the years indicated; the last column is the percentage change between 1982 (the trough of the broad business-sector measures; in the Duménil-Lévy and Kliman types the trough is 2001) and the latest year.
 
-All include intellectual property products in K, without inventories or adjustment for utilisation. They are definitions ‘in the manner of’ the authors, not replications of their series: the series reconstructed with each author's definition are in the [next section](#replicacion). The diagnoses summarise the published theses of each current; they are not conclusions of the seismograph. Full references in the [methodology, §6](metodologia.html#referencias).
+All include intellectual property products in K, without inventories or adjustment for utilisation. They are definitions ‘in the manner of’ the authors, not replications of their series: the series reconstructed with each author's definition are in the [next section](#replicacion). The diagnoses summarise the published theses of each current; they are not conclusions of the cognitive map. Full references in the [methodology, §6](metodologia.html#referencias).
 :::

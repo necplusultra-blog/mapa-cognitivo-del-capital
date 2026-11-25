@@ -31,7 +31,7 @@ CACHE_ILO = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file_
 def _ilo_china():
     url = 'https://rplumber.ilo.org/data/indicator/?id=EMP_2EMP_SEX_STE_NB_A&ref_area=CHN&sex=SEX_T&format=.csv'
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 sismografo-del-capital'})
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 mapa-cognitivo-del-capital'})
         with urllib.request.urlopen(req, timeout=90) as r:
             open(CACHE_ILO, 'wb').write(r.read())
     except Exception as e:  # noqa: BLE001
@@ -507,7 +507,7 @@ SECC_PUBLICAS = {'P', 'Q'}
 def _ilo(c, ind, dir_cache):
     fn = os.path.join(dir_cache, f'{ind}_{c}.csv')
     try:
-        req = urllib.request.Request(ILO.format(id=ind, c=c), headers={'User-Agent': 'Mozilla/5.0 sismografo-del-capital'})
+        req = urllib.request.Request(ILO.format(id=ind, c=c), headers={'User-Agent': 'Mozilla/5.0 mapa-cognitivo-del-capital'})
         with urllib.request.urlopen(req, timeout=90) as r:
             txt = r.read()
         if txt.strip().startswith(b'{'): raise IOError(txt[:100])

@@ -10,6 +10,9 @@ For each step from one decade to the next, the table counts in what percentage o
 
 [[tabla t-dec: Period | % of specifications with a fall | Classification]]
 
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED). Own calculation over the 288 specifications.
+{: .fuente }
+
 :::como How is this table calculated?
 For each specification in the main multiverse, the average of each decade (and of the period from 2020 to the latest year) is calculated. Then the percentage of specifications whose average is lower than in the previous decade is counted. ‘Robust: falls’ if that percentage is ≥ 90%; ‘robust: rises’ if it is ≤ 10%; ‘theory-dependent’ in all other cases. Decades are reporting units, not theoretical breaks.
 :::

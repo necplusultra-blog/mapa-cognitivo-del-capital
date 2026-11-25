@@ -18,6 +18,9 @@ The rate of profit rises if capital obtains more surplus value for each dollar o
 [[leyenda l-ct-fases]]
 [[grafico c-ct-fases]]
 
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED). Own decomposition of the rate of profit by phase (endogenous breaks).
+{: .fuente }
+
 By-industry criterion, from 1948. A composition bar below zero means that capital per unit of variable capital grew and pushed the rate down.
 {: .nota }
 
@@ -29,6 +32,9 @@ The same calculation, with the composition split into two parts: how much physic
 
 [[leyenda l-ct-fases-i]]
 [[grafico c-ct-fases-i]]
+
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED); price indices of investment and fixed capital (BEA). Own calculation.
+{: .fuente }
 
 [[tabla t-ct-fases: Variant | Phase | Change in the rate | Contribution of e | Contribution of K/V | Technical composition | Relative price]]
 
@@ -56,6 +62,9 @@ If workers produce more per hour but their real wage grows less, the difference 
 [[leyenda l-ct-a]]
 [[grafico c-ct-a]]
 
+Sources: BLS: productivity and costs, non-farm business sector (via FRED: OPHNFB, COMPRNFB).
+{: .fuente }
+
 The extension of working time does not show up in the hours paid by establishments, which decline. Two indications of its displacement beyond a single job: the proportion of employed people with more than one job and that of those working part-time involuntarily. Neither measures the intensity of labour, which still has no indicator.
 {: .nota }
 
@@ -64,6 +73,9 @@ Two signs that working time is being stretched outside the paid hours of a singl
 
 [[leyenda l-ct-a2]]
 [[grafico c-ct-a2 corto]]
+
+Source: BLS: household survey (Current Population Survey, via FRED: LNS12026619, LNS12032194, CE16OV). Own calculation.
+{: .fuente }
 
 ### 2. Reduction of wages below their value
 
@@ -75,6 +87,9 @@ What a production worker can buy with one hour's wage, after discounting inflati
 [[leyenda l-ct-b]]
 [[grafico c-ct-b]]
 
+Sources: BLS: average hourly earnings of production and non-supervisory workers (CES, via FRED: AHETPI) and consumer price index (CPIAUCSL). Own calculation.
+{: .fuente }
+
 ### 3. Cheapening of the elements of constant capital
 
 Three indices on machines, buildings and equipment. The technical composition tells how much physical capital there is per hour of labour: it grows non-stop. The other two tell how much that capital costs compared with the wage and with consumption: they fall. Capital needs ever more means of production per worker, but each one is cheaper, and that slows the fall of the rate.
@@ -82,6 +97,9 @@ Three indices on machines, buildings and equipment. The technical composition te
 
 [[leyenda l-ct-c]]
 [[grafico c-ct-c corto]]
+
+Sources: BEA: fixed assets (net stock at current cost and chained quantities), price indices of investment and consumption (NIPA); BLS (CES, via FRED): hours of productive workers. Own calculation.
+{: .fuente }
 
 Indices, 1972 = 100. The technical composition grows much more than the value composition because each unit of capital becomes cheaper relative to labour.
 {: .nota }
@@ -94,6 +112,9 @@ How many people are available for capital to employ: the unemployed and underemp
 [[leyenda l-ct-d]]
 [[grafico c-ct-d]]
 
+Sources: BLS: Current Population Survey (via FRED: LNS12300060, U6RATE); World Bank, World Development Indicators with ILO modelled estimates (SL.EMP.VULN.ZS, SL.UEM.TOTL.ZS).
+{: .fuente }
+
 Relative surplus population is not only unemployment: it includes those who work on their own account or in family labour, available to be absorbed by capital. At the world scale, their reabsorption is the main source of the growth of the mass of surplus value (see the world mass in hours).
 {: .nota }
 
@@ -105,11 +126,17 @@ What share of the profits of US corporations comes from abroad, and how much tra
 [[leyenda l-ct-e]]
 [[grafico c-ct-e]]
 
+Sources: BEA: NIPA, profits received from the rest of the world and corporate profits (B933RC, A051RC); World Bank: trade as % of world GDP (NE.TRD.GNFS.ZS). Own calculation.
+{: .fuente }
+
 **Transfer of labour time through foreign trade.** On the world market, countries with higher productivity receive more labour in exchange for less. The chart estimates how many hours of other people's labour each country or group appropriates per year: the hours embodied in what it imports minus those embodied in what it exports, in billions of hours. Positive means appropriation; negative, cession.
 {: .nota }
 
 [[leyenda l-ct-e2]]
 [[grafico c-ct-e2]]
+
+Source: Penn World Table 11.0 (employment and annual hours) and World Bank (GDP, exports and imports in current dollars). Own approximate calculation.
+{: .fuente }
 
 :::como How is the transfer of hours calculated?
 For each country, h = hours worked in the year (persons employed × annual hours per person employed, Penn World Table 11.0) / GDP in current dollars (World Bank). The average hour content of one dollar of world exports is h<sub>X</sub> = Σ exports × h / Σ exports. A country's net transfer is imports × h<sub>X</sub> − exports × h. The countries with data on hours are used (some 120, from 2005); the income groups are those of the World Bank.
@@ -125,6 +152,9 @@ What share of profit goes to finance: the profits of the financial sector, the i
 [[leyenda l-ct-f]]
 [[grafico c-ct-f]]
 
+Sources: BEA: NIPA (A587RC, A445RC, B471RC, W326RC, B467RC, A466RC, A455RC); Federal Reserve: Z.1 financial accounts (via FRED: BOGZ1FU103164103A). Own calculation.
+{: .fuente }
+
 Fictitious capital consists of claims on future surplus labour. The market value of the shares of non-financial corporations grows much faster than their debt and than output: its validation requires a mass of surplus value that has not yet been produced.
 {: .nota }
 
@@ -133,6 +163,9 @@ The stock-market value of US non-financial corporations compared with the countr
 
 [[leyenda l-ct-f2]]
 [[grafico c-ct-f2 corto]]
+
+Sources: Federal Reserve: Z.1 financial accounts (via FRED: NCBEILQ027S, BCNSDODNS); BEA: GDP. Own calculation.
+{: .fuente }
 
 Negative net equity issuance means that non-financial corporations buy back more shares than they issue: they transfer profit to shareholders instead of accumulating it.
 {: .nota }

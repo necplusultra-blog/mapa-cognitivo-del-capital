@@ -14,9 +14,15 @@ Arriba, cuánto plusvalor se produce en total cada año, expresado en lo que ese
 
 [[grafico c-masa]]
 
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED); deflactor del PIB (BEA). Cálculo propio.
+{: .fuente }
+
 ### Tasa de plusvalor S/V
 
 [[grafico c-e]]
+
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED). Cálculo propio.
+{: .fuente }
 
 :::como ¿Cómo se calculan estos gráficos?
 S = valor agregado bruto del sector empresarial − valor agregado de la vivienda arrendada − servicios financieros pagados por los hogares con sus salarios (explotación secundaria) − depreciación del capital no residencial del sector (costo corriente) − V.

@@ -12,6 +12,9 @@ The lines in the previous section follow the spirit of each current with a commo
 [[leyenda l-rp]]
 [[grafico c-rp]]
 
+Sources: values published by each author ('Source' column of the table); series recomputed with BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED) (current vintages). Own calculation.
+{: .fuente }
+
 Index 1982 = 100. Moseley's series begins in 1972 because the wages of production workers by supersector begin in that year; Kliman's, in 1949, because it uses the previous year's capital.
 {: .nota }
 
@@ -22,7 +25,7 @@ Index 1982 = 100. Moseley's series begins in 1972 because the wages of productio
 [[tabla t-rp: Author | Measure | Year or period | Published | Reconstructed | Result | Source]]
 
 :::como How is each series reconstructed?
-- **Shaikh and Tonak (1994, tables 5.6 and 5.8).** S\* = net product of the business sector (excluding rental housing) minus V\*; V\* = compensation of production and non-supervisory workers in the productive industries (the seismograph's within-industry correction, from 1972). What households pay to finance is not subtracted, because they do not subtract it. The Marxian rate is S\*/K, with K the net stock at current cost; they use the gross stock, which is no longer published, so only the trend is comparable. From 1948 there is a version with V\* equal to all the compensation in the productive industries, which is a lower bound of their rate of surplus value.
+- **Shaikh and Tonak (1994, tables 5.6 and 5.8).** S\* = net product of the business sector (excluding rental housing) minus V\*; V\* = compensation of production and non-supervisory workers in the productive industries (the cognitive map's within-industry correction, from 1972). What households pay to finance is not subtracted, because they do not subtract it. The Marxian rate is S\*/K, with K the net stock at current cost; they use the gross stock, which is no longer published, so only the trend is comparable. From 1948 there is a version with V\* equal to all the compensation in the productive industries, which is a lower bound of their rate of surplus value.
 - **Moseley (1991, ch. 3; 1977 figures in Moseley, 1997).** V = production and non-supervisory wages in the productive industries; Uf = the rest of the business sector's compensation (circulation and supervision); C = fixed capital of the productive industries plus inventories; Us = fixed capital of trade, finance and insurance, non-residential real estate, rental and leasing, and legal services. Conventional rate = (S − Uf)/(C + Us), with S net of the business sector's taxes on production net of subsidies (NIPA 1.13, lines 9 and 17; see above).
 - **Kliman (2010; 2012, ch. 5).** Corporations (NIPA 1.14). Property income = net value added − compensation; total profit = net operating surplus; before-tax profit = profits with inventory valuation adjustment. In all three, depreciation at current cost is replaced by depreciation at historical cost, and the denominator is the net stock at historical cost at the end of the previous year (the capital advanced).
 - **Duménil and Lévy (2002, table 3).** Broad rate r_b = (net value added of corporations − compensation) / net non-residential stock at current cost. The ratio between years is compared, because the article does not publish annual levels. There is a variant without intellectual property products (neither their investment in the numerator nor their stock in the denominator), closer to the accounts they used.

@@ -6,7 +6,7 @@ oculta: si
 ---
 ## What counts as surplus value: four assumptions set against the national accounts
 
-Within profits, the national accounts mix together things that in Marx's theory have different origins. The seismograph separates two of them in its central measurement: it subtracts what households pay to finance out of their wages, which is surplus value displaced from the wage and not produced surplus value, and it adds, at the world scale, the rent that firms pay for their premises, which is produced surplus value. This section shows how much the figures change relative to the national-accounts convention, and records two other assumptions that are kept as sensitivity analyses: supervision and the net social wage.
+Within profits, the national accounts mix together things that in Marx's theory have different origins. The cognitive map separates two of them in its central measurement: it subtracts what households pay to finance out of their wages, which is surplus value displaced from the wage and not produced surplus value, and it adds, at the world scale, the rent that firms pay for their premises, which is produced surplus value. This section shows how much the figures change relative to the national-accounts convention, and records two other assumptions that are kept as sensitivity analyses: supervision and the net social wage.
 {: .llano }
 
 [[cifra bb-fh | Surplus value displaced from wages to finance in the United States, as a share of national-accounts surplus value, {{.bb-fin}} | 1948: {{bb-fh48}}]]
@@ -15,14 +15,20 @@ Within profits, the national accounts mix together things that in Marx's theory 
 
 ### Secondary exploitation: what households pay to finance
 
-The value added of banks and insurers enters the accounts as if it were all produced profit. But a growing part of it is paid by households—implicit interest on loans and deposits, fees—out of wages that have already been counted as variable capital. That is not new surplus value, but surplus value displaced from the wage to financial capital: what Marx called secondary exploitation (*Capital*, Volume III, ch. XXXVI). The seismograph subtracts it from surplus value in the part that corresponds to wages and records it separately, as an indicator of the transfer and anticipation of surplus value. In the United States, this displacement went from a minimal fraction of surplus value in the post-war period to a considerable part. If it were left in, as in the accounts, the rate of profit would be higher and its recovery since 1982 would appear larger.
+The value added of banks and insurers enters the accounts as if it were all produced profit. But a growing part of it is paid by households—implicit interest on loans and deposits, fees—out of wages that have already been counted as variable capital. That is not new surplus value, but surplus value displaced from the wage to financial capital: what Marx called secondary exploitation (*Capital*, Volume III, ch. XXXVI). The cognitive map subtracts it from surplus value in the part that corresponds to wages and records it separately, as an indicator of the transfer and anticipation of surplus value. In the United States, this displacement went from a minimal fraction of surplus value in the post-war period to a considerable part. If it were left in, as in the accounts, the rate of profit would be higher and its recovery since 1982 would appear larger.
 {: .llano }
 
 [[leyenda l-bb]]
 [[grafico c-bb]]
 
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED); personal consumption expenditure on financial services (NIPA 2.4.5, DFNLRC) and personal income (NIPA 2.1). Own calculation.
+{: .fuente }
+
 [[leyenda l-bb2]]
 [[grafico c-bb2]]
+
+Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED). Own calculation (secondary exploitation and supervision).
+{: .fuente }
 
 ### Supervision and management
 
@@ -39,12 +45,18 @@ The state levies taxes and contributions on workers and gives them back benefits
 [[leyenda l-bb3]]
 [[grafico c-bb3 corto]]
 
+Sources: BEA: NIPA, compensation and personal income (A033RC, A065RC), social benefits (A063RC, G16029), personal taxes and social contributions (W055RC, A061RC). Own calculation in the manner of Shaikh and Tonak (1994).
+{: .fuente }
+
 ### World: commercial rent and household financial services (billion hours of surplus labour)
 
 At the world scale, the central measurement adds the rent that firms pay for their premises (surplus value ceded to landed property) and subtracts the financial services that households pay for out of their wages. The two adjustments go in opposite directions and almost cancel each other out: the world mass of surplus labour changes very little relative to the national-accounts convention.
 {: .llano }
 
 [[tabla t-bbm: Variant | {{bb-a0}} | {{bb-a1}} | {{bb-a2}} | Difference from the central estimate, last year]]
+
+Sources: WIOD (intermediate consumption of L68 and household consumption of K64–K66) and the sources of the world mass in hours. Own calculation.
+{: .fuente }
 
 :::como How are these adjustments calculated?
 - **B4, secondary exploitation (in the central measurement).** United States: from broad surplus value is subtracted personal consumption expenditure on financial services (NIPA, table 2.4.5, series DFNLRC: implicit interest—FISIM—plus fees) multiplied by the share of employee compensation in personal income (A033RC / A065RC), so as not to subtract what households pay out of property income. World: household final consumption of finance and insurance products (K64–K66, domestic and imported; WIOD input–output tables) is subtracted, as a proportion of the value added of the market industries, multiplied by the labour share of income (Penn World Table, labsh). The corporate measures ‘in the manner of’ Duménil-Lévy and Kliman do not change.

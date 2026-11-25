@@ -25,6 +25,9 @@ Cada año, la jornada de 40 horas se reparte según la tasa de plusvalor del mis
 [[leyenda l-sem]]
 [[grafico c-sem]]
 
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED) (empleo, horas semanales y salario por hora de los obreros de producción y no supervisores). Cálculo propio.
+{: .fuente }
+
 ### EE.UU.: masa anual de plustrabajo (miles de millones de horas)
 
 Suma las horas de plustrabajo de todos los obreros productivos de EE.UU. en un año. Se multiplica por más de dos desde 1972, y casi todo ese crecimiento viene de que hay más obreros, no de que cada uno trabaje más horas para el capital. Las caídas coinciden con las recesiones, cuando se despide a millones.
@@ -34,6 +37,9 @@ Horas trabajadas en el año por todos los obreros productivos de EE.UU. × e / (
 {: .nota }
 
 [[grafico c-hplus]]
+
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED) (empleo y horas semanales de los obreros de producción y no supervisores). Cálculo propio.
+{: .fuente }
 
 :::como+ ¿Cómo se obtienen estos datos?
 1. **Obreros productivos (N).** Suma del empleo de los trabajadores de producción y no supervisores (BLS, encuesta CES, series 06) de los supersectores productivos: minería y explotación forestal, construcción, manufactura, transporte y almacenamiento, electricidad, gas y agua, información, servicios profesionales y empresariales, educación y salud privadas, ocio y hospitalidad, otros servicios. Quedan fuera el comercio, las finanzas, el gobierno, los supervisores y la agricultura (la CES no la cubre). De tres supersectores se resta la parte que no es capital productivo: de los servicios profesionales, los servicios jurídicos y contables (ramas de circulación); de la educación y la salud privadas, la parte empleada por instituciones sin fines de lucro (70 % de la educación, 43 % de la salud y 40 % de la asistencia social, según el BLS para 2022); de otros servicios, la parte sin fines de lucro de las organizaciones religiosas y civiles (60 %). Antes de 1990, sin detalle por industria, se usan las proporciones de 1990. Promedio anual, en millones.
@@ -65,6 +71,9 @@ Valor nuevo (v + pv) por hora de trabajo productivo: cuántos dólares represent
 
 [[leyenda l-melt]]
 [[grafico c-melt]]
+
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED); deflactor del PIB (BEA). Cálculo propio.
+{: .fuente }
 
 :::como ¿Cómo se calcula este gráfico?
 Expresión monetaria del tiempo de trabajo = (V + S) / H: el valor nuevo creado por los obreros productivos (intra-rama), en dólares, dividido por sus horas. La serie en dólares de 2017 divide por el deflactor del PIB.

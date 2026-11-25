@@ -34,6 +34,7 @@ All works cited on the site (front page, Reading and Methodology). The data sour
 - Freeman, A. and Carchedi, G. (Eds.). (1996). *Marx and Non-Equilibrium Economics*. Cheltenham: Edward Elgar.
 - Heinrich, M. (2013). Crisis Theory, the Law of the Tendency of the Profit Rate to Fall, and Marx's Studies in the 1870s. *Monthly Review*, 64(11).
 - Heinrich, M. (2014). *Die Wissenschaft vom Wert* (6th ed.). Münster: Westfälisches Dampfboot.
+- Jameson, F. (1988). Cognitive mapping. In C. Nelson and L. Grossberg (eds.), *Marxism and the Interpretation of Culture* (pp. 347–360). Urbana: University of Illinois Press.
 - Kliman, A. (2007). *Reclaiming Marx's ‘Capital’: A Refutation of the Myth of Inconsistency*. Lanham: Lexington Books.
 - Kliman, A. (2010). *Appearance and Essence: Neoliberalism, Financialization, and the Underlying Crisis of Capitalist Production*. New York: Marxist-Humanist Initiative. https://marxisthumanistinitiative.org/economics/appearance-and-essence-neoliberalism-financialization-and-the-underlying-crisis-of-capitalist-production.html
 - Kliman, A. (2012). *The Failure of Capitalist Production: Underlying Causes of the Great Recession*. London: Pluto Press.

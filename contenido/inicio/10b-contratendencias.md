@@ -18,6 +18,9 @@ La tasa de ganancia sube si el capital obtiene más plusvalor por cada dólar de
 [[leyenda l-ct-fases]]
 [[grafico c-ct-fases]]
 
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED). Descomposición propia de la tasa de ganancia por fases (quiebres endógenos).
+{: .fuente }
+
 Criterio por ramas, desde 1948. Una barra de la composición por debajo de cero significa que el capital por unidad de capital variable creció y presionó la tasa hacia abajo.
 {: .nota }
 
@@ -29,6 +32,9 @@ El mismo cálculo, con la composición separada en dos partes: cuánto capital f
 
 [[leyenda l-ct-fases-i]]
 [[grafico c-ct-fases-i]]
+
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED); índices de precios de la inversión y del capital fijo (BEA). Cálculo propio.
+{: .fuente }
 
 [[tabla t-ct-fases: Variante | Fase | Cambio de la tasa | Aporte de e | Aporte de K/V | Composición técnica | Precio relativo]]
 
@@ -56,6 +62,9 @@ Si los trabajadores producen más por hora pero su salario real crece menos, la 
 [[leyenda l-ct-a]]
 [[grafico c-ct-a]]
 
+Fuentes: BLS: productividad y costos, sector empresarial no agrícola (vía FRED: OPHNFB, COMPRNFB).
+{: .fuente }
+
 La extensión del tiempo de trabajo no aparece en las horas pagadas por establecimiento, que bajan. Dos indicios de su desplazamiento fuera de un solo empleo: la proporción de ocupados con más de un empleo y la de quienes trabajan a tiempo parcial sin quererlo. Ninguno mide la intensidad del trabajo, que sigue sin indicador.
 {: .nota }
 
@@ -64,6 +73,9 @@ Dos señales de que el tiempo de trabajo se estira por fuera de las horas pagada
 
 [[leyenda l-ct-a2]]
 [[grafico c-ct-a2 corto]]
+
+Fuente: BLS: encuesta de hogares (Current Population Survey, vía FRED: LNS12026619, LNS12032194, CE16OV). Cálculo propio.
+{: .fuente }
 
 ### 2. Reducción del salario por debajo de su valor
 
@@ -75,6 +87,9 @@ Lo que puede comprar con el salario de una hora un obrero de producción, descon
 [[leyenda l-ct-b]]
 [[grafico c-ct-b]]
 
+Fuentes: BLS: salario medio por hora de los obreros de producción y no supervisores (CES, vía FRED: AHETPI) e índice de precios al consumidor (CPIAUCSL). Cálculo propio.
+{: .fuente }
+
 ### 3. Abaratamiento de los elementos del capital constante
 
 Tres índices sobre las máquinas, edificios y equipos. La composición técnica dice cuánto capital físico hay por hora de trabajo: crece sin parar. Los otros dos dicen cuánto cuesta ese capital comparado con el salario y con el consumo: bajan. El capital necesita cada vez más medios de producción por obrero, pero cada uno es más barato, y eso frena la caída de la tasa.
@@ -82,6 +97,9 @@ Tres índices sobre las máquinas, edificios y equipos. La composición técnica
 
 [[leyenda l-ct-c]]
 [[grafico c-ct-c corto]]
+
+Fuentes: BEA: activos fijos (stock neto a costo corriente y cantidades encadenadas), índices de precios de la inversión y del consumo (NIPA); BLS (CES, vía FRED): horas de los obreros productivos. Cálculo propio.
+{: .fuente }
 
 Índices, 1972 = 100. La composición técnica crece mucho más que la composición en valor porque cada unidad de capital se abarata respecto del trabajo.
 {: .nota }
@@ -94,6 +112,9 @@ Cuánta gente está disponible para que el capital la emplee: desempleados y sub
 [[leyenda l-ct-d]]
 [[grafico c-ct-d]]
 
+Fuentes: BLS: Current Population Survey (vía FRED: LNS12300060, U6RATE); Banco Mundial, Indicadores del Desarrollo Mundial con estimaciones modelizadas de la OIT (SL.EMP.VULN.ZS, SL.UEM.TOTL.ZS).
+{: .fuente }
+
 La sobrepoblación relativa no es sólo desempleo: incluye a quienes trabajan por cuenta propia o en el trabajo familiar, disponibles para ser absorbidos por el capital. En la escala mundial, su reabsorción es la principal fuente del crecimiento de la masa de plusvalor (véase la masa mundial en horas).
 {: .nota }
 
@@ -105,11 +126,17 @@ Qué parte de las ganancias de las corporaciones de EE.UU. proviene del extranje
 [[leyenda l-ct-e]]
 [[grafico c-ct-e]]
 
+Fuentes: BEA: NIPA, ganancias recibidas del resto del mundo y ganancias corporativas (B933RC, A051RC); Banco Mundial: comercio en % del PIB mundial (NE.TRD.GNFS.ZS). Cálculo propio.
+{: .fuente }
+
 **Transferencia de tiempo de trabajo por comercio exterior.** En el mercado mundial, los países de productividad más alta reciben más trabajo a cambio de menos. El gráfico estima cuántas horas de trabajo ajeno se apropia cada país o grupo por año: las horas incorporadas en lo que importa menos las incorporadas en lo que exporta, en miles de millones de horas. Positivo significa apropiación; negativo, cesión.
 {: .nota }
 
 [[leyenda l-ct-e2]]
 [[grafico c-ct-e2]]
+
+Fuente: Penn World Table 11.0 (ocupados y horas anuales) y Banco Mundial (PIB y exportaciones e importaciones en dólares corrientes). Cálculo propio, aproximado.
+{: .fuente }
 
 :::como ¿Cómo se calcula la transferencia de horas?
 Para cada país, h = horas trabajadas en el año (ocupados × horas anuales por ocupado, Penn World Table 11.0) / PIB en dólares corrientes (Banco Mundial). El contenido medio en horas de un dólar de exportaciones mundiales es h<sub>X</sub> = Σ exportaciones × h / Σ exportaciones. La transferencia neta de un país es importaciones × h<sub>X</sub> − exportaciones × h. Se usan los países con datos de horas (unos 120, desde 2005); los grupos de ingreso son los del Banco Mundial.
@@ -125,6 +152,9 @@ Qué parte de la ganancia se va a las finanzas: las ganancias del sector financi
 [[leyenda l-ct-f]]
 [[grafico c-ct-f]]
 
+Fuentes: BEA: NIPA (A587RC, A445RC, B471RC, W326RC, B467RC, A466RC, A455RC); Reserva Federal: cuentas financieras Z.1 (vía FRED: BOGZ1FU103164103A). Cálculo propio.
+{: .fuente }
+
 El capital ficticio son títulos sobre plustrabajo futuro. El valor de mercado de las acciones de las corporaciones no financieras crece mucho más que su deuda y que el producto: su validación exige una masa de plusvalor que todavía no se ha producido.
 {: .nota }
 
@@ -133,6 +163,9 @@ El valor en bolsa de las corporaciones no financieras de EE.UU. comparado con el
 
 [[leyenda l-ct-f2]]
 [[grafico c-ct-f2 corto]]
+
+Fuentes: Reserva Federal: cuentas financieras Z.1 (vía FRED: NCBEILQ027S, BCNSDODNS); BEA: PIB (GDP). Cálculo propio.
+{: .fuente }
 
 La emisión neta de acciones negativa significa que las corporaciones no financieras recompran más acciones de las que emiten: transfieren ganancia a los accionistas en lugar de acumularla.
 {: .nota }

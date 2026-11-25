@@ -38,7 +38,7 @@ IMPROD3, FUERA3, PUB3 = ['G', 'J'], ['L', 'P', 'Q'], ['M', 'N']
 def _ilo(c, ind, dir_cache):
     fn = os.path.join(dir_cache, f'{ind}_{c}.csv')
     try:
-        req = urllib.request.Request(ILO.format(id=ind, c=c), headers={'User-Agent': 'Mozilla/5.0 sismografo-del-capital'})
+        req = urllib.request.Request(ILO.format(id=ind, c=c), headers={'User-Agent': 'Mozilla/5.0 mapa-cognitivo-del-capital'})
         with urllib.request.urlopen(req, timeout=120) as r:
             txt = r.read()
         if txt.strip().startswith(b'{'): raise IOError(txt[:100])

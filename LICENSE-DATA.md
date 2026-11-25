@@ -4,7 +4,7 @@ Los datos derivados (`resultados/`, `site/data/`, `site/descargas/`), los gráfi
 
 Se pueden copiar, redistribuir y adaptar con cualquier fin, con la condición de citar la fuente:
 
-> Jiménez Cea, P. I. (2026). *Sismógrafo del capital: multiverso de la tasa de ganancia*. https://github.com/necplusultra-blog/sismografo-del-capital
+> Jiménez Cea, P. I. (2026). *Mapa cognitivo del capital: multiverso de la tasa de ganancia*. https://github.com/necplusultra-blog/mapa-cognitivo-del-capital
 
 Los datos originales pertenecen a sus fuentes (BEA, Reserva Federal, BLS, Penn World Table) y se rigen por sus propios términos. La Penn World Table se distribuye bajo CC BY 4.0 (Feenstra, Inklaar y Timmer, 2015, *American Economic Review* 105(10): 3150–3182).
 

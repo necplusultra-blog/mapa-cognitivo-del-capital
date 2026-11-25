@@ -1,7 +1,7 @@
 {
-  "title": "Sismógrafo del capital: multiverso de la tasa de ganancia",
+  "title": "Mapa cognitivo del capital: tasa y masa de ganancia y de plusvalor (EE.UU. y mundo)",
   "upload_type": "software",
-  "description": "Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor (EE.UU. y mundo), organizado como un multiverso de especificaciones teóricamente explícitas, con detección endógena de quiebres. Investigación doctoral de Pablo Ignacio Jiménez Cea, «Los límites inmanentes del capital» (ICSyH-BUAP). Los datos derivados se publican bajo CC BY 4.0.",
+  "description": "Mapa cognitivo del capitalismo contemporáneo (en el sentido de Jameson, 1988): observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor de EE.UU. y del mundo, organizado como un multiverso de especificaciones teóricamente explícitas, con detección endógena de quiebres, masa mundial de plustrabajo en horas, contratendencias, transformación de valores en precios y fuerzas productivas. Incluye el código, los datos derivados (CC BY 4.0) y el sitio en español e inglés británico: https://necplusultra-blog.github.io/mapa-cognitivo-del-capital/. Trabajo realizado en el marco de la tesis doctoral de Pablo Ignacio Jiménez Cea, «Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe» (Doctorado en Sociología, ICSyH «Alfonso Vélez Pliego», BUAP), dirigida por el Dr. Alfonso García Vela.",
   "creators": [
     {
       "name": "Jiménez Cea, Pablo Ignacio",
@@ -13,11 +13,23 @@
   "language": "spa",
   "keywords": [
     "tasa de ganancia",
+    "masa de plusvalor",
     "crítica de la economía política",
-    "plusvalor",
+    "mapa cognitivo",
     "multiverso",
     "límites inmanentes del capital",
     "rate of profit",
+    "surplus value",
+    "cognitive mapping",
     "Marx"
+  ],
+  "version": "1.0.0",
+  "notes": "Beca de la Secretaría de Ciencia, Humanidades, Tecnología e Innovación (SECIHTI), México, número 4052073.",
+  "related_identifiers": [
+    {
+      "identifier": "https://necplusultra-blog.github.io/mapa-cognitivo-del-capital/",
+      "relation": "isDocumentedBy",
+      "resource_type": "publication-other"
+    }
   ]
 }

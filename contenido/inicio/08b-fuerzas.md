@@ -6,7 +6,7 @@ oculta: si
 ---
 ## Fuerzas productivas y tiempo disponible
 
-El sismógrafo registra también algo que las cifras de la ganancia esconden: el estado de las fuerzas productivas que el capital desarrolla. Cada aumento de la productividad del trabajo reduce el tiempo necesario para reproducir a quienes producen. Bajo la relación de capital, ese tiempo liberado no se convierte en tiempo libre, sino en plustrabajo. Lo que esta sección muestra no es la jornada de una sociedad futura, sino la posibilidad que el propio capital crea y, en el mismo movimiento, convierte en trabajo para él.
+El mapa cognitivo registra también algo que las cifras de la ganancia esconden: el estado de las fuerzas productivas que el capital desarrolla. Cada aumento de la productividad del trabajo reduce el tiempo necesario para reproducir a quienes producen. Bajo la relación de capital, ese tiempo liberado no se convierte en tiempo libre, sino en plustrabajo. Lo que esta sección muestra no es la jornada de una sociedad futura, sino la posibilidad que el propio capital crea y, en el mismo movimiento, convierte en trabajo para él.
 {: .llano }
 
 [[cifra fz-niv | Horas por semana que bastarían en {{.fz-fin}} para reproducir el salario real de {{.fz-ini}} (EE.UU.) | trabajo necesario efectivo: {{fz-nec}}]]
@@ -26,6 +26,9 @@ Una línea adicional valúa el salario de 1972 con los precios de lo que los obr
 [[leyenda l-fz]]
 [[grafico c-fz]]
 
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED); deflactores del PIB y del gasto de consumo personal (BEA); horas habituales de tiempo completo (OCDE, a partir de la Current Population Survey). Cálculo propio.
+{: .fuente }
+
 [[tabla t-fz: Destino del tiempo liberado desde el primer año (jornada de 40 h) | Horas por semana | Parte del tiempo liberado]]
 
 ### Mundo: minutos diarios de trabajo productivo por habitante
@@ -35,6 +38,9 @@ En los países medidos rama por rama ({{fz-wpct}} de la población mundial), tod
 
 [[leyenda l-fzw]]
 [[grafico c-fzw]]
+
+Fuentes: WIOD, Cuentas Socioeconómicas 2016 y tablas insumo-producto nacionales (2000–2014); OCDE: cuentas nacionales por rama (tablas 6 y 7) y TiM 2025 (China); ONU: cuentas nacionales, tabla 2.6 (Brasil e India); OIT (ILOSTAT): asalariados, ocupación, horas y participación del trabajo; Penn World Table 11.0: depreciación y horas; población: Penn World Table 11.0. Cálculo propio.
+{: .fuente }
 
 :::como ¿Cómo se calculan estos datos?
 **EE.UU.** (obreros de producción y no supervisores de las ramas productivas, variante intra-rama, desde 1972), para una jornada de tiempo completo de 40 horas:

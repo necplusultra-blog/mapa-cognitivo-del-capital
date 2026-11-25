@@ -31,6 +31,6 @@ jobs:
       - name: Guardar
         if: always()
         run: |
-          git config user.name "sismografo-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "mapa-cognitivo-bot"; git config user.email "actions@users.noreply.github.com"
           git add datos_cache/externo/icio || true
           if ! git diff --cached --quiet; then git commit -m "ICIO OCDE: valores-trabajo por país y rama ($(date -u +%Y-%m-%d))" && (git push || (git pull --rebase -X theirs && git push)); fi

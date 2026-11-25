@@ -13,6 +13,9 @@ La tasa de ganancia de las corporaciones de EE.UU., trimestre a trimestre, para 
 [[leyenda l-trim]]
 [[grafico c-trim]]
 
+Fuente: BEA: NIPA 1.14, ganancias trimestrales de las sociedades (`NipaDataQ`: W322RC, W326RC, W328RC) y activos fijos (stock neto a costo corriente, interpolado por trimestre). Cálculo propio.
+{: .fuente }
+
 :::como ¿Cómo se calcula este gráfico?
 Numerador: ganancias trimestrales de las corporaciones (NIPA 1.14, tasa anual desestacionalizada). Denominador: stock neto de activos fijos a costo corriente del año anterior y del año en curso, interpolado linealmente por trimestre: K<sub>t</sub> = K<sub>a−1</sub> + (K<sub>a</sub> − K<sub>a−1</sub>)·t/4. Después del último año publicado por el BEA, K se extrapola con el crecimiento del último año; esos trimestres son provisionales y se dibujan punteados.
 :::

@@ -12,6 +12,9 @@ Las líneas de la sección anterior siguen el espíritu de cada corriente con un
 [[leyenda l-rp]]
 [[grafico c-rp]]
 
+Fuentes: valores publicados por cada autor (columna «Fuente» de la tabla); series rehechas con BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED) (ediciones vigentes). Cálculo propio.
+{: .fuente }
+
 Índice 1982 = 100. La de Moseley comienza en 1972 porque los salarios de los obreros de producción por supersector empiezan ese año; la de Kliman, en 1949, porque usa el capital del año anterior.
 {: .nota }
 
@@ -22,7 +25,7 @@ Las líneas de la sección anterior siguen el espíritu de cada corriente con un
 [[tabla t-rp: Autor | Medida | Año o tramo | Publicado | Rehecho | Resultado | Fuente]]
 
 :::como ¿Cómo se rehace cada serie?
-- **Shaikh y Tonak (1994, cuadros 5.6 y 5.8).** S\* = producto neto del sector empresarial (sin vivienda arrendada) menos V\*; V\* = remuneración de los obreros de producción y no supervisores de las ramas productivas (la corrección intra-rama del sismógrafo, desde 1972). No se resta lo que los hogares pagan a las finanzas, porque ellos no lo hacen. La tasa marxiana es S\*/K, con K el acervo neto a costo corriente; ellos usan el acervo bruto, que ya no se publica, por lo que sólo la tendencia es comparable. Desde 1948 hay una versión con V\* igual a toda la remuneración de las ramas productivas, que es una cota inferior de su tasa de plusvalor.
+- **Shaikh y Tonak (1994, cuadros 5.6 y 5.8).** S\* = producto neto del sector empresarial (sin vivienda arrendada) menos V\*; V\* = remuneración de los obreros de producción y no supervisores de las ramas productivas (la corrección intra-rama del mapa cognitivo, desde 1972). No se resta lo que los hogares pagan a las finanzas, porque ellos no lo hacen. La tasa marxiana es S\*/K, con K el acervo neto a costo corriente; ellos usan el acervo bruto, que ya no se publica, por lo que sólo la tendencia es comparable. Desde 1948 hay una versión con V\* igual a toda la remuneración de las ramas productivas, que es una cota inferior de su tasa de plusvalor.
 - **Moseley (1991, cap. 3; cifras de 1977 en Moseley, 1997).** V = salarios de producción y no supervisión en las ramas productivas; Uf = el resto de la remuneración del sector empresarial (circulación y supervisión); C = capital fijo de las ramas productivas más los inventarios; Us = capital fijo de comercio, finanzas y seguros, inmobiliario no residencial, alquiler y servicios jurídicos. Tasa convencional = (S − Uf)/(C + Us), con S sin los impuestos a la producción netos de subsidios del sector empresarial (NIPA 1.13, líneas 9 y 17; véase arriba).
 - **Kliman (2010; 2012, cap. 5).** Sociedades (NIPA 1.14). Ingreso de propiedad = valor agregado neto − remuneración; ganancia total = excedente neto de explotación; ganancia antes de impuestos = ganancias con ajuste de inventarios. En las tres, la depreciación a costo corriente se reemplaza por la depreciación a costo histórico, y el denominador es el acervo neto a costo histórico al cierre del año anterior (el capital adelantado).
 - **Duménil y Lévy (2002, cuadro 3).** Tasa amplia r_b = (valor agregado neto de las sociedades − remuneración) / acervo neto no residencial a costo corriente. Se compara la razón entre años, porque el artículo no publica niveles anuales. Hay una variante sin la propiedad intelectual (sin su inversión en el numerador ni su acervo en el denominador), más cercana a las cuentas que ellos usaron.

@@ -21,6 +21,9 @@ Para cada rama se calcula cuántas horas de trabajo, directo e indirecto, contie
 [[leyenda l-tf-desv]]
 [[grafico c-tf-desv]]
 
+Fuentes: WIOD: tablas insumo-producto nacionales y Cuentas Socioeconómicas 2016 (43 países, 2000–2014); OIT (asalariados de China). Cálculo propio.
+{: .fuente }
+
 ### Quién cede valor y quién se lo apropia ({{.tf-anio}}, {{.tf-n}} países)
 
 Precio/valor por debajo de 1: la rama vende por debajo del valor que produce y cede plusvalor a otras ramas. Por encima de 1: vende por encima y se apropia plusvalor producido en otras partes. Marx esperaba que las ramas con mucho capital por trabajador (composición alta) vendieran por encima de su valor, y las de mucho trabajo vivo, por debajo. La tabla lo confirma: la agricultura, la pesca, el textil y la hotelería ceden valor; la refinación de petróleo, la minería, la energía, los metales y la química se lo apropian.
@@ -39,6 +42,9 @@ Cuántas horas de trabajo ajeno recibe cada país por su comercio, contando tamb
 [[leyenda l-tf-com]]
 [[grafico c-tf-com]]
 
+Fuentes: WIOD: tabla insumo-producto mundial y Cuentas Socioeconómicas 2016; Banco Mundial (clasificación por ingreso). Cálculo propio.
+{: .fuente }
+
 <div id="tf-icio" hidden markdown="1">
 
 ### Hasta {{.tf-ifin}}, con las tablas mundiales de la OCDE
@@ -52,8 +58,14 @@ Las tablas de WIOD terminan en 2014. Las tablas mundiales de la OCDE (ICIO, edic
 [[leyenda l-tf-idesv]]
 [[grafico c-tf-idesv]]
 
+Fuentes: OCDE: tablas insumo-producto mundiales (ICIO, ediciones 2025 y 2026) y empleo por rama (TiM 2025); Penn World Table 11.0 (horas). Cálculo propio.
+{: .fuente }
+
 [[leyenda l-tf-icom]]
 [[grafico c-tf-icom]]
+
+Fuentes: OCDE: ICIO (ediciones 2025 y 2026) y TiM 2025; Penn World Table 11.0; Banco Mundial (clasificación por ingreso). Cálculo propio.
+{: .fuente }
 
 Miles de millones de horas. Positivo: el país recibe en sus importaciones más horas de las que entrega en sus exportaciones, a igual valor en dólares.
 {: .nota }
@@ -68,9 +80,12 @@ Una hora de trabajo en China no cuenta lo mismo que una en EE.UU. en el mercado 
 [[leyenda l-tf-pond]]
 [[grafico c-tf-pond]]
 
+Fuentes: WIOD (tablas insumo-producto y Cuentas Socioeconómicas 2016) y las fuentes de la masa mundial en horas. Cálculo propio.
+{: .fuente }
+
 ### La transformación según Moseley, con la variante temporal (TSSI) como contraste
 
-La medición anterior calcula valores en horas. Ésta sigue la interpretación de Moseley (2016), que el sismógrafo adopta como central: los costos en dinero —los insumos y los salarios— son los mismos para los valores y para los precios de producción, y lo que cambia es sólo cómo se reparte el plusvalor. En valores, cada rama tendría el plusvalor que producen sus propios obreros; en precios de producción, cada rama recibe una ganancia proporcional al capital que adelanta. La diferencia es el plusvalor que la competencia traslada de unas ramas a otras. La variante temporal (TSSI; Kliman, 2007) valúa los insumos y el capital a los precios con que entraron en la producción: en los años de inflación da tasas más altas, y en la crisis de 2009 converge con la central.
+La medición anterior calcula valores en horas. Ésta sigue la interpretación de Moseley (2016), que el mapa cognitivo adopta como central: los costos en dinero —los insumos y los salarios— son los mismos para los valores y para los precios de producción, y lo que cambia es sólo cómo se reparte el plusvalor. En valores, cada rama tendría el plusvalor que producen sus propios obreros; en precios de producción, cada rama recibe una ganancia proporcional al capital que adelanta. La diferencia es el plusvalor que la competencia traslada de unas ramas a otras. La variante temporal (TSSI; Kliman, 2007) valúa los insumos y el capital a los precios con que entraron en la producción: en los años de inflación da tasas más altas, y en la crisis de 2009 converge con la central.
 {: .llano }
 
 [[cifra tf-red | Parte del plusvalor que la igualación de las tasas traslada entre ramas, {{.tf-anio}} (mediana de los países) | Moseley]]
@@ -80,6 +95,9 @@ La medición anterior calcula valores en horas. Ésta sigue la interpretación d
 
 [[leyenda l-tf-mt]]
 [[grafico c-tf-mt]]
+
+Fuentes: WIOD: tablas insumo-producto nacionales y Cuentas Socioeconómicas 2016 (incluye acervos de capital); OIT (asalariados de China). Cálculo propio a la manera de Moseley y de la TSSI.
+{: .fuente }
 
 Tasa = plusvalor de las ramas productivas / (capital fijo + capital variable anual), en %. 43 países: suma en dólares. La TSSI empieza en 2001 porque necesita los precios del año anterior.
 {: .nota }

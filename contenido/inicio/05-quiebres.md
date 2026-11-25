@@ -12,6 +12,9 @@ Un procedimiento estadístico busca, en cada una de las mediciones del multivers
 
 [[grafico c-quiebres corto]]
 
+Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED). Detector de quiebres propio sobre las 288 especificaciones (Bai y Perron, 1998; 2003).
+{: .fuente }
+
 ### Sensibilidad del detector
 
 La búsqueda se repite con reglas más o menos exigentes. Si los mismos años aparecen con todas, no son un efecto del método.

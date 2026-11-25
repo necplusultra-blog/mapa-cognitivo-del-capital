@@ -2,7 +2,7 @@
 
 La reducción relativa del tiempo de trabajo necesario es la forma en que el capital desarrolla la fuerza productiva
 social; el capital convierte en plustrabajo el tiempo que esa reducción libera. Este módulo no calcula la jornada de una
-sociedad futura: muestra, con las mismas series del sismógrafo, cuánto tiempo libera el desarrollo de la fuerza
+sociedad futura: muestra, con las mismas series del mapa cognitivo, cuánto tiempo libera el desarrollo de la fuerza
 productiva y en qué se convierte bajo la relación de capital.
 
 EE.UU. (obreros productivos, variante intra-rama, desde 1972), para una jornada de tiempo completo de 40 horas:

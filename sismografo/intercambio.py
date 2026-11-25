@@ -21,7 +21,7 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(RAIZ, 'datos_cache', 'banco_mundial_comercio.csv')
 CACHE_GRUPOS = os.path.join(RAIZ, 'datos_cache', 'banco_mundial_grupos.csv')
 IND = {'NY.GDP.MKTP.CD': 'pib', 'NE.EXP.GNFS.CD': 'x', 'NE.IMP.GNFS.CD': 'm'}
-UA = {'User-Agent': 'Mozilla/5.0 sismografo-del-capital'}
+UA = {'User-Agent': 'Mozilla/5.0 mapa-cognitivo-del-capital'}
 
 
 def _json(url):

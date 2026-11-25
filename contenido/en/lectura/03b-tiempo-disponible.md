@@ -5,7 +5,7 @@ menu: Productive forces and disposable time
 ---
 ## Productive forces and disposable time: the possibility that capital creates and converts into surplus labour
 
-The seismograph has a use that measurements of the rate of profit usually leave out. It records the state of the productive forces that capital develops and, with it, the objective possibilities contained in the materiality of capitalist society. Capitalist production is, at the same time, a process of valorisation and a material process of reproduction of social life. In order to produce relative surplus value, capital develops the productive force of social labour and reduces the time necessary to reproduce those who produce. In the *Grundrisse*, Marx condenses the twofold character of this movement: the tendency of capital is ‘on the one side to create disposable time, on the other side to convert it into surplus labour’ (Marx, 2016b, p. 232).
+The cognitive map has a use that measurements of the rate of profit usually leave out. It records the state of the productive forces that capital develops and, with it, the objective possibilities contained in the materiality of capitalist society. Capitalist production is, at the same time, a process of valorisation and a material process of reproduction of social life. In order to produce relative surplus value, capital develops the productive force of social labour and reduces the time necessary to reproduce those who produce. In the *Grundrisse*, Marx condenses the twofold character of this movement: the tendency of capital is ‘on the one side to create disposable time, on the other side to convert it into surplus labour’ (Marx, 2016b, p. 232).
 
 ### What the data show
 

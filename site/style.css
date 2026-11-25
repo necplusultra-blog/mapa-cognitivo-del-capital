@@ -1,4 +1,4 @@
-/* Sismógrafo del capital — hoja de estilos.
+/* Mapa cognitivo del capital — hoja de estilos.
    Idea: tinta sobre papel de registro. El papel cuadriculado aparece sólo donde hay un registro (gráficos);
    el resto es tipografía. Una sola tinta de acento, el carmín del estilete. */
 @font-face { font-family: "Newsreader"; src: url("vendor/fuentes/newsreader-latin-opsz-normal.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
@@ -172,3 +172,5 @@ article.lectura.activa, article.lectura:focus { outline: none; box-shadow: 0 0 0
 .barra nav { align-items: center; }
 .barra nav .idioma { flex-shrink: 0; }
 @media (max-width: 600px) { .barra { flex-wrap: wrap; row-gap: 6px; } .barra nav { flex-wrap: wrap; row-gap: 6px; } }
+/* Fuente de los datos de cada gráfico */
+.fuente { font-family: var(--sans, system-ui, sans-serif); font-size: .8rem; line-height: 1.45; color: var(--gris); margin: .35rem 0 1.1rem; }

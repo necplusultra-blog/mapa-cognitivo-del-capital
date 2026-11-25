@@ -13,6 +13,9 @@ The rate of profit of US corporations, quarter by quarter, to see the most recen
 [[leyenda l-trim]]
 [[grafico c-trim]]
 
+Source: BEA: NIPA 1.14, quarterly corporate profits (`NipaDataQ`: W322RC, W326RC, W328RC) and fixed assets (net stock at current cost, interpolated by quarter). Own calculation.
+{: .fuente }
+
 :::como How is this chart calculated?
 Numerator: quarterly profits of corporations (NIPA 1.14, seasonally adjusted annual rate). Denominator: net stock of fixed assets at current cost for the previous year and the current year, linearly interpolated by quarter: K<sub>t</sub> = K<sub>a−1</sub> + (K<sub>a</sub> − K<sub>a−1</sub>)·t/4. After the latest year published by the BEA, K is extrapolated with the growth of the latest year; those quarters are provisional and are drawn dotted.
 :::

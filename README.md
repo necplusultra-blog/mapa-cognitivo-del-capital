@@ -1,16 +1,16 @@
-# Sismógrafo del capital
+# Mapa cognitivo del capital
 
 **Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, organizado como un multiverso de especificaciones teóricamente explícitas.**
 
-El objetivo del sismógrafo es dar cuenta de las tendencias fundamentales de la producción capitalista contemporánea, mediante el estudio de diversos datos empíricos y el cruce de las principales interpretaciones marxistas, que se ponen a leer los mismos datos. Registra también el estado de las fuerzas productivas: el tiempo que libera la reducción relativa del trabajo necesario y en qué lo convierte el capital.
+El objetivo de este mapa cognitivo del capitalismo contemporáneo —una cartografía crítica de las relaciones sociales capitalistas a escala global, en el sentido de Jameson (1988)— es dar cuenta de las tendencias fundamentales de la producción capitalista contemporánea, mediante el estudio de diversos datos empíricos y el cruce de las principales interpretaciones marxistas, que se ponen a leer los mismos datos. Registra también el estado de las fuerzas productivas: el tiempo que libera la reducción relativa del trabajo necesario y en qué lo convierte el capital.
 
-Un sismógrafo no predice el terremoto: registra temblores y rupturas. Este repositorio descarga datos públicos, recalcula cientos de especificaciones de la tasa de ganancia y detecta de forma endógena sus quiebres de tendencia. Cada especificación está ligada a una decisión teórica del debate marxista (trabajo productivo e improductivo, costo histórico o corriente, propiedad intelectual, etc.), para mostrar qué conclusiones resisten todas las decisiones y cuáles dependen de la teoría que se adopte.
+Este repositorio descarga datos públicos, recalcula cientos de especificaciones de la tasa de ganancia y detecta de forma endógena sus quiebres de tendencia. Cada especificación está ligada a una decisión teórica del debate marxista (trabajo productivo e improductivo, costo histórico o corriente, propiedad intelectual, etc.), para mostrar qué conclusiones resisten todas las decisiones y cuáles dependen de la teoría que se adopte.
 
 Es un trabajo que se realiza en el marco del proyecto de tesis doctoral de Pablo Ignacio Jiménez Cea, *Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe* (Doctorado en Sociología, ICSyH-BUAP), con una beca de la Secretaría de Ciencia, Humanidades, Tecnología e Innovación (SECIHTI), número 4052073. Agradezco a la clase trabajadora mexicana, que con su trabajo hace posible esta beca, y espero estar dándole un uso útil.
 
-Sitio público: https://necplusultra-blog.github.io/sismografo-del-capital/
+Sitio público: https://necplusultra-blog.github.io/mapa-cognitivo-del-capital/
 
-Versión en inglés británico (*Seismograph of Capital*): https://necplusultra-blog.github.io/sismografo-del-capital/en/ — sus textos están en `contenido/en/` (véase `contenido/LEEME.md`).
+Versión en inglés británico (*Cognitive Map of Capital*): https://necplusultra-blog.github.io/mapa-cognitivo-del-capital/en/ — sus textos están en `contenido/en/` (véase `contenido/LEEME.md`).
 
 ## Qué calcula
 
@@ -29,7 +29,7 @@ Los resultados muestran la manifestación fenoménica de determinaciones categor
 
 El flujo de trabajo `.github/workflows/actualizar.yml`:
 - corre automáticamente el día 3 de cada mes;
-- se puede lanzar con un clic desde **Actions › Actualizar el sismógrafo › Run workflow**;
+- se puede lanzar con un clic desde **Actions › Actualizar el mapa cognitivo › Run workflow**;
 - descarga los datos, recalcula todo, guarda los resultados versionados en `resultados/` y `site/data/`, y publica el sitio.
 
 Los datos cambian cuando las fuentes publican: el BEA, cada trimestre y en su revisión anual de septiembre; la Penn World Table, cada pocos años.
@@ -59,4 +59,4 @@ Todas son públicas y no requieren claves:
 
 Investigación doctoral de Pablo Ignacio Jiménez Cea, *Los límites inmanentes del capital* (Doctorado en Sociología, ICSyH-BUAP; candidatura aprobada, conclusión prevista en agosto de 2029). Marco teórico: Jiménez Cea, P. I. (2026). The immanent dialectic of capital: Falling rate of profit and the crisis of late capitalism. *Capital & Class*. https://doi.org/10.1177/03098168261503922
 
-Jiménez Cea, P. I. (2026). *Sismógrafo del capital: multiverso de la tasa de ganancia* [software y datos]. https://github.com/necplusultra-blog/sismografo-del-capital
+Jiménez Cea, P. I. (2026). *Mapa cognitivo del capital: multiverso de la tasa de ganancia* [software y datos]. https://github.com/necplusultra-blog/mapa-cognitivo-del-capital
