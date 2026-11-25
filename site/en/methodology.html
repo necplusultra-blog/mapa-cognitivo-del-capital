@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Methodology — Seismograph of Capital</title>
 <link rel="alternate" hreflang="es" href="../metodologia.html">
-<link rel="stylesheet" href="../style.css?v=fd29b702611250804">
+<link rel="stylesheet" href="../style.css?v=42131eb2611251815">
 </head>
 <body class="doc">
 <a class="saltar" href="#contenido">Skip to content</a>
 <header class="barra">
   <a class="marca" href="./">Seismograph of Capital</a>
-  <nav aria-label="Pages"><a href="reading.html">Reading</a><a href="methodology.html" aria-current="page">Methodology</a><a href="../descargas/">Downloads</a><a href="https://github.com/necplusultra-blog/sismografo-del-capital">Code</a><a href="../metodologia.html" hreflang="es" lang="es">Español</a></nav>
+  <nav aria-label="Pages"><a href="reading.html">Reading</a><a href="methodology.html" aria-current="page">Methodology</a><a href="../descargas/">Downloads</a><a href="https://github.com/necplusultra-blog/sismografo-del-capital">Code</a><span class="idioma" role="group" aria-label="Language / Idioma"><a class="cambiar-idioma" href="../metodologia.html" hreflang="es" lang="es" title="Leer esta página en español">ES</a><span class="activo" aria-current="true">EN</span></span></nav>
 </header>
 <div class="portada">
 <h1 id="methodology">Methodology</h1>
@@ -582,5 +582,6 @@ fetch('../data/meta.json', { cache: 'no-cache' }).then((r) => r.json()).then((m)
   s('m-emp', Object.entries(m.empalmes || {}).map(([k, v]) => `${k}: ${v}`).join('; '));
 });
 </script>
+<script>/* el botón ES | EN conserva la sección (las anclas son iguales en las dos versiones) */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.cambiar-idioma");if(a&&location.hash)a.href=a.getAttribute("href").split("#")[0]+location.hash;});</script>
 </body>
 </html>
