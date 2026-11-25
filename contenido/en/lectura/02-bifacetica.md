@@ -1,0 +1,14 @@
+---
+seccion: "02 A two-sided law"
+id: bifacetica
+menu: A two-sided law
+---
+## A two-sided law: the rate does not collapse and the mass grows
+
+The first result is negative and, for that very reason, theoretically decisive. In the United States, the multiverse median goes from 121 in 1948 to 90 in 1982 and returns to 120 in 2025 (100 = average for the period). The robustness table shows that only two changes between decades withstand all the specifications: the fall from the 1940s to the 1950s and the rise of the 2020–2025 stretch relative to the previous decade. All other movements depend on the theory adopted. No specification describes a linear and irreversible fall.
+
+Meanwhile, the mass of surplus value of the business sector, measured in purchasing power, increases more than eightfold: from 972 billion 2017 dollars in 1948 to 8,277 billion in 2025. This is the empirical form of what Marx called a two-sided law (Marx, 2021, pp. 277–280; Jiménez Cea, 2026): the same laws of accumulation produce a growing absolute mass of surplus value and a rate of profit subject to downward pressure. A collapsist reading, which would deduce an exhaustion of the mass of surplus value from the relative expulsion of living labour, finds no support in this measurement. Nor does the opposite image of a valorisation without limits, as will be seen on looking at what sustains that mass.
+
+The movement of the rate can be read through the Marxian decomposition r = e · v/K. With the by-industry criterion, the composition K/V rises from 2.96 in 1948 to 4.00 in 1982, while the rate of surplus value falls from 1.27 to 1.03: in 1982 the highest composition up to then coincides with the lowest exploitation of the period, and the rate reaches its minimum. Since then the recovery has rested on the two levers that Marx identifies as countertendencies: the composition falls to 3.32 by 2000 —cheapening of the elements of constant capital— and the rate of surplus value rises to 1.23 in 2025; with the within-industry correction, from 2.16 in 1982 to 3.14. The composition rises again after 2000 (3.92 in 2025), so that the rate is sustained only because exploitation keeps increasing.
+
+The fork in the denominator adds a nuance. With broad surplus value by industry divided by fixed capital alone, the 2025 rate is 27% below that of 1948; divided by total capital advanced, pv/(c + v), it is 22% below. The multiverse median recovers its post-war level because it includes specifications of appropriated profit (corporate surplus, after-tax profit) that recovered more than the broad measures of surplus value. The difference between the two families is a datum in itself: the recovery since 1982 is more intense in the profit that is appropriated than in the surplus value that is produced.

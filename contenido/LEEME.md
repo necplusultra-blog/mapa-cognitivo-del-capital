@@ -61,3 +61,11 @@ El aspecto visual está en `site/style.css` y el marco de cada página en `plant
 ## Explicación en lenguaje llano
 
 Cada gráfico lleva, antes del gráfico, un párrafo que lo explica en palabras simples. Se escribe como un párrafo normal seguido, en la línea siguiente, de `{: .llano }`. El detalle técnico va en el desplegable `:::como`.
+
+## Versión en inglés
+
+El sitio tiene una versión en inglés británico en `site/en/` (index.html, reading.html, methodology.html). Sus textos están en `contenido/en/`, con las mismas carpetas y los mismos nombres de archivo que la versión en español; en Pages CMS aparecen como «Portada (inglés)», «Lectura (inglés)» y «Metodología (inglés)». El marco de esas páginas está en `plantillas/en/`.
+
+- Si cambias un texto en español, cambia también el archivo del mismo nombre en `contenido/en/`. Los atajos (`{{…}}`, `[[…]]`, `:::como`) y los `id` del encabezado deben ser idénticos en las dos versiones; sólo se traducen las partes legibles.
+- Convenciones: inglés británico (labour, analyse, -ise), comillas simples, punto decimal y coma de miles (2.05; 1,077), glosario de los artículos del autor (borderline capitalism, tendential fall of the rate of profit, countertendencies, living labour, real subsumption). El glosario completo está en el historial del proyecto (doc 00 del Project).
+- Las etiquetas que el código escribe dentro de los gráficos y tablas (leyendas, nombres de países y de ramas, columnas) se traducen en `site/en/i18n.js`. Si una etiqueta nueva aparece en español en la versión inglesa, agrégala ahí.

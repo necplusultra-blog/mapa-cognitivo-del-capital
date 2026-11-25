@@ -10,6 +10,8 @@ Es un trabajo que se realiza en el marco del proyecto de tesis doctoral de Pablo
 
 Sitio público: https://necplusultra-blog.github.io/sismografo-del-capital/
 
+Versión en inglés británico (*Seismograph of Capital*): https://necplusultra-blog.github.io/sismografo-del-capital/en/ — sus textos están en `contenido/en/` (véase `contenido/LEEME.md`).
+
 ## Qué calcula
 
 - **EE.UU., desde 1948.** 240 especificaciones en una ventana común, más 32 con corrección intra-rama desde 1972.

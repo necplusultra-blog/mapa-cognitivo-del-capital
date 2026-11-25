@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seismograph of Capital — rate and mass of profit and surplus value</title>
+<meta name="description" content="A public, reproducible observatory of the rate and mass of profit and surplus value, in money and in labour time: the United States and the world, as a multiverse of theoretically explicit specifications.">
+<link rel="alternate" hreflang="es" href="../">
+<link rel="stylesheet" href="../style.css?v=8bfad032611250156">
+<script src="../vendor/d3.min.js"></script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Skip to content</a>
+<header class="barra">
+  <a class="marca" href="./">Seismograph of Capital</a>
+  <nav aria-label="Pages"><a href="reading.html">Reading</a><a href="methodology.html">Methodology</a><a href="../descargas/">Downloads</a><a href="https://github.com/necplusultra-blog/sismografo-del-capital">Code</a><a href="../" hreflang="es" lang="es">Español</a></nav>
+</header>
+<div class="portada">
+<h1 id="seismograph-of-capital">Seismograph of Capital</h1>
+<p class="lede">The aim of the seismograph is to give an account of the fundamental tendencies of contemporary capitalist production. It does so along two paths that intersect: the study of a wide variety of empirical data —national accounts, employment, hours of labour, capital, trade, input–output tables—, translated into the categories of the critique of political economy, and the confrontation of the main Marxist interpretations, which are set to read the same data. A seismograph does not predict the earthquake: it records tremors and ruptures.</p>
+<p>It records the rate and the mass of profit and of surplus value as a <em>multiverse</em> of specifications, each tied to an explicit theoretical decision, and it is updated when the sources publish new data. It also records the state of the productive forces that capital develops: how much labour time is needed to reproduce those who produce, and what capital turns the time freed by that development into. Contained in that conversion, as an objective possibility, is <a href="#fuerzas">disposable time</a>.</p>
+<p>The seismograph seeks to take up and continue the necessarily unfinished project of the <a href="reading.html#critica">Marxian critique of political economy</a>, not to do critical political economy. That is why the qualitative comes first: profit is a form of appearance of surplus value, surplus value is the unpaid labour of productively exploited workers, and the figures record the manifestation of these conceptual determinations; they do not prove them. Just as Marx, in his lifetime, processed an enormous amount of economic data in order to elaborate the concept of capital, the seismograph uses artificial intelligence to process data and official sources that today would be impossible to gather by hand; the theoretical decisions that guide this processing are explicit and are documented at every fork. The <a href="methodology.html">full methodology</a> brings together sources, formulas, decisions, splices and limitations, so that any researcher can audit the results. <a href="reading.html">A first reading of the results</a> interprets them from the standpoint of the theory of the immanent limits of capital.</p>
+<p class="agradecimiento">The seismograph is a piece of work carried out within the framework of my doctoral thesis project, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em> (Doctoral Programme in Sociology, ICSyH ‘Alfonso Vélez Pliego’, BUAP), which I am pursuing with a scholarship from Mexico’s Secretariat of Science, Humanities, Technology and Innovation (SECIHTI), number 4052073. I thank the Mexican working class, whose labour makes this scholarship possible, and I hope I am putting it to good use. — Pablo Ignacio Jiménez Cea</p>
+<p class="actualizacion">Data updated on <span id="m-act">—</span>. United States up to <span id="m-fin">—</span>; world up to <span id="m-wfin">—</span>.</p>
+</div>
+<figure class="sismo">
+  <div id="sismo" role="img" aria-label="Record of the median of the multiverse of the US rate of profit"></div>
+  <figcaption>Record: median of the multiverse of the US rate of profit (100 = period average), with the band of the 10th to 90th percentiles. The marks at the top show the years in which most specifications detect a break in trend.</figcaption>
+</figure>
+<div class="cuerpo">
+  <nav class="indice" aria-label="Sections"><p>On this page</p><ul>
+<li><a href="#multiverso">The US multiverse</a></li>
+<li><a href="#referencias">Six readings in the debate</a></li>
+<li><a href="#replicacion">The authors&#x27; series, reconstructed</a></li>
+<li><a href="#trimestral">Quarterly estimate</a></li>
+<li><a href="#quiebres">Endogenous breaks</a></li>
+<li><a href="#robustez">What withstands all the decisions</a></li>
+<li><a href="#masa-tasa">Mass and rate of surplus value</a></li>
+<li><a href="#tiempo">The United States in hours of labour</a></li>
+<li><a href="#fuerzas">Productive forces and disposable time</a></li>
+<li><a href="#mundo">World rate</a></li>
+<li><a href="#horas-mundo">World mass in hours</a></li>
+<li><a href="#contratendencias">Countertendencies</a></li>
+<li><a href="#intensidad">What the hours do not see</a></li>
+<li><a href="#ia">AI corporations</a></li>
+<li><a href="#transformacion">Values and prices</a></li>
+<li><a href="#supuestos">What counts as surplus value</a></li>
+<li><a href="#alcance">Scope and sources</a></li>
+  </ul></nav>
+  <main id="contenido">
+<section id="cifras" class="seccion cifras-portada">
+<p class="llano">Four numbers to start with: where the US rate of profit stands today compared with its historical average; how many dollars of surplus value capital obtains for each dollar it pays in wages to productive workers; how much surplus value is produced in total, measured by what it can buy; and what share of the world's capital is now in China.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="k-med">—</div><div class="etiqueta">Median of the US multiverse in the latest year (100 = period average)</div><div class="nota">1982: <span id="k-med82">—</span></div></div><div class="cifra"><div class="valor" id="k-e">—</div><div class="etiqueta">US rate of surplus value S/V, with within-industry correction</div><div class="nota">1972: <span id="k-e72">—</span></div></div><div class="cifra"><div class="valor" id="k-masa">—</div><div class="etiqueta">US mass of surplus value in purchasing power (billions of 2017 USD)</div><div class="nota">1948: <span id="k-masa48">—</span></div></div><div class="cifra"><div class="valor" id="k-cn">—</div><div class="etiqueta">China's share of world capital</div><div class="nota">2000: <span id="k-cn00">—</span></div></div></div>
+
+<details class="como">
+<summary>How are these four figures calculated?</summary>
+<ul>
+<li><strong>Median of the multiverse.</strong> For each year, the median of the rates of all the specifications in the main multiverse, after dividing each one by its own period average and multiplying by 100.</li>
+<li><strong>S/V with within-industry correction.</strong> S = value added of the business sector (BEA, A195RC) − value added of rental housing (A2009C − B701RC) − financial services paid for by households out of their wages (DFNLRC × A033RC / A065RC) − depreciation of the sector's non-residential capital − V. V = compensation of production and non-supervisory workers in the productive industries: employment × hourly wage × weekly hours × 52 by supersector (BLS, CES), scaled by the compensation/wages ratio to include benefits.</li>
+<li><strong>Mass of surplus value in purchasing power.</strong> The same S, with V from all productive industries (by-industry criterion), deflated by the GDP deflator (2017 = 100).</li>
+<li><strong>China's share of world capital.</strong> China's capital stock at current PPPs (cn, Penn World Table 11.0) over the sum of the 79 countries in the balanced panel (those with data since 1960).</li>
+</ul>
+</details>
+</section>
+<section id="multiverso" class="seccion">
+<h2 id="united-states-the-spread-of-the-multiverse">United States: the spread of the multiverse</h2>
+<p><span id="m-n">—</span> specifications of the US rate of profit, each normalised to its period average (= 100). The light band covers the 10th to 90th percentiles; the dark band, the 25th to 75th; the line is the median.</p>
+<p class="llano">There is no single way of measuring the rate of profit: it depends on what is counted as profit and what as capital, and each theoretical current decides differently. Instead of choosing one, the seismograph calculates all the reasonable combinations and draws them together. The line is the typical value; the bands show how far the measurements diverge from one another. If the band is narrow, the theories agree; if it is wide, the result depends on the theory. What to look at is the shape: the rate falls from the post-war period until the mid-1970s, oscillates at a low level until the early 2000s and recovers afterwards; at no point does it describe a continuous fall towards zero.</p>
+<figure class="placa"><div class="chart" id="c-bandas"></div></figure>
+
+<details class="como">
+<summary>How is this chart calculated?</summary>
+<p>Each specification is an annual rate r = numerator / denominator. The numerator changes according to the fork: net surplus, profit before or after tax, or broad surplus value by industry. The denominator is the BEA's year-end net stock of fixed assets (K), at current or historical cost, with or without intellectual property products and inventories, and either all capital or only that of the productive industries (in that case, the depreciation of the unproductive industries is not subtracted from the numerator). In the business sector there is also a fork with variable capital in the denominator: pv/(K + V). The full list is in the <a href="methodology.html#multiverso">methodology, §5</a>.</p>
+<p>To compare specifications at different levels, each series is divided by its period average and multiplied by 100. Then, for each year, the 10th, 25th, 50th, 75th and 90th percentiles of all the series are calculated. The fan is not a confidence interval: it shows how much the level of the rate depends on theoretical decisions.</p>
+</details>
+</section>
+<section id="referencias" class="seccion">
+<h2 id="six-readings-in-the-debate-faced-with-the-same-data">Six readings in the debate faced with the same data</h2>
+<p class="llano">The Marxist debate on the rate of profit is not only about figures: it is about what profit is, what capital is and what it means for the rate to fall or rise. Here six currents are set to read the same data for the United States and the world. Each line in the chart is the rate calculated in the manner of one of them; each card, below, summarises what that current looks at, what it sees in these data and what diagnosis it draws. Hover over a card (or tap it) to highlight its line. The lines do not coincide in level, because they count different things, but they do coincide in much of their movement: all of them fall until the early 1980s and none, in the broad measures of surplus value, returns to its post-war level. The critical reading of the six, from the framework of this research, is in the <a href="reading.html#seis-lecturas">Reading</a>.</p>
+<div class="legend" id="l-ref"></div>
+<figure class="placa"><div class="chart" id="c-ref"></div></figure>
+
+<p class="nota">Net rates in %, at current cost except the Kliman-type rate (historical cost). Heinrich does not propose a measure of his own: his reading rests on the full spread of the multiverse in the previous section.</p>
+<div class="tablewrap"><table><thead><tr><th>Measure (in the manner of)</th><th>1948</th><th>1965</th><th>1982</th><th>2007</th><th>Latest year</th><th>Since the 1982 trough</th></tr></thead><tbody id="t-lect"></tbody></table></div>
+
+<article class="lectura" data-series="emp_ramas_cc" tabindex="0">
+<h3 id="shaikh-and-tonak-the-law-operates-through-real-competition">Shaikh (and Tonak): the law operates through real competition</h3>
+<p><strong>What it looks at.</strong> Surplus value in the broad sense: all the new value of the productive industries minus the wages of their workers, over fixed capital. It distinguishes productive and unproductive labour (Shaikh and Tonak, 1994).</p>
+<p><strong>What it sees here.</strong> The rate falls from <span id="lx-ra-48">—</span>% in 1948 to <span id="lx-ra-82">—</span>% in 1982 and recovers to <span id="lx-ra-u">—</span>, without returning to its post-war level. The recovery rests on the rate of surplus value, which rises from <span id="lx-e72">—</span> to <span id="lx-eu">—</span> with the within-industry correction: wages grow more slowly than productivity.</p>
+<p><strong>Diagnosis.</strong> A long-run falling tendency that operates through competition between capitals and manifests itself in long waves. The neoliberal phase was a recovery of the profit of enterprise sustained by wage restraint and the fall in the rate of interest, and the 2008 crisis marked its exhaustion (Shaikh, 2016).</p>
+</article>
+<article class="lectura" data-series="emp_intra_cc" tabindex="0">
+<h3 id="moseley-the-surplus-value-absorbed-by-unproductive-labour">Moseley: the surplus value absorbed by unproductive labour</h3>
+<p><strong>What it looks at.</strong> The rate of surplus value of production and non-supervisory workers in the productive industries, and the part of surplus value spent on circulation and supervisory labour (Moseley, 1991).</p>
+<p><strong>What it sees here.</strong> The surplus value produced and the profit appropriated diverge. The within-industry rate goes from <span id="lx-in-82">—</span>% in 1982 to <span id="lx-in-max">—</span> and stands at <span id="lx-in-u">—</span>%, above its 1974–1979 levels, while the Duménil-Lévy-type corporate rate remains below that of the 1960s.</p>
+<p><strong>Diagnosis.</strong> The post-war fall in the conventional rate was due above all to the growth of unproductive labour, which absorbs surplus value without producing it, rather than to the composition of capital. The subsequent recovery stems from a rising rate of surplus value and a relative curbing of that expenditure.</p>
+</article>
+<article class="lectura" data-series="corp_ebe_hc" tabindex="0">
+<h3 id="kliman-a-rate-that-never-recovered">Kliman: a rate that never recovered</h3>
+<p><strong>What it looks at.</strong> Corporate profit over capital valued at what it actually cost (historical cost), in the temporal single-system interpretation (TSSI).</p>
+<p><strong>What it sees here.</strong> The rate falls from <span id="lx-kl-max">—</span> and, since the 1980s, has moved well below its 1950s level: <span id="lx-kl-19">—</span>% in 2019. The jump to <span id="lx-kl-u">—</span>% after 2021 coincides with inflation, which inflates current profits relative to a capital valued at past prices.</p>
+<p><strong>Diagnosis.</strong> The crises of the 1970s did not destroy enough capital value to restore profitability. Without that recovery, accumulation weakened, debt grew in order to sustain it, and the 2008 crisis was its outcome (Kliman, 2012).</p>
+</article>
+<article class="lectura" data-series="nfc_ebe_cc" tabindex="0">
+<h3 id="dumenil-and-levy-neoliberalism-as-restoration">Duménil and Lévy: neoliberalism as restoration</h3>
+<p><strong>What it looks at.</strong> The net surplus of non-financial corporations over their fixed capital at current cost.</p>
+<p><strong>What it sees here.</strong> The rate falls from <span id="lx-dl-65">—</span>% in 1965 to <span id="lx-dl-82">—</span>% in 1982 and recovers to <span id="lx-dl-u">—</span> (up <span id="lx-dl-rec">—</span> from the trough), without returning to the level of the 1960s.</p>
+<p><strong>Diagnosis.</strong> The profitability crisis of the 1970s was resolved by neoliberalism, a social order that restored the income and power of the capitalist classes, in alliance with the managerial cadres. The 2008 crisis was a crisis of that order —financialisation, indebtedness, US imbalances—, not of a new fall in the rate (Duménil and Lévy, 2004 and 2011).</p>
+</article>
+<article class="lectura" data-series="emp_ramas_cv" tabindex="0">
+<h3 id="roberts-and-carchedi-the-law-as-the-ultimate-cause-of-crises">Roberts and Carchedi: the law as the ultimate cause of crises</h3>
+<p><strong>What it looks at.</strong> Surplus value over fixed capital plus variable capital, pv/(c + v), and the world rate of profit.</p>
+<p><strong>What it sees here.</strong> The US rate falls from <span id="lx-cv-48">—</span>% in 1948 to <span id="lx-cv-u">—</span>. The net world rate (Penn World Table) goes from <span id="lx-w-07">—</span>% in 2007 to <span id="lx-w-u">—</span>. The K/V composition rises again after 2000 (<span id="lx-kv00">—</span> → <span id="lx-kvu">—</span>), and in the phase beginning in 2004 the rate falls in all the business-sector specifications.</p>
+<p><strong>Diagnosis.</strong> The rise in the organic composition pushes the rate down in the long run; the countertendencies only check it for a time. Crises break out when the mass of profit falls, and since 2008 the world economy has been living through a ‘long depression’ (Roberts, 2016; Carchedi and Roberts, 2022).</p>
+</article>
+<article class="lectura" data-series="" tabindex="0">
+<h3 id="heinrich-there-is-no-law-that-the-data-could-confirm">Heinrich: there is no law that the data could confirm</h3>
+<p><strong>What it looks at.</strong> It does not propose a measure. It reads the entire spread of the multiverse and asks whether the fall can be deduced from the determinations of capital.</p>
+<p><strong>What it sees here.</strong> Only <span id="lx-dec-rob">—</span> of the <span id="lx-dec-n">—</span> changes between decades hold across all specifications. The K/V composition rose until 1982 (<span id="lx-kv82">—</span>), fell until 2000 owing to the cheapening of capital, and rose again. The level and the direction depend on the theory adopted.</p>
+<p><strong>Diagnosis.</strong> The law cannot be demonstrated in general: the same increase in productive force that raises the technical composition cheapens constant capital and raises the rate of surplus value, and the net effect remains indeterminate. Crises must be explained by credit, money and overaccumulation, not by a tendency of the rate (Heinrich, 2013).</p>
+</article>
+<details class="como">
+<summary>How are the lines and the table calculated?</summary>
+<ul>
+<li><strong>Duménil-Lévy type:</strong> net operating surplus of non-financial corporations (NIPA 1.14) / their net stock of fixed assets at current cost.</li>
+<li><strong>Kliman type:</strong> net surplus of corporations (total) / net stock at historical cost.</li>
+<li><strong>Shaikh-Tonak type (broad surplus value by industry):</strong> (business value added − rental housing − financial services paid for by households out of their wages − depreciation − compensation in the productive industries) / net non-residential stock of the sector. Trade, finance and insurance, real estate and legal services are excluded from the productive industries.</li>
+<li><strong>Moseley type (broad surplus value within-industry,</strong> from 1972): the same, but only the compensation of production and non-supervisory workers in those industries is subtracted.</li>
+<li><strong>Roberts-Carchedi type, pv/(c + v):</strong> surplus value by industry divided by fixed capital plus annual variable capital. Since v is taken as an annual flow, it assumes a single turnover per year. The world rate is the Penn World Table net rate, weighted by capital, including China.</li>
+<li><strong>Business sector, all productive:</strong> like the Shaikh-Tonak rate, but subtracting all the compensation of the sector. It is the baseline without the distinction between productive and unproductive labour.</li>
+<li><strong>Table:</strong> value of each rate in the years indicated; the last column is the percentage change between 1982 (the trough of the broad business-sector measures; in the Duménil-Lévy and Kliman types the trough is 2001) and the latest year.</li>
+</ul>
+<p>All include intellectual property products in K, without inventories or adjustment for utilisation. They are definitions ‘in the manner of’ the authors, not replications of their series: the series reconstructed with each author's definition are in the <a href="#replicacion">next section</a>. The diagnoses summarise the published theses of each current; they are not conclusions of the seismograph. Full references in the <a href="methodology.html#referencias">methodology, §6</a>.</p>
+</details>
+</section>
+<section id="replicacion" class="seccion" hidden>
+<h2 id="the-authors-series-reconstructed-with-todays-data">The authors' series, reconstructed with today's data</h2>
+<p class="llano">The lines in the previous section follow the spirit of each current with a common definition. Here something else is done: the series that each author published is reconstructed, with the author's own definition but with the current national accounts, and compared with the values the author gave. The accounts have changed a great deal since then (intellectual property products began to be counted as capital in 1999 and 2013, and compensation and profits have been revised several times), so the point is not to hit their numbers but to find out whether the tendencies that each reading interprets are still there. The chart puts the five series on a common scale (1982 = 100), because their levels cannot be compared: each counts different things. The table states, point by point, what is reproduced and what is not.</p>
+<div class="legend" id="l-rp"></div>
+<figure class="placa"><div class="chart" id="c-rp"></div></figure>
+
+<p class="nota">Index 1982 = 100. Moseley's series begins in 1972 because the wages of production workers by supersector begin in that year; Kliman's, in 1949, because it uses the previous year's capital.</p>
+<p><strong>What holds.</strong> Roberts's ‘whole economy’ measure falls <span id="rp-ro-6582">—</span> between 1965 and 1982 at historical cost (<span id="rp-ro-cc-6582">—</span> at current cost) and rises <span id="rp-ro-8297">—</span> between 1982 and 1997 (<span id="rp-ro-cc-8297">—</span>), almost the same as what he published in 2018. Shaikh and Tonak's rate of surplus value, with the wages of production workers as variable capital, is reproduced in the years that can be compared (1975–1982, with differences of a few hundredths) and keeps rising: from <span id="rp-st-e82">—</span> in 1982 to <span id="rp-st-eu">—</span> in <span id="rp-fin">—</span>. Kliman's before-tax rate at historical cost gives <span id="rp-kl78">—</span> in 1978 and <span id="rp-kl01">—</span> in 2001, against the 24% and 12% he reports. Moseley's proportion of unproductive labour (Uf/V) in 1977 is <span id="rp-uf77">—</span>, the same as he estimated.</p>
+<p><strong>What changes.</strong> The recovery that Duménil and Lévy saw between 1982 and 2000 was some 45%; with today's data it is <span id="rp-dl-rec">—</span>. The fall from 1965 to 1982 (<span id="rp-dl-6582">—</span>) is still there, but the thesis of neoliberalism as a restoration of profitability rests, in the current measurement, on a weaker recovery up to 2000, which continues afterwards. Kliman's thesis, by contrast, depends on the measure chosen: between 1982 and 1997 property income over capital at historical cost changes by <span id="rp-kl-pi">—</span> and total profit by <span id="rp-kl-tp">—</span> (there is no recovery), but before-tax profit rises <span id="rp-kl-pat">—</span>. Moseley's conventional rate in 1977 gives <span id="rp-mo77">—</span>, against the 12% he published, with surplus value net of the business sector's taxes on production (net of subsidies) and capital including inventories; this is our reading of his identity, not a definition he wrote in those words. The remaining gap, like that of his rate of surplus value and that of his unproductive capital, reflects at least in part the revisions to the accounts since 1991.</p>
+<div class="tablewrap"><table><thead><tr><th>Author</th><th>Measure</th><th>Year or period</th><th>Published</th><th>Reconstructed</th><th>Result</th><th>Source</th></tr></thead><tbody id="t-rp"></tbody></table></div>
+
+<details class="como">
+<summary>How is each series reconstructed?</summary>
+<ul>
+<li><strong>Shaikh and Tonak (1994, tables 5.6 and 5.8).</strong> S* = net product of the business sector (excluding rental housing) minus V*; V* = compensation of production and non-supervisory workers in the productive industries (the seismograph's within-industry correction, from 1972). What households pay to finance is not subtracted, because they do not subtract it. The Marxian rate is S*/K, with K the net stock at current cost; they use the gross stock, which is no longer published, so only the trend is comparable. From 1948 there is a version with V* equal to all the compensation in the productive industries, which is a lower bound of their rate of surplus value.</li>
+<li><strong>Moseley (1991, ch. 3; 1977 figures in Moseley, 1997).</strong> V = production and non-supervisory wages in the productive industries; Uf = the rest of the business sector's compensation (circulation and supervision); C = fixed capital of the productive industries plus inventories; Us = fixed capital of trade, finance and insurance, non-residential real estate, rental and leasing, and legal services. Conventional rate = (S − Uf)/(C + Us), with S net of the business sector's taxes on production net of subsidies (NIPA 1.13, lines 9 and 17; see above).</li>
+<li><strong>Kliman (2010; 2012, ch. 5).</strong> Corporations (NIPA 1.14). Property income = net value added − compensation; total profit = net operating surplus; before-tax profit = profits with inventory valuation adjustment. In all three, depreciation at current cost is replaced by depreciation at historical cost, and the denominator is the net stock at historical cost at the end of the previous year (the capital advanced).</li>
+<li><strong>Duménil and Lévy (2002, table 3).</strong> Broad rate r_b = (net value added of corporations − compensation) / net non-residential stock at current cost. The ratio between years is compared, because the article does not publish annual levels. There is a variant without intellectual property products (neither their investment in the numerator nor their stock in the denominator), closer to the accounts they used.</li>
+<li><strong>Roberts (2018; 2021).</strong> Surplus value = national income − compensation of employees; C = private non-residential fixed assets, at historical cost and at current cost; v = compensation; rate = s/(C + v).</li>
+<li><strong>Result.</strong> For levels, ‘reproduces’ if the difference is up to 10% of the published value and ‘approximates’ if it is up to 25%. For changes, ‘reproduces’ if the difference is up to 5 points and the direction coincides, and ‘approximates’ if it is up to 12 points. Beyond that, it is indicated whether at least the direction coincides. The level of Shaikh and Tonak's Marxian rate is marked as not comparable, because they use the gross stock and the net stock is used here; for that rate the comparison of changes is what counts.</li>
+</ul>
+<p>The BEA accounts are revised every year, and comprehensively every five. That is why an author's figures from 1994 or 2002 cannot coincide exactly with today's, even if the definition is the same. Details of the definitions and sources in the <a href="methodology.html#replicacion">methodology</a>.</p>
+</details>
+</section>
+<section id="trimestral" class="seccion">
+<h2 id="quarterly-estimate-up-to">Quarterly estimate, up to <span id="m-trim">—</span></h2>
+<p>US net corporate rate at current cost, in %. The quarters after the latest annual capital data use an extrapolated stock and are provisional (dotted segment).</p>
+<p class="llano">The rate of profit of US corporations, quarter by quarter, to see the most recent movements before the annual figures are published. The latest points are provisional: they change when the US government revises its data.</p>
+<div class="legend" id="l-trim"></div>
+<figure class="placa"><div class="chart" id="c-trim"></div></figure>
+
+<details class="como">
+<summary>How is this chart calculated?</summary>
+<p>Numerator: quarterly profits of corporations (NIPA 1.14, seasonally adjusted annual rate). Denominator: net stock of fixed assets at current cost for the previous year and the current year, linearly interpolated by quarter: K<sub>t</sub> = K<sub>a−1</sub> + (K<sub>a</sub> − K<sub>a−1</sub>)·t/4. After the latest year published by the BEA, K is extrapolated with the growth of the latest year; those quarters are provisional and are drawn dotted.</p>
+</details>
+</section>
+<section id="quiebres" class="seccion">
+<h2 id="endogenous-breaks">Endogenous breaks</h2>
+<p>How many specifications detect a break in trend in each year. No break point is fixed in advance.</p>
+<p class="llano">A statistical procedure searches, in each of the measurements of the multiverse, for the years in which the rate changes course, without anyone telling it where to look. Each bar counts how many measurements show a change of course in that year. The tall bars are the tremors that almost all of them record. They serve to test the periodisations of theory against what the data mark out on their own.</p>
+<figure class="placa"><div class="chart short" id="c-quiebres"></div></figure>
+
+<h3 id="sensitivity-of-the-detector">Sensitivity of the detector</h3>
+<p class="llano">The search is repeated with more or less demanding rules. If the same years appear under all of them, they are not an artefact of the method.</p>
+<div class="tablewrap"><table><thead><tr><th>Configuration</th><th>Breaks per specification</th><th>Most frequent years (no. of specifications)</th></tr></thead><tbody id="t-sens"></tbody></table></div>
+
+<details class="como">
+<summary>How are the breaks calculated?</summary>
+<p>Piecewise linear trends are fitted to each specification, with up to 5 breaks and a minimum segment length of h years, by dynamic programming (as in Bai and Perron, 2003). The number of breaks m is chosen by minimising BIC = n·ln(RSS/n) + k·ln(n), with k = 3m + 2. The chart adds up, year by year, how many specifications place a break in that year (baseline configuration: h = 8, BIC). The table repeats the calculation with h = 6 and h = 10, and with the more demanding LWZ criterion.</p>
+</details>
+</section>
+<section id="robustez" class="seccion">
+<h2 id="which-conclusions-withstand-all-the-decisions">Which conclusions withstand all the decisions</h2>
+<p class="llano">For each step from one decade to the next, the table counts in what percentage of the measurements the rate falls. If it falls in almost all of them (or rises in almost all of them), the movement does not depend on the theory chosen; if it falls in some and rises in others, the conclusion depends on how it is measured. This is the way to separate what the data show from what theory brings to them.</p>
+<div class="tablewrap"><table><thead><tr><th>Period</th><th>% of specifications with a fall</th><th>Classification</th></tr></thead><tbody id="t-dec"></tbody></table></div>
+
+<details class="como">
+<summary>How is this table calculated?</summary>
+<p>For each specification in the main multiverse, the average of each decade (and of the period from 2020 to the latest year) is calculated. Then the percentage of specifications whose average is lower than in the previous decade is counted. ‘Robust: falls’ if that percentage is ≥ 90%; ‘robust: rises’ if it is ≤ 10%; ‘theory-dependent’ in all other cases. Decades are reporting units, not theoretical breaks.</p>
+</details>
+</section>
+<section id="masa-tasa" class="seccion">
+<h2 id="the-two-sided-law-mass-and-rate-of-surplus-value-in-the-united-states">The two-sided law: mass and rate of surplus value in the United States</h2>
+<div class="legend" id="l-masa"></div>
+
+<h3 id="mass-of-surplus-value-in-purchasing-power-billions-of-2017-usd">Mass of surplus value in purchasing power (billions of 2017 USD)</h3>
+<p class="llano">Above, how much surplus value is produced in total each year, expressed in what that money can buy at 2017 prices. It is not a measure of value, which is measured in labour time (see the section in hours), but of the mass of use values that surplus value makes it possible to appropriate. Below, how much surplus value capital obtains for each dollar of wages paid to productive workers: the degree of exploitation expressed in money. The mass grows almost without pause and has multiplied more than eightfold since 1948. The rate of surplus value falls until 1982, stays almost unchanged until 2000 and has risen since then. Together with the rate of profit of the multiverse, they show the two-sided law of accumulation: the same dynamic that enlarges the mass of surplus value presses the rate of profit downwards, and capital responds by increasing exploitation.</p>
+<figure class="placa"><div class="chart" id="c-masa"></div></figure>
+
+<h3 id="rate-of-surplus-value-sv">Rate of surplus value S/V</h3>
+<figure class="placa"><div class="chart" id="c-e"></div></figure>
+
+<details class="como">
+<summary>How are these charts calculated?</summary>
+<p>S = gross value added of the business sector − value added of rental housing − financial services paid for by households out of their wages (secondary exploitation) − depreciation of the sector's non-residential capital (current cost) − V.</p>
+<ul>
+<li><strong>By industry:</strong> V is the compensation of all employees in the productive industries (BEA GDP by industry, with SIC–NAICS splices in 1987 and 1997).</li>
+<li><strong>Within-industry:</strong> V is only the compensation of production and non-supervisory workers in those industries (BLS, CES), from 1972.</li>
+</ul>
+<p>The mass in purchasing power is S deflated by the GDP deflator (2017 = 100). Deflating surplus value mixes value and use value: the series says how many goods surplus value can buy, not how much unpaid labour it contains. The adequate measure of value is the mass of surplus labour in hours (section ‘The United States in hours of labour’). The rate is S/V.</p>
+</details>
+</section>
+<section id="tiempo" class="seccion">
+<h2 id="from-money-to-labour-time-the-united-states">From money to labour time: the United States</h2>
+<p>The mass of surplus value is the product of the rate of surplus value (pv/v, the degree of exploitation) and the number of productively exploited workers. Measured in money, the rate of surplus value of productive workers expresses the proportion between surplus labour and necessary labour in their working day: of each week of labour, a fraction 1/(1+e) reproduces the value of their labour power and a fraction e/(1+e) is surplus labour.</p>
+<p>Everything in this section refers <strong>only to the United States</strong> and to production and non-supervisory workers employed by capital in the productive industries (excluding government and non-profit institutions), from 1972. The world scale in hours is further down, in its own section.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="t-n">—</div><div class="etiqueta">Productive workers exploited in the US, <span class="t-fin">—</span> (millions)</div><div class="nota"><span class="t-ini">—</span>: <span id="t-n0">—</span></div></div><div class="cifra"><div class="valor" id="t-nec">—</div><div class="etiqueta">Necessary labour in a full-time week of <span id="t-sem">—</span> h</div><div class="nota"><span class="t-ini">—</span>: <span id="t-nec0">—</span></div></div><div class="cifra"><div class="valor" id="t-plus">—</div><div class="etiqueta">Surplus labour in that week</div><div class="nota"><span class="t-ini">—</span>: <span id="t-plus0">—</span></div></div><div class="cifra"><div class="valor" id="t-masa">—</div><div class="etiqueta">Annual mass of surplus labour in the US (billion hours)</div><div class="nota"><span class="t-ini">—</span>: <span id="t-masa0">—</span></div></div></div>
+
+<h3 id="united-states-the-productive-workers-week-divided-into-necessary-labour-and-surplus-labour-hours">United States: the productive worker's week, divided into necessary labour and surplus labour (hours)</h3>
+<p class="llano">A full-time 40-hour week of a productive worker in the United States, split in two according to each year's rate of surplus value. One line is the hours in which the worker produces the equivalent of their wage (necessary labour); the other, the hours in which they work for capital without receiving anything in return (surplus labour). Necessary labour falls from 13.8 to 9.7 hours since 1972, at an uneven pace: it is compressed sharply between 2000 and 2007 and almost stalls afterwards. That it cannot reach zero is a property of the form of the working day, not an explanation of that pause, which has historical causes. The third line is the average paid week of all production workers, full-time and part-time: it is not a working day, and it falls mainly because industries with short working hours, such as hospitality, are growing.</p>
+<p class="nota">Each year, the 40-hour week is divided according to that same year's rate of surplus value: necessary hours = 40 / (1 + e); surplus labour = 40 × e / (1 + e). The average paid week comes from the BLS establishment survey (CES).</p>
+<div class="legend" id="l-sem"></div>
+<figure class="placa"><div class="chart" id="c-sem"></div></figure>
+
+<h3 id="united-states-annual-mass-of-surplus-labour-billion-hours">United States: annual mass of surplus labour (billion hours)</h3>
+<p class="llano">It adds up the hours of surplus labour of all productive workers in the United States in a year. It has more than doubled since 1972, and almost all of that growth comes from there being more workers, not from each one working more hours for capital. The falls coincide with recessions, when millions are laid off.</p>
+<p class="nota">Hours worked in the year by all productive workers in the United States × e / (1 + e). It is the sum of unpaid hours, not an average.</p>
+<figure class="placa"><div class="chart" id="c-hplus"></div></figure>
+
+<details class="como" open>
+<summary>How are these data obtained?</summary>
+<ol>
+<li><strong>Productive workers (N).</strong> Sum of the employment of production and non-supervisory workers (BLS, CES survey, series 06) in the productive supersectors: mining and logging, construction, manufacturing, transportation and warehousing, utilities, information, professional and business services, private education and health, leisure and hospitality, other services. Excluded are trade, finance, government, supervisors and agriculture (which the CES does not cover). From three supersectors the part that is not productive capital is subtracted: from professional services, legal and accounting services (circulation industries); from private education and health, the part employed by non-profit institutions (70% of education, 43% of health and 40% of social assistance, according to the BLS for 2022); from other services, the non-profit part of religious and civic organisations (60%). Before 1990, lacking industry detail, the 1990 proportions are used. Annual average, in millions.</li>
+<li><strong>Hours (H).</strong> For each supersector, employment × average weekly hours paid (series 07; in manufacturing, AWHMAN) × 52.</li>
+<li><strong>Rate of surplus value (e).</strong> S/V from the previous section, in its within-industry variant: S is the net broad surplus value of the business sector and V the compensation of those same workers (employment × hourly wage × hours × 52, scaled up to include benefits).</li>
+<li><strong>Working day.</strong> For a full-time 40-hour week: necessary labour = 40 / (1 + e); surplus labour = 40 × e / (1 + e). The average paid week is H / N / 52: it mixes full-time and part-time work, and these are paid hours (it includes paid holidays and excludes unpaid overtime). This gives the first chart.</li>
+<li><strong>Mass of surplus labour.</strong> H × e / (1 + e) = N × hours per worker × e / (1 + e), in billions of hours per year. This gives the second chart.</li>
+<li><strong>Decomposition.</strong> Between the first and the last year, each factor contributes ln(factor<sub>end</sub>/factor<sub>start</sub>) / ln(mass<sub>end</sub>/mass<sub>start</sub>); the three contributions add up to 100%.</li>
+</ol>
+<p>The key assumption of the macro-monetary interpretation (Moseley, 2016) is that v is the wage actually paid, so that the monetary proportion pv/v is also the proportion between surplus labour and necessary labour.</p>
+</details>
+<h3 id="where-does-the-growth-in-the-mass-of-surplus-labour-come-from">Where does the growth in the mass of surplus labour come from?</h3>
+<p><span id="t-desc-intro">—</span></p>
+<p class="llano">The table separates that growth into three causes: more workers, more or fewer paid hours per worker (which fall mainly because part-time work and industries with short working hours are growing, not because the working day is being shortened) and a larger proportion of surplus labour within the working day.</p>
+<div class="tablewrap"><table><thead><tr><th>Factor</th><th>Multiplied by</th><th>Contribution to growth (in logarithms)</th></tr></thead><tbody id="t-desc"></tbody></table></div>
+
+<h3 id="monetary-expression-of-labour-time-in-the-united-states">Monetary expression of labour time in the United States</h3>
+<p class="llano">How many dollars of new value one hour of productive labour represents, on average. It is the bridge that allows figures in money to be read as figures in labour time. In current dollars it rises with inflation; in 2017 dollars it rises much less.</p>
+<p class="nota">New value (v + pv) per hour of productive labour: how many dollars one hour of productive social labour represents. It is the relation that makes it possible to pass from money to time and from time to money.</p>
+<div class="legend" id="l-melt"></div>
+<figure class="placa"><div class="chart" id="c-melt"></div></figure>
+
+<details class="como">
+<summary>How is this chart calculated?</summary>
+<p>Monetary expression of labour time = (V + S) / H: the new value created by productive workers (within-industry), in dollars, divided by their hours. The series in 2017 dollars divides by the GDP deflator.</p>
+</details>
+</section>
+<section id="fuerzas" class="seccion" hidden>
+<h2 id="productive-forces-and-disposable-time">Productive forces and disposable time</h2>
+<p class="llano">The seismograph also records something that the profit figures conceal: the state of the productive forces that capital develops. Every increase in the productivity of labour reduces the time needed to reproduce those who produce. Under the capital relation, this freed time is not turned into free time but into surplus labour. What this section shows is not the working day of a future society, but the possibility that capital itself creates and, in the same movement, turns into labour for itself.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="fz-niv">—</div><div class="etiqueta">Hours per week that would suffice in <span class="fz-fin">—</span> to reproduce the real wage of <span class="fz-ini">—</span> (US)</div><div class="nota">actual necessary labour: <span id="fz-nec">—</span></div></div><div class="cifra"><div class="valor" id="fz-lib">—</div><div class="etiqueta">Weekly hours freed since <span class="fz-ini">—</span> in a 40-hour week</div><div class="nota">to surplus labour: <span id="fz-plus-pct">—</span> · to more consumption: <span id="fz-cons-pct">—</span></div></div><div class="cifra"><div class="valor" id="fz-jor">—</div><div class="etiqueta">Reduction of the normal working week since <span class="fz-ini">—</span></div><div class="nota">the 40-hour legal week has applied in the US since 1940</div></div><div class="cifra"><div class="valor" id="fz-jtc">—</div><div class="etiqueta">Usual weekly hours of full-time employees, <span class="fz-fin">—</span> (US)</div><div class="nota"><span id="fz-jtc-a0">—</span>: <span id="fz-jtc0">—</span>; surplus labour in that week: <span id="fz-jtc-plus0">—</span> → <span id="fz-jtc-plus">—</span></div></div><div class="cifra"><div class="valor" id="fz-wmin">—</div><div class="etiqueta">Daily minutes of productive labour per inhabitant, <span class="fz-wfin">—</span> (countries measured)</div><div class="nota">of which, to reproduce the workers: <span id="fz-wnec">—</span></div></div></div>
+
+<h3 id="united-states-the-time-freed-by-productive-force-and-what-it-is-turned-into-hours-per-week">United States: the time freed by productive force and what it is turned into (hours per week)</h3>
+<p class="llano">Three lines over the same 40-hour week of a productive worker in the United States. The first is actual necessary labour: the hours in which the worker produces the equivalent of their wage. The second is the time that would suffice, with each year's productivity, to produce the real wage that this worker earned in 1972: it falls much faster, because productivity grows faster than the wage. The third is surplus labour. The distance between the first and the second is what the development of productive force gave back to the workers as consumption; everything else remained as labour for capital. The normal working week was not shortened by a single hour.</p>
+<p class="llano">An additional line values the 1972 wage at the prices of what workers consume (the personal consumption expenditures price index, PCE) instead of the prices of the whole product. With that measure, <span id="fz-niv-pce">—</span> per week would be needed for the 1972 standard of living, and the freed time is distributed as follows: <span id="fz-plus-pce-pct">—</span> to surplus labour and <span id="fz-cons-pce-pct">—</span> to more consumption. The actual week of those who work full-time, for its part, is not 40 hours: according to the US Current Population Survey, the usual weekly hours of full-time employees are <span id="fz-jtc-b">—</span> in <span class="fz-fin">—</span> (<span id="fz-jtc0-b">—</span> in <span id="fz-jtc-a0-b">—</span>). With that week, weekly surplus labour goes from <span id="fz-jtc-plus0-b">—</span> to <span id="fz-jtc-plus-b">—</span>.</p>
+<div class="legend" id="l-fz"></div>
+<figure class="placa"><div class="chart" id="c-fz"></div></figure>
+
+<div class="tablewrap"><table><thead><tr><th>Destination of the time freed since the first year (40-hour week)</th><th>Hours per week</th><th>Share of the time freed</th></tr></thead><tbody id="t-fz"></tbody></table></div>
+
+<h3 id="world-daily-minutes-of-productive-labour-per-inhabitant">World: daily minutes of productive labour per inhabitant</h3>
+<p class="llano">In the countries measured industry by industry (<span id="fz-wpct">—</span> of the world population), the entire production of surplus value rests on little more than one hour a day of productive labour per inhabitant, and that time grows because capital incorporates more of the population into productive labour. Most of that time is surplus labour (with the gross rate and also with the rate net of depreciation); a smaller portion reproduces the productive workers themselves. The figure does not say how much each person would work in another society: it does not count the labour that is unproductive for capital but that every society needs (care, public health and education, administration), nor domestic labour, nor peasant labour. What it does show is how narrow the base of living labour is on which capital produces material wealth today. One line adds part of that labour which is unproductive for capital but socially necessary, that of employees in public and non-profit education and health (<span id="fz-wpub">—</span> a day per inhabitant): with it, the total reaches <span id="fz-wsoc">—</span>.</p>
+<div class="legend" id="l-fzw"></div>
+<figure class="placa"><div class="chart" id="c-fzw"></div></figure>
+
+<details class="como">
+<summary>How are these data calculated?</summary>
+<p><strong>United States</strong> (production and non-supervisory workers in the productive industries, within-industry variant, from 1972), for a full-time 40-hour week:</p>
+<ol>
+<li><strong>Actual necessary labour</strong> = 40 / (1 + e), with each year's rate of surplus value e (section ‘The United States in hours of labour’).</li>
+<li><strong>Necessary time at the first year's standard of living</strong> = 40 × w̃<sub>1972</sub> / μ̃<sub>t</sub>. w̃ is the real hourly compensation of productive workers (V / H); μ̃ is the real new value per hour of productive labour ((V + S) / H), the real monetary expression of labour time. Both are deflated by the GDP deflator, so that the ratio does not depend on the deflator chosen except for the difference between the prices of workers' consumption and those of the product.
+2b. <strong>At consumption prices (v2).</strong> Time at the first year's standard of living = 40 × w<sub>1972</sub> × (PCE<sub>t</sub> / PCE<sub>1972</sub>) / μ<sub>t</sub>, in current dollars: hours that would suffice today to produce the value of the basket that the first year's wage bought (PCE: personal consumption expenditures price index, NIPA 1.1.4). The distribution of the freed time is recalculated with this measure.
+2c. <strong>Actual full-time week (v2).</strong> Usual weekly hours of full-time employees in their main job (OECD, based on the Current Population Survey, CPS), from 1979; before that, the 1979 value is held constant. Necessary labour = week / (1 + e); surplus labour = week − necessary. These are usual hours, not hours actually worked in a given week.</li>
+<li><strong>Destination of the freed time.</strong> What productivity freed relative to the first year is the difference between that year's necessary labour and the time that would suffice today for the same standard of living. It is divided, exactly, into: more workers' consumption (actual necessary labour − time at the first year's level), more surplus labour (today's surplus labour − the first year's surplus labour) and reduction of the reference week (zero by construction, because the normal 40-hour week did not change).</li>
+</ol>
+<p><strong>World</strong> (countries measured industry by industry, central variant): annual hours of productive labour, of gross surplus labour and of necessary labour (productive hours − surplus labour), divided by the population of those same countries (Penn World Table; after its last year, average growth of the three preceding years) and by 365 days, in minutes. Surplus labour is gross: depreciation counts as part of the new value of living labour, unlike in the US section, where e is net. With the net e, necessary labour would be about 31 minutes a day instead of 24, and surplus labour about 43 instead of 50. Variant: the hours of employees in public and non-profit education and health are added (the difference between the variant with productive education and health and the central variant). Trade, finance and advertising, which are costs of circulation specific to the commodity form, are not added, nor is unpaid domestic and care work, which the accounts do not record.</p>
+<p>These figures are not an estimate of the working day of an emancipated society: in such a society necessary labour would include the funds for replacing and expanding production and for common services, and it would be determined by the needs of the associated producers, not by the wage. They are a measure of how much time the development of productive force frees under capital and of what that time is turned into.</p>
+</details>
+</section>
+<section id="mundo" class="seccion">
+<h2 id="world-rate-and-mass-of-profit">World: rate and mass of profit</h2>
+<p class="nota"><span id="m-wsrc">—</span></p>
+<p class="llano">The rate of profit of the world economy, adding up 79 countries with data from the Penn World Table. It remains stable for almost half a century and falls from 2008 onwards, largely because of the growing weight of China, where an enormous mass of capital was accumulated in a short time. Without China, the fall is smaller.</p>
+<div class="legend" id="l-mundo"></div>
+<figure class="placa"><div class="chart" id="c-mundo"></div></figure>
+
+<h3 id="world-mass-of-gross-profit">World mass of gross profit</h3>
+<p class="llano">The total mass of profit in the world, in constant dollars. While the rate falls, the mass keeps growing: the same two-sided pattern as in the United States.</p>
+<div class="legend" id="l-wmasa"></div>
+<figure class="placa"><div class="chart short" id="c-wmasa"></div></figure>
+
+<details class="como">
+<summary>How are these charts calculated?</summary>
+<p><strong>Rates</strong> (Penn World Table 11.0, by country): gross = (1 − labsh)·cgdpo / cn; net = ((1 − labsh)·cgdpo − δ·cn) / cn; the PWT's own real internal rate of return (irr). labsh is the labour share, cgdpo GDP at current PPPs, cn the capital stock at current PPPs and δ the depreciation rate. The world average weights each country by its capital stock, in the panel of countries with continuous data since 1960, with and without China. Other weightings and panels are in the downloads (mundo_especificaciones.csv).</p>
+<p><strong>Mass:</strong> Σ (1 − labsh)·rgdpna over the same panel, in trillions of 2021 dollars (rgdpna: real GDP from national accounts). The PWT measures the whole economy: it does not distinguish productive from unproductive labour, so this mass is gross profit in a broad sense, not surplus value. That is what the next section is for.</p>
+</details>
+</section>
+<section id="horas-mundo" class="seccion" hidden>
+<h2 id="world-mass-of-surplus-value-in-labour-hours-2000">World mass of surplus value in labour hours, 2000–<span id="hm-fin">—</span></h2>
+<p>The same criterion as for the United States, applied industry by industry to <span id="hm-np">—</span> countries that together account for most of world output. Up to <span id="hm-base">—</span>, WIOD industry accounts. From <span class="hm-base1">—</span>, OECD industry accounts for the countries that publish them (<span id="hm-nocde">—</span> in the last year), UN national accounts by industry for the surplus of Brazil and India, ILO surveys by activity section for employment and hours in Brazil, Indonesia, India, Russia, Mexico, Turkey, Cyprus and Malta, OECD employment and labour income by industry (TiM) for China's surplus up to 2022, and the ILO aggregate extension for the number of employees in China. The dotted segment marks that everything after <span class="hm-base0">—</span> is chained to the WIOD level. For each country, e = pv/v with the employees of the productive industries, and the mass of surplus labour = hours of those employees × e/(1+e). The net version subtracts from surplus value the consumption of fixed capital of the market industries.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="hm-n">—</div><div class="etiqueta">Productive wage earners worldwide, <span class="hm-fin">—</span> (millions)</div><div class="nota"><span class="hm-base0">—</span>: <span id="hm-n14">—</span></div></div><div class="cifra"><div class="valor" id="hm-masa">—</div><div class="etiqueta">Annual mass of surplus labour, gross (billion hours)</div><div class="nota">2000: <span id="hm-masa0">—</span>; <span class="hm-base0">—</span>: <span id="hm-masa14">—</span></div></div><div class="cifra"><div class="valor" id="hm-masan">—</div><div class="etiqueta">Mass net of depreciation (billion hours)</div><div class="nota">2000: <span id="hm-masan0">—</span></div></div><div class="cifra"><div class="valor" id="hm-e">—</div><div class="etiqueta">World rate of surplus value in hours, gross and net</div><div class="nota">China contributes <span id="hm-cn">—</span> of the mass; India, <span id="hm-in">—</span></div></div></div>
+
+<h3 id="world-mass-of-surplus-labour-billion-hours-per-year">World mass of surplus labour (billion hours per year)</h3>
+<p class="llano">Hours of unpaid labour that capital obtains in a year in the 42 countries measured, which together account for most of world output. The gross line counts all surplus labour; the net line deducts the part of the new value that merely replaces worn-out machines and buildings. The gross line grows with a few dips (2009, the pandemic, 2024); the net line fell after 2007, did not recover its level until 2012 and stops growing from 2018 onwards. The dotted segment indicates that from 2015 the figures are chained to those of 2014.</p>
+<div class="legend" id="l-hm"></div>
+<figure class="placa"><div class="chart" id="c-hm"></div></figure>
+
+<div hidden id="rn-bloque">
+<h3 id="does-the-stagnation-of-the-net-mass-hold-up-different-estimates-of-depreciation-in-china-and-india">Does the stagnation of the net mass hold up? Different estimates of depreciation in China and India</h3>
+<p class="llano">China and India contribute two thirds of the world mass, and their depreciation is the most uncertain estimate in the whole measurement. Here the net mass is recalculated with five alternative estimates, changing only the depreciation of those two countries: lower and higher than the central one, the World Bank's, the median of the other countries, and that of 2018 held fixed. In all of them, the net mass grows strongly between 2000 and 2018 and then stays practically flat: between 2018 and the last year it changes <span id="rn-rango">—</span>. The stagnation is not an effect of how depreciation is estimated.</p>
+<div class="legend" id="l-rn"></div>
+<figure class="placa">
+<div class="chart short" id="c-rn"></div>
+</figure>
+<div class="tablewrap">
+<table>
+<thead>
+<tr>
+<th>Depreciation in China and India</th>
+<th>2000</th>
+<th>2018</th>
+<th>Last year</th>
+<th>2000–2018</th>
+<th>2018–last year</th>
+</tr>
+</thead>
+<tbody id="t-rn"></tbody>
+</table>
+</div>
+<details class="como">
+<summary>How are these variants calculated?</summary>
+<p>Only the depreciation/GDP ratio of China and India changes; the other countries remain as in the central estimate. <strong>Central:</strong> Penn World Table, δ·K/Y. <strong>PWT × 0.8 and × 1.2:</strong> a depreciation rate 20% lower or higher. <strong>World Bank:</strong> consumption of fixed capital as a % of gross national income (NY.ADJ.DKAP.GN.ZS), with the last observation carried forward into subsequent years. <strong>Median:</strong> the median depreciation/GDP of the other countries measured in that year. <strong>Constant from 2018:</strong> the 2018 ratio held fixed, to isolate the effect of its subsequent increase. In all cases, r = k · depreciation/GDP × market value added / v, with the same calibration k as in the central estimate (and, for India 2015–2020, the change measured by the UN); e<sub>net</sub> = e − r; net mass = hours × e<sub>net</sub> / (1 + e<sub>net</sub>), as in the central estimate. Result: <code>mundo_neta_robustez.csv</code>.</p>
+</details>
+</div>
+<h3 id="world-rate-of-surplus-value-in-hours-surplus-labour-necessary-labour">World rate of surplus value in hours: surplus labour / necessary labour</h3>
+<p class="llano">How many hours a productive wage earner in the world works for capital for each hour worked to replace his or her wage. It is almost the same at the beginning and at the end of the period (it rises until 2007 and falls until 2012): on average, world capital has not raised the degree of exploitation in this century. The mass grows because there are more wage earners, not because each one works more for capital. The net version falls, because each hour of labour sets in motion more fixed capital that has to be replaced.</p>
+<div class="legend" id="l-hme"></div>
+<figure class="placa"><div class="chart short" id="c-hme"></div></figure>
+
+<details class="como" open>
+<summary>How is the number of productive workers calculated?</summary>
+<p><strong>Criterion.</strong> A wage earner is productive when his or her wage is money invested as capital and his or her surplus labour is converted into surplus value. That is why casual labourers count, whatever the duration of their employment, and so do agricultural wage earners when their wage is capital. Own-account (self-employed) workers do not count, nor do those who work for a wage that is a mere means of circulation: the state (except its enterprises that sell commodities for profit), non-profit institutions and employer households.</p>
+<ol>
+<li><strong>2000–<span class="hm-base0">—</span> (WIOD, Socio-Economic Accounts 2016).</strong> For each country, the employees (EMPE) and their hours (H_EMPE) of the productive industries are added up. Excluded are the circulation industries (trade G45–G47, finance and insurance K64–K66, legal, accounting and management services M69–M70, advertising M73) and those outside capitalist production (real estate L68, public administration O84, households T, extraterritorial organisations U). Education (P85) and health (Q) count only in their capitalist part: the part paid for by the state or by non-profit institutions is left out (see step 6).</li>
+<li><strong>China.</strong> WIOD does not distinguish employees in China. The total number of employees is taken from the ILO modelled estimates and distributed among the non-agricultural industries in proportion to their employment in WIOD: s = ILO employees / (ILO employment × (1 − WIOD agricultural share)). Productive employees are the employment of the non-agricultural productive industries × s. Chinese agriculture is almost entirely family-based and has no employees in the sources, so it does not contribute. Hours assume a 46-hour week and 50 weeks (sensitivity: 44 and 49 hours).</li>
+<li><strong>From <span class="hm-base1">—</span>, OECD countries (national accounts table 7).</strong> Employees (SAL) and their hours, by ISIC Rev. 4 section, with the same industry criterion. The series is chained to the WIOD level of 2014: N<sub>t</sub> = N<sub>WIOD,2014</sub> × N<sub>OECD,t</sub> / N<sub>OECD,2014</sub>; hours per employee likewise.</li>
+<li><strong>From <span class="hm-base1">—</span>, countries without employees by industry in the OECD data: measurement by section with the ILO.</strong> For Brazil, Indonesia, India, Russia, Mexico, Turkey, Cyprus and Malta, the labour force surveys harmonised by the ILO give the employees, their hours and their mean earnings by activity section. With a single survey per country, from the first year available from 2014 onwards (India: 2018; Russia: 2017), the productive share of employees, the weekly hours of the productive sections and the productive share of the wage bill are measured, and with them the number of productive employees, their hours and the rate of surplus value of the aggregate extension are corrected. China does not publish employees by section in the ILO data; their number and rate of surplus value are measured up to 2022 with OECD employment and labour income by industry (TiM), and thereafter follow the aggregate extension.</li>
+<li><strong>From <span class="hm-base1">—</span>, aggregate extension (ILO).</strong> N<sub>t</sub> = N<sub>2014</sub> × total employees<sub>t</sub> / total employees<sub>2014</sub> (ILO modelled estimates), keeping the productive share of 2014; hours per person employed follow the ILO weekly hours. <strong>India:</strong> WIOD counts both regular employees and casual labourers as employees; the ILO series only covers regular employees. For India, N is extended with total ILO employment times the share of workers who are not own-account workers in the official surveys (NSS 2011-12 and PLFS 2017-18 to 2023-24).</li>
+<li><strong>Public and non-profit education and health.</strong> The calculation is done twice, with all of education and health in and with all of it out. The central estimate combines both according to the non-capitalist share g of each country: g = (general government employment + non-profit institutions employment − public administration employment) / education and health employment, using the OECD accounts by institutional sector; outside them, the ILO surveys of public employment by activity, and where there are none, the median of the countries measured. In the United States the non-profit share according to the BLS is added. Necessary hours, surplus-labour hours and employees are combined as (1 − g) × ‘in’ + g × ‘out’. The shares are in <code>mundo_horas_parte_publica.csv</code>. Employees of state enterprises that sell commodities for profit count as productive: their wage is capital.</li>
+<li>The world total is the sum of the countries. The source for each country and year is in <a href="../descargas/">mundo_horas_paises.csv</a>.</li>
+</ol>
+</details>
+<details class="como" open>
+<summary>How is the world mass of surplus value calculated?</summary>
+<ol>
+<li><strong>Variable capital (v):</strong> compensation of the employees of the productive industries (WIOD: COMP; OECD: D1).</li>
+<li><strong>Surplus value (pv):</strong> gross value added of the market industries (all except L68, O84, T, U and the non-capitalist part of education and health) − labour income imputed to own-account workers − v. That income is LAB − COMP in WIOD and, in the OECD data, non-employees × mean compensation per employee in the same section. The wages of the circulation industries remain within pv: they are deductions from the total mass of surplus value.</li>
+<li><strong>Rate of surplus value:</strong> e = pv/v, in national currency (with two adjustments from the section <a href="#supuestos">what counts as surplus value</a>: e' = e + (B3 − B4) · (1 + e + cp/v), where B3 adds the rent that the market industries pay for premises and offices (surplus value produced and ceded to landed property) and B4 subtracts the financial services that households pay for out of their wages (surplus value displaced from the wage), both as shares of market value added; floor of 0.01), so that no currency conversion is needed. From 2015, e is chained to the WIOD level of 2014 with the change measured by industry in the OECD data (table 6) or, where there is none, with the ILO labour share: e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>]. In Brazil and India (2015–2020), e is measured industry by industry with the UN national accounts (table 2.6: compensation, mixed income and value added by section) and chained in the same way. In China (2015–2022), e is measured industry by industry with OECD employment and labour income by industry (TiM 2025, consistent with its world tables) and chained in the same way. In the other countries measured by section with the ILO (and in Brazil and India after 2020, re-anchored in the last UN year), 1 + e<sub>t</sub> is multiplied by q<sub>b</sub>/q<sub>t</sub>, where q is the productive share of the wage bill: if the productive wage bill grows, v grows and e falls.</li>
+<li><strong>Net version:</strong> e<sub>net</sub> = e − r, with r = consumption of fixed capital of the market industries / v. In the OECD data it is measured by industry (P51C). Where there is no measurement, r = (PWT δ·K/Y) × market value added / v, calibrated with the country's own 2014 OECD/PWT ratio or, outside the OECD, with the median of those ratios (<span id="hm-kmed">—</span>), because PWT depreciation includes dwellings and public capital.</li>
+<li><strong>Mass in hours:</strong> surplus labour = H × e / (1 + e) for each country, summed over all of them. The world rate in hours is Σ surplus labour / Σ necessary labour. Observations for the WIOD years with e outside (0, 8) are excluded because of data anomalies: <span id="hm-excl">—</span>.</li>
+</ol>
+</details>
+<h3 id="the-largest-centres-of-surplus-labour">The largest centres of surplus labour, <span class="hm-fin">—</span></h3>
+<p class="llano">The countries where most surplus labour is produced. China and India together account for almost two thirds of the total.</p>
+<div class="tablewrap"><table><thead><tr><th>Country</th><th>Productive wage earners (millions)</th><th>Gross e</th><th>Net e</th><th>Gross surplus labour (billion hours)</th><th>% of total</th><th>Source of e</th></tr></thead><tbody id="t-hm"></tbody></table></div>
+
+<h3 id="how-much-each-assumption-weighs-central-estimate-with-china">How much each assumption weighs (central estimate, with China)</h3>
+<p class="nota">Each row changes a single assumption relative to the central estimate. The rows marked as contrast are not alternative readings of the adopted criterion: they show how much the casual labourers of India and the agricultural wage labour of India and China weigh in the world mass.</p>
+<p class="llano">Each row changes a single assumption and shows how much the total changes. It serves to tell which figures are firm and which depend on decisions.</p>
+<div class="tablewrap"><table><thead><tr><th>Year</th><th>Case</th><th>Surplus labour (billion hours)</th><th>Productive wage earners (millions)</th><th>Difference</th><th>Note</th></tr></thead><tbody id="t-hms"></tbody></table></div>
+
+<details class="como">
+<summary>Diagnostics of the OECD–WIOD splice in 2014</summary>
+<p>If the two sources measure the same thing, the 2014 ratios should be close to 1. WIOD sets the level; the OECD only supplies the subsequent change. The column ‘r PWT’ is Penn World Table depreciation without calibration: its distance from ‘r OECD’ is what the calibration corrects.</p>
+<div class="tablewrap">
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>e WIOD</th>
+<th>e OECD</th>
+<th>Employees OECD/WIOD</th>
+<th>Hours OECD/WIOD</th>
+<th>r PWT</th>
+<th>r OECD</th>
+<th>Last OECD year</th>
+</tr>
+</thead>
+<tbody id="t-hmd"></tbody>
+</table>
+</div>
+</details>
+<p class="nota">Caveats: the figures after 2014 are chained, not newly measured levels; in the OECD countries the change is indeed measured by industry. China is an estimate. There is no within-industry correction at the world scale. The world sum counts hours of exploited labour, not abstract labour time of the world market: according to Marx, the more productive national labour counts on the world market as more intensive labour, and that weighting is left for the transformation phase. Because of differences in definition, the e of the United States here does not coincide with that of the United States section.</p>
+</section>
+<section id="contratendencias" class="seccion" hidden>
+<h2 id="the-field-of-countertendencies">The field of countertendencies</h2>
+<p>Marx (2021, pp. 297–307) sets out six causes that counteract the tendential fall of the rate of profit: the raising of the degree of exploitation, the reduction of wages below their value, the cheapening of the elements of constant capital, relative surplus population, foreign trade and the increase in share capital. They are not external forces that correct the tendency from outside: they are produced by the same causes that produce the fall. This section brings together observable indicators for each of them, and begins with the central question: in each phase, what sustained or sank the rate of profit?</p>
+<h3 id="what-moved-the-rate-in-each-phase">What moved the rate in each phase</h3>
+<p>The rate of profit can be written as r = e · v/K: it rises if the rate of surplus value e rises and falls if the composition K/V rises. The phases are not chosen in advance: their boundaries are the most frequent break years in the multiverse (<span id="ct-cortes">—</span>). Each bar measures, in logarithms, how much each factor contributed to the change in the rate in that phase.</p>
+<p class="llano">The rate of profit rises if capital obtains more surplus value for each dollar of wages (rate of surplus value) and falls if it needs more capital for each dollar of wages (composition). In each period, the bars show how hard each force pushed. If the bar for the rate of surplus value is taller than the fall due to the composition, the rate of profit rises; if not, it falls. This shows which countertendency sustained profit in each stage and when it stopped doing so.</p>
+<div class="legend" id="l-ct-fases"></div>
+<figure class="placa"><div class="chart" id="c-ct-fases"></div></figure>
+
+<p class="nota">By-industry criterion, from 1948. A composition bar below zero means that capital per unit of variable capital grew and pushed the rate down.</p>
+<p class="nota">From 1972 the value composition can be split into two parts: the technical composition (capital at constant prices per hour of productive labour) and the relative price of capital with respect to the hourly wage. That the first pushes downwards while the second pushes upwards is the observable form of the cheapening of constant capital.</p>
+<p class="llano">The same calculation, with the composition split into two parts: how much physical capital there is per hour of labour (it always grows) and how much that capital costs compared with the wage (it falls: machines become cheaper relative to labour).</p>
+<div class="legend" id="l-ct-fases-i"></div>
+<figure class="placa"><div class="chart" id="c-ct-fases-i"></div></figure>
+
+<div class="tablewrap"><table><thead><tr><th>Variant</th><th>Phase</th><th>Change in the rate</th><th>Contribution of e</th><th>Contribution of K/V</th><th>Technical composition</th><th>Relative price</th></tr></thead><tbody id="t-ct-fases"></tbody></table></div>
+
+<h3 id="does-the-decomposition-hold-up-under-all-the-theoretical-decisions">Does the decomposition hold up under all the theoretical decisions?</h3>
+<p class="nota">The same decomposition, repeated for the 16 specifications of each productive-labour criterion (current or historical cost, net or gross, with or without intellectual property products, all capital or only that of the productive industries). Each cell gives the median and, in parentheses, the range from the 10th to the 90th percentile. The last column indicates in what percentage of the specifications in which the composition rises the increase in the rate of surplus value is enough to offset it.</p>
+<p class="llano">The table repeats the calculation with all the measurements of the multiverse. If the result for a phase holds in almost all of them, it does not depend on the theory.</p>
+<div class="tablewrap"><table><thead><tr><th>Criterion</th><th>Phase</th><th>Contribution of e</th><th>Contribution of K/V</th><th>Specifications in which the rate rises</th><th>e offsets the composition</th></tr></thead><tbody id="t-ct-fm"></tbody></table></div>
+
+<details class="como">
+<summary>How is this decomposition calculated?</summary>
+<p>For each phase between the years a<sub>0</sub> and a<sub>1</sub>: Δln r = Δln e − Δln(K/V), with e = S/V and K/V taken from the section ‘The two-sided law’ (net broad surplus value of the business sector; K at current cost; V by industry from 1948 or within-industry from 1972). In the within-industry variant, K/V = (K<sub>real</sub>/H) · (P<sub>K</sub>/w): K<sub>real</sub> is K deflated by the implicit price of private non-residential fixed capital (current-cost stock over the BEA quantity index, 2017 = 1); H is the hours of productive workers (BLS) and w = V/H. The cut-off years are the five most frequent break years in the main multiverse (baseline configuration: minimum segment of 8 years, BIC), separated from each other by at least six years. The downloads include the full table (contratendencias_fases.csv).</p>
+</details>
+<h3 id="1-raising-of-the-degree-of-exploitation">1. Raising of the degree of exploitation</h3>
+<p>The rate of surplus value is the direct indicator (see the section ‘The two-sided law’). Here output per hour in the non-farm business sector is compared with real compensation per hour: the gap between the two curves is the part of productivity that does not return to the workers.</p>
+<p class="llano">If workers produce more per hour but their real wage grows less, the difference stays with capital. The gap between the two lines is that difference, accumulated since 1972.</p>
+<div class="legend" id="l-ct-a"></div>
+<figure class="placa"><div class="chart" id="c-ct-a"></div></figure>
+
+<p class="nota">The extension of working time does not show up in the hours paid by establishments, which decline. Two indications of its displacement beyond a single job: the proportion of employed people with more than one job and that of those working part-time involuntarily. Neither measures the intensity of labour, which still has no indicator.</p>
+<p class="llano">Two signs that working time is being stretched outside the paid hours of a single job: people who need two or more jobs and people who work fewer hours than they want.</p>
+<div class="legend" id="l-ct-a2"></div>
+<figure class="placa"><div class="chart short" id="c-ct-a2"></div></figure>
+
+<h3 id="2-reduction-of-wages-below-their-value">2. Reduction of wages below their value</h3>
+<p>The value of labour power is not directly observed; what is observed is the real wage of production and non-supervisory workers. A real wage that for decades remains below its 1972 level, while productivity multiplies, indicates a compression of wages that the rise in productivity alone does not explain.</p>
+<p class="llano">What a production worker can buy with one hour's wage, after discounting inflation.</p>
+<div class="legend" id="l-ct-b"></div>
+<figure class="placa"><div class="chart" id="c-ct-b"></div></figure>
+
+<h3 id="3-cheapening-of-the-elements-of-constant-capital">3. Cheapening of the elements of constant capital</h3>
+<p class="llano">Three indices on machines, buildings and equipment. The technical composition tells how much physical capital there is per hour of labour: it grows non-stop. The other two tell how much that capital costs compared with the wage and with consumption: they fall. Capital needs ever more means of production per worker, but each one is cheaper, and that slows the fall of the rate.</p>
+<div class="legend" id="l-ct-c"></div>
+<figure class="placa"><div class="chart short" id="c-ct-c"></div></figure>
+
+<p class="nota">Indices, 1972 = 100. The technical composition grows much more than the value composition because each unit of capital becomes cheaper relative to labour.</p>
+<h3 id="4-relative-surplus-population">4. Relative surplus population</h3>
+<p class="llano">How many people are available for capital to employ: the unemployed and underemployed in the United States; in the world, the unemployed and own-account or contributing family workers. Vulnerable employment worldwide falls because hundreds of millions of people move into work as wage earners.</p>
+<div class="legend" id="l-ct-d"></div>
+<figure class="placa"><div class="chart" id="c-ct-d"></div></figure>
+
+<p class="nota">Relative surplus population is not only unemployment: it includes those who work on their own account or in family labour, available to be absorbed by capital. At the world scale, their reabsorption is the main source of the growth of the mass of surplus value (see the world mass in hours).</p>
+<h3 id="5-foreign-trade">5. Foreign trade</h3>
+<p class="llano">What share of the profits of US corporations comes from abroad, and how much trade weighs in the world economy.</p>
+<div class="legend" id="l-ct-e"></div>
+<figure class="placa"><div class="chart" id="c-ct-e"></div></figure>
+
+<p class="nota"><strong>Transfer of labour time through foreign trade.</strong> On the world market, countries with higher productivity receive more labour in exchange for less. The chart estimates how many hours of other people's labour each country or group appropriates per year: the hours embodied in what it imports minus those embodied in what it exports, in billions of hours. Positive means appropriation; negative, cession.</p>
+<div class="legend" id="l-ct-e2"></div>
+<figure class="placa"><div class="chart" id="c-ct-e2"></div></figure>
+
+<details class="como">
+<summary>How is the transfer of hours calculated?</summary>
+<p>For each country, h = hours worked in the year (persons employed × annual hours per person employed, Penn World Table 11.0) / GDP in current dollars (World Bank). The average hour content of one dollar of world exports is h<sub>X</sub> = Σ exports × h / Σ exports. A country's net transfer is imports × h<sub>X</sub> − exports × h. The countries with data on hours are used (some 120, from 2005); the income groups are those of the World Bank.</p>
+<p>Assumptions: what a country exports embodies the average hours per dollar of its economy, and what it imports, the average content of world exports; intermediate inputs are not traced, which would require a world input–output matrix; all hours worked are counted, not only productive ones. The transfer does not create surplus value: it redistributes it among capitals and national formations.</p>
+</details>
+<h3 id="6-share-capital-and-interest-bearing-capital">6. Share capital and interest-bearing capital</h3>
+<p class="llano">What share of profit goes to finance: the profits of the financial sector, the interest and dividends paid by non-financial corporations, and how many shares they issue or buy back.</p>
+<div class="legend" id="l-ct-f"></div>
+<figure class="placa"><div class="chart" id="c-ct-f"></div></figure>
+
+<p class="nota">Fictitious capital consists of claims on future surplus labour. The market value of the shares of non-financial corporations grows much faster than their debt and than output: its validation requires a mass of surplus value that has not yet been produced.</p>
+<p class="llano">The stock-market value of US non-financial corporations compared with the country's output, and their debt. The stock-market value goes from a third to more than twice output: these are claims that can only be paid with surplus labour that has not yet been produced.</p>
+<div class="legend" id="l-ct-f2"></div>
+<figure class="placa"><div class="chart short" id="c-ct-f2"></div></figure>
+
+<p class="nota">Negative net equity issuance means that non-financial corporations buy back more shares than they issue: they transfer profit to shareholders instead of accumulating it.</p>
+<details class="como">
+<summary>Where do these indicators come from?</summary>
+<ul>
+<li><strong>Exploitation:</strong> output per hour (OPHNFB) and real compensation per hour (COMPRNFB) of the non-farm business sector, BLS via FRED, re-indexed to 1972 = 100.</li>
+<li><strong>Wages:</strong> average hourly earnings of production and non-supervisory workers (AHETPI, BLS) divided by the consumer price index (CPIAUCSL), in 2017 dollars. Household debt service relative to disposable income (TDSP, Federal Reserve) in the downloads.</li>
+<li><strong>Constant capital:</strong> implicit price of non-residential investment (NIPA A008RD) over the personal consumption expenditures price index (DPCERG); technical composition and relative price as in the decomposition by phases.</li>
+<li><strong>Relative surplus population:</strong> employment rate of people aged 25 to 54 (LNS12300060) and U-6 labour underutilisation (U6RATE), BLS; world vulnerable employment and unemployment, ILO modelled estimates published by the World Bank (SL.EMP.VULN.ZS, SL.UEM.TOTL.ZS).</li>
+<li><strong>Foreign trade:</strong> corporate profits received from the rest of the world (NIPA B933RC) over total corporate profits (A051RC), from 1998; world trade over GDP (World Bank, NE.TRD.GNFS.ZS).</li>
+<li><strong>Extension of working time:</strong> employed people with more than one job (LNS12026619, from 1994) and part-time for economic reasons (LNS12032194), over total employment (CE16OV), BLS.</li>
+<li><strong>Transfer through foreign trade:</strong> see the drop-down on the transfer of hours.</li>
+<li><strong>Fictitious capital:</strong> market value of the shares issued by non-financial corporations (Z.1, NCBEILQ027S) and their debt in securities and loans (BCNSDODNS), over GDP (GDP).</li>
+<li><strong>Financial capital:</strong> profits of financial corporations over domestic profits (A587RC / A445RC), from 1998; net interest of non-financial corporations over their net operating surplus (B471RC / W326RC); dividends over after-tax profit (B467RC / A466RC); net equity issuance of non-financial corporations (Z.1, FU103164103) over their gross value added (A455RC).</li>
+</ul>
+<p>None of these indicators by itself measures a countertendency: they are observable manifestations that must be read together with the rate and the mass of surplus value. All of them are in the downloads (contratendencias_indicadores.csv).</p>
+</details>
+</section>
+<section id="intensidad" class="seccion">
+<h2 id="what-the-hours-do-not-see-labour-intensity-and-platform-work">What the hours do not see: labour intensity and platform work</h2>
+<p class="llano">The whole seismograph counts labour in hours: an hour is an hour. There are two movements of contemporary capital that this measure does not register well, and both point in the same direction: they make the measurement in hours <strong>underestimate</strong> surplus labour. This section does not correct the figures; it reports that bias, its direction and what is known about its size.</p>
+<h3 id="the-intensity-of-labour">The intensity of labour</h3>
+<p class="llano">Alongside the prolongation of the working day and the increase in productive force, Marx distinguishes a third path to surplus value: intensification, that is, more labour compressed into the same time, with fewer pores in the working day (Marx, 2018, ch. XIII). A more intensive hour creates more value than an hour of normal intensity, but in the accounts it appears the same. If intensity rises, the rate of surplus value in hours falls short of the effective one. No statistic measures intensity directly; since 1991 the European working conditions surveys have asked whether people work at high speed or to tight deadlines. What they show is a strong intensification between 1991 and 2005 and a high plateau since then: a third of European workers work at high speed three-quarters of the time or more.</p>
+<table>
+<thead>
+<tr>
+<th>Indicator (European Working Conditions Survey)</th>
+<th>Coverage</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Works at very high speed all or almost all of the time</td>
+<td>EU12 (1990–1991) and EU27 (2005)</td>
+<td>19% → 26%</td>
+</tr>
+<tr>
+<td>Works at very high speed three-quarters of the time or more</td>
+<td>EU (2005, 2010, 2015)</td>
+<td>35% · 32% · 33%</td>
+</tr>
+<tr>
+<td>Works to tight deadlines three-quarters of the time or more</td>
+<td>EU (2005, 2010, 2015)</td>
+<td>37% · 35% · 36%</td>
+</tr>
+<tr>
+<td>Works at high speed three-quarters of the time or more</td>
+<td>EU27 (2010, 2015, 2024)</td>
+<td>33% · 33% · 35%</td>
+</tr>
+<tr>
+<td>Works to tight deadlines three-quarters of the time or more</td>
+<td>EU27 (2010, 2015, 2024)</td>
+<td>33% · 34% · 34%</td>
+</tr>
+</tbody>
+</table>
+<p class="nota">Sources: Eurofound (2007; 2016; 2025). The figures in each row are not comparable with those in other rows: the question, the threshold and the countries change. The 2021 telephone survey (49% frequently worked at high speed) used a different method and is not included.</p>
+<p>The seismograph does not adjust hours by these indicators: they are workers' perceptions, and any conversion factor between ‘working at high speed’ and value produced would be arbitrary. Moreover, the data are European: there is no equivalent series for the United States or for the rest of the world. What can be asserted is the direction of the bias: where intensity rises or remains high, the measurement in hours does not exaggerate exploitation; if anything, it underestimates it.</p>
+<h3 id="platform-work">Platform work</h3>
+<p class="llano">Uber drivers, delivery riders and those who perform online tasks appear in the statistics as own-account (self-employed) workers. Under the seismograph's general criterion, the income of own-account workers is not surplus value and they do not count as productive workers. But under the criterion of this research, platform work such as Uber's is productive labour in Marx's sense: the platform operates as a capitalist that subsumes the labour of the drivers. From the fare paid by the customer, it retains a commission—often between 20% and 40%—and hands the rest to the driver. That commission, after deducting the costs of servers, offices and software, is the form in which the surplus value extracted from living labour appears. The driver works one part of the working day to cover subsistence, petrol and the wear and tear of the car (necessary labour), and the rest for the platform (surplus labour). It is a form of piece wages (Marx, 2018, ch. XIX): it gives the appearance of greater freedom than a fixed wage and pushes workers themselves to lengthen and intensify their working day. The platform's capital—software, algorithms, brand—is valorised only when the driver logs on and makes the trip.</p>
+<p>Because the statistics record them as own-account workers, the seismograph's measurement leaves these workers out: here too the bias is downwards. Their weight is still small in the United States, but it is growing worldwide.</p>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US, work mediated by apps (May 2017)</td>
+<td>1.6 million people, 1.0% of employment</td>
+<td>BLS (2018), Contingent Worker Supplement</td>
+</tr>
+<tr>
+<td>US, independent contractors (July 2023)</td>
+<td>11.9 million, 7.4% of employment (includes, among others, platform workers)</td>
+<td>BLS (2024a)</td>
+</tr>
+<tr>
+<td>World, online platform workers (2023)</td>
+<td>between 154 and 435 million, from 4.4% to 12.5% of the global labour force</td>
+<td>World Bank (2023)</td>
+</tr>
+</tbody>
+</table>
+<p class="nota">The World Bank estimate covers only online work (remote tasks and services), not work done in a physical location, such as transport or delivery; the upper bound includes those who do it as a secondary activity. According to the same report, demand for online platform work grew by 41% between 2016 and the first quarter of 2023. The BLS has announced figures on app-based work for 2023, not yet published.</p>
+<details class="como">
+<summary>Where do these data come from and why do they not change the measurement?</summary>
+<ul>
+<li><strong>Intensity.</strong> Eurofound, European Working Conditions Survey (EWCS), waves of 1991, 1995, 2000, 2005, 2010, 2015 and 2024. The questions are: ‘Does your job involve working at very high speed?’ and ‘… working to tight deadlines?’, with a frequency scale; the percentages are of those answering ‘all of the time’, ‘almost all of the time’ or ‘around three-quarters of the time’, depending on the row. Coverage changes with the enlargement of the European Union.</li>
+<li><strong>Platforms.</strong> BLS, Contingent Worker Supplement to the Current Population Survey (CPS), May 2017 (questions on electronically mediated work, recoded by the BLS) and July 2023. World Bank (2023), with two methods: workers registered on 545 platforms (154 million) and surveys (up to 435 million).</li>
+<li><strong>Why the figures are not adjusted.</strong> Adjusting for intensity would require converting perception responses into hours of labour of normal intensity, and there is no basis for doing so. Adding platform workers would require their number, their hours and their net income by country and year, which do not exist as a series. Both cases remain as declared downward biases of the mass and of the rate of surplus value in hours.</li>
+</ul>
+</details>
+</section>
+<section id="ia" class="seccion" hidden>
+<h2 id="the-artificial-intelligence-corporations">The artificial intelligence corporations</h2>
+<p>Microsoft, Alphabet, Amazon, Meta, Nvidia, Oracle, Broadcom and AMD, according to their financial statements filed with the SEC. In <span id="ia-fin">—</span> they appropriated <span id="ia-pct-corp">—</span> of US corporate profits and around <span id="ia-pct-mundo">—</span> of the world mass of gross profit; their investment is equivalent to <span id="ia-pct-inv">—</span> of US private non-residential investment.</p>
+<h3 id="rate-of-profit-ai-group-versus-the-non-financial-sector">Rate of profit: AI group versus the non-financial sector</h3>
+<p class="llano">The profit of eight large artificial intelligence companies per dollar of fixed capital, compared with that of non-financial companies as a whole. They earn much more per dollar invested, not because their workers produce more surplus value, but because they control a condition that all capital needs and appropriate surplus value produced elsewhere.</p>
+<div class="legend" id="l-ia1"></div>
+<figure class="placa"><div class="chart" id="c-ia1"></div></figure>
+
+<h3 id="weight-of-the-ai-group">Weight of the AI group (%)</h3>
+<p class="llano">What share of profits, investment and capital these eight companies concentrate.</p>
+<div class="legend" id="l-ia2"></div>
+<figure class="placa"><div class="chart" id="c-ia2"></div></figure>
+
+<h3 id="operating-profit-over-fixed-capital-by-company">Operating profit over fixed capital, by company (%)</h3>
+<p class="llano">The same rate, company by company.</p>
+<div class="tablewrap"><table><thead id="t-ia-h"></thead><tbody id="t-ia"></tbody></table></div>
+
+<details class="como">
+<summary>How are these charts calculated?</summary>
+<ul>
+<li><strong>AI group rate:</strong> Σ operating profit / Σ total assets of the eight companies (SEC XBRL: OperatingIncomeLoss, Assets; calendar years).</li>
+<li><strong>US non-financial:</strong> net operating surplus of non-financial corporations / their net stock at historical cost without intellectual property products, because business accounting does not capitalise in-house R&amp;D.</li>
+<li><strong>Without the AI group:</strong> (non-financial profit − operating profit of the group) / (non-financial K − net property, plant and equipment of the group).</li>
+<li><strong>Weights:</strong> pre-tax profit of the group / US corporate profits (NIPA); investment in fixed assets of the group / private non-residential investment; pre-tax profit / PWT world mass of gross profit converted to current dollars.</li>
+<li><strong>Table:</strong> operating profit / net property, plant and equipment of each company, in %.</li>
+</ul>
+</details>
+<p class="nota">Caveats: (1) the profits of these companies are consolidated on a world scale; the US non-financial aggregate is domestic, so the ‘without AI’ rate is approximate. (2) Capital is book capital, at historical cost, and in-house R&amp;D is not capitalised. (3) Appropriated profit is not produced surplus value: these shares measure appropriation, which includes rents and transfers, not the formation of surplus value. (4) The world mass for the years without Penn World Table data uses the last available wage share.</p>
+</section>
+<section id="transformacion" class="seccion" hidden>
+<h2 id="the-transformation-values-and-prices-20002014">The transformation: values and prices, 2000–2014</h2>
+<p>Everything above works with aggregate magnitudes: the total surplus value of a country is the sum of its profits, interest, rents, taxes and unproductive salaries, and at that level the formation of prices changes neither the mass nor the rate of surplus value. But prices are not proportional to values industry by industry: competition between capitals tends to equalise the rates of profit, and in doing so redistributes surplus value from the industries that employ much living labour to those that employ much capital. This section measures that redistribution with the input–output tables of 43 countries (WIOD, 2000–2014) and checks and extends it to 2024 with the OECD world tables. Education and health enter through their capitalist part: the part that is neither public nor non-profit.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="tf-desv">—</div><div class="etiqueta">Mean deviation of prices from values, <span class="tf-anio">—</span> (median of countries)</div><div class="nota">weighted by output</div></div><div class="cifra"><div class="valor" id="tf-rho">—</div><div class="etiqueta">Correlation between price/value and the composition of capital (median)</div><div class="nota">countries with positive correlation: <span id="tf-pos">—</span></div></div><div class="cifra"><div class="valor" id="tf-pond">—</div><div class="etiqueta">World mass of surplus labour in world-market hours, last year (billions)</div><div class="nota">unweighted: <span id="tf-sinpond">—</span></div></div><div class="cifra"><div class="valor" id="tf-cnp">—</div><div class="etiqueta">China's share of the weighted mass</div><div class="nota">weight of a Chinese hour: <span id="tf-wcn">—</span>; Indian: <span id="tf-win">—</span>; US: <span id="tf-wus">—</span></div></div></div>
+
+<h3 id="how-far-do-prices-depart-from-values">How far do prices depart from values?</h3>
+<p class="llano">For each industry we calculate how many hours of labour, direct and indirect, one dollar of its product contains: the hours worked in the industry itself plus those contained in the inputs it buys from the capitalist part of other productive industries, domestic or imported. If prices were proportional to those hours, all industries would have the same ‘price-value’. The line shows how far, on average, market prices depart from the values so calculated. The deviation is measured as the distance between value and price as a proportion of price: a deviation of 20% means that, on average, the value of what each industry sells is 20% higher or lower than its price (it is not symmetrical: an industry that sells 20% above its value has a deviation of 16.7%).</p>
+<div class="legend" id="l-tf-desv"></div>
+<figure class="placa"><div class="chart" id="c-tf-desv"></div></figure>
+
+<h3 id="who-cedes-value-and-who-appropriates-it-countries">Who cedes value and who appropriates it (<span class="tf-anio">—</span>, <span class="tf-n">—</span> countries)</h3>
+<p class="llano">Price/value below 1: the industry sells below the value it produces and cedes surplus value to other industries. Above 1: it sells above and appropriates surplus value produced elsewhere. Marx expected industries with much capital per worker (high composition) to sell above their value, and those with much living labour, below. The table confirms it: agriculture, fishing, textiles and hotels and restaurants cede value; petroleum refining, mining, energy, metals and chemicals appropriate it.</p>
+<div class="tablewrap"><table><thead><tr><th>Industry</th><th>Price / value</th><th>Composition K/v (median)</th></tr></thead><tbody id="t-tf-ramas"></tbody></table></div>
+
+<p class="nota">Average price/value of the 43 countries, weighted by output. Composition: capital stock over the industry's labour income, both of employees and of own-account workers (WIOD).</p>
+<h3 id="labour-embodied-in-foreign-trade-billion-hours">Labour embodied in foreign trade (billion hours)</h3>
+<p class="llano">How many hours of other people's labour each country receives through its trade, also counting the labour contained in the inputs of what it exports and imports. Positive: the country receives in its imports more hours than it delivers in its exports, for the same value in dollars. High-income countries receive; China and India deliver.</p>
+<div class="legend" id="l-tf-com"></div>
+<figure class="placa"><div class="chart" id="c-tf-com"></div></figure>
+
+<div hidden id="tf-icio">
+<h3 id="to-with-the-oecd-world-tables">To <span class="tf-ifin">—</span>, with the OECD world tables</h3>
+<p class="llano">The WIOD tables end in 2014. The OECD world tables (ICIO, 2026 edition) cover 84 economies and twelve rest-of-the-world regions, with the country of origin of each input: the labour contained in what a country imports is calculated with the hours of the country that produced it, not with a world average. Here 2000–2005 (without 2003) and 2015–<span class="tf-ifin">—</span> are used; the years 2000–2005 come from the previous edition (2025, 80 economies and the rest of the world) and 2023–2024 are the OECD's own projections. The hours come from OECD employment by industry (TiM), which runs to 2022, and from the Penn World Table hours per person employed. The medians cover only the <span id="tf-in">—</span> economies with measured employment. The levels are not directly comparable with those of WIOD: there are more countries, in particular low-income ones, a different industry classification and a different treatment of imported inputs. What is compared is the pattern: who cedes value, who receives it and how far price departs from value. One result stands out: China delivered more than 200 billion hours a year through its trade in the mid-2000s and fewer than 80 billion from 2020, while India delivers 114 billion in 2005, 89 billion in 2016 and 113 billion in 2024.</p>
+<div class="cifras">
+<div class="cifra">
+<div class="valor" id="tf-idesv">—</div>
+<div class="etiqueta">Mean deviation of prices from values, <span class="tf-ifin">—</span> (median of economies with measured employment)</div>
+<div class="nota">OECD world tables</div>
+</div>
+<div class="cifra">
+<div class="valor" id="tf-icalto">—</div>
+<div class="etiqueta">Hours received through trade by high-income countries, <span class="tf-ifin">—</span> (billions)</div>
+<div class="nota">China: <span id="tf-icchn">—</span> · India: <span id="tf-icind">—</span></div>
+</div>
+</div>
+<div class="legend" id="l-tf-idesv"></div>
+<figure class="placa">
+<div class="chart" id="c-tf-idesv"></div>
+</figure>
+<div class="legend" id="l-tf-icom"></div>
+<figure class="placa">
+<div class="chart" id="c-tf-icom"></div>
+</figure>
+<p class="nota">Billion hours. Positive: the country receives in its imports more hours than it delivers in its exports, for the same value in dollars.</p>
+</div>
+<h3 id="the-labour-hour-on-the-world-market-billion-hours">The labour hour on the world market (billion hours)</h3>
+<p class="llano">An hour of labour in China does not count the same as one in the United States on the world market: the more productive national labour counts as more intensive labour. The weighted line converts each country's hours of surplus labour into world-market hours, according to how many dollars an hour of labour produces there compared with the average. With that weighting, China's weight in the world mass is much smaller, although it grows rapidly.</p>
+<div class="legend" id="l-tf-pond"></div>
+<figure class="placa"><div class="chart" id="c-tf-pond"></div></figure>
+
+<h3 id="the-transformation-according-to-moseley-with-the-temporal-variant-tssi-as-a-contrast">The transformation according to Moseley, with the temporal variant (TSSI) as a contrast</h3>
+<p class="llano">The previous measurement calculates values in hours. This one follows the interpretation of Moseley (2016), which the seismograph adopts as central: the money costs—inputs and wages—are the same for values and for prices of production, and what changes is only how surplus value is distributed. In values, each industry would have the surplus value produced by its own workers; in prices of production, each industry receives a profit proportional to the capital it advances. The difference is the surplus value that competition shifts from some industries to others. The temporal variant (TSSI; Kliman, 2007) values inputs and capital at the prices at which they entered production: in years of inflation it gives higher rates, and in the 2009 crisis it converges with the central one.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="tf-red">—</div><div class="etiqueta">Share of surplus value that the equalisation of rates shifts between industries, <span class="tf-anio">—</span> (median of countries)</div><div class="nota">Moseley</div></div><div class="cifra"><div class="valor" id="tf-rm">—</div><div class="etiqueta">Rate of profit of the productive industries of the 43 countries, <span class="tf-anio">—</span> (Moseley)</div><div class="nota">2000: <span id="tf-rm0">—</span> · TSSI <span class="tf-anio">—</span>: <span id="tf-rt">—</span></div></div><div class="cifra"><div class="valor" id="tf-cve">—</div><div class="etiqueta">Dispersion of effective profit rates across industries (coeff. of variation, median)</div><div class="nota">if each industry realised its own surplus value: <span id="tf-cvv">—</span></div></div><div class="cifra"><div class="valor" id="tf-igu">—</div><div class="etiqueta">Countries and years in which competition reduces the dispersion of rates</div><div class="nota">deviation of the market from values: <span id="tf-dv">—</span>; from prices of production: <span id="tf-dpp">—</span></div></div></div>
+
+<div class="legend" id="l-tf-mt"></div>
+<figure class="placa"><div class="chart" id="c-tf-mt"></div></figure>
+
+<p class="nota">Rate = surplus value of the productive industries / (fixed capital + annual variable capital), in %. 43 countries: sum in dollars. The TSSI starts in 2001 because it needs the previous year's prices.</p>
+<p class="llano">The industries that gain from equalisation are those with much capital per worker—water, audiovisual, electricity and gas, mining, waste, telecommunications—; those that cede surplus value are those with much living labour: professional services, the capitalist part of education and health, computer services and construction. Effective rates are closer to one another than the rates ‘in values’, as the theory expects, although equalisation is partial. On the other hand, market prices are not systematically closer to prices of production than to values: only in <span id="tf-ppm">—</span> of countries and years. The two measurements do not agree in every industry: agriculture cedes value when measured in hours, but gains from equalisation in Moseley's (see below).</p>
+<div class="tablewrap"><table><thead><tr><th>Industry (<span class="tf-anio">—</span>)</th><th>Transfer through equalisation (% of value)</th><th>Rate if it realised its own surplus value</th><th>Effective rate</th></tr></thead><tbody id="t-tf-mr"></tbody></table></div>
+
+<h3 id="why-agriculture-cedes-value-in-one-measurement-and-gains-in-the-other">Why agriculture cedes value in one measurement and gains in the other</h3>
+<p class="llano">There are two reasons. The first is that the two measurements do not answer the same question. The measurement in hours compares market price with value; Moseley's, above all, price of production with value. In Moseley's, agriculture receives surplus value through the equalisation of rates, because its price of production exceeds its value, and its market price ends up somewhat above its value (value/price <span id="tf-ag-mo">—</span>). The second reason, the decisive one, is the valuation of own-account labour: only <span id="tf-ag-as">—</span> of those employed in agriculture are wage earners. In hours, each hour of a peasant counts as an hour of social labour; in Moseley's, their labour enters through the money income they receive, which is very low. If only the hours of wage earners are counted in the measurement in hours, the value/price of agriculture falls from <span id="tf-ag-v1">—</span> to <span id="tf-ag-v1a">—</span>: wage-labour agriculture sells, on average, close to its value. In China, which accounts for almost 40% of the agricultural output of the 43 countries, WIOD does not separate out employees; the same assumption is used as in the world mass (ILO employees in the non-agricultural industries, none in family agriculture). In the median of countries and years, that valuation explains around <span id="tf-ag-expl">—</span> of the distance between the two measurements. The rest comes from wages: in hours, an hour is an hour; in Moseley's, it is the wage paid that counts, and agricultural wage earners earn less per hour than the average.</p>
+<div class="tablewrap"><table><thead><tr><th>Industry (<span class="tf-anio">—</span>)</th><th>Employees (% of persons employed)</th><th>Value / price in hours</th><th>In hours, employees only</th><th>Value / price, Moseley</th></tr></thead><tbody id="t-tf-conc"></tbody></table></div>
+
+<p class="nota">Value/price greater than 1: the industry sells below its value and cedes surplus value. Averages of the 43 countries weighted by output; industries with the lowest proportion of employees.</p>
+<details class="como">
+<summary>How are the values and deviations calculated?</summary>
+<ol>
+<li><strong>Values by industry.</strong> For each country and year, with the WIOD national input–output table (in dollars): λ = (l + (λ̄ ∘ φ) · M) · (I − D<sub>φ</sub> A)<sup>−1</sup>, where D<sub>φ</sub> is the diagonal matrix with the capitalist fraction φ of each supplying industry. l = hours worked per dollar of output (all persons employed, including own-account workers, because they too produce commodities; hours from WIOD SEA; in China, 46 h × 50 weeks); A = domestic inputs per dollar of output; M = imported inputs; λ̄ = average hours contained in one exported dollar of each product in the world (average of the 43 countries weighted by their exports), which is solved by iteration.</li>
+<li><strong>Industries that do not produce value.</strong> φ = 1 in the productive industries and 0 in trade, finance, legal and accounting services, advertising, real estate, public administration and households: their inputs do not transfer value; they are expenses paid out of surplus value (the treatment of Shaikh and Tonak, 1994). In education and health, φ = 1 − g, with g the public and non-profit share of employment (the same as in the world mass): only their capitalist part produces value, and it is assumed to have the same cost structure as the industry as a whole.</li>
+<li><strong>Price-value.</strong> μ = Σ φ · output / Σ λ · φ · output (dollars per hour, capitalist part of the productive industries); price-value of industry j = μ · λ<sub>j</sub>; price/value = 1 / (μ · λ<sub>j</sub>). Mean deviation = Σ output<sub>j</sub> · |μλ<sub>j</sub> − 1| / Σ output<sub>j</sub>. Correlation: Spearman, across industries, of price/value with K/v (nominal capital stock over labour income, of employees and own-account workers, WIOD SEA).</li>
+<li><strong>Trade.</strong> Hours delivered = Σ λ<sub>j</sub> · φ<sub>j</sub> · exports<sub>j</sub>; hours received = Σ λ̄<sub>j</sub> · φ<sub>j</sub> · imports<sub>j</sub> × (exports / imports), so as not to confuse the transfer with the trade deficit. It covers the 43 WIOD countries, not the rest of the world, which is why the figures are smaller than those of the approximation in the countertendencies section, which covers more than a hundred countries.</li>
+<li>
+<p><strong>World weighting.</strong> For each country, μ<sub>c</sub> = GDP in current dollars / hours worked (World Bank and PWT); weight w<sub>c</sub> = μ<sub>c</sub> / mean μ of the productive hours of the 42 countries. Weighted mass = Σ surplus labour<sub>c</sub> × w<sub>c</sub>. The total of hours does not change; it is redistributed according to national productivity on the world market. After the last PWT year the last weight is kept.</p>
+</li>
+<li>
+<p><strong>OECD world tables (F4 v3, 2000–2005 without 2003, and 2015–2024).</strong> With the full ICIO world matrix: 2026 edition for 2015–2024 (84 economies, twelve regions and 50 industries; 2023 and 2024 are OECD projections) and 2025 edition for 2000–2005 (80 economies and the rest of the world, same 50 industries): λ = l · (I − D<sub>φ</sub> A)<sup>−1</sup>, without the average λ̄, because each imported input is valued with the hours of the country that produced it. l = persons employed by industry (OECD, TiM 2025) × annual hours per person employed (PWT) / output. TiM runs to 2022; in 2023 and 2024 the 2022 industry structure is kept and scaled with total PWT employment (2024 = 2023). In professional services (M), φ is the share of architecture and engineering, research and other professional services in the output of M according to WIOD 2014 (excluding legal, accounting and advertising services). For regions without employment data, l is imputed with the world median of hours per dollar of value added of the industry; those regions enter the matrix but not the medians in the chart. It is calculated with <code>herramientas/icio.py</code> from the OECD files, which weigh hundreds of MB and do not allow automatic downloads; only the compact results are stored. Missing are 2003 (the downloaded file was incomplete) and 2006–2014, covered by WIOD.</p>
+</li>
+<li><strong>Reconciliation with Moseley's measurement.</strong> Value/price in hours with only the hours of employees: l<sub>j</sub> × (employees<sub>j</sub> / persons employed<sub>j</sub>), WIOD SEA (in China, the ILO share s). It is compared with W<sub>j</sub> / output<sub>j</sub> from Moseley's measurement. Share of the difference explained = (v1 − v1 employees only) / (v1 − Moseley), median of countries and years, in agriculture.</li>
+</ol>
+<p>Interpretation: values by industry are not ‘embodied labour’ as a physical property of products, but an approximation to socially necessary labour time as a determination of the social totality. They are calculated simultaneously (values and prices of the same year).</p>
+<p><strong>Moseley and TSSI (F4 v2).</strong> In national currency, by country and year, with the capitalist part of the productive industries (all education and health magnitudes multiplied by φ): c<sub>j</sub> = inputs from productive industries (domestic and imported, from the input–output table converted with WIOD SEA output); v<sub>j</sub> = compensation of employees (in China, which WIOD records without separating out employees, compensation × s, with s the ILO share of employees in the non-agricultural industries and zero in agriculture, as in the world mass); a<sub>j</sub> = labour income of own-account workers (they produce value, not surplus value); K<sub>j</sub> = nominal capital stock. S = Σ (output − c − v − a), which includes the inputs from unproductive industries, paid out of surplus value; e = S / V; r = S / (Σ K + Σ V). Value: W<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub>(1 + e). Price of production: PP<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub> + r (K<sub>j</sub> + v<sub>j</sub>). Both sums coincide with total output, and total surplus value with total profit. Transfer = (PP<sub>j</sub> − W<sub>j</sub>) / W<sub>j</sub>; share redistributed = Σ |PP − W| / 2 / S. Effective rate = (output − c − v − a) / (K + v); rate in values = e · v / (K + v); dispersion: coefficient of variation weighted by capital. <strong>TSSI:</strong> inputs are deflated with the input price index of each industry (II_PI<sub>t</sub> / II_PI<sub>t−1</sub>) and the capital advanced is the previous year's stock.</p>
+</details>
+</section>
+<section id="supuestos" class="seccion" hidden>
+<h2 id="what-counts-as-surplus-value-four-assumptions-set-against-the-national-accounts">What counts as surplus value: four assumptions set against the national accounts</h2>
+<p class="llano">Within profits, the national accounts mix together things that in Marx's theory have different origins. The seismograph separates two of them in its central measurement: it subtracts what households pay to finance out of their wages, which is surplus value displaced from the wage and not produced surplus value, and it adds, at the world scale, the rent that firms pay for their premises, which is produced surplus value. This section shows how much the figures change relative to the national-accounts convention, and records two other assumptions that are kept as sensitivity analyses: supervision and the net social wage.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="bb-fh">—</div><div class="etiqueta">Surplus value displaced from wages to finance in the United States, as a share of national-accounts surplus value, <span class="bb-fin">—</span></div><div class="nota">1948: <span id="bb-fh48">—</span></div></div><div class="cifra"><div class="valor" id="bb-ec">—</div><div class="etiqueta">US within-industry rate of surplus value, <span class="bb-fin">—</span> (central)</div><div class="nota">with household payments, as in the national accounts: <span id="bb-ec0">—</span></div></div><div class="cifra"><div class="valor" id="bb-sup">—</div><div class="etiqueta">Share of the compensation of the US productive industries that does not go to production and non-supervisory workers, <span class="bb-fin">—</span></div><div class="nota">1972: <span id="bb-sup72">—</span></div></div></div>
+
+<h3 id="secondary-exploitation-what-households-pay-to-finance">Secondary exploitation: what households pay to finance</h3>
+<p class="llano">The value added of banks and insurers enters the accounts as if it were all produced profit. But a growing part of it is paid by households—implicit interest on loans and deposits, fees—out of wages that have already been counted as variable capital. That is not new surplus value, but surplus value displaced from the wage to financial capital: what Marx called secondary exploitation (<em>Capital</em>, Volume III, ch. XXXVI). The seismograph subtracts it from surplus value in the part that corresponds to wages and records it separately, as an indicator of the transfer and anticipation of surplus value. In the United States, this displacement went from a minimal fraction of surplus value in the post-war period to a considerable part. If it were left in, as in the accounts, the rate of profit would be higher and its recovery since 1982 would appear larger.</p>
+<div class="legend" id="l-bb"></div>
+<figure class="placa"><div class="chart" id="c-bb"></div></figure>
+
+<div class="legend" id="l-bb2"></div>
+<figure class="placa"><div class="chart" id="c-bb2"></div></figure>
+
+<h3 id="supervision-and-management">Supervision and management</h3>
+<p class="llano">Marx distinguishes (<em>Capital</em>, Volume III, ch. XXIII) the work of direction, necessary in all cooperation, from the work of superintendence, which arises from the antagonism between capital and labour. The statistics do not separate them. The site uses two bounds: the by-industry criterion counts all the wage earners of the productive industries, managers included, as variable capital; the within-industry criterion counts only production and non-supervisory workers, and leaves supervisory salaries within surplus value. The second line of the previous chart shows that the distance between the two bounds is growing: the share of compensation that goes to supervisors, managers and non-productive staff within the productive industries has been rising since the 1970s. It is the phenomenon that Duménil and Lévy (2011) read as the rise of the managerial cadres, and Moseley (1991) as the growth of unproductive labour.</p>
+<h3 id="net-social-wage-what-the-state-gives-back-and-what-it-takes">Net social wage: what the state gives back and what it takes</h3>
+<p class="llano">The state levies taxes and contributions on workers and gives them back benefits: pensions, unemployment insurance, public health, education. If it gave back more than it takes, it would be shifting to the wage part of the surplus value it collects from capitals; if it gives back less, it is the workers themselves who finance their social security. Shaikh and Tonak (1994) call that difference the net social wage. In the United States it is almost always negative: workers pay, as a whole, more than they receive (on average, 4% of their compensation; 9% in the year 2000). Only after the 2008 crisis and during the pandemic was it positive. That is why it does not change the conclusions, and the site shows it as a sensitivity analysis.</p>
+<div class="cifras"><div class="cifra"><div class="valor" id="bb-ssn">—</div><div class="etiqueta">US net social wage, <span class="bb-fin">—</span>, as a share of employee compensation</div><div class="nota">within-industry rate of surplus value if it is included: <span id="bb-essn">—</span> (central: <span id="bb-ec2">—</span>)</div></div></div>
+
+<div class="legend" id="l-bb3"></div>
+<figure class="placa"><div class="chart short" id="c-bb3"></div></figure>
+
+<h3 id="world-commercial-rent-and-household-financial-services-billion-hours-of-surplus-labour">World: commercial rent and household financial services (billion hours of surplus labour)</h3>
+<p class="llano">At the world scale, the central measurement adds the rent that firms pay for their premises (surplus value ceded to landed property) and subtracts the financial services that households pay for out of their wages. The two adjustments go in opposite directions and almost cancel each other out: the world mass of surplus labour changes very little relative to the national-accounts convention.</p>
+<div class="tablewrap"><table><thead><tr><th>Variant</th><th><span id="bb-a0">—</span></th><th><span id="bb-a1">—</span></th><th><span id="bb-a2">—</span></th><th>Difference from the central estimate, last year</th></tr></thead><tbody id="t-bbm"></tbody></table></div>
+
+<details class="como">
+<summary>How are these adjustments calculated?</summary>
+<ul>
+<li><strong>B4, secondary exploitation (in the central measurement).</strong> United States: from broad surplus value is subtracted personal consumption expenditure on financial services (NIPA, table 2.4.5, series DFNLRC: implicit interest—FISIM—plus fees) multiplied by the share of employee compensation in personal income (A033RC / A065RC), so as not to subtract what households pay out of property income. World: household final consumption of finance and insurance products (K64–K66, domestic and imported; WIOD input–output tables) is subtracted, as a proportion of the value added of the market industries, multiplied by the labour share of income (Penn World Table, labsh). The corporate measures ‘in the manner of’ Duménil-Lévy and Kliman do not change.</li>
+<li><strong>B3, commercial rent (in the central measurement, world only).</strong> The intermediate consumption of real estate products (L68) by the market industries is added, as a proportion of their value added (WIOD). In the United States this is not needed: business-sector surplus value already includes commercial real estate and excludes only housing.</li>
+<li><strong>Application to the world.</strong> For each country, e' = e + (B3 − B4) × (market value added / v); surplus labour = hours × e' / (1 + e'). After 2014 each country's 2014 proportions are kept.</li>
+<li><strong>B2, supervision.</strong> 1 − within-industry v / by-industry v: the share of the compensation of the productive industries that does not correspond to production and non-supervisory workers. It includes supervisors and managers, but also differences in coverage between the establishment survey (BLS) and the industry accounts (BEA): it is an approximation.</li>
+<li><strong>B5, net social wage (sensitivity, from 1959).</strong> Benefits received by wage-earning households = (government social benefits, A063RC, + current public expenditure on education, NIPA 3.16) × compensation / personal income. Taxes they pay = personal taxes (W055RC) × compensation / personal income + contributions for social insurance (A061RC; employer contributions are already part of compensation). Net social wage = benefits − taxes; the share of productive workers is proportional to their compensation. Variant: e = (S − SSN) / (V + SSN). It is an approximation: it allocates benefits and taxes using the same wage share of personal income.</li>
+</ul>
+</details>
+</section>
+<section id="alcance" class="seccion">
+<h2 id="scope-and-sources">Scope and sources</h2>
+<p>The data show the phenomenal manifestation of categorial determinations; they do not demonstrate them. What can be determined is not a distance to a ceiling, but the way in which the field of countertendencies is articulated.</p>
+<p>Sources: BEA (national accounts, fixed assets, GDP by industry), Federal Reserve (Z.1, G.17), BLS (CES), Penn World Table 11.0, WIOD, OECD, ILO, NSS/PLFS (India) and SEC. The site is recalculated on the 3rd of each month; the data change when the sources publish.</p>
+<p>All series can be <a href="../descargas/">downloaded as CSV</a>. Formulas, theoretical decisions, splices and limitations: <a href="methodology.html">methodology</a>.</p>
+</section>
+  </main>
+</div>
+<footer class="pie">
+<p>Doctoral research by Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, approved for his candidacy in the Doctoral Programme in Sociology (ICSyH-BUAP), to be completed in August 2029, carried out with a scholarship from SECIHTI (Mexico’s Secretariat of Science, Humanities, Technology and Innovation), number 4052073. Thanks to the Mexican working class, which makes this scholarship possible. Theoretical framework: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
+<p>Open-source code (MIT) and derived data (CC BY 4.0) on <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. <a href="../descargas/">Downloads</a>. <a href="methodology.html">Methodology</a>. <a href="https://github.com/necplusultra-blog/sismografo-del-capital/tree/main/contenido">Edit the texts</a>.</p>
+</footer>
+<script src="i18n.js?v=8bfad032611250156"></script>
+<script src="../app.js?v=8bfad032611250156"></script>
+</body>
+</html>

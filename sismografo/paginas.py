@@ -101,28 +101,50 @@ def _version():
         return time.strftime('%y%m%d%H%M')
 
 
+# Idiomas: los textos en inglés viven en contenido/en/<página>/ y sus plantillas en plantillas/en/; se publican en site/en/
+# con nombres de archivo en inglés. Los enlaces internos de los textos traducidos pueden escribirse con los nombres en
+# español: se reescriben al construir.
+NOMBRES = {'es': {'inicio': 'index.html', 'lectura': 'lectura.html', 'metodologia': 'metodologia.html'},
+           'en': {'inicio': 'index.html', 'lectura': 'reading.html', 'metodologia': 'methodology.html'}}
+
+
+def _enlaces_en(h):
+    h = re.sub(r'href="(\./)?lectura\.html', 'href="reading.html', h)
+    h = re.sub(r'href="(\./)?metodologia\.html', 'href="methodology.html', h)
+    h = re.sub(r'href="(\./)?descargas/', 'href="../descargas/', h)
+    return h
+
+
 def construir(dir_site=None):
     dir_site = dir_site or os.path.join(RAIZ, 'site')
     version = _version()
-    for pagina in ('inicio', 'lectura', 'metodologia'):
-        partes, menu, lugares = [], [], {'portada': [], 'pie': []}
-        for fn in sorted(glob.glob(os.path.join(RAIZ, 'contenido', pagina, '*.md'))):
-            meta, texto = _front(open(fn, encoding='utf-8').read())
-            cuerpo = _md(texto)
-            sid = meta.get('id') or re.sub(r'^\d+-', '', os.path.splitext(os.path.basename(fn))[0])
-            oculta = ' hidden' if meta.get('oculta', '').lower() in ('si', 'sí', 'true') else ''
-            clase = meta.get('clase', 'seccion')
-            if meta.get('lugar') in lugares:
-                lugares[meta['lugar']].append(cuerpo); continue
-            partes.append(f'<section id="{sid}" class="{clase}"{oculta}>\n{cuerpo}\n</section>')
-            if meta.get('menu'):
-                menu.append(f'<li><a href="#{sid}">{html.escape(meta["menu"])}</a></li>')
-        plantilla = open(os.path.join(RAIZ, 'plantillas', f'{pagina}.html'), encoding='utf-8').read()
-        salida = (plantilla.replace('{{contenido}}', '\n'.join(partes)).replace('{{menu}}', '\n'.join(menu))
-                  .replace('{{portada}}', '\n'.join(lugares['portada'])).replace('{{pie}}', '\n'.join(lugares['pie']))
-                  .replace('{{version}}', version))
-        nombre = 'index.html' if pagina == 'inicio' else f'{pagina}.html'
-        open(os.path.join(dir_site, nombre), 'w', encoding='utf-8').write(salida)
+    for lang in ('es', 'en'):
+        base_c = os.path.join(RAIZ, 'contenido') if lang == 'es' else os.path.join(RAIZ, 'contenido', 'en')
+        base_p = os.path.join(RAIZ, 'plantillas') if lang == 'es' else os.path.join(RAIZ, 'plantillas', 'en')
+        destino = dir_site if lang == 'es' else os.path.join(dir_site, 'en')
+        for pagina in ('inicio', 'lectura', 'metodologia'):
+            archivos = sorted(glob.glob(os.path.join(base_c, pagina, '*.md')))
+            fn_p = os.path.join(base_p, f'{pagina}.html')
+            if not archivos or not os.path.exists(fn_p): continue
+            partes, menu, lugares = [], [], {'portada': [], 'pie': []}
+            for fn in archivos:
+                meta, texto = _front(open(fn, encoding='utf-8').read())
+                cuerpo = _md(texto)
+                sid = meta.get('id') or re.sub(r'^\d+-', '', os.path.splitext(os.path.basename(fn))[0])
+                oculta = ' hidden' if meta.get('oculta', '').lower() in ('si', 'sí', 'true', 'yes') else ''
+                clase = meta.get('clase', 'seccion')
+                if meta.get('lugar') in lugares:
+                    lugares[meta['lugar']].append(cuerpo); continue
+                partes.append(f'<section id="{sid}" class="{clase}"{oculta}>\n{cuerpo}\n</section>')
+                if meta.get('menu'):
+                    menu.append(f'<li><a href="#{sid}">{html.escape(meta["menu"])}</a></li>')
+            plantilla = open(fn_p, encoding='utf-8').read()
+            salida = (plantilla.replace('{{contenido}}', '\n'.join(partes)).replace('{{menu}}', '\n'.join(menu))
+                      .replace('{{portada}}', '\n'.join(lugares['portada'])).replace('{{pie}}', '\n'.join(lugares['pie']))
+                      .replace('{{version}}', version))
+            if lang == 'en': salida = _enlaces_en(salida)
+            os.makedirs(destino, exist_ok=True)
+            open(os.path.join(destino, NOMBRES[lang][pagina]), 'w', encoding='utf-8').write(salida)
 
 
 if __name__ == '__main__':

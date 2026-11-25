@@ -70,6 +70,36 @@ content:
       primary: seccion
       fields: [seccion, id]
 
+  - name: inicio_en
+    label: "English: main page"
+    type: collection
+    path: contenido/en/inicio
+    format: yaml-frontmatter
+    fields: *campos
+    view:
+      primary: seccion
+      fields: [seccion, id]
+
+  - name: lectura_en
+    label: "English: A first reading"
+    type: collection
+    path: contenido/en/lectura
+    format: yaml-frontmatter
+    fields: *campos
+    view:
+      primary: seccion
+      fields: [seccion, id]
+
+  - name: metodologia_en
+    label: "English: Methodology"
+    type: collection
+    path: contenido/en/metodologia
+    format: yaml-frontmatter
+    fields: *campos
+    view:
+      primary: seccion
+      fields: [seccion, id]
+
   - name: guia
     label: Guía de edición
     type: file

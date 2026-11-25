@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology — Seismograph of Capital</title>
+<link rel="alternate" hreflang="es" href="../metodologia.html">
+<link rel="stylesheet" href="../style.css?v=8bfad032611250156">
+</head>
+<body class="doc">
+<a class="saltar" href="#contenido">Skip to content</a>
+<header class="barra">
+  <a class="marca" href="./">Seismograph of Capital</a>
+  <nav aria-label="Pages"><a href="reading.html">Reading</a><a href="methodology.html" aria-current="page">Methodology</a><a href="../descargas/">Downloads</a><a href="https://github.com/necplusultra-blog/sismografo-del-capital">Code</a><a href="../metodologia.html" hreflang="es" lang="es">Español</a></nav>
+</header>
+<div class="portada">
+<h1 id="methodology">Methodology</h1>
+<p class="lede">Everything the site shows can be audited: every figure comes from public sources, from theoretical decisions declared on this page and from open code that anyone can run. If anything here does not match the code, the code prevails: <a href="https://github.com/necplusultra-blog/sismografo-del-capital">repository</a>.</p>
+<p class="actualizacion">Data updated on <span id="m-act">—</span>. Code version: <span id="m-commit">—</span>.</p>
+</div>
+<div class="cuerpo">
+  <nav class="indice" aria-label="Sections"><p>Sections</p><ol>
+<li><a href="#marco">Interpretative framework</a></li>
+<li><a href="#fuentes">Sources and frequency</a></li>
+<li><a href="#productivo">Productive and unproductive labour</a></li>
+<li><a href="#plusvalor">Broad surplus value (macro-monetary reading)</a></li>
+<li><a href="#multiverso">The multiverse of specifications</a></li>
+<li><a href="#referencias">The six readings in the debate</a></li>
+<li><a href="#replicacion">Replication of the authors&#x27; series</a></li>
+<li><a href="#quiebres">Endogenous breaks</a></li>
+<li><a href="#robustez">Robustness by decade</a></li>
+<li><a href="#tiempo">From money to labour time</a></li>
+<li><a href="#trimestral">Quarterly estimate</a></li>
+<li><a href="#mundo">World scale</a></li>
+<li><a href="#ia">Artificial intelligence corporations</a></li>
+<li><a href="#contratendencias">Countertendencies</a></li>
+<li><a href="#transformacion">The transformation</a></li>
+<li><a href="#empalmes">Splices and adjustments</a></li>
+<li><a href="#limites">Known limitations</a></li>
+<li><a href="#reproducir">How to reproduce and cite</a></li>
+<li><a href="#bibliografia">Bibliography</a></li>
+  </ol></nav>
+  <main id="contenido">
+<section id="marco" class="seccion">
+<h2 id="interpretative-framework">Interpretative framework</h2>
+<p><strong>Project.</strong> The seismograph seeks to take up and continue the necessarily unfinished project of the Marxian critique of political economy, not to do critical political economy: the categories (value, surplus value, capital, productive labour) are forms of a historically specific social relation, and they decide what is measured before anything is measured. The series record the phenomenal manifestation of these determinations; they do not demonstrate them (see the <a href="reading.html#critica">Reading</a>). Artificial intelligence is used to gather, harmonise and recalculate a quantity of official data that could not be processed by hand, in the same way that Marx, in his lifetime, processed an enormous body of empirical material in order to elaborate the concept of capital; it makes no theoretical decision.</p>
+<p><strong>Aim.</strong> The seismograph seeks to account for the fundamental tendencies of contemporary capitalist production. To that end it combines three operations, each documented on this page:</p>
+<ol>
+<li><strong>Translating empirical data into categories.</strong> National accounts, employment, hours, capital stocks, trade and input–output tables are converted into the rate and mass of surplus value, the composition of capital, necessary labour time and surplus labour, with explicit theoretical decisions (§3 to §13).</li>
+<li><strong>Cross-checking interpretations.</strong> Six currents of the Marxist debate read the same data, in order to see what withstands every reading and what depends on each one (§6). The critical reading of these currents is made from the framework of the doctoral research.</li>
+<li><strong>Recording the state of the productive forces.</strong> The time freed by the relative reduction of necessary labour, and what capital turns it into, is measured alongside profit: it is the material basis of the possibility of disposable time (§9).</li>
+</ol>
+<p>The data are interpreted from the standpoint of the Marxian critique of political economy. Profit is a form of appearance of surplus value; surplus value is the unpaid labour of productively exploited workers; the rate of profit is the ratio between surplus value and the total capital advanced, that is, the sum of constant capital and variable capital: pv/(c + v). The mass of surplus value is the product of the rate of surplus value (pv/v, the degree of exploitation) and the number of productively exploited workers.</p>
+<p>Official statistics are not constructed with these categories, so translating them requires theoretical decisions. The site does not hide these decisions in a single number: it turns them into <em>forks</em> of a multiverse and shows which results withstand all of them and which depend on the theory adopted.</p>
+<p>The series show the phenomenal manifestation of categorial determinations; they do not demonstrate them. Nor do they measure capital's ‘distance’ from a ceiling: what they allow us to observe is the concrete way in which the dynamic of the rate and mass of surplus value, and the field of its countertendencies, unfolds.</p>
+<p>The theoretical interpretation comes from the doctoral research of Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, approved for his candidacy in the Doctorate in Sociology of the Institute of Social Sciences and Humanities ‘Alfonso Vélez Pliego’ (BUAP), which will conclude in August 2029 and is carried out with a scholarship from Mexico’s Secretariat of Science, Humanities, Technology and Innovation (SECIHTI), number 4052073. The author thanks the Mexican working class, whose labour makes this scholarship possible. His framework on the tendential fall of the rate of profit and its countertendencies is published in: Jiménez Cea, P. I. (2026). The immanent dialectic of capital: Falling rate of profit and the crisis of late capitalism. <em>Capital &amp; Class</em>. <a href="https://doi.org/10.1177/03098168261503922">https://doi.org/10.1177/03098168261503922</a>. The data processing (download, cleaning, splicing, calculation and visualisation) was programmed with the assistance of artificial intelligence; the theoretical decisions that guide it are those declared on this page.</p>
+</section>
+<section id="fuentes" class="seccion">
+<h2 id="sources-and-frequency">Sources and frequency</h2>
+<ul>
+<li><strong>BEA</strong> (Bureau of Economic Analysis): annual and quarterly national accounts (files <code>NipaDataA</code>, <code>NipaDataQ</code>), fixed assets (<code>FixedAssets</code>), and GDP by industry (SIC 1947–1986, NAICS 1987–1996, NAICS 1997–).</li>
+<li><strong>Federal Reserve</strong>, via FRED: inventories of non-financial corporations (Z.1, <code>BOGZ1FL105020005A</code>) and manufacturing capacity utilisation (G.17, <code>CUMFNS</code>).</li>
+<li><strong>BLS</strong> (Bureau of Labor Statistics), CES survey via FRED: employment, weekly hours and hourly earnings of production and non-supervisory workers, by supersector.</li>
+<li><strong>Penn World Table 11.0</strong> (Feenstra, Inklaar and Timmer, 2015): labour share, capital, depreciation, internal rate of return and GDP for 185 countries, 1950–2023.</li>
+<li><strong>OECD</strong>, annual national accounts by industry (tables 6 and 7, from 2014). <strong>ILO</strong> (ILOSTAT): labour share, employees, employment and hours. India's <strong>NSS and PLFS</strong> surveys: distribution of the employed by status in employment.</li>
+<li><strong>WIOD</strong> (Timmer et al., 2015), Socio-Economic Accounts 2016 and national input–output tables: value added, compensation, employees and hours by industry, for 43 countries, 2000–2014.</li>
+<li><strong>World Bank</strong>: GDP in current dollars.</li>
+<li><strong>SEC</strong>: XBRL financial statements of the AI corporations.</li>
+</ul>
+<p>The site is recalculated on the 3rd of each month and whenever the code changes. The figures change when the sources publish: the BEA every quarter and in its annual revision in September, which may revise the entire history; the PWT every few years. Earlier versions of the results remain in the repository history.</p>
+</section>
+<section id="productivo" class="seccion">
+<h2 id="productive-and-unproductive-labour">Productive and unproductive labour</h2>
+<p><strong>Criterion.</strong> Productive labour is labour that is exchanged for money as capital in the sphere of production and produces surplus value. The concrete content of the activity is irrelevant, so the labour of capitalist enterprises in education, health or software is productive. There are two kinds of unproductive labour:</p>
+<ul>
+<li>labour exchanged for capital in circulation, whose wage is a deduction from the total mass of surplus value (<em>faux frais</em>);</li>
+<li>labour exchanged for revenue: the state, personal services, non-profit institutions. Labour paid out of the part of surplus value that the state appropriates through taxes is unproductive, even if it produces use values.</li>
+</ul>
+<p>By contrast, wage labour employed by state enterprises that sell commodities for profit is productive: what makes a worker productive is that their wage is money exchanged as capital, and it makes no difference whether it is paid by a private capitalist or by a state enterprise run by a bureaucracy. In both cases capital is accumulated (author's decision).</p>
+<p>Labour that produces software, R&amp;D and other intellectual property products in capitalist enterprises is productive.</p>
+<p><strong>Platform work (author's decision, 25 Nov. 2026).</strong> The labour of drivers and couriers for platforms such as Uber is productive in Marx's sense, even though the statistics record it as own-account work. The platform operates as a capitalist that subsumes this labour: it retains a commission on the fare (often between 20% and 40%) which, after deducting its costs for servers, offices and software, is the phenomenal form of surplus value; the driver works one part of the working day to replace their subsistence, the fuel and the wear and tear of the vehicle (necessary labour) and the rest for the platform (surplus labour). It is a form of piece wages (Marx, 2018, ch. XIX), and the platform's capital is valorised only when the worker logs on. Since there are no series on their number, hours and earnings by country, the measurement in hours does not yet include them: this is a declared downward bias (home page, ‘What the hours do not see’).</p>
+<p><strong>Intellectual property: a dual character that cannot be settled in the abstract (author's decision, 24 Nov. 2026).</strong> Two things converge in intellectual property products. The development and continuous updating of a program — new features, new versions — is the labour of employees of capitalist corporations, which produces surplus value according to the same laws as all commodity production. But once created, the program is reproduced at almost zero cost, and restricting its use through licences means charging a rent on a product that is practically infinitely reproducible. Which of the two determinations predominates depends on each case, and the growing share of software produced with the help of artificial intelligence — which multiplies programmers' productivity — makes the boundary even more mobile. That is why the site does not fix a single treatment: the inclusion of intellectual property in K (as fixed capital that transfers value) or its exclusion (as a title to a rent) is a fork of the multiverse (§5). The reference measures include it, as the national accounts do; the spread of the multiverse shows how much the result changes without it.</p>
+<p><strong>By industry (variant b).</strong> Wholesale and retail trade, finance and insurance, real estate and rental and leasing, and legal services are unproductive. The rest of the business sector is productive.</p>
+<p><strong>Within-industry correction (variant c, from 1972).</strong> Within the productive industries, only production and non-supervisory workers, as defined by the BLS, count as variable capital. For each productive supersector:</p>
+<div class="f">wage bill = employment × hourly earnings × weekly hours × 52</div>
+
+<p>The sum of these wage bills is scaled by the business sector's compensation/wages ratio, to include benefits. Manufacturing uses the hours series <code>AWHMAN</code>. Agriculture is left out, because the CES does not cover it.</p>
+<p>Three supersectors are adjusted to bring the within-industry criterion closer to the by-industry criterion and to the numerator, which is the value added of the business sector (excluding government and non-profit institutions): from professional and business services, legal (5411) and accounting (5412) services are subtracted; from private education and health, the share employed by non-profit institutions (70% of employment in education, 43% in health, 40% in social assistance, calculated on the total employment of each supersector; 2022 data from BLS, 2024b, and Newhouse and Abramson, 2024); from other services, the non-profit share of religious, civic and similar organisations (60%). The non-profit shares are held constant (the BLS indicates that they barely change between 2007 and 2022); before 1990 the 1990 structure is used. Advertising (5418) has no monthly employment series and stays in. Limitation: the total employment of each industry is used as a proxy for the employment of production workers. The two criteria do not fully coincide: the within-industry adjustment also subtracts accounting services, which the by-industry criterion cannot separate from the rest of professional services, and it does not cover agriculture, which is productive under the by-industry criterion. That is why the difference between V<sub>b</sub> and V<sub>c</sub> that the main page shows as ‘supervision’ also includes agriculture (about 1% of V<sub>b</sub>), accountants and differences in coverage.</p>
+<p>Productive supersectors: mining and logging, construction, manufacturing, transportation and warehousing, electricity, gas and water, information, professional and business services, private education and health, leisure and hospitality, other services. Unproductive: wholesale trade, retail trade, financial activities.</p>
+<p><strong>Variant a.</strong> All wage labour in the business sector is productive. It serves as a comparison with conventional measures.</p>
+</section>
+<section id="plusvalor" class="seccion">
+<h2 id="broad-surplus-value-macro-monetary-reading">Broad surplus value (macro-monetary reading)</h2>
+<div class="f">pv = VA<sub>business</sub> − VA<sub>rented housing</sub> − SF<sub>households</sub> − v</div>
+
+<ul>
+<li><strong>VA<sub>business</sub></strong>: gross value added of the business sector in the national accounts (<code>A195RC</code>).</li>
+<li><strong>VA<sub>rented housing</sub></strong>: value added of housing (<code>A2009C</code>) minus that of households (<code>B701RC</code>), which corresponds to owner-occupied housing and also to the compensation of domestic service. It is excluded because it is rent, not capitalist production. Since <code>B701RC</code> includes domestic service, the subtraction falls about 25 billion dollars short (about 0.2% of pv in 2025).</li>
+<li><strong>SF<sub>households</sub></strong>: financial services that households pay for out of their wages (secondary exploitation; author's decision, 24 Nov. 2026): personal consumption expenditure on financial services (<code>DFNLRC</code>: implicit interest and fees) × compensation / personal income (<code>A033RC</code> / <code>A065RC</code>). It is surplus value shifted from wages to financial capital, not surplus value produced; it is subtracted in all three variants of v, including a, which is therefore not exactly the conventional measure; it is recorded separately as an indicator (section ‘What counts as surplus value’ on the main page).</li>
+<li><strong>v</strong>: compensation of productive labour according to the chosen variant.</li>
+</ul>
+<p>pv includes profits, interest, rents, taxes on production and unproductive wages, which are deductions from the total mass of surplus value. The rate of surplus value is e = pv/v. In the net variant, the depreciation of the business sector's non-residential capital is subtracted: private non-residential consumption of fixed capital, at current cost, minus that of non-profit institutions and households. The US measurements in hours (working day, mass of surplus labour, productive forces) use the net e.</p>
+<p>Following Moseley (2016), constant and variable capital are taken as given money magnitudes (actual prices). That is why there is no need to ‘transform’ values into prices in order to measure the aggregate rate.</p>
+</section>
+<section id="multiverso" class="seccion">
+<h2 id="the-multiverse-of-specifications">The multiverse of specifications</h2>
+<p>The main multiverse (1948–) combines these forks and adds up to <span id="m-n">—</span> specifications. Each one is normalised to its own average for the period (=100) and the site shows its 10th, 25th, 50th, 75th and 90th percentiles.</p>
+<table>
+<thead>
+<tr>
+<th>Fork</th>
+<th>Options</th>
+<th>Associated position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sector</td>
+<td>total corporate · non-financial corporate · business sector</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Numerator (corporate)</td>
+<td>net operating surplus · profit before tax · profit after tax</td>
+<td>Duménil-Lévy, Kliman</td>
+</tr>
+<tr>
+<td>Numerator (business)</td>
+<td>broad surplus (all productive) · broad surplus value by industry · broad surplus value within-industry (separate family, from 1972)</td>
+<td>Shaikh-Tonak, Moseley</td>
+</tr>
+<tr>
+<td>Capital valuation</td>
+<td>current cost · historical cost</td>
+<td>Duménil-Lévy, Roberts · Kliman</td>
+</tr>
+<tr>
+<td>Net or gross</td>
+<td>net of depreciation · gross (profit + depreciation over net stock)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Intellectual property</td>
+<td>inside K · outside K (treated as an expense: profit − investment in IPP + its depreciation)</td>
+<td>debate on the value transfer of IPP</td>
+</tr>
+<tr>
+<td>Inventories</td>
+<td>without · with inventories (Z.1) in K</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Capacity utilisation</td>
+<td>no adjustment · r × (mean u / u)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Denominator (business)</td>
+<td>K: fixed capital advanced · K + V: fixed capital plus variable capital, pv/(c + v)</td>
+<td>Marx's definition of the rate of profit</td>
+</tr>
+<tr>
+<td>Scope of K (business)</td>
+<td>all non-residential capital · productive industries only (excludes trade, finance and insurance, legal services, non-residential real estate and rental and leasing)</td>
+<td>Moseley, Shaikh-Tonak</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scope of K.</strong> With ‘productive industries only’, the capital of the industries that §3 declares unproductive leaves the denominator and its depreciation is no longer subtracted from the numerator: like the wages of those industries, it is paid out of surplus value (consistency with the by-industry criterion; correction from the November 2026 audit). If intellectual property is already outside K, only equipment and structures are removed from those industries, so as not to subtract their intellectual property twice.</p>
+<p><strong>Denominator.</strong> The rate of profit is defined as pv/(c + v), surplus value over the total capital advanced. In the K + V fork, v is the annual compensation of productive labour in the same variant (a, b or c). Using the annual flow amounts to assuming a single turnover of variable capital per year: if v turns over n times, the variable capital advanced is v/n and the rate lies between the two published variants (K and K + V). The national accounts do not publish the number of turnovers. The fork exists only in the business sector, where v is defined; in the corporate specifications the denominator is K.</p>
+<p>K is always the BEA's net stock of fixed assets (end of year). In the business sector, non-profit institutions and households are excluded. The full list of specifications, with all their series, is in the <a href="../descargas/">downloads</a> (<code>eeuu_especificaciones.csv</code>, <code>eeuu_multiverso_tasas.csv</code>).</p>
+</section>
+<section id="referencias" class="seccion">
+<h2 id="the-six-readings-in-the-debate">The six readings in the debate</h2>
+<p>The seismograph sets six currents of the Marxist debate to read the same data. For five of them it calculates a rate ‘in the manner of’ their authors; the sixth, Heinrich's (2013; 2014), does not propose a measure and is contrasted with the full spread of the multiverse.</p>
+<table>
+<thead>
+<tr>
+<th>Reading</th>
+<th>Measure that represents it</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shaikh (and Tonak)</td>
+<td>Broad surplus value by industry</td>
+<td>variant b: business value added − compensation in the productive industries, over K</td>
+</tr>
+<tr>
+<td>Moseley</td>
+<td>Broad surplus value within-industry</td>
+<td>variant c (from 1972): only the compensation of production and non-supervisory workers is subtracted</td>
+</tr>
+<tr>
+<td>Kliman</td>
+<td>Corporate, historical cost</td>
+<td>corporate net surplus over K at historical cost</td>
+</tr>
+<tr>
+<td>Duménil and Lévy</td>
+<td>Non-financial, current cost</td>
+<td>net surplus of non-financial corporations over K at current cost</td>
+</tr>
+<tr>
+<td>Roberts and Carchedi</td>
+<td>pv/(c + v) and world rate</td>
+<td>variant b with annual variable capital in the denominator; world net rate from the Penn World Table</td>
+</tr>
+<tr>
+<td>Heinrich</td>
+<td>(none)</td>
+<td>the spread of the multiverse and the table of robustness by decade</td>
+</tr>
+</tbody>
+</table>
+<p>To these is added a baseline, <strong>business, all productive</strong> (variant a), which does not distinguish between productive and unproductive labour.</p>
+<p>All of them are net, include intellectual property, include neither inventories nor a utilisation adjustment, and use all capital. They are definitions ‘in the manner of’ the authors; the replication of their series, with each author's own definition and current data, is in the <a href="#replicacion">next section</a>. The diagnoses the site attributes to each current summarise their published theses; the critical reading of all six is that of the doctoral research and is in the <a href="reading.html#seis-lecturas">Reading</a>.</p>
+<p><strong>References</strong> (all works cited on the site are in the <a href="#bibliografia">bibliography, §16</a>).
+- Carchedi, G. and Roberts, M. (2022). <em>Capitalism in the 21st Century: Through the Prism of Value</em>. London: Pluto Press.
+- Duménil, G. and Lévy, D. (2004). <em>Capital Resurgent: Roots of the Neoliberal Revolution</em>. Cambridge (MA): Harvard University Press.
+- Duménil, G. and Lévy, D. (2011). <em>The Crisis of Neoliberalism</em>. Cambridge (MA): Harvard University Press.
+- Heinrich, M. (2013). Crisis Theory, the Law of the Tendency of the Profit Rate to Fall, and Marx's Studies in the 1870s. <em>Monthly Review</em>, 64(11).
+- Heinrich, M. (2014). <em>Die Wissenschaft vom Wert</em> (6th ed.). Münster: Westfälisches Dampfboot.
+- Kliman, A. (2012). <em>The Failure of Capitalist Production: Underlying Causes of the Great Recession</em>. London: Pluto Press.
+- Moseley, F. (1991). <em>The Falling Rate of Profit in the Postwar United States Economy</em>. London: Macmillan.
+- Roberts, M. (2016). <em>The Long Depression</em>. Chicago: Haymarket Books.
+- Shaikh, A. (2016). <em>Capitalism: Competition, Conflict, Crises</em>. New York: Oxford University Press.
+- Shaikh, A. and Tonak, E. A. (1994). <em>Measuring the Wealth of Nations: The Political Economy of National Accounts</em>. Cambridge: Cambridge University Press.</p>
+</section>
+<section id="replicacion" class="seccion">
+<h2 id="replication-of-the-authors-series">Replication of the authors' series</h2>
+<p>The five rates ‘in the manner of’ the authors (previous §) share a common definition so that they can be read together. The replication does the opposite: it rebuilds each series with the definition its author published, using current BEA data, and contrasts it with the values the author reported. The module is <code>sismografo/replicacion.py</code>; the results are in <code>replicacion_series.csv</code>, <code>replicacion_contraste.csv</code> and <code>replicacion_tendencias.csv</code> (downloads).</p>
+<p>The gap between the published and the rebuilt figures has two sources that cannot be fully separated: the revisions of the accounts (intellectual property enters capital in 1999 — software — and in 2013 — R&amp;D and artistic originals —; the 2023 comprehensive revision corrected compensation, profits and stocks) and whatever the reconstruction does not reproduce of each author's method. That is why the criterion is not to hit their numbers, but to check whether the trends on which each reading builds its diagnosis still appear.</p>
+<table>
+<thead>
+<tr>
+<th>Author</th>
+<th>Published values contrasted</th>
+<th>Rebuilt definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shaikh and Tonak (1994)</td>
+<td>S*/V* and Marxian rate S*/K*, 1948–1989 (tables 5.6 and 5.8)</td>
+<td>S* = business net product excluding rented housing − V*; V* = compensation of production and non-supervisory workers in the productive industries (from 1972). From 1948, lower bound using all the compensation in those industries. K = net stock (theirs: gross)</td>
+</tr>
+<tr>
+<td>Moseley (1991; 1997)</td>
+<td>S/V, C/V, Uf/V, Us/V and conventional rate in 1977</td>
+<td>V = production and non-supervisory wages in productive industries; Uf = rest of business compensation; C = productive fixed capital + inventories; Us = fixed capital in trade, finance, non-residential real estate, rental and leasing, and legal services; S excluding the business sector's taxes on production net of subsidies</td>
+</tr>
+<tr>
+<td>Kliman (2010; 2012)</td>
+<td>Profit before tax / assets at historical cost, 1978 and 2001</td>
+<td>Corporations; depreciation at historical cost instead of current cost; denominator = net stock at historical cost at the close of the previous year. Also property income and total profit</td>
+</tr>
+<tr>
+<td>Duménil and Lévy (2002)</td>
+<td>Ratios 1982/1948, 2000/1982 and 2000/1948 of the broad rate r_b of corporations (table 3)</td>
+<td>(net value added − compensation) / non-residential net stock at current cost; variant without intellectual property</td>
+</tr>
+<tr>
+<td>Roberts (2018; 2021)</td>
+<td>Change 1965–1982 and 1982–1997 in his ‘whole economy’ rate</td>
+<td>(national income − compensation) / (private non-residential fixed assets + compensation), at historical and current cost</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Results.</strong> The following are reproduced: Shaikh and Tonak's rate of surplus value with V* of production workers (1975–1982, differences below 0.08; in 1985–1989 the rebuilt rate lies between 0.15 and 0.17 above), the trend of their Marxian rate (changes 1975–1982 and 1982–1989 close to the published ones; the level is higher because the net stock is smaller than the gross stock), Moseley's Uf/V ratio in 1977, Kliman's before-tax rate in 1978 and, approximately, in 2001, and the changes in Roberts's rate that he published in 2018 (those of 2021, with a larger 1982–1997 recovery, are approximated less well). Duménil and Lévy's fall from 1948 to 1982 is approximated; their recovery from 1982 to 2000 (+45%) is not: with today's data it is much smaller, with or without intellectual property. Moseley's conventional rate is approximated only under our reading of his identity (S excluding indirect taxes, C including inventories), which the published text does not make explicit.</p>
+<p><strong>Limits.</strong> Shaikh and Tonak's and Moseley's rates of surplus value cannot be rebuilt before 1972, because the wages of production workers by supersector (BLS CES) begin that year; for 1948–1971 there is only the lower bound by industry. Duménil and Lévy impute a compensation to the labour of non-employees in the business sector; here only their corporate sector is replicated, where that imputation is unnecessary. None of the replications incorporates secondary exploitation (B4), because none of the authors deducts it: these are their definitions, not the seismograph's.</p>
+</section>
+<section id="quiebres" class="seccion">
+<h2 id="endogenous-breaks">Endogenous breaks</h2>
+<p>Piecewise linear trends are fitted to each specification (without imposed continuity between segments, as in Bai and Perron, 1998; 2003), with a minimum segment length of h years and up to 5 breaks. The number of breaks is chosen by information criterion:</p>
+<div class="f">BIC = n·ln(RSS/n) + k·ln(n) · LWZ = n·ln(RSS/n) + 0.299·k·(ln n)<sup>2.1</sup> · k = 3m + 2</div>
+
+<p>Break dates are never fixed in advance. The chart counts how many specifications detect a break in each year (baseline configuration: h = 8, BIC). The sensitivity table repeats the calculation with h = 6, 10 and with the LWZ criterion (Liu, Wu and Zidek, 1997).</p>
+</section>
+<section id="robustez" class="seccion">
+<h2 id="robustness-by-decade">Robustness by decade</h2>
+<p>For each pair of consecutive decades, the percentage of specifications in the main multiverse whose decade average falls is calculated. The classification is:</p>
+<ul>
+<li><strong>robust: falls</strong>, if it falls in ≥ 90% of specifications;</li>
+<li><strong>robust: rises</strong>, if it falls in ≤ 10%;</li>
+<li><strong>theory-dependent</strong>, in any other case.</li>
+</ul>
+<p>Decades are reporting units, not theoretical cut-off points.</p>
+</section>
+<section id="tiempo" class="seccion">
+<h2 id="from-money-to-labour-time">From money to labour time</h2>
+<p>Variant c is used: production and non-supervisory workers in the productive industries, from 1972.</p>
+<div class="f">N = Σ productive employment · H = Σ employment × weekly hours × 52</div>
+
+<p>In the macro-monetary reading, v is the wage actually paid. The rate e = pv/v measured in money, net of depreciation (see §4), therefore expresses the ratio between surplus labour and necessary labour in the working day of these workers:</p>
+<div class="f">necessary labour = working day / (1 + e) · surplus labour = working day × e / (1 + e)</div>
+
+<p>The working day that is divided is a full-time 40-hour week. The average paid week in the establishment survey (H / N / 52) is not a working day: it averages full-time and part-time work, and it falls mainly because of the composition of employment (41 hours in manufacturing, 24 in leisure and hospitality). Moreover, these are hours paid, not hours worked. The mass of surplus labour uses total hours H, which do not depend on that distinction.</p>
+<div class="f">mass of surplus labour (hours) = H × e / (1 + e) = N × hours per worker × e / (1 + e)</div>
+
+<p>The decomposition of the growth of the mass between the first and the last year uses logarithms: each factor contributes ln(factor<sub>end</sub>/factor<sub>start</sub>) / ln(mass<sub>end</sub>/mass<sub>start</sub>). The three contributions sum to 100%.</p>
+<p>The <strong>monetary expression of labour time</strong> is (v + pv) / H: the new value, in dollars, that one hour of productive labour represents. It is presented in current dollars and deflated by the GDP deflator.</p>
+<p>Assumptions: the value of labour power is approximated by the wage paid; the hours are the paid hours reported by the CES; supervisors in the productive industries are not part of v, and their wages remain within pv.</p>
+<h3 id="productive-forces-and-disposable-time">Productive forces and disposable time</h3>
+<p>The module <code>fuerzas.py</code> uses the same series to record how much time the development of the productive force frees and what capital turns it into.</p>
+<ul>
+<li><strong>Necessary time at the 1972 standard of living</strong> (US): 40 × w̃<sub>1972</sub> / μ̃<sub>t</sub>, where w̃ is the real compensation per hour of productive workers (V / H) and μ̃ the real new value per productive hour ((V + S) / H), both with the GDP deflator. These are the weekly hours that would suffice, at each year's productivity, to produce the real wage of 1972.</li>
+<li><strong>Destination of the time freed</strong> relative to 1972, in a 40-hour working day: more workers' consumption = actual necessary labour − time at the 1972 level; more surplus labour = surplus labour<sub>t</sub> − surplus labour<sub>1972</sub>; reduction of the reference working day = 0. The three parts add up exactly to the time freed.</li>
+<li><strong>World:</strong> annual hours of productive labour, of surplus labour and of necessary labour (the difference) in the countries measured industry by industry, per inhabitant of those countries (Penn World Table population, extrapolated after its last year with the average growth of the three preceding years), in minutes per day.</li>
+</ul>
+<p><strong>Version 2.</strong> (a) Time at the 1972 standard of living is also calculated with the personal consumption expenditure (PCE) deflator: 40 × w<sub>1972</sub> × (PCE<sub>t</sub>/PCE<sub>1972</sub>) / μ<sub>t</sub>. It gives 6.9 hours in 2025, against 6.8 with the GDP deflator: the division of the time freed barely changes (60% to surplus labour, 40% to consumption). (b) In addition to the legal 40-hour week, the usual week of full-time employees is used (OECD, based on the CPS; from 1979): 41.2 hours in 1979 and 41.0 in 2025. With it, weekly surplus labour rises from 27.8 to 31.1 hours. (c) For the world, one variant adds the hours of employees in public and non-profit education and health, labour that is unproductive for capital but socially necessary: 9 minutes a day per inhabitant in 2025, which take the total from 74 to 83 minutes.</p>
+<p>Assumptions and limits: the GDP deflator is not exactly that of the workers' basket (the PCE is used as a check; nor is it the workers' basket, but the consumption of all households); labour productive for capital is not all socially necessary labour (the world variant adds only public education and health; administration, care work, domestic labour and peasant labour are left out); the figures do not estimate the working day of an emancipated society, in which necessary labour would include the common funds for replacement, expansion and services. Results: <code>fuerzas_eeuu.csv</code> and <code>fuerzas_mundo.csv</code>.</p>
+</section>
+<section id="trimestral" class="seccion">
+<h2 id="quarterly-estimate">Quarterly estimate</h2>
+<p>Numerator: quarterly profits from NIPA 1.14, at a seasonally adjusted annual rate. Denominator: net stock of fixed capital at current cost, linearly interpolated between year-ends:</p>
+<div class="f">K<sub>a,t</sub> = K<sub>a−1</sub> + (K<sub>a</sub> − K<sub>a−1</sub>) · t/4</div>
+
+<p>After the last published year, K is extrapolated with the growth of the last year; those quarters are marked as provisional (dotted segment).</p>
+</section>
+<section id="mundo" class="seccion">
+<h2 id="world-scale">World scale</h2>
+<p><strong>Rate (Penn World Table 11.0).</strong></p>
+<div class="f">gross = (1 − labsh) · cgdpo / cn · net = ((1 − labsh) · cgdpo − δ · cn) / cn · IRR: real internal rate of return from the PWT</div>
+
+<p>Countries are weighted by capital stock (cn) or by GDP (cgdpo), with and without China, in a panel balanced from 1960 or unbalanced. The gross mass of profit in dollars is Σ (1 − labsh) · real GDP. The PWT measures the total economy: it does not distinguish productive from unproductive labour.</p>
+<p><strong>World mass in hours.</strong> It applies the same industry criterion as in point 3, country by country, and sums. There are three stretches of sources; all three use the same definitions.</p>
+<p><strong>Block B adjustments in the central measurement (author's decision, 24 Nov. 2026).</strong> To each country's surplus value is added the rent that market industries pay for premises and offices (intermediate consumption of real-estate products L68: surplus value produced and ceded to landed property, B3), and from it are subtracted the financial services that households pay for out of their wages (final consumption of K64–K66 × labour share of income, PWT labsh: surplus value displaced from wages, B4), both as a proportion of market value added according to the WIOD input-output tables (after 2014, 2014 proportions): e' = e + (B3 − B4) · (1 + e + cp/v). The column <code>e_sin_ajuste_b</code> of <code>mundo_horas_paises.csv</code> keeps the rate without these adjustments.</p>
+<p><strong>(a) 2000–2014: WIOD, Socio-Economic Accounts 2016</strong> (43 countries; Taiwan is excluded because of anomalies). For each country:</p>
+<ul>
+<li><strong>Unproductive industries (circulation):</strong> trade (G45–G47), finance and insurance (K64–K66), legal, accounting and management services (M69–M70), advertising (M73).</li>
+<li><strong>Outside capitalist production:</strong> real estate (L68, rent), public administration (O84), households as employers (T), extraterritorial organisations (U). Education (P85) and health (Q): only their capitalist part is productive. The public and non-profit part is estimated by country (see ‘Public and non-profit education and health’ below).</li>
+<li><strong>N</strong> = Σ<sub>productive</sub> employees (EMPE) · <strong>H</strong> = Σ<sub>productive</sub> hours of employees (H_EMPE) · <strong>v</strong> = Σ<sub>productive</sub> compensation (COMP).</li>
+<li><strong>pv</strong> = Σ<sub>market</sub> VA − Σ<sub>market</sub> (LAB − COMP) − v. LAB − COMP is the labour income imputed to own-account (self-employed) workers, who are not wage earners of capital.</li>
+</ul>
+<div class="f">e = pv / v · surplus labour = H · e / (1 + e) · necessary labour = H / (1 + e) · world e in hours = Σ surplus labour / Σ necessary labour</div>
+
+<p><strong>China.</strong> WIOD does not distinguish employees in China (COMP = LAB). With the ILO (modelled estimates, <code>EMP_2EMP_SEX_STE_NB</code>), the share of employees among non-agricultural persons employed is calculated:</p>
+<div class="f">s<sub>t</sub> = ILO employees<sub>t</sub> / [ILO employed<sub>t</sub> × (1 − WIOD agricultural share<sub>t</sub>)], capped at 1</div>
+
+<p>In non-agricultural industries, compensation and employment are multiplied by s; in agriculture (A01–A03), almost entirely family-based, s = 0 and all its compensation is treated as own-account income. Hours: 46 h a week × 50 weeks per employee. The previous method, which also applied the share of employees in the whole economy to agriculture, is kept in the sensitivity table (+3%).</p>
+<p><strong>(b) 2015–last year, OECD countries: national accounts by industry</strong> (OECD tables 6 and 7, SNA 2008: <code>DSD_NAMAIN10@DF_TABLE6</code> and <code>@DF_TABLE7</code>). Same criterion at the level of ISIC Rev. 4 sections: unproductive G, K, M69–M70, M73; outside L, O, T, U (and P, Q in the second variant).</p>
+<div class="f">v = Σ<sub>prod</sub> D1 · cp = Σ<sub>market</sub> SELF<sub>persons</sub> × D1/SAL<sub>persons</sub> · pv = Σ<sub>market</sub> B1G − cp − v · N = Σ<sub>prod</sub> SAL<sub>persons</sub> · H = Σ<sub>prod</sub> SAL<sub>hours</sub> · r = Σ<sub>market</sub> P51C / v</div>
+
+<p>The OECD series are chained to the WIOD level of 2014: X<sub>t</sub> = X<sub>WIOD,2014</sub> × X<sub>OECD,t</sub> / X<sub>OECD,2014</sub>, for X = e, N, hours per employee and r. WIOD thus sets the level and the OECD contributes the change measured by industry. Completeness rules: missing T and U are set to zero; if sections that are all productive and market sections are missing (Japan: E, N, S), their sum is obtained as a residual from the total; if a country does not report M69–M70 and M73, their weight in M is taken from WIOD 2014; a section with no data on non-employees is set to zero; e is chained only as long as the imputation for non-employees is the same as in 2014. Korea is left out (it lacks unproductive sections). Mexico, Turkey, Cyprus and Malta do not publish employees by industry: their e comes from the OECD and their N from the ILO. After each country's last OECD year, the series continues with the ILO change. The OECD/WIOD ratios for 2014 are published as a diagnostic (<code>mundo_horas_ocde_diagnostico.csv</code>): in most countries they lie between 0.95 and 1.05 for N and for H.</p>
+<p><strong>(b′) From 2014, countries without employees by industry in the OECD: ILO surveys by section.</strong> For Brazil, Indonesia, India, Russia, Mexico, Turkey, Cyprus and Malta, the ILOSTAT series by ISIC Rev. 4 section are used: employees (<code>EES_TEES_SEX_ECO_NB</code>), actual weekly hours (<code>HOW_TEMP_SEX_ECO_NB</code>) and average monthly earnings in national currency (<code>EAR_EMTA_SEX_ECO_CUR_NB</code>), always from a single survey per country (the one covering most years from 2014). With the same industry criterion, and with the weight of M69–M70 and M73 within M taken from WIOD 2014:</p>
+<div class="f">ps = productive employees / employees · hp = average hours in productive sections · q = productive wage bill / wage bill</div>
+
+<p>From the first survey year b (2014 in most cases; India 2018; Russia 2017), the result of the aggregate extension is corrected as follows:</p>
+<div class="f">N<sub>t</sub> = N<sup>aggregate</sup><sub>t</sub> × ps<sub>t</sub>/ps<sub>b</sub> · h<sub>t</sub> = h<sub>b</sub> × hp<sub>t</sub>/hp<sub>b</sub> · 1 + e<sub>t</sub> = (1 + e<sup>aggregate</sup><sub>t</sub>) × q<sub>b</sub>/q<sub>t</sub></div>
+
+<p>In Mexico and Turkey, e comes from the OECD accounts by industry and only N and h are corrected. After the last survey year the proportions are held constant. China does not publish employees by section in ILOSTAT (its labour force survey has been released only in aggregate form since 2016), so its number of employees remains in the aggregate extension (its rate of surplus value is measured by industry with TiM up to 2022; see b‴). The diagnostic by country is in <code>mundo_horas_ilo_secciones.csv</code>. Limitations: India's employee series in the ILO covers only regular workers, so its productive share is measured among them; the sections do not separate M69–M70 and M73.</p>
+<p><strong>(b″) From 2014, surplus by industry outside the OECD: UN national accounts (table 2.6).</strong> Table 2.6 of the UN database of official national accounts (UNdata, SNA) publishes, by ISIC Rev. 4 section, value added, compensation of employees, mixed income, operating surplus and consumption of fixed capital. With it, for Brazil and India, the rate of surplus value no longer follows the aggregate labour share and is instead measured industry by industry with the same criterion as in WIOD and the OECD:</p>
+<div class="f">v = Σ<sub>productive</sub> compensation · pv = VA<sub>market</sub> − mixed income<sub>market</sub> − v · e = pv / v · r = CCF<sub>market</sub> / v</div>
+
+<p>Each series published by the country (a UN ‘series’ is a segment with a homogeneous base and method) is chained separately: its first year from 2014 is set equal to the value of the previous trajectory and from there its change governs; after its last year the previous change continues. Up to four missing sections are tolerated (set to zero) when they are not heavily weighted productive sections. Result: Brazil measured in 2015–2020 (level of 1 + e in 2014, UN versus WIOD: 1.08; change in e between 2014 and 2020: +10%) and India in 2015–2020 (0.72; −11%). The level differences do not affect the series, which takes only the change from the UN. The diagnostics are in <code>mundo_horas_onu_ramas.csv</code> and <code>mundo_horas_onu_diagnostico.csv</code>. China and Indonesia do not have table 2.6 in the UN database, and Russia's ends in 2013. Indonesia and Russia remain with the previous measurement; China is measured with the OECD (b‴). In the years measured by the UN, the ILO q correction is not applied to e; after the last measured year, the correction is re-anchored in that year (q<sub>last UN</sub>/q<sub>t</sub>). It is applied to N and to hours. In India, r follows in 2015–2020 the change in the UN's consumption of fixed capital by industry, chained to the calibrated r of 2014.</p>
+<p><strong>(b‴) China from 2014: employment and labour income by industry from the OECD (TiM).</strong> The OECD's Trade in Employment database (2025 edition, consistent with the ICIO world tables) publishes, by industry and up to 2022, persons employed, labour compensation and its share of value added. For China, that compensation is total labour income, including that of own-account workers (in agriculture it exceeds value added), as in WIOD. The same method as with WIOD is applied: s<sub>t</sub> = employees<sub>ILO</sub> / (employment<sub>ILO</sub> × (1 − agricultural share of TiM employment)), with no employees in family agriculture; v = Σ<sub>productive</sub> labour income × s; cp = Σ<sub>market</sub> labour income × (1 − s) (that of non-employees); pv = Σ<sub>market</sub> value added − cp − v; e = pv / v. As in WIOD, the wages of the circulation industries remain within pv. The part of M corresponding to legal and accounting services and advertising is taken from WIOD 2014. The series is chained to the WIOD level of 2014 like the UN series. In 2014 the TiM level is somewhat higher than the WIOD level (1 + e: 3.06 versus 2.77, with education and health productive), a difference of base and classification that the splice neutralises, because it takes only the change from TiM. Between 2014 and 2022 the rate of surplus value measured in this way moves little (from 1.98 to 2.02 in the central variant), somewhat below the rate given by the ILO labour share in 2018 (1.96 versus 2.01). There is no consumption of fixed capital by industry: depreciation follows the aggregate extension. India is not treated in this way because in TiM its compensation excludes mixed income; it is already measured by industry with the UN. Results in <code>mundo_horas_tim_ramas.csv</code> and <code>mundo_horas_tim_diagnostico.csv</code>.</p>
+<p><strong>(c) 2015–2025, aggregate extension with the ILO</strong> (the basis for all countries outside the OECD; in China, for the number of employees from 2014 and for e from 2023).</p>
+<div class="f">e<sub>t</sub> = e<sub>2014</sub> × [(1 − LS<sub>t</sub>)/LS<sub>t</sub>] / [(1 − LS<sub>2014</sub>)/LS<sub>2014</sub>] · N<sub>t</sub> = N<sub>2014</sub> × A<sub>t</sub>/A<sub>2014</sub> · h<sub>t</sub> = h<sub>2014</sub> × hs<sub>t</sub>/hs<sub>2014</sub></div>
+
+<ul>
+<li><strong>LS</strong>: labour share of income (ILO, SDG 10.4.1, <code>LAP_2GDP_NOC_RT</code>).</li>
+<li><strong>A</strong>: total employees, modelled and harmonised ILO estimates (<code>EMP_2EMP_SEX_STE_NB</code>); the 2014 productive share is held constant. The series by section (<code>EES_TEES_SEX_ECO_NB</code>) have survey breaks and are not used.</li>
+<li><strong>India</strong>: WIOD counts as employees both regular workers and casual labourers, as the NSS surveys do; the ILO employee series covers only regular workers (91 million in 2014, against 315 million in WIOD) and grows by 64% up to 2025. Therefore, for India, A<sub>t</sub> = ILO employed<sub>t</sub> × (1 − own-account share<sub>t</sub>), with the own-account share in usual status from NSS 2011-12 (52.2%) and PLFS 2017-18 (52.2%), 2021-22 (55.8%), 2022-23 (57.3%) and 2023-24 (58.4%), interpolated and held constant after the last data point. Result: +13% employees between 2014 and 2025, instead of +64%.</li>
+<li><strong>hs</strong>: weekly hours per person employed (<code>HOW_TEMP_SEX_ECO_NB</code>); if missing, constant.</li>
+</ul>
+<p><strong>Version net of depreciation.</strong> e<sub>net</sub> = e − r, with r = consumption of fixed capital of market industries / v. In OECD countries, r is measured by industry (P51C) from 2014. In the other years and countries:</p>
+<div class="f">r = k · (δ·K/Y)<sub>PWT</sub> × VA<sub>market</sub> / v · with VA<sub>market</sub>/v = 1 + e + cp/v in the chained years</div>
+
+<p>(δ·K/Y)<sub>PWT</sub> = delta · cn / cgdpo from the Penn World Table (last value held constant after 2023). Since that depreciation covers all fixed capital, including dwellings and public capital, it is calibrated with k = r<sub>OECD,2014</sub> / r<sub>PWT,2014</sub> of the country itself or, outside the OECD, with the median of those ratios (0.76). The calibration table is in <code>mundo_horas_calibracion_depreciacion.csv</code>. In the net version, the fall in e after 2008 mainly reflects the rise in depreciation measured by the PWT in China and India; it is an estimate, not a measurement by industry.</p>
+<p><strong>Sensitivity</strong> (<code>mundo_horas_sensibilidad.csv</code>). Each row changes a single assumption: net version; Chinese working day of 44 or 49 h; India with the ILO employee level (regular workers only); agriculture in India and China outside capitalist production; previous method for China. <strong>Criterion adopted</strong> (theoretical decision of the author): casual labourers are productive workers whenever their surplus labour is converted into surplus value, whatever the duration of their employment; agricultural labour is productive whenever the wages of those workers are money invested as capital, and not money spent as a mere means of circulation to buy unproductive labour. That is why the central estimate includes them. The rows ‘India: ILO employee level’ and ‘agriculture outside’ are not alternative interpretations of the criterion: they show how much those workers weigh in the mass (between 12% and 23%). The practical limit of the criterion is statistical: the accounts do not allow casual labourers hired by capitalist enterprises to be separated from those hired by households for their own consumption; the latter are excluded only when they appear in the industry of households as employers (T).</p>
+<p>Other caveats: there is no within-industry correction; because of differences in definition, the US e in this series does not coincide with that of the United States section; observations with e outside (0, 8) in the WIOD years are excluded and recorded in <code>mundo_horas_excluidos.csv</code> (the filter is not applied to the extension); after adjustments B3 and B4, e has a floor of 0.01, and in B4 a labour share of 0.55 is assumed where the ILO does not publish it. The source of e, N and r for each country and year is in <code>mundo_horas_paises.csv</code>.</p>
+<p><strong>Public and non-profit education and health.</strong> The full calculation is carried out with education and health inside (‘productive’ variant) and outside (‘outside’ variant). The central estimate combines both with the non-capitalist part g of each country and year:</p>
+<div class="f">g = (employed S13 + employed S15 − employed O) / employed (P + Q), between 0 and 1</div>
+
+<p>S13 is general government and S15 non-profit institutions (OECD, employment by institutional sector, <code>DSD_NAMAIN10@DF_TABLE3_EMP_SECTOR</code>); O, P and Q come from table 7. Outside those accounts, the share of public employment in P + Q from ILO surveys (<code>EMP_PUBL_SEX_ECO_NB</code>) is used when it is plausible (between 0.2 and 1), and failing that, the median of the measured countries. In the United States, the non-profit part from the BLS is added to the public part. Since N, H, necessary hours and surplus-labour hours are sums by section, the linear combination (1 − g) · inside + g · outside approximates the measurement with only the capitalist part of education and health. It does not reproduce it exactly, because e is a ratio for each country: recalculated directly for 2014, surplus labour would be between 0.25% and 0.6% greater in the United States, the United Kingdom, France and Germany. Limits: S15 also includes religious and civil organisations, so g tends to be overestimated; the ILO public employment surveys are heterogeneous; China, Russia, Canada, Australia, the Netherlands, Norway, Sweden and Cyprus use the median. Details in <code>mundo_horas_parte_publica.csv</code>.</p>
+<p><strong>State enterprises.</strong> Employees of state enterprises that sell commodities for profit count as productive (author's decision): their wages are capital advanced by the state. They are not separated, because the accounts by industry include them together with those of private enterprises.</p>
+</section>
+<section id="ia" class="seccion">
+<h2 id="artificial-intelligence-corporations">Artificial intelligence corporations</h2>
+<p>The group consists of Microsoft, Alphabet (with Google Inc. before 2015), Amazon, Meta, Nvidia, Oracle, Broadcom (with Avago before 2018) and AMD, according to their XBRL filings with the SEC. Years are calendar years, according to the SEC ‘frame’ or, if it is missing, the year that the fiscal year covers most fully. One-year gaps in balances are interpolated.</p>
+<ul>
+<li><strong>Group rate</strong>: operating profit / total assets, and operating profit / net property, plant and equipment.</li>
+<li><strong>Comparison</strong>: with the non-financial specification at historical cost and without intellectual property, because financial statements do not capitalise in-house R&amp;D.</li>
+<li><strong>Rate ‘without AI’</strong>: (non-financial profit − operating profit of the group) / (non-financial K − fixed capital of the group).</li>
+<li><strong>Shares</strong>: pre-tax profit of the group against US corporate profits and against the world gross mass of profit in current dollars (Σ (1 − labsh) × World Bank GDP); investment of the group against private non-residential investment.</li>
+</ul>
+<p>Caveats: the group's profits are consolidated worldwide, whereas the US aggregate is domestic. And these shares measure <em>appropriated</em> surplus value, which includes rents and transfers, not <em>formed</em> surplus value.</p>
+</section>
+<section id="contratendencias" class="seccion">
+<h2 id="countertendencies">Countertendencies</h2>
+<p>The analysis follows Marx's six counteracting causes (<em>Capital</em>, Volume III, ch. XIV). The sixth, the increase in share capital, is extended to interest-bearing capital in general. None is measured by a single indicator: each manifests itself in several series that must be read together with the rate and the mass of surplus value.</p>
+<p><strong>Decomposition by phases.</strong> The rate of profit is written as r = e · (V/K), so that, between two years,</p>
+<div class="f">Δln r = Δln e − Δln(K/V)</div>
+
+<p>From 1972, with the hours of productive workers, the value composition is separated into a technical composition and a relative price:</p>
+<div class="f">K/V = (K<sub>real</sub> / H) · (P<sub>K</sub> / w) · P<sub>K</sub> = K<sub>current cost</sub> / (quantity index × K<sub>2017</sub> / 100) · w = V / H</div>
+
+<p>The quantity index and the stock at current cost are those of the BEA's private non-residential fixed capital (kcntotl1es00, k1ntotl1es00); K and V are those of the within-industry variant. The cut-off years are the five most frequent break years in the main multiverse (h = 8, BIC), at least six years apart: the periodisation is not fixed in advance.</p>
+<p><strong>Robustness across the multiverse.</strong> The decomposition is repeated for each business-sector specification without utilisation adjustment and with denominator K (16 per productive-labour criterion: current or historical cost, net or gross, with or without intellectual property, all capital or only productive capital). The median and the 10th and 90th percentiles of the contributions are published, together with the percentage of specifications in which the rate rises and, among the specifications in which the composition rises, the percentage in which Δln e ≥ Δln(K/V) (contratendencias_fases_multiverso.csv).</p>
+<p><strong>Transfer of labour time through foreign trade.</strong> For each country, h = H / GDP, with H = persons employed × annual hours (PWT 11.0) and GDP in current dollars at market exchange rates (World Bank):</p>
+<div class="f">h<sub>X</sub> = Σ<sub>j</sub> X<sub>j</sub> h<sub>j</sub> / Σ<sub>j</sub> X<sub>j</sub> · T<sub>i</sub> = M<sub>i</sub> · h<sub>X</sub> − X<sub>i</sub> · h<sub>i</sub></div>
+
+<p>T &gt; 0 indicates appropriation of alien labour time. The years with at least 100 countries with hours are included (from 2005). It is an approximation without intermediate inputs; a world input-output matrix (OECD ICIO) would make it possible to trace the hours content of each flow (intercambio_horas.csv, intercambio_horas_paises.csv).</p>
+<p><strong>Indicators by countertendency.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Countertendency</th>
+<th>Indicators</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raising of the degree of exploitation</td>
+<td>rate of surplus value; output per hour and real compensation per hour; weekly hours; multiple jobholding and involuntary part-time work</td>
+<td>BEA, BLS (OPHNFB, COMPRNFB, LNS12026619, LNS12032194, CE16OV)</td>
+</tr>
+<tr>
+<td>Reduction of wages below their value</td>
+<td>real hourly wage of production workers; household debt service</td>
+<td>BLS (AHETPI), CPI, Federal Reserve (TDSP)</td>
+</tr>
+<tr>
+<td>Cheapening of constant capital</td>
+<td>relative price of investment; technical composition and capital/wage relative price</td>
+<td>BEA (A008RD, DPCERG, fixed assets)</td>
+</tr>
+<tr>
+<td>Relative surplus population</td>
+<td>employment rate, ages 25 to 54; U-6; world vulnerable employment and unemployment; productive employees</td>
+<td>BLS, ILO via World Bank, WIOD/OECD/ILO</td>
+</tr>
+<tr>
+<td>Foreign trade</td>
+<td>profits received from the rest of the world; world trade to GDP; net transfer of hours by country and income group</td>
+<td>BEA (B933RC, A051RC), World Bank, PWT</td>
+</tr>
+<tr>
+<td>Share capital and interest-bearing capital</td>
+<td>financial profits; net interest and dividends of non-financial corporations; net equity issuance; market value of equities and debt of non-financial corporations relative to GDP</td>
+<td>BEA (A587RC, A445RC, B471RC, W326RC, B467RC, A466RC, A455RC), Federal Reserve Z.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Limitations.</strong> The value of labour power is not observed: the real wage is an indication, not a measure of its distance from value. The intensity of labour, platform work and the extension of the working day beyond paid hours do not yet have indicators. The transfer of hours through foreign trade does not trace intermediate inputs.</p>
+</section>
+<section id="transformacion" class="seccion">
+<h2 id="the-transformation-values-and-prices">The transformation: values and prices</h2>
+<p><strong>Aggregate level.</strong> The seismograph works at the macro-monetary level (Moseley, 2016; close to the ‘new interpretation’ of Foley, 1982, and Duménil, 1983): total surplus value is, by construction, the sum of profits, interest, rents, taxes on production and unproductive salaries, and the monetary expression of labour time translates money into hours. At that level, the transformation problem does not alter the mass or the rate of surplus value. What it does alter is the distribution of surplus value among industries and countries, which is what this phase measures.</p>
+<p><strong>Source.</strong> WIOD national input-output tables (November 2016 release), 43 countries, 56 industries, 2000–2014, in millions of dollars, with the domestic input matrix and the imported input matrix; hours and persons employed from the WIOD Socio-Economic Accounts.</p>
+<p><strong>Values.</strong> For the productive industries p:</p>
+<div class="f">λ<sub>p</sub> = (l<sub>p</sub> + λ̄<sub>p</sub> M<sub>pp</sub>) (I − A<sub>pp</sub>)<sup>−1</sup></div>
+
+<p>l<sub>j</sub> = hours worked by all persons employed in the industry / gross output. The hours of non-employees are approximated by the hours per employee of the same industry (H_EMPE / EMPE × EMP); in China, 46 h × 50 weeks per person employed. Own-account workers count for value (they produce commodities) though not for surplus value. λ̄<sub>j</sub> = Σ<sub>c</sub> λ<sub>cj</sub> X<sub>cj</sub> / Σ<sub>c</sub> X<sub>cj</sub>: average hours content of one exported dollar of product j. It is solved by iteration until λ̄ no longer changes.</p>
+<p>The circulation industries (G, K, M69–M70, M73) and those outside capitalist production (L, O, T, U) do not produce value, and their products used as inputs do not transfer value: they are expenses paid out of surplus value (Shaikh and Tonak, 1994). Education (P) and health (Q) enter through their capitalist part, φ = 1 − g, with g the public and non-profit share of employment that is also used in the world mass: λ = (l + (λ̄ ∘ φ) · M) · (I − D<sub>φ</sub> A)<sup>−1</sup>, and in the Moseley measurement all their magnitudes are multiplied by φ. The capitalist part is assumed to have the same cost structure as the whole industry.</p>
+<p><strong>Prices and values.</strong> μ = Σ<sub>p</sub> x<sub>j</sub> / Σ<sub>p</sub> λ<sub>j</sub> x<sub>j</sub> (dollars per hour); price-value<sub>j</sub> = μ λ<sub>j</sub>; mean deviation = Σ x<sub>j</sub> |μλ<sub>j</sub> − 1| / Σ x<sub>j</sub>. The Spearman rank correlation between price/value and the composition K/v (nominal capital stock over the industry's labour income, LAB) tests Marx's expectation: prices of production exceed values where the composition is high.</p>
+<p><strong>Foreign trade.</strong> Hours delivered = Σ λ<sub>j</sub> X<sub>j</sub>; hours received = Σ λ̄<sub>j</sub> M<sub>j</sub> × (X / M), with X and M the exports and imports of products of productive industries (imports include inputs and final demand).</p>
+<p><strong>World-market weighting.</strong> w<sub>c</sub> = μ<sub>c</sub> / μ̄, with μ<sub>c</sub> = GDP in current dollars / hours worked (World Bank, PWT) and μ̄ the average, weighted by productive hours, of the 42 countries in the world mass. Weighted mass = Σ surplus labour<sub>c</sub> w<sub>c</sub>. Market exchange rates are used, not purchasing power parities, because what is at issue is valuation on the world market.</p>
+<p><strong>Interpretation of the transformation (F4 v2; Pablo's decision, 24 Nov. 2026).</strong> The central interpretation is Moseley's (2016): constant and variable capital are taken as the money magnitudes actually advanced, identical in the determination of values and of prices of production, so that the transformation only redistributes total surplus value among industries. Value of industry j: W<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub>(1 + e); price of production: PP<sub>j</sub> = c<sub>j</sub> + a<sub>j</sub> + v<sub>j</sub> + r(K<sub>j</sub> + v<sub>j</sub>), with e = S/V and r = S/(K + V) of the country, and a<sub>j</sub> the labour income of non-employees. As a contrast, the temporal single-system variant is calculated (TSSI; Freeman and Carchedi, 1996; Kliman, 2007): inputs are valued at the prices at which they entered production (the industry's input price index for the previous year) and the capital advanced is the stock at the close of the previous year; new value is output minus those inputs. Results: <code>transformacion_moseley_tssi.csv</code> (by country and year) and <code>transformacion_moseley_ramas.csv</code> (by industry).</p>
+<p><strong>Reconciliation of the two measurements (v3).</strong> Agriculture and the industries with many own-account workers appeared to be ceding value in the measurement in hours and gaining in Moseley's. The two measurements answer different questions (market price versus value; price of production versus value), and they also value own-account labour differently: by its hours or by its money income. To separate this, value/price in hours is calculated counting only the hours of employees (l<sub>j</sub> × employees<sub>j</sub> / persons employed<sub>j</sub>, WIOD SEA) and compared with Moseley's W<sub>j</sub> / output<sub>j</sub>. In agriculture, that valuation explains about three-quarters of the gap (median of countries and years); the rest is due to the fact that in hours every hour counts the same, whereas in Moseley's measurement the wage paid is what counts. Counting only employees' hours, agriculture sells close to its value. China, which WIOD records without separating employees (COMP = LAB), enters with the same assumption as in the world mass: ILO employees distributed across non-agricultural industries and none in family agriculture; v = compensation × s and a = LAB − v (correction from the November 2026 audit; previously China entered as if all its persons employed were employees, which inverted Moseley's agricultural value/price).</p>
+<p><strong>OECD world tables (v3: 2000–2005 except 2003, and 2015–2024).</strong> <code>herramientas/icio.py</code> calculates values with the ICIO world matrix (regular version): 2026 edition for 2015–2024 (84 economies, twelve rest-of-world regions and 50 industries; 2023 and 2024 are OECD projections) and 2025 edition for 2000–2005 (80 economies and the rest of the world). Employment by industry is the OECD's (TiM 2025, up to 2022; afterwards, the 2022 structure scaled with PWT total employment) and hours per person employed are the PWT's: λ = l · (I − D<sub>φ</sub> A)<sup>−1</sup>, with the country of origin of each input. In professional services (M), φ is the share of architecture and engineering, research and other professional services in the output of M according to WIOD 2014. For regions and countries without employment in TiM, l is imputed with the world median of hours per dollar of value added of the industry; they enter the matrix, but not the medians, which cover the 68 economies with measured employment. Results: mean deviation of prices from values between 34% and 40% (median); in 2024, DEU 21%, USA 35%, CHN 49%, IND 80%. Trade: high-income countries receive 355 billion hours in 2000, 392 in 2005 and 271 in 2024; China delivers 182 (2000), 233 (2005), 133 (2015) and 78 (2024); India, from 78 to 113. The transfers of all countries do not sum exactly to zero (−17.7 billion hours in 2024), because hours received are rescaled by each country's exports/imports ratio and the imputed regions are not counted. ‘High income’ follows the World Bank classification, which does not include Taiwan; with Taiwan, the 2024 figure would be 276. With WIOD, China delivered 146 in 2014: the difference comes mainly from the fact that the labour contained in its imports is now valued with the hours of the countries of origin. Missing are 2003 (incomplete file) and 2006–2014, covered by WIOD.</p>
+<p><strong>Pending decisions and limits.</strong> The values in hours in the first part are simultaneous (values and prices of the same year). The national tables do not say which country imported inputs come from; they are valued with the world average for each product. WIOD ends in 2014; the OECD world tables cover 2000–2005 and 2015–2024.</p>
+</section>
+<section id="empalmes" class="seccion">
+<h2 id="splices-and-adjustments">Splices and adjustments</h2>
+<p>The compensation of unproductive industries is spliced by ratio in the overlap years:</p>
+<ul>
+<li>SIC 1972 (1947–1986) → NAICS (1987–1996) → NAICS (1997–).</li>
+<li>Factors applied: <span id="m-emp">—</span>.</li>
+<li>Before 1987, retail trade includes restaurants (SIC classification).</li>
+<li>If GDP by industry lags one year behind the national accounts, the last share of unproductive compensation is carried forward.</li>
+</ul>
+</section>
+<section id="limites" class="seccion">
+<h2 id="known-limitations">Known limitations</h2>
+<ul>
+<li>There is not yet a within-industry correction before 1972 or for agriculture.</li>
+<li>The reference series are definitions in the manner of the authors. The replication (§ replication) redoes five series with each author's definition and current data; it does not reproduce Moseley's rate of surplus value or Shaikh and Tonak's before 1972 (production wages by supersector begin that year), nor the level of Shaikh and Tonak's Marxian rate, which uses the gross stock. The labour values by industry (§ transformation) cover 2000–2014 and are calculated simultaneously; education and health enter through their capitalist part with the cost structure of the whole industry. With the OECD world tables (origin of inputs), 2000–2005 and 2015–2024 are calculated, with two different editions; 2003 and 2006–2014 are missing, and employment by industry for 2023–2024 is extrapolated from 2022.</li>
+<li>The world mass in hours covers 42 countries: measurement by industry between 2000 and 2014 (WIOD); from 2015, change measured by industry in OECD countries, by section of activity with ILO surveys in Brazil, Indonesia, India, Russia, Mexico, Turkey, Cyprus and Malta (employment, hours and wage bill), surplus and compensation by industry with UN national accounts in Brazil and India (2015–2020) and with the OECD TiM database in China (2015–2022). Outside those years and countries, surplus follows the aggregate labour share. A source for surplus by industry is lacking for Indonesia and Russia (they do have ILO surveys by section for employment), as are the KLEMS for India (the Reserve Bank of India database blocks automated downloads).</li>
+<li>The deflators for computer equipment are hedonic and may exaggerate the cheapening of constant capital.</li>
+<li>The recent quarterly estimates, the world mass for 2024–2025 and the AI group's shares in years without PWT are provisional.</li>
+<li>The public and non-profit part of education and health is estimated with employment proportions by country, not with accounts by institutional sector and industry; for eight countries (among them China and Russia) the median is used. In the United States, the non-profit part is subtracted using 2022 proportions held constant.</li>
+<li>The world sum counts hours of exploited labour, without weighting by national productivity on the world market; each country's e, measured in its own prices, mixes surplus value produced and appropriated. Both issues are addressed in the transformation phase (input-output matrices).</li>
+</ul>
+</section>
+<section id="reproducir" class="seccion">
+<h2 id="how-to-reproduce-and-cite">How to reproduce and cite</h2>
+<pre><code>pip install -r requirements.txt
+python run.py                 # downloads, computes and writes resultados/ and site/data/
+</code></pre>
+<p>Modules:</p>
+<ul>
+<li><code>sismografo/descarga.py</code>: sources.</li>
+<li><code>eeuu.py</code>: multiverse, surplus value and labour time.</li>
+<li><code>trimestral.py</code>: quarterly estimate.</li>
+<li><code>mundo.py</code>: PWT.</li>
+<li><code>ocde_ramas.py</code>: measurement by industry with the OECD accounts.</li>
+<li><code>horas_mundo.py</code>: world mass in hours (WIOD, OECD, ILO; net version; sensitivity).</li>
+<li><code>ia.py</code>: AI corporations.</li>
+<li><code>quiebres.py</code>: break detector.</li>
+<li><code>sitio.py</code>: site JSON.</li>
+</ul>
+<p>Licences: code MIT; derived data and texts CC BY 4.0.</p>
+<p>Citation: Jiménez Cea, P. I. (2026). <em>Seismograph of Capital: multiverse of the rate of profit</em>. https://github.com/necplusultra-blog/sismografo-del-capital</p>
+</section>
+<section id="bibliografia" class="seccion">
+<h2 id="bibliography">Bibliography</h2>
+<p>All works cited on the site (front page, Reading and Methodology). The data sources are described in <a href="#fuentes">§2</a>. Quotations from works cited in Spanish editions are our translations.</p>
+<p><strong>Marx</strong></p>
+<ul>
+<li>Marx, K. (1968). <em>Theories of Surplus Value</em>, part II. Moscow: Progress Publishers.</li>
+<li>Marx, K. (2016a). <em>Elementos fundamentales para la crítica de la economía política (Grundrisse) 1857–1858</em>, vol. 1. Mexico City: Siglo XXI.</li>
+<li>Marx, K. (2016b). <em>Elementos fundamentales para la crítica de la economía política (Grundrisse) 1857–1858</em>, vol. 2. Mexico City: Siglo XXI.</li>
+<li>Marx, K. (2017). <em>Exzerpte, Zeitungsausschnitte und Notizen zur Weltwirtschaftskrise (Krisenhefte). November 1857 bis Februar 1858</em>. MEGA² IV/14. Berlin: De Gruyter.</li>
+<li>Marx, K. (2018). <em>El Capital. Crítica de la economía política</em>, t. I, vol. 1. <em>Libro primero: el proceso de producción de capital</em>. Buenos Aires: Siglo XXI.</li>
+<li>Marx, K. (2021). <em>El Capital. Libro III. El proceso global de la producción capitalista</em>. Mexico City: Siglo XXI.</li>
+</ul>
+<p><strong>Interpretive framework</strong></p>
+<ul>
+<li>Jiménez Cea, P. I. (2026). The immanent dialectic of capital: Falling rate of profit and the crisis of late capitalism. <em>Capital &amp; Class</em>. Advance online publication. <a href="https://doi.org/10.1177/03098168261503922">https://doi.org/10.1177/03098168261503922</a></li>
+<li>Jiménez Cea, P. I. (in progress). <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>. Doctoral thesis in Sociology, ICSyH ‘Alfonso Vélez Pliego’, BUAP.</li>
+</ul>
+<p><strong>Debate on the rate of profit, crisis and the transformation</strong></p>
+<ul>
+<li>Carchedi, G. and Roberts, M. (Eds.). (2018). <em>World in Crisis: A Global Analysis of Marx's Law of Profitability</em>. Chicago: Haymarket Books.</li>
+<li>Carchedi, G. and Roberts, M. (2022). <em>Capitalism in the 21st Century: Through the Prism of Value</em>. London: Pluto Press.</li>
+<li>Duménil, G. (1983). Beyond the transformation riddle: A labor theory of value. <em>Science &amp; Society</em>, 47(4), 427–450.</li>
+<li>Duménil, G. and Lévy, D. (2002). The profit rate: Where and how much did it fall? Did it recover? (USA 1948–2000). <em>Review of Radical Political Economics</em>, 34(4), 437–461.</li>
+<li>Duménil, G. and Lévy, D. (2004). <em>Capital Resurgent: Roots of the Neoliberal Revolution</em>. Cambridge (MA): Harvard University Press.</li>
+<li>Duménil, G. and Lévy, D. (2011). <em>The Crisis of Neoliberalism</em>. Cambridge (MA): Harvard University Press.</li>
+<li>Dyer-Witheford, N., Kjøsen, A. M. and Steinhoff, J. (2024). <em>Poder inhumano. Inteligencia artificial y el futuro del capitalismo</em>. Buenos Aires: Prometeo.</li>
+<li>Foley, D. K. (1982). The value of money, the value of labor power and the net product: An appraisal of the ‘new approach’ to the transformation problem. <em>Review of Radical Political Economics</em>, 14(2), 37–47.</li>
+<li>Freeman, A. and Carchedi, G. (Eds.). (1996). <em>Marx and Non-Equilibrium Economics</em>. Cheltenham: Edward Elgar.</li>
+<li>Heinrich, M. (2013). Crisis Theory, the Law of the Tendency of the Profit Rate to Fall, and Marx's Studies in the 1870s. <em>Monthly Review</em>, 64(11).</li>
+<li>Heinrich, M. (2014). <em>Die Wissenschaft vom Wert</em> (6th ed.). Münster: Westfälisches Dampfboot.</li>
+<li>Kliman, A. (2007). <em>Reclaiming Marx's ‘Capital’: A Refutation of the Myth of Inconsistency</em>. Lanham: Lexington Books.</li>
+<li>Kliman, A. (2010). <em>Appearance and Essence: Neoliberalism, Financialization, and the Underlying Crisis of Capitalist Production</em>. New York: Marxist-Humanist Initiative. https://marxisthumanistinitiative.org/economics/appearance-and-essence-neoliberalism-financialization-and-the-underlying-crisis-of-capitalist-production.html</li>
+<li>Kliman, A. (2012). <em>The Failure of Capitalist Production: Underlying Causes of the Great Recession</em>. London: Pluto Press.</li>
+<li>Kurz, R. (2012). <em>Geld ohne Wert. Grundrisse zu einer Transformation der Kritik der politischen Ökonomie</em>. Berlin: Horlemann.</li>
+<li>Kurz, R. (2021). <em>La sustancia del capital</em>. Madrid: Enclave.</li>
+<li>Moseley, F. (1991). <em>The Falling Rate of Profit in the Postwar United States Economy</em>. London: Macmillan.</li>
+<li>Moseley, F. (1997). The rate of profit and the future of capitalism. <em>Review of Radical Political Economics</em>, 29(4), 23–41.</li>
+<li>Moseley, F. (2016). <em>Money and Totality: A Macro-Monetary Interpretation of Marx's Logic in Capital and the End of the ‘Transformation Problem’</em>. Leiden: Brill.</li>
+<li>Roberts, M. (2016). <em>The Long Depression</em>. Chicago: Haymarket Books.</li>
+<li>Roberts, M. (2018, 2 November). The US rate of profit in 2017. <em>The Next Recession</em> (blog). https://thenextrecession.wordpress.com/2018/11/02/the-us-rate-of-profit-in-2017/</li>
+<li>Roberts, M. (2021, 5 December). The US rate of profit in 2020. <em>The Next Recession</em> (blog). https://thenextrecession.wordpress.com/2021/12/05/the-us-rate-of-profit-in-2020/</li>
+<li>Shaikh, A. (2016). <em>Capitalism: Competition, Conflict, Crises</em>. New York: Oxford University Press.</li>
+<li>Shaikh, A. and Tonak, E. A. (1994). <em>Measuring the Wealth of Nations: The Political Economy of National Accounts</em>. Cambridge: Cambridge University Press.</li>
+</ul>
+<p><strong>Methods and databases</strong></p>
+<ul>
+<li>World Bank [Datta, N., Rong, C., Singh, S., Stinshoff, C. et al.] (2023). <em>Working Without Borders: The Promise and Peril of Online Gig Work</em>. Washington, D.C.: World Bank. http://hdl.handle.net/10986/40066</li>
+<li>BLS (2018). Electronically mediated work: new questions in the Contingent Worker Supplement. <em>Monthly Labor Review</em>, September. Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/opub/mlr/2018/article/electronically-mediated-work-new-questions-in-the-contingent-worker-supplement.htm</li>
+<li>BLS (2024a). <em>Contingent and Alternative Employment Arrangements — July 2023</em> (USDL-24-2267). Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/news.release/conemp.nr0.htm</li>
+<li>BLS (2024b). <em>Research Data on the Nonprofit Sector, 2007–2022</em> (Business Employment Dynamics). Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/bdm/nonprofits/nonprofits.htm</li>
+<li>Eurofound (2007). <em>Fourth European Working Conditions Survey</em>. Luxembourg: Publications Office of the European Union.</li>
+<li>Eurofound (2016). <em>Sixth European Working Conditions Survey: Overview report</em>. Luxembourg: Publications Office of the European Union.</li>
+<li>Eurofound (2025). <em>European Working Conditions Survey 2024: Overview report</em>. Luxembourg: Publications Office of the European Union.</li>
+<li>Bai, J. and Perron, P. (1998). Estimating and testing linear models with multiple structural changes. <em>Econometrica</em>, 66(1), 47–78.</li>
+<li>Bai, J. and Perron, P. (2003). Computation and analysis of multiple structural change models. <em>Journal of Applied Econometrics</em>, 18(1), 1–22.</li>
+<li>Liu, J., Wu, S. and Zidek, J. V. (1997). On segmented multivariate regression. <em>Statistica Sinica</em>, 7(2), 497–525.</li>
+<li>Newhouse, C. L. and Abramson, A. J. (2024). <em>2024 Nonprofit Employment Report: New Data Reveal Nonprofits' Strengths and Challenges in the COVID-19 Era</em> (GMU-NED, Briefing 2). Arlington: George Mason University, Center on Nonprofits, Philanthropy, and Social Enterprise.</li>
+<li>Feenstra, R. C., Inklaar, R. and Timmer, M. P. (2015). The next generation of the Penn World Table. <em>American Economic Review</em>, 105(10), 3150–3182.</li>
+<li>OECD (2026). <em>Inter-Country Input-Output (ICIO) Tables</em>, 2026 edition. Paris: OECD. https://www.oecd.org/en/data/datasets/inter-country-input-output-tables.html</li>
+<li>OECD (2025). <em>Trade in Employment (TiM)</em>, 2025 edition. Paris: OECD. https://www.oecd.org/en/data/datasets/trade-in-employment.html</li>
+<li>Timmer, M. P., Dietzenbacher, E., Los, B., Stehrer, R. and de Vries, G. J. (2015). An illustrated user guide to the World Input–Output Database: The case of global automotive production. <em>Review of International Economics</em>, 23(3), 575–605.</li>
+</ul>
+</section>
+  </main>
+</div>
+<footer class="pie">
+<p>Doctoral research by Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, approved for his candidacy in the Doctoral Programme in Sociology (ICSyH-BUAP), to be completed in August 2029, carried out with a scholarship from SECIHTI (Mexico’s Secretariat of Science, Humanities, Technology and Innovation), number 4052073. Thanks to the Mexican working class, which makes this scholarship possible. Theoretical framework: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
+<p>Open-source code (MIT) and derived data (CC BY 4.0) on <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. <a href="../descargas/">Downloads</a>. <a href="methodology.html">Methodology</a>. <a href="https://github.com/necplusultra-blog/sismografo-del-capital/tree/main/contenido">Edit the texts</a>.</p>
+</footer>
+<script>
+fetch('../data/meta.json', { cache: 'no-cache' }).then((r) => r.json()).then((m) => {
+  const s = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
+  s('m-act', m.actualizado); s('m-commit', m.commit || '—'); s('m-n', m.eeuu_n);
+  s('m-emp', Object.entries(m.empalmes || {}).map(([k, v]) => `${k}: ${v}`).join('; '));
+});
+</script>
+</body>
+</html>
