@@ -236,6 +236,12 @@ function drawBB(B) {
   const s2 = [['desplazado_pct_pv_b', 'Plusvalor desplazado desde los salarios hacia las finanzas / plusvalor según las cuentas (por ramas)'], ['supervision_pct_v_ramas', 'Remuneración que no es de obreros de producción y no supervisores / v por ramas']];
   legend('l-bb2', s2.map((x) => x[1]));
   lineChart('c-bb2', E, s2.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('.1f')(v) + ' %', aria: 'Explotación secundaria y supervisión' });
+  const zs = [...E].reverse().find((r) => r.ssn_pct_remuneracion != null);
+  if (zs) {
+    set('bb-ssn', d3.format('+.1f')(zs.ssn_pct_remuneracion) + ' %'); set('bb-essn', f2(zs.e_c_ssn)); set('bb-ec2', f2(zs.e_c));
+    legend('l-bb3', ['Salario social neto / remuneración de los asalariados']);
+    lineChart('c-bb3', E.filter((r) => r.ssn_pct_remuneracion != null), [{ key: 'ssn_pct_remuneracion', label: 'Salario social neto / remuneración' }], { yfmt: (v) => v + ' %', tipfmt: (v) => d3.format('+.1f')(v) + ' %', aria: 'Salario social neto de EE.UU.' });
+  }
   const M = B.mundo || [], tb = $('t-bbm');
   if (M.length && tb) {
     tb.replaceChildren();
@@ -248,6 +254,23 @@ function drawBB(B) {
       cel.forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); });
     set('bb-a0', String(sel[0])); set('bb-a1', String(sel[1])); set('bb-a2', String(sel[2]));
   }
+}
+
+// Robustez de la masa mundial neta frente a la depreciación de China e India
+function drawRN(R) {
+  if (!R || !R.serie || !R.serie.length) return;
+  $('rn-bloque').hidden = false;
+  const vars = [...new Set(R.serie.map((r) => r.variante))];
+  const filas = {}; R.serie.forEach((r) => { (filas[r.anio] = filas[r.anio] || { anio: r.anio })[r.variante] = r.plustrabajo_neto_mmh; });
+  const datos = Object.values(filas).sort((a, b) => a.anio - b.anio);
+  legend('l-rn', vars);
+  lineChart('c-rn', datos, vars.map((k) => ({ key: k, label: k })), { yfmt: (v) => d3.format(',.0f')(v), tipfmt: (v) => d3.format(',.0f')(v), aria: 'Masa mundial neta de plustrabajo con distintas estimaciones de la depreciación de China e India' });
+  const tb = $('t-rn');
+  if (tb) { tb.replaceChildren(); R.resumen.forEach((r) => { const tr = document.createElement('tr');
+    [r.variante, f0(r.m2000), f0(r.m2018), `${f0(r.mfin)} (${r.anio_fin})`, d3.format('+.0f')(r.cambio_2000_2018_pct) + ' %', d3.format('+.1f')(r.cambio_2018_fin_pct) + ' %']
+      .forEach((t) => { const td = document.createElement('td'); td.textContent = t; tr.append(td); }); tb.append(tr); }); }
+  const ext = R.resumen.reduce((a, r) => [Math.min(a[0], r.cambio_2018_fin_pct), Math.max(a[1], r.cambio_2018_fin_pct)], [Infinity, -Infinity]);
+  set('rn-rango', `entre ${d3.format('+.1f')(ext[0])} % y ${d3.format('+.1f')(ext[1])} %`);
 }
 
 let D = {};
@@ -401,8 +424,9 @@ Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_d
   if (meta.mundo_horas) Promise.all([get('mundo_horas'), get('mundo_horas_paises')]).then(([H, Pz]) => { D.H = H; D.Pz = Pz; drawHM(H, Pz, meta); });
   if (meta.contratendencias) get('contratendencias').then((CT) => { D.CT = CT; $('contratendencias').hidden = false; drawCT(CT); });
   if (meta.transformacion) get('transformacion').then((TF) => { D.TF = TF; drawTF(TF); });
+  if (meta.robustez_neta) get('robustez_neta').then((RN) => { D.RN = RN; drawRN(RN); });
   if (meta.bloque_b) get('bloque_b').then((BB) => { D.BB = BB; drawBB(BB); });
   if (meta.fuerzas) get('fuerzas').then((FZ) => { D.FZ = FZ; drawFZ(FZ); });
   if (meta.ia) Promise.all([get('ia_agregado'), get('ia_empresas')]).then(([A, E]) => { D.iaA = A; D.iaE = E; drawIA(A, E); });
-  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); if (D.TF) drawTF(D.TF); if (D.FZ) drawFZ(D.FZ); if (D.BB) drawBB(D.BB); }, 150); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); if (D.TF) drawTF(D.TF); if (D.FZ) drawFZ(D.FZ); if (D.BB) drawBB(D.BB); if (D.RN) drawRN(D.RN); }, 150); });
 }).catch((e) => { const l = document.querySelector('.lede'); if (l) l.insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });

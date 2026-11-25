@@ -21,6 +21,24 @@ Horas de trabajo no pagado que el capital obtiene en un año en los 42 países m
 [[leyenda l-hm]]
 [[grafico c-hm]]
 
+<div id="rn-bloque" hidden markdown="1">
+
+### ¿Resiste el estancamiento de la masa neta? Distintas estimaciones de la depreciación de China e India
+
+China e India aportan dos tercios de la masa mundial, y su depreciación es la estimación más incierta de toda la medición. Aquí se recalcula la masa neta con cinco estimaciones alternativas, cambiando sólo la depreciación de esos dos países: más baja y más alta que la central, la del Banco Mundial, la mediana de los demás países y la de 2018 congelada. En todas, la masa neta crece con fuerza entre 2000 y 2018 y después queda prácticamente plana: entre 2018 y el último año cambia {{rn-rango}}. El estancamiento no es un efecto de la estimación de la depreciación.
+{: .llano }
+
+[[leyenda l-rn]]
+[[grafico c-rn corto]]
+
+[[tabla t-rn: Depreciación de China e India | 2000 | 2018 | Último año | 2000–2018 | 2018–último año]]
+
+:::como ¿Cómo se calculan estas variantes?
+Sólo cambia la proporción depreciación/PIB de China e India; los demás países quedan como en la central. **Central:** Penn World Table, δ·K/Y. **PWT × 0,8 y × 1,2:** tasa de depreciación un 20 % menor o mayor. **Banco Mundial:** consumo de capital fijo en % del ingreso nacional bruto (NY.ADJ.DKAP.GN.ZS), con el último dato mantenido en los años siguientes. **Mediana:** la mediana de la depreciación/PIB de los demás países medidos ese año. **Constante desde 2018:** la proporción de 2018 congelada, para aislar el efecto de su aumento posterior. En todos los casos, r = depreciación/PIB × valor agregado de mercado / v; e<sub>neta</sub> = e − r; masa neta = horas × e<sub>neta</sub> / (1 + e<sub>neta</sub>), como en la central. Resultado: `mundo_neta_robustez.csv`.
+:::
+
+</div>
+
 ### Tasa de plusvalor mundial en horas: plustrabajo / trabajo necesario
 
 Cuántas horas trabaja para el capital un asalariado productivo del mundo por cada hora que trabaja para reponer su salario. Es casi constante: en promedio, el capital mundial no ha elevado el grado de explotación en este siglo. La masa crece porque hay más asalariados, no porque cada uno trabaje más para el capital. La versión neta baja, porque cada hora de trabajo pone en movimiento más capital fijo que hay que reponer.

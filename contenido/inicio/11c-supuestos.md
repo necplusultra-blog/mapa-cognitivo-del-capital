@@ -4,9 +4,9 @@ id: supuestos
 menu: Qué cuenta como plusvalor
 oculta: si
 ---
-## Qué cuenta como plusvalor: tres ajustes a las cuentas nacionales
+## Qué cuenta como plusvalor: cuatro supuestos frente a las cuentas nacionales
 
-Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría de Marx tienen orígenes distintos. El sismógrafo separa dos de ellas en su medición central: resta lo que los hogares pagan a las finanzas con sus salarios, que es plusvalor desplazado desde el salario y no plusvalor producido, y suma, en la escala mundial, la renta que las empresas pagan por sus locales, que sí es plusvalor producido. Esta sección muestra cuánto cambian las cifras respecto de la convención de las cuentas, y registra un tercer supuesto, el de la supervisión.
+Las cuentas nacionales mezclan, dentro de las ganancias, cosas que en la teoría de Marx tienen orígenes distintos. El sismógrafo separa dos de ellas en su medición central: resta lo que los hogares pagan a las finanzas con sus salarios, que es plusvalor desplazado desde el salario y no plusvalor producido, y suma, en la escala mundial, la renta que las empresas pagan por sus locales, que sí es plusvalor producido. Esta sección muestra cuánto cambian las cifras respecto de la convención de las cuentas, y registra otros dos supuestos que se mantienen como sensibilidad: la supervisión y el salario social neto.
 {: .llano }
 
 [[cifra bb-fh | Plusvalor desplazado desde los salarios hacia las finanzas en EE.UU., como parte del plusvalor de las cuentas, {{.bb-fin}} | 1948: {{bb-fh48}}]]
@@ -29,6 +29,16 @@ El valor agregado de los bancos y aseguradoras entra en las cuentas como si todo
 Marx distingue (*El Capital*, Libro III, cap. XXIII) el trabajo de dirección, necesario en toda cooperación, del trabajo de vigilancia, que nace del antagonismo entre capital y trabajo. Las estadísticas no los separan. El sitio usa dos cotas: el criterio por ramas cuenta a todos los asalariados de las ramas productivas, gerentes incluidos, como capital variable; el criterio intra-rama cuenta sólo a los obreros de producción y no supervisores, y deja los sueldos de supervisión dentro del plusvalor. La segunda línea del gráfico anterior muestra que la distancia entre ambas cotas crece: la parte de la remuneración que va a supervisores, gerentes y personal no productivo dentro de las ramas productivas sube desde los setenta. Es el fenómeno que Duménil y Lévy (2011) leen como ascenso de los cuadros gerenciales, y Moseley (1991) como crecimiento del trabajo improductivo.
 {: .llano }
 
+### Salario social neto: lo que el Estado devuelve y lo que cobra
+
+El Estado cobra impuestos y contribuciones a los trabajadores y les devuelve prestaciones: pensiones, seguro de desempleo, salud pública, educación. Si devolviera más de lo que cobra, estaría trasladando al salario una parte del plusvalor que recauda de los capitales; si devuelve menos, son los propios trabajadores quienes financian su seguridad social. Shaikh y Tonak (1994) llaman a esa diferencia salario social neto. En EE.UU. es pequeño y casi siempre negativo: los trabajadores pagan, en conjunto, algo más de lo que reciben. Sólo después de la crisis de 2008 y durante la pandemia fue positivo. Por eso no cambia las conclusiones, y el sitio lo muestra como sensibilidad.
+{: .llano }
+
+[[cifra bb-ssn | Salario social neto de EE.UU., {{.bb-fin}}, como parte de la remuneración de los asalariados | tasa de plusvalor intra-rama si se incluye: {{bb-essn}} (central: {{bb-ec2}})]]
+
+[[leyenda l-bb3]]
+[[grafico c-bb3 corto]]
+
 ### Mundo: renta comercial y servicios financieros de los hogares (miles de millones de horas de plustrabajo)
 
 En la escala mundial, la medición central suma la renta que las empresas pagan por sus locales (plusvalor cedido a la propiedad territorial) y resta los servicios financieros que los hogares pagan con sus salarios. Los dos ajustes van en sentidos opuestos y casi se compensan: la masa mundial de plustrabajo cambia muy poco respecto de la convención de las cuentas.
@@ -41,5 +51,5 @@ En la escala mundial, la medición central suma la renta que las empresas pagan 
 - **B3, renta comercial (en la medición central, sólo mundo).** Se suma el consumo intermedio de productos inmobiliarios (L68) de las ramas de mercado, como proporción de su valor agregado (WIOD). En EE.UU. no hace falta: el plusvalor del sector empresarial ya incluye el inmobiliario comercial y excluye sólo la vivienda.
 - **Aplicación en el mundo.** Para cada país, e' = e + (B3 − B4) × (valor agregado de mercado / v); plustrabajo = horas × e' / (1 + e'). Después de 2014 se mantienen las proporciones de 2014 de cada país.
 - **B2, supervisión.** 1 − v intra-rama / v por ramas: la parte de la remuneración de las ramas productivas que no corresponde a obreros de producción y no supervisores. Incluye a supervisores y gerentes, pero también diferencias de cobertura entre la encuesta de establecimientos (BLS) y las cuentas por industria (BEA): es una aproximación.
-- **Pendiente.** B5, el salario social neto (impuestos que pagan los trabajadores y transferencias que reciben), todavía no se calcula.
+- **B5, salario social neto (sensibilidad, desde 1959).** Prestaciones recibidas por los hogares asalariados = (prestaciones sociales del gobierno, A063RC, + gasto público corriente en educación, NIPA 3.16) × remuneración / ingreso personal. Impuestos que pagan = impuestos personales (W055RC) × remuneración / ingreso personal + contribuciones a la seguridad social (A061RC; las patronales ya forman parte de la remuneración). Salario social neto = prestaciones − impuestos; la parte de los obreros productivos es proporcional a su remuneración. Variante: e = (S − SSN) / (V + SSN). Es una aproximación: asigna las prestaciones y los impuestos con la misma proporción salarial del ingreso personal.
 :::

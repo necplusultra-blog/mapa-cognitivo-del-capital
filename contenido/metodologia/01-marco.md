@@ -5,6 +5,8 @@ menu: Marco interpretativo
 ---
 ## Marco interpretativo
 
+**Proyecto.** El sismógrafo pretende retomar y continuar el proyecto, necesariamente inconcluso, de la crítica marxiana de la economía política, y no hacer economía política crítica: las categorías (valor, plusvalor, capital, trabajo productivo) son formas de una relación social históricamente específica, y deciden qué se mide antes de que se mida nada. Las series registran la manifestación fenoménica de esas determinaciones; no las demuestran (véase la [Lectura](lectura.html#critica)). La inteligencia artificial se usa para reunir, armonizar y recalcular una cantidad de datos oficiales que no podría procesarse a mano, del mismo modo en que Marx procesó en vida un enorme material empírico para elaborar el concepto de capital; no toma ninguna decisión teórica.
+
 **Objetivo.** El sismógrafo busca dar cuenta de las tendencias fundamentales de la producción capitalista contemporánea. Para eso combina tres operaciones, cada una documentada en esta página:
 
 1. **Traducir datos empíricos a categorías.** Cuentas nacionales, empleo, horas, stocks de capital, comercio y matrices insumo-producto se convierten en tasa y masa de plusvalor, composición del capital, tiempo de trabajo necesario y plustrabajo, con decisiones teóricas explícitas (§3 a §13).

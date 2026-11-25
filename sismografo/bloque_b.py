@@ -14,6 +14,12 @@ B3 — Renta comercial (mundo). La renta que los capitales de las ramas de merca
      plusvalor producido y cedido a la propiedad territorial: se suma (consumo intermedio de L68, WIOD). En EE.UU. ya
      está dentro: el plusvalor del sector empresarial incluye el inmobiliario comercial y excluye sólo la vivienda.
      Después de 2014 (sin tablas WIOD) se mantienen las proporciones de 2014 de cada país.
+B5 — Salario social neto (sensibilidad; Shaikh y Tonak, 1994). El Estado cobra impuestos a los trabajadores y les
+     devuelve prestaciones. Salario social neto = prestaciones recibidas por los hogares asalariados (prestaciones
+     sociales del gobierno + gasto público en educación, × remuneración / ingreso personal) − impuestos que pagan
+     (impuestos personales × remuneración / ingreso personal + contribuciones a la seguridad social). Se asigna a los
+     obreros productivos en proporción a su remuneración. Si es positivo, el Estado traslada plusvalor al salario; si es
+     negativo, los trabajadores financian más de lo que reciben. Variante: e = (S − SSN) / (V + SSN). Desde 1959.
 B2 — Supervisión y dirección. EE.UU. ofrece dos cotas: por ramas (supervisores y gerentes en v) e intra-rama (sólo
      obreros de producción y no supervisores; los sueldos de supervisión quedan en el plusvalor). Se registra la parte
      de la remuneración de las ramas productivas que no es de obreros de producción y no supervisores.
@@ -26,7 +32,17 @@ FIN = ['K64', 'K65', 'K66']
 FUERA = ['L68', 'O84', 'T', 'U']
 
 
-def _eeuu(ee):
+def _ssn(dir_datos):
+    """Salario social neto de la economía (millones de USD) y su proporción sobre la remuneración total."""
+    from .eeuu import Datos
+    D = Datos(dir_datos)
+    comp = D.s('N', 'A033RC'); lam = comp / D.s('N', 'A065RC')
+    ben = lam * (D.s('N', 'A063RC') + D.s('N', 'G16029').reindex(lam.index))
+    imp = lam * D.s('N', 'W055RC') + D.s('N', 'A061RC')
+    return ben - imp, comp
+
+
+def _eeuu(ee, dir_datos=None):
     fh, fht = ee['FH'], ee['FH_TOTAL']
     out = {}
     for prod in ('b', 'c'):
@@ -41,8 +57,18 @@ def _eeuu(ee):
     out['fin_hogares_total_pct_pv_b'] = fht / (Sb + fh) * 100
     Vb = ee['SK']['B|b|cc|neta|ppi-incl|K-todo|noutil'][2]; Vc = ee['SK']['B|c|cc|neta|ppi-incl|K-todo|noutil'][2]
     out['supervision_pct_v_ramas'] = (1 - Vc / Vb) * 100
+    if dir_datos:
+        try:
+            ssn, comp = _ssn(dir_datos)
+            out['ssn_pct_remuneracion'] = (ssn / comp * 100).reindex(fh.index)
+            for prod in ('b', 'c'):
+                S, K, V = (x.reindex(fh.index) for x in ee['SK'][f'B|{prod}|cc|neta|ppi-incl|K-todo|noutil'])
+                sp = (ssn / comp).reindex(fh.index) * V                         # parte de los obreros productivos
+                out[f'e_{prod}_ssn'] = (S - sp) / (V + sp)
+        except Exception as e:  # noqa: BLE001
+            print('Salario social neto omitido:', repr(e))
     E = pd.DataFrame(out); E.index.name = 'anio'
-    sel = [c for c in E.columns if c.endswith(('_c', '_c_cuentas')) or c == 'supervision_pct_v_ramas']
+    sel = [c for c in E.columns if c.endswith(('_c', '_c_cuentas', '_c_ssn')) or c == 'supervision_pct_v_ramas']
     E.loc[E.index < 1972, sel] = np.nan
     return E
 
@@ -90,7 +116,7 @@ def _mundo(hm):
 
 
 def calcular(dir_datos, dir_out, ee, hm=None):
-    E = _eeuu(ee)
+    E = _eeuu(ee, dir_datos)
     E.to_csv(os.path.join(dir_out, 'bloque_b_eeuu.csv'))
     M = _mundo(hm) if hm is not None else pd.DataFrame()
     if not M.empty:

@@ -10,6 +10,7 @@ menu: Referencias
 - Marx, K. (1968). *Theories of Surplus Value*, parte II. Moscú: Progress Publishers.
 - Marx, K. (2016a). *Elementos fundamentales para la crítica de la economía política (Grundrisse) 1857–1858*, t. 1. México: Siglo XXI.
 - Marx, K. (2016b). *Elementos fundamentales para la crítica de la economía política (Grundrisse) 1857–1858*, t. 2. México: Siglo XXI.
+- Marx, K. (2017). *Exzerpte, Zeitungsausschnitte und Notizen zur Weltwirtschaftskrise (Krisenhefte). November 1857 bis Februar 1858*. MEGA² IV/14. Berlín: De Gruyter.
 - Marx, K. (2018). *El Capital. Crítica de la economía política*, t. I, vol. 1. *Libro primero: el proceso de producción de capital*. Buenos Aires: Siglo XXI.
 - Marx, K. (2021). *El Capital. Libro III. El proceso global de la producción capitalista*. Ciudad de México: Siglo XXI.
 

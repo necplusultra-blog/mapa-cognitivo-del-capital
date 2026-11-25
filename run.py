@@ -4,7 +4,7 @@
     python run.py --sin-descarga  # recalcula con los datos ya descargados
 """
 import argparse, json, os
-from sismografo import bloque_b, contratendencias, descarga, fuerzas, intercambio, eeuu, horas_mundo, ia, mundo, paginas, sitio, transformacion, trimestral
+from sismografo import bloque_b, robustez_neta, contratendencias, descarga, fuerzas, intercambio, eeuu, horas_mundo, ia, mundo, paginas, sitio, transformacion, trimestral
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 
@@ -50,6 +50,10 @@ if __name__ == '__main__':
         ee['bloque_b'] = bloque_b.calcular(a.datos, out, ee, mu.get('horas'))
     except Exception as e:  # noqa: BLE001
         print('Bloque B omitido:', repr(e)); ee['bloque_b'] = None
+    try:
+        ee['robustez_neta'] = robustez_neta.calcular(out, mu['horas']) if mu.get('horas') else None
+    except Exception as e:  # noqa: BLE001
+        print('Robustez de la masa neta omitida:', repr(e)); ee['robustez_neta'] = None
     paginas.construir(os.path.join(RAIZ, 'site'))   # textos editables de contenido/ → site/*.html
     meta = sitio.escribir(ee, mu, os.path.join(RAIZ, 'site'))
     import glob, shutil

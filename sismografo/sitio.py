@@ -123,6 +123,10 @@ def escribir(ee, mu, dir_site):
     if fz:
         _w(f'{d}/fuerzas.json', dict(eeuu=_rows(fz['eeuu'].astype(float).round(3)), desc={k: (round(v, 3) if isinstance(v, float) else v) for k, v in fz['desc'].items()},
                                       mundo=json.loads(fz['mundo'].round(3).to_json(orient='records')) if fz.get('mundo') is not None else []))
+    rn = ee.get('robustez_neta')
+    if rn:
+        _w(f'{d}/robustez_neta.json', dict(serie=json.loads(rn['R'].round(2).to_json(orient='records')),
+                                            resumen=json.loads(rn['T'].round(2).to_json(orient='records'))))
     bb = ee.get('bloque_b')
     if bb:
         M = bb['M']
@@ -138,7 +142,7 @@ def escribir(ee, mu, dir_site):
     try: sha = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], text=True).strip()
     except Exception: sha = None  # noqa: BLE001
     meta = dict(actualizado=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), commit=sha,
-                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, contratendencias=ee.get('ct') is not None, transformacion=bool(ee.get('transformacion')), fuerzas=bool(ee.get('fuerzas')), bloque_b=bool(ee.get('bloque_b')), eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(ee['principal']), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
+                eeuu_fin=int(ee['fin']), ia=ee.get('ia') is not None, contratendencias=ee.get('ct') is not None, transformacion=bool(ee.get('transformacion')), fuerzas=bool(ee.get('fuerzas')), bloque_b=bool(ee.get('bloque_b')), robustez_neta=bool(ee.get('robustez_neta')), eeuu_trim_fin=str(ee['trim'].index[-1]), eeuu_n=len(ee['principal']), eeuu_n_intra=int(ee['Rc'].shape[1]), empalmes=ee['empalmes'],
                 mundo_fin=int(mu['fin']), mundo_horas=mu.get('horas') is not None, mundo_fuente=mu['fuente'], mundo_n=mu['n'], mundo_nbal=mu['nbal'], mundo_medidas=mu['medidas'])
     _w(f'{d}/meta.json', meta)
     return meta
