@@ -1,16 +1,11 @@
 TiM: 81 economías; g: 1092 observaciones; φ_M: 39 países
-error al descargar 1995-2000_SML.zip (intento 1): <HTTPError 403: 'Forbidden'>
-error al descargar 1995-2000_SML.zip (intento 2): <HTTPError 403: 'Forbidden'>
-error al descargar 1995-2000_SML.zip (intento 3): <HTTPError 403: 'Forbidden'>
-error al descargar 2001-2005_SML.zip (intento 1): <HTTPError 403: 'Forbidden'>
-error al descargar 2001-2005_SML.zip (intento 2): <HTTPError 403: 'Forbidden'>
-error al descargar 2001-2005_SML.zip (intento 3): <HTTPError 403: 'Forbidden'>
-error al descargar 2006-2010_SML.zip (intento 1): <HTTPError 403: 'Forbidden'>
-error al descargar 2006-2010_SML.zip (intento 2): <HTTPError 403: 'Forbidden'>
-error al descargar 2006-2010_SML.zip (intento 3): <HTTPError 403: 'Forbidden'>
-error al descargar 2011-2015_SML.zip (intento 1): <HTTPError 403: 'Forbidden'>
-error al descargar 2011-2015_SML.zip (intento 2): <HTTPError 403: 'Forbidden'>
-error al descargar 2011-2015_SML.zip (intento 3): <HTTPError 403: 'Forbidden'>
-error al descargar 2016-2022_SML.zip (intento 1): <HTTPError 403: 'Forbidden'>
-error al descargar 2016-2022_SML.zip (intento 2): <HTTPError 403: 'Forbidden'>
-error al descargar 2016-2022_SML.zip (intento 3): <HTTPError 403: 'Forbidden'>
+no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/1995-2000_SML.zip: <HTTPError 404: 'Not Found'>
+no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/1995-2000_SML.zip: <HTTPError 403: 'Forbidden'>
+no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/2001-2005_SML.zip: <HTTPError 404: 'Not Found'>
+no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/2001-2005_SML.zip: <HTTPError 403: 'Forbidden'>
+no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/2006-2010_SML.zip: <HTTPError 404: 'Not Found'>
+no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/2006-2010_SML.zip: <HTTPError 403: 'Forbidden'>
+no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/2011-2015_SML.zip: <HTTPError 404: 'Not Found'>
+no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/2011-2015_SML.zip: <HTTPError 403: 'Forbidden'>
+no disponible https://github.com/necplusultra-blog/sismografo-del-capital/releases/download/icio-2025/2016-2022_SML.zip: <HTTPError 404: 'Not Found'>
+no disponible https://webfs-sti.oecd.org/files/STI-PIE/ICIO/2025/2016-2022_SML.zip: <HTTPError 403: 'Forbidden'>
