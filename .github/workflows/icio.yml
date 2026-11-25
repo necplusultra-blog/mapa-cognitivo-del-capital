@@ -1,0 +1,36 @@
+name: ICIO OCDE
+
+# F4 v3: descarga las tablas mundiales de la OCDE (ICIO, edición 2025), calcula los valores-trabajo por país y rama
+# (herramientas/icio.py) y guarda sólo los resultados compactos en datos_cache/externo/icio/. Se ejecuta a mano o
+# cuando cambia herramientas/icio.py. Tarda alrededor de una hora (los archivos pesan varios cientos de MB).
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['herramientas/icio.py']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: icio
+  cancel-in-progress: false
+
+jobs:
+  icio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -u herramientas/icio.py
+      - name: Guardar
+        if: always()
+        run: |
+          git config user.name "sismografo-bot"; git config user.email "actions@users.noreply.github.com"
+          git add datos_cache/externo/icio || true
+          if ! git diff --cached --quiet; then git commit -m "ICIO OCDE: valores-trabajo por país y rama ($(date -u +%Y-%m-%d))" && (git push || (git pull --rebase -X theirs && git push)); fi
