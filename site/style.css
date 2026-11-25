@@ -162,3 +162,13 @@ article.lectura.activa, article.lectura:focus { outline: none; box-shadow: 0 0 0
 /* agradecimiento de la portada */
 .portada .agradecimiento { grid-column: 1 / -1; max-width: 62rem; margin: .4em 0 1em; padding: .2rem 0 .2rem .9rem;
                            border-left: 2px solid var(--estilete); font-family: var(--sans); font-size: .92rem; line-height: 1.5; color: var(--tinta); }
+
+/* Selector de idioma (ES | EN) */
+.barra nav .idioma { display: inline-flex; border: 1px solid var(--gris); border-radius: 999px; overflow: hidden; font-size: .85em; vertical-align: middle; }
+.barra nav .idioma > * { padding: .15em .65em; line-height: 1.4; }
+.barra nav .idioma .activo { background: var(--tinta); color: var(--papel); font-weight: 600; }
+.barra nav .idioma a { color: var(--gris); }
+.barra nav .idioma a:hover { color: var(--tinta); background: rgba(0,0,0,.05); }
+.barra nav { align-items: center; }
+.barra nav .idioma { flex-shrink: 0; }
+@media (max-width: 600px) { .barra { flex-wrap: wrap; row-gap: 6px; } .barra nav { flex-wrap: wrap; row-gap: 6px; } }
