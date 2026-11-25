@@ -1,0 +1,43 @@
+autor,serie,medida,tipo,tramo,publicado,reconstruido,diferencia,juicio,fuente
+Shaikh y Tonak,st_e,Tasa de plusvalor S*/V*,nivel,1948,1.7,,,sin datos comparables,"Shaikh y Tonak (1994), cuadro 5.6"
+Shaikh y Tonak,st_e,Tasa de plusvalor S*/V*,nivel,1950,1.77,,,sin datos comparables,"Shaikh y Tonak (1994), cuadro 5.6"
+Shaikh y Tonak,st_e,Tasa de plusvalor S*/V*,nivel,1958,2.01,,,sin datos comparables,"Shaikh y Tonak (1994), cuadro 5.6"
+Shaikh y Tonak,st_e,Tasa de plusvalor S*/V*,nivel,1975,2.11,2.146478967811262,0.03647896781126203,reproduce,"Shaikh y Tonak (1994), cuadro 5.6"
+Shaikh y Tonak,st_e,Tasa de plusvalor S*/V*,nivel,1977,2.1,2.1232293666743702,0.023229366674370144,reproduce,"Shaikh y Tonak (1994), cuadro 5.6"
+Shaikh y Tonak,st_e,Tasa de plusvalor S*/V*,nivel,1980,2.07,2.1442482006929797,0.07424820069297988,reproduce,"Shaikh y Tonak (1994), cuadro 5.6"
+Shaikh y Tonak,st_e,Tasa de plusvalor S*/V*,nivel,1982,2.19,2.2176633152644207,0.027663315264420785,reproduce,"Shaikh y Tonak (1994), cuadro 5.6"
+Shaikh y Tonak,st_e,Tasa de plusvalor S*/V*,nivel,1985,2.33,2.475541888349233,0.14554188834923298,reproduce,"Shaikh y Tonak (1994), cuadro 5.6"
+Shaikh y Tonak,st_e,Tasa de plusvalor S*/V*,nivel,1989,2.44,2.606273803391778,0.16627380339177789,reproduce,"Shaikh y Tonak (1994), cuadro 5.6"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K* (sin ajuste),nivel,1948,0.39,,,sin datos comparables,"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K* (sin ajuste),nivel,1950,0.38,,,sin datos comparables,"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K* (sin ajuste),nivel,1958,0.36,,,sin datos comparables,"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K* (sin ajuste),nivel,1975,0.33,0.4019509917056638,0.07195099170566377,nivel no comparable (acervo bruto frente a neto),"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K* (sin ajuste),nivel,1977,0.33,0.4151190511380415,0.08511905113804147,nivel no comparable (acervo bruto frente a neto),"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K* (sin ajuste),nivel,1980,0.3,0.3766089437633939,0.07660894376339389,nivel no comparable (acervo bruto frente a neto),"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K* (sin ajuste),nivel,1982,0.29,0.3560200654166025,0.06602006541660255,nivel no comparable (acervo bruto frente a neto),"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K* (sin ajuste),nivel,1985,0.34,0.42124408396380913,0.08124408396380911,nivel no comparable (acervo bruto frente a neto),"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K* (sin ajuste),nivel,1989,0.35,0.437293241836733,0.08729324183673304,nivel no comparable (acervo bruto frente a neto),"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K*: variación,razon,1975–1982,87.9,88.57300336686443,0.6730033668644211,reproduce,"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K*: variación,razon,1982–1989,120.7,122.8282572570811,2.1282572570811027,reproduce,"Shaikh y Tonak (1994), cuadro 5.8"
+Shaikh y Tonak,st_r,Tasa marxiana S*/K*: variación,razon,1975–1989,106.1,108.79267643577535,2.692676435775354,reproduce,"Shaikh y Tonak (1994), cuadro 5.8"
+Moseley,mo_rs,Tasa de plusvalor S/V,nivel,1977,1.63,1.7704984807145059,0.140498480714506,reproduce,"Moseley (1991), cap. 3; Moseley (1997)"
+Moseley,mo_cc,Composición C/V,nivel,1977,5.03,5.420705619983761,0.39070561998376085,reproduce,"Moseley (1991), cap. 3; Moseley (1997)"
+Moseley,mo_uf,Trabajo improductivo Uf/V,nivel,1977,0.94,0.9452556942526276,0.0052556942526276185,reproduce,"Moseley (1991), cap. 3; Moseley (1997)"
+Moseley,mo_us,Capital improductivo Us/V,nivel,1977,0.66,0.5257979823323076,-0.13420201766769246,aproxima,"Moseley (1991), cap. 3; Moseley (1997)"
+Moseley,mo_r,Tasa de ganancia convencional,nivel,1977,0.12,0.1387778166215958,0.018777816621595805,aproxima,"Moseley (1991), cap. 3; Moseley (1997)"
+Kliman,kl_pat,Ganancia antes de impuestos / activos fijos a costo histórico,nivel,1978,0.24,0.23307053776225947,-0.006929462237740519,reproduce,"Kliman (2010), «Appearance and Essence», fig. 3"
+Kliman,kl_pat,Ganancia antes de impuestos / activos fijos a costo histórico,nivel,2001,0.12,0.10156522297636315,-0.018434777023636842,aproxima,"Kliman (2010), «Appearance and Essence», fig. 3"
+Duménil y Lévy,dl_rb,"Tasa amplia r_b, sociedades",razon,1948–1982,58.5,66.5418854682827,8.0418854682827,aproxima,"Duménil y Lévy (2002), cuadro 3"
+Duménil y Lévy,dl_rb,"Tasa amplia r_b, sociedades",razon,1982–2000,144.9,113.12124325795297,-31.778756742047037,"misma dirección, otra magnitud","Duménil y Lévy (2002), cuadro 3"
+Duménil y Lévy,dl_rb,"Tasa amplia r_b, sociedades",razon,1948–2000,84.8,75.27300812900454,-9.52699187099546,aproxima,"Duménil y Lévy (2002), cuadro 3"
+Duménil y Lévy,dl_rb_sinppi,"Tasa amplia r_b, sociedades, sin propiedad intelectual",razon,1948–1982,58.5,67.09969593107054,8.599695931070542,aproxima,"Duménil y Lévy (2002), cuadro 3"
+Duménil y Lévy,dl_rb_sinppi,"Tasa amplia r_b, sociedades, sin propiedad intelectual",razon,1982–2000,144.9,116.92177979646033,-27.978220203539678,"misma dirección, otra magnitud","Duménil y Lévy (2002), cuadro 3"
+Duménil y Lévy,dl_rb_sinppi,"Tasa amplia r_b, sociedades, sin propiedad intelectual",razon,1948–2000,84.8,78.45415872062075,-6.345841279379243,aproxima,"Duménil y Lévy (2002), cuadro 3"
+Roberts,ro_hc,"Toda la economía, costo histórico",cambio,1965–1982,-21.0,-19.636821657637316,1.3631783423626835,reproduce,Roberts (2018)
+Roberts,ro_cc,"Toda la economía, costo corriente",cambio,1965–1982,-36.0,-34.39960941034148,1.6003905896585167,reproduce,Roberts (2018)
+Roberts,ro_hc,"Toda la economía, costo histórico",cambio,1982–1997,10.0,8.100288332291573,-1.8997116677084271,reproduce,Roberts (2018)
+Roberts,ro_cc,"Toda la economía, costo corriente",cambio,1982–1997,29.0,26.460016746637315,-2.539983253362685,reproduce,Roberts (2018)
+Roberts,ro_hc,"Toda la economía, costo histórico",cambio,1965–1982,-23.0,-19.636821657637316,3.3631783423626835,reproduce,Roberts (2021)
+Roberts,ro_cc,"Toda la economía, costo corriente",cambio,1965–1982,-37.0,-34.39960941034148,2.6003905896585167,reproduce,Roberts (2021)
+Roberts,ro_hc,"Toda la economía, costo histórico",cambio,1982–1997,15.0,8.100288332291573,-6.899711667708427,aproxima,Roberts (2021)
+Roberts,ro_cc,"Toda la economía, costo corriente",cambio,1982–1997,35.0,26.460016746637315,-8.539983253362685,aproxima,Roberts (2021)

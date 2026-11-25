@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Metodología — Sismógrafo del capital</title>
-<link rel="stylesheet" href="style.css?v=d7285682611250134">
+<link rel="stylesheet" href="style.css?v=f1ada8d2611250248">
 </head>
 <body class="doc">
 <a class="saltar" href="#contenido">Ir al contenido</a>
@@ -25,6 +25,7 @@
 <li><a href="#plusvalor">Plusvalor ampliado (lectura macromonetaria)</a></li>
 <li><a href="#multiverso">El multiverso de especificaciones</a></li>
 <li><a href="#referencias">Las seis lecturas del debate</a></li>
+<li><a href="#replicacion">Replicación de las series de los autores</a></li>
 <li><a href="#quiebres">Quiebres endógenos</a></li>
 <li><a href="#robustez">Robustez por décadas</a></li>
 <li><a href="#tiempo">Del dinero al tiempo de trabajo</a></li>
@@ -211,7 +212,7 @@
 </tbody>
 </table>
 <p>A ellas se agrega una línea de base, <strong>empresarial, todo productivo</strong> (variante a), que no distingue trabajo productivo e improductivo.</p>
-<p>Todas son netas, incluyen la propiedad intelectual, no incluyen existencias ni ajuste por utilización, y usan todo el capital. Son definiciones «a la manera de» los autores: la replicación numérica exacta de sus series está en preparación (tarea F1.2). Los diagnósticos que el sitio atribuye a cada corriente resumen sus tesis publicadas; la lectura crítica de las seis es la de la investigación doctoral y está en la <a href="lectura.html#seis-lecturas">Lectura</a>.</p>
+<p>Todas son netas, incluyen la propiedad intelectual, no incluyen existencias ni ajuste por utilización, y usan todo el capital. Son definiciones «a la manera de» los autores; la replicación de sus series, con la definición de cada uno y los datos vigentes, está en la <a href="#replicacion">sección siguiente</a>. Los diagnósticos que el sitio atribuye a cada corriente resumen sus tesis publicadas; la lectura crítica de las seis es la de la investigación doctoral y está en la <a href="lectura.html#seis-lecturas">Lectura</a>.</p>
 <p><strong>Referencias</strong> (todas las obras citadas en el sitio están en la <a href="#bibliografia">bibliografía, §16</a>).
 - Carchedi, G. y Roberts, M. (2022). <em>Capitalism in the 21st Century: Through the Prism of Value</em>. Londres: Pluto Press.
 - Duménil, G. y Lévy, D. (2004). <em>Capital Resurgent: Roots of the Neoliberal Revolution</em>. Cambridge (MA): Harvard University Press.
@@ -223,6 +224,49 @@
 - Roberts, M. (2016). <em>The Long Depression</em>. Chicago: Haymarket Books.
 - Shaikh, A. (2016). <em>Capitalism: Competition, Conflict, Crises</em>. Nueva York: Oxford University Press.
 - Shaikh, A. y Tonak, E. A. (1994). <em>Measuring the Wealth of Nations: The Political Economy of National Accounts</em>. Cambridge: Cambridge University Press.</p>
+</section>
+<section id="replicacion" class="seccion">
+<h2 id="replicacion-de-las-series-de-los-autores">Replicación de las series de los autores</h2>
+<p>Las cinco tasas «a la manera de» los autores (§ anterior) comparten una definición común para que se puedan leer juntas. La replicación hace lo contrario: rehace cada serie con la definición que su autor publicó, con los datos vigentes de la BEA, y la contrasta con los valores que el autor informó. El módulo es <code>sismografo/replicacion.py</code>; los resultados están en <code>replicacion_series.csv</code>, <code>replicacion_contraste.csv</code> y <code>replicacion_tendencias.csv</code> (descargas).</p>
+<p>La diferencia entre lo publicado y lo rehecho tiene dos fuentes que no se pueden separar del todo: las revisiones de las cuentas (la propiedad intelectual entra al capital en 1999 —software— y en 2013 —I+D y originales artísticos—; la revisión integral de 2023 corrigió la remuneración, las ganancias y los acervos) y lo que la reconstrucción no reproduce del método de cada autor. Por eso el criterio no es acertar a sus números, sino comprobar si las tendencias sobre las que cada lectura construye su diagnóstico siguen apareciendo.</p>
+<table>
+<thead>
+<tr>
+<th>Autor</th>
+<th>Valores publicados que se contrastan</th>
+<th>Definición rehecha</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shaikh y Tonak (1994)</td>
+<td>S*/V* y tasa marxiana S*/K*, 1948–1989 (cuadros 5.6 y 5.8)</td>
+<td>S* = producto neto empresarial sin vivienda arrendada − V*; V* = remuneración de los obreros de producción y no supervisores de las ramas productivas (desde 1972). Desde 1948, cota inferior con toda la remuneración de esas ramas. K = acervo neto (ellos: bruto)</td>
+</tr>
+<tr>
+<td>Moseley (1991; 1997)</td>
+<td>S/V, C/V, Uf/V, Us/V y tasa convencional en 1977</td>
+<td>V = salarios de producción y no supervisión en ramas productivas; Uf = resto de la remuneración empresarial; C = capital fijo productivo + inventarios; Us = capital fijo de circulación; S sin impuestos indirectos</td>
+</tr>
+<tr>
+<td>Kliman (2010; 2012)</td>
+<td>Ganancia antes de impuestos / activos a costo histórico, 1978 y 2001</td>
+<td>Sociedades; depreciación a costo histórico en lugar de la corriente; denominador = acervo neto a costo histórico del cierre del año anterior. También ingreso de propiedad y ganancia total</td>
+</tr>
+<tr>
+<td>Duménil y Lévy (2002)</td>
+<td>Razones 1982/1948, 2000/1982 y 2000/1948 de la tasa amplia r_b de las sociedades (cuadro 3)</td>
+<td>(valor agregado neto − remuneración) / acervo neto no residencial a costo corriente; variante sin propiedad intelectual</td>
+</tr>
+<tr>
+<td>Roberts (2018; 2021)</td>
+<td>Variación 1965–1982 y 1982–1997 de su tasa «toda la economía»</td>
+<td>(ingreso nacional − remuneración) / (activos fijos privados no residenciales + remuneración), a costo histórico y corriente</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultados.</strong> Se reproducen la tasa de plusvalor de Shaikh y Tonak con V* de obreros de producción (1975–1982, diferencias menores a 0,08; en 1985–1989 la rehecha queda entre 0,15 y 0,17 por encima), la tendencia de su tasa marxiana (variaciones 1975–1982 y 1982–1989 cercanas a las publicadas; el nivel es mayor porque el acervo neto es menor que el bruto), la proporción Uf/V de Moseley en 1977, la tasa antes de impuestos de Kliman en 1978 y, de manera aproximada, en 2001, y las variaciones de la tasa de Roberts que él publicó en 2018 (las de 2021, con una recuperación 1982–1997 mayor, se aproximan peor). La caída de 1948 a 1982 de Duménil y Lévy se aproxima; su recuperación de 1982 a 2000 (+45 %) no: con los datos de hoy es mucho menor, con o sin propiedad intelectual. La tasa convencional de Moseley se aproxima sólo bajo nuestra lectura de su identidad (S sin impuestos indirectos, C con inventarios), que el texto publicado no explicita.</p>
+<p><strong>Límites.</strong> La tasa de plusvalor de Shaikh y Tonak y la de Moseley no se pueden rehacer antes de 1972, porque los salarios de los obreros de producción por supersector (BLS CES) empiezan ese año; para 1948–1971 sólo hay la cota inferior por ramas. Duménil y Lévy imputan una remuneración al trabajo de los no asalariados en el sector empresarial; aquí sólo se replica su sector corporativo, donde esa imputación no es necesaria. Ninguna de las réplicas incorpora la explotación secundaria (B4), porque ninguno de los autores la deduce: son sus definiciones, no la del sismógrafo.</p>
 </section>
 <section id="quiebres" class="seccion">
 <h2 id="quiebres-endogenos">Quiebres endógenos</h2>
@@ -427,7 +471,7 @@
 <h2 id="limitaciones-conocidas">Limitaciones conocidas</h2>
 <ul>
 <li>Todavía no hay corrección intra-rama antes de 1972 ni para la agricultura.</li>
-<li>Las series de referencia son definiciones a la manera de los autores. La replicación numérica exacta está pendiente. Los valores-trabajo por rama (§ transformación) cubren 2000–2014, se calculan de manera simultánea y dejan fuera educación y salud; faltan la variante temporal (TSSI), las tablas mundiales con origen de los insumos y la extensión posterior a 2014.</li>
+<li>Las series de referencia son definiciones a la manera de los autores. La replicación (§ replicación) rehace cinco series con la definición de cada autor y los datos vigentes; no reproduce la tasa de plusvalor de Moseley ni la de Shaikh y Tonak antes de 1972 (los salarios de producción por supersector empiezan ese año), ni el nivel de la tasa marxiana de Shaikh y Tonak, que usa el acervo bruto. Los valores-trabajo por rama (§ transformación) cubren 2000–2014, se calculan de manera simultánea y dejan fuera educación y salud; faltan la variante temporal (TSSI), las tablas mundiales con origen de los insumos y la extensión posterior a 2014.</li>
 <li>La masa mundial en horas cubre 42 países: medición por rama entre 2000 y 2014 (WIOD); desde 2015, variación medida por rama en los países de la OCDE, por sección de actividad con encuestas de la OIT en Brasil, Indonesia, India, Rusia, México y Turquía (empleo, horas y masa salarial), excedente y remuneración por rama con las cuentas nacionales de la ONU en Brasil e India (2015–2020) y extensión agregada en China. Fuera de esos años y países, el excedente sigue la participación agregada del trabajo. Faltan una fuente por sección para China (cuentas de la Oficina Nacional de Estadística), Indonesia y Rusia, y los KLEMS de India (la base del Banco de la Reserva de India bloquea las descargas automáticas).</li>
 <li>Los deflactores de equipos informáticos son hedónicos y pueden exagerar el abaratamiento del capital constante.</li>
 <li>Las estimaciones trimestrales recientes, la masa mundial de 2024–2025 y las participaciones del grupo IA en años sin PWT son provisionales.</li>
@@ -477,6 +521,7 @@ python run.py                 # descarga, calcula y escribe resultados/ y site/d
 <li>Carchedi, G. y Roberts, M. (Eds.). (2018). <em>World in Crisis: A Global Analysis of Marx's Law of Profitability</em>. Chicago: Haymarket Books.</li>
 <li>Carchedi, G. y Roberts, M. (2022). <em>Capitalism in the 21st Century: Through the Prism of Value</em>. Londres: Pluto Press.</li>
 <li>Duménil, G. (1983). Beyond the transformation riddle: A labor theory of value. <em>Science &amp; Society</em>, 47(4), 427–450.</li>
+<li>Duménil, G. y Lévy, D. (2002). The profit rate: Where and how much did it fall? Did it recover? (USA 1948–2000). <em>Review of Radical Political Economics</em>, 34(4), 437–461.</li>
 <li>Duménil, G. y Lévy, D. (2004). <em>Capital Resurgent: Roots of the Neoliberal Revolution</em>. Cambridge (MA): Harvard University Press.</li>
 <li>Duménil, G. y Lévy, D. (2011). <em>The Crisis of Neoliberalism</em>. Cambridge (MA): Harvard University Press.</li>
 <li>Dyer-Witheford, N., Kjøsen, A. M. y Steinhoff, J. (2024). <em>Poder inhumano. Inteligencia artificial y el futuro del capitalismo</em>. Buenos Aires: Prometeo.</li>
@@ -484,13 +529,17 @@ python run.py                 # descarga, calcula y escribe resultados/ y site/d
 <li>Freeman, A. y Carchedi, G. (Eds.). (1996). <em>Marx and Non-Equilibrium Economics</em>. Cheltenham: Edward Elgar.</li>
 <li>Heinrich, M. (2013). Crisis Theory, the Law of the Tendency of the Profit Rate to Fall, and Marx's Studies in the 1870s. <em>Monthly Review</em>, 64(11).</li>
 <li>Heinrich, M. (2014). <em>Die Wissenschaft vom Wert</em> (6.ª ed.). Münster: Westfälisches Dampfboot.</li>
+<li>Kliman, A. (2010). <em>Appearance and Essence: Neoliberalism, Financialization, and the Underlying Crisis of Capitalist Production</em>. Nueva York: Marxist-Humanist Initiative. https://marxisthumanistinitiative.org/economics/appearance-and-essence-neoliberalism-financialization-and-the-underlying-crisis-of-capitalist-production.html</li>
 <li>Kliman, A. (2007). <em>Reclaiming Marx's «Capital»: A Refutation of the Myth of Inconsistency</em>. Lanham: Lexington Books.</li>
 <li>Kliman, A. (2012). <em>The Failure of Capitalist Production: Underlying Causes of the Great Recession</em>. Londres: Pluto Press.</li>
 <li>Kurz, R. (2012). <em>Geld ohne Wert. Grundrisse zu einer Transformation der Kritik der politischen Ökonomie</em>. Berlín: Horlemann.</li>
 <li>Kurz, R. (2021). <em>La sustancia del capital</em>. Madrid: Enclave.</li>
 <li>Moseley, F. (1991). <em>The Falling Rate of Profit in the Postwar United States Economy</em>. Londres: Macmillan.</li>
+<li>Moseley, F. (1997). The rate of profit and the future of capitalism. <em>Review of Radical Political Economics</em>, 29(4), 23–41.</li>
 <li>Moseley, F. (2016). <em>Money and Totality: A Macro-Monetary Interpretation of Marx's Logic in Capital and the End of the «Transformation Problem»</em>. Leiden: Brill.</li>
 <li>Roberts, M. (2016). <em>The Long Depression</em>. Chicago: Haymarket Books.</li>
+<li>Roberts, M. (2018, 2 de noviembre). The US rate of profit in 2017. <em>The Next Recession</em> (blog). https://thenextrecession.wordpress.com/2018/11/02/the-us-rate-of-profit-in-2017/</li>
+<li>Roberts, M. (2021, 5 de diciembre). The US rate of profit in 2020. <em>The Next Recession</em> (blog). https://thenextrecession.wordpress.com/2021/12/05/the-us-rate-of-profit-in-2020/</li>
 <li>Shaikh, A. (2016). <em>Capitalism: Competition, Conflict, Crises</em>. Nueva York: Oxford University Press.</li>
 <li>Shaikh, A. y Tonak, E. A. (1994). <em>Measuring the Wealth of Nations: The Political Economy of National Accounts</em>. Cambridge: Cambridge University Press.</li>
 </ul>

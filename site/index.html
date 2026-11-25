@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sismógrafo del capital — tasa y masa de ganancia y de plusvalor</title>
 <meta name="description" content="Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, en dinero y en tiempo de trabajo: EE.UU. y mundo, como multiverso de especificaciones teóricamente explícitas.">
-<link rel="stylesheet" href="style.css?v=d7285682611250134">
+<link rel="stylesheet" href="style.css?v=f1ada8d2611250248">
 <script src="vendor/d3.min.js"></script>
 </head>
 <body>
@@ -30,6 +30,7 @@
   <nav class="indice" aria-label="Secciones"><p>En esta página</p><ul>
 <li><a href="#multiverso">El multiverso de EE.UU.</a></li>
 <li><a href="#referencias">Seis lecturas del debate</a></li>
+<li><a href="#replicacion">Las series de los autores, rehechas</a></li>
 <li><a href="#trimestral">Estimación trimestral</a></li>
 <li><a href="#quiebres">Quiebres endógenos</a></li>
 <li><a href="#robustez">Qué resiste todas las decisiones</a></li>
@@ -127,7 +128,31 @@
 <li><strong>Empresarial, todo productivo:</strong> como la de Shaikh-Tonak, pero restando toda la remuneración del sector. Es la línea de base sin la distinción entre trabajo productivo e improductivo.</li>
 <li><strong>Tabla:</strong> valor de cada tasa en los años indicados; la última columna es el cambio porcentual entre 1982 (el mínimo común de la posguerra) y el último año.</li>
 </ul>
-<p>Todas incluyen la propiedad intelectual en K, sin existencias ni ajuste por utilización. Son definiciones «a la manera de» los autores, no réplicas de sus series: la replicación numérica está en preparación. Los diagnósticos resumen las tesis publicadas de cada corriente; no son conclusiones del sismógrafo. Referencias completas en la <a href="metodologia.html#referencias">metodología, §6</a>.</p>
+<p>Todas incluyen la propiedad intelectual en K, sin existencias ni ajuste por utilización. Son definiciones «a la manera de» los autores, no réplicas de sus series: las series rehechas con la definición de cada autor están en la <a href="#replicacion">sección siguiente</a>. Los diagnósticos resumen las tesis publicadas de cada corriente; no son conclusiones del sismógrafo. Referencias completas en la <a href="metodologia.html#referencias">metodología, §6</a>.</p>
+</details>
+</section>
+<section id="replicacion" class="seccion" hidden>
+<h2 id="las-series-de-los-autores-rehechas-con-los-datos-de-hoy">Las series de los autores, rehechas con los datos de hoy</h2>
+<p class="llano">Las líneas de la sección anterior siguen el espíritu de cada corriente con una definición común. Aquí se hace otra cosa: se rehace la serie que cada autor publicó, con su propia definición, pero con las cuentas nacionales vigentes, y se compara con los valores que el autor dio. Las cuentas cambiaron mucho desde entonces (la propiedad intelectual pasó a contarse como capital en 1999 y 2013, y la remuneración y las ganancias se revisaron varias veces), de modo que no se trata de acertar a sus números, sino de saber si las tendencias que cada lectura interpreta siguen ahí. El gráfico pone las cinco series en una escala común (1982 = 100), porque sus niveles no se pueden comparar: cada una cuenta cosas distintas. La tabla dice, punto por punto, qué se reproduce y qué no.</p>
+<div class="legend" id="l-rp"></div>
+<figure class="placa"><div class="chart" id="c-rp"></div></figure>
+
+<p class="nota">Índice 1982 = 100. La de Moseley comienza en 1972 porque los salarios de los obreros de producción por supersector empiezan ese año; la de Kliman, en 1949, porque usa el capital del año anterior.</p>
+<p><strong>Lo que se sostiene.</strong> La medida «toda la economía» de Roberts cae <span id="rp-ro-6582">—</span> entre 1965 y 1982 a costo histórico (<span id="rp-ro-cc-6582">—</span> a costo corriente) y sube <span id="rp-ro-8297">—</span> entre 1982 y 1997 (<span id="rp-ro-cc-8297">—</span>), casi lo mismo que él publicó en 2018. La tasa de plusvalor de Shaikh y Tonak, con los salarios de los obreros de producción como capital variable, se reproduce en los años que se pueden comparar (1975–1982, con diferencias de unas centésimas) y sigue subiendo: de <span id="rp-st-e82">—</span> en 1982 a <span id="rp-st-eu">—</span> en <span id="rp-fin">—</span>. La tasa antes de impuestos de Kliman a costo histórico da <span id="rp-kl78">—</span> en 1978 y <span id="rp-kl01">—</span> en 2001, frente al 24 % y al 12 % que él informa. La proporción de trabajo improductivo de Moseley (Uf/V) en 1977 es <span id="rp-uf77">—</span>, la misma que él estimó.</p>
+<p><strong>Lo que cambia.</strong> La recuperación que Duménil y Lévy vieron entre 1982 y 2000 era de un 45 %; con los datos de hoy es de <span id="rp-dl-rec">—</span>. La caída de 1965 a 1982 (<span id="rp-dl-6582">—</span>) sigue ahí, pero la tesis del neoliberalismo como restauración de la rentabilidad descansa, en la medición actual, sobre una recuperación más débil hasta el año 2000, que continúa después. En cambio, la tesis de Kliman depende de la medida que se elija: entre 1982 y 1997 el ingreso de propiedad sobre el capital a costo histórico cambia <span id="rp-kl-pi">—</span> y la ganancia total <span id="rp-kl-tp">—</span> (no hay recuperación), pero la ganancia antes de impuestos sube <span id="rp-kl-pat">—</span>. La tasa convencional de Moseley en 1977 da <span id="rp-mo77">—</span>, cerca del 12 % que él publicó, sólo si el plusvalor se toma sin impuestos indirectos y el capital con inventarios; esa es nuestra lectura de su identidad, no una definición que él haya escrito con esas palabras.</p>
+<div class="tablewrap"><table><thead><tr><th>Autor</th><th>Medida</th><th>Año o tramo</th><th>Publicado</th><th>Rehecho</th><th>Resultado</th><th>Fuente</th></tr></thead><tbody id="t-rp"></tbody></table></div>
+
+<details class="como">
+<summary>¿Cómo se rehace cada serie?</summary>
+<ul>
+<li><strong>Shaikh y Tonak (1994, cuadros 5.6 y 5.8).</strong> S* = producto neto del sector empresarial (sin vivienda arrendada) menos V*; V* = remuneración de los obreros de producción y no supervisores de las ramas productivas (la corrección intra-rama del sismógrafo, desde 1972). No se resta lo que los hogares pagan a las finanzas, porque ellos no lo hacen. La tasa marxiana es S*/K, con K el acervo neto a costo corriente; ellos usan el acervo bruto, que ya no se publica, por lo que sólo la tendencia es comparable. Desde 1948 hay una versión con V* igual a toda la remuneración de las ramas productivas, que es una cota inferior de su tasa de plusvalor.</li>
+<li><strong>Moseley (1991, cap. 3; cifras de 1977 en Moseley, 1997).</strong> V = salarios de producción y no supervisión en las ramas productivas; Uf = el resto de la remuneración del sector empresarial (circulación y supervisión); C = capital fijo de las ramas productivas más los inventarios; Us = capital fijo de comercio, finanzas, inmobiliario y servicios jurídicos. Tasa convencional = (S − Uf)/(C + Us), con S sin impuestos indirectos (véase arriba).</li>
+<li><strong>Kliman (2010; 2012, cap. 5).</strong> Sociedades (NIPA 1.14). Ingreso de propiedad = valor agregado neto − remuneración; ganancia total = excedente neto de explotación; ganancia antes de impuestos = ganancias con ajuste de inventarios. En las tres, la depreciación a costo corriente se reemplaza por la depreciación a costo histórico, y el denominador es el acervo neto a costo histórico al cierre del año anterior (el capital adelantado).</li>
+<li><strong>Duménil y Lévy (2002, cuadro 3).</strong> Tasa amplia r_b = (valor agregado neto de las sociedades − remuneración) / acervo neto no residencial a costo corriente. Se compara la razón entre años, porque el artículo no publica niveles anuales. Hay una variante sin la propiedad intelectual (sin su inversión en el numerador ni su acervo en el denominador), más cercana a las cuentas que ellos usaron.</li>
+<li><strong>Roberts (2018; 2021).</strong> Plusvalor = ingreso nacional − remuneración de los asalariados; C = activos fijos privados no residenciales, a costo histórico y a costo corriente; v = remuneración; tasa = s/(C + v).</li>
+<li><strong>Resultado.</strong> En los niveles, «reproduce» si la diferencia es de hasta 10 % del valor publicado y «aproxima» si es de hasta 25 %. En las variaciones, «reproduce» si la diferencia es de hasta 5 puntos y la dirección coincide, y «aproxima» si es de hasta 12 puntos. Fuera de eso, se indica si al menos la dirección coincide. El nivel de la tasa marxiana de Shaikh y Tonak se marca como no comparable, porque ellos usan el acervo bruto y aquí se usa el neto; para esa tasa vale la comparación de las variaciones.</li>
+</ul>
+<p>Las cuentas de la BEA se revisan cada año y en profundidad cada cinco. Por eso las cifras de un autor de 1994 o de 2002 no pueden coincidir exactamente con las de hoy, aunque la definición sea la misma. Detalle de las definiciones y de las fuentes en la <a href="metodologia.html#replicacion">metodología</a>.</p>
 </details>
 </section>
 <section id="trimestral" class="seccion">
@@ -600,6 +625,6 @@
 <p>Investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología (ICSyH-BUAP), que concluirá en agosto de 2029, realizada con una beca de la SECIHTI (número 4052073). Gracias a la clase trabajadora mexicana, que hace posible esta beca. Marco teórico: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
 <p>Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/sismografo-del-capital">GitHub</a>. <a href="descargas/">Descargas</a>. <a href="metodologia.html">Metodología</a>. <a href="https://github.com/necplusultra-blog/sismografo-del-capital/tree/main/contenido">Editar los textos</a>.</p>
 </footer>
-<script src="app.js?v=d7285682611250134"></script>
+<script src="app.js?v=f1ada8d2611250248"></script>
 </body>
 </html>
