@@ -18,7 +18,7 @@ El sismógrafo pone a seis corrientes del debate marxista a leer los mismos dato
 
 A ellas se agrega una línea de base, **empresarial, todo productivo** (variante a), que no distingue trabajo productivo e improductivo.
 
-Todas son netas, incluyen la propiedad intelectual, no incluyen existencias ni ajuste por utilización, y usan todo el capital. Son definiciones «a la manera de» los autores: la replicación numérica exacta de sus series está en preparación (tarea F1.2). Los diagnósticos que el sitio atribuye a cada corriente resumen sus tesis publicadas; la lectura crítica de las seis es la de la investigación doctoral y está en la [Lectura](lectura.html#seis-lecturas).
+Todas son netas, incluyen la propiedad intelectual, no incluyen existencias ni ajuste por utilización, y usan todo el capital. Son definiciones «a la manera de» los autores; la replicación de sus series, con la definición de cada uno y los datos vigentes, está en la [sección siguiente](#replicacion). Los diagnósticos que el sitio atribuye a cada corriente resumen sus tesis publicadas; la lectura crítica de las seis es la de la investigación doctoral y está en la [Lectura](lectura.html#seis-lecturas).
 
 **Referencias** (todas las obras citadas en el sitio están en la [bibliografía, §16](#bibliografia)).
 - Carchedi, G. y Roberts, M. (2022). *Capitalism in the 21st Century: Through the Prism of Value*. Londres: Pluto Press.

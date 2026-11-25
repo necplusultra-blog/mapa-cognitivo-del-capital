@@ -1,3 +1,5 @@
+// Formato numérico en español (coma decimal, punto de miles), como en los textos del sitio
+d3.formatDefaultLocale({ decimal: ',', thousands: '.', grouping: [3], currency: ['', ' $'], minus: '−' });
 const C = ['var(--c0)', 'var(--c1)', 'var(--c2)', 'var(--c3)', 'var(--c4)', 'var(--c5)'];
 const f1 = d3.format(',.1f'), f2 = d3.format('.2f'), f0 = d3.format(',.0f');
 const get = (n) => fetch(`data/${n}.json`, { cache: 'no-cache' }).then((r) => r.json());
@@ -273,6 +275,35 @@ function drawRN(R) {
   set('rn-rango', `entre ${d3.format('+.1f')(ext[0])} % y ${d3.format('+.1f')(ext[1])} %`);
 }
 
+// Replicación de las series de los autores con los datos vigentes (F1.2)
+function drawRP(P) {
+  if (!P || !P.serie || !P.serie.length) return;
+  $('replicacion').hidden = false;
+  const s1 = [['st_r_ramas_i', 'Shaikh y Tonak: tasa marxiana (por ramas)'], ['mo_r_i', 'Moseley: tasa convencional (desde 1972)'], ['kl_pat_i', 'Kliman: ganancia antes de impuestos, costo histórico'],
+    ['dl_rb_i', 'Duménil y Lévy: tasa amplia, sociedades'], ['ro_hc_i', 'Roberts: toda la economía, costo histórico']];
+  legend('l-rp', s1.map((x) => x[1]));
+  lineChart('c-rp', P.serie, s1.map(([key, label]) => ({ key, label })), { ref: 100, yfmt: (v) => v, tipfmt: (v) => d3.format('.0f')(v), aria: 'Series de cinco autores reconstruidas con los datos vigentes, índice 1982 = 100' });
+  const tb = $('t-rp');
+  if (tb) {
+    tb.replaceChildren();
+    const cocientes = ['st_e', 'st_e_ramas', 'mo_rs', 'mo_cc', 'mo_uf', 'mo_us'];
+    const fmt = (r, v) => (v == null ? '—' : r.tipo === 'nivel' ? (cocientes.includes(r.serie) ? f2(v) : f1(v * 100) + ' %') : r.tipo === 'razon' ? f1(v) + ' %' : d3.format('+.1f')(v) + ' %');
+    P.contraste.filter((r) => r.reconstruido != null).forEach((r) => { const tr = document.createElement('tr');
+      [r.autor, r.medida, r.tramo, fmt(r, r.publicado), fmt(r, r.reconstruido), r.juicio, r.fuente].forEach((x) => { const td = document.createElement('td'); td.textContent = x; tr.append(td); }); tb.append(tr); });
+  }
+  const T = Object.fromEntries(P.tendencias.map((r) => [r.serie, r]));
+  const pc = (v) => d3.format('+.0f')(v) + ' %';
+  if (T.ro_hc) { set('rp-ro-6582', pc(T.ro_hc.cambio_1965_1982)); set('rp-ro-8297', pc(T.ro_hc.cambio_1982_1997)); set('rp-ro-cc-6582', pc(T.ro_cc.cambio_1965_1982)); set('rp-ro-cc-8297', pc(T.ro_cc.cambio_1982_1997)); }
+  if (T.dl_rb) { set('rp-dl-6582', pc(T.dl_rb.cambio_1965_1982)); set('rp-dl-8297', pc(T.dl_rb.cambio_1982_1997)); }
+  if (T.kl_pi) { set('rp-kl-pi', pc(T.kl_pi.cambio_1982_1997)); set('rp-kl-tp', pc(T.kl_tp.cambio_1982_1997)); set('rp-kl-pat', pc(T.kl_pat.cambio_1982_1997)); }
+  if (T.st_e) { set('rp-st-e82', f2(T.st_e.v1982)); set('rp-st-eu', f2(T.st_e.final)); set('rp-fin', String(T.st_e.hasta)); }
+  const c = (s, tr) => P.contraste.find((r) => r.serie === s && r.tramo === tr);
+  const k78 = c('kl_pat', '1978'), k01 = c('kl_pat', '2001'), d82 = c('dl_rb', '1982–2000'), m77 = c('mo_r', '1977'), u77 = c('mo_uf', '1977');
+  if (k78) { set('rp-kl78', f1(k78.reconstruido * 100) + ' %'); set('rp-kl01', f1(k01.reconstruido * 100) + ' %'); }
+  if (d82) set('rp-dl-rec', f0(d82.reconstruido - 100) + ' %');
+  if (m77) { set('rp-mo77', f1(m77.reconstruido * 100) + ' %'); set('rp-uf77', f2(u77.reconstruido)); }
+}
+
 let D = {};
 function draw() {
   const { meta, bandas, ref, quiebres, decadas, masa, mtasas, mmasa, trim, sens } = D;
@@ -425,8 +456,9 @@ Promise.all(['meta', 'eeuu_bandas', 'eeuu_referencias', 'eeuu_quiebres', 'eeuu_d
   if (meta.contratendencias) get('contratendencias').then((CT) => { D.CT = CT; $('contratendencias').hidden = false; drawCT(CT); });
   if (meta.transformacion) get('transformacion').then((TF) => { D.TF = TF; drawTF(TF); });
   if (meta.robustez_neta) get('robustez_neta').then((RN) => { D.RN = RN; drawRN(RN); });
+  if (meta.replicacion) get('replicacion').then((RP) => { D.RP = RP; drawRP(RP); });
   if (meta.bloque_b) get('bloque_b').then((BB) => { D.BB = BB; drawBB(BB); });
   if (meta.fuerzas) get('fuerzas').then((FZ) => { D.FZ = FZ; drawFZ(FZ); });
   if (meta.ia) Promise.all([get('ia_agregado'), get('ia_empresas')]).then(([A, E]) => { D.iaA = A; D.iaE = E; drawIA(A, E); });
-  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); if (D.TF) drawTF(D.TF); if (D.FZ) drawFZ(D.FZ); if (D.BB) drawBB(D.BB); if (D.RN) drawRN(D.RN); }, 150); });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { draw(); drawSismo(D.bandas, D.quiebres); if (D.T) drawTiempo(D.T, D.Dc); if (D.H) drawHM(D.H, D.Pz, D.meta); if (D.iaA) drawIA(D.iaA, D.iaE); if (D.CT) drawCT(D.CT); if (D.TF) drawTF(D.TF); if (D.FZ) drawFZ(D.FZ); if (D.BB) drawBB(D.BB); if (D.RN) drawRN(D.RN); if (D.RP) drawRP(D.RP); }, 150); });
 }).catch((e) => { const l = document.querySelector('.lede'); if (l) l.insertAdjacentText('afterend', ' No se pudieron cargar los datos: ' + e); });

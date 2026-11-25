@@ -26,6 +26,7 @@ Todas las obras citadas en el sitio (portada, Lectura y metodología). Las fuent
 - Carchedi, G. y Roberts, M. (Eds.). (2018). *World in Crisis: A Global Analysis of Marx's Law of Profitability*. Chicago: Haymarket Books.
 - Carchedi, G. y Roberts, M. (2022). *Capitalism in the 21st Century: Through the Prism of Value*. Londres: Pluto Press.
 - Duménil, G. (1983). Beyond the transformation riddle: A labor theory of value. *Science & Society*, 47(4), 427–450.
+- Duménil, G. y Lévy, D. (2002). The profit rate: Where and how much did it fall? Did it recover? (USA 1948–2000). *Review of Radical Political Economics*, 34(4), 437–461.
 - Duménil, G. y Lévy, D. (2004). *Capital Resurgent: Roots of the Neoliberal Revolution*. Cambridge (MA): Harvard University Press.
 - Duménil, G. y Lévy, D. (2011). *The Crisis of Neoliberalism*. Cambridge (MA): Harvard University Press.
 - Dyer-Witheford, N., Kjøsen, A. M. y Steinhoff, J. (2024). *Poder inhumano. Inteligencia artificial y el futuro del capitalismo*. Buenos Aires: Prometeo.
@@ -33,13 +34,17 @@ Todas las obras citadas en el sitio (portada, Lectura y metodología). Las fuent
 - Freeman, A. y Carchedi, G. (Eds.). (1996). *Marx and Non-Equilibrium Economics*. Cheltenham: Edward Elgar.
 - Heinrich, M. (2013). Crisis Theory, the Law of the Tendency of the Profit Rate to Fall, and Marx's Studies in the 1870s. *Monthly Review*, 64(11).
 - Heinrich, M. (2014). *Die Wissenschaft vom Wert* (6.ª ed.). Münster: Westfälisches Dampfboot.
+- Kliman, A. (2010). *Appearance and Essence: Neoliberalism, Financialization, and the Underlying Crisis of Capitalist Production*. Nueva York: Marxist-Humanist Initiative. https://marxisthumanistinitiative.org/economics/appearance-and-essence-neoliberalism-financialization-and-the-underlying-crisis-of-capitalist-production.html
 - Kliman, A. (2007). *Reclaiming Marx's «Capital»: A Refutation of the Myth of Inconsistency*. Lanham: Lexington Books.
 - Kliman, A. (2012). *The Failure of Capitalist Production: Underlying Causes of the Great Recession*. Londres: Pluto Press.
 - Kurz, R. (2012). *Geld ohne Wert. Grundrisse zu einer Transformation der Kritik der politischen Ökonomie*. Berlín: Horlemann.
 - Kurz, R. (2021). *La sustancia del capital*. Madrid: Enclave.
 - Moseley, F. (1991). *The Falling Rate of Profit in the Postwar United States Economy*. Londres: Macmillan.
+- Moseley, F. (1997). The rate of profit and the future of capitalism. *Review of Radical Political Economics*, 29(4), 23–41.
 - Moseley, F. (2016). *Money and Totality: A Macro-Monetary Interpretation of Marx's Logic in Capital and the End of the «Transformation Problem»*. Leiden: Brill.
 - Roberts, M. (2016). *The Long Depression*. Chicago: Haymarket Books.
+- Roberts, M. (2018, 2 de noviembre). The US rate of profit in 2017. *The Next Recession* (blog). https://thenextrecession.wordpress.com/2018/11/02/the-us-rate-of-profit-in-2017/
+- Roberts, M. (2021, 5 de diciembre). The US rate of profit in 2020. *The Next Recession* (blog). https://thenextrecession.wordpress.com/2021/12/05/the-us-rate-of-profit-in-2020/
 - Shaikh, A. (2016). *Capitalism: Competition, Conflict, Crises*. Nueva York: Oxford University Press.
 - Shaikh, A. y Tonak, E. A. (1994). *Measuring the Wealth of Nations: The Political Economy of National Accounts*. Cambridge: Cambridge University Press.
 

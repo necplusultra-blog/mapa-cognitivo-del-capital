@@ -73,5 +73,5 @@ Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). 
 - **Empresarial, todo productivo:** como la de Shaikh-Tonak, pero restando toda la remuneración del sector. Es la línea de base sin la distinción entre trabajo productivo e improductivo.
 - **Tabla:** valor de cada tasa en los años indicados; la última columna es el cambio porcentual entre 1982 (el mínimo común de la posguerra) y el último año.
 
-Todas incluyen la propiedad intelectual en K, sin existencias ni ajuste por utilización. Son definiciones «a la manera de» los autores, no réplicas de sus series: la replicación numérica está en preparación. Los diagnósticos resumen las tesis publicadas de cada corriente; no son conclusiones del sismógrafo. Referencias completas en la [metodología, §6](metodologia.html#referencias).
+Todas incluyen la propiedad intelectual en K, sin existencias ni ajuste por utilización. Son definiciones «a la manera de» los autores, no réplicas de sus series: las series rehechas con la definición de cada autor están en la [sección siguiente](#replicacion). Los diagnósticos resumen las tesis publicadas de cada corriente; no son conclusiones del sismógrafo. Referencias completas en la [metodología, §6](metodologia.html#referencias).
 :::
