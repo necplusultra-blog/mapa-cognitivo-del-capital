@@ -5,7 +5,7 @@ menu: Fuentes y frecuencia
 ---
 ## Fuentes y frecuencia
 
-- **BEA** (Bureau of Economic Analysis): cuentas nacionales anuales y trimestrales (archivos `NipaDataA`, `NipaDataQ`), activos fijos (`FixedAssets`), y PIB por industria (SIC 1947–1987, NAICS 1987–1997, NAICS 1997–).
+- **BEA** (Bureau of Economic Analysis): cuentas nacionales anuales y trimestrales (archivos `NipaDataA`, `NipaDataQ`), activos fijos (`FixedAssets`), y PIB por industria (SIC 1947–1986, NAICS 1987–1996, NAICS 1997–).
 - **Reserva Federal**, vía FRED: existencias de las corporaciones no financieras (Z.1, `BOGZ1FL105020005A`) y utilización de capacidad manufacturera (G.17, `CUMFNS`).
 - **BLS** (Bureau of Labor Statistics), encuesta CES vía FRED: empleo, horas semanales y salario por hora de los trabajadores de producción y no supervisores, por supersector.
 - **Penn World Table 11.0** (Feenstra, Inklaar y Timmer, 2015): participación salarial, capital, depreciación, tasa interna de retorno y PIB de 185 países, 1950–2023.

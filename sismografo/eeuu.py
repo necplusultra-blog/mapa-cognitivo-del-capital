@@ -103,7 +103,7 @@ ONG_EDU, ONG_SALUD, ONG_ASIST, ONG_ORG = 0.70, 0.43, 0.40, 0.60
 def fraccion_capitalista(D, code):
     """Fracción de los obreros de producción de un supersector CES que es trabajo asalariado por capital productivo.
     - Servicios profesionales y empresariales: se restan servicios jurídicos (5411) y contables (5412), ramas de
-      circulación según el criterio por ramas (M69–M70). La publicidad (5418) no tiene serie mensual en FRED.
+      circulación (el criterio por ramas de V_b sólo puede separar los jurídicos; véase metodología §3). La publicidad (5418) no tiene serie mensual en FRED.
     - Educación y salud privadas: se resta la parte empleada por instituciones sin fines de lucro.
     - Otros servicios: se resta la parte sin fines de lucro de las organizaciones religiosas, civiles y similares (813).
     Antes de 1990 (sin detalle por industria) se usa la proporción de 1990."""
@@ -190,7 +190,17 @@ def calcular(dir_datos, dir_out):
         if ipp == 'excl':
             S_ = S_ - sub('i3', 'ip00') + (0 if gross else sub(dc, 'ip00')); K = K - sub(kc, 'ip00')
         if kscope == 'prod':
-            for t in ('n42001es00', 'n44RT1es00', 'n52001es00', 'n54111es00'): K = K - D.fa(kc, t)
+            # K sólo de ramas productivas: se quita el capital de comercio, finanzas y seguros, servicios jurídicos,
+            # inmobiliario no residencial y alquiler (las ramas que §3 declara improductivas). Si la PPI ya salió de K
+            # (ipp='excl'), de esas ramas sólo se quitan equipo y estructuras, para no restar su PPI dos veces.
+            # Coherencia con V(b): como los salarios de esas ramas quedan en S, también su depreciación se paga con
+            # plusvalor y no se resta del numerador (auditoría de nov. 2026).
+            sufs = ('eq00', 'st00') if ipp == 'excl' else ('es00',)
+            ramas = ('n42001', 'n44RT1', 'n52001', 'n54111', 'n53201', 'p53101')
+            K_u = sum(D.fa(kc, r + s) for r in ramas for s in sufs) - D.fa(kc, 'r53101es00')
+            D_u = sum(D.fa(dc, r + s) for r in ramas for s in sufs) - D.fa(dc, 'r53101es00')
+            K = K - K_u
+            if not gross: S_ = S_ + D_u
         r = S_ / (K + V[prod]) if den == 'K+V' else S_ / K
         return (r * (D.CU.mean() / D.CU) if util else r), S_, K
 

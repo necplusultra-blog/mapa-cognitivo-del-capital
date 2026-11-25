@@ -9,7 +9,7 @@ Se usa la variante c: obreros de producción y no supervisores de las ramas prod
 
 <div class="f">N = Σ empleo productivo · H = Σ empleo × horas semanales × 52</div>
 
-En la lectura macromonetaria, v es el salario efectivamente pagado. La tasa e = pv/v medida en dinero expresa entonces la proporción entre plustrabajo y trabajo necesario en la jornada de esos obreros:
+En la lectura macromonetaria, v es el salario efectivamente pagado. La tasa e = pv/v medida en dinero, neta de depreciación (véase §4), expresa entonces la proporción entre plustrabajo y trabajo necesario en la jornada de esos obreros:
 
 <div class="f">trabajo necesario = jornada / (1 + e) · plustrabajo = jornada × e / (1 + e)</div>
 

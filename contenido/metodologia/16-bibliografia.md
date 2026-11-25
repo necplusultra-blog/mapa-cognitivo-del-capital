@@ -34,8 +34,8 @@ Todas las obras citadas en el sitio (portada, Lectura y metodología). Las fuent
 - Freeman, A. y Carchedi, G. (Eds.). (1996). *Marx and Non-Equilibrium Economics*. Cheltenham: Edward Elgar.
 - Heinrich, M. (2013). Crisis Theory, the Law of the Tendency of the Profit Rate to Fall, and Marx's Studies in the 1870s. *Monthly Review*, 64(11).
 - Heinrich, M. (2014). *Die Wissenschaft vom Wert* (6.ª ed.). Münster: Westfälisches Dampfboot.
-- Kliman, A. (2010). *Appearance and Essence: Neoliberalism, Financialization, and the Underlying Crisis of Capitalist Production*. Nueva York: Marxist-Humanist Initiative. https://marxisthumanistinitiative.org/economics/appearance-and-essence-neoliberalism-financialization-and-the-underlying-crisis-of-capitalist-production.html
 - Kliman, A. (2007). *Reclaiming Marx's «Capital»: A Refutation of the Myth of Inconsistency*. Lanham: Lexington Books.
+- Kliman, A. (2010). *Appearance and Essence: Neoliberalism, Financialization, and the Underlying Crisis of Capitalist Production*. Nueva York: Marxist-Humanist Initiative. https://marxisthumanistinitiative.org/economics/appearance-and-essence-neoliberalism-financialization-and-the-underlying-crisis-of-capitalist-production.html
 - Kliman, A. (2012). *The Failure of Capitalist Production: Underlying Causes of the Great Recession*. Londres: Pluto Press.
 - Kurz, R. (2012). *Geld ohne Wert. Grundrisse zu einer Transformation der Kritik der politischen Ökonomie*. Berlín: Horlemann.
 - Kurz, R. (2021). *La sustancia del capital*. Madrid: Enclave.
@@ -51,13 +51,16 @@ Todas las obras citadas en el sitio (portada, Lectura y metodología). Las fuent
 **Métodos y bases de datos**
 
 - Banco Mundial [Datta, N., Rong, C., Singh, S., Stinshoff, C. et al.] (2023). *Working Without Borders: The Promise and Peril of Online Gig Work*. Washington, D.C.: Banco Mundial. http://hdl.handle.net/10986/40066
-- BLS (2018). Electronically mediated work: new questions in the Contingent Worker Supplement. *Monthly Labor Review*, septiembre. Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/cps/electronically-mediated-employment.htm
-- BLS (2024). *Contingent and Alternative Employment Arrangements — July 2023* (USDL-24-2267). Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/news.release/conemp.nr0.htm
+- BLS (2018). Electronically mediated work: new questions in the Contingent Worker Supplement. *Monthly Labor Review*, septiembre. Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/opub/mlr/2018/article/electronically-mediated-work-new-questions-in-the-contingent-worker-supplement.htm
+- BLS (2024a). *Contingent and Alternative Employment Arrangements — July 2023* (USDL-24-2267). Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/news.release/conemp.nr0.htm
+- BLS (2024b). *Research Data on the Nonprofit Sector, 2007–2022* (Business Employment Dynamics). Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/bdm/nonprofits/nonprofits.htm
 - Eurofound (2007). *Fourth European Working Conditions Survey*. Luxemburgo: Oficina de Publicaciones de la Unión Europea.
 - Eurofound (2016). *Sixth European Working Conditions Survey: Overview report*. Luxemburgo: Oficina de Publicaciones de la Unión Europea.
 - Eurofound (2025). *European Working Conditions Survey 2024: Overview report*. Luxemburgo: Oficina de Publicaciones de la Unión Europea.
 - Bai, J. y Perron, P. (1998). Estimating and testing linear models with multiple structural changes. *Econometrica*, 66(1), 47–78.
 - Bai, J. y Perron, P. (2003). Computation and analysis of multiple structural change models. *Journal of Applied Econometrics*, 18(1), 1–22.
+- Liu, J., Wu, S. y Zidek, J. V. (1997). On segmented multivariate regression. *Statistica Sinica*, 7(2), 497–525.
+- Newhouse, C. L. y Abramson, A. J. (2024). *2024 Nonprofit Employment Report: New Data Reveal Nonprofits' Strengths and Challenges in the COVID-19 Era* (GMU-NED, Briefing 2). Arlington: George Mason University, Center on Nonprofits, Philanthropy, and Social Enterprise.
 - Feenstra, R. C., Inklaar, R. y Timmer, M. P. (2015). The next generation of the Penn World Table. *American Economic Review*, 105(10), 3150–3182.
 - OCDE (2026). *Inter-Country Input-Output (ICIO) Tables*, edición 2026. París: OCDE. https://www.oecd.org/en/data/datasets/inter-country-input-output-tables.html
 - OCDE (2025). *Trade in Employment (TiM)*, edición 2025. París: OCDE. https://www.oecd.org/en/data/datasets/trade-in-employment.html

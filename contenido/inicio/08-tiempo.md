@@ -16,7 +16,7 @@ Todo lo de esta sección se refiere **sólo a EE.UU.** y a los obreros de produc
 
 ### EE.UU.: la semana del obrero productivo, dividida en trabajo necesario y plustrabajo (horas)
 
-Una jornada de tiempo completo de 40 horas de un obrero productivo de EE.UU., partida en dos según la tasa de plusvalor de cada año. Una línea son las horas en que produce el equivalente de su salario (trabajo necesario); la otra, las horas en que trabaja para el capital sin recibir nada a cambio (plustrabajo). El trabajo necesario baja de 13,8 a 9,7 horas desde 1972, pero casi deja de bajar después de 2007: no puede llegar a cero. La tercera línea es la semana media pagada de todos los obreros de producción, de tiempo completo y parcial: no es una jornada, y baja sobre todo porque crecen ramas de jornadas cortas, como la hostelería.
+Una jornada de tiempo completo de 40 horas de un obrero productivo de EE.UU., partida en dos según la tasa de plusvalor de cada año. Una línea son las horas en que produce el equivalente de su salario (trabajo necesario); la otra, las horas en que trabaja para el capital sin recibir nada a cambio (plustrabajo). El trabajo necesario baja de 13,8 a 9,7 horas desde 1972, a un ritmo desigual: se comprime con fuerza entre 2000 y 2007 y casi se detiene después. Que no pueda llegar a cero es una propiedad de la forma de la jornada, no una explicación de esa pausa, que tiene causas históricas. La tercera línea es la semana media pagada de todos los obreros de producción, de tiempo completo y parcial: no es una jornada, y baja sobre todo porque crecen ramas de jornadas cortas, como la hostelería.
 {: .llano }
 
 Cada año, la jornada de 40 horas se reparte según la tasa de plusvalor del mismo año: horas necesarias = 40 / (1 + e); plustrabajo = 40 × e / (1 + e). La semana media pagada viene de la encuesta de establecimientos del BLS (CES).
@@ -50,7 +50,7 @@ El supuesto clave de la lectura macromonetaria (Moseley, 2016) es que v es el sa
 
 {{t-desc-intro}}
 
-La tabla separa ese crecimiento en tres causas: más obreros, jornadas más largas o más cortas, y una proporción mayor de plustrabajo dentro de la jornada.
+La tabla separa ese crecimiento en tres causas: más obreros, más o menos horas pagadas por obrero (que bajan sobre todo porque crecen el tiempo parcial y las ramas de jornadas cortas, no porque se acorte la jornada) y una proporción mayor de plustrabajo dentro de la jornada.
 {: .llano }
 
 [[tabla t-desc: Factor | Se multiplica por | Aporte al crecimiento (en logaritmos)]]

@@ -31,7 +31,7 @@ Marx distingue (*El Capital*, Libro III, cap. XXIII) el trabajo de dirección, n
 
 ### Salario social neto: lo que el Estado devuelve y lo que cobra
 
-El Estado cobra impuestos y contribuciones a los trabajadores y les devuelve prestaciones: pensiones, seguro de desempleo, salud pública, educación. Si devolviera más de lo que cobra, estaría trasladando al salario una parte del plusvalor que recauda de los capitales; si devuelve menos, son los propios trabajadores quienes financian su seguridad social. Shaikh y Tonak (1994) llaman a esa diferencia salario social neto. En EE.UU. es pequeño y casi siempre negativo: los trabajadores pagan, en conjunto, algo más de lo que reciben. Sólo después de la crisis de 2008 y durante la pandemia fue positivo. Por eso no cambia las conclusiones, y el sitio lo muestra como sensibilidad.
+El Estado cobra impuestos y contribuciones a los trabajadores y les devuelve prestaciones: pensiones, seguro de desempleo, salud pública, educación. Si devolviera más de lo que cobra, estaría trasladando al salario una parte del plusvalor que recauda de los capitales; si devuelve menos, son los propios trabajadores quienes financian su seguridad social. Shaikh y Tonak (1994) llaman a esa diferencia salario social neto. En EE.UU. es casi siempre negativo: los trabajadores pagan, en conjunto, más de lo que reciben (en promedio, un 4 % de su remuneración; un 9 % en el año 2000). Sólo después de la crisis de 2008 y durante la pandemia fue positivo. Por eso no cambia las conclusiones, y el sitio lo muestra como sensibilidad.
 {: .llano }
 
 [[cifra bb-ssn | Salario social neto de EE.UU., {{.bb-fin}}, como parte de la remuneración de los asalariados | tasa de plusvalor intra-rama si se incluye: {{bb-essn}} (central: {{bb-ec2}})]]

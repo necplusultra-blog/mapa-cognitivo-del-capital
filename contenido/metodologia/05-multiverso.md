@@ -18,7 +18,9 @@ El multiverso principal (1948–) combina estas bifurcaciones y suma {{m-n}} esp
 | Existencias | sin · con existencias (Z.1) en K | — |
 | Utilización de capacidad | sin ajuste · r × (u medio / u) | — |
 | Denominador (empresarial) | K: capital fijo adelantado · K + V: capital fijo más capital variable, pv/(c + v) | definición de Marx de la tasa de ganancia |
-| Alcance de K (empresarial) | todo el capital no residencial · sólo el de ramas productivas (excluye comercio, finanzas y seguros, servicios jurídicos) | Moseley, Shaikh-Tonak |
+| Alcance de K (empresarial) | todo el capital no residencial · sólo el de ramas productivas (excluye comercio, finanzas y seguros, servicios jurídicos, inmobiliario no residencial y alquiler) | Moseley, Shaikh-Tonak |
+
+**Alcance de K.** Con «sólo el de ramas productivas», el capital de las ramas que §3 declara improductivas sale del denominador y su depreciación deja de restarse del numerador: como los salarios de esas ramas, se paga con plusvalor (coherencia con el criterio por ramas; corrección de la auditoría de noviembre de 2026). Si la propiedad intelectual ya está fuera de K, de esas ramas sólo se quitan equipo y estructuras, para no restar dos veces su propiedad intelectual.
 
 **Denominador.** La tasa de ganancia se define como pv/(c + v), plusvalor sobre el capital global adelantado. En la bifurcación K + V, v es la remuneración anual del trabajo productivo de la misma variante (a, b o c). Usar el flujo anual equivale a suponer una sola rotación del capital variable por año: si v rota n veces, el capital variable adelantado es v/n y la tasa queda entre las dos variantes publicadas (K y K + V). Las cuentas nacionales no publican el número de rotaciones. La bifurcación sólo existe en el sector empresarial, donde v está definido; en las especificaciones corporativas el denominador es K.
 

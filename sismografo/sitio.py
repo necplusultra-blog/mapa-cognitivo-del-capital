@@ -42,7 +42,7 @@ def escribir(ee, mu, dir_site):
     # descomposición de la masa de plustrabajo: horas = obreros × horas por obrero × e/(1+e)
     a0, a1 = int(tiempo.index[0]), int(tiempo.index[-1]); t0, t1 = tiempo.loc[a0], tiempo.loc[a1]
     f = {'Número de obreros productivos': t1.obreros_productivos_mill / t0.obreros_productivos_mill,
-         'Horas por obrero (extensión de la jornada)': t1.semana_horas / t0.semana_horas,
+         'Horas pagadas por obrero (jornada y composición del empleo)': t1.semana_horas / t0.semana_horas,
          'Proporción de plustrabajo e/(1+e)': (t1.e / (1 + t1.e)) / (t0.e / (1 + t0.e))}
     tot = float(np.log(t1.horas_plustrabajo_mmh / t0.horas_plustrabajo_mmh))
     _w(f'{d}/eeuu_descomposicion.json', dict(desde=a0, hasta=a1, factor_total=round(float(np.exp(tot)), 3),

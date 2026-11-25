@@ -5,7 +5,7 @@ menu: Referencias
 ---
 ## Referencias
 
-**Obras de Marx** (traducciones de Pedro Scaron, salvo las *Teorías sobre la plusvalía*)
+**Obras de Marx** (ediciones de Siglo XXI: *El Capital* I y los *Grundrisse*, traducción de Pedro Scaron; el Libro III, traducción de León Mames, edición a cargo de Scaron. Las *Teorías sobre la plusvalía* se citan en la edición inglesa y las *Krisenhefte*, en la MEGA²)
 
 - Marx, K. (1968). *Theories of Surplus Value*, parte II. Moscú: Progress Publishers.
 - Marx, K. (2016a). *Elementos fundamentales para la crítica de la economía política (Grundrisse) 1857–1858*, t. 1. México: Siglo XXI.
@@ -22,12 +22,15 @@ menu: Referencias
 **Lecturas del debate**
 
 - Banco Mundial [Datta, N., Rong, C., Singh, S., Stinshoff, C. et al.] (2023). *Working Without Borders: The Promise and Peril of Online Gig Work*. Washington, D.C.: Banco Mundial. http://hdl.handle.net/10986/40066
+- BLS (2018). Electronically mediated work: new questions in the Contingent Worker Supplement. *Monthly Labor Review*, septiembre. Washington, D.C.: U.S. Bureau of Labor Statistics. https://www.bls.gov/opub/mlr/2018/article/electronically-mediated-work-new-questions-in-the-contingent-worker-supplement.htm
 - Carchedi, G. y Roberts, M. (Eds.). (2018). *World in Crisis: A Global Analysis of Marx's Law of Profitability*. Chicago: Haymarket Books.
 - Carchedi, G. y Roberts, M. (2022). *Capitalism in the 21st Century: Through the Prism of Value*. Londres: Pluto Press.
 - Duménil, G. y Lévy, D. (2002). The profit rate: Where and how much did it fall? Did it recover? (USA 1948–2000). *Review of Radical Political Economics*, 34(4), 437–461.
 - Duménil, G. y Lévy, D. (2004). *Capital Resurgent: Roots of the Neoliberal Revolution*. Cambridge (MA): Harvard University Press.
 - Duménil, G. y Lévy, D. (2011). *The Crisis of Neoliberalism*. Cambridge (MA): Harvard University Press.
 - Dyer-Witheford, N., Kjøsen, A. M. y Steinhoff, J. (2024). *Poder inhumano. Inteligencia artificial y el futuro del capitalismo*. Buenos Aires: Prometeo.
+- Eurofound (2007). *Fourth European Working Conditions Survey*. Luxemburgo: Oficina de Publicaciones de la Unión Europea.
+- Eurofound (2025). *European Working Conditions Survey 2024: Overview report*. Luxemburgo: Oficina de Publicaciones de la Unión Europea.
 - Heinrich, M. (2013). Crisis Theory, the Law of the Tendency of the Profit Rate to Fall, and Marx's Studies in the 1870s. *Monthly Review*, 64(11).
 - Heinrich, M. (2014). *Die Wissenschaft vom Wert* (6.ª ed.). Münster: Westfälisches Dampfboot.
 - Kliman, A. (2012). *The Failure of Capitalist Production: Underlying Causes of the Great Recession*. Londres: Pluto Press.

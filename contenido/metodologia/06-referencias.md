@@ -5,7 +5,7 @@ menu: Las seis lecturas del debate
 ---
 ## Las seis lecturas del debate
 
-El sismógrafo pone a seis corrientes del debate marxista a leer los mismos datos. Para cinco de ellas calcula una tasa «a la manera de» sus autores; la sexta, la de Heinrich, no propone una medida y se contrasta con el abanico completo del multiverso.
+El sismógrafo pone a seis corrientes del debate marxista a leer los mismos datos. Para cinco de ellas calcula una tasa «a la manera de» sus autores; la sexta, la de Heinrich (2013; 2014), no propone una medida y se contrasta con el abanico completo del multiverso.
 
 | Lectura | Medida que la representa | Especificación |
 |---|---|---|

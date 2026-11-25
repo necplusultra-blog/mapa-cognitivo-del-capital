@@ -94,11 +94,16 @@ def construir(D, ee):
     # total invertido»); Us = capital fijo de las ramas de circulación. Su identidad RP = (S − Uf)/(C + Us) iguala la tasa
     # convencional con la marxiana corregida; como la ganancia convencional no incluye los impuestos indirectos, aquí
     # S se toma sin ellos (lectura nuestra de su identidad; él remite a las fuentes y métodos de su libro de 1991).
+    # Auditoría de nov. 2026: se restan los impuestos a la producción NETOS de subsidios del sector empresarial
+    # (NIPA 1.13, líneas 9 y 17: sociedades y no sociedades), no los brutos de toda la economía (W056RC), que incluían
+    # el impuesto predial de la vivienda propia y, en 2020-21, ignoraban los subsidios de la pandemia.
     FHc = ee['FH'].reindex(c.index)
     COMP_BUS = (s('A442RC') + s('W462RC')).reindex(c.index)
-    T_ind = s('W056RC').reindex(c.index)
+    T_ind = (s('W460RC') + s('W469RC')).reindex(c.index)
     Sc = c['S'] + FHc - T_ind
-    K_unp = sum(fa('k1', t) for t in ('n42001es00', 'n44RT1es00', 'n52001es00', 'n54111es00')).reindex(c.index)
+    # Us: capital fijo de comercio, finanzas y seguros, servicios jurídicos, inmobiliario (no residencial) y alquiler
+    K_unp = (sum(fa('k1', t) for t in ('n42001es00', 'n44RT1es00', 'n52001es00', 'n54111es00', 'n53201es00'))
+             + fa('k1', 'p53101es00') - fa('k1', 'r53101es00')).reindex(c.index)
     R['mo_rs'] = Sc / c['V']
     R['mo_uf'] = (COMP_BUS - c['V']) / c['V']
     R['mo_cc'] = (c['K'] - K_unp + D.INV.reindex(c.index)) / c['V']

@@ -129,6 +129,30 @@ def _sea(dir_datos):
     return s.pivot_table(index=['country', 'anio', 'code'], columns='variable', values='v')
 
 
+def _s_china():
+    """China: WIOD no distingue asalariados (COMP = LAB, EMPE vacío). Se usa el mismo supuesto que en horas_mundo:
+    asalariados de la OIT repartidos en las ramas no agrícolas (la agricultura china es casi enteramente familiar).
+    Devuelve una función (S, y) → vector de proporción de asalariados por rama (0 en A01-A03)."""
+    from sismografo.horas_mundo import CACHE_ILO, AGRO
+    try:
+        d = pd.read_csv(CACHE_ILO)
+        d = d[d.sex == 'SEX_T'].pivot_table(index='time', columns='classif1', values='obs_value')
+        ees, tot = d['STE_AGGREGATE_EES'], d['STE_AGGREGATE_TOTAL']
+    except Exception:  # noqa: BLE001
+        return None
+    agro = np.isin(np.array(RAMAS), AGRO)
+    def s_de(S, y):
+        try:
+            emp = S.loc[('CHN', y)].reindex(RAMAS)['EMP'].astype(float).values
+        except KeyError:
+            return None
+        peso_agro = np.nansum(emp[agro]) / np.nansum(emp)
+        s = min(1.0, float(ees.get(y, np.nan) / (tot.get(y, np.nan) * (1 - peso_agro))))
+        if not np.isfinite(s): return None
+        return np.where(agro, 0.0, s)
+    return s_de
+
+
 def _matrices(d, y):
     t = d[d.anio == y]
     dom = t[t.origen == 'Domestic'].set_index('code').reindex(RAMAS)
@@ -165,6 +189,7 @@ def calcular(dir_datos, dir_out, mundo_paises=None):
     N = _leer_niots(); S = _sea(dir_datos)
     anios = sorted({int(a) for d in N.values() for a in d.anio.dropna().unique()})
     phi_de = _phi_fn(dir_out)
+    s_chn = _s_china()
     n = len(RAMAS); I = np.eye(n)
     ramas_f, desv_f, com_f = [], [], []
     for y in anios:
@@ -181,6 +206,8 @@ def calcular(dir_datos, dir_out, mundo_paises=None):
                 asal = (g_['EMPE'].astype(float) / g_['EMP'].astype(float)).clip(0, 1).fillna(1.0).values
             except KeyError:
                 asal = np.ones(n)
+            if c == 'CHN' and s_chn is not None and s_chn(S, y) is not None:
+                asal = s_chn(S, y)                                                       # mismo supuesto que horas_mundo
             datos[c] = (x, A, M, exp, imp, l, phi_de(c, y), asal)
         lbar = np.zeros(n); lam, lam_a = {}, {}
         for _ in range(10):                                                              # converge en pocas vueltas
@@ -282,6 +309,7 @@ def moseley_tssi(N, S, anios, phi_de=None):
     """F4 v2: valores y precios de producción con la interpretación de Moseley y la variante temporal (TSSI).
     v3: educación y salud entran por su parte capitalista (fracción f = 1 − g de la rama, con la misma estructura)."""
     rp = np.array(RAMAS)
+    s_chn = _s_china()
     filas, ramas = [], []
     for c, d in N.items():
         prev = None
@@ -297,8 +325,11 @@ def moseley_tssi(N, S, anios, phi_de=None):
             f = phi_de(c, y) if phi_de else PROD.astype(float)
             Z = (A + M) * x                                                      # insumos (columnas = rama que compra)
             cj = (f @ Z) * f * fx                                                # insumos de la parte capitalista de los proveedores, moneda nacional
-            GO = x * f * fx; v = g['COMP'].values * f; K = g['K'].values * f
-            ce = (np.where(np.isfinite(g['LAB'].values), g['LAB'].values, g['COMP'].values) - g['COMP'].values) * f  # ingreso laboral de los no asalariados
+            comp = g['COMP'].values
+            if c == 'CHN' and s_chn is not None and s_chn(S, y) is not None:
+                comp = comp * s_chn(S, y)                                        # China: sólo la parte asalariada es v (como en horas_mundo)
+            GO = x * f * fx; v = comp * f; K = g['K'].values * f
+            ce = (np.where(np.isfinite(g['LAB'].values), g['LAB'].values, g['COMP'].values) - comp) * f  # ingreso laboral de los no asalariados
             ce = np.where(np.isfinite(ce) & (ce > 0), ce, 0.0)
             ok = (f > 0) & (GO > 0) & np.isfinite(v) & np.isfinite(K) & (K > 0)
             if ok.sum() < 10: prev = None; continue

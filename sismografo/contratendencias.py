@@ -105,7 +105,13 @@ def calcular(dir_datos, dir_out, ee):
     I['deuda_nfc_pct_pib'] = fred('BCNSDODNS') / pib * 100
 
     W = _banco_mundial()
-    if not W.empty: I = I.join(W.reindex(I.index))
+    if not W.empty:
+        # el agregado mundial del último año se calcula con pocos países y puede saltar (comercio: 56,7 % en 2024 →
+        # 68,5 % en 2025); se descarta el último dato si se aparta más de 5 puntos del anterior
+        for col in W.columns:
+            s = W[col].dropna()
+            if len(s) > 1 and abs(s.iloc[-1] - s.iloc[-2]) > 5: W.loc[s.index[-1], col] = np.nan
+        I = I.join(W.reindex(I.index))
     if mh := ee.get('horas_mundo'):
         A = mh['A']; a = A[(A.variante == 'educación y salud públicas fuera') & (A.china == 'con China')].set_index('anio')
         I['asalariados_productivos_mundo_mill'] = a['obreros_mill'].reindex(I.index)

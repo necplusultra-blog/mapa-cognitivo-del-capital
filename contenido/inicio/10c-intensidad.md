@@ -36,7 +36,7 @@ Como las estadísticas los registran como cuentapropistas, la medición del sism
 | Indicador | Valor | Fuente |
 |---|---|---|
 | EE.UU., trabajo intermediado por aplicaciones (mayo de 2017) | 1,6 millones de personas, 1,0 % del empleo | BLS (2018), encuesta de trabajo contingente |
-| EE.UU., contratistas independientes (julio de 2023) | 11,9 millones, 7,4 % del empleo (incluye, entre otros, a los de plataformas) | BLS (2024) |
+| EE.UU., contratistas independientes (julio de 2023) | 11,9 millones, 7,4 % del empleo (incluye, entre otros, a los de plataformas) | BLS (2024a) |
 | Mundo, trabajadores de plataformas en línea (2023) | entre 154 y 435 millones, del 4,4 % al 12,5 % de la fuerza de trabajo mundial | Banco Mundial (2023) |
 
 La estimación del Banco Mundial cubre sólo el trabajo en línea (tareas y servicios a distancia), no el que se hace en un lugar físico, como el transporte o el reparto; el límite superior incluye a quienes lo hacen como actividad secundaria. Según el mismo informe, la demanda de trabajo en línea por plataformas creció un 41 % entre 2016 y el primer trimestre de 2023. El BLS anunció cifras de trabajo por aplicaciones para 2023, todavía no publicadas.

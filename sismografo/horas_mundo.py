@@ -344,7 +344,7 @@ def combinar_un(P, X, RU, etiqueta='ONU por rama (tabla 2.6)'):
         anios = sorted(X.loc[m, 'anio'])
         viejo = pd.concat([pd.Series({base: b.e.iloc[0]}), X.loc[m].set_index('anio').e]).sort_index()
         viejo_r = pd.concat([pd.Series({base: b.r.iloc[0]}), X.loc[m].set_index('anio').r]).sort_index()
-        nuevo, nuevo_r = viejo.copy(), viejo_r.copy(); medidos = set()
+        nuevo, nuevo_r = viejo.copy(), viejo_r.copy(); medidos = set(); medidos_r = set()
         for seg, g in R[R.anio >= base].groupby('segmento'):
             g = g.set_index('anio').sort_index()
             a0 = int(g.index.min())
@@ -353,7 +353,7 @@ def combinar_un(P, X, RU, etiqueta='ONU por rama (tabla 2.6)'):
                 if y == a0 or y not in nuevo.index: continue
                 nuevo[y] = nuevo[a0] * g.e[y] / g.e[a0]
                 if not pd.isna(g.r.get(a0)) and not pd.isna(g.r.get(y)) and not pd.isna(nuevo_r[a0]):
-                    nuevo_r[y] = nuevo_r[a0] * g.r[y] / g.r[a0]
+                    nuevo_r[y] = nuevo_r[a0] * g.r[y] / g.r[a0]; medidos_r.add(y)
                 medidos.add(y)
             ult = int(g.index.max())
             for y in [a for a in nuevo.index if a > ult]:
@@ -364,6 +364,8 @@ def combinar_un(P, X, RU, etiqueta='ONU por rama (tabla 2.6)'):
             X.at[i, 'e'] = nuevo[y]; X.at[i, 'r'] = nuevo_r[y]
             if y in medidos:
                 X.at[i, 'fuente_e'] = etiqueta
+            if y in medidos_r:
+                X.at[i, 'fuente_r'] = 'ONU por rama (CCF), encadenada a la r calibrada de 2014'
         if var == VARIANTES[0][0] and medidos:
             g0 = R[(R.anio == base)]
             diag.append(dict(pais=c, desde=base, hasta=max(medidos), e_wiod_2014=float(b.e.iloc[0]),
@@ -419,6 +421,10 @@ def combinar_ilo(P, X, piv):
             hpw_b = float(fila_b.horas_mill.iloc[0] / fila_b.obreros_mill.iloc[0])
             tiene_h = b in hp.index and not pd.isna(hp.get(b)) and hp.notna().sum() > 1
             tiene_q = b in q.index and not pd.isna(q.get(b)) and q.notna().sum() > 1
+            # si la ONU midió e por rama (Brasil, India), la corrección q se reancla en el último año medido por la ONU,
+            # para no aplicar de nuevo la variación de q de los años que ya midió (auditoría de nov. 2026)
+            un = X.loc[m & X.fuente_e.astype(str).str.startswith('ONU'), 'anio']
+            qb = int(un.max()) if len(un) and int(un.max()) in q.index and not pd.isna(q.get(int(un.max()))) else b
             for i in X.index[m & (X.anio >= b)]:
                 y = int(X.at[i, 'anio'])
                 N = X.at[i, 'obreros_mill'] * ps[y] / ps[b]
@@ -426,8 +432,8 @@ def combinar_ilo(P, X, piv):
                 X.at[i, 'obreros_mill'], X.at[i, 'horas_mill'] = N, H
                 X.at[i, 'fuente_obreros'] = f'OIT por sección ({ind.fuente_secciones.dropna().iloc[0]})'
                 if tiene_h: X.at[i, 'fuente_horas'] = 'OIT por sección'
-                if tiene_q and X.at[i, 'fuente_e'] not in ('OCDE por rama', 'ONU por rama (tabla 2.6)', 'OCDE TiM por rama'):
-                    X.at[i, 'e'] = (1 + X.at[i, 'e']) * q[b] / q[y] - 1
+                if tiene_q and y >= qb and X.at[i, 'fuente_e'] not in ('OCDE por rama', 'ONU por rama (tabla 2.6)', 'OCDE TiM por rama'):
+                    X.at[i, 'e'] = (1 + X.at[i, 'e']) * q[qb] / q[y] - 1
                     X.at[i, 'fuente_e'] = 'OIT (participación del trabajo) + masa salarial por sección'
             if variante == VARIANTES[0][0]:
                 ult = int(ind.ps.dropna().index.max())
@@ -475,7 +481,7 @@ def combinar_ocde(P, X, R, dep):
         if var == VARIANTES[0][0]:
             diag.append(dict(pais=c, e_wiod_2014=b.e, e_ocde_2014=r.e[base], N_ocde_sobre_wiod=(r.N_mill[base] / b.obreros_mill) if tieneN else np.nan,
                              H_ocde_sobre_wiod=(r.H_mill[base] / b.horas_mill) if tieneH else np.nan,
-                             r_pwt_2014=b.r, r_ocde_2014=r.r.get(base, np.nan), ultimo_anio_e=ult_e, ultimo_anio_N=ult_N if tieneN else None,
+                             r_pwt_2014=b.get('r_pwt_sin_calibrar', b.r), r_ocde_2014=r.r.get(base, np.nan), ultimo_anio_e=ult_e, ultimo_anio_N=ult_N if tieneN else None,
                              cuenta_propia_imputada=bool(cp.get(base, False)), m_imputado=bool(r.m_imputado.any()), residuo=bool(r.residuo.any())))
     resto = X[[(c, v) not in reemplazados for c, v in zip(X.pais, X.variante)]]
     return pd.concat([resto, pd.DataFrame(filas)], ignore_index=True), pd.DataFrame(diag)

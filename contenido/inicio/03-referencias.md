@@ -27,7 +27,7 @@ Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). 
 :::lectura emp_intra_cc | Moseley: el plusvalor que absorbe el trabajo improductivo
 **Qué mira.** La tasa de plusvalor de los obreros de producción y no supervisores de las ramas productivas, y la parte del plusvalor que se gasta en trabajo de circulación y supervisión (Moseley, 1991).
 
-**Qué ve aquí.** El plusvalor producido y la ganancia apropiada se separan. La tasa intra-rama pasa de {{lx-in-82}} % en 1982 a {{lx-in-max}} y queda en {{lx-in-u}} %, por encima de sus niveles de los setenta, mientras la tasa corporativa de tipo Duménil-Lévy sigue por debajo de la de los años sesenta.
+**Qué ve aquí.** El plusvalor producido y la ganancia apropiada se separan. La tasa intra-rama pasa de {{lx-in-82}} % en 1982 a {{lx-in-max}} y queda en {{lx-in-u}} %, por encima de sus niveles de 1974–1979, mientras la tasa corporativa de tipo Duménil-Lévy sigue por debajo de la de los años sesenta.
 
 **Diagnóstico.** La caída de posguerra de la tasa convencional se debió sobre todo al crecimiento del trabajo improductivo, que absorbe plusvalor sin producirlo, más que a la composición del capital. La recuperación posterior proviene de una tasa de plusvalor creciente y de un freno relativo de ese gasto.
 :::
@@ -71,7 +71,7 @@ Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). 
 - **Tipo Moseley (plusvalor ampliado intra-rama,** desde 1972): igual, pero se resta sólo la remuneración de los obreros de producción y no supervisores de esas ramas.
 - **Tipo Roberts-Carchedi, pv/(c + v):** el plusvalor por ramas dividido por el capital fijo más el capital variable anual. Como v se toma como flujo anual, supone una sola rotación por año. La tasa mundial es la neta de la Penn World Table, ponderada por el capital, con China.
 - **Empresarial, todo productivo:** como la de Shaikh-Tonak, pero restando toda la remuneración del sector. Es la línea de base sin la distinción entre trabajo productivo e improductivo.
-- **Tabla:** valor de cada tasa en los años indicados; la última columna es el cambio porcentual entre 1982 (el mínimo común de la posguerra) y el último año.
+- **Tabla:** valor de cada tasa en los años indicados; la última columna es el cambio porcentual entre 1982 (el mínimo de las medidas empresariales amplias; en las de tipo Duménil-Lévy y Kliman el mínimo es 2001) y el último año.
 
 Todas incluyen la propiedad intelectual en K, sin existencias ni ajuste por utilización. Son definiciones «a la manera de» los autores, no réplicas de sus series: las series rehechas con la definición de cada autor están en la [sección siguiente](#replicacion). Los diagnósticos resumen las tesis publicadas de cada corriente; no son conclusiones del sismógrafo. Referencias completas en la [metodología, §6](metodologia.html#referencias).
 :::

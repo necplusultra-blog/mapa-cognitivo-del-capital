@@ -50,7 +50,10 @@ def calcular(share_ees, variantes, paises=('CHN',), desde=2014):
             prod_peso = pd.Series(1.0, index=SECC)
             prod_peso[CIRC + fuera] = 0.0; prod_peso['M'] = phi_m
             v = float((g.LABR_musd * sv * prod_peso).sum())
-            pv = float((g.VA_musd - g.LABR_musd)[mercado].sum())
+            # misma definición que con WIOD: pv = VA_m − cp − v, con cp = ingreso laboral de los no asalariados del
+            # mercado; los salarios de circulación quedan dentro de pv (auditoría de nov. 2026)
+            cp = float((g.LABR_musd * (1 - sv))[mercado].sum())
+            pv = float(g.VA_musd[mercado].sum()) - cp - v
             N = float((g.EMPN_miles * sv * prod_peso).sum()) / 1000
             if v > 0:
                 filas.append(dict(pais=c, variante=variante, anio=int(y), e=pv / v, r=np.nan, segmento='TiM 2025',
