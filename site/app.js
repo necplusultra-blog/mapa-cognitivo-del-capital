@@ -25,7 +25,7 @@ function lineChart(id, rows, series, o = {}) {
   let ml = 0; gy.selectAll('text').each(function () { ml = Math.max(ml, this.getComputedTextLength()); }); ml += 12;
   gy.attr('transform', `translate(${ml},0)`); gy.selectAll('.tick line').attr('x2', W - ml - mr);
   const x = d3.scaleLinear().domain(d3.extent(rows, (r) => r.anio)).range([ml, W - mr]);
-  svg.append('g').attr('transform', `translate(0,${H - mb})`).call(d3.axisBottom(x).ticks(Math.max(3, Math.floor((W - ml) / 70))).tickFormat(o.xlab ? (v) => (o.xlab(v) || '').slice(0, 4) : d3.format('d')));
+  svg.append('g').attr('transform', `translate(0,${H - mb})`).call(d3.axisBottom(x).ticks(Math.min(Math.max(3, Math.floor((W - ml) / 70)), Math.max(1, Math.round(x.domain()[1] - x.domain()[0])))).tickFormat(o.xlab ? (v) => (o.xlab(v) || '').slice(0, 4) : d3.format('d')));
   (o.bands || []).forEach((b, i) => svg.append('path').datum(rows).attr('d', d3.area().x((r) => x(r.anio)).y0((r) => y(+r[b[0]])).y1((r) => y(+r[b[1]]))).style('fill', C[0]).style('fill-opacity', i ? 0.3 : 0.14));
   if (o.ref != null) svg.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y(o.ref)).attr('y2', y(o.ref)).style('stroke', 'var(--muted)').attr('stroke-dasharray', '3,3');
   series.forEach((s, i) => {
