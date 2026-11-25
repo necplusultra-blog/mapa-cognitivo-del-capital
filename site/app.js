@@ -203,6 +203,16 @@ function drawFZ(F) {
   set('fz-niv', h(z.necesario_nivel_inicial_h)); set('fz-nec', h(z.necesario_efectivo_h));
   set('fz-lib', h(dsc.liberado_h)); set('fz-plus-pct', f0(dsc.plustrabajo_pct) + ' %'); set('fz-cons-pct', f0(dsc.consumo_pct) + ' %'); set('fz-jor', '0 h');
   const s1 = [['necesario_efectivo_h', 'Trabajo necesario efectivo'], ['necesario_nivel_inicial_h', `Tiempo que bastaría para el salario real de ${a.anio}`], ['plustrabajo_h', 'Plustrabajo']];
+  if (z.necesario_nivel_inicial_pce_h != null) {
+    s1.splice(2, 0, ['necesario_nivel_inicial_pce_h', `Ídem, con los precios del consumo (PCE)`]);
+    set('fz-niv-pce', h(z.necesario_nivel_inicial_pce_h)); set('fz-cons-pce-pct', f0(dsc.consumo_pce_pct) + ' %'); set('fz-plus-pce-pct', f0(dsc.plustrabajo_pce_pct) + ' %');
+  }
+  if (dsc.jornada_tc_fin != null) {
+    ['', '-b'].forEach((s) => {
+      set('fz-jtc' + s, h(dsc.jornada_tc_fin)); set('fz-jtc0' + s, h(dsc.jornada_tc_inicio)); set('fz-jtc-a0' + s, String(dsc.jornada_tc_anio_inicio));
+      set('fz-jtc-plus' + s, h(dsc.plustrabajo_jornada_tc_fin)); set('fz-jtc-plus0' + s, h(dsc.plustrabajo_jornada_tc_inicio));
+    });
+  }
   legend('l-fz', s1.map((x) => x[1]));
   lineChart('c-fz', U, s1.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' h', tipfmt: (v) => d3.format('.1f')(v) + ' h', aria: 'Tiempo liberado por la fuerza productiva en EE.UU.' });
   const tb = $('t-fz');
@@ -218,6 +228,7 @@ function drawFZ(F) {
     document.querySelectorAll('.fz-wfin').forEach((e) => { e.textContent = m.anio; });
     set('fz-wmin', f0(m.min_productivo_dia) + ' min'); set('fz-wnec', f0(m.min_necesario_dia) + ' min'); set('fz-wpct', f0(m.poblacion_pct_mundo) + ' %');
     const s2 = [['min_productivo_dia', 'Trabajo productivo'], ['min_plustrabajo_dia', 'de él, plustrabajo'], ['min_necesario_dia', 'de él, trabajo necesario']];
+    if (m.min_socialmente_necesario_dia != null) { s2.push(['min_socialmente_necesario_dia', 'Productivo + educación y salud públicas']); set('fz-wsoc', f0(m.min_socialmente_necesario_dia) + ' min'); set('fz-wpub', f0(m.min_educacion_salud_publicas_dia) + ' min'); }
     legend('l-fzw', s2.map((x) => x[1]));
     lineChart('c-fzw', M, s2.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + ' min', tipfmt: (v) => d3.format('.0f')(v) + ' min', prov: (M.find((r) => r.poblacion_extrapolada) || {}).anio ?? -1, aria: 'Minutos diarios de trabajo productivo por habitante' });
   }

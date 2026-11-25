@@ -92,6 +92,9 @@ def descargar_ocde(dir_datos):
     for nombre, df, key in (('t6', 'DF_TABLE6', f'A.{areas}.S1.S1.B1G+D1+P51C._Z.{acts}._Z.XDC.V.N.'),
                             ('t7', 'DF_TABLE7', f'A.{areas}.S1.S1.SAL+SELF+EMP._Z.{acts}._Z.PS+H._Z.N.')):
         _con_cache(OCDE.format(df=df, key=key), os.path.join(d, f'ocde_{nombre}.csv'), f'ocde_{nombre}.csv')
+    # horas habituales semanales de los asalariados de EE.UU. a tiempo completo y parcial (OCDE, a partir de la CPS)
+    _con_cache('https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_HW@DF_AVG_USL_WK_WKD,/USA.HW.H_WK_PS._T._T.EMP.W.USUAL.ICSE93_1.FT+PT+_T.MEAN._Z.MAIN?format=csvfile',
+               os.path.join(d, 'ocde_horas_habituales_usa_bruto.csv'), 'ocde_horas_habituales_usa_bruto.csv')
     # empleo por sector institucional (gobierno general S13, instituciones sin fines de lucro S15): parte pública de P y Q
     _con_cache(OCDE.format(df='DF_TABLE3_EMP_SECTOR', key=f'A.{areas}.S1+S13+S15._Z.EMP._Z._Z._Z.PS._Z.N.'),
                os.path.join(d, 'ocde_sectores.csv'), 'ocde_sectores.csv')
