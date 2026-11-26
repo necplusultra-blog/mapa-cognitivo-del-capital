@@ -1,11 +1,12 @@
 ---
-seccion: "03b Tiempo disponible"
-id: tiempo-disponible
+seccion: 03b Tiempo disponible
 menu: Fuerzas productivas y tiempo disponible
+id: tiempo-disponible
+oculta: false
 ---
 ## Fuerzas productivas y tiempo disponible: la posibilidad que el capital crea y convierte en plustrabajo
 
-El mapa cognitivo tiene una utilidad que las mediciones de la tasa de ganancia suelen dejar fuera. Registra el estado de las fuerzas productivas que el capital desarrolla y, con él, las posibilidades objetivas contenidas en la materialidad de la sociedad capitalista. La producción capitalista es, a la vez, proceso de valorización y proceso material de reproducción de la vida social. Para producir plusvalor relativo, el capital desarrolla la fuerza productiva del trabajo social y reduce el tiempo necesario para reproducir a quienes producen. En los *Grundrisse*, Marx condensa la doble cara de ese movimiento: la tendencia del capital es «por un lado de crear tiempo disponible, por otro lado, de convertirlo en plustrabajo» (Marx, 2016b, p. 232).
+El mapa cognitivo tiene una utilidad que las mediciones de la tasa de ganancia suelen dejar fuera. Registra el estado de las fuerzas productivas que el capital desarrolla y, con él, las posibilidades objetivas contenidas en la materialidad de la sociedad capitalista. La producción capitalista es, a la vez, proceso de valorización y proceso material de reproducción de la vida social. Para producir plusvalor relativo, el capital desarrolla la fuerza productiva del trabajo social y reduce el tiempo necesario para reproducir a quienes producen. En los *Grundrisse*, Marx condensa el carácter contradictorio de ese movimiento: la tendencia del capital es «por un lado de crear tiempo disponible, por otro lado, de convertirlo en plustrabajo» (Marx, 2016b, p. 232).
 
 ### Lo que muestran los datos
 
