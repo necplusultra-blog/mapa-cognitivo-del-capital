@@ -1,7 +1,8 @@
 ---
-seccion: "05 La tasa mundial"
+seccion: 05 La tasa mundial
+menu: La tasa de ganancia mundial
 id: mundo
-menu: La tasa mundial
+oculta: false
 ---
 ## La tasa mundial: la caída se concentra donde más se acumula
 
