@@ -6,7 +6,7 @@ oculta: false
 ---
 ## Crítica de la economía política, no economía política crítica
 
-Este trabajo pretende retomar y continuar el proyecto, necesariamente inconcluso, de la crítica marxiana de la economía política. Inconcluso, porque Marx dejó los Libros II y III de *El Capital* como manuscritos inacabados, así como manuscritos y borradores del proyecto de crítica de la economía política anteriores y posteriores a *El Capital* que abarcan miles de páginas. Necesariamente inconcluso, porque su objeto no es una estructura fija, sino un movimiento históricamente específico de la producción social que continuamente transforma el mundo al tiempo que reconstituye las relaciones de producción que le son inmanentes: la crítica inmanente de la sociedad capitalista tiene que, por lo tanto, continuar ese proyecto estudiando las tendencias fundamentales del capitalismo contemporáneo.
+Este trabajo pretende retomar y continuar el proyecto, necesariamente inconcluso, de la crítica marxiana de la economía política. Inconcluso, porque Marx dejó los Libros II y III de *El Capital* como manuscritos inacabados, así como manuscritos y borradores del proyecto de crítica de la economía política anteriores y posteriores a su obra magna que abarcan miles de páginas. Es un proyecto necesariamente inconcluso, además, porque su objeto no es una estructura fija, sino un movimiento históricamente específico de la producción social que continuamente transforma el mundo al tiempo que reconstituye las relaciones de producción que le son inmanentes: la crítica inmanente de la sociedad capitalista tiene que, por lo tanto, continuar ese proyecto estudiando las tendencias fundamentales del capitalismo contemporáneo.
 
 ### Lo cualitativo es lo primero
 
