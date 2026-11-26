@@ -4,7 +4,7 @@ menu: La tasa de ganancia mundial
 id: mundo
 oculta: false
 ---
-## La tasa mundial: la caída se concentra donde más se acumula
+## La tasa de ganancia mundial: la caída se concentra donde más se acumula
 
 Con la Penn World Table, la tasa neta de ganancia mundial (economía total, ponderada por capital, panel de 79 países desde 1960) oscila entre 7,6 % y 9,1 % de 1960 a 2007 y cae a 5,2 % en 2023. Sin China, la caída es menor: a 6,0 %. En el mismo periodo, China pasa de tener el 2 % del capital mundial a tener el 27 %, y EE.UU. del 39 % al 13 %. La masa mundial de ganancia bruta, mientras tanto, se multiplica casi por doce entre 1960 y 2023.
 
