@@ -1,13 +1,14 @@
 ---
-seccion: "07b ¿Colapso? Kurz ante los datos"
-id: kurz
+seccion: 07b ¿Colapso? Kurz ante los datos
 menu: ¿Colapso? Kurz ante los datos
+id: kurz
+oculta: false
 ---
 ## ¿Colapso? La teoría de Kurz ante los datos
 
-La teoría del colapso de Robert Kurz es la formulación más consecuente de la idea de que el capital se dirige hacia un límite interno absoluto. Su núcleo puede resumirse en tres afirmaciones. Primera: la producción de plusvalor relativo y la cientifización de la producción expulsan trabajo vivo del proceso inmediato de producción, y esa expulsión, pasado cierto umbral de la fuerza productiva, deja de ser relativa y se vuelve absoluta: disminuye el número de trabajadores productivos para el capital. Segunda: con ellos disminuye la masa global de plusvalor, porque el trabajo abstracto, entendido como gasto de energía humana, es la sustancia del valor. Tercera: la revolución microelectrónica, y con mayor razón las tecnologías que la prolongan, sólo aceleran ese proceso; el crédito y el capital ficticio lo postergan sin revertirlo (Kurz, 2012, pp. 300–312; véase también Kurz, 2021).
+La teoría del colapso de Robert Kurz es la formulación teórica más consecuente de la idea de que el modo de producción capitalista se dirige hacia un límite interno absoluto que lo abocaría a un colapso irreversible. El núcleo de su teoría del colapso puede resumirse en tres afirmaciones. Primera: la producción de plusvalor relativo y la cientifización de la producción expulsan trabajo vivo del proceso inmediato de producción, y esa expulsión, pasado cierto umbral de la fuerza productiva, deja de ser relativa y se vuelve absoluta, por lo que disminuye el número de trabajadores productivos para el capital. Con ello, se desustancializa la producción de plusvalor y, por lo tanto, la acumulación de capital. Segunda: con ellos disminuiría la masa global de plusvalor, porque el trabajo abstracto, que Kurz entiende como gasto de energía humana, es la sustancia del valor. Tercera: la revolución microelectrónica, y con mayor razón las tecnologías que la prolongan, sólo aceleran ese proceso; el crédito y el capital ficticio lo postergan sin poder revertirlo (Kurz, 2012, pp. 300–312; véase también Kurz, 2021).
 
-Las tres son afirmaciones sobre magnitudes, y el mapa cognitivo mide esas magnitudes. Que una teoría no pueda refutarse con estadísticas, porque sus categorías no son las de las cuentas nacionales, no la exime de confrontarse con la manifestación fenoménica de lo que afirma. Lo que sigue no demuestra ni refuta categorías; muestra qué forma ha tomado, en los datos disponibles, el movimiento que la teoría describe.
+Las tres son afirmaciones de Kurz tratan sobre magnitudes, y este mapa cognitivo mide esas magnitudes. Que una teoría no pueda refutarse con estadísticas, porque sus categorías no son las de las cuentas nacionales, no la exime en modo alguno de confrontarse críticamente con la manifestación fenoménica de lo que afirma. Lo que sigue muestra qué forma ha tomado, en los datos disponibles, el movimiento que la teoría describe.
 
 ### ¿Ha disminuido el proletariado productor de plusvalor?
 
