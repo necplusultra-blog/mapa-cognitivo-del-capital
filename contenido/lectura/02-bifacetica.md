@@ -1,13 +1,14 @@
 ---
-seccion: "02 Una ley de dos caras"
+seccion: 02 Una ley bifacética
+menu: Una ley bifacética
 id: bifacetica
-menu: Una ley de dos caras
+oculta: false
 ---
-## Una ley de dos caras: la tasa no se derrumba y la masa crece
+## Una ley bifacética: la tasa de ganancia no se derrumba y la masa de plusvalor crece
 
-El primer resultado es negativo y, por eso mismo, teóricamente decisivo. En EE.UU., la mediana del multiverso pasa de 121 en 1948 a 90 en 1982 y vuelve a 120 en 2025 (100 = promedio del periodo). La tabla de robustez muestra que sólo dos cambios entre décadas resisten todas las especificaciones: la caída de los años cuarenta a los cincuenta y el alza del tramo 2020–2025 respecto de la década anterior. Todos los demás movimientos dependen de la teoría adoptada. Ninguna especificación describe una caída lineal e irreversible.
+El primer resultado es negativo y, por eso mismo, teóricamente decisivo. En EE.UU., la mediana del multiverso pasa de 121 en 1948 a 90 en 1982 y vuelve a 120 en 2025 (100 = promedio del periodo). La tabla de robustez muestra que sólo dos cambios entre décadas resisten todas las especificaciones: la caída de los años cuarenta a los cincuenta y el alza del tramo 2020–2025 respecto de la década anterior. Todos los demás movimientos dependen de la teoría adoptada. Ninguna especificación describe una caída lineal e irreversible del sistema.
 
-Mientras tanto, la masa de plusvalor del sector empresarial, medida en poder de compra, se multiplica por más de ocho: de 972 mil millones de dólares de 2017 en 1948 a 8.277 mil millones en 2025. Es la forma empírica de lo que Marx llamó una ley bifacética (Marx, 2021, pp. 277–280; Jiménez Cea, 2026): las mismas leyes de la acumulación producen una masa absoluta de plusvalor creciente y una tasa de ganancia sometida a una presión descendente. Una lectura colapsista, que dedujera de la expulsión relativa de trabajo vivo un agotamiento de la masa de plusvalor, no encuentra apoyo en esta medición. Tampoco la encuentra la imagen opuesta de una valorización sin límites, como se verá al mirar qué sostiene esa masa.
+Mientras tanto, la masa de plusvalor del sector empresarial, medida en poder de compra, se multiplica por más de ocho: de 972 mil millones de dólares de 2017 en 1948 a 8.277 mil millones en 2025. Es la forma empírica de lo que Marx llamó una ley bifacética (Marx, 2021, pp. 277–280; Jiménez Cea, 2026): las mismas leyes de la acumulación producen una masa absoluta de plusvalor creciente y una tasa de ganancia tendencialmente descendente. Una lectura colapsista, que dedujera de la expulsión relativa de trabajo vivo un agotamiento de la masa de plusvalor, no encuentra apoyo en esta medición empírica. Tampoco la encuentra la imagen opuesta de una valorización sin límites, como se verá más adelante al observar qué sostiene esa masa.
 
 El movimiento de la tasa se deja leer con la descomposición marxiana r = e · v/K. Con el criterio por ramas, la composición K/V sube de 2,96 en 1948 a 4,00 en 1982, mientras la tasa de plusvalor baja de 1,27 a 1,03: en 1982 coinciden la composición más alta hasta entonces y la explotación más baja del periodo, y la tasa toca su mínimo. Desde entonces la recuperación se apoya en las dos palancas que Marx señala como contratendencias: la composición cae a 3,32 hacia el año 2000 —abaratamiento de los elementos del capital constante— y la tasa de plusvalor sube a 1,23 en 2025; con la corrección intra-rama, de 2,16 en 1982 a 3,14. La composición vuelve a subir después del 2000 (3,92 en 2025), de modo que la tasa sólo se sostiene porque la explotación sigue aumentando.
 
