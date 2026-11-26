@@ -1,7 +1,8 @@
 ---
-seccion: "09 Referencias"
-id: referencias-lectura
+seccion: 09 Referencias
 menu: Referencias
+id: referencias-lectura
+oculta: false
 ---
 ## Referencias
 
@@ -43,6 +44,7 @@ menu: Referencias
 - Roberts, M. (2018, 2 de noviembre). The US rate of profit in 2017. *The Next Recession* (blog). https://thenextrecession.wordpress.com/2018/11/02/the-us-rate-of-profit-in-2017/
 - Shaikh, A. (2016). *Capitalism: Competition, Conflict, Crises*. Nueva York: Oxford University Press.
 - Shaikh, A. y Tonak, E. A. (1994). *Measuring the Wealth of Nations: The Political Economy of National Accounts*. Cambridge: Cambridge University Press.
+- Steegen, S., Tuerlinckx, F., Gelman, A. y Vanpaemel, W. (2016). Increasing transparency through a multiverse analysis. *Perspectives on Psychological Science*, 11(5), 702–712.
 
 Fuentes de datos, métodos y la bibliografía completa del sitio: [metodología, §16](metodologia.html#bibliografia).
 {: .nota }
