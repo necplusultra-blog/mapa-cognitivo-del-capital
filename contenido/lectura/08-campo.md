@@ -1,13 +1,14 @@
 ---
-seccion: "08 Hacia el campo de las contratendencias"
-id: campo
+seccion: 08 Hacia el campo de las contratendencias
 menu: Hacia el campo de las contratendencias
+id: campo
+oculta: false
 ---
 ## Hacia el campo de las contratendencias
 
 La primera medición permite formular la pregunta por la crisis contemporánea de manera más precisa. No se trata de cuán cerca está el capital de un tope, sino de cómo articula hoy el campo de sus contratendencias. Los resultados sugieren cuatro rasgos de la articulación de las contratendencias que Marx expone (Marx, 2021, pp. 297–307), que el módulo de contratendencias deberá contrastar:
 
-1. **La elevación del grado de explotación** sostiene la tasa en EE.UU. desde 1982, pero opera en la forma asintótica que corresponde a una barrera que sólo puede tensionarse: en la forma de la jornada, cada compresión del trabajo necesario rinde proporcionalmente menos plustrabajo, aunque las series no muestran todavía un rendimiento decreciente década a década.
+1. **La elevación del grado de explotación de la fuerza de trabajo** sostiene la tasa en EE.UU. desde 1982, pero opera en la forma asintótica que corresponde a una barrera que sólo puede tensionarse: en la forma de la jornada, cada compresión del trabajo necesario rinde proporcionalmente menos plustrabajo, aunque las series no muestran todavía un rendimiento decreciente década a década.
 2. **El abaratamiento del capital constante** compensó la composición creciente entre 1982 y 2000, pero la composición volvió a subir después. Su eficacia no es una tendencia, sino una fase.
 3. **La sobrepoblación relativa reabsorbida** —la incorporación de nuevas poblaciones al trabajo productivo, sobre todo en China e India— es el principal sostén de la masa mundial de plusvalor. Es una contratendencia que repone la barrera en una escala ampliada: necesita cada vez más capital por obrero y una población explotable que no es ilimitada.
 4. **La transferencia y la anticipación de plusvalor** —la apropiación por los monopolios de la condición general de la producción, el comercio exterior, el capital que devenga interés y la explotación secundaria de los hogares por las finanzas— crecen en el centro del sistema sin aumentar por sí mismas la masa global de plusvalor.
