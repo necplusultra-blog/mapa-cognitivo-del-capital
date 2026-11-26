@@ -1,7 +1,8 @@
 ---
-seccion: "02b Seis lecturas ante los mismos datos"
-id: seis-lecturas
+seccion: 02b Seis lecturas ante los mismos datos
 menu: Seis lecturas ante los mismos datos
+id: seis-lecturas
+oculta: false
 ---
 ## Seis lecturas ante los mismos datos
 
@@ -19,7 +20,7 @@ Duménil y Lévy (2004; 2011) y Heinrich (2013; 2014) ponen el acento en la recu
 
 La replicación introduce, sin embargo, una corrección a esta lectura. Con los datos de hoy, la recuperación de la tasa amplia de las sociedades entre 1982 y 2000, que Duménil y Lévy (2002) midieron en un 45 %, es de un 13 % (un 17 % sin la propiedad intelectual). La restauración neoliberal de la rentabilidad fue, hasta el año 2000, más débil de lo que mostraban las cuentas de entonces; la tasa corporativa sube sobre todo después.
 
-Pero si el movimiento fuera indeterminado, o puramente político, nada debería resistir a todas las especificaciones. Lo que resiste es significativo. Cuando la tasa de plusvalor dejó de subir, entre 2004 y 2016, la tasa de ganancia cayó en todas ellas, con los dos criterios de trabajo productivo. La recuperación neoliberal no fue un orden capaz de sostenerse a sí mismo, sino una contratendencia que tropieza con la forma de la jornada: la tasa de plusvalor puede seguir subiendo, pero, en esa forma, cada aumento comprime menos el trabajo necesario (una determinación de la forma, no una tendencia que las series muestren década a década).
+Pero si el movimiento fuera indeterminado, o puramente político, nada debería resistir a todas las especificaciones. Lo que resiste es significativo. Cuando la tasa de plusvalor dejó de subir, entre 2004 y 2016, la tasa de ganancia cayó en todas ellas, con los dos criterios de trabajo productivo. La recuperación neoliberal no fue un orden capaz de sostenerse a sí mismo, sino una contratendencia que tropieza con la forma de la jornada laboral capitalista: la tasa de plusvalor puede seguir subiendo, pero, en esa forma, cada aumento comprime menos el trabajo necesario (una determinación de la forma específica de la producción social capitalista, no una tendencia que las series muestren década a década).
 
 ### La distribución: Shaikh y Moseley
 
