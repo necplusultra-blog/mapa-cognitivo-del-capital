@@ -18,6 +18,14 @@
   /* Idioma: el de la página (en/map.html y las páginas en inglés usan lang="en-GB"). */
   var EN = /^en/.test((document.documentElement.lang || '').toLowerCase());
   function L(es, en) { return EN ? en : es; }
+  /* Textos editables: contenido/mapa.yml (o contenido/en/mapa.yml) → mapa-textos.js → window.MAPA_TEXTOS.
+     T('lamina.marca', es, en, {version: …}) devuelve el texto del YAML si existe y, si no, el de aquí.
+     Las llaves {n}, {eeuu}… se reemplazan por los valores que se pasan en el último argumento. */
+  function T(clave, es, en, vars) {
+    var v = clave.split('.').reduce(function (o, k) { return o == null ? o : o[k]; }, global.MAPA_TEXTOS || null);
+    var s = (typeof v === 'string' && v.trim()) ? v : (EN ? en : es);
+    return vars ? s.replace(/\{(\w+)\}/g, function (m, k) { return k in vars ? vars[k] : m; }) : s;
+  }
   /* En la versión inglesa, los enlaces a las páginas del sitio apuntan a sus equivalentes en en/. */
   function ruta(a) { if (!EN) return a; return a.replace(/^lectura\.html/, 'reading.html').replace(/^metodologia\.html/, 'methodology.html'); }
   var EJE_Y = 470;
@@ -30,20 +38,20 @@
   /* Estaciones del eje: orden de exposición de las categorías. Textos breves: lo que muestra el sitio es
      manifestación fenoménica de la determinación categorial, no su demostración. */
   var ESTACIONES = [
-    { k: L('Lógica del capital', 'Logic of capital'), x: 120, a: 'lectura.html#estatuto', c: '#01',
-      t: L('El valor que se valoriza como sujeto de la mediación social. La categoría se expone primero; las series del sitio son su manifestación fenoménica en precios, no su demostración.',
+    { k: T('lamina.estaciones.0.nombre', 'Lógica del capital', 'Logic of capital'), x: 120, a: 'lectura.html#estatuto', c: '#01',
+      t: T('lamina.estaciones.0.descripcion', 'El valor que se valoriza como sujeto de la mediación social. La categoría se expone primero; las series del sitio son su manifestación fenoménica en precios, no su demostración.',
            'Self-valorising value as the subject of social mediation. The category is set out first; the series on the site are its phenomenal manifestation in prices, not its demonstration.') },
-    { k: L('Plusvalor y ganancia', 'Surplus value and profit'), x: 520, a: 'index.html#masa-tasa', c: '#02',
-      t: L('Masa y tasa de plusvalor y de ganancia. Ninguna cuenta nacional las publica: se reconstruyen reclasificando excedente y remuneración según decisiones explícitas, cada una visible como bifurcación del árbol superior.',
+    { k: T('lamina.estaciones.1.nombre', 'Plusvalor y ganancia', 'Surplus value and profit'), x: 520, a: 'index.html#masa-tasa', c: '#02',
+      t: T('lamina.estaciones.1.descripcion', 'Masa y tasa de plusvalor y de ganancia. Ninguna cuenta nacional las publica: se reconstruyen reclasificando excedente y remuneración según decisiones explícitas, cada una visible como bifurcación del árbol superior.',
            'Mass and rate of surplus value and of profit. No national account publishes them: they are reconstructed by reclassifying surplus and compensation according to explicit decisions, each visible as a fork in the upper tree.') },
-    { k: L('Fuerzas productivas', 'Productive forces'), x: 900, a: 'index.html#fuerzas', c: '#03',
-      t: L('Desarrollo de las fuerzas productivas: valor nuevo por hora, tiempo necesario y plustrabajo, en EE.UU. y en el mundo.',
+    { k: T('lamina.estaciones.2.nombre', 'Fuerzas productivas', 'Productive forces'), x: 900, a: 'index.html#fuerzas', c: '#03',
+      t: T('lamina.estaciones.2.descripcion', 'Desarrollo de las fuerzas productivas: valor nuevo por hora, tiempo necesario y plustrabajo, en EE.UU. y en el mundo.',
            'Development of the productive forces: new value per hour, necessary time and surplus labour, in the United States and the world.') },
-    { k: L('Tiempo disponible', 'Disposable time'), x: 1110, a: 'lectura.html#tiempo-disponible', c: '#04',
-      t: L('Tiempo de trabajo y tiempo disponible: la medida del valor frente a la riqueza que ya no cabe en ella. Las horas registran la medida; el tiempo liberado registra su contradicción.',
+    { k: T('lamina.estaciones.3.nombre', 'Tiempo disponible', 'Disposable time'), x: 1110, a: 'lectura.html#tiempo-disponible', c: '#04',
+      t: T('lamina.estaciones.3.descripcion', 'Tiempo de trabajo y tiempo disponible: la medida del valor frente a la riqueza que ya no cabe en ella. Las horas registran la medida; el tiempo liberado registra su contradicción.',
            'Labour time and disposable time: the measure of value against the wealth that no longer fits within it. Hours record the measure; freed time records its contradiction.') },
-    { k: L('Límites inmanentes', 'Immanent limits'), x: 1380, a: 'lectura.html#asintota', c: '#05',
-      t: L('Hipótesis del capitalismo limítrofe y sus contratendencias. Lo que el sitio puede mostrar es si una tendencia aparece y bajo qué decisiones, a escala de EE.UU. y del mundo; no mide una distancia a un tope.',
+    { k: T('lamina.estaciones.4.nombre', 'Límites inmanentes', 'Immanent limits'), x: 1380, a: 'lectura.html#asintota', c: '#05',
+      t: T('lamina.estaciones.4.descripcion', 'Hipótesis del capitalismo limítrofe y sus contratendencias. Lo que el sitio puede mostrar es si una tendencia aparece y bajo qué decisiones, a escala de EE.UU. y del mundo; no mide una distancia a un tope.',
            'The hypothesis of borderline capitalism and its countertendencies. What the site can show is whether a tendency appears and under which decisions, for the United States and the world; it does not measure a distance to a ceiling.') }
   ];
   /* Abanicos de series de cada sección del sitio: ángulo (grados, positivo hacia abajo) y radio desde su estación. */
@@ -94,8 +102,8 @@
     for (var yy = Y0; yy <= Y1; yy++) curva('sis:regla', 4, ['l', xa(yy), 872, xa(yy), 872 + (yy % 10 === 0 ? 6 : 2.5)]);
     for (yy = 1950; yy <= 2020; yy += 10) capa('sis:txt', 't', 5).g.push(['t', xa(yy), 889, String(yy), 10, 'center']);
     picos.sort(function (a, b) { return b[1] - a[1]; }).slice(0, 5).forEach(function (q) { capa('sis:pico:txt', 't', 5).g.push(['t', xa(q[0]), 872 - q[1] / qmax * 74 - 6, String(q[0]), 9.5, 'center']); });
-    capa('sis:txt', 't', 5).g.push(['t', SX0, 640, L('C · registro · multiverso de EE.UU., percentiles 10–90 (100 = promedio del periodo) · barras: especificaciones con quiebre en cada año (de ' + (D.eeuu.specs || []).length + ')',
-      'C · record · US multiverse, percentiles 10–90 (100 = period average) · bars: specifications with a break in each year (of ' + (D.eeuu.specs || []).length + ')'), 10, 'left']);
+    capa('sis:txt', 't', 5).g.push(['t', SX0, 640, T('lamina.rotulo_registro', 'C · registro · multiverso de EE.UU., percentiles 10–90 (100 = promedio del periodo) · barras: especificaciones con quiebre en cada año (de {n})',
+      'C · record · US multiverse, percentiles 10–90 (100 = period average) · bars: specifications with a break in each year (of {n})', { n: (D.eeuu.specs || []).length }), 10, 'left']);
 
     /* ---- eje categorial */
     var ejePts = []; for (x = 30; x <= 1570; x += 4) ejePts.push([x, ejeY(x)]);
@@ -190,7 +198,7 @@
     var emp = (D.meta && D.meta.empalmes) || {}, empNodo = null;
     [1987, 1997].forEach(function (y) { capa('empalme', 's', 15).g.push(['a', eeuu.cfg.cx, eeuu.cfg.cy, eeuu.cfg.rA(y), eeuu.cfg.a0 - 0.02, eeuu.cfg.a1 + 0.02]); });
     var pe = polar(eeuu.cfg.cx, eeuu.cfg.cy, eeuu.cfg.rA(1992), -16 * RAD);
-    empNodo = { tipo: 'empalme', x: pe[0], y: pe[1], clave: L('Empalme estadístico', 'Statistical splice'), cod: '#08', empalmes: emp, peso: 3, hijos: [] };
+    empNodo = { tipo: 'empalme', x: pe[0], y: pe[1], clave: T('lamina.empalme_nombre', 'Empalme estadístico', 'Statistical splice'), cod: '#08', empalmes: emp, peso: 3, hijos: [] };
     nodos.push(empNodo);
 
     /* ---- abanicos de series por sección */
@@ -219,18 +227,18 @@
     /* ---- nodos clave con etiqueta */
     var bifurcacion = null;
     eeuu.todos.forEach(function (N) { if (!bifurcacion && N.tipo === 'decision' && D.eeuu.claves[N.dim] === 'D2') bifurcacion = N; });
-    eeuu.raiz.clave = L('Multiverso de especificaciones', 'Multiverse of specifications'); eeuu.raiz.cod = '#06';
-    if (bifurcacion) { bifurcacion.clave = L('Bifurcación teórica', 'Theoretical fork'); bifurcacion.cod = '#07'; }
+    eeuu.raiz.clave = T('lamina.raiz_nombre', 'Multiverso de especificaciones', 'Multiverse of specifications'); eeuu.raiz.cod = '#06';
+    if (bifurcacion) { bifurcacion.clave = T('lamina.bifurcacion_nombre', 'Bifurcación teórica', 'Theoretical fork'); bifurcacion.cod = '#07'; }
     function etq(n, dx, dy, al, sub) { if (n) etiquetas.push({ n: n, dx: dx, dy: dy, al: al || 'left', sub: sub }); }
     var m = D.meta || {};
-    etq(ESTACIONES[0].nodo, -40, 96, 'left', L('eje · exposición categorial', 'axis · categorial exposition'));
-    etq(ESTACIONES[1].nodo, -250, 128, 'left', L('eje · ', 'axis · ') + eeuu.hojas.length + L(' especificaciones', ' specifications'));
-    etq(ESTACIONES[2].nodo, 52, 100, 'left', L('eje · ', 'axis · ') + (familias.filter(function (f) { return f.est === 2; })[0] || { n: 0 }).n + ' series');
-    etq(ESTACIONES[3].nodo, -40, -96, 'right', L('eje · horas de trabajo', 'axis · hours of labour'));
-    etq(ESTACIONES[4].nodo, -70, 54, 'right', L('eje · ', 'axis · ') + mundo.hojas.length + L(' especificaciones mundiales', ' world specifications'));
-    etq(eeuu.raiz, 92, 52, 'left', L('raíz · ', 'root · ') + D.eeuu.dims.length + L(' decisiones', ' decisions'));
-    etq(bifurcacion, -190, 30, 'right', L('qué cuenta como plusvalor', 'what counts as surplus value'));
-    etq(empNodo, 52, -132, 'left', Object.keys(emp).length + L(' empalmes SIC → NAICS', ' SIC → NAICS splices'));
+    etq(ESTACIONES[0].nodo, -40, 96, 'left', T('lamina.rotulo_eje_1', 'eje · exposición categorial', 'axis · categorial exposition'));
+    etq(ESTACIONES[1].nodo, -250, 128, 'left', T('lamina.rotulo_eje_2', 'eje · {n} especificaciones', 'axis · {n} specifications', { n: eeuu.hojas.length }));
+    etq(ESTACIONES[2].nodo, 52, 100, 'left', T('lamina.rotulo_eje_3', 'eje · {n} series', 'axis · {n} series', { n: (familias.filter(function (f) { return f.est === 2; })[0] || { n: 0 }).n }));
+    etq(ESTACIONES[3].nodo, -40, -96, 'right', T('lamina.rotulo_eje_4', 'eje · horas de trabajo', 'axis · hours of labour'));
+    etq(ESTACIONES[4].nodo, -70, 54, 'right', T('lamina.rotulo_eje_5', 'eje · {n} especificaciones mundiales', 'axis · {n} world specifications', { n: mundo.hojas.length }));
+    etq(eeuu.raiz, 92, 52, 'left', T('lamina.rotulo_raiz', 'raíz · {n} decisiones', 'root · {n} decisions', { n: D.eeuu.dims.length }));
+    etq(bifurcacion, -190, 30, 'right', T('lamina.rotulo_bifurcacion', 'qué cuenta como plusvalor', 'what counts as surplus value'));
+    etq(empNodo, 52, -132, 'left', T('lamina.rotulo_empalmes', '{n} empalmes SIC → NAICS', '{n} SIC → NAICS splices', { n: Object.keys(emp).length }));
 
     /* ---- marco de lámina: retícula de puntos, escuadras en las esquinas, números de estación y rótulos de región */
     for (x = 40; x < W - 20; x += 40) for (var y2 = 40; y2 < H - 20; y2 += 40) capa('grilla', 'd', 0).g.push(['d', x, y2, 0.55]);
@@ -238,11 +246,11 @@
       capa('lam:reg', 's', 1).g.push(['p', [[c[0], c[1] + 22 * c[3]], [c[0], c[1]], [c[0] + 22 * c[2], c[1]]]]);
     });
     ESTACIONES.forEach(function (e, i) { capa('est:num', 't', 22).g.push(['t', e.x, EJE_Y - 19, '0' + (i + 1), 9, 'center']); });
-    capa('region', 't', 5).g.push(['t', 34, EJE_Y + 30, L('EJE · EXPOSICIÓN CATEGORIAL →', 'AXIS · CATEGORIAL EXPOSITION →'), 10, 'left']);
+    capa('region', 't', 5).g.push(['t', 34, EJE_Y + 30, T('lamina.rotulo_region', 'EJE · EXPOSICIÓN CATEGORIAL →', 'AXIS · CATEGORIAL EXPOSITION →'), 10, 'left']);
     var fecha = (m.actualizado || '').slice(0, 10);
-    [[L('mapa cognitivo del capital · ', 'cognitive map of capital · ') + VERSION, 11],
-     [L('topología: multiverso efectivo · ', 'topology: effective multiverse · ') + eeuu.hojas.length + ' + ' + mundo.hojas.length + L(' especificaciones · geometría: semilla ', ' specifications · geometry: seed ') + SEED, 9],
-     [L('datos: ', 'data: ') + (m.actualizado || '—') + (m.commit ? ' · commit ' + m.commit : ''), 9]].forEach(function (l, i) {
+    [[T('lamina.marca', 'mapa cognitivo del capital · {version}', 'cognitive map of capital · {version}', { version: VERSION }), 11],
+     [T('lamina.topologia', 'topología: multiverso efectivo · {eeuu} + {mundo} especificaciones · geometría: semilla {semilla}', 'topology: effective multiverse · {eeuu} + {mundo} specifications · geometry: seed {semilla}', { eeuu: eeuu.hojas.length, mundo: mundo.hojas.length, semilla: SEED }), 9],
+     [T('lamina.datos', 'datos: {fecha}', 'data: {fecha}', { fecha: (m.actualizado || '—') }) + (m.commit ? ' · commit ' + m.commit : ''), 9]].forEach(function (l, i) {
       capa(i ? 'lam:txt' : 'lam:tit', 't', 1).g.push(['t', W - 26, 36 + i * 15, l[0], l[1], 'right']);
     });
 
@@ -444,42 +452,42 @@
   function hojasDe(n) { if (n.tipo === 'hoja') return [n]; var r = []; (n.hijos || []).forEach(function (h) { r = r.concat(hojasDe(h)); }); return r; }
   function describir(E, n) {
     var D = E.D, d = { nodo: n, tipo: n.tipo, cod: n.cod, clave: n.clave };
-    if (n.tipo === 'estacion') { var e = E.estaciones[n.est]; d.titulo = e.k; d.texto = e.t; d.enlaces = [[ruta(e.a), L('leer en el sitio', 'read on the site')]]; d.sub = L('eje categorial', 'categorial axis'); }
+    if (n.tipo === 'estacion') { var e = E.estaciones[n.est]; d.titulo = e.k; d.texto = e.t; d.enlaces = [[ruta(e.a), T('lamina.enlace_leer', 'leer en el sitio', 'read on the site')]]; d.sub = T('lamina.sub_estacion', 'eje categorial', 'categorial axis'); }
     if (n.tipo === 'decision' || n.tipo === 'hoja') {
       var def = D[n.arbol], esEEUU = n.arbol === 'eeuu', hs = hojasDe(n);
-      d.arbol = esEEUU ? L('multiverso de EE.UU.', 'US multiverse') : L('multiverso mundial', 'world multiverse');
+      d.arbol = esEEUU ? T('lamina.arbol_eeuu', 'multiverso de EE.UU.', 'US multiverse') : T('lamina.arbol_mundo', 'multiverso mundial', 'world multiverse');
       d.ruta = cadena(n).reverse().filter(function (x) { return x.padre && x.padre.dim != null; }).map(function (x) { var dm = def.dims[x.padre.dim]; return [dm[0], dm[2][x.opt]]; });
       d.quiebres = {}; hs.forEach(function (h) { (h.datos[2] || []).forEach(function (y) { d.quiebres[y] = (d.quiebres[y] || 0) + 1; }); });
       d.n = hs.length;
       if (esEEUU) d.idx = hs.map(function (h) { return h.spec; });   // para la curva del explorador (explorador.js)
-      d.enlaces = esEEUU ? [['index.html#multiverso', L('el multiverso en el sitio', 'the multiverse on the site')], [ruta('metodologia.html#multiverso'), L('metodología §5', 'methodology §5')]] : [['index.html#mundo', L('tasa mundial en el sitio', 'world rate on the site')], [ruta('metodologia.html#mundo'), L('metodología', 'methodology')]];
+      d.enlaces = esEEUU ? [['index.html#multiverso', T('lamina.enlace_multiverso', 'el multiverso en el sitio', 'the multiverse on the site')], [ruta('metodologia.html#multiverso'), T('lamina.enlace_metodologia_5', 'metodología §5', 'methodology §5')]] : [['index.html#mundo', T('lamina.enlace_mundo', 'tasa mundial en el sitio', 'world rate on the site')], [ruta('metodologia.html#mundo'), T('lamina.enlace_metodologia', 'metodología', 'methodology')]];
       if (n.tipo === 'decision') {
         var dm = def.dims[n.dim];
-        d.titulo = n.clave || dm[0]; d.sub = n.clave ? dm[0] : L('bifurcación teórica', 'theoretical fork');
+        d.titulo = n.clave || dm[0]; d.sub = n.clave ? dm[0] : T('lamina.sub_bifurcacion', 'bifurcación teórica', 'theoretical fork');
         d.decision = dm[0]; d.posicion = dm[1];
         d.opciones = n.hijos.map(function (h) { return [dm[2][h.opt], hojasDe(h).length]; });
         if (esEEUU) d.grupos = n.hijos.map(function (h) { return [dm[2][h.opt], hojasDe(h).map(function (x) { return x.spec; })]; });
-        if (n.cod === '#06') d.texto = L('Raíz del multiverso efectivo de EE.UU.: cada hoja es una especificación publicada y cada bifurcación, una decisión teórica explícita. Se informa la distribución completa, no una estimación elegida a posteriori.',
+        if (n.cod === '#06') d.texto = T('lamina.raiz_descripcion', 'Raíz del multiverso efectivo de EE.UU.: cada hoja es una especificación publicada y cada bifurcación, una decisión teórica explícita. Se informa la distribución completa, no una estimación elegida a posteriori.',
           'Root of the effective US multiverse: each leaf is a published specification and each fork an explicit theoretical decision. The full distribution is reported, not an estimate chosen after the fact.');
-        if (n.cod === '#07') { d.texto = L('Qué trabajo es productivo decide qué parte del excedente cuenta como plusvalor. Aquí el plusvalor ampliado se separa en dos criterios: por ramas o con la corrección intra-rama. La variante «todo productivo» cuelga del numerador «excedente amplio».',
-          'Which labour is productive decides which part of the surplus counts as surplus value. Here extended surplus value splits into two criteria: by industry or with the within-industry correction. The \u2018all labour productive\u2019 variant hangs from the \u2018broad surplus\u2019 numerator.'); d.enlaces.push(['index.html#supuestos', L('qué cuenta como plusvalor', 'what counts as surplus value')]); }
+        if (n.cod === '#07') { d.texto = T('lamina.bifurcacion_descripcion', 'Qué trabajo es productivo decide qué parte del excedente cuenta como plusvalor. Aquí el plusvalor ampliado se separa en dos criterios: por ramas o con la corrección intra-rama. La variante «todo productivo» cuelga del numerador «excedente amplio».',
+          'Which labour is productive decides which part of the surplus counts as surplus value. Here extended surplus value splits into two criteria: by industry or with the within-industry correction. The \u2018all labour productive\u2019 variant hangs from the \u2018broad surplus\u2019 numerator.'); d.enlaces.push(['index.html#supuestos', T('lamina.enlace_plusvalor', 'qué cuenta como plusvalor', 'what counts as surplus value')]); }
       } else {
-        var s = n.datos; d.spec = n.spec; d.titulo = s[0]; d.sub = esEEUU ? L('especificación · ', 'specification · ') + (EN && def.fam_en && def.fam_en[s[1]] || s[1]) : L('especificación mundial · ', 'world specification · ') + s[1] + L(' países', ' countries');
-        d.decisiones = def.dims.map(function (dm, i) { return [dm[0], s[3] && s[3][i] >= 0 ? dm[2][s[3][i]] : L('no aplica a esta familia', 'not applicable to this family')]; });
+        var s = n.datos; d.spec = n.spec; d.titulo = s[0]; d.sub = esEEUU ? T('lamina.sub_especificacion', 'especificación · {familia}', 'specification · {familia}', { familia: (EN && def.fam_en && def.fam_en[s[1]] || s[1]) }) : T('lamina.sub_especificacion_mundial', 'especificación mundial · {n} países', 'world specification · {n} countries', { n: s[1] });
+        d.decisiones = def.dims.map(function (dm, i) { return [dm[0], s[3] && s[3][i] >= 0 ? dm[2][s[3][i]] : T('lamina.no_aplica', 'no aplica a esta familia', 'not applicable to this family')]; });
         d.anios = s[2] || [];
       }
     }
-    if (n.tipo === 'familia') { d.titulo = n.nombre; d.sub = n.series.length + L(' series publicadas', ' published series'); d.series = n.series; d.glosas = n.glosa; d.enlaces = [[n.ancla, L('ver la sección', 'see the section')]]; }
+    if (n.tipo === 'familia') { d.titulo = n.nombre; d.sub = T('lamina.sub_familia', '{n} series publicadas', '{n} published series', { n: n.series.length }); d.series = n.series; d.glosas = n.glosa; d.enlaces = [[n.ancla, T('lamina.enlace_seccion', 'ver la sección', 'see the section')]]; }
     if (n.tipo === 'serie') {
       var g = n.glosa || [n.nombre, '', ''];
-      d.titulo = g[0]; d.sub = L('serie · ', 'series · ') + n.familia.nombre; d.columna = n.nombre; d.expresion = g[1]; d.texto = g[2];
-      d.enlaces = [[n.familia.ancla, L('ver la sección', 'see the section')]];
+      d.titulo = g[0]; d.sub = T('lamina.sub_serie', 'serie · {familia}', 'series · {familia}', { familia: n.familia.nombre }); d.columna = n.nombre; d.expresion = g[1]; d.texto = g[2];
+      d.enlaces = [[n.familia.ancla, T('lamina.enlace_seccion', 'ver la sección', 'see the section')]];
     }
     if (n.tipo === 'empalme') {
-      d.titulo = n.clave; d.sub = L('cambios de clasificación industrial en las series de EE.UU.', 'changes of industrial classification in the US series');
-      d.texto = L('Las series del BEA cambian de clasificación (SIC → NAICS). Cada empalme se hace con un factor de nivel explícito; los arcos punteados del anillo marcan esos años.', 'The BEA series change classification (SIC → NAICS). Each splice uses an explicit level factor; the dotted arcs of the ring mark those years.');
+      d.titulo = n.clave; d.sub = T('lamina.empalme_subtitulo', 'cambios de clasificación industrial en las series de EE.UU.', 'changes of industrial classification in the US series');
+      d.texto = T('lamina.empalme_descripcion', 'Las series del BEA cambian de clasificación (SIC → NAICS). Cada empalme se hace con un factor de nivel explícito; los arcos punteados del anillo marcan esos años.', 'The BEA series change classification (SIC → NAICS). Each splice uses an explicit level factor; the dotted arcs of the ring mark those years.');
       d.empalmes = Object.keys(n.empalmes || {}).map(function (k) { return [k, n.empalmes[k]]; });
-      d.enlaces = [[ruta('metodologia.html#empalmes'), L('metodología: empalmes', 'methodology: splices')]];
+      d.enlaces = [[ruta('metodologia.html#empalmes'), T('lamina.enlace_empalmes', 'metodología: empalmes', 'methodology: splices')]];
     }
     return d;
   }
@@ -490,7 +498,7 @@
     var modo = op.modo || 'mapa';
     var cv = document.createElement('canvas'); cv.className = 'mapa-cognitivo-lienzo';
     cv.setAttribute('role', 'img');
-    cv.setAttribute('aria-label', L('Mapa cognitivo del capital: eje categorial, multiverso de especificaciones con sus quiebres y registro sismográfico.', 'Cognitive map of capital: categorial axis, multiverse of specifications with their breaks, and seismographic record.'));
+    cv.setAttribute('aria-label', T('lamina.aria', 'Mapa cognitivo del capital: eje categorial, multiverso de especificaciones de la tasa de ganancia con sus quiebres y registro sismográfico.', 'Cognitive map of capital: categorial axis, multiverse of specifications of the rate of profit with their breaks, and seismographic record.'));
     cv.style.cssText = 'display:block;width:100%;height:100%;' + (modo === 'mapa' ? 'touch-action:none;cursor:grab;' : '');
     cont.appendChild(cv);
     var est = document.createElement('canvas'), ctx = cv.getContext('2d'), sctx = est.getContext('2d');

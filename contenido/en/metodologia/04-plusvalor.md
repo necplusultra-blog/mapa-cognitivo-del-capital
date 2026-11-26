@@ -15,3 +15,6 @@ menu: Broad surplus value (macro-monetary reading)
 pv includes profits, interest, rents, taxes on production and unproductive wages, which are deductions from the total mass of surplus value. The rate of surplus value is e = pv/v. In the net variant, the depreciation of the business sector's non-residential capital is subtracted: private non-residential consumption of fixed capital, at current cost, minus that of non-profit institutions and households. The US measurements in hours (working day, mass of surplus labour, productive forces) use the net e.
 
 Following Moseley (2016), constant and variable capital are taken as given money magnitudes (actual prices). That is why there is no need to ‘transform’ values into prices in order to measure the aggregate rate.
+
+The meaning of each symbol and of each published series, with its expression and the name of its column in the data, is gathered in the [Glossary](glosario.html) tab, which also lists the decisions of the multiverses.
+{: .nota }

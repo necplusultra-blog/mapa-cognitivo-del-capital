@@ -15,3 +15,6 @@ menu: Plusvalor ampliado (lectura macromonetaria)
 pv incluye las ganancias, los intereses, las rentas, los impuestos a la producción y los salarios improductivos, que son deducciones de la masa global de plusvalor. La tasa de plusvalor es e = pv/v. En la variante neta se resta la depreciación del capital no residencial del sector empresarial: el consumo de capital fijo no residencial privado, a costo corriente, menos el de las instituciones sin fines de lucro y el de los hogares. Las mediciones en horas de EE.UU. (jornada, masa de plustrabajo, fuerzas productivas) usan la e neta.
 
 Siguiendo a Moseley (2016), el capital constante y el variable se toman como magnitudes dinerarias dadas (precios efectivos). Por eso no hace falta «transformar» valores en precios para medir la tasa agregada.
+
+El significado de cada símbolo y de cada una de las series publicadas, con su expresión y el nombre de su columna en los datos, está reunido en la pestaña [Glosario](glosario.html), que también enumera las decisiones de los multiversos.
+{: .nota }

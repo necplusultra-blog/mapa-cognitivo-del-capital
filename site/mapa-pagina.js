@@ -6,13 +6,25 @@
   'use strict';
   var EN = /^en/.test(document.documentElement.lang);
   function L(es, en) { return EN ? en : es; }
+  /* Textos editables: contenido/mapa.yml (contenido/en/mapa.yml) → mapa-textos.js → window.MAPA_TEXTOS.
+     T('panel.titulo', es, en, vars): el texto del YAML si existe; si no, el de aquí. {n}, {eeuu}… se reemplazan con vars. */
+  var TX = window.MAPA_TEXTOS || {};
+  function T(clave, es, en, vars) {
+    var v = clave.split('.').reduce(function (o, k) { return o == null ? o : o[k]; }, TX);
+    var s = (typeof v === 'string' && v.trim()) ? v : (EN ? en : es);
+    return vars ? s.replace(/\{(\w+)\}/g, function (m, k) { return k in vars ? vars[k] : m; }) : s;
+  }
   var PRE = EN ? '../' : '';
   var panel = document.getElementById('panel'), estado = document.getElementById('estado');
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
   var di = function (t) { estado.textContent = t; clearTimeout(di.t); di.t = setTimeout(function () { estado.textContent = ''; }, 4000); };
   var mapa = null, E = null;
-  var TIPOS = EN ? { hoja: 'specification', decision: 'fork', familia: 'section of the site', serie: 'series', estacion: 'station', empalme: 'splice' }
-                 : { hoja: 'especificación', decision: 'bifurcación', familia: 'sección del sitio', serie: 'serie', estacion: 'estación', empalme: 'empalme' };
+  var TIPOS = { hoja: T('ficha.tipo_hoja', 'especificación', 'specification'), decision: T('ficha.tipo_decision', 'bifurcación', 'fork'),
+                familia: T('ficha.tipo_familia', 'sección del sitio', 'section of the site'), serie: T('ficha.tipo_serie', 'serie', 'series'),
+                estacion: T('ficha.tipo_estacion', 'estación', 'station'), empalme: T('ficha.tipo_empalme', 'empalme', 'splice') };
+  /* etiquetas accesibles de la guía y de la capa de símbolos */
+  document.getElementById('guia').setAttribute('aria-label', T('recorrido.aria', 'Recorrido guiado', 'Guided tour'));
+  document.getElementById('simbolos').setAttribute('aria-label', T('simbolos.titulo', 'Símbolos y expresiones', 'Symbols and expressions'));
 
   /* ------------------------------------------------------------------ panel */
   function sparq(q) {
@@ -20,58 +32,58 @@
     for (var a = a0; a <= a1; a++) { var v = q[a] || 0; if (!v) continue; var x = (a - a0) / (a1 - a0) * (w - 4) + 2, hh = Math.max(1.5, v / mx * (h - 16));
       barras += '<rect x="' + x.toFixed(1) + '" y="' + (h - 12 - hh).toFixed(1) + '" width="2.6" height="' + hh.toFixed(1) + '" rx="1" fill="#ff5c7a"/>'; }
     var ejes = [1950, 1970, 1990, 2010].map(function (a) { var x = (a - a0) / (a1 - a0) * (w - 4) + 2; return '<text x="' + x + '" y="' + (h - 1) + '" font-size="8" fill="#6b68a0" text-anchor="middle">' + a + '</text>'; }).join('');
-    return '<svg class="sparq" viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="none" role="img" aria-label="' + L('Quiebres por año', 'Breaks per year') + '"><line x1="0" x2="' + w + '" y1="' + (h - 12) + '" y2="' + (h - 12) + '" stroke="#24263a"/>' + barras + ejes + '</svg>';
+    return '<svg class="sparq" viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="none" role="img" aria-label="' + T('ficha.quiebres_aria', 'Quiebres por año', 'Breaks per year') + '"><line x1="0" x2="' + w + '" y1="' + (h - 12) + '" y2="' + (h - 12) + '" stroke="#24263a"/>' + barras + ejes + '</svg>';
   }
   function miniSimbolos() {
     var S = (E.D.simbolos || []).slice(0, 7);
     return '<div class="mini-simbolos">' + S.map(function (s) { return '<b>' + esc(EN ? s[3] || s[0] : s[0]) + '</b><span>' + esc(EN ? s[2] : s[1]) + '</span>'; }).join('') + '</div>'
-      + '<button class="boton-texto" data-simbolos>' + L('Todos los símbolos', 'All symbols') + '</button>';
+      + '<button class="boton-texto" data-simbolos>' + T('panel.boton_todos_simbolos', 'Todos los símbolos', 'All symbols') + '</button>';
   }
   function inicio() {
     var m = E.D.meta || {};
     var claves = E.nodos.filter(function (n) { return n.clave; }).sort(function (a, b) { return a.cod.localeCompare(b.cod); });
-    panel.innerHTML = '<div class="cod">' + L('índice de la lámina', 'index of the plate') + '</div><h2>' + L('Cómo leer el mapa', 'How to read the map') + '</h2>'
-      + '<div class="sec cifras"><div><b>' + E.eeuu.hojas.length + '</b><span>' + L('especificaciones EE.UU.', 'US specifications') + '</span></div><div><b>' + E.mundo.hojas.length + '</b><span>' + L('especificaciones mundiales', 'world specifications') + '</span></div><div><b>' + E.familias.reduce(function (s, f) { return s + f.series.length; }, 0) + '</b><span>' + L('series publicadas', 'published series') + '</span></div></div>'
-      + '<div class="sec"><p>' + L('La lámina se lee en tres regiones. El <b>eje</b> horizontal expone, de izquierda a derecha, las categorías del capital (01–05). Sobre él, a la izquierda, el <b>multiverso de EE.UU.</b> (A, violeta); a la derecha, el <b>mundial</b> (B, cian): cada bifurcación es una decisión teórica explícita y cada hoja, una especificación publicada. Abajo, el <b>registro</b> (C). Los puntos coral son quiebres de tendencia. ¿Primera vez? Pulse <b>Recorrer</b>.',
+    panel.innerHTML = '<div class="cod">' + T('panel.antetitulo', 'índice de la lámina', 'index of the plate') + '</div><h2>' + T('panel.titulo', 'Cómo leer el mapa', 'How to read the map') + '</h2>'
+      + '<div class="sec cifras"><div><b>' + E.eeuu.hojas.length + '</b><span>' + T('panel.cifra_eeuu', 'especificaciones EE.UU.', 'US specifications') + '</span></div><div><b>' + E.mundo.hojas.length + '</b><span>' + T('panel.cifra_mundo', 'especificaciones mundiales', 'world specifications') + '</span></div><div><b>' + E.familias.reduce(function (s, f) { return s + f.series.length; }, 0) + '</b><span>' + T('panel.cifra_series', 'series publicadas', 'published series') + '</span></div></div>'
+      + '<div class="sec"><p>' + T('panel.parrafo', 'La lámina se lee en tres regiones. El <b>eje</b> horizontal expone, de izquierda a derecha, las categorías del capital (01–05). Sobre él, a la izquierda, el <b>multiverso de EE.UU.</b> (A, violeta); a la derecha, el <b>mundial</b> (B, cian): cada bifurcación es una decisión teórica explícita y cada hoja, una especificación publicada. Abajo, el <b>registro</b> (C). Los puntos coral son quiebres de tendencia. ¿Primera vez? Pulse <b>Recorrer</b>.',
         'The plate is read in three regions. The horizontal <b>axis</b> sets out, from left to right, the categories of capital (01–05). Above it, on the left, the <b>US multiverse</b> (A, violet); on the right, the <b>world</b> one (B, cyan): each fork is an explicit theoretical decision and each leaf a published specification. Below, the <b>record</b> (C). The coral dots are breaks in trend. First time? Press <b>Tour</b>.') + '</p></div>'
-      + '<div class="sec"><div class="lab">' + L('símbolos frecuentes', 'common symbols') + '</div>' + miniSimbolos() + '</div>'
-      + '<div class="sec"><div class="lab">' + L('nodos clave', 'key nodes') + '</div><div class="lista-clave">' + claves.map(function (n) { return '<button data-i="' + E.nodos.indexOf(n) + '"><span>' + esc(n.cod) + '</span>' + esc(n.clave) + '</button>'; }).join('') + '</div></div>'
-      + '<div class="sec"><div class="lab">' + L('leyenda', 'key') + '</div><div class="ley">'
-      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#f6f4ff" stroke-width="1.6"/></svg><span>' + L('eje categorial (01–05)', 'categorial axis (01–05)') + '</span>'
-      + '<svg width="30" height="12"><path d="M0 11C10 11 10 2 30 2" stroke="#9d86ff" fill="none"/></svg><span>' + L('decisión teórica, EE.UU.', 'theoretical decision, US') + '</span>'
-      + '<svg width="30" height="12"><path d="M0 11C10 11 10 2 30 2" stroke="#3fc8e0" fill="none"/></svg><span>' + L('decisión teórica, mundo', 'theoretical decision, world') + '</span>'
-      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#c9cde6" stroke-opacity=".7"/><circle cx="30" cy="5" r="2" fill="#e6e9ff"/></svg><span>' + L('serie publicada en una sección del sitio', 'series published in a section of the site') + '</span>'
-      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#9f8cff" stroke-opacity=".5"/><circle cx="12" cy="5" r="2" fill="#ff5c7a"/><circle cx="22" cy="5" r="2" fill="#ff5c7a"/></svg><span>' + L('una especificación y sus quiebres', 'a specification and its breaks') + '</span>'
-      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#7ddcff" stroke-dasharray="5 4"/></svg><span>' + L('empalme estadístico', 'statistical splice') + '</span>'
-      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#3d3f6e" stroke-dasharray="1 4"/></svg><span>' + L('guía: un anillo por nivel de decisión', 'guide: one ring per level of decision') + '</span>'
+      + '<div class="sec"><div class="lab">' + T('panel.rotulo_simbolos', 'símbolos frecuentes', 'common symbols') + '</div>' + miniSimbolos() + '</div>'
+      + '<div class="sec"><div class="lab">' + T('panel.rotulo_nodos', 'nodos clave', 'key nodes') + '</div><div class="lista-clave">' + claves.map(function (n) { return '<button data-i="' + E.nodos.indexOf(n) + '"><span>' + esc(n.cod) + '</span>' + esc(n.clave) + '</button>'; }).join('') + '</div></div>'
+      + '<div class="sec"><div class="lab">' + T('panel.rotulo_leyenda', 'leyenda', 'key') + '</div><div class="ley">'
+      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#f6f4ff" stroke-width="1.6"/></svg><span>' + T('panel.leyenda_eje', 'eje categorial (01–05)', 'categorial axis (01–05)') + '</span>'
+      + '<svg width="30" height="12"><path d="M0 11C10 11 10 2 30 2" stroke="#9d86ff" fill="none"/></svg><span>' + T('panel.leyenda_decision_eeuu', 'decisión teórica, EE.UU.', 'theoretical decision, US') + '</span>'
+      + '<svg width="30" height="12"><path d="M0 11C10 11 10 2 30 2" stroke="#3fc8e0" fill="none"/></svg><span>' + T('panel.leyenda_decision_mundo', 'decisión teórica, mundo', 'theoretical decision, world') + '</span>'
+      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#c9cde6" stroke-opacity=".7"/><circle cx="30" cy="5" r="2" fill="#e6e9ff"/></svg><span>' + T('panel.leyenda_serie', 'serie publicada en una sección del sitio', 'series published in a section of the site') + '</span>'
+      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#9f8cff" stroke-opacity=".5"/><circle cx="12" cy="5" r="2" fill="#ff5c7a"/><circle cx="22" cy="5" r="2" fill="#ff5c7a"/></svg><span>' + T('panel.leyenda_especificacion', 'una especificación y sus quiebres', 'a specification and its breaks') + '</span>'
+      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#7ddcff" stroke-dasharray="5 4"/></svg><span>' + T('panel.leyenda_empalme', 'empalme estadístico', 'statistical splice') + '</span>'
+      + '<svg width="30" height="10"><path d="M0 5H30" stroke="#3d3f6e" stroke-dasharray="1 4"/></svg><span>' + T('panel.leyenda_guia', 'guía: un anillo por nivel de decisión', 'guide: one ring per level of decision') + '</span>'
       + '</div></div>'
-      + '<div class="sec"><div class="lab">' + L('rueda o pellizco: zoom · arrastrar: mover · clic: fijar · Esc: soltar · al acercarse aparecen las expresiones de cada serie', 'wheel or pinch: zoom · drag: pan · click: pin · Esc: release · zoom in to see the expression of each series') + '</div>'
-      + '<div class="sub">' + L('Datos: ', 'Data: ') + esc(m.actualizado || '—') + '. ' + L('Topología real; la geometría sale de una semilla fija', 'Real topology; the geometry comes from a fixed seed') + ' (' + MapaCognitivo.SEED + ').</div></div>';
+      + '<div class="sec"><div class="lab">' + T('panel.ayuda', 'rueda o pellizco: zoom · arrastrar: mover · clic: fijar · Esc: soltar · al acercarse aparecen las expresiones de cada serie', 'wheel or pinch: zoom · drag: pan · click: pin · Esc: release · zoom in to see the expression of each series') + '</div>'
+      + '<div class="sub">' + T('panel.nota_datos', 'Datos: {fecha}. Topología real; la geometría sale de una semilla fija ({semilla}).', 'Data: {fecha}. Real topology; the geometry comes from a fixed seed ({semilla}).', { fecha: esc(m.actualizado || '—'), semilla: MapaCognitivo.SEED }) + '</div></div>';
   }
   function mostrar(d, fijado) {
     if (!d) return inicio();
-    var h = fijado ? '<div class="fijado"><span>' + L('Fijado', 'Pinned') + '</span><button class="soltar" data-soltar>' + L('Soltar · Esc', 'Release · Esc') + '</button></div>' : '';
+    var h = fijado ? '<div class="fijado"><span>' + T('ficha.fijado', 'Fijado', 'Pinned') + '</span><button class="soltar" data-soltar>' + T('ficha.soltar', 'Soltar · Esc', 'Release · Esc') + '</button></div>' : '';
     h += '<div class="cod">' + esc(d.cod ? d.cod + ' · ' + (TIPOS[d.tipo] || d.tipo) : (TIPOS[d.tipo] || d.tipo)) + (d.arbol ? ' · ' + esc(d.arbol) : '') + '</div><h2' + (d.tipo === 'hoja' ? ' class="id"' : '') + '>' + esc(d.titulo) + '</h2><div class="sub">' + esc(d.sub || '') + '</div>';
-    if (d.expresion) h += '<div class="formula"><small>' + L('expresión', 'expression') + '</small>' + esc(d.expresion) + '</div>';
+    if (d.expresion) h += '<div class="formula"><small>' + T('ficha.expresion', 'expresión', 'expression') + '</small>' + esc(d.expresion) + '</div>';
     if (d.texto) h += '<div class="sec"><p>' + esc(d.texto) + '</p></div>';
-    if (d.columna) h += '<div class="sec"><div class="lab">' + L('columna en los datos', 'column in the data') + '</div><span class="sub"><code>' + esc(d.columna) + '</code> · <a href="' + PRE + 'descargas/glosario_series.csv" download>' + L('glosario de las series (CSV)', 'glossary of the series (CSV)') + '</a></span></div>';
+    if (d.columna) h += '<div class="sec"><div class="lab">' + T('ficha.columna', 'columna en los datos', 'column in the data') + '</div><span class="sub"><code>' + esc(d.columna) + '</code> · <a href="' + PRE + 'descargas/glosario_series.csv" download>' + T('ficha.glosario_csv', 'glosario de las series (CSV)', 'glossary of the series (CSV)') + '</a></span></div>';
     if (d.opciones) {
       var tot = d.opciones.reduce(function (s, o) { return s + o[1]; }, 0);
-      h += '<div class="sec"><div class="lab">' + L('decisión teórica explícita', 'explicit theoretical decision') + ' · ' + esc(d.decision) + (d.posicion ? ' · ' + esc(d.posicion) : '') + '</div><ul>' + d.opciones.map(function (o) { return '<li class="op"><span>' + esc(o[0]) + '</span><span>' + o[1] + L(' esp.', ' spec.') + '</span><span class="barra-op"><i style="width:' + (o[1] / tot * 100).toFixed(1) + '%"></i></span></li>'; }).join('') + '</ul></div>';
+      h += '<div class="sec"><div class="lab">' + T('ficha.decision_explicita', 'decisión teórica explícita', 'explicit theoretical decision') + ' · ' + esc(d.decision) + (d.posicion ? ' · ' + esc(d.posicion) : '') + '</div><ul>' + d.opciones.map(function (o) { return '<li class="op"><span>' + esc(o[0]) + '</span><span>' + o[1] + ' ' + T('ficha.abrev_especificaciones', 'esp.', 'spec.') + '</span><span class="barra-op"><i style="width:' + (o[1] / tot * 100).toFixed(1) + '%"></i></span></li>'; }).join('') + '</ul></div>';
     }
-    if (d.decisiones) h += '<div class="sec"><div class="lab">' + L('decisiones de esta especificación', 'decisions of this specification') + '</div><dl class="dec">' + d.decisiones.map(function (x) { return '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join('') + '</dl></div>';
-    if (d.spec != null || d.grupos || (d.idx && d.idx.length > 1)) h += '<div class="sec"><div class="lab">' + (d.spec != null ? L('tasa de esta especificación frente al multiverso', 'rate of this specification against the multiverse') : d.grupos ? L('mediana de cada opción frente al multiverso', 'median of each option against the multiverse') : L('mediana de esta rama frente al multiverso', 'median of this branch against the multiverse')) + ' · ' + L('100 = promedio del periodo', '100 = period average') + '</div><div class="ex-curva" id="ex-curva"></div><div class="sub" id="ex-niveles"></div></div>';
-    if (d.anios) h += '<div class="sec"><div class="lab">' + L('quiebres endógenos detectados', 'endogenous breaks detected') + '</div>' + (d.anios.length ? d.anios.map(function (a) { return '<span class="chip">' + a + '</span>'; }).join('') : '<span class="sub">' + L('ninguno', 'none') + '</span>') + '</div>';
-    if (d.quiebres && d.n > 1) h += '<div class="sec"><div class="lab">' + L('quiebres por año en las ', 'breaks per year in the ') + d.n + L(' especificaciones de esta rama', ' specifications of this branch') + '</div>' + sparq(d.quiebres) + '</div>';
-    if (d.ruta && d.ruta.length && !d.decisiones) h += '<div class="sec"><div class="lab">' + L('decisiones tomadas hasta aquí', 'decisions taken up to here') + '</div><dl class="dec">' + d.ruta.map(function (x) { return '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join('') + '</dl></div>';
+    if (d.decisiones) h += '<div class="sec"><div class="lab">' + T('ficha.decisiones_especificacion', 'decisiones de esta especificación', 'decisions of this specification') + '</div><dl class="dec">' + d.decisiones.map(function (x) { return '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join('') + '</dl></div>';
+    if (d.spec != null || d.grupos || (d.idx && d.idx.length > 1)) h += '<div class="sec"><div class="lab">' + (d.spec != null ? T('ficha.curva_especificacion', 'tasa de esta especificación frente al multiverso', 'rate of this specification against the multiverse') : d.grupos ? T('ficha.curva_opciones', 'mediana de cada opción frente al multiverso', 'median of each option against the multiverse') : T('ficha.curva_rama', 'mediana de esta rama frente al multiverso', 'median of this branch against the multiverse')) + ' · ' + T('ficha.base_100', '100 = promedio del periodo', '100 = period average') + '</div><div class="ex-curva" id="ex-curva"></div><div class="sub" id="ex-niveles"></div></div>';
+    if (d.anios) h += '<div class="sec"><div class="lab">' + T('ficha.quiebres', 'quiebres endógenos detectados', 'endogenous breaks detected') + '</div>' + (d.anios.length ? d.anios.map(function (a) { return '<span class="chip">' + a + '</span>'; }).join('') : '<span class="sub">' + T('ficha.ninguno', 'ninguno', 'none') + '</span>') + '</div>';
+    if (d.quiebres && d.n > 1) h += '<div class="sec"><div class="lab">' + T('ficha.quiebres_rama', 'quiebres por año en las {n} especificaciones de esta rama', 'breaks per year in the {n} specifications of this branch', { n: d.n }) + '</div>' + sparq(d.quiebres) + '</div>';
+    if (d.ruta && d.ruta.length && !d.decisiones) h += '<div class="sec"><div class="lab">' + T('ficha.ruta', 'decisiones tomadas hasta aquí', 'decisions taken up to here') + '</div><dl class="dec">' + d.ruta.map(function (x) { return '<dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd>'; }).join('') + '</dl></div>';
     if (d.series) {
       var gl = d.glosas || [];
-      h += '<div class="sec"><div class="lab">' + L('series de esta sección · nombre y expresión', 'series of this section · name and expression') + '</div>' + d.series.map(function (s, i) {
+      h += '<div class="sec"><div class="lab">' + T('ficha.series_seccion', 'series de esta sección · nombre y expresión', 'series of this section · name and expression') + '</div>' + d.series.map(function (s, i) {
         var g = gl[i] || [s, '', ''];
         return '<button class="serie-it" data-serie="' + i + '"><b>' + esc(g[1] && g[1] !== '—' ? g[1] : s) + '</b><span>' + esc(g[0]) + '</span></button>';
       }).join('') + '</div>';
     }
-    if (d.empalmes) h += '<div class="sec"><div class="lab">' + L('factores de empalme (meta.json)', 'splice factors (meta.json)') + '</div><dl class="dec">' + d.empalmes.map(function (e) { return '<dt>' + esc(e[0]) + '</dt><dd>× ' + esc(e[1]) + '</dd>'; }).join('') + '</dl></div>';
+    if (d.empalmes) h += '<div class="sec"><div class="lab">' + T('ficha.empalmes', 'factores de empalme (meta.json)', 'splice factors (meta.json)') + '</div><dl class="dec">' + d.empalmes.map(function (e) { return '<dt>' + esc(e[0]) + '</dt><dd>× ' + esc(e[1]) + '</dd>'; }).join('') + '</dl></div>';
     if (d.enlaces) h += '<div class="sec enl">' + d.enlaces.map(function (e) { return '<a href="' + esc(e[0]) + '">' + esc(e[1]) + ' →</a>'; }).join('') + '</div>';
     panel.innerHTML = h;
     panel.scrollTop = 0;
@@ -86,14 +98,14 @@
     Explorador.datos().then(function (D) {
       if (t !== turno) return;
       var lineas, q = null;
-      if (d.spec != null) { lineas = [{ v: D.indices[d.spec], n: L('esta especificación', 'this specification'), c: COLORES[0] }]; q = d.anios; }
+      if (d.spec != null) { lineas = [{ v: D.indices[d.spec], n: T('ficha.esta_especificacion', 'esta especificación', 'this specification'), c: COLORES[0] }]; q = d.anios; }
       else if (d.grupos) lineas = d.grupos.slice(0, 5).map(function (g, i) { return { v: Explorador.medianaDe(D, g[1]), n: g[0] + ' (' + g[1].length + ')', c: COLORES[i] }; });
-      else lineas = [{ v: Explorador.medianaDe(D, d.idx), n: L('mediana de la rama', 'median of the branch'), c: COLORES[0] }];
+      else lineas = [{ v: Explorador.medianaDe(D, d.idx), n: T('ficha.mediana_rama', 'mediana de la rama', 'median of the branch'), c: COLORES[0] }];
       Explorador.curva(caja, D, lineas, { alto: 190, quiebres: q });
       var nv = document.getElementById('ex-niveles');
-      if (nv) nv.innerHTML = (d.spec != null ? L('Tasa', 'Rate') + ': ' + Explorador.niveles(D, d.spec).map(function (x) { return x[0] + ' <b>' + Explorador.fmt(x[1]) + '</b>'; }).join(' · ') + '. ' : '')
-        + '<a href="' + TABLA + '" download>' + L('Tabla de las especificaciones (CSV)', 'Table of the specifications (CSV)') + '</a>';
-    }).catch(function () { caja.textContent = L('No se pudieron cargar las series.', 'The series could not be loaded.'); });
+      if (nv) nv.innerHTML = (d.spec != null ? T('ficha.tasa', 'Tasa', 'Rate') + ': ' + Explorador.niveles(D, d.spec).map(function (x) { return x[0] + ' <b>' + Explorador.fmt(x[1]) + '</b>'; }).join(' · ') + '. ' : '')
+        + '<a href="' + TABLA + '" download>' + T('ficha.tabla_csv', 'Tabla de las especificaciones (CSV)', 'Table of the specifications (CSV)') + '</a>';
+    }).catch(function () { caja.textContent = T('ficha.error_series', 'No se pudieron cargar las series.', 'The series could not be loaded.'); });
   }
 
   /* ------------------------------------------------------------------ símbolos */
@@ -104,11 +116,11 @@
       var S = E.D.simbolos || [];
       var series = [];
       E.familias.forEach(function (F) { F.glosa.forEach(function (g, i) { if (g[1] && /[\/=·−+Σ×]/.test(g[1])) series.push([g[1], g[0], F.nombre, F, i]); }); });
-      capaSim.innerHTML = '<div class="cab"><div><h2>' + L('Símbolos y expresiones', 'Symbols and expressions') + '</h2><p>' + L('Qué significa cada letra y cada cociente que aparece en la lámina. Al acercarse al mapa, cada serie muestra su expresión.', 'What each letter and each ratio on the plate means. Zoom into the map and each series shows its expression.') + '</p></div><button class="cerrar" data-cerrar>' + L('Cerrar · Esc', 'Close · Esc') + '</button></div>'
+      capaSim.innerHTML = '<div class="cab"><div><h2>' + T('simbolos.titulo', 'Símbolos y expresiones', 'Symbols and expressions') + '</h2><p>' + T('simbolos.intro', 'Qué significa cada letra y cada cociente que aparece en la lámina. Al acercarse al mapa, cada serie muestra su expresión.', 'What each letter and each ratio on the plate means. Zoom into the map and each series shows its expression.') + '</p></div><button class="cerrar" data-cerrar>' + T('simbolos.cerrar', 'Cerrar · Esc', 'Close · Esc') + '</button></div>'
         + '<div class="rejilla">' + S.map(function (s) { return '<div class="simbolo"><b>' + esc(EN ? s[3] || s[0] : s[0]) + '</b><span>' + esc(EN ? s[2] : s[1]) + '</span></div>'; }).join('') + '</div>'
-        + '<h3>' + L('Expresiones de las series publicadas', 'Expressions of the published series') + '</h3><div class="rejilla">'
+        + '<h3>' + T('simbolos.subtitulo_series', 'Expresiones de las series publicadas', 'Expressions of the published series') + '</h3><div class="rejilla">'
         + series.map(function (s, k) { return '<button class="simbolo serie-it" style="display:block" data-sim="' + k + '"><b>' + esc(s[0]) + '</b><span>' + esc(s[1]) + ' · ' + esc(s[2]) + '</span></button>'; }).join('') + '</div>'
-        + '<p class="sub" style="margin-top:16px"><a href="' + PRE + 'descargas/glosario_series.csv" download>' + L('Glosario completo de las series (CSV)', 'Full glossary of the series (CSV)') + '</a></p>';
+        + '<p class="sub" style="margin-top:16px"><a href="' + (EN ? 'glossary.html' : 'glosario.html') + '">' + T('simbolos.enlace_glosario', 'Glosario completo: símbolos y series', 'Full glossary: symbols and series') + ' →</a> · <a href="' + PRE + 'descargas/glosario_series.csv" download>' + T('simbolos.enlace_csv', 'Glosario de las series (CSV)', 'Glossary of the series (CSV)') + '</a></p>';
       capaSim._series = series; capaSim.dataset.listo = '1';
     }
     capaSim.hidden = !si; btnSim.setAttribute('aria-pressed', String(si));
@@ -127,53 +139,66 @@
   function hojaEj() { return E.eeuu.hojas.filter(function (h) { return h.datos[0] === 'B|b|cc|neta|ppi-incl|K-todo|noutil'; })[0] || E.eeuu.hojas[0]; }
   function serieDe(a, c) { var F = fam(a); return F && F.hijos.filter(function (s) { return s.nombre === c; })[0]; }
   var PASOS = null;
-  function construirPasos() { return [
-    { t: L('Una lámina, tres regiones', 'One plate, three regions'), z: 1, p: function () { return [800, 450]; },
+  /* Pasos por defecto: la cámara (z, n, p) de cada clave y sus textos. Si contenido/mapa.yml trae recorrido.pasos,
+     el orden y los textos salen de ahí; cada paso conserva la cámara de su clave (una clave desconocida = vista general). */
+  function pasosPorDefecto() { return [
+    { k: 'regiones', t: L('Una lámina, tres regiones', 'One plate, three regions'), z: 1, p: function () { return [800, 450]; },
       x: L('El mapa reúne en una sola imagen todo lo que calcula el sitio. <b>A</b> (violeta): el multiverso de la tasa de ganancia de EE.UU. <b>B</b> (cian): el multiverso mundial. <b>C</b>: el registro del abanico en el tiempo. Todo cuelga de un eje horizontal.',
            'The map gathers everything the site calculates into one image. <b>A</b> (violet): the multiverse of the US rate of profit. <b>B</b> (cyan): the world multiverse. <b>C</b>: the record of the fan over time. Everything hangs from a horizontal axis.') },
-    { t: L('01–05 · El eje categorial', '01–05 · The categorial axis'), z: 1.5, n: function () { return E.estaciones[0].nodo; }, p: function () { return [560, 470]; },
+    { k: 'eje', t: L('01–05 · El eje categorial', '01–05 · The categorial axis'), z: 1.5, n: function () { return E.estaciones[0].nodo; }, p: function () { return [560, 470]; },
       x: L('El eje se lee de izquierda a derecha: <b>lógica del capital</b>, plusvalor y ganancia, fuerzas productivas, tiempo disponible y <b>límites inmanentes</b>. La categoría va primero; las series son su manifestación fenoménica en precios, no su demostración.',
            'The axis reads from left to right: <b>logic of capital</b>, surplus value and profit, productive forces, disposable time and <b>immanent limits</b>. The category comes first; the series are its phenomenal manifestation in prices, not its demonstration.') },
-    { t: L('02 · Plusvalor y ganancia', '02 · Surplus value and profit'), z: 2.4, n: function () { return fam('index.html#masa-tasa'); },
+    { k: 'plusvalor', t: L('02 · Plusvalor y ganancia', '02 · Surplus value and profit'), z: 2.4, n: function () { return fam('index.html#masa-tasa'); },
       x: L('Cada abanico blanco es una sección del sitio y cada punto, una serie publicada. Aquí, la masa y la tasa de plusvalor. El panel de la derecha da el nombre y la <b>expresión</b> de cada serie.',
            'Each white fan is a section of the site and each dot a published series. Here, the mass and rate of surplus value. The panel on the right gives the name and <b>expression</b> of each series.') },
-    { t: L('Leer una expresión: K / V', 'Reading an expression: K / V'), z: 3.4, n: function () { return serieDe('index.html#masa-tasa', 'kv_ramas'); },
+    { k: 'expresion', t: L('Leer una expresión: K / V', 'Reading an expression: K / V'), z: 3.4, n: function () { return serieDe('index.html#masa-tasa', 'kv_ramas'); },
       x: L('<code>K / V</code> es la composición de valor del capital: cuánto capital fijo (<code>K</code>) se adelanta por cada dólar de salarios productivos (<code>V</code>). <code>e = pv / v</code> es la tasa de plusvalor. El botón <b>Símbolos</b> reúne todas las letras de la lámina.',
            '<code>K / V</code> is the value composition of capital: how much fixed capital (<code>K</code>) is advanced per dollar of productive wages (<code>V</code>). <code>e = pv / v</code> is the rate of surplus value. The <b>Symbols</b> button gathers every letter on the plate.') },
-    { t: L('#06 · El multiverso de especificaciones', '#06 · The multiverse of specifications'), z: 1.9, n: function () { return E.eeuu.raiz; }, p: function () { return [520, 300]; },
+    { k: 'multiverso', t: L('#06 · El multiverso de especificaciones', '#06 · The multiverse of specifications'), z: 1.9, n: function () { return E.eeuu.raiz; }, p: function () { return [520, 300]; },
       x: L('No hay una sola tasa de ganancia: cada bifurcación es una decisión teórica explícita (qué sector, qué cuenta como plusvalor, cómo se valora el capital…). Los anillos punteados marcan los niveles de decisión; las ' + E.eeuu.hojas.length + ' hojas, las especificaciones publicadas.',
            'There is no single rate of profit: each fork is an explicit theoretical decision (which sector, what counts as surplus value, how capital is valued…). The dotted rings mark the levels of decision; the ' + E.eeuu.hojas.length + ' leaves, the published specifications.') },
-    { t: L('#07 · Qué cuenta como plusvalor', '#07 · What counts as surplus value'), z: 2.6, n: function () { return nodoCod('#07'); },
+    { k: 'bifurcacion', t: L('#07 · Qué cuenta como plusvalor', '#07 · What counts as surplus value'), z: 2.6, n: function () { return nodoCod('#07'); },
       x: L('Esta bifurcación decide qué trabajo es productivo. El panel muestra la mediana de cada opción frente al abanico completo: se ve si la decisión cambia el <b>movimiento</b> de la tasa o sólo su nivel.',
            'This fork decides which labour is productive. The panel shows the median of each option against the whole fan: you can see whether the decision changes the <b>movement</b> of the rate or only its level.') },
-    { t: L('Una especificación', 'One specification'), z: 3, n: hojaEj,
+    { k: 'especificacion', t: L('Una especificación', 'One specification'), z: 3, n: hojaEj,
       x: L('Cada hoja es una medición completa, con todas sus decisiones. Ésta es el plusvalor ampliado por ramas a costo corriente. El panel dibuja su curva sobre el abanico y sus niveles en 1948, 1982 y el último año.',
            'Each leaf is a complete measurement, with all its decisions. This one is extended surplus value by industry at current cost. The panel draws its curve over the fan and its levels in 1948, 1982 and the latest year.') },
-    { t: L('El anillo del tiempo', 'The ring of time'), z: 2.1, n: hojaEj, p: function () { return [520, 120]; },
+    { k: 'anillo', t: L('El anillo del tiempo', 'The ring of time'), z: 2.1, n: hojaEj, p: function () { return [520, 120]; },
       x: L('Cada radio prolonga una especificación a través del tiempo, de 1948 (dentro) a hoy (fuera). Los puntos <b>coral</b> son sus quiebres de tendencia. Donde los puntos de muchas especificaciones se alinean en un arco, el quiebre resiste las decisiones teóricas.',
            'Each spoke extends a specification through time, from 1948 (inside) to today (outside). The <b>coral</b> dots are its breaks in trend. Where the dots of many specifications line up in an arc, the break withstands the theoretical decisions.') },
-    { t: L('#08 · Empalmes estadísticos', '#08 · Statistical splices'), z: 2.2, n: function () { return E.empalme; },
+    { k: 'empalmes', t: L('#08 · Empalmes estadísticos', '#08 · Statistical splices'), z: 2.2, n: function () { return E.empalme; },
       x: L('Las series oficiales cambian de clasificación industrial (SIC → NAICS). Los arcos discontinuos marcan esos años; cada empalme usa un factor explícito, publicado en la metodología.',
            'The official series change industrial classification (SIC → NAICS). The dashed arcs mark those years; each splice uses an explicit factor, published in the methodology.') },
-    { t: L('03–04 · Fuerzas productivas y tiempo disponible', '03–04 · Productive forces and disposable time'), z: 1.9, n: function () { return E.estaciones[2].nodo; }, p: function () { return [1010, 470]; },
+    { k: 'fuerzas', t: L('03–04 · Fuerzas productivas y tiempo disponible', '03–04 · Productive forces and disposable time'), z: 1.9, n: function () { return E.estaciones[2].nodo; }, p: function () { return [1010, 470]; },
       x: L('Arriba y abajo del eje, las series del tiempo de trabajo: horas necesarias y de plustrabajo, valor nuevo por hora, minutos productivos por habitante. Registran la medida del valor y el tiempo que la productividad libera.',
            'Above and below the axis, the series of labour time: necessary and surplus-labour hours, new value per hour, productive minutes per inhabitant. They record the measure of value and the time that productivity frees.') },
-    { t: L('B · El multiverso mundial', 'B · The world multiverse'), z: 2, n: function () { return E.mundo.raiz; }, p: function () { return [1380, 600]; },
+    { k: 'mundo', t: L('B · El multiverso mundial', 'B · The world multiverse'), z: 2, n: function () { return E.mundo.raiz; }, p: function () { return [1380, 600]; },
       x: L('A la derecha, la tasa de ganancia mundial con la Penn World Table: ' + E.mundo.hojas.length + ' especificaciones (medida, ponderación, con o sin China, panel). Los trazos finos son los países que entran en cada una.',
            'On the right, the world rate of profit from the Penn World Table: ' + E.mundo.hojas.length + ' specifications (measure, weighting, with or without China, panel). The fine strokes are the countries in each.') },
-    { t: L('C · El registro', 'C · The record'), z: 1.6, p: function () { return [800, 770]; },
+    { k: 'registro', t: L('C · El registro', 'C · The record'), z: 1.6, p: function () { return [800, 770]; },
       x: L('Abajo, el abanico de EE.UU. en el tiempo: bandas de los percentiles 10–90 (100 = promedio del periodo) y, en barras coral, cuántas especificaciones registran un quiebre cada año. Es el sismograma de la lámina.',
            'Below, the US fan over time: bands of the 10th–90th percentiles (100 = period average) and, in coral bars, how many specifications record a break each year. It is the seismogram of the plate.') },
-    { t: L('Ahora, explore', 'Now, explore'), z: 1, p: function () { return [800, 450]; },
+    { k: 'explorar', t: L('Ahora, explore', 'Now, explore'), z: 1, p: function () { return [800, 450]; },
       x: L('Pinche cualquier nodo para fijarlo; acérquese para leer las expresiones de cada serie. En la portada, el <b>explorador</b> permite elegir una opción en cada bifurcación y ver la curva resultante.',
            'Click any node to pin it; zoom in to read the expression of each series. On the home page, the <b>explorer</b> lets you choose an option at each fork and see the resulting curve.') }
   ]; }
+  function construirPasos() {
+    var base = pasosPorDefecto(), lista = TX.recorrido && TX.recorrido.pasos, porClave = {};
+    if (!Array.isArray(lista) || !lista.length) return base;
+    base.forEach(function (P) { porClave[P.k] = P; });
+    var vars = { eeuu: E.eeuu.hojas.length, mundo: E.mundo.hojas.length };
+    var sust = function (t) { return String(t || '').replace(/\{(\w+)\}/g, function (m, k) { return k in vars ? vars[k] : m; }); };
+    return lista.filter(function (it) { return it && (it.titulo || it.texto); }).map(function (it) {
+      var P = porClave[it.clave] || { z: 1, p: function () { return [800, 450]; } };
+      return { k: it.clave, t: sust(it.titulo) || P.t, x: sust(it.texto) || P.x, z: P.z, n: P.n, p: P.p };
+    });
+  }
   function pintarGuia() {
     var P = PASOS[paso];
-    guia.innerHTML = '<div class="cab"><span>' + L('Recorrido', 'Tour') + ' · ' + ('0' + (paso + 1)).slice(-2) + ' / ' + ('0' + PASOS.length).slice(-2) + '</span><button data-g="salir" aria-label="' + L('Salir del recorrido', 'Exit the tour') + '">✕</button></div>'
+    guia.innerHTML = '<div class="cab"><span>' + T('recorrido.rotulo', 'Recorrido', 'Tour') + ' · ' + ('0' + (paso + 1)).slice(-2) + ' / ' + ('0' + PASOS.length).slice(-2) + '</span><button data-g="salir" aria-label="' + T('recorrido.salir', 'Salir del recorrido', 'Exit the tour') + '">✕</button></div>'
       + '<div class="pasos">' + PASOS.map(function (_, i) { return '<i class="' + (i < paso ? 'hecho' : i === paso ? 'ahora' : '') + '"></i>'; }).join('') + '</div>'
       + '<h3>' + P.t + '</h3><p>' + P.x + '</p>'
-      + '<div class="ctl"><button data-g="ant"' + (paso ? '' : ' disabled') + '>‹ ' + L('Anterior', 'Back') + '</button><button data-g="auto" aria-pressed="' + auto + '">' + (auto ? L('Pausa', 'Pause') : L('Reproducir', 'Play')) + '</button><button class="sig" data-g="sig">' + (paso < PASOS.length - 1 ? L('Siguiente', 'Next') + ' ›' : L('Terminar', 'Finish')) + '</button></div>';
+      + '<div class="ctl"><button data-g="ant"' + (paso ? '' : ' disabled') + '>‹ ' + T('recorrido.anterior', 'Anterior', 'Back') + '</button><button data-g="auto" aria-pressed="' + auto + '">' + (auto ? T('recorrido.pausa', 'Pausa', 'Pause') : T('recorrido.reproducir', 'Reproducir', 'Play')) + '</button><button class="sig" data-g="sig">' + (paso < PASOS.length - 1 ? T('recorrido.siguiente', 'Siguiente', 'Next') + ' ›' : T('recorrido.terminar', 'Terminar', 'Finish')) + '</button></div>';
   }
   function irA(i) {
     if (i < 0) i = 0;
@@ -218,7 +243,7 @@
   /* ------------------------------------------------------------------ descargas y mandos */
   var guardar = null; if (window.claude && window.claude.use) window.claude.use('downloads').then(function (d) { guardar = d; }).catch(function () {});
   function bajar(blob, nombre) {
-    if (guardar) { guardar.save({ filename: nombre, data: blob }).catch(function () { di(L('Descarga cancelada', 'Download cancelled')); }); return; }
+    if (guardar) { guardar.save({ filename: nombre, data: blob }).catch(function () { di(T('mensajes.descarga_cancelada', 'Descarga cancelada', 'Download cancelled')); }); return; }
     var u = URL.createObjectURL(blob), a = document.createElement('a'); a.href = u; a.download = nombre; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(u); }, 5000);
   }
   mapa = MapaCognitivo.montar(document.getElementById('lamina'), {
@@ -248,6 +273,6 @@
   document.getElementById('mas').onclick = function () { mapa.acercar(1.35); };
   document.getElementById('menos').onclick = function () { mapa.acercar(1 / 1.35); };
   document.getElementById('encuadre').onclick = function () { mapa.encuadre(); };
-  document.getElementById('png').onclick = function () { mapa.png(3200).then(function (b) { bajar(b, EN ? 'cognitive-map-of-capital.png' : 'mapa-cognitivo-del-capital.png'); di(L('PNG de 3200 × 1800 px', 'PNG, 3200 × 1800 px')); }); };
-  document.getElementById('svg').onclick = function () { bajar(new Blob([mapa.svg()], { type: 'image/svg+xml' }), EN ? 'cognitive-map-of-capital.svg' : 'mapa-cognitivo-del-capital.svg'); di(L('SVG vectorial descargado', 'Vector SVG downloaded')); };
+  document.getElementById('png').onclick = function () { mapa.png(3200).then(function (b) { bajar(b, EN ? 'cognitive-map-of-capital.png' : 'mapa-cognitivo-del-capital.png'); di(T('mensajes.png', 'PNG de 3200 × 1800 px', 'PNG, 3200 × 1800 px')); }); };
+  document.getElementById('svg').onclick = function () { bajar(new Blob([mapa.svg()], { type: 'image/svg+xml' }), EN ? 'cognitive-map-of-capital.svg' : 'mapa-cognitivo-del-capital.svg'); di(T('mensajes.svg', 'SVG vectorial descargado', 'Vector SVG downloaded')); };
 })();

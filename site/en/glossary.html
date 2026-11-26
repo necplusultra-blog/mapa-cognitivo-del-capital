@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary — Cognitive Map of Capital</title>
+<link rel="alternate" hreflang="es" href="../glosario.html">
+<link rel="stylesheet" href="../style.css?v=67920cc2611260006">
+</head>
+<body class="doc">
+<a class="saltar" href="#contenido">Skip to content</a>
+<header class="barra">
+  <a class="marca" href="./">Cognitive Map of Capital</a>
+  <nav aria-label="Pages"><a href="map.html">Map</a><a href="reading.html">Reading</a><a href="methodology.html">Methodology</a><a href="glossary.html" aria-current="page">Glossary</a><a href="../descargas/">Downloads</a><a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">Code</a><span class="idioma" role="group" aria-label="Language / Idioma"><a class="cambiar-idioma" href="../glosario.html" hreflang="es" lang="es" title="Leer esta página en español">ES</a><span class="activo" aria-current="true">EN</span></span></nav>
+</header>
+<div class="portada">
+<h1 id="glossary">Glossary</h1>
+<p class="lede">What each letter, each ratio and each series on the site and on the plate of the map means. The series are the phenomenal manifestation, in prices and in hours, of categories that are first set out in the <a href="reading.html">Reading</a>; this glossary says how each one is constructed, not what it demonstrates. The full method is in the <a href="methodology.html">Methodology</a>.</p>
+<p class="actualizacion">Data updated on <span id="m-act">—</span>. Code version: <span id="m-commit">—</span>.</p>
+</div>
+<div class="cuerpo">
+  <nav class="indice" aria-label="Sections"><p>Sections</p><ol>
+<li><a href="#simbolos">Symbols and expressions</a></li>
+<li><a href="#series">Published series</a></li>
+<li><a href="#decisiones">Decisions of the multiverse</a></li>
+  </ol></nav>
+  <main id="contenido">
+<section id="simbolos" class="seccion">
+<h2 id="symbols-and-expressions">Symbols and expressions</h2>
+<p>The letters follow the conventions of <a href="methodology.html#plusvalor">Methodology §4</a>. The same magnitude may carry two letters (pv · S, K · C) because each current in the debate uses its own.</p>
+<div class="glosario" id="glosario-simbolos" data-glosario="simbolos"></div>
+</section>
+<section id="series" class="seccion">
+<h2 id="published-series">Published series</h2>
+<p>Every series the site publishes, grouped by the section in which it appears: its name, its expression in symbols, what it measures and the name of the column in the files under <a href="../descargas/">Downloads</a>. These are the same entries the panel of the <a href="map.html">Map</a> shows when you click a series.</p>
+<div class="glosario" id="glosario-series" data-glosario="series"></div>
+</section>
+<section id="decisiones" class="seccion">
+<h2 id="decisions-of-the-multiverse">Decisions of the multiverse</h2>
+<p>There is no single rate of profit: each specification results from a combination of explicit theoretical decisions. These are the forks of the two trees on the map, with their options and the currents that usually take them. Their justification is in <a href="methodology.html#multiverso">Methodology §5</a>; on the home page, the <a href="index.html#explorador">explorer</a> lets you choose an option at each fork and see the resulting curve.</p>
+<div class="glosario" id="glosario-decisiones" data-glosario="decisiones"></div>
+</section>
+  </main>
+</div>
+<footer class="pie">
+<p>Doctoral research by Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, approved for his candidacy in the Doctoral Programme in Sociology (ICSyH-BUAP), to be completed in August 2029, carried out with a scholarship from SECIHTI (Mexico’s Secretariat of Science, Humanities, Technology and Innovation), number 4052073. Thanks to the Mexican working class, which makes this scholarship possible. Theoretical framework: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
+<p>Open-source code (MIT) and derived data (CC BY 4.0) on <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">GitHub</a>. <a href="../descargas/">Downloads</a>. <a href="methodology.html">Methodology</a>. <a href="glossary.html">Glossary</a>. <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital/tree/main/contenido">Edit the texts</a>.</p>
+</footer>
+<script>
+fetch('../data/meta.json', { cache: 'no-cache' }).then((r) => r.json()).then((m) => {
+  const s = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
+  s('m-act', m.actualizado); s('m-commit', m.commit || '—'); s('m-n', m.eeuu_n);
+  s('m-emp', Object.entries(m.empalmes || {}).map(([k, v]) => `${k}: ${v}`).join('; '));
+});
+</script>
+<script>/* el botón ES | EN conserva la sección (las anclas son iguales en las dos versiones) */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.cambiar-idioma");if(a&&location.hash)a.href=a.getAttribute("href").split("#")[0]+location.hash;});</script>
+<script src="../glosario.js?v=67920cc2611260006" defer></script>
+<script src="mapa-textos.js?v=67920cc2611260006" defer></script>
+<script src="../mapa-cognitivo.js?v=67920cc2611260006" data-modo="fondo" defer></script>
+</body>
+</html>

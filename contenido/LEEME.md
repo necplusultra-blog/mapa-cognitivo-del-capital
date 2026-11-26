@@ -15,6 +15,13 @@ En unos cinco minutos, GitHub Actions reconstruye y publica el sitio. El avance 
 - `inicio/`: la página principal. Hay un archivo por sección y el número inicial fija el orden. Para reordenar secciones, cambia los números de los nombres.
 - `lectura/`: la página «Primera lectura de los resultados», la interpretación teórica de la medición.
 - `metodologia/`: la página de metodología, también con un archivo por sección.
+- `glosario/`: la pestaña «Glosario» (símbolos, series publicadas y decisiones del multiverso). Las tablas se llenan solas con los datos del mapa; aquí se editan los títulos y los párrafos que las rodean.
+- `mapa.yml`: **todos los textos de la pestaña Mapa** (título de la lámina, botones, panel «Cómo leer el mapa», leyenda, fichas de los nodos, capa «Símbolos», los pasos del recorrido guiado, los nombres y descripciones de las cinco estaciones del eje y los rótulos dibujados en la lámina). En Pages CMS aparece como «Pestaña Mapa (textos)», con un campo por texto. Reglas:
+  - Las llaves `{n}`, `{eeuu}`, `{mundo}`, `{fecha}`, `{semilla}`, `{version}`, `{familia}` se reemplazan por cifras o nombres: no las borres.
+  - El título de la lámina, el párrafo del panel y los textos del recorrido admiten Markdown (`**negrita**`, `*cursiva*`, `` `código` ``).
+  - En el recorrido, cada paso tiene una `clave` que decide adónde vuela la cámara: no la cambies. Sí puedes reordenar, quitar o duplicar pasos y cambiar sus títulos y textos.
+  - Si borras un campo, el sitio usa el texto por defecto del código.
+  - La versión inglesa está en `en/mapa.yml`.
 
 ## Formato
 
@@ -40,6 +47,7 @@ Además hay atajos para los elementos que se llenan con datos. No cambies los id
 | `[[cifra hm-n \| etiqueta \| nota]]` | una cifra destacada; varias seguidas forman una fila |
 | `:::como Título` … `:::` | un desplegable de explicación («¿Cómo se calcula?») |
 | `:::como+ Título` … `:::` | lo mismo, abierto por defecto |
+| `[[glosario simbolos]]`, `[[glosario series]]`, `[[glosario decisiones]]` | las tablas de la pestaña Glosario (sólo en `glosario/`) |
 | `:::lectura claves \| Título` … `:::` | una tarjeta de lectura teórica (sección «Seis lecturas»); al pasar el cursor se destacan las líneas indicadas en `claves` (separadas por comas; vacío = todas) |
 
 ## Encabezado de cada archivo
@@ -52,7 +60,7 @@ El bloque entre las dos líneas `---` del comienzo controla la sección:
 - `oculta: si`: la sección se muestra sólo cuando sus datos están disponibles.
 - `lugar: portada` o `lugar: pie`: el texto va en la portada o en el pie de página.
 
-El pie de página está repetido en las tres páginas (`99-pie.md` de cada carpeta): si lo cambias, cámbialo en las tres.
+El pie de página está repetido en las cuatro páginas (`99-pie.md` de cada carpeta): si lo cambias, cámbialo en las cuatro.
 
 ## Diseño
 
@@ -64,7 +72,7 @@ Cada gráfico lleva, antes del gráfico, un párrafo que lo explica en palabras 
 
 ## Versión en inglés
 
-El sitio tiene una versión en inglés británico en `site/en/` (index.html, reading.html, methodology.html). Sus textos están en `contenido/en/`, con las mismas carpetas y los mismos nombres de archivo que la versión en español; en Pages CMS aparecen como «Portada (inglés)», «Lectura (inglés)» y «Metodología (inglés)». El marco de esas páginas está en `plantillas/en/`.
+El sitio tiene una versión en inglés británico en `site/en/` (index.html, map.html, reading.html, methodology.html, glossary.html). Sus textos están en `contenido/en/`, con las mismas carpetas y los mismos nombres de archivo que la versión en español; en Pages CMS aparecen como «Portada (inglés)», «Lectura (inglés)» y «Metodología (inglés)». El marco de esas páginas está en `plantillas/en/`.
 
 - Si cambias un texto en español, cambia también el archivo del mismo nombre en `contenido/en/`. Los atajos (`{{…}}`, `[[…]]`, `:::como`) y los `id` del encabezado deben ser idénticos en las dos versiones; sólo se traducen las partes legibles.
 - Convenciones: inglés británico (labour, analyse, -ise), comillas simples, punto decimal y coma de miles (2.05; 1,077), glosario de los artículos del autor (borderline capitalism, tendential fall of the rate of profit, countertendencies, living labour, real subsumption). El glosario completo está en el historial del proyecto (doc 00 del Project).

@@ -100,6 +100,449 @@ content:
       primary: seccion
       fields: [seccion, id]
 
+  - name: glosario
+    label: Glosario
+    type: collection
+    path: contenido/glosario
+    format: yaml-frontmatter
+    fields: *campos
+    view:
+      primary: seccion
+      fields: [seccion, id]
+
+  - name: glosario_en
+    label: "English: Glossary"
+    type: collection
+    path: contenido/en/glosario
+    format: yaml-frontmatter
+    fields: *campos
+    view:
+      primary: seccion
+      fields: [seccion, id]
+
+  - name: mapa
+    label: Pestaña Mapa (textos)
+    type: file
+    path: contenido/mapa.yml
+    format: yaml
+    fields: &campos_mapa
+      - name: cabecera
+        label: Cabecera
+        type: object
+        fields:
+          - name: titulo_pestana
+            label: "Título de la pestaña del navegador"
+            type: string
+          - name: descripcion
+            label: "Descripción"
+            type: text
+          - name: saltar
+            label: "Saltar"
+            type: string
+          - name: antetitulo
+            label: "Antetítulo"
+            type: string
+          - name: titulo
+            label: "Título"
+            type: string
+            description: "Admite Markdown: *cursiva* (p. ej. *multiverso*)."
+          - name: clave_a
+            label: "Clave A (EE.UU.)"
+            type: string
+          - name: clave_b
+            label: "Clave B (mundo)"
+            type: string
+          - name: clave_quiebres
+            label: "Clave quiebres"
+            type: string
+          - name: boton_recorrer
+            label: "Botón recorrer"
+            type: string
+          - name: boton_simbolos
+            label: "Botón símbolos"
+            type: string
+          - name: boton_alejar
+            label: "Botón alejar"
+            type: string
+          - name: boton_acercar
+            label: "Botón acercar"
+            type: string
+          - name: boton_encuadre
+            label: "Botón encuadre"
+            type: string
+      - name: panel
+        label: Panel «Cómo leer el mapa»
+        type: object
+        fields:
+          - name: antetitulo
+            label: "Antetítulo"
+            type: string
+          - name: titulo
+            label: "Título"
+            type: string
+          - name: cifra_eeuu
+            label: "Cifra EE.UU."
+            type: string
+          - name: cifra_mundo
+            label: "Cifra mundo"
+            type: string
+          - name: cifra_series
+            label: "Cifra series"
+            type: string
+          - name: parrafo
+            label: "Párrafo de introducción"
+            type: text
+            description: "Admite Markdown: **negrita**, *cursiva*, `código`. {eeuu} y {mundo} se reemplazan por el número de especificaciónes."
+          - name: rotulo_simbolos
+            label: "Rótulo símbolos"
+            type: string
+          - name: boton_todos_simbolos
+            label: "Botón todos símbolos"
+            type: string
+          - name: rotulo_nodos
+            label: "Rótulo nodos"
+            type: string
+          - name: rotulo_leyenda
+            label: "Rótulo leyenda"
+            type: string
+          - name: leyenda_eje
+            label: "Leyenda eje"
+            type: string
+          - name: leyenda_decisión_eeuu
+            label: "Leyenda decisión EE.UU."
+            type: string
+          - name: leyenda_decisión_mundo
+            label: "Leyenda decisión mundo"
+            type: string
+          - name: leyenda_serie
+            label: "Leyenda serie"
+            type: string
+          - name: leyenda_especificación
+            label: "Leyenda especificación"
+            type: string
+          - name: leyenda_empalme
+            label: "Leyenda empalme"
+            type: string
+          - name: leyenda_guia
+            label: "Leyenda guía"
+            type: string
+          - name: ayuda
+            label: "Ayuda"
+            type: string
+          - name: nota_datos
+            label: "Nota datos"
+            type: string
+      - name: ficha
+        label: Fichas de los nodos
+        type: object
+        fields:
+          - name: tipo_hoja
+            label: "Tipo: hoja"
+            type: string
+          - name: tipo_decisión
+            label: "Tipo: bifurcación"
+            type: string
+          - name: tipo_familia
+            label: "Tipo: familia"
+            type: string
+          - name: tipo_serie
+            label: "Tipo: serie"
+            type: string
+          - name: tipo_estacion
+            label: "Tipo: estación"
+            type: string
+          - name: tipo_empalme
+            label: "Tipo: empalme"
+            type: string
+          - name: fijado
+            label: "Fijado"
+            type: string
+          - name: soltar
+            label: "Soltar"
+            type: string
+          - name: expresion
+            label: "Expresión"
+            type: string
+          - name: columna
+            label: "Columna"
+            type: string
+          - name: glosario_csv
+            label: "Glosario (CSV)"
+            type: string
+          - name: decisión_explicita
+            label: "Decisión explícita"
+            type: string
+          - name: abrev_especificaciónes
+            label: "Abreviatura de especificaciones"
+            type: string
+          - name: decisiónes_especificación
+            label: "Decisiones especificación"
+            type: string
+          - name: curva_especificación
+            label: "Curva especificación"
+            type: string
+          - name: curva_opciones
+            label: "Curva opciones"
+            type: string
+          - name: curva_rama
+            label: "Curva rama"
+            type: string
+          - name: base_100
+            label: "Base 100"
+            type: string
+          - name: quiebres
+            label: "Quiebres"
+            type: string
+          - name: ninguno
+            label: "Ninguno"
+            type: string
+          - name: quiebres_rama
+            label: "Quiebres rama"
+            type: string
+          - name: quiebres_aria
+            label: "Quiebres (accesibilidad)"
+            type: string
+          - name: ruta
+            label: "Ruta"
+            type: string
+          - name: series_seccion
+            label: "Series sección"
+            type: string
+          - name: empalmes
+            label: "Empalmes"
+            type: string
+          - name: esta_especificación
+            label: "Esta especificación"
+            type: string
+          - name: mediana_rama
+            label: "Mediana rama"
+            type: string
+          - name: tasa
+            label: "Tasa"
+            type: string
+          - name: tabla_csv
+            label: "Tabla (CSV)"
+            type: string
+          - name: error_series
+            label: "Error series"
+            type: string
+      - name: simbolos
+        label: Capa «Símbolos»
+        type: object
+        fields:
+          - name: titulo
+            label: "Título"
+            type: string
+          - name: intro
+            label: "Introducción"
+            type: text
+          - name: subtitulo_series
+            label: "Subtítulo series"
+            type: string
+          - name: enlace_glosario
+            label: "Enlace glosario"
+            type: string
+          - name: enlace_csv
+            label: "Enlace CSV"
+            type: string
+          - name: cerrar
+            label: "Cerrar"
+            type: string
+      - name: recorrido
+        label: Recorrido guiado
+        type: object
+        fields:
+          - name: rotulo
+            label: "Rótulo"
+            type: string
+          - name: aria
+            label: "Descripción accesible"
+            type: string
+          - name: salir
+            label: "Salir"
+            type: string
+          - name: anterior
+            label: "Anterior"
+            type: string
+          - name: pausa
+            label: "Pausa"
+            type: string
+          - name: reproducir
+            label: "Reproducir"
+            type: string
+          - name: siguiente
+            label: "Siguiente"
+            type: string
+          - name: terminar
+            label: "Terminar"
+            type: string
+          - name: pasos
+            label: Pasos del recorrido
+            type: object
+            list: true
+            fields:
+              - name: clave
+                label: "Clave (no cambiar)"
+                type: string
+                description: "Decide a qué parte de la lámina vuela la cámara. No la cambies; puedes reordenar, quitar o duplicar pasos."
+              - name: titulo
+                label: "Título"
+                type: string
+              - name: texto
+                label: "Texto"
+                type: text
+                description: "Admite Markdown: **negrita**, *cursiva*, `código`. {eeuu} y {mundo} se reemplazan por el número de especificaciónes."
+      - name: mensajes
+        label: Mensajes breves
+        type: object
+        fields:
+          - name: descarga_cancelada
+            label: "Descarga cancelada"
+            type: string
+          - name: png
+            label: "PNG"
+            type: string
+          - name: svg
+            label: "SVG"
+            type: string
+      - name: lamina
+        label: Lámina (motor del mapa)
+        type: object
+        fields:
+          - name: estaciones
+            label: Estaciones del eje (01–05; no agregar ni quitar)
+            type: object
+            list: true
+            fields:
+              - name: nombre
+                label: "Nombre"
+                type: string
+              - name: descripcion
+                label: "Descripción"
+                type: text
+          - name: raiz_nombre
+            label: "Raíz nombre"
+            type: string
+          - name: raiz_descripcion
+            label: "Raíz descripción"
+            type: text
+          - name: bifurcacion_nombre
+            label: "Bifurcación nombre"
+            type: string
+          - name: bifurcacion_descripcion
+            label: "Bifurcación descripción"
+            type: text
+          - name: empalme_nombre
+            label: "Empalme nombre"
+            type: string
+          - name: empalme_subtitulo
+            label: "Empalme subtítulo"
+            type: string
+          - name: empalme_descripcion
+            label: "Empalme descripción"
+            type: text
+          - name: sub_estacion
+            label: "Subtítulo de estación"
+            type: string
+          - name: sub_bifurcacion
+            label: "Subtítulo: bifurcación"
+            type: string
+          - name: sub_especificación
+            label: "Subtítulo: especificación"
+            type: string
+          - name: sub_especificación_mundial
+            label: "Subtítulo: especificación mundial"
+            type: string
+          - name: sub_familia
+            label: "Subtítulo: familia"
+            type: string
+          - name: sub_serie
+            label: "Subtítulo: serie"
+            type: string
+          - name: arbol_eeuu
+            label: "Árbol EE.UU."
+            type: string
+          - name: arbol_mundo
+            label: "Árbol mundo"
+            type: string
+          - name: no_aplica
+            label: "No aplica"
+            type: string
+          - name: enlace_leer
+            label: "Enlace «leer en el sitio»"
+            type: string
+          - name: enlace_multiverso
+            label: "Enlace multiverso"
+            type: string
+          - name: enlace_metodologia_5
+            label: "Enlace metodología 5"
+            type: string
+          - name: enlace_mundo
+            label: "Enlace mundo"
+            type: string
+          - name: enlace_metodologia
+            label: "Enlace metodología"
+            type: string
+          - name: enlace_plusvalor
+            label: "Enlace plusvalor"
+            type: string
+          - name: enlace_seccion
+            label: "Enlace sección"
+            type: string
+          - name: enlace_empalmes
+            label: "Enlace empalmes"
+            type: string
+          - name: rotulo_registro
+            label: "Rótulo registro"
+            type: string
+          - name: rotulo_eje_1
+            label: "Rótulo eje 1"
+            type: string
+          - name: rotulo_eje_2
+            label: "Rótulo eje 2"
+            type: string
+          - name: rotulo_eje_3
+            label: "Rótulo eje 3"
+            type: string
+          - name: rotulo_eje_4
+            label: "Rótulo eje 4"
+            type: string
+          - name: rotulo_eje_5
+            label: "Rótulo eje 5"
+            type: string
+          - name: rotulo_raiz
+            label: "Rótulo raíz"
+            type: string
+          - name: rotulo_bifurcacion
+            label: "Rótulo bifurcación"
+            type: string
+          - name: rotulo_empalmes
+            label: "Rótulo empalmes"
+            type: string
+          - name: rotulo_region
+            label: "Rótulo región"
+            type: string
+          - name: marca
+            label: "Marca"
+            type: string
+          - name: topologia
+            label: "Topología"
+            type: string
+          - name: datos
+            label: "Datos"
+            type: string
+          - name: aria
+            label: "Descripción accesible"
+            type: string
+
+
+  - name: mapa_en
+    label: "English: Map tab (texts)"
+    type: file
+    path: contenido/en/mapa.yml
+    format: yaml
+    fields: *campos_mapa
+
   - name: guia
     label: Guía de edición
     type: file

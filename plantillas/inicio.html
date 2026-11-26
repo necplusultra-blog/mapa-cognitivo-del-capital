@@ -13,7 +13,7 @@
 <a class="saltar" href="#contenido">Ir al contenido</a>
 <header class="barra">
   <a class="marca" href="./">Mapa cognitivo del capital</a>
-  <nav aria-label="Páginas"><a href="mapa.html">Mapa</a><a href="lectura.html">Lectura</a><a href="metodologia.html">Metodología</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">Código</a><span class="idioma" role="group" aria-label="Idioma / Language"><span class="activo" aria-current="true">ES</span><a class="cambiar-idioma" href="en/" hreflang="en" lang="en" title="Read this page in English">EN</a></span></nav>
+  <nav aria-label="Páginas"><a href="mapa.html">Mapa</a><a href="lectura.html">Lectura</a><a href="metodologia.html">Metodología</a><a href="glosario.html">Glosario</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">Código</a><span class="idioma" role="group" aria-label="Idioma / Language"><span class="activo" aria-current="true">ES</span><a class="cambiar-idioma" href="en/" hreflang="en" lang="en" title="Read this page in English">EN</a></span></nav>
 </header>
 <div class="portada">
 {{portada}}
@@ -36,6 +36,7 @@
 <script src="app.js?v={{version}}"></script>
 <script src="explorador.js?v={{version}}" defer></script>
 <script>/* el botón ES | EN conserva la sección (las anclas son iguales en las dos versiones) */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.cambiar-idioma");if(a&&location.hash)a.href=a.getAttribute("href").split("#")[0]+location.hash;});</script>
+<script src="mapa-textos.js?v={{version}}" defer></script>
 <script src="mapa-cognitivo.js?v={{version}}" data-modo="fondo" defer></script>
 </body>
 </html>

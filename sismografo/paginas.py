@@ -11,6 +11,9 @@ Atajos disponibles en los textos:
   [[leyenda id]]             la leyenda de un gráfico
   [[tabla id: Col 1 | Col 2]] una tabla que el sitio llena con los datos
   [[explorador]]             el explorador de especificaciones del multiverso (explorador.js)
+  [[glosario simbolos]]      la tabla de símbolos del glosario (glosario.js, con los datos de site/data/mapa.json)
+  [[glosario series]]        el glosario de las series publicadas, por sección, con buscador (glosario.js)
+  [[glosario decisiones]]    las decisiones (bifurcaciones) de los multiversos de EE.UU. y mundial, con sus opciones
   [[cifra id | etiqueta | nota]] una cifra destacada; varias seguidas forman una fila
   :::como Título             abre un desplegable de explicación (se cierra con una línea ::: )
   :::como+ Título            lo mismo, pero abierto por defecto
@@ -18,6 +21,11 @@ Atajos disponibles en los textos:
                              indicadas (claves separadas por comas; vacío = todas). Se cierra con una línea :::
 Encabezado opcional de cada archivo (entre líneas ---): id (ancla), menu (texto del índice lateral),
 oculta: si (la sección aparece sólo cuando hay datos), lugar: portada | pie.
+
+La pestaña Mapa no tiene secciones: todos sus textos (cabecera, panel, fichas, símbolos, recorrido guiado, rótulos de
+la lámina) viven en contenido/mapa.yml y contenido/en/mapa.yml. Este módulo construye mapa.html (en/map.html) desde
+plantillas/mapa.html y escribe site/mapa-textos.js (site/en/mapa-textos.js), que leen mapa-cognitivo.js y
+mapa-pagina.js; lo que falte en el YAML se toma de los textos por defecto del código.
 """
 import glob, html, os, re
 
@@ -61,6 +69,10 @@ def _bloques(texto):
         m = re.match(r'^\[\[grafico ([\w-]+)( corto)?\]\]$', t)
         if m:
             out.append(f'<figure class="placa"><div class="chart{" short" if m.group(2) else ""}" id="{m.group(1)}"></div></figure>'); continue
+        m = re.match(r'^\[\[glosario (simbolos|símbolos|series|decisiones)\]\]$', t)
+        if m:
+            cual = m.group(1).replace('í', 'i')
+            out.append(f'<div class="glosario" id="glosario-{cual}" data-glosario="{cual}"></div>'); continue
         if t == '[[explorador]]':
             out.append('<figure class="placa"><div class="explorador" id="explorador-especificaciones"></div></figure>'); continue
         m = re.match(r'^\[\[leyenda ([\w-]+)\]\]$', t)
@@ -107,13 +119,15 @@ def _version():
 # Idiomas: los textos en inglés viven en contenido/en/<página>/ y sus plantillas en plantillas/en/; se publican en site/en/
 # con nombres de archivo en inglés. Los enlaces internos de los textos traducidos pueden escribirse con los nombres en
 # español: se reescriben al construir.
-NOMBRES = {'es': {'inicio': 'index.html', 'lectura': 'lectura.html', 'metodologia': 'metodologia.html'},
-           'en': {'inicio': 'index.html', 'lectura': 'reading.html', 'metodologia': 'methodology.html'}}
+NOMBRES = {'es': {'inicio': 'index.html', 'lectura': 'lectura.html', 'metodologia': 'metodologia.html', 'glosario': 'glosario.html', 'mapa': 'mapa.html'},
+           'en': {'inicio': 'index.html', 'lectura': 'reading.html', 'metodologia': 'methodology.html', 'glosario': 'glossary.html', 'mapa': 'map.html'}}
 
 
 def _enlaces_en(h):
     h = re.sub(r'href="(\./)?lectura\.html', 'href="reading.html', h)
     h = re.sub(r'href="(\./)?metodologia\.html', 'href="methodology.html', h)
+    h = re.sub(r'href="(\./)?glosario\.html', 'href="glossary.html', h)
+    h = re.sub(r'href="(\./)?mapa\.html', 'href="map.html', h)
     h = re.sub(r'href="(\./)?descargas/', 'href="../descargas/', h)
     return h
 
@@ -125,7 +139,7 @@ def construir(dir_site=None):
         base_c = os.path.join(RAIZ, 'contenido') if lang == 'es' else os.path.join(RAIZ, 'contenido', 'en')
         base_p = os.path.join(RAIZ, 'plantillas') if lang == 'es' else os.path.join(RAIZ, 'plantillas', 'en')
         destino = dir_site if lang == 'es' else os.path.join(dir_site, 'en')
-        for pagina in ('inicio', 'lectura', 'metodologia'):
+        for pagina in ('inicio', 'lectura', 'metodologia', 'glosario'):
             archivos = sorted(glob.glob(os.path.join(base_c, pagina, '*.md')))
             fn_p = os.path.join(base_p, f'{pagina}.html')
             if not archivos or not os.path.exists(fn_p): continue
@@ -148,6 +162,53 @@ def construir(dir_site=None):
             if lang == 'en': salida = _enlaces_en(salida)
             os.makedirs(destino, exist_ok=True)
             open(os.path.join(destino, NOMBRES[lang][pagina]), 'w', encoding='utf-8').write(salida)
+        _mapa(lang, base_c, base_p, destino, version)
+
+
+# ---------------------------------------------------------------- pestaña Mapa
+MD_MAPA = {'parrafo', 'texto'}   # campos de mapa.yml que admiten Markdown (se convierten a HTML)
+
+
+def _md_linea(t):
+    """Markdown de una línea o un párrafo, sin el <p> que lo envuelve."""
+    h = markdown.markdown(str(t), extensions=['extra'], output_format='html5').strip()
+    return re.sub(r'^<p>(.*)</p>$', r'\1', h, flags=re.S)
+
+
+def _convertir(x, clave=''):
+    if isinstance(x, dict): return {k: _convertir(v, k) for k, v in x.items()}
+    if isinstance(x, list): return [_convertir(v, clave) for v in x]
+    if x is None: return ''
+    return _md_linea(x) if clave in MD_MAPA else str(x)
+
+
+def textos_mapa(lang='es'):
+    fn = os.path.join(RAIZ, 'contenido', 'mapa.yml') if lang == 'es' else os.path.join(RAIZ, 'contenido', 'en', 'mapa.yml')
+    if not os.path.exists(fn): return {}
+    return yaml.safe_load(open(fn, encoding='utf-8')) or {}
+
+
+def _mapa(lang, base_c, base_p, destino, version):
+    """site/mapa-textos.js y mapa.html (en/map.html) a partir de contenido/mapa.yml y plantillas/mapa.html."""
+    import json
+    crudo = textos_mapa(lang)
+    tx = _convertir(crudo)
+    os.makedirs(destino, exist_ok=True)
+    with open(os.path.join(destino, 'mapa-textos.js'), 'w', encoding='utf-8') as f:
+        f.write('/* Generado por sismografo/paginas.py a partir de contenido/' + ('' if lang == 'es' else 'en/')
+                + 'mapa.yml: no editar aquí. */\nwindow.MAPA_TEXTOS = ' + json.dumps(tx, ensure_ascii=False, indent=1) + ';\n')
+    fn_p = os.path.join(base_p, 'mapa.html')
+    if not os.path.exists(fn_p): return
+    cab = crudo.get('cabecera') or {}
+
+    def campo(m):
+        k = m.group(1)
+        v = cab.get(k)
+        if v in (None, ''): return m.group(0)
+        return _md_linea(v) if k == 'titulo' else html.escape(str(v), quote=True)
+    salida = open(fn_p, encoding='utf-8').read().replace('{{version}}', version)
+    salida = re.sub(r'\{\{cabecera\.(\w+)\}\}', campo, salida)
+    open(os.path.join(destino, NOMBRES[lang]['mapa']), 'w', encoding='utf-8').write(salida)
 
 
 if __name__ == '__main__':
