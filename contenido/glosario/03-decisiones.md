@@ -1,6 +1,6 @@
 ---
 seccion: 03 Decisiones del multiverso
-menu: Decisiones del multiverso
+menu: Decisiones del multiverso de la tasa de ganancia
 id: decisiones
 oculta: false
 ---
