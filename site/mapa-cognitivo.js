@@ -14,7 +14,7 @@
  */
 (function (global) {
   'use strict';
-  var W = 1600, H = 900, SEED = 1867, VERSION = 'lámina 1.1';
+  var W = 1600, H = 900, SEED = 1867, VERSION = 'lámina 2.0';
   /* Idioma: el de la página (en/map.html y las páginas en inglés usan lang="en-GB"). */
   var EN = /^en/.test((document.documentElement.lang || '').toLowerCase());
   function L(es, en) { return EN ? en : es; }
@@ -23,26 +23,26 @@
   var EJE_Y = 470;
 
   function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
-  function ejeY(x) { var t = (x - 40) / 1520; return EJE_Y + Math.sin(t * 5.2 + 0.4) * 9 + Math.sin(t * 15) * 3; }
+  function ejeY() { return EJE_Y; }   // eje recto: el orden de exposición se lee de izquierda a derecha
   function polar(cx, cy, r, a) { return [cx + Math.cos(a) * r, cy + Math.sin(a) * r]; }
   var RAD = Math.PI / 180;
 
   /* Estaciones del eje: orden de exposición de las categorías. Textos breves: lo que muestra el sitio es
      manifestación fenoménica de la determinación categorial, no su demostración. */
   var ESTACIONES = [
-    { k: L('Lógica del capital', 'Logic of capital'), x: 120, a: 'lectura.html#estatuto', c: 'K.01',
+    { k: L('Lógica del capital', 'Logic of capital'), x: 120, a: 'lectura.html#estatuto', c: '#01',
       t: L('El valor que se valoriza como sujeto de la mediación social. La categoría se expone primero; las series del sitio son su manifestación fenoménica en precios, no su demostración.',
            'Self-valorising value as the subject of social mediation. The category is set out first; the series on the site are its phenomenal manifestation in prices, not its demonstration.') },
-    { k: L('Plusvalor y ganancia', 'Surplus value and profit'), x: 520, a: 'index.html#masa-tasa', c: 'K.02',
+    { k: L('Plusvalor y ganancia', 'Surplus value and profit'), x: 520, a: 'index.html#masa-tasa', c: '#02',
       t: L('Masa y tasa de plusvalor y de ganancia. Ninguna cuenta nacional las publica: se reconstruyen reclasificando excedente y remuneración según decisiones explícitas, cada una visible como bifurcación del árbol superior.',
            'Mass and rate of surplus value and of profit. No national account publishes them: they are reconstructed by reclassifying surplus and compensation according to explicit decisions, each visible as a fork in the upper tree.') },
-    { k: L('Fuerzas productivas', 'Productive forces'), x: 900, a: 'index.html#fuerzas', c: 'K.03',
+    { k: L('Fuerzas productivas', 'Productive forces'), x: 900, a: 'index.html#fuerzas', c: '#03',
       t: L('Desarrollo de las fuerzas productivas: valor nuevo por hora, tiempo necesario y plustrabajo, en EE.UU. y en el mundo.',
            'Development of the productive forces: new value per hour, necessary time and surplus labour, in the United States and the world.') },
-    { k: L('Tiempo disponible', 'Disposable time'), x: 1110, a: 'lectura.html#tiempo-disponible', c: 'K.04',
+    { k: L('Tiempo disponible', 'Disposable time'), x: 1110, a: 'lectura.html#tiempo-disponible', c: '#04',
       t: L('Tiempo de trabajo y tiempo disponible: la medida del valor frente a la riqueza que ya no cabe en ella. Las horas registran la medida; el tiempo liberado registra su contradicción.',
            'Labour time and disposable time: the measure of value against the wealth that no longer fits within it. Hours record the measure; freed time records its contradiction.') },
-    { k: L('Límites inmanentes', 'Immanent limits'), x: 1380, a: 'lectura.html#asintota', c: 'K.05',
+    { k: L('Límites inmanentes', 'Immanent limits'), x: 1380, a: 'lectura.html#asintota', c: '#05',
       t: L('Hipótesis del capitalismo limítrofe y sus contratendencias. Lo que el sitio puede mostrar es si una tendencia aparece y bajo qué decisiones, a escala de EE.UU. y del mundo; no mide una distancia a un tope.',
            'The hypothesis of borderline capitalism and its countertendencies. What the site can show is whether a tendency appears and under which decisions, for the United States and the world; it does not measure a distance to a ceiling.') }
   ];
@@ -94,8 +94,8 @@
     for (var yy = Y0; yy <= Y1; yy++) curva('sis:regla', 4, ['l', xa(yy), 872, xa(yy), 872 + (yy % 10 === 0 ? 6 : 2.5)]);
     for (yy = 1950; yy <= 2020; yy += 10) capa('sis:txt', 't', 5).g.push(['t', xa(yy), 889, String(yy), 10, 'center']);
     picos.sort(function (a, b) { return b[1] - a[1]; }).slice(0, 5).forEach(function (q) { capa('sis:pico:txt', 't', 5).g.push(['t', xa(q[0]), 872 - q[1] / qmax * 74 - 6, String(q[0]), 9.5, 'center']); });
-    capa('sis:txt', 't', 5).g.push(['t', SX0, 640, L('registro · multiverso de EE.UU., percentiles 10–90 (100 = promedio del periodo) · barras: especificaciones con quiebre en cada año (de ' + (D.eeuu.specs || []).length + ')',
-      'record · US multiverse, percentiles 10–90 (100 = period average) · bars: specifications with a break in each year (of ' + (D.eeuu.specs || []).length + ')'), 10, 'left']);
+    capa('sis:txt', 't', 5).g.push(['t', SX0, 640, L('C · registro · multiverso de EE.UU., percentiles 10–90 (100 = promedio del periodo) · barras: especificaciones con quiebre en cada año (de ' + (D.eeuu.specs || []).length + ')',
+      'C · record · US multiverse, percentiles 10–90 (100 = period average) · bars: specifications with a break in each year (of ' + (D.eeuu.specs || []).length + ')'), 10, 'left']);
 
     /* ---- eje categorial */
     var ejePts = []; for (x = 30; x <= 1570; x += 4) ejePts.push([x, ejeY(x)]);
@@ -125,7 +125,7 @@
       });
       var T = pos || 1;
       function colocar(N) {
-        if (N.hijos.length) { N.hijos.forEach(colocar); N.a = (N.hijos[0].a + N.hijos[N.hijos.length - 1].a) / 2; N.n = N.hijos.reduce(function (s, c) { return s + c.n; }, 0); N.r = cfg.r0 + N.prof * cfg.dr + (N.prof ? rr(-4, 4) : 0); }
+        if (N.hijos.length) { N.hijos.forEach(colocar); N.a = (N.hijos[0].a + N.hijos[N.hijos.length - 1].a) / 2; N.n = N.hijos.reduce(function (s, c) { return s + c.n; }, 0); N.r = cfg.r0 + N.prof * cfg.dr; }
         else { N.a = cfg.a0 + (cfg.a1 - cfg.a0) * N.t / T; N.n = 1; N.r = cfg.rh; }
         N.cx = cfg.cx; N.cy = cfg.cy;
         var p = polar(cfg.cx, cfg.cy, N.r, N.a); N.x = p[0]; N.y = p[1];
@@ -134,15 +134,20 @@
       var est = ESTACIONES[cfg.est];
       raiz.seg = ['c', est.x, est.y, est.x, est.y + (raiz.y - est.y) * 0.5, raiz.x, raiz.y - (raiz.y - est.y) * 0.5, raiz.x, raiz.y];
       raiz.padreEst = est.nodo;
-      curva('ar:0:' + 3, 10, raiz.seg);
+      var pref = cfg.nombre === 'mundo' ? 'aw' : 'ar';
+      curva(pref + ':0:' + 3, 10, raiz.seg);
       todos.forEach(function (N) {
         nodos.push(N);
         if (!N.padre) return;
         N.seg = bez(N.padre, N);
         var w = 0.32 + 2.5 * Math.pow(N.n / raiz.n, 0.55);
-        curva('ar:' + Math.min(9, N.prof) + ':' + Math.round(w * 2), 10, N.seg);
+        curva(pref + ':' + Math.min(9, N.prof) + ':' + Math.round(w * 2), 10, N.seg);
       });
       hojas.forEach(function (h) { capa('hoja', 'd', 14).g.push(['d', h.x, h.y, 1.05]); });
+      /* guías concéntricas: un anillo por nivel del árbol de decisiones (orden radial legible) */
+      var pmax = 0; todos.forEach(function (N) { if (N.hijos.length) pmax = Math.max(pmax, N.prof); });
+      for (var pr = 1; pr <= pmax + 1; pr++) capa('guia', 's', 9).g.push(['a', cfg.cx, cfg.cy, cfg.r0 + pr * cfg.dr, cfg.a0 - 0.05, cfg.a1 + 0.05]);
+      capa('guia', 's', 9).g.push(['a', cfg.cx, cfg.cy, cfg.rh, cfg.a0 - 0.05, cfg.a1 + 0.05]);
       /* anillo del tiempo: cada radio es una especificación; cada punto rojo, uno de sus quiebres */
       var a0 = cfg.a0 - 0.035, a1 = cfg.a1 + 0.035;
       function rA(y) { return cfg.t0 + (y - cfg.y0) / (cfg.y1 - cfg.y0) * (cfg.t1 - cfg.t0); }
@@ -185,7 +190,7 @@
     var emp = (D.meta && D.meta.empalmes) || {}, empNodo = null;
     [1987, 1997].forEach(function (y) { capa('empalme', 's', 15).g.push(['a', eeuu.cfg.cx, eeuu.cfg.cy, eeuu.cfg.rA(y), eeuu.cfg.a0 - 0.02, eeuu.cfg.a1 + 0.02]); });
     var pe = polar(eeuu.cfg.cx, eeuu.cfg.cy, eeuu.cfg.rA(1992), -16 * RAD);
-    empNodo = { tipo: 'empalme', x: pe[0], y: pe[1], clave: L('Empalme estadístico', 'Statistical splice'), cod: 'K.08', empalmes: emp, peso: 3, hijos: [] };
+    empNodo = { tipo: 'empalme', x: pe[0], y: pe[1], clave: L('Empalme estadístico', 'Statistical splice'), cod: '#08', empalmes: emp, peso: 3, hijos: [] };
     nodos.push(empNodo);
 
     /* ---- abanicos de series por sección */
@@ -194,18 +199,18 @@
       var ab = ABANICOS[f.a] || [90, 150], est = ESTACIONES[f.e], phi = ab[0] * RAD, rad = ab[1];
       var sig = Math.min(0.62, 0.07 + f.s.length * 0.016);
       var cfg = { cx: est.x, cy: est.y };
-      var F = { tipo: 'familia', nombre: EN ? (f.n_en || f.n) : f.n, ancla: f.a, series: f.s, est: f.e, r: rad * 0.42, a: phi, cx: cfg.cx, cy: cfg.cy, hijos: [], peso: 2 };
+      var F = { tipo: 'familia', nombre: EN ? (f.n_en || f.n) : f.n, ancla: f.a, series: f.s, glosa: (EN ? f.g_en : f.g) || [], est: f.e, r: rad * 0.42, a: phi, cx: cfg.cx, cy: cfg.cy, hijos: [], peso: 2 };
       var p = polar(cfg.cx, cfg.cy, F.r, phi); F.x = p[0]; F.y = p[1];
       F.seg = ['c', est.x, est.y, est.x + (F.x - est.x) * 0.2, est.y + (F.y - est.y) * 0.6, F.x - (F.x - est.x) * 0.3, F.y - (F.y - est.y) * 0.15, F.x, F.y];
       F.padreEst = est.nodo; F.n = f.s.length;
-      curva('ar:1:' + Math.round((0.5 + Math.sqrt(f.s.length) * 0.22) * 2), 10, F.seg);
+      curva('af:1:' + Math.round((0.5 + Math.sqrt(f.s.length) * 0.22) * 2), 10, F.seg);
       nodos.push(F); familias.push(F);
       f.s.forEach(function (s, j) {
-        var a = phi + (f.s.length > 1 ? (j / (f.s.length - 1) - 0.5) * 2 * sig : 0), r = rad + (j % 3) * 13 + rr(-3, 3);
-        var S = { tipo: 'serie', nombre: s, familia: F, padre: F, r: r, a: a, cx: cfg.cx, cy: cfg.cy, prof: 2, hijos: [], peso: 1, n: 1 };
+        var a = phi + (f.s.length > 1 ? (j / (f.s.length - 1) - 0.5) * 2 * sig : 0), r = rad + (j % 3) * 13;
+        var S = { tipo: 'serie', nombre: s, glosa: F.glosa[j] || [s, '', ''], familia: F, padre: F, r: r, a: a, cx: cfg.cx, cy: cfg.cy, prof: 2, hijos: [], peso: 1, n: 1 };
         var q = polar(cfg.cx, cfg.cy, r, a); S.x = q[0]; S.y = q[1];
         S.seg = bez(F, S); F.hijos.push(S);
-        curva('ar:4:1', 10, S.seg);
+        curva('af:4:1', 10, S.seg);
         capa('serie', 'd', 14).g.push(['d', S.x, S.y, 1.3]);
         nodos.push(S);
       });
@@ -214,8 +219,8 @@
     /* ---- nodos clave con etiqueta */
     var bifurcacion = null;
     eeuu.todos.forEach(function (N) { if (!bifurcacion && N.tipo === 'decision' && D.eeuu.claves[N.dim] === 'D2') bifurcacion = N; });
-    eeuu.raiz.clave = L('Multiverso de especificaciones', 'Multiverse of specifications'); eeuu.raiz.cod = 'K.06';
-    if (bifurcacion) { bifurcacion.clave = L('Bifurcación teórica', 'Theoretical fork'); bifurcacion.cod = 'K.07'; }
+    eeuu.raiz.clave = L('Multiverso de especificaciones', 'Multiverse of specifications'); eeuu.raiz.cod = '#06';
+    if (bifurcacion) { bifurcacion.clave = L('Bifurcación teórica', 'Theoretical fork'); bifurcacion.cod = '#07'; }
     function etq(n, dx, dy, al, sub) { if (n) etiquetas.push({ n: n, dx: dx, dy: dy, al: al || 'left', sub: sub }); }
     var m = D.meta || {};
     etq(ESTACIONES[0].nodo, -40, 96, 'left', L('eje · exposición categorial', 'axis · categorial exposition'));
@@ -227,14 +232,13 @@
     etq(bifurcacion, -190, 30, 'right', L('qué cuenta como plusvalor', 'what counts as surplus value'));
     etq(empNodo, 52, -132, 'left', Object.keys(emp).length + L(' empalmes SIC → NAICS', ' SIC → NAICS splices'));
 
-    /* ---- marco de lámina */
-    capa('lam', 's', 1).g.push(['p', [[12, 12], [W - 12, 12], [W - 12, H - 12], [12, H - 12], [12, 12]]]);
-    for (x = 20; x < W - 12; x += 20) capa('lam', 's', 1).g.push(['l', x, 12, x, 12 + (x % 100 === 0 ? 7 : 3)]);
-    for (var y2 = 20; y2 < H - 12; y2 += 20) capa('lam', 's', 1).g.push(['l', 12, y2, 12 + (y2 % 100 === 0 ? 7 : 3), y2]);
-    for (x = 100; x < W - 12; x += 200) capa('lam:txt', 't', 1).g.push(['t', x + 3, 26, ('000' + x).slice(-4), 7, 'left']);
-    [[12, 12], [W - 12, 12], [12, H - 12], [W - 12, H - 12]].forEach(function (c) {
-      capa('lam:reg', 's', 1).g.push(['l', c[0] - 9, c[1], c[0] + 9, c[1]], ['l', c[0], c[1] - 9, c[0], c[1] + 9], ['a', c[0], c[1], 5, 0, Math.PI * 2]);
+    /* ---- marco de lámina: retícula de puntos, escuadras en las esquinas, números de estación y rótulos de región */
+    for (x = 40; x < W - 20; x += 40) for (var y2 = 40; y2 < H - 20; y2 += 40) capa('grilla', 'd', 0).g.push(['d', x, y2, 0.55]);
+    [[16, 16, 1, 1], [W - 16, 16, -1, 1], [16, H - 16, 1, -1], [W - 16, H - 16, -1, -1]].forEach(function (c) {
+      capa('lam:reg', 's', 1).g.push(['p', [[c[0], c[1] + 22 * c[3]], [c[0], c[1]], [c[0] + 22 * c[2], c[1]]]]);
     });
+    ESTACIONES.forEach(function (e, i) { capa('est:num', 't', 22).g.push(['t', e.x, EJE_Y - 19, '0' + (i + 1), 9, 'center']); });
+    capa('region', 't', 5).g.push(['t', 34, EJE_Y + 30, L('EJE · EXPOSICIÓN CATEGORIAL →', 'AXIS · CATEGORIAL EXPOSITION →'), 10, 'left']);
     var fecha = (m.actualizado || '').slice(0, 10);
     [[L('mapa cognitivo del capital · ', 'cognitive map of capital · ') + VERSION, 11],
      [L('topología: multiverso efectivo · ', 'topology: effective multiverse · ') + eeuu.hojas.length + ' + ' + mundo.hojas.length + L(' especificaciones · geometría: semilla ', ' specifications · geometry: seed ') + SEED, 9],
@@ -258,13 +262,17 @@
       fondo: '#06070a', luz: true, acento: '#ff4d6d', texto: '#e9e5ff', tenue: '#7d77aa', etqFondo: 'rgba(6,7,10,.78)',
       estilo: function (id) {
         var p = id.split(':');
-        if (p[0] === 'ar') { var d = +p[1], w = +p[2] / 2, t = Math.min(1, d / 8); return { c: t < 0.5 ? mezcla('#f1edff', '#a88bff', t * 2) : mezcla('#a88bff', '#4a3cb8', (t - 0.5) * 2), a: 0.62 - t * 0.2, w: w, halo: 4.5, ha: 0.05 }; }
+        /* tres familias de trazo, una por región: violeta (EE.UU.), cian (mundo), blanco frío (series del sitio) */
+        if (p[0] === 'ar') { var d = +p[1], w = +p[2] / 2, t = Math.min(1, d / 8); return { c: t < 0.5 ? mezcla('#f3f0ff', '#9d86ff', t * 2) : mezcla('#9d86ff', '#5a46e0', (t - 0.5) * 2), a: 0.7 - t * 0.25, w: w, halo: 4, ha: 0.05 }; }
+        if (p[0] === 'aw') { d = +p[1]; w = +p[2] / 2; t = Math.min(1, d / 5); return { c: mezcla('#eafcff', '#3fc8e0', t), a: 0.75 - t * 0.25, w: w, halo: 4, ha: 0.05 }; }
+        if (p[0] === 'af') { w = +p[2] / 2; return { c: +p[1] > 1 ? '#8c93b8' : '#c9cde6', a: +p[1] > 1 ? 0.45 : 0.6, w: w }; }
         return ({
           'sis:traza': { c: '#7476aa', a: 0.3, w: 0.5 }, 'sis:banda90': { c: '#6d4cff', a: 0.07 }, 'sis:banda50': { c: '#8b6cff', a: 0.1 },
           'sis:p50': { c: '#c9bbff', a: 0.75, w: 1, halo: 5, ha: 0.08 }, 'sis:pico': { c: '#ff4d6d', a: 0.7, w: 1.1, halo: 4, ha: 0.08 },
           'sis:regla': { c: '#585a80', a: 0.7, w: 0.6 }, 'sis:txt': { c: '#5e5f86', a: 1 }, 'sis:pico:txt': { c: '#ff7a8f', a: 0.9 },
           'eje:halo': { c: '#6a3dff', a: 0.12, w: 22 }, 'eje:medio': { c: '#8f6bff', a: 0.28, w: 7 }, 'eje:luz': { c: '#b9a5ff', a: 0.7, w: 2.6 }, 'eje:nucleo': { c: '#f6f4ff', a: 1, w: 1.1 },
-          'hoja': { c: '#d4caff', a: 0.6 }, 'serie': { c: '#d4caff', a: 0.95 }, 'pelo': { c: '#9f8cff', a: 0.1, w: 0.45 }, 'pais': { c: '#8fa0ff', a: 0.13, w: 0.4 },
+          'hoja': { c: '#d4caff', a: 0.6 }, 'serie': { c: '#e6e9ff', a: 0.95 }, 'pelo': { c: '#9f8cff', a: 0.1, w: 0.45 }, 'pais': { c: '#5fd3e6', a: 0.16, w: 0.4 },
+          'guia': { c: '#3d3f6e', a: 0.55, w: 0.5, dash: [1, 4] }, 'grilla': { c: '#2a2c48', a: 0.9 }, 'est:num': { c: '#b9a5ff', a: 1 }, 'region': { c: '#8f8bc2', a: 1 },
           'anillo': { c: '#6c66b0', a: 0.28, w: 0.45, dash: [1.5, 3.5] }, 'anillo:txt': { c: '#6b65a0', a: 1 },
           'crisis:1': { c: '#ff4d6d', a: 0.05, w: 1.2 }, 'crisis:2': { c: '#ff4d6d', a: 0.09, w: 1.6 }, 'crisis:3': { c: '#ff4d6d', a: 0.14, w: 2 }, 'crisis:4': { c: '#ff4d6d', a: 0.2, w: 2.6, halo: 3, ha: 0.06 },
           'quiebre': { c: '#ff4d6d', a: 0.95 }, 'empalme': { c: '#7ddcff', a: 0.5, w: 0.6, dash: [5, 4] },
@@ -277,12 +285,15 @@
       estilo: function (id) {
         var p = id.split(':');
         if (p[0] === 'ar') { var d = +p[1], w = +p[2] / 2, t = Math.min(1, d / 8); return { c: t < 0.6 ? '#182235' : '#3b3f7a', a: 0.62 - t * 0.38, w: w * 0.85 }; }
+        if (p[0] === 'aw') { d = +p[1]; w = +p[2] / 2; return { c: '#1d6d78', a: 0.6 - Math.min(1, d / 5) * 0.3, w: w * 0.85 }; }
+        if (p[0] === 'af') { w = +p[2] / 2; return { c: '#5d6878', a: 0.5, w: w * 0.85 }; }
         return ({
           'sis:traza': { c: '#5d6878', a: 0.22, w: 0.5 }, 'sis:banda90': { c: '#6a4c9c', a: 0.08 }, 'sis:banda50': { c: '#6a4c9c', a: 0.12 },
           'sis:p50': { c: '#182235', a: 0.7, w: 0.9 }, 'sis:pico': { c: '#b8203a', a: 0.75, w: 1 }, 'sis:regla': { c: '#5d6878', a: 0.6, w: 0.6 },
           'sis:txt': { c: '#5d6878', a: 1 }, 'sis:pico:txt': { c: '#b8203a', a: 1 },
           'eje:halo': { c: '#6a4c9c', a: 0.06, w: 14 }, 'eje:medio': { c: '#6a4c9c', a: 0.15, w: 5 }, 'eje:luz': { c: '#182235', a: 0.55, w: 2.2 }, 'eje:nucleo': { c: '#182235', a: 0.9, w: 0.9 },
           'hoja': { c: '#182235', a: 0.7 }, 'serie': { c: '#182235', a: 0.75 }, 'pelo': { c: '#182235', a: 0.08, w: 0.45 }, 'pais': { c: '#1d6d78', a: 0.12, w: 0.4 },
+          'guia': { c: '#5d6878', a: 0.3, w: 0.45, dash: [1, 4] }, 'grilla': { c: '#5d6878', a: 0.18 }, 'est:num': { c: '#6a4c9c', a: 1 }, 'region': { c: '#5d6878', a: 1 },
           'anillo': { c: '#5d6878', a: 0.35, w: 0.45, dash: [1.5, 3.5] }, 'anillo:txt': { c: '#5d6878', a: 1 },
           'crisis:1': { c: '#b8203a', a: 0.05, w: 1.2 }, 'crisis:2': { c: '#b8203a', a: 0.08, w: 1.6 }, 'crisis:3': { c: '#b8203a', a: 0.12, w: 2 }, 'crisis:4': { c: '#b8203a', a: 0.17, w: 2.6 },
           'quiebre': { c: '#b8203a', a: 0.9 }, 'empalme': { c: '#1d6d78', a: 0.55, w: 0.6, dash: [5, 4] },
@@ -368,25 +379,62 @@
     x.putImageData(im, 0, 0); return (_grano = c);
   }
   function cajaEtiqueta(e, ctx, v) {
-    var n = e.n, lx = n.x + e.dx, ly = n.y + e.dy, fs = 14 * v.ft, fs2 = 10.5 * v.ft;
+    var n = e.n, lx = n.x + e.dx, ly = n.y + e.dy, fs = 14 * v.ft, fs2 = 9.5 * v.ft;
     ctx.font = '600 ' + fs + 'px ' + SANS; var w1 = ctx.measureText(n.clave).width;
-    ctx.font = fs2 + 'px ' + MONO; var w2 = ctx.measureText(n.cod + ' · ' + (e.sub || '')).width;
-    var w = Math.max(w1, w2) + 16 * v.ft, h = 34 * v.ft, x0 = e.al === 'right' ? lx - w : lx, y0 = ly - h / 2;
+    ctx.font = fs2 + 'px ' + MONO; var w2 = ctx.measureText((n.cod + ' · ' + (e.sub || '')).toUpperCase()).width;
+    var w = Math.max(w1, w2) + 20 * v.ft, h = 37 * v.ft, x0 = e.al === 'right' ? lx - w : lx, y0 = ly - h / 2;
     return { lx: lx, ly: ly, x0: x0, y0: y0, w: w, h: h, fs: fs, fs2: fs2 };
   }
+  function acentoDe(n, T) {
+    if (!T.luz) return n.arbol === 'mundo' ? '#1d6d78' : '#6a4c9c';
+    return n.tipo === 'estacion' ? '#f3f0ff' : n.arbol === 'mundo' ? '#3fc8e0' : n.tipo === 'empalme' ? '#7ddcff' : '#9d86ff';
+  }
+  function rrect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
   function pintarEtiquetas(ctx, E, T, v, op) {
     var f = v.fw;
+    /* rótulos de las secciones del sitio (familias) y, al acercarse, el nombre y la expresión de cada serie */
+    if (v.rotulos) {
+      ctx.textBaseline = 'middle';
+      var cerca = (v.zoom || 1) >= 2.2;
+      E.familias.forEach(function (F) {
+        var c = Math.cos(F.a), sn = Math.sin(F.a), x = F.x + c * 9 * f, y = F.y + sn * 9 * f;
+        ctx.font = '600 ' + (12 * v.ft) + 'px ' + SANS; ctx.textAlign = c >= 0 ? 'left' : 'right';
+        ctx.globalAlpha = 0.9; ctx.fillStyle = T.etqFondo; var tw = ctx.measureText(F.nombre).width;
+        ctx.fillRect(c >= 0 ? x - 3 : x - tw - 3, y - 8 * v.ft, tw + 6, 16 * v.ft);
+        ctx.fillStyle = T.luz ? '#dfe2f7' : T.texto; ctx.fillText(F.nombre, x, y);
+        if (!cerca) return;
+        ctx.font = (8.6 * v.ft) + 'px ' + MONO;
+        /* sin selección: sólo las expresiones con operadores (K / V, e = pv / v…); con la sección elegida, nombre completo */
+        var plena = v.famSel === F;
+        F.hijos.forEach(function (S) {
+          var g = S.glosa || [S.nombre, '', ''], op = g[1] && /[\/=·−+Σ×]/.test(g[1]);
+          if (!plena && !op) return;
+          var txt = plena ? (op ? g[1] + '  ' : '') + g[0] : g[1].replace(/ · 1982 = 100$/, '');
+          if (txt.length > 46) txt = txt.slice(0, 45) + '…';
+          var a = S.a, izq = Math.cos(a) < 0;
+          ctx.save(); ctx.translate(S.x, S.y); ctx.rotate(izq ? a + Math.PI : a);
+          ctx.textAlign = izq ? 'right' : 'left'; ctx.globalAlpha = 0.95;
+          ctx.fillStyle = T.luz ? '#b9bfe0' : T.tenue; ctx.fillText(txt, izq ? -5 * f : 5 * f, 0);
+          ctx.restore();
+        });
+      });
+      ctx.globalAlpha = 1;
+    }
     E.etiquetas.forEach(function (e) {
-      var n = e.n, b = cajaEtiqueta(e, ctx, v), ex = e.al === 'right' ? b.x0 + b.w : b.x0, ey = b.ly;
+      var n = e.n, b = cajaEtiqueta(e, ctx, v), ex = e.al === 'right' ? b.x0 + b.w : b.x0, ey = b.ly, ac = acentoDe(n, T);
       ctx.globalAlpha = op.alfaEtiquetas || 1;
-      ctx.strokeStyle = T.luz ? '#9c8fe6' : T.tenue; ctx.lineWidth = Math.max(0.4 / v.z, 0.6 * f);
+      /* conector en codo, con remate cuadrado */
+      ctx.strokeStyle = T.luz ? 'rgba(200,190,255,.55)' : T.tenue; ctx.lineWidth = Math.max(0.4 / v.z, 0.6 * f);
       ctx.beginPath(); ctx.moveTo(n.x, n.y); var mx = n.x + (ex - n.x) * 0.55; ctx.lineTo(mx, ey); ctx.lineTo(ex, ey); ctx.stroke();
-      ctx.fillStyle = T.luz ? '#cbbcff' : T.texto; ctx.fillRect(ex - 1.6 * f, ey - 1.6 * f, 3.2 * f, 3.2 * f);
-      ctx.fillStyle = T.etqFondo; ctx.fillRect(b.x0, b.y0, b.w, b.h);
-      ctx.strokeStyle = T.luz ? 'rgba(160,140,255,.35)' : 'rgba(24,34,53,.25)'; ctx.lineWidth = Math.max(0.4 / v.z, 0.5 * f); ctx.strokeRect(b.x0, b.y0, b.w, b.h);
+      /* tarjeta de vidrio con barra de acento */
+      rrect(ctx, b.x0, b.y0, b.w, b.h, 4 * v.ft); ctx.fillStyle = T.luz ? 'rgba(14,16,28,.78)' : T.etqFondo; ctx.fill();
+      ctx.strokeStyle = T.luz ? 'rgba(255,255,255,.10)' : 'rgba(24,34,53,.18)'; ctx.lineWidth = Math.max(0.4 / v.z, 0.6 * f); ctx.stroke();
+      ctx.fillStyle = ac; ctx.fillRect(b.x0, b.y0 + 5 * v.ft, 2.2 * v.ft, b.h - 10 * v.ft);
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-      ctx.font = b.fs2 + 'px ' + MONO; ctx.fillStyle = T.tenue; ctx.fillText(n.cod + ' · ' + (e.sub || ''), b.x0 + 8 * v.ft, b.y0 + 12.5 * v.ft);
-      ctx.font = '600 ' + b.fs + 'px ' + SANS; ctx.fillStyle = T.texto; ctx.fillText(n.clave, b.x0 + 8 * v.ft, b.y0 + 27.5 * v.ft);
+      ctx.font = b.fs2 + 'px ' + MONO; ctx.fillStyle = T.luz ? ac : T.tenue; ctx.globalAlpha = (op.alfaEtiquetas || 1) * 0.85;
+      ctx.fillText((n.cod + ' · ' + (e.sub || '')).toUpperCase(), b.x0 + 10 * v.ft, b.y0 + 13 * v.ft);
+      ctx.globalAlpha = op.alfaEtiquetas || 1;
+      ctx.font = '600 ' + b.fs + 'px ' + SANS; ctx.fillStyle = T.texto; ctx.fillText(n.clave, b.x0 + 10 * v.ft, b.y0 + 29 * v.ft);
       ctx.globalAlpha = 1;
     });
   }
@@ -411,9 +459,9 @@
         d.decision = dm[0]; d.posicion = dm[1];
         d.opciones = n.hijos.map(function (h) { return [dm[2][h.opt], hojasDe(h).length]; });
         if (esEEUU) d.grupos = n.hijos.map(function (h) { return [dm[2][h.opt], hojasDe(h).map(function (x) { return x.spec; })]; });
-        if (n.cod === 'K.06') d.texto = L('Raíz del multiverso efectivo de EE.UU.: cada hoja es una especificación publicada y cada bifurcación, una decisión teórica explícita. Se informa la distribución completa, no una estimación elegida a posteriori.',
+        if (n.cod === '#06') d.texto = L('Raíz del multiverso efectivo de EE.UU.: cada hoja es una especificación publicada y cada bifurcación, una decisión teórica explícita. Se informa la distribución completa, no una estimación elegida a posteriori.',
           'Root of the effective US multiverse: each leaf is a published specification and each fork an explicit theoretical decision. The full distribution is reported, not an estimate chosen after the fact.');
-        if (n.cod === 'K.07') { d.texto = L('Qué trabajo es productivo decide qué parte del excedente cuenta como plusvalor. Aquí el plusvalor ampliado se separa en dos criterios: por ramas o con la corrección intra-rama. La variante «todo productivo» cuelga del numerador «excedente amplio».',
+        if (n.cod === '#07') { d.texto = L('Qué trabajo es productivo decide qué parte del excedente cuenta como plusvalor. Aquí el plusvalor ampliado se separa en dos criterios: por ramas o con la corrección intra-rama. La variante «todo productivo» cuelga del numerador «excedente amplio».',
           'Which labour is productive decides which part of the surplus counts as surplus value. Here extended surplus value splits into two criteria: by industry or with the within-industry correction. The \u2018all labour productive\u2019 variant hangs from the \u2018broad surplus\u2019 numerator.'); d.enlaces.push(['index.html#supuestos', L('qué cuenta como plusvalor', 'what counts as surplus value')]); }
       } else {
         var s = n.datos; d.spec = n.spec; d.titulo = s[0]; d.sub = esEEUU ? L('especificación · ', 'specification · ') + (EN && def.fam_en && def.fam_en[s[1]] || s[1]) : L('especificación mundial · ', 'world specification · ') + s[1] + L(' países', ' countries');
@@ -421,8 +469,12 @@
         d.anios = s[2] || [];
       }
     }
-    if (n.tipo === 'familia') { d.titulo = n.nombre; d.sub = n.series.length + L(' series publicadas', ' published series'); d.series = n.series; d.enlaces = [[n.ancla, L('ver la sección', 'see the section')]]; }
-    if (n.tipo === 'serie') { d.titulo = n.nombre; d.sub = L('serie · ', 'series · ') + n.familia.nombre; d.enlaces = [[n.familia.ancla, L('ver la sección', 'see the section')]]; }
+    if (n.tipo === 'familia') { d.titulo = n.nombre; d.sub = n.series.length + L(' series publicadas', ' published series'); d.series = n.series; d.glosas = n.glosa; d.enlaces = [[n.ancla, L('ver la sección', 'see the section')]]; }
+    if (n.tipo === 'serie') {
+      var g = n.glosa || [n.nombre, '', ''];
+      d.titulo = g[0]; d.sub = L('serie · ', 'series · ') + n.familia.nombre; d.columna = n.nombre; d.expresion = g[1]; d.texto = g[2];
+      d.enlaces = [[n.familia.ancla, L('ver la sección', 'see the section')]];
+    }
     if (n.tipo === 'empalme') {
       d.titulo = n.clave; d.sub = L('cambios de clasificación industrial en las series de EE.UU.', 'changes of industrial classification in the US series');
       d.texto = L('Las series del BEA cambian de clasificación (SIC → NAICS). Cada empalme se hace con un factor de nivel explícito; los arcos punteados del anillo marcan esos años.', 'The BEA series change classification (SIC → NAICS). Each splice uses an explicit level factor; the dotted arcs of the ring mark those years.');
@@ -445,7 +497,7 @@
     var E = null, tema = op.tema || 'fosforo', sucio = true, sel = null, fijo = null, cam = { x: W / 2, y: H / 2, zoom: 1 };
     var quieto = op.quieto || (global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches);
     var v = { cw: 1, ch: 1, dpr: 1, z: 1, cx: W / 2, cy: H / 2, fw: 1, ft: 1 };
-    var pulsos = [], pings = [], ultimo = 0, vivo = true;
+    var pulsos = [], pings = [], ultimo = 0, vivo = true, vuelo = null;
 
     function medir() {
       var r = cont.getBoundingClientRect();
@@ -457,7 +509,7 @@
     function vista() {
       var base = modo === 'fondo' ? Math.max(v.cw / W, v.ch / H) * (op.escala || 1) : Math.min(v.cw / (W * 1.0), v.ch / (H * 1.0));
       v.z = base * cam.zoom; v.cx = cam.x; v.cy = cam.y;
-      v.fw = Math.pow(cam.zoom, -0.62); v.ft = Math.pow(cam.zoom, -0.72); v.etq = v.z >= 0.42;
+      v.fw = Math.pow(cam.zoom, -0.62); v.ft = Math.pow(cam.zoom, -0.72); v.etq = v.z >= 0.42; v.zoom = cam.zoom; v.rotulos = modo === 'mapa';
     }
     function aMundo(px, py) { return [(px - v.cw / 2) / v.z + v.cx, (py - v.ch / 2) / v.z + v.cy]; }
     function limitar() {
@@ -480,6 +532,14 @@
     function cuadro(ts) {
       if (!vivo) return;
       var dt = Math.min(0.05, (ts - (ultimo || ts)) / 1000); ultimo = ts;
+      if (vuelo) {
+        var u = Math.min(1, (ts - (vuelo.t0 || (vuelo.t0 = ts))) / vuelo.ms), k = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+        /* interpolación en escala logarítmica del zoom: el acercamiento se percibe uniforme */
+        cam.x = vuelo.a.x + (vuelo.b.x - vuelo.a.x) * k; cam.y = vuelo.a.y + (vuelo.b.y - vuelo.a.y) * k;
+        cam.zoom = Math.exp(Math.log(vuelo.a.zoom) + (Math.log(vuelo.b.zoom) - Math.log(vuelo.a.zoom)) * k);
+        vista(); limitar(); vista(); sucio = true;
+        if (u >= 1) { var fin = vuelo.fin; vuelo = null; if (fin) fin(); }
+      }
       if (sucio) { pintarEstatico(sctx, E, tema, v, op); sucio = false; }
       ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); ctx.drawImage(est, 0, 0);
       ctx.setTransform(v.dpr * v.z, 0, 0, v.dpr * v.z, v.dpr * (v.cw / 2 - v.cx * v.z), v.dpr * (v.ch / 2 - v.cy * v.z));
@@ -510,7 +570,7 @@
         });
         ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
       }
-      if (!quieto || sucio) global.requestAnimationFrame(cuadro); else pendiente = false;
+      if (!quieto || sucio || vuelo) global.requestAnimationFrame(cuadro); else pendiente = false;
     }
     var pendiente = false;
     function pedir() { sucio = true; if (quieto && !pendiente) { pendiente = true; global.requestAnimationFrame(cuadro); } }
@@ -543,6 +603,8 @@
     }
     function elegir(n, fijar) {
       if (fijar !== undefined) fijo = fijar ? n : null;
+      var fam = n ? (n.tipo === 'familia' ? n : n.tipo === 'serie' ? n.familia : null) : null;
+      if (fam !== v.famSel) { v.famSel = fam; sucio = true; }
       sel = n; if (op.alSeleccionar) op.alSeleccionar(n ? describir(E, n) : null, !!fijo);
       if (quieto) pedir();
     }
@@ -591,6 +653,14 @@
       tema: function (t) { tema = t; sucio = true; pedir(); },
       acercar: function (k) { zoomEn(v.cw / 2, v.ch / 2, k); },
       encuadre: function () { encuadreInicial(); pedir(); },
+      /* vuelo suave de la cámara hacia un punto de la lámina (recorrido guiado); con movimiento reducido, salto */
+      volar: function (x, y, zoom, ms, fin) {
+        var b = { x: x, y: y, zoom: Math.max(1, Math.min(9, zoom || 1)) };
+        if (quieto || !ms) { cam = b; vista(); limitar(); vista(); pedir(); if (fin) fin(); return; }
+        vuelo = { a: { x: cam.x, y: cam.y, zoom: cam.zoom }, b: b, ms: ms, fin: fin, t0: 0 }; global.requestAnimationFrame(cuadro);
+      },
+      fijar: function (n) { elegir(n, !!n); },
+      camara: function () { return { x: cam.x, y: cam.y, zoom: cam.zoom }; },
       enfocar: function (n, zoom) { cam.x = n.x; cam.y = n.y; cam.zoom = zoom || 2.4; vista(); limitar(); vista(); elegir(n, true); pedir(); },
       soltar: function () { fijo = null; elegir(null); },
       describir: function (n) { return describir(E, n); },

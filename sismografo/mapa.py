@@ -21,6 +21,8 @@ import csv
 import json
 import os
 
+from sismografo import glosario
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Nombre de cada decisión y etiqueta de cada opción, tal como las expone metodología §5.
@@ -177,12 +179,34 @@ def construir(destino=None):
         'bandas': [[b['anio'], b['p10'], b['p25'], b['p50'], b['p75'], b['p90']] for b in _json('eeuu_bandas.json')],
         # quiebres por año contados sobre las mismas 288 + 64 especificaciones del árbol (no sólo las 288 principales)
         'quiebres': _conteo_quiebres(eeuu, [b['anio'] for b in _json('eeuu_bandas.json')]),
-        'familias': [{'e': e, 'a': a, 'n': n, 'n_en': FAM_EN.get(n, n), 's': s} for e, a, n, s in familias if s],
+        'familias': [{'e': e, 'a': a, 'n': n, 'n_en': FAM_EN.get(n, n), 's': s,
+                      # glosario de cada serie: [nombre, expresión, qué mide] (ES) y lo mismo en inglés
+                      'g': [_glosa(c, False) for c in s], 'g_en': [_glosa(c, True) for c in s]} for e, a, n, s in familias if s],
+        'simbolos': [[x[0], x[1], x[2], glosario.expresion_en(x[0])] for x in glosario.SIMBOLOS],
     }
     with open(destino, 'w', encoding='utf-8') as f:
         json.dump(salida, f, ensure_ascii=False, separators=(',', ':'))
     _series_y_tabla(eeuu, os.path.dirname(destino))
+    _tabla_glosario(salida['familias'])
     return salida
+
+
+def _glosa(codigo, en):
+    g = glosario.entrada(codigo)
+    if not g:
+        return [codigo, '', '']
+    return [g[1], glosario.expresion_en(g[2]), g[4]] if en else [g[0], g[2], g[3]]
+
+
+def _tabla_glosario(familias):
+    """resultados/glosario_series.csv: una fila por serie del mapa, con su nombre, expresión y significado."""
+    with open(os.path.join(RAIZ, 'resultados', 'glosario_series.csv'), 'w', encoding='utf-8', newline='') as f:
+        w = csv.writer(f)
+        w.writerow(['seccion', 'serie', 'nombre', 'expresion', 'que_mide', 'name', 'expression', 'meaning'])
+        for fam in familias:
+            for c in fam['s']:
+                g = glosario.entrada(c) or (c, c, '', '', '')
+                w.writerow([fam['n'], c, g[0], g[2], g[3], g[1], glosario.expresion_en(g[2]), g[4]])
 
 
 def _series_y_tabla(eeuu, dir_data):
