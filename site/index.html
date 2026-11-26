@@ -6,7 +6,7 @@
 <title>Mapa cognitivo del capital — tasa y masa de ganancia y de plusvalor</title>
 <meta name="description" content="Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, en dinero y en tiempo de trabajo: EE.UU. y mundo, como multiverso de especificaciones teóricamente explícitas.">
 <link rel="alternate" hreflang="en" href="en/">
-<link rel="stylesheet" href="style.css?v=e1ec1be2611260256">
+<link rel="stylesheet" href="style.css?v=05165b22611260336">
 <script src="vendor/d3.min.js"></script>
 </head>
 <body>
@@ -34,6 +34,7 @@
 <div class="cuerpo">
   <nav class="indice" aria-label="Secciones"><p>En esta página</p><ul>
 <li><a href="#multiverso">El multiverso de EE.UU.</a></li>
+<li><a href="#explorador">Explorador de especificaciones</a></li>
 <li><a href="#referencias">Seis lecturas del debate</a></li>
 <li><a href="#replicacion">Las series de los autores, rehechas</a></li>
 <li><a href="#trimestral">Estimación trimestral</a></li>
@@ -77,6 +78,19 @@
 <summary>¿Cómo se calcula este gráfico?</summary>
 <p>Cada especificación es una tasa anual r = numerador / denominador. El numerador cambia según la bifurcación: excedente neto, ganancia antes o después de impuestos, o plusvalor ampliado por ramas. El denominador es el stock neto de activos fijos del BEA a fin de año (K), a costo corriente o histórico, con o sin propiedad intelectual y existencias, y todo el capital o sólo el de las ramas productivas (en ese caso, la depreciación de las ramas improductivas no se resta del numerador). En el sector empresarial hay además una bifurcación con el capital variable en el denominador: pv/(K + V). La lista completa está en la <a href="metodologia.html#multiverso">metodología, §5</a>.</p>
 <p>Para comparar especificaciones de niveles distintos, cada serie se divide por su promedio del periodo y se multiplica por 100. Luego, para cada año, se calculan los percentiles 10, 25, 50, 75 y 90 de todas las series. El abanico no es un intervalo de confianza: muestra cuánto depende el nivel de la tasa de las decisiones teóricas.</p>
+</details>
+</section>
+<section id="explorador" class="seccion">
+<h2 id="explorador-una-especificacion-a-la-vez">Explorador: una especificación a la vez</h2>
+<p>Elija una opción en cada bifurcación y el gráfico dibuja la tasa de ganancia que resulta de esa combinación de decisiones, sobre el abanico de todo el multiverso.</p>
+<p class="llano">El abanico de arriba resume cientos de mediciones; aquí se puede mirar cada una por separado. Cada menú es una decisión teórica: qué sector se mide, qué se cuenta como ganancia o como plusvalor, cómo se valora el capital, si se incluye la propiedad intelectual, etc. Al cambiar una opción, el explorador busca la especificación publicada que la usa y que conserva el mayor número posible de las demás decisiones; si una decisión no tiene sentido para esa familia de especificaciones (por ejemplo, el criterio de trabajo productivo en las series corporativas), su menú queda en «no aplica». La línea de color es la especificación elegida; las líneas punteadas, los años en que esa especificación muestra un quiebre de tendencia. Debajo se informan su nivel en tres años y su identificador. Lo que interesa comparar es la forma de la curva con la del abanico: dónde la decisión teórica cambia el movimiento y dónde sólo cambia el nivel. La misma información está en el <a href="mapa.html">mapa</a> (al pinchar una hoja o una bifurcación) y, completa, en la <a href="descargas/eeuu_multiverso_tabla.csv">tabla de las especificaciones</a>.</p>
+<figure class="placa"><div class="explorador" id="explorador-especificaciones"></div></figure>
+
+<p class="fuente">Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED); Reserva Federal: utilización de capacidad (G.17) y existencias (Z.1, vía FRED). Cálculo propio de 288 especificaciones principales (1948–) y 64 de la familia intra-rama (1972–).</p>
+<details class="como">
+<summary>¿Cómo se calcula este gráfico?</summary>
+<p>Cada especificación es la tasa anual r = numerador / denominador definida por sus decisiones (véase la <a href="metodologia.html#multiverso">metodología, §5</a>). La serie elegida se divide por su propio promedio del periodo y se multiplica por 100, igual que en el abanico; las especificaciones intra-rama comienzan en 1972 y su promedio se toma desde ese año. El abanico de fondo (percentiles 10–90 y 25–75 y mediana) es el de las 288 especificaciones principales. Los quiebres son los que el procedimiento de Bai y Perron detecta en esa especificación (metodología, §7). Los niveles se dan en porcentaje, sin normalizar.</p>
+<p>La tabla descargable tiene una fila por especificación, con sus decisiones en palabras, la tasa (%) en 1948, 1982 y el último año, y los años de quiebre. Este modo de exponer todas las combinaciones razonables de decisiones, en lugar de una sola estimación, es lo que Steegen, Tuerlinckx, Gelman y Vanpaemel (2016) llaman análisis de multiverso.</p>
 </details>
 </section>
 <section id="referencias" class="seccion">
@@ -793,8 +807,9 @@
 <p>Investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología (ICSyH-BUAP), que concluirá en agosto de 2029, realizada con una beca de la SECIHTI (número 4052073). Gracias a la clase trabajadora mexicana, que hace posible esta beca. Marco teórico: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
 <p>Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">GitHub</a>. <a href="descargas/">Descargas</a>. <a href="metodologia.html">Metodología</a>. <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital/tree/main/contenido">Editar los textos</a>.</p>
 </footer>
-<script src="app.js?v=e1ec1be2611260256"></script>
+<script src="app.js?v=05165b22611260336"></script>
+<script src="explorador.js?v=05165b22611260336" defer></script>
 <script>/* el botón ES | EN conserva la sección (las anclas son iguales en las dos versiones) */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.cambiar-idioma");if(a&&location.hash)a.href=a.getAttribute("href").split("#")[0]+location.hash;});</script>
-<script src="mapa-cognitivo.js?v=e1ec1be2611260256" data-modo="fondo" defer></script>
+<script src="mapa-cognitivo.js?v=05165b22611260336" data-modo="fondo" defer></script>
 </body>
 </html>
