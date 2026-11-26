@@ -1,7 +1,8 @@
 ---
-seccion: "04 Qué sostiene la masa"
+seccion: 04 Qué sostiene la masa
+menu: Qué sostiene la masa del plusvalor
 id: masa
-menu: Qué sostiene la masa
+oculta: false
 ---
 ## Qué sostiene la masa: días de trabajo simultáneos
 
