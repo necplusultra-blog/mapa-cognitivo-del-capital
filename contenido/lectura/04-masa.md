@@ -4,7 +4,7 @@ menu: Qué sostiene la masa del plusvalor
 id: masa
 oculta: false
 ---
-## Qué sostiene la masa: días de trabajo simultáneos
+## Qué sostiene la masa del plusvalor: días de trabajo simultáneos
 
 Si el plustrabajo por obrero casi no crece, ¿de dónde viene la multiplicación de la masa? La descomposición de la masa anual de plustrabajo de EE.UU. entre 1972 y 2025 es contundente: se multiplica por 2,21, y el 94 % de ese crecimiento (en logaritmos) se explica por el aumento del número de obreros productivos, que pasa de 33,5 a 70,5 millones. La proporción de plustrabajo en la jornada aporta un 19 % y la reducción de las horas medias pagadas resta un 12 %.
 
