@@ -42,6 +42,10 @@ body.pagina-mapa { --papel: #06070a; --hoja: #0d0f16; --reticula: #1f2130; --tin
 .dec dt { color: #7d77aa; } .dec dd { margin: 0; color: #e6e2f7; }
 .chip { display: inline-block; font: .74rem 'IBM Plex Mono', ui-monospace, monospace; color: #ff8a9c; border: 1px solid #4a2030; padding: 1px 6px; margin: 2px 4px 2px 0; }
 .enl a { display: inline-block; margin: 4px 14px 0 0; font-size: .84rem; color: #d9d4f2; }
+.ex-curva { margin: 2px -4px 4px; } .ex-curva .ex-eje { fill: #6b65a0; font: 9.5px var(--sans); }
+.ex-curva .ex-ley { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: .74rem; color: #a8a3cc; margin-top: 4px; }
+.ex-curva .ex-ley i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 5px; }
+#ex-niveles b { color: #f3f0ff; font-weight: 500; } #ex-niveles a { color: #d9d4f2; }
 .sparq { width: 100%; height: 56px; display: block; }
 .ley { display: grid; grid-template-columns: 30px minmax(0,1fr); gap: 7px 10px; align-items: center; font-size: .82rem; color: #b5b1d3; }
 .lista-clave { display: grid; gap: 4px; }
@@ -79,6 +83,7 @@ body.pagina-mapa { --papel: #06070a; --hoja: #0d0f16; --reticula: #1f2130; --tin
   <aside class="panel" id="panel" aria-live="polite"></aside>
 </div>
 <script src="mapa-cognitivo.js"></script>
+<script src="explorador.js"></script>
 <script>
 {
   const panel = document.getElementById('panel'), estado = document.getElementById('estado');
@@ -114,13 +119,14 @@ body.pagina-mapa { --papel: #06070a; --hoja: #0d0f16; --reticula: #1f2130; --tin
   function mostrar(d, fijado) {
     if (!d) return inicio();
     let h = fijado ? `<div class="fijado"><span>Fijado</span><button class="soltar" data-soltar>Soltar · Esc</button></div>` : '';
-    h += `<div class="cod">${esc(d.cod || d.tipo)}${d.arbol ? ' · ' + esc(d.arbol) : ''}</div><h2>${esc(d.titulo)}</h2><div class="sub">${esc(d.sub || '')}</div>`;
+    h += `<div class="cod">${esc(d.cod || ({decision:'decisión',estacion:'estación'}[d.tipo] || d.tipo))}${d.arbol ? ' · ' + esc(d.arbol) : ''}</div><h2>${esc(d.titulo)}</h2><div class="sub">${esc(d.sub || '')}</div>`;
     if (d.texto) h += `<div class="sec"><p>${esc(d.texto)}</p></div>`;
     if (d.opciones) {
       const tot = d.opciones.reduce((s, o) => s + o[1], 0);
       h += `<div class="sec"><div class="lab">decisión teórica explícita · ${esc(d.decision)}${d.posicion ? ' · ' + esc(d.posicion) : ''}</div><ul>${d.opciones.map(o => `<li class="op"><span>${esc(o[0])}</span><span>${o[1]} esp.</span><span class="barra-op"><i style="width:${(o[1] / tot * 100).toFixed(1)}%"></i></span></li>`).join('')}</ul></div>`;
     }
     if (d.decisiones) h += `<div class="sec"><div class="lab">decisiones de esta especificación</div><dl class="dec">${d.decisiones.map(x => `<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join('')}</dl></div>`;
+    if (d.spec != null || d.grupos || (d.idx && d.idx.length > 1)) h += `<div class="sec"><div class="lab">${d.spec != null ? 'tasa de esta especificación frente al multiverso (índice: promedio del periodo = 100)' : d.grupos ? 'mediana de cada opción frente al multiverso (índice: promedio del periodo = 100)' : 'mediana de esta rama frente al multiverso (índice: promedio del periodo = 100)'}</div><div class="ex-curva" id="ex-curva"></div><div class="sub" id="ex-niveles"></div></div>`;
     if (d.anios) h += `<div class="sec"><div class="lab">quiebres endógenos detectados</div>${d.anios.length ? d.anios.map(a => `<span class="chip">${a}</span>`).join('') : '<span class="sub">ninguno</span>'}</div>`;
     if (d.quiebres && d.n > 1) h += `<div class="sec"><div class="lab">quiebres por año en las ${d.n} especificaciones de esta rama</div>${sparq(d.quiebres)}</div>`;
     if (d.ruta && d.ruta.length && !d.decisiones) h += `<div class="sec"><div class="lab">decisiones tomadas hasta aquí</div><dl class="dec">${d.ruta.map(x => `<dt>${esc(x[0])}</dt><dd>${esc(x[1])}</dd>`).join('')}</dl></div>`;
@@ -128,6 +134,25 @@ body.pagina-mapa { --papel: #06070a; --hoja: #0d0f16; --reticula: #1f2130; --tin
     if (d.empalmes) h += `<div class="sec"><div class="lab">factores de empalme (meta.json)</div><dl class="dec">${d.empalmes.map(e => `<dt>${esc(e[0])}</dt><dd>× ${esc(e[1])}</dd>`).join('')}</dl></div>`;
     if (d.enlaces) h += `<div class="sec enl">${d.enlaces.map(e => `<a href="${esc(e[0])}">${esc(e[1])} →</a>`).join('')}</div>`;
     panel.innerHTML = h;
+    curvaPanel(d);
+  }
+  /* curva del explorador (explorador.js): hoja → su tasa; bifurcación → mediana de cada opción; rama → su mediana */
+  const COLORES = ['#b9a5ff', '#7ddcff', '#ffcf6b', '#ff8a9c', '#8fe3a1'];
+  let turno = 0;
+  function curvaPanel(d) {
+    const caja = document.getElementById('ex-curva'); if (!caja || !window.Explorador) return;
+    const t = ++turno;
+    Explorador.datos().then(D => {
+      if (t !== turno) return;
+      let lineas, q = null;
+      if (d.spec != null) { lineas = [{ v: D.indices[d.spec], n: 'esta especificación', c: COLORES[0] }]; q = d.anios; }
+      else if (d.grupos) lineas = d.grupos.slice(0, 5).map((g, i) => ({ v: Explorador.medianaDe(D, g[1]), n: g[0] + ' (' + g[1].length + ')', c: COLORES[i] }));
+      else lineas = [{ v: Explorador.medianaDe(D, d.idx), n: 'mediana de la rama', c: COLORES[0] }];
+      Explorador.curva(caja, D, lineas, { alto: 190, quiebres: q });
+      const nv = document.getElementById('ex-niveles');
+      if (nv) nv.innerHTML = (d.spec != null ? 'Tasa: ' + Explorador.niveles(D, d.spec).map(x => x[0] + ' <b>' + Explorador.fmt(x[1]) + '</b>').join(' · ') + '. ' : '')
+        + '<a href= + tabla +  download>Tabla de las especificaciones (CSV)</a>';
+    }).catch(() => { caja.textContent = 'No se pudieron cargar las series.'; });
   }
   let guardar = null; if (window.claude && window.claude.use) window.claude.use('downloads').then(d => { guardar = d; }).catch(() => {});
   function bajar(blob, nombre) { if (guardar) { guardar.save({ filename: nombre, data: blob }).catch(() => di(0, 'Descarga cancelada')); return; } const u = URL.createObjectURL(blob), a = document.createElement('a'); a.href = u; a.download = nombre; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 5000); }

@@ -119,6 +119,18 @@ figure.placa { margin: 10px 0 8px; padding: 14px 14px 6px; background-color: var
 .sw { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 7px; }
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
 
+/* explorador de especificaciones (explorador.js) */
+.ex-selectores { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px 14px; margin-bottom: 12px; }
+.ex-selectores label { display: grid; gap: 2px; font: .78rem var(--sans); color: var(--gris); }
+.ex-selectores select { font: .88rem var(--sans); color: var(--tinta); background: var(--papel); border: 1px solid var(--reticula); padding: 5px 6px; min-height: 34px; }
+.ex-selectores label.na { opacity: .5; }
+.ex-grafico .ex-eje { fill: var(--gris); font: 11px var(--sans); }
+.ex-ley { display: flex; flex-wrap: wrap; gap: 2px 18px; font: .82rem var(--sans); color: var(--gris); margin: 4px 0 2px; }
+.ex-ley i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 7px; }
+.ex-info { display: grid; gap: 2px; font: .88rem/1.45 var(--sans); margin: 8px 0 4px; font-variant-numeric: tabular-nums; }
+.ex-info code { font-size: .82rem; overflow-wrap: anywhere; } .ex-lab { color: var(--gris); }
+.ex-cargando { font: .9rem var(--sans); color: var(--gris); }
+
 /* tablas */
 .tablewrap { overflow-x: auto; margin: 10px 0 16px; }
 table { border-collapse: collapse; width: 100%; font: .9rem/1.4 var(--sans); font-variant-numeric: tabular-nums; }

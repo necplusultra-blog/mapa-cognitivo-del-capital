@@ -10,6 +10,7 @@ Atajos disponibles en los textos:
   [[grafico id]]             un gráfico; [[grafico id corto]] para uno más bajo
   [[leyenda id]]             la leyenda de un gráfico
   [[tabla id: Col 1 | Col 2]] una tabla que el sitio llena con los datos
+  [[explorador]]             el explorador de especificaciones del multiverso (explorador.js)
   [[cifra id | etiqueta | nota]] una cifra destacada; varias seguidas forman una fila
   :::como Título             abre un desplegable de explicación (se cierra con una línea ::: )
   :::como+ Título            lo mismo, pero abierto por defecto
@@ -60,6 +61,8 @@ def _bloques(texto):
         m = re.match(r'^\[\[grafico ([\w-]+)( corto)?\]\]$', t)
         if m:
             out.append(f'<figure class="placa"><div class="chart{" short" if m.group(2) else ""}" id="{m.group(1)}"></div></figure>'); continue
+        if t == '[[explorador]]':
+            out.append('<figure class="placa"><div class="explorador" id="explorador-especificaciones"></div></figure>'); continue
         m = re.match(r'^\[\[leyenda ([\w-]+)\]\]$', t)
         if m:
             out.append(f'<div class="legend" id="{m.group(1)}"></div>'); continue

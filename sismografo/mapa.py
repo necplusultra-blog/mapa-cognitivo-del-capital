@@ -10,6 +10,11 @@ el sitio ya publica para que el grafo tenga la topología real del proyecto.
 - Las ramas secundarias son las series que publica cada sección del sitio.
 - El fondo sismográfico usa las bandas del multiverso (p10–p90) y el número de especificaciones con quiebre por año.
 
+También escribe, para el explorador de especificaciones (explorador.js, en la portada y en el mapa):
+- site/data/mapa_series.json: la tasa anual (%) de cada especificación de EE.UU., en el mismo orden que mapa.json;
+- resultados/eeuu_multiverso_tabla.csv (y su versión inglesa): una fila por especificación, con sus decisiones
+  en palabras y la tasa en 1948, 1982 y el último año. run.py la copia a site/descargas.
+
 Uso: python -m sismografo.mapa   (también lo llama run.py después de sitio.escribir)
 """
 import csv
@@ -46,6 +51,9 @@ EN = {
     'Utilización de capacidad': 'Capacity utilisation', 'sin ajuste': 'no adjustment', 'Alcance de K': 'Scope of K', 'todo el capital no residencial': 'all non-residential capital',
     'sólo ramas productivas': 'productive industries only', 'Denominador': 'Denominator', 'definición de Marx de la tasa de ganancia': "Marx's definition of the rate of profit",
     'debate sobre la transferencia de valor de los PPI': 'debate on the transfer of value by IPP', 'Medida': 'Measure', 'neta': 'net',
+    'r × (u medio / u)': 'r × (mean u / u)', 'corporativa': 'corporate',
+    'empresarial: plusvalor ampliado (corrección intra-rama)': 'business: extended surplus value (within-industry correction)',
+    'empresarial: plusvalor ampliado (por ramas)': 'business: extended surplus value (by industry)', 'empresarial: todo productivo': 'business: all labour productive',
     'tasa interna de retorno (PWT)': 'internal rate of return (PWT)', 'Ponderación': 'Weighting', 'por capital': 'by capital', 'por PIB': 'by GDP',
     'China': 'China', 'con China': 'with China', 'sin China': 'without China', 'Panel': 'Panel', 'balanceado desde 1960': 'balanced since 1960', 'no balanceado': 'unbalanced',
 }
@@ -157,6 +165,7 @@ def construir(destino=None):
             'claves': [d[0] for d in DIM_EEUU],
             'specs': [[s['id'], s['familia'], _anios(s['quiebres']), _indices(s, DIM_EEUU)] for s in eeuu],
             'arbol': _arbol(eeuu, DIM_EEUU),
+            'fam_en': {f: EN.get(f, f) for f in sorted({s['familia'] for s in eeuu})},
         },
         'mundo': {
             'dims': [[d[1], d[3], list(d[2].values())] for d in DIM_MUNDO],
@@ -172,8 +181,39 @@ def construir(destino=None):
     }
     with open(destino, 'w', encoding='utf-8') as f:
         json.dump(salida, f, ensure_ascii=False, separators=(',', ':'))
+    _series_y_tabla(eeuu, os.path.dirname(destino))
     return salida
 
+
+def _series_y_tabla(eeuu, dir_data):
+    """Serie anual de cada especificación (para el explorador) y tabla descargable del multiverso."""
+    ruta = os.path.join(RAIZ, 'resultados', 'eeuu_multiverso_tasas.csv')
+    if not os.path.exists(ruta):
+        return
+    with open(ruta, encoding='utf-8') as f:
+        filas = list(csv.reader(f))
+    cab, filas = filas[0], filas[1:]
+    anios = [int(r[0]) for r in filas]
+    col = {c: j for j, c in enumerate(cab)}
+    num = lambda x: round(float(x) * 100, 2) if x not in ('', 'nan', 'NaN') else None
+    series = [[num(r[col[s['id']]]) for r in filas] if s['id'] in col else [None] * len(anios) for s in eeuu]
+    with open(os.path.join(dir_data, 'mapa_series.json'), 'w', encoding='utf-8') as f:
+        json.dump({'anios': anios, 'eeuu': series}, f, ensure_ascii=False, separators=(',', ':'))
+    # tabla: decisiones en palabras y tasa (%) en tres años de referencia
+    fin = anios[-1]
+    cortes = [a for a in (1948, 1982, fin) if a in anios]
+    for nombre, es in (('eeuu_multiverso_tabla.csv', True), ('eeuu_multiverse_table_en.csv', False)):
+        tr = (lambda x: x) if es else (lambda x: EN.get(x, x))
+        cabecera = (['id', 'familia'] if es else ['id', 'family']) + [tr(d[1]) for d in DIM_EEUU] \
+            + [('tasa_%d_pct' if es else 'rate_%d_pct') % a for a in cortes] + (['quiebres'] if es else ['breaks'])
+        with open(os.path.join(RAIZ, 'resultados', nombre), 'w', encoding='utf-8', newline='') as f:
+            w = csv.writer(f)
+            w.writerow(cabecera)
+            for s, serie in zip(eeuu, series):
+                dec = [tr(list(d[2].values())[k]) if k >= 0 else ('no aplica' if es else 'not applicable')
+                       for d, k in zip(DIM_EEUU, _indices(s, DIM_EEUU))]
+                w.writerow([s['id'], tr(s['familia'])] + dec + [serie[anios.index(a)] for a in cortes]
+                           + [' '.join(map(str, _anios(s['quiebres'])))])
 
 if __name__ == '__main__':
     d = construir()

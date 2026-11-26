@@ -403,18 +403,20 @@
       d.ruta = cadena(n).reverse().filter(function (x) { return x.padre && x.padre.dim != null; }).map(function (x) { var dm = def.dims[x.padre.dim]; return [dm[0], dm[2][x.opt]]; });
       d.quiebres = {}; hs.forEach(function (h) { (h.datos[2] || []).forEach(function (y) { d.quiebres[y] = (d.quiebres[y] || 0) + 1; }); });
       d.n = hs.length;
+      if (esEEUU) d.idx = hs.map(function (h) { return h.spec; });   // para la curva del explorador (explorador.js)
       d.enlaces = esEEUU ? [['index.html#multiverso', L('el multiverso en el sitio', 'the multiverse on the site')], [ruta('metodologia.html#multiverso'), L('metodología §5', 'methodology §5')]] : [['index.html#mundo', L('tasa mundial en el sitio', 'world rate on the site')], [ruta('metodologia.html#mundo'), L('metodología', 'methodology')]];
       if (n.tipo === 'decision') {
         var dm = def.dims[n.dim];
         d.titulo = n.clave || dm[0]; d.sub = n.clave ? dm[0] : L('bifurcación teórica', 'theoretical fork');
         d.decision = dm[0]; d.posicion = dm[1];
         d.opciones = n.hijos.map(function (h) { return [dm[2][h.opt], hojasDe(h).length]; });
+        if (esEEUU) d.grupos = n.hijos.map(function (h) { return [dm[2][h.opt], hojasDe(h).map(function (x) { return x.spec; })]; });
         if (n.cod === 'K.06') d.texto = L('Raíz del multiverso efectivo de EE.UU.: cada hoja es una especificación publicada y cada bifurcación, una decisión teórica explícita. Se informa la distribución completa, no una estimación elegida a posteriori.',
           'Root of the effective US multiverse: each leaf is a published specification and each fork an explicit theoretical decision. The full distribution is reported, not an estimate chosen after the fact.');
         if (n.cod === 'K.07') { d.texto = L('Qué trabajo es productivo decide qué parte del excedente cuenta como plusvalor. Aquí el plusvalor ampliado se separa en dos criterios: por ramas o con la corrección intra-rama. La variante «todo productivo» cuelga del numerador «excedente amplio».',
           'Which labour is productive decides which part of the surplus counts as surplus value. Here extended surplus value splits into two criteria: by industry or with the within-industry correction. The \u2018all labour productive\u2019 variant hangs from the \u2018broad surplus\u2019 numerator.'); d.enlaces.push(['index.html#supuestos', L('qué cuenta como plusvalor', 'what counts as surplus value')]); }
       } else {
-        var s = n.datos; d.titulo = s[0]; d.sub = esEEUU ? L('especificación · ', 'specification · ') + s[1] : L('especificación mundial · ', 'world specification · ') + s[1] + L(' países', ' countries');
+        var s = n.datos; d.spec = n.spec; d.titulo = s[0]; d.sub = esEEUU ? L('especificación · ', 'specification · ') + (EN && def.fam_en && def.fam_en[s[1]] || s[1]) : L('especificación mundial · ', 'world specification · ') + s[1] + L(' países', ' countries');
         d.decisiones = def.dims.map(function (dm, i) { return [dm[0], s[3] && s[3][i] >= 0 ? dm[2][s[3][i]] : L('no aplica a esta familia', 'not applicable to this family')]; });
         d.anios = s[2] || [];
       }
