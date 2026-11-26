@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mapa — Mapa cognitivo del capital</title>
 <meta name="description" content="Lámina interactiva del proyecto: el eje categorial del capital, el multiverso efectivo de especificaciones con sus quiebres endógenos y el registro sismográfico de la tasa de ganancia.">
+<link rel="alternate" hreflang="en" href="en/map.html">
 <link rel="stylesheet" href="style.css">
 <style>
 /* Pestaña Mapa: siempre en «fósforo» (fondo negro mate), con la tipografía del sitio. */
@@ -63,7 +64,7 @@ body.pagina-mapa { --papel: #06070a; --hoja: #0d0f16; --reticula: #1f2130; --tin
 <a class="saltar" href="#panel">Ir al panel</a>
 <header class="barra">
   <a class="marca" href="./">Mapa cognitivo del capital</a>
-  <nav aria-label="Páginas"><a href="mapa.html" aria-current="page">Mapa</a><a href="lectura.html">Lectura</a><a href="metodologia.html">Metodología</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">Código</a></nav>
+  <nav aria-label="Páginas"><a href="mapa.html" aria-current="page">Mapa</a><a href="lectura.html">Lectura</a><a href="metodologia.html">Metodología</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">Código</a><span class="idioma" role="group" aria-label="Idioma / Language"><span class="activo" aria-current="true">ES</span><a class="cambiar-idioma" href="en/map.html" hreflang="en" lang="en" title="Read this page in English">EN</a></span></nav>
 </header>
 <div class="escenario">
   <div class="lamina" id="lamina">
@@ -98,7 +99,7 @@ body.pagina-mapa { --papel: #06070a; --hoja: #0d0f16; --reticula: #1f2130; --tin
     const claves = E.nodos.filter(n => n.clave).sort((a, b) => a.cod.localeCompare(b.cod));
     panel.innerHTML = `<div class="cod">índice de la lámina</div><h2>Cómo leer el mapa</h2>
       <div class="sec cifras"><div><b>${E.eeuu.hojas.length}</b><span>especificaciones EE.UU.</span></div><div><b>${E.mundo.hojas.length}</b><span>especificaciones mundiales</span></div><div><b>${E.familias.reduce((s, f) => s + f.series.length, 0)}</b><span>series publicadas</span></div></div>
-      <div class="sec"><p>El eje horizontal expone la lógica categorial del capital. Del eje nacen el multiverso de EE.UU. (arriba) y el mundial (abajo, a la derecha): cada bifurcación es una decisión teórica explícita y cada hoja, una especificación publicada. El anillo exterior es el tiempo, de 1948 a hoy; los puntos rojos son los quiebres que detecta cada especificación.</p></div>
+      <div class="sec"><p>El eje horizontal expone la lógica categorial del capital. Del eje nacen el multiverso de EE.UU. (a la izquierda) y el mundial (a la derecha): cada bifurcación es una decisión teórica explícita y cada hoja, una especificación publicada. El anillo exterior es el tiempo, de 1948 a hoy; los puntos rojos son los quiebres que detecta cada especificación.</p></div>
       <div class="sec"><div class="lab">nodos clave</div><div class="lista-clave">${claves.map(n => `<button data-i="${E.nodos.indexOf(n)}">${esc(n.cod)} · ${esc(n.clave)}</button>`).join('')}</div></div>
       <div class="sec"><div class="lab">leyenda</div><div class="ley">
         <svg width="30" height="10"><path d="M0 5H30" stroke="#f6f4ff" stroke-width="1.6"/></svg><span>eje categorial</span>

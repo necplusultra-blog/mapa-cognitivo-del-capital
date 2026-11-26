@@ -14,7 +14,12 @@
  */
 (function (global) {
   'use strict';
-  var W = 1600, H = 900, SEED = 1867, VERSION = 'lámina 1.0';
+  var W = 1600, H = 900, SEED = 1867, VERSION = 'lámina 1.1';
+  /* Idioma: el de la página (en/map.html y las páginas en inglés usan lang="en-GB"). */
+  var EN = /^en/.test((document.documentElement.lang || '').toLowerCase());
+  function L(es, en) { return EN ? en : es; }
+  /* En la versión inglesa, los enlaces a las páginas del sitio apuntan a sus equivalentes en en/. */
+  function ruta(a) { if (!EN) return a; return a.replace(/^lectura\.html/, 'reading.html').replace(/^metodologia\.html/, 'methodology.html'); }
   var EJE_Y = 470;
 
   function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -25,20 +30,25 @@
   /* Estaciones del eje: orden de exposición de las categorías. Textos breves: lo que muestra el sitio es
      manifestación fenoménica de la determinación categorial, no su demostración. */
   var ESTACIONES = [
-    { k: 'logica_del_capital', x: 120, a: 'lectura.html#estatuto', c: 'K.01',
-      t: 'El valor que se valoriza como sujeto de la mediación social. La categoría se expone primero; las series del sitio son su manifestación fenoménica en precios, no su demostración.' },
-    { k: 'plusvalor_y_ganancia', x: 520, a: 'index.html#masa-tasa', c: 'K.02',
-      t: 'Masa y tasa de plusvalor y de ganancia. Ninguna cuenta nacional las publica: se reconstruyen reclasificando excedente y remuneración según decisiones explícitas, cada una visible como bifurcación del árbol superior.' },
-    { k: 'fuerzas_productivas', x: 900, a: 'index.html#fuerzas', c: 'K.03',
-      t: 'Desarrollo de las fuerzas productivas: valor nuevo por hora, tiempo necesario y plustrabajo, en EE.UU. y en el mundo.' },
-    { k: 'tiempo_disponible', x: 1110, a: 'lectura.html#tiempo-disponible', c: 'K.04',
-      t: 'Tiempo de trabajo y tiempo disponible: la medida del valor frente a la riqueza que ya no cabe en ella. Las horas registran la medida; el tiempo liberado registra su contradicción.' },
-    { k: 'limites_inmanentes', x: 1380, a: 'lectura.html#asintota', c: 'K.05',
-      t: 'Hipótesis del capitalismo limítrofe y sus contratendencias. Lo que el sitio puede mostrar es si una tendencia aparece y bajo qué decisiones, a escala de EE.UU. y del mundo; no mide una distancia a un tope.' }
+    { k: L('Lógica del capital', 'Logic of capital'), x: 120, a: 'lectura.html#estatuto', c: 'K.01',
+      t: L('El valor que se valoriza como sujeto de la mediación social. La categoría se expone primero; las series del sitio son su manifestación fenoménica en precios, no su demostración.',
+           'Self-valorising value as the subject of social mediation. The category is set out first; the series on the site are its phenomenal manifestation in prices, not its demonstration.') },
+    { k: L('Plusvalor y ganancia', 'Surplus value and profit'), x: 520, a: 'index.html#masa-tasa', c: 'K.02',
+      t: L('Masa y tasa de plusvalor y de ganancia. Ninguna cuenta nacional las publica: se reconstruyen reclasificando excedente y remuneración según decisiones explícitas, cada una visible como bifurcación del árbol superior.',
+           'Mass and rate of surplus value and of profit. No national account publishes them: they are reconstructed by reclassifying surplus and compensation according to explicit decisions, each visible as a fork in the upper tree.') },
+    { k: L('Fuerzas productivas', 'Productive forces'), x: 900, a: 'index.html#fuerzas', c: 'K.03',
+      t: L('Desarrollo de las fuerzas productivas: valor nuevo por hora, tiempo necesario y plustrabajo, en EE.UU. y en el mundo.',
+           'Development of the productive forces: new value per hour, necessary time and surplus labour, in the United States and the world.') },
+    { k: L('Tiempo disponible', 'Disposable time'), x: 1110, a: 'lectura.html#tiempo-disponible', c: 'K.04',
+      t: L('Tiempo de trabajo y tiempo disponible: la medida del valor frente a la riqueza que ya no cabe en ella. Las horas registran la medida; el tiempo liberado registra su contradicción.',
+           'Labour time and disposable time: the measure of value against the wealth that no longer fits within it. Hours record the measure; freed time records its contradiction.') },
+    { k: L('Límites inmanentes', 'Immanent limits'), x: 1380, a: 'lectura.html#asintota', c: 'K.05',
+      t: L('Hipótesis del capitalismo limítrofe y sus contratendencias. Lo que el sitio puede mostrar es si una tendencia aparece y bajo qué decisiones, a escala de EE.UU. y del mundo; no mide una distancia a un tope.',
+           'The hypothesis of borderline capitalism and its countertendencies. What the site can show is whether a tendency appears and under which decisions, for the United States and the world; it does not measure a distance to a ceiling.') }
   ];
   /* Abanicos de series de cada sección del sitio: ángulo (grados, positivo hacia abajo) y radio desde su estación. */
   var ABANICOS = {
-    'index.html#masa-tasa': [118, 150], 'index.html#replicacion': [92, 196], 'index.html#trimestral': [64, 128],
+    'index.html#masa-tasa': [118, 150], 'index.html#replicacion': [92, 196], 'index.html#referencias': [140, 120], 'index.html#trimestral': [64, 128],
     'index.html#fuerzas': [96, 176], 'index.html#tiempo': [-74, 196], 'index.html#horas-mundo': [-108, 258],
     'index.html#contratendencias': [-90, 236], 'index.html#transformacion': [-56, 176], 'index.html#ia': [-140, 160],
     'index.html#mundo': [-26, 150]
@@ -82,9 +92,10 @@
     (D.quiebres || []).forEach(function (q) { if (q[1] > 0) { curva('sis:pico', 4, ['l', xa(q[0]), 872, xa(q[0]), 872 - q[1] / qmax * 74]); picos.push(q); } });
     curva('sis:regla', 4, ['l', SX0, 872, SX1, 872]);
     for (var yy = Y0; yy <= Y1; yy++) curva('sis:regla', 4, ['l', xa(yy), 872, xa(yy), 872 + (yy % 10 === 0 ? 6 : 2.5)]);
-    for (yy = 1950; yy <= 2020; yy += 10) capa('sis:txt', 't', 5).g.push(['t', xa(yy), 889, String(yy), 8.5, 'center']);
-    picos.sort(function (a, b) { return b[1] - a[1]; }).slice(0, 5).forEach(function (q) { capa('sis:pico:txt', 't', 5).g.push(['t', xa(q[0]), 872 - q[1] / qmax * 74 - 5, String(q[0]), 8, 'center']); });
-    capa('sis:txt', 't', 5).g.push(['t', SX0, 640, 'registro · multiverso EE.UU., percentiles 10–90 (100 = promedio del periodo) · especificaciones con quiebre por año', 8.5, 'left']);
+    for (yy = 1950; yy <= 2020; yy += 10) capa('sis:txt', 't', 5).g.push(['t', xa(yy), 889, String(yy), 10, 'center']);
+    picos.sort(function (a, b) { return b[1] - a[1]; }).slice(0, 5).forEach(function (q) { capa('sis:pico:txt', 't', 5).g.push(['t', xa(q[0]), 872 - q[1] / qmax * 74 - 6, String(q[0]), 9.5, 'center']); });
+    capa('sis:txt', 't', 5).g.push(['t', SX0, 640, L('registro · multiverso de EE.UU., percentiles 10–90 (100 = promedio del periodo) · barras: especificaciones con quiebre en cada año (de ' + (D.eeuu.specs || []).length + ')',
+      'record · US multiverse, percentiles 10–90 (100 = period average) · bars: specifications with a break in each year (of ' + (D.eeuu.specs || []).length + ')'), 10, 'left']);
 
     /* ---- eje categorial */
     var ejePts = []; for (x = 30; x <= 1570; x += 4) ejePts.push([x, ejeY(x)]);
@@ -97,6 +108,7 @@
 
     /* ---- árbol radial genérico (multiverso EE.UU. y mundial) */
     function arbolRadial(def, cfg) {
+      if (EN && def.dims_en) def.dims = def.dims_en;
       var hojas = [], todos = [];
       function rec(n, prof, padre, camino) {
         var N = { tipo: n.s ? 'hoja' : 'decision', prof: prof, padre: padre, hijos: [], dim: n.d, opt: n.o, camino: camino, arbol: cfg.nombre, peso: n.s ? 1 : 1.4 };
@@ -147,7 +159,7 @@
         capa('anillo', 's', 12).g.push(['a', cfg.cx, cfg.cy, rA(y), a0, a1]);
         if ((y - 1950) % 30) continue;
         var lp = polar(cfg.cx, cfg.cy, rA(y), cfg.etqA);
-        capa('anillo:txt', 't', 17).g.push(['t', lp[0], lp[1], String(y), 7.5, cfg.etqAl]);
+        capa('anillo:txt', 't', 17).g.push(['t', lp[0], lp[1], String(y), 9, cfg.etqAl]);
       }
       var cuenta = {}, cmax = 1;
       hojas.forEach(function (h) { (h.datos[2] || []).forEach(function (y) { cuenta[y] = (cuenta[y] || 0) + 1; if (cuenta[y] > cmax) cmax = cuenta[y]; }); });
@@ -173,7 +185,7 @@
     var emp = (D.meta && D.meta.empalmes) || {}, empNodo = null;
     [1987, 1997].forEach(function (y) { capa('empalme', 's', 15).g.push(['a', eeuu.cfg.cx, eeuu.cfg.cy, eeuu.cfg.rA(y), eeuu.cfg.a0 - 0.02, eeuu.cfg.a1 + 0.02]); });
     var pe = polar(eeuu.cfg.cx, eeuu.cfg.cy, eeuu.cfg.rA(1992), -16 * RAD);
-    empNodo = { tipo: 'empalme', x: pe[0], y: pe[1], clave: 'empalme_estadistico', cod: 'K.08', empalmes: emp, peso: 3, hijos: [] };
+    empNodo = { tipo: 'empalme', x: pe[0], y: pe[1], clave: L('Empalme estadístico', 'Statistical splice'), cod: 'K.08', empalmes: emp, peso: 3, hijos: [] };
     nodos.push(empNodo);
 
     /* ---- abanicos de series por sección */
@@ -182,7 +194,7 @@
       var ab = ABANICOS[f.a] || [90, 150], est = ESTACIONES[f.e], phi = ab[0] * RAD, rad = ab[1];
       var sig = Math.min(0.62, 0.07 + f.s.length * 0.016);
       var cfg = { cx: est.x, cy: est.y };
-      var F = { tipo: 'familia', nombre: f.n, ancla: f.a, series: f.s, est: f.e, r: rad * 0.42, a: phi, cx: cfg.cx, cy: cfg.cy, hijos: [], peso: 2 };
+      var F = { tipo: 'familia', nombre: EN ? (f.n_en || f.n) : f.n, ancla: f.a, series: f.s, est: f.e, r: rad * 0.42, a: phi, cx: cfg.cx, cy: cfg.cy, hijos: [], peso: 2 };
       var p = polar(cfg.cx, cfg.cy, F.r, phi); F.x = p[0]; F.y = p[1];
       F.seg = ['c', est.x, est.y, est.x + (F.x - est.x) * 0.2, est.y + (F.y - est.y) * 0.6, F.x - (F.x - est.x) * 0.3, F.y - (F.y - est.y) * 0.15, F.x, F.y];
       F.padreEst = est.nodo; F.n = f.s.length;
@@ -190,30 +202,30 @@
       nodos.push(F); familias.push(F);
       f.s.forEach(function (s, j) {
         var a = phi + (f.s.length > 1 ? (j / (f.s.length - 1) - 0.5) * 2 * sig : 0), r = rad + (j % 3) * 13 + rr(-3, 3);
-        var L = { tipo: 'serie', nombre: s, familia: F, padre: F, r: r, a: a, cx: cfg.cx, cy: cfg.cy, prof: 2, hijos: [], peso: 1, n: 1 };
-        var q = polar(cfg.cx, cfg.cy, r, a); L.x = q[0]; L.y = q[1];
-        L.seg = bez(F, L); F.hijos.push(L);
-        curva('ar:4:1', 10, L.seg);
-        capa('serie', 'd', 14).g.push(['d', L.x, L.y, 1.3]);
-        nodos.push(L);
+        var S = { tipo: 'serie', nombre: s, familia: F, padre: F, r: r, a: a, cx: cfg.cx, cy: cfg.cy, prof: 2, hijos: [], peso: 1, n: 1 };
+        var q = polar(cfg.cx, cfg.cy, r, a); S.x = q[0]; S.y = q[1];
+        S.seg = bez(F, S); F.hijos.push(S);
+        curva('ar:4:1', 10, S.seg);
+        capa('serie', 'd', 14).g.push(['d', S.x, S.y, 1.3]);
+        nodos.push(S);
       });
     });
 
     /* ---- nodos clave con etiqueta */
     var bifurcacion = null;
     eeuu.todos.forEach(function (N) { if (!bifurcacion && N.tipo === 'decision' && D.eeuu.claves[N.dim] === 'D2') bifurcacion = N; });
-    eeuu.raiz.clave = 'especificacion_multiverso'; eeuu.raiz.cod = 'K.06';
-    if (bifurcacion) { bifurcacion.clave = 'bifurcacion_teorica'; bifurcacion.cod = 'K.07'; }
+    eeuu.raiz.clave = L('Multiverso de especificaciones', 'Multiverse of specifications'); eeuu.raiz.cod = 'K.06';
+    if (bifurcacion) { bifurcacion.clave = L('Bifurcación teórica', 'Theoretical fork'); bifurcacion.cod = 'K.07'; }
     function etq(n, dx, dy, al, sub) { if (n) etiquetas.push({ n: n, dx: dx, dy: dy, al: al || 'left', sub: sub }); }
     var m = D.meta || {};
-    etq(ESTACIONES[0].nodo, -40, 92, 'left', 'eje · exposición categorial');
-    etq(ESTACIONES[1].nodo, -250, 118, 'left', 'eje · ' + eeuu.hojas.length + ' especificaciones');
-    etq(ESTACIONES[2].nodo, 52, 92, 'left', 'eje · ' + (familias.filter(function (f) { return f.est === 2; })[0] || { n: 0 }).n + ' series');
-    etq(ESTACIONES[3].nodo, -46, -62, 'right', 'eje · horas de trabajo');
-    etq(ESTACIONES[4].nodo, -62, 50, 'right', 'eje · ' + mundo.hojas.length + ' especificaciones mundiales');
-    etq(eeuu.raiz, 70, 40, 'left', 'raíz · ' + D.eeuu.dims.length + ' decisiones');
-    etq(bifurcacion, -175, 36, 'right', 'qué cuenta como plusvalor');
-    etq(empNodo, 70, -34, 'left', Object.keys(emp).length + ' empalmes SIC → NAICS');
+    etq(ESTACIONES[0].nodo, -40, 96, 'left', L('eje · exposición categorial', 'axis · categorial exposition'));
+    etq(ESTACIONES[1].nodo, -250, 128, 'left', L('eje · ', 'axis · ') + eeuu.hojas.length + L(' especificaciones', ' specifications'));
+    etq(ESTACIONES[2].nodo, 52, 100, 'left', L('eje · ', 'axis · ') + (familias.filter(function (f) { return f.est === 2; })[0] || { n: 0 }).n + ' series');
+    etq(ESTACIONES[3].nodo, -40, -96, 'right', L('eje · horas de trabajo', 'axis · hours of labour'));
+    etq(ESTACIONES[4].nodo, -70, 54, 'right', L('eje · ', 'axis · ') + mundo.hojas.length + L(' especificaciones mundiales', ' world specifications'));
+    etq(eeuu.raiz, 92, 52, 'left', L('raíz · ', 'root · ') + D.eeuu.dims.length + L(' decisiones', ' decisions'));
+    etq(bifurcacion, -190, 30, 'right', L('qué cuenta como plusvalor', 'what counts as surplus value'));
+    etq(empNodo, 52, -132, 'left', Object.keys(emp).length + L(' empalmes SIC → NAICS', ' SIC → NAICS splices'));
 
     /* ---- marco de lámina */
     capa('lam', 's', 1).g.push(['p', [[12, 12], [W - 12, 12], [W - 12, H - 12], [12, H - 12], [12, 12]]]);
@@ -224,10 +236,10 @@
       capa('lam:reg', 's', 1).g.push(['l', c[0] - 9, c[1], c[0] + 9, c[1]], ['l', c[0], c[1] - 9, c[0], c[1] + 9], ['a', c[0], c[1], 5, 0, Math.PI * 2]);
     });
     var fecha = (m.actualizado || '').slice(0, 10);
-    [['mapa cognitivo del capital · ' + VERSION, 9.5],
-     ['topología: multiverso efectivo · ' + eeuu.hojas.length + ' + ' + mundo.hojas.length + ' especificaciones · geometría: semilla ' + SEED, 7.5],
-     ['datos: ' + (m.actualizado || '—') + (m.commit ? ' · commit ' + m.commit : ''), 7.5]].forEach(function (l, i) {
-      capa(i ? 'lam:txt' : 'lam:tit', 't', 1).g.push(['t', W - 26, 34 + i * 13, l[0], l[1], 'right']);
+    [[L('mapa cognitivo del capital · ', 'cognitive map of capital · ') + VERSION, 11],
+     [L('topología: multiverso efectivo · ', 'topology: effective multiverse · ') + eeuu.hojas.length + ' + ' + mundo.hojas.length + L(' especificaciones · geometría: semilla ', ' specifications · geometry: seed ') + SEED, 9],
+     [L('datos: ', 'data: ') + (m.actualizado || '—') + (m.commit ? ' · commit ' + m.commit : ''), 9]].forEach(function (l, i) {
+      capa(i ? 'lam:txt' : 'lam:tit', 't', 1).g.push(['t', W - 26, 36 + i * 15, l[0], l[1], 'right']);
     });
 
     orden.sort(function (a, b) { return a.z - b.z; });
@@ -282,6 +294,7 @@
 
   /* ---------------------------------------------------------------- dibujo */
   var MONO = "'IBM Plex Mono','JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace";
+  var SANS = "'IBM Plex Sans Condensed','Arial Narrow',system-ui,sans-serif";
   function trazar(ctx, g) {
     if (g[0] === 'c') { ctx.moveTo(g[1], g[2]); ctx.bezierCurveTo(g[3], g[4], g[5], g[6], g[7], g[8]); }
     else if (g[0] === 'l') { ctx.moveTo(g[1], g[2]); ctx.lineTo(g[3], g[4]); }
@@ -355,8 +368,8 @@
     x.putImageData(im, 0, 0); return (_grano = c);
   }
   function cajaEtiqueta(e, ctx, v) {
-    var n = e.n, lx = n.x + e.dx, ly = n.y + e.dy, fs = 12.5 * v.ft, fs2 = 8.5 * v.ft;
-    ctx.font = '500 ' + fs + 'px ' + MONO; var w1 = ctx.measureText(n.clave).width;
+    var n = e.n, lx = n.x + e.dx, ly = n.y + e.dy, fs = 14 * v.ft, fs2 = 10.5 * v.ft;
+    ctx.font = '600 ' + fs + 'px ' + SANS; var w1 = ctx.measureText(n.clave).width;
     ctx.font = fs2 + 'px ' + MONO; var w2 = ctx.measureText(n.cod + ' · ' + (e.sub || '')).width;
     var w = Math.max(w1, w2) + 16 * v.ft, h = 34 * v.ft, x0 = e.al === 'right' ? lx - w : lx, y0 = ly - h / 2;
     return { lx: lx, ly: ly, x0: x0, y0: y0, w: w, h: h, fs: fs, fs2: fs2 };
@@ -373,7 +386,7 @@
       ctx.strokeStyle = T.luz ? 'rgba(160,140,255,.35)' : 'rgba(24,34,53,.25)'; ctx.lineWidth = Math.max(0.4 / v.z, 0.5 * f); ctx.strokeRect(b.x0, b.y0, b.w, b.h);
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
       ctx.font = b.fs2 + 'px ' + MONO; ctx.fillStyle = T.tenue; ctx.fillText(n.cod + ' · ' + (e.sub || ''), b.x0 + 8 * v.ft, b.y0 + 12.5 * v.ft);
-      ctx.font = '500 ' + b.fs + 'px ' + MONO; ctx.fillStyle = T.texto; ctx.fillText(n.clave, b.x0 + 8 * v.ft, b.y0 + 27 * v.ft);
+      ctx.font = '600 ' + b.fs + 'px ' + SANS; ctx.fillStyle = T.texto; ctx.fillText(n.clave, b.x0 + 8 * v.ft, b.y0 + 27.5 * v.ft);
       ctx.globalAlpha = 1;
     });
   }
@@ -383,34 +396,36 @@
   function hojasDe(n) { if (n.tipo === 'hoja') return [n]; var r = []; (n.hijos || []).forEach(function (h) { r = r.concat(hojasDe(h)); }); return r; }
   function describir(E, n) {
     var D = E.D, d = { nodo: n, tipo: n.tipo, cod: n.cod, clave: n.clave };
-    if (n.tipo === 'estacion') { var e = E.estaciones[n.est]; d.titulo = e.k; d.texto = e.t; d.enlaces = [[e.a, 'leer en el sitio']]; d.sub = 'eje categorial'; }
+    if (n.tipo === 'estacion') { var e = E.estaciones[n.est]; d.titulo = e.k; d.texto = e.t; d.enlaces = [[ruta(e.a), L('leer en el sitio', 'read on the site')]]; d.sub = L('eje categorial', 'categorial axis'); }
     if (n.tipo === 'decision' || n.tipo === 'hoja') {
       var def = D[n.arbol], esEEUU = n.arbol === 'eeuu', hs = hojasDe(n);
-      d.arbol = esEEUU ? 'multiverso EE.UU.' : 'multiverso mundial';
+      d.arbol = esEEUU ? L('multiverso de EE.UU.', 'US multiverse') : L('multiverso mundial', 'world multiverse');
       d.ruta = cadena(n).reverse().filter(function (x) { return x.padre && x.padre.dim != null; }).map(function (x) { var dm = def.dims[x.padre.dim]; return [dm[0], dm[2][x.opt]]; });
       d.quiebres = {}; hs.forEach(function (h) { (h.datos[2] || []).forEach(function (y) { d.quiebres[y] = (d.quiebres[y] || 0) + 1; }); });
       d.n = hs.length;
-      d.enlaces = esEEUU ? [['index.html#multiverso', 'el multiverso en el sitio'], ['metodologia.html#multiverso', 'metodología §5']] : [['index.html#mundo', 'tasa mundial en el sitio'], ['metodologia.html#mundo', 'metodología']];
+      d.enlaces = esEEUU ? [['index.html#multiverso', L('el multiverso en el sitio', 'the multiverse on the site')], [ruta('metodologia.html#multiverso'), L('metodología §5', 'methodology §5')]] : [['index.html#mundo', L('tasa mundial en el sitio', 'world rate on the site')], [ruta('metodologia.html#mundo'), L('metodología', 'methodology')]];
       if (n.tipo === 'decision') {
         var dm = def.dims[n.dim];
-        d.titulo = n.clave || dm[0]; d.sub = n.clave ? dm[0] : 'bifurcación teórica';
+        d.titulo = n.clave || dm[0]; d.sub = n.clave ? dm[0] : L('bifurcación teórica', 'theoretical fork');
         d.decision = dm[0]; d.posicion = dm[1];
         d.opciones = n.hijos.map(function (h) { return [dm[2][h.opt], hojasDe(h).length]; });
-        if (n.clave === 'especificacion_multiverso') d.texto = 'Raíz del multiverso efectivo de EE.UU.: cada hoja es una especificación publicada y cada bifurcación, una decisión teórica explícita. Se informa la distribución completa, no una estimación elegida a posteriori.';
-        if (n.clave === 'bifurcacion_teorica') { d.texto = 'Qué trabajo es productivo decide qué parte del excedente cuenta como plusvalor. Aquí el plusvalor ampliado se separa en dos criterios: por ramas o con la corrección intra-rama. La variante «todo productivo» cuelga del numerador «excedente amplio».'; d.enlaces.push(['index.html#supuestos', 'qué cuenta como plusvalor']); }
+        if (n.cod === 'K.06') d.texto = L('Raíz del multiverso efectivo de EE.UU.: cada hoja es una especificación publicada y cada bifurcación, una decisión teórica explícita. Se informa la distribución completa, no una estimación elegida a posteriori.',
+          'Root of the effective US multiverse: each leaf is a published specification and each fork an explicit theoretical decision. The full distribution is reported, not an estimate chosen after the fact.');
+        if (n.cod === 'K.07') { d.texto = L('Qué trabajo es productivo decide qué parte del excedente cuenta como plusvalor. Aquí el plusvalor ampliado se separa en dos criterios: por ramas o con la corrección intra-rama. La variante «todo productivo» cuelga del numerador «excedente amplio».',
+          'Which labour is productive decides which part of the surplus counts as surplus value. Here extended surplus value splits into two criteria: by industry or with the within-industry correction. The \u2018all labour productive\u2019 variant hangs from the \u2018broad surplus\u2019 numerator.'); d.enlaces.push(['index.html#supuestos', L('qué cuenta como plusvalor', 'what counts as surplus value')]); }
       } else {
-        var s = n.datos; d.titulo = s[0]; d.sub = esEEUU ? 'especificación · ' + s[1] : 'especificación mundial · ' + s[1] + ' países';
-        d.decisiones = def.dims.map(function (dm, i) { return [dm[0], s[3] && s[3][i] >= 0 ? dm[2][s[3][i]] : '—']; });
+        var s = n.datos; d.titulo = s[0]; d.sub = esEEUU ? L('especificación · ', 'specification · ') + s[1] : L('especificación mundial · ', 'world specification · ') + s[1] + L(' países', ' countries');
+        d.decisiones = def.dims.map(function (dm, i) { return [dm[0], s[3] && s[3][i] >= 0 ? dm[2][s[3][i]] : L('no aplica a esta familia', 'not applicable to this family')]; });
         d.anios = s[2] || [];
       }
     }
-    if (n.tipo === 'familia') { d.titulo = n.nombre; d.sub = n.series.length + ' series publicadas'; d.series = n.series; d.enlaces = [[n.ancla, 'ver la sección']]; }
-    if (n.tipo === 'serie') { d.titulo = n.nombre; d.sub = 'serie · ' + n.familia.nombre; d.enlaces = [[n.familia.ancla, 'ver la sección']]; }
+    if (n.tipo === 'familia') { d.titulo = n.nombre; d.sub = n.series.length + L(' series publicadas', ' published series'); d.series = n.series; d.enlaces = [[n.ancla, L('ver la sección', 'see the section')]]; }
+    if (n.tipo === 'serie') { d.titulo = n.nombre; d.sub = L('serie · ', 'series · ') + n.familia.nombre; d.enlaces = [[n.familia.ancla, L('ver la sección', 'see the section')]]; }
     if (n.tipo === 'empalme') {
-      d.titulo = 'empalme_estadistico'; d.sub = 'cambios de clasificación industrial en las series de EE.UU.';
-      d.texto = 'Las series del BEA cambian de clasificación (SIC → NAICS). Cada empalme se hace con un factor de nivel explícito; los arcos punteados del anillo marcan esos años.';
+      d.titulo = n.clave; d.sub = L('cambios de clasificación industrial en las series de EE.UU.', 'changes of industrial classification in the US series');
+      d.texto = L('Las series del BEA cambian de clasificación (SIC → NAICS). Cada empalme se hace con un factor de nivel explícito; los arcos punteados del anillo marcan esos años.', 'The BEA series change classification (SIC → NAICS). Each splice uses an explicit level factor; the dotted arcs of the ring mark those years.');
       d.empalmes = Object.keys(n.empalmes || {}).map(function (k) { return [k, n.empalmes[k]]; });
-      d.enlaces = [['metodologia.html#empalmes', 'metodología: empalmes']];
+      d.enlaces = [[ruta('metodologia.html#empalmes'), L('metodología: empalmes', 'methodology: splices')]];
     }
     return d;
   }
@@ -421,7 +436,7 @@
     var modo = op.modo || 'mapa';
     var cv = document.createElement('canvas'); cv.className = 'mapa-cognitivo-lienzo';
     cv.setAttribute('role', 'img');
-    cv.setAttribute('aria-label', 'Mapa cognitivo del capital: eje categorial, multiverso de especificaciones con sus quiebres y registro sismográfico.');
+    cv.setAttribute('aria-label', L('Mapa cognitivo del capital: eje categorial, multiverso de especificaciones con sus quiebres y registro sismográfico.', 'Cognitive map of capital: categorial axis, multiverse of specifications with their breaks, and seismographic record.'));
     cv.style.cssText = 'display:block;width:100%;height:100%;' + (modo === 'mapa' ? 'touch-action:none;cursor:grab;' : '');
     cont.appendChild(cv);
     var est = document.createElement('canvas'), ctx = cv.getContext('2d'), sctx = est.getContext('2d');
@@ -606,7 +621,7 @@
     function r1(x) { return Math.round(x * 10) / 10; }
     function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
     o.push('<?xml version="1.0" encoding="UTF-8"?>');
-    o.push('<!-- Mapa cognitivo del capital · ' + VERSION + ' · semilla ' + SEED + ' · datos ' + esc((E.D.meta || {}).actualizado || '') + ' -->');
+    o.push('<!-- ' + L('Mapa cognitivo del capital', 'Cognitive map of capital') + ' · ' + VERSION + ' · semilla ' + SEED + ' · datos ' + esc((E.D.meta || {}).actualizado || '') + ' -->');
     o.push('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" font-family="' + esc(MONO) + '">');
     if (T.fondo) o.push('<rect width="' + W + '" height="' + H + '" fill="' + T.fondo + '"/>');
     o.push('<g' + (T.luz ? ' style="mix-blend-mode:screen;isolation:isolate"' : '') + ' stroke-linecap="round" stroke-linejoin="round">');
@@ -629,7 +644,7 @@
       o.push('<path d="M' + r1(n.x) + ' ' + r1(n.y) + 'L' + r1(n.x + (ex - n.x) * 0.55) + ' ' + r1(ly) + 'L' + r1(ex) + ' ' + r1(ly) + '" fill="none" stroke="' + (T.luz ? '#9c8fe6' : T.tenue) + '" stroke-width=".6"/>');
       o.push('<rect x="' + r1(x0) + '" y="' + r1(ly - 17) + '" width="' + r1(w) + '" height="34" fill="' + T.etqFondo + '" stroke="' + (T.luz ? 'rgba(160,140,255,.35)' : 'rgba(24,34,53,.25)') + '" stroke-width=".5"/>');
       o.push('<text x="' + r1(x0 + 8) + '" y="' + r1(ly - 4.5) + '" font-size="8.5" fill="' + T.tenue + '">' + esc(n.cod + ' · ' + (e.sub || '')) + '</text>');
-      o.push('<text x="' + r1(x0 + 8) + '" y="' + r1(ly + 10) + '" font-size="12.5" font-weight="500" fill="' + T.texto + '">' + esc(n.clave) + '</text>');
+      o.push('<text x="' + r1(x0 + 8) + '" y="' + r1(ly + 10) + '" font-size="14" font-weight="600" font-family="' + esc(SANS) + '" fill="' + T.texto + '">' + esc(n.clave) + '</text>');
     });
     o.push('</svg>');
     return o.join('\n');
