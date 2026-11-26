@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Metodología — Mapa cognitivo del capital</title>
 <link rel="alternate" hreflang="en" href="en/methodology.html">
-<link rel="stylesheet" href="style.css?v=67920cc2611260610">
+<link rel="stylesheet" href="style.css?v=47ad8ba2611260618">
 </head>
 <body class="doc">
 <a class="saltar" href="#contenido">Ir al contenido</a>
 <header class="barra">
   <a class="marca" href="./">Mapa cognitivo del capital</a>
-  <nav aria-label="Páginas"><a href="mapa.html">Mapa</a><a href="lectura.html">Lectura</a><a href="metodologia.html" aria-current="page">Metodología</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">Código</a><span class="idioma" role="group" aria-label="Idioma / Language"><span class="activo" aria-current="true">ES</span><a class="cambiar-idioma" href="en/methodology.html" hreflang="en" lang="en" title="Read this page in English">EN</a></span></nav>
+  <nav aria-label="Páginas"><a href="mapa.html">Mapa</a><a href="lectura.html">Lectura</a><a href="metodologia.html" aria-current="page">Metodología</a><a href="glosario.html">Glosario</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">Código</a><span class="idioma" role="group" aria-label="Idioma / Language"><span class="activo" aria-current="true">ES</span><a class="cambiar-idioma" href="en/methodology.html" hreflang="en" lang="en" title="Read this page in English">EN</a></span></nav>
 </header>
 <div class="portada">
 <h1 id="metodologia">Metodología</h1>
@@ -101,6 +101,7 @@
 </ul>
 <p>pv incluye las ganancias, los intereses, las rentas, los impuestos a la producción y los salarios improductivos, que son deducciones de la masa global de plusvalor. La tasa de plusvalor es e = pv/v. En la variante neta se resta la depreciación del capital no residencial del sector empresarial: el consumo de capital fijo no residencial privado, a costo corriente, menos el de las instituciones sin fines de lucro y el de los hogares. Las mediciones en horas de EE.UU. (jornada, masa de plustrabajo, fuerzas productivas) usan la e neta.</p>
 <p>Siguiendo a Moseley (2016), el capital constante y el variable se toman como magnitudes dinerarias dadas (precios efectivos). Por eso no hace falta «transformar» valores en precios para medir la tasa agregada.</p>
+<p class="nota">El significado de cada símbolo y de cada una de las series publicadas, con su expresión y el nombre de su columna en los datos, está reunido en la pestaña <a href="glosario.html">Glosario</a>, que también enumera las decisiones de los multiversos.</p>
 </section>
 <section id="multiverso" class="seccion">
 <h2 id="el-multiverso-de-especificaciones">El multiverso de especificaciones</h2>
@@ -576,7 +577,7 @@ python run.py                 # descarga, calcula y escribe resultados/ y site/d
 </div>
 <footer class="pie">
 <p>Investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología (ICSyH-BUAP), que concluirá en agosto de 2029, realizada con una beca de la SECIHTI (número 4052073). Gracias a la clase trabajadora mexicana, que hace posible esta beca. Marco teórico: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
-<p>Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">GitHub</a>. <a href="descargas/">Descargas</a>. <a href="metodologia.html">Metodología</a>. <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital/tree/main/contenido">Editar los textos</a>.</p>
+<p>Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">GitHub</a>. <a href="descargas/">Descargas</a>. <a href="metodologia.html">Metodología</a>. <a href="glosario.html">Glosario</a>. <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital/tree/main/contenido">Editar los textos</a>.</p>
 </footer>
 <script>
 fetch('data/meta.json', { cache: 'no-cache' }).then((r) => r.json()).then((m) => {
@@ -586,6 +587,7 @@ fetch('data/meta.json', { cache: 'no-cache' }).then((r) => r.json()).then((m) =>
 });
 </script>
 <script>/* el botón ES | EN conserva la sección (las anclas son iguales en las dos versiones) */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.cambiar-idioma");if(a&&location.hash)a.href=a.getAttribute("href").split("#")[0]+location.hash;});</script>
-<script src="mapa-cognitivo.js?v=67920cc2611260610" data-modo="fondo" defer></script>
+<script src="mapa-textos.js?v=47ad8ba2611260618" defer></script>
+<script src="mapa-cognitivo.js?v=47ad8ba2611260618" data-modo="fondo" defer></script>
 </body>
 </html>
