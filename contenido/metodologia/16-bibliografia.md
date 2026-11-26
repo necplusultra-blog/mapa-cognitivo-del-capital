@@ -48,6 +48,7 @@ Todas las obras citadas en el sitio (portada, Lectura y metodología). Las fuent
 - Roberts, M. (2021, 5 de diciembre). The US rate of profit in 2020. *The Next Recession* (blog). https://thenextrecession.wordpress.com/2021/12/05/the-us-rate-of-profit-in-2020/
 - Shaikh, A. (2016). *Capitalism: Competition, Conflict, Crises*. Nueva York: Oxford University Press.
 - Shaikh, A. y Tonak, E. A. (1994). *Measuring the Wealth of Nations: The Political Economy of National Accounts*. Cambridge: Cambridge University Press.
+- Steegen, S., Tuerlinckx, F., Gelman, A. y Vanpaemel, W. (2016). Increasing transparency through a multiverse analysis. *Perspectives on Psychological Science*, 11(5), 702–712.
 
 **Métodos y bases de datos**
 

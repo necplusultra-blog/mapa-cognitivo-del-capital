@@ -6,7 +6,7 @@ oculta: true
 ---
 ## The field of countertendencies
 
-Marx (2021, pp. 297–307) sets out six causes that counteract the tendential fall of the rate of profit: the raising of the degree of exploitation, the reduction of wages below their value, the cheapening of the elements of constant capital, relative surplus population, foreign trade and the increase in share capital. They are not external forces that correct the tendency from outside: they are produced by the same causes that produce the fall. This section brings together observable indicators for each of them, and begins with the central question: in each phase, what sustained or sank the rate of profit?
+Marx (2021, pp. 297–307) sets out six causes that counteract the tendential fall of the rate of profit: the raising of the degree of exploitation, the reduction of wages below their value, the cheapening of the elements of constant capital, relative surplus population, foreign trade and the increase in share capital. They are not external forces that correct the tendency from outside: they are produced by the same causes that produce the fall. This section brings together observable indicators for each of them, and begins with the central question: in each historical stage of developed capitalism, what sustained or sank the rate of profit?
 
 ### What moved the rate in each phase
 
