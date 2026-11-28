@@ -14,7 +14,7 @@ El debate marxista sobre la tasa de ganancia no discute sólo cifras: discute qu
 Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED). Cada serie se construye con la definición de cada corriente (metodología, §6). Cálculo propio.
 {: .fuente }
 
-Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). Heinrich no propone una medida propia: su lectura se apoya en el abanico completo del multiverso de la sección anterior.
+Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). Heinrich no propone una medida propia: su lectura se apoya en el abanico completo de las especificaciones de la sección anterior.
 {: .nota }
 
 [[tabla t-lect: Medida (a la manera de) | 1948 | 1965 | 1982 | 2007 | Último año | Desde el mínimo de 1982]]

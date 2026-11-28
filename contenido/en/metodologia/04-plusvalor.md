@@ -16,5 +16,5 @@ pv includes profits, interest, rents, taxes on production and unproductive wages
 
 Following Moseley (2016), constant and variable capital are taken as given money magnitudes (actual prices). That is why there is no need to ‘transform’ values into prices in order to measure the aggregate rate.
 
-The meaning of each symbol and of each published series, with its expression and the name of its column in the data, is gathered in the [Glossary](glosario.html) tab, which also lists the decisions of the multiverses.
+The meaning of each symbol and of each published series, with its expression and the name of its column in the data, is gathered in the [Glossary](glosario.html) tab, which also lists the decisions of the two sets of calculations.
 {: .nota }

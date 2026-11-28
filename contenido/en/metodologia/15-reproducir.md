@@ -13,7 +13,7 @@ python run.py                 # downloads, computes and writes resultados/ and s
 Modules:
 
 - `sismografo/descarga.py`: sources.
-- `eeuu.py`: multiverse, surplus value and labour time.
+- `eeuu.py`: specification space, surplus value and labour time.
 - `trimestral.py`: quarterly estimate.
 - `mundo.py`: PWT.
 - `ocde_ramas.py`: measurement by industry with the OECD accounts.

@@ -13,7 +13,7 @@ python run.py                 # descarga, calcula y escribe resultados/ y site/d
 Módulos:
 
 - `sismografo/descarga.py`: fuentes.
-- `eeuu.py`: multiverso, plusvalor y tiempo de trabajo.
+- `eeuu.py`: espacio de especificaciones, plusvalor y tiempo de trabajo.
 - `trimestral.py`: estimación trimestral.
 - `mundo.py`: PWT.
 - `ocde_ramas.py`: medición por rama con las cuentas de la OCDE.

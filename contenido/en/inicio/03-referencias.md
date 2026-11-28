@@ -14,7 +14,7 @@ The Marxist debate on the rate of profit is not only about figures: it is about 
 Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: establishment survey (CES, via FRED). Each series is built with the definition of each current (methodology, §6). Own calculation.
 {: .fuente }
 
-Net rates in %, at current cost except the Kliman-type rate (historical cost). Heinrich does not propose a measure of his own: his reading rests on the full spread of the multiverse in the previous section.
+Net rates in %, at current cost except the Kliman-type rate (historical cost). Heinrich does not propose a measure of his own: his reading rests on the full spread of the specifications in the previous section.
 {: .nota }
 
 [[tabla t-lect: Measure (in the manner of) | 1948 | 1965 | 1982 | 2007 | Latest year | Since the 1982 trough]]

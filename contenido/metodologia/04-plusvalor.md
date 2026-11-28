@@ -16,5 +16,5 @@ pv incluye las ganancias, los intereses, las rentas, los impuestos a la producci
 
 Siguiendo a Moseley (2016), el capital constante y el variable se toman como magnitudes dinerarias dadas (precios efectivos). Por eso no hace falta «transformar» valores en precios para medir la tasa agregada.
 
-El significado de cada símbolo y de cada una de las series publicadas, con su expresión y el nombre de su columna en los datos, está reunido en la pestaña [Glosario](glosario.html), que también enumera las decisiones de los multiversos.
+El significado de cada símbolo y de cada una de las series publicadas, con su expresión y el nombre de su columna en los datos, está reunido en la pestaña [Glosario](glosario.html), que también enumera las decisiones de los dos conjuntos de cálculos.
 {: .nota }

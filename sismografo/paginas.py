@@ -10,10 +10,10 @@ Atajos disponibles en los textos:
   [[grafico id]]             un gráfico; [[grafico id corto]] para uno más bajo
   [[leyenda id]]             la leyenda de un gráfico
   [[tabla id: Col 1 | Col 2]] una tabla que el sitio llena con los datos
-  [[explorador]]             el explorador de especificaciones del multiverso (explorador.js)
+  [[explorador]]             el explorador de especificaciones (explorador.js)
   [[glosario simbolos]]      la tabla de símbolos del glosario (glosario.js, con los datos de site/data/mapa.json)
   [[glosario series]]        el glosario de las series publicadas, por sección, con buscador (glosario.js)
-  [[glosario decisiones]]    las decisiones (bifurcaciones) de los multiversos de EE.UU. y mundial, con sus opciones
+  [[glosario decisiones]]    las decisiones (bifurcaciones) de los cálculos de EE.UU. y mundiales, con sus opciones
   [[cifra id | etiqueta | nota]] una cifra destacada; varias seguidas forman una fila
   :::como Título             abre un desplegable de explicación (se cierra con una línea ::: )
   :::como+ Título            lo mismo, pero abierto por defecto

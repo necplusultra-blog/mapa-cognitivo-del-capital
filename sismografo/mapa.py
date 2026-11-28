@@ -3,12 +3,12 @@
 Lee resultados/ y site/data/ y escribe site/data/mapa.json. No calcula nada nuevo: reorganiza lo que
 el sitio ya publica para que el grafo tenga la topología real del proyecto.
 
-- El árbol de EE.UU. es el multiverso efectivo: cada hoja es una especificación de
+- El árbol de EE.UU. es el espacio efectivo de especificaciones: cada hoja es una especificación de
   resultados/eeuu_especificaciones.csv y cada bifurcación es una de las decisiones de metodología §5.
   Sólo hay bifurcación donde las opciones divergen bajo ese nodo (una decisión con un solo valor no se dibuja).
 - El árbol mundial reproduce las 24 especificaciones de site/data/mundo_especificaciones.json.
 - Las ramas secundarias son las series que publica cada sección del sitio.
-- El fondo sismográfico usa las bandas del multiverso (p10–p90) y el número de especificaciones con quiebre por año.
+- El fondo sismográfico usa las bandas de las especificaciones (p10–p90) y el número de especificaciones con quiebre por año.
 
 También escribe, para el explorador de especificaciones (explorador.js, en la portada y en el mapa):
 - site/data/mapa_series.json: la tasa anual (%) de cada especificación de EE.UU., en el mismo orden que mapa.json;
