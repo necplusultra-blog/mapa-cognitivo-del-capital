@@ -60,7 +60,7 @@ Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). 
 :::
 
 :::lectura | Heinrich: no hay una ley que los datos puedan confirmar
-**Qué mira.** No propone una medida. Lee el abanico entero del multiverso y pregunta si la caída se deduce de las determinaciones del capital.
+**Qué mira.** No propone una medida. Lee el abanico entero de las especificaciones y pregunta si la caída se deduce de las determinaciones del capital.
 
 **Qué ve aquí.** Sólo {{lx-dec-rob}} de los {{lx-dec-n}} cambios entre décadas resisten todas las especificaciones. La composición K/V subió hasta 1982 ({{lx-kv82}}), bajó hasta el año 2000 por el abaratamiento del capital y volvió a subir. El nivel y la dirección dependen de la teoría adoptada.
 

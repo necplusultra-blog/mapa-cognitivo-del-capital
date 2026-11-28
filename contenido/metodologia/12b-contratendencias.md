@@ -15,9 +15,9 @@ Desde 1972, con las horas de los obreros productivos, la composición en valor s
 
 <div class="f">K/V = (K<sub>real</sub> / H) · (P<sub>K</sub> / w) · P<sub>K</sub> = K<sub>costo corriente</sub> / (índice de cantidad × K<sub>2017</sub> / 100) · w = V / H</div>
 
-El índice de cantidad y el stock a costo corriente son los del capital fijo privado no residencial del BEA (kcntotl1es00, k1ntotl1es00); K y V son los de la variante intra-rama. Los años de corte son los cinco años de quiebre más frecuentes en el multiverso principal (h = 8, BIC), con al menos seis años de separación: la periodización no se fija de antemano.
+El índice de cantidad y el stock a costo corriente son los del capital fijo privado no residencial del BEA (kcntotl1es00, k1ntotl1es00); K y V son los de la variante intra-rama. Los años de corte son los cinco años de quiebre más frecuentes en el conjunto principal de especificaciones (h = 8, BIC), con al menos seis años de separación: la periodización no se fija de antemano.
 
-**Robustez sobre el multiverso.** La descomposición se repite para cada especificación empresarial sin ajuste por utilización y con denominador K (16 por criterio de trabajo productivo: costo corriente o histórico, neta o bruta, con o sin propiedad intelectual, todo el capital o sólo el productivo). Se publican la mediana y los percentiles 10 y 90 de los aportes, el porcentaje de especificaciones en que la tasa sube y, entre las especificaciones en que la composición sube, el porcentaje en que Δln e ≥ Δln(K/V) (contratendencias_fases_multiverso.csv).
+**Robustez sobre el multiverso.** La descomposición se repite para cada especificación empresarial sin ajuste por utilización y con denominador K (16 por criterio de trabajo productivo: costo corriente o histórico, neta o bruta, con o sin propiedad intelectual, todo el capital o sólo el productivo). Se publican la mediana y los percentiles 10 y 90 de los aportes, el porcentaje de especificaciones en que la tasa sube y, entre las especificaciones en que la composición sube, el porcentaje en que Δln e ≥ Δln(K/V) (contratendencias_fases_especificaciones.csv).
 
 **Transferencia de tiempo de trabajo por comercio exterior.** Para cada país, h = H / PIB, con H = ocupados × horas anuales (PWT 11.0) y el PIB en dólares corrientes a tipo de cambio de mercado (Banco Mundial):
 

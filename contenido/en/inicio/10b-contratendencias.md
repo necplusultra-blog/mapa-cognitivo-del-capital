@@ -10,7 +10,7 @@ Marx (2021, pp. 297–307) sets out six causes that counteract the tendential fa
 
 ### What moved the rate in each phase
 
-The rate of profit can be written as r = e · v/K: it rises if the rate of surplus value e rises and falls if the composition K/V rises. The phases are not chosen in advance: their boundaries are the most frequent break years in the multiverse ({{ct-cortes}}). Each bar measures, in logarithms, how much each factor contributed to the change in the rate in that phase.
+The rate of profit can be written as r = e · v/K: it rises if the rate of surplus value e rises and falls if the composition K/V rises. The phases are not chosen in advance: their boundaries are the most frequent break years in the set of specifications ({{ct-cortes}}). Each bar measures, in logarithms, how much each factor contributed to the change in the rate in that phase.
 
 The rate of profit rises if capital obtains more surplus value for each dollar of wages (rate of surplus value) and falls if it needs more capital for each dollar of wages (composition). In each period, the bars show how hard each force pushed. If the bar for the rate of surplus value is taller than the fall due to the composition, the rate of profit rises; if not, it falls. This shows which countertendency sustained profit in each stage and when it stopped doing so.
 {: .llano }
@@ -43,13 +43,13 @@ Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: e
 The same decomposition, repeated for the 16 specifications of each productive-labour criterion (current or historical cost, net or gross, with or without intellectual property products, all capital or only that of the productive industries). Each cell gives the median and, in parentheses, the range from the 10th to the 90th percentile. The last column indicates in what percentage of the specifications in which the composition rises the increase in the rate of surplus value is enough to offset it.
 {: .nota }
 
-The table repeats the calculation with all the measurements of the multiverse. If the result for a phase holds in almost all of them, it does not depend on the theory.
+The table repeats the calculation with all the measurements of the set of specifications. If the result for a phase holds in almost all of them, it does not depend on the theory.
 {: .llano }
 
 [[tabla t-ct-fm: Criterion | Phase | Contribution of e | Contribution of K/V | Specifications in which the rate rises | e offsets the composition]]
 
 :::como How is this decomposition calculated?
-For each phase between the years a<sub>0</sub> and a<sub>1</sub>: Δln r = Δln e − Δln(K/V), with e = S/V and K/V taken from the section ‘The two-sided law’ (net broad surplus value of the business sector; K at current cost; V by industry from 1948 or within-industry from 1972). In the within-industry variant, K/V = (K<sub>real</sub>/H) · (P<sub>K</sub>/w): K<sub>real</sub> is K deflated by the implicit price of private non-residential fixed capital (current-cost stock over the BEA quantity index, 2017 = 1); H is the hours of productive workers (BLS) and w = V/H. The cut-off years are the five most frequent break years in the main multiverse (baseline configuration: minimum segment of 8 years, BIC), separated from each other by at least six years. The downloads include the full table (contratendencias_fases.csv).
+For each phase between the years a<sub>0</sub> and a<sub>1</sub>: Δln r = Δln e − Δln(K/V), with e = S/V and K/V taken from the section ‘The two-sided law’ (net broad surplus value of the business sector; K at current cost; V by industry from 1948 or within-industry from 1972). In the within-industry variant, K/V = (K<sub>real</sub>/H) · (P<sub>K</sub>/w): K<sub>real</sub> is K deflated by the implicit price of private non-residential fixed capital (current-cost stock over the BEA quantity index, 2017 = 1); H is the hours of productive workers (BLS) and w = V/H. The cut-off years are the five most frequent break years in the main set of specifications (baseline configuration: minimum segment of 8 years, BIC), separated from each other by at least six years. The downloads include the full table (contratendencias_fases.csv).
 :::
 
 ### 1. Raising of the degree of exploitation

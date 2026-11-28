@@ -142,7 +142,7 @@ def calcular(dir_datos, dir_out, ee):
     F = pd.DataFrame(filas)
     F.to_csv(os.path.join(dir_out, 'contratendencias_fases.csv'), index=False)
     FM = fases_multiverso(ee, cortes, Y)
-    FM.to_csv(os.path.join(dir_out, 'contratendencias_fases_multiverso.csv'), index=False)
+    FM.to_csv(os.path.join(dir_out, 'contratendencias_fases_especificaciones.csv'), index=False)
     return dict(I=I, F=F, FM=FM, cortes=cortes)
 
 

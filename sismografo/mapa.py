@@ -12,7 +12,7 @@ el sitio ya publica para que el grafo tenga la topología real del proyecto.
 
 También escribe, para el explorador de especificaciones (explorador.js, en la portada y en el mapa):
 - site/data/mapa_series.json: la tasa anual (%) de cada especificación de EE.UU., en el mismo orden que mapa.json;
-- resultados/eeuu_multiverso_tabla.csv (y su versión inglesa): una fila por especificación, con sus decisiones
+- resultados/eeuu_tabla_especificaciones.csv (y su versión inglesa): una fila por especificación, con sus decisiones
   en palabras y la tasa en 1948, 1982 y el último año. run.py la copia a site/descargas.
 
 Uso: python -m sismografo.mapa   (también lo llama run.py después de sitio.escribir)
@@ -211,7 +211,7 @@ def _tabla_glosario(familias):
 
 def _series_y_tabla(eeuu, dir_data):
     """Serie anual de cada especificación (para el explorador) y tabla descargable del multiverso."""
-    ruta = os.path.join(RAIZ, 'resultados', 'eeuu_multiverso_tasas.csv')
+    ruta = os.path.join(RAIZ, 'resultados', 'eeuu_tasas_especificaciones.csv')
     if not os.path.exists(ruta):
         return
     with open(ruta, encoding='utf-8') as f:
@@ -226,7 +226,7 @@ def _series_y_tabla(eeuu, dir_data):
     # tabla: decisiones en palabras y tasa (%) en tres años de referencia
     fin = anios[-1]
     cortes = [a for a in (1948, 1982, fin) if a in anios]
-    for nombre, es in (('eeuu_multiverso_tabla.csv', True), ('eeuu_multiverse_table_en.csv', False)):
+    for nombre, es in (('eeuu_tabla_especificaciones.csv', True), ('eeuu_specifications_table_en.csv', False)):
         tr = (lambda x: x) if es else (lambda x: EN.get(x, x))
         cabecera = (['id', 'familia'] if es else ['id', 'family']) + [tr(d[1]) for d in DIM_EEUU] \
             + [('tasa_%d_pct' if es else 'rate_%d_pct') % a for a in cortes] + (['quiebres'] if es else ['breaks'])

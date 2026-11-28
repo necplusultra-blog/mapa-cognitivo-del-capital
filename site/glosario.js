@@ -52,8 +52,8 @@
         }).join('') + '</tbody></table></div>';
     };
     var de = D.eeuu || {}, dm = D.mundo || {};
-    return bloque(L('Multiverso de EE.UU.', 'US multiverse') + ' (' + (de.specs || []).length + ')', (EN ? de.dims_en : de.dims) || [])
-      + bloque(L('Multiverso mundial', 'World multiverse') + ' (' + (dm.specs || []).length + ')', (EN ? dm.dims_en || dm.dims : dm.dims) || []);
+    return bloque(L('Especificaciones de EE.UU.', 'US specifications') + ' (' + (de.specs || []).length + ')', (EN ? de.dims_en : de.dims) || [])
+      + bloque(L('Especificaciones mundiales', 'World specifications') + ' (' + (dm.specs || []).length + ')', (EN ? dm.dims_en || dm.dims : dm.dims) || []);
   }
   function filtrar(q) {
     q = q.trim().toLowerCase(); var n = 0;

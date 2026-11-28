@@ -48,6 +48,7 @@ All works cited on the site (front page, Reading and Methodology). The data sour
 - Roberts, M. (2021, 5 December). The US rate of profit in 2020. *The Next Recession* (blog). https://thenextrecession.wordpress.com/2021/12/05/the-us-rate-of-profit-in-2020/
 - Shaikh, A. (2016). *Capitalism: Competition, Conflict, Crises*. New York: Oxford University Press.
 - Shaikh, A. and Tonak, E. A. (1994). *Measuring the Wealth of Nations: The Political Economy of National Accounts*. Cambridge: Cambridge University Press.
+- Simonsohn, U., Simmons, J. P. and Nelson, L. D. (2020). Specification curve analysis. *Nature Human Behaviour*, 4(11), 1208–1214. https://doi.org/10.1038/s41562-020-0912-z
 - Steegen, S., Tuerlinckx, F., Gelman, A. and Vanpaemel, W. (2016). Increasing transparency through a multiverse analysis. *Perspectives on Psychological Science*, 11(5), 702–712.
 
 **Methods and databases**

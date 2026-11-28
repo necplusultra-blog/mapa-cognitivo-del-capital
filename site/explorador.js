@@ -1,10 +1,10 @@
-/* Explorador de especificaciones del multiverso de EE.UU.
+/* Explorador de las especificaciones de la tasa de ganancia de EE.UU.
    Mapa cognitivo del capital — Pablo Jiménez Cea. Licencia MIT (código), CC BY 4.0 (datos).
 
    Dos usos:
    1. En la portada, un elemento <div id="explorador-especificaciones"> se convierte en un selector por bifurcación:
       se elige una opción en cada decisión teórica y se dibuja la tasa de la especificación resultante
-      junto a la mediana y las bandas del multiverso.
+      junto a la mediana y las bandas del conjunto.
    2. En el mapa (mapa.html, en/map.html), el panel llama a Explorador.curva() al pinchar una hoja
       (una especificación) o una bifurcación (las medianas de cada opción).
 
@@ -55,7 +55,7 @@
   }
   var COL = ['var(--estilete, #b8203a)', 'var(--c1, #1d6d78)', 'var(--c3, #a8731a)', 'var(--c2, #6a4c9c)', 'var(--c5, #2f7a3f)'];
 
-  /* Dibuja en el contenedor: bandas p10–p90 y p25–p75 y mediana del multiverso principal (mapa.json → bandas)
+  /* Dibuja en el contenedor: bandas p10–p90 y p25–p75 y mediana del conjunto principal (mapa.json → bandas)
      y encima las líneas pedidas: [{v: [índice por año], n: 'etiqueta'}]. */
   function curva(cont, D, lineas, op) {
     op = op || {};
@@ -70,7 +70,7 @@
     var x = function (a) { return ml + (a - a0) / (a1 - a0) * (W - ml - mr); };
     var y = function (v) { return mt + (hi - v) / (hi - lo) * (H - mt - mb); };
     var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'img', class: 'explorador-svg',
-      'aria-label': op.aria || L('Tasa de ganancia de la especificación frente al multiverso', 'Rate of profit of the specification against the multiverse') }, cont);
+      'aria-label': op.aria || L('Tasa de ganancia de la especificación frente al conjunto', 'Rate of profit of the specification against the whole set') }, cont);
     var paso = hi - lo > 120 ? 40 : 20;
     for (var v = Math.ceil(lo / paso) * paso; v <= hi; v += paso) {
       el('line', { x1: ml, x2: W - mr, y1: y(v), y2: y(v), stroke: 'var(--reticula, #d3dbd9)', 'stroke-width': v === 100 ? 1.2 : 0.6, 'stroke-dasharray': v === 100 ? '3,3' : '' }, svg);
@@ -96,7 +96,7 @@
     var ley = document.createElement('div'); ley.className = 'ex-ley';
     var item = function (c, t, banda) { return '<span><i style="' + (banda ? 'background:' + c + ';opacity:.25;height:9px' : 'background:' + c) + '"></i>' + t + '</span>'; };
     ley.innerHTML = lineas.map(function (l, i) { return item(l.c || COL[i % COL.length], esc(l.n)); }).join('')
-      + item('var(--gris, #5d6878)', L('mediana del multiverso', 'multiverse median'))
+      + item('var(--gris, #5d6878)', L('mediana de las especificaciones', 'median of the specifications'))
       + item('var(--tinta, #182235)', L('percentiles 10–90 y 25–75', '10th–90th and 25th–75th percentiles'), true);
     cont.appendChild(ley);
     return svg;

@@ -15,7 +15,7 @@ menu: Interpretative framework
 
 The data are interpreted from the standpoint of the Marxian critique of political economy. Profit is a form of appearance of surplus value; surplus value is the unpaid labour of productively exploited workers; the rate of profit is the ratio between surplus value and the total capital advanced, that is, the sum of constant capital and variable capital: pv/(c + v). The mass of surplus value is the product of the rate of surplus value (pv/v, the degree of exploitation) and the number of productively exploited workers.
 
-Official statistics are not constructed with these categories, so translating them requires theoretical decisions. The site does not hide these decisions in a single number: it turns them into *forks* of a multiverse and shows which results withstand all of them and which depend on the theory adopted.
+Official statistics are not constructed with these categories, so translating them requires theoretical decisions. The site does not hide these decisions in a single number: it turns them into *forks* of a specification space and shows which results withstand all of them and which depend on the theory adopted.
 
 The series show the phenomenal manifestation of categorial determinations; they do not demonstrate them. Nor do they measure capital's ‘distance’ from a ceiling: what they allow us to observe is the concrete way in which the dynamic of the rate and mass of surplus value, and the field of its countertendencies, unfolds.
 

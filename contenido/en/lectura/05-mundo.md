@@ -1,9 +1,9 @@
 ---
 seccion: "05 The world rate"
 id: mundo
-menu: The world rate
+menu: The world rate of profit
 ---
-## The world rate: the fall is concentrated where accumulation is greatest
+## The world rate of profit: the fall is concentrated where accumulation is greatest
 
 With the Penn World Table, the net world rate of profit (total economy, capital-weighted, panel of 79 countries since 1960) fluctuates between 7.6% and 9.1% from 1960 to 2007 and falls to 5.2% in 2023. Without China, the fall is smaller: to 6.0%. Over the same period, China goes from holding 2% of world capital to holding 27%, and the United States from 39% to 13%. The world mass of gross profit, meanwhile, is multiplied almost twelvefold between 1960 and 2023.
 

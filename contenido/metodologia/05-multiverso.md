@@ -1,11 +1,11 @@
 ---
-seccion: "05 El multiverso de especificaciones"
+seccion: "05 El espacio de especificaciones"
 id: multiverso
-menu: El multiverso de especificaciones
+menu: El espacio de especificaciones
 ---
-## El multiverso de especificaciones
+## El espacio de especificaciones
 
-El multiverso principal (1948–) combina estas bifurcaciones y suma {{m-n}} especificaciones. Cada una se normaliza a su propio promedio del periodo (=100) y el sitio muestra sus percentiles 10, 25, 50, 75 y 90.
+El conjunto principal (1948–) combina estas bifurcaciones y suma {{m-n}} especificaciones. Cada una se normaliza a su propio promedio del periodo (=100) y el sitio muestra sus percentiles 10, 25, 50, 75 y 90.
 
 | Bifurcación | Opciones | Posición asociada |
 | --- | --- | --- |
@@ -24,6 +24,6 @@ El multiverso principal (1948–) combina estas bifurcaciones y suma {{m-n}} esp
 
 **Denominador.** La tasa de ganancia se define como pv/(c + v), plusvalor sobre el capital global adelantado. En la bifurcación K + V, v es la remuneración anual del trabajo productivo de la misma variante (a, b o c). Usar el flujo anual equivale a suponer una sola rotación del capital variable por año: si v rota n veces, el capital variable adelantado es v/n y la tasa queda entre las dos variantes publicadas (K y K + V). Las cuentas nacionales no publican el número de rotaciones. La bifurcación sólo existe en el sector empresarial, donde v está definido; en las especificaciones corporativas el denominador es K.
 
-K es siempre el stock neto de activos fijos del BEA (fin de año). En el sector empresarial se excluyen las instituciones sin fines de lucro y los hogares. La lista completa de especificaciones, con todas sus series, está en las [descargas](descargas/) (`eeuu_especificaciones.csv`, `eeuu_multiverso_tasas.csv`).
+K es siempre el stock neto de activos fijos del BEA (fin de año). En el sector empresarial se excluyen las instituciones sin fines de lucro y los hogares. La lista completa de especificaciones, con todas sus series, está en las [descargas](descargas/) (`eeuu_especificaciones.csv`, `eeuu_tasas_especificaciones.csv`).
 
-**Transparencia del multiverso.** Publicar todas las combinaciones razonables de decisiones, en lugar de una estimación elegida, es lo que Steegen, Tuerlinckx, Gelman y Vanpaemel (2016) llaman análisis de multiverso: hace visible cuánto de un resultado depende de los datos y cuánto de las decisiones con que se los construye. El sitio ofrece tres accesos a las 288 especificaciones principales y a las 64 intra-rama: el [explorador](index.html#explorador) de la portada, donde se elige una opción en cada bifurcación y se ve la curva resultante sobre el abanico; el [mapa](mapa.html), donde cada hoja es una especificación y cada bifurcación muestra la mediana de sus opciones; y la [tabla de las especificaciones](descargas/eeuu_multiverso_tabla.csv) (`eeuu_multiverso_tabla.csv`), con una fila por especificación, sus decisiones en palabras, la tasa (%) en 1948, 1982 y el último año, y sus años de quiebre.
+**Transparencia de las especificaciones.** Publicar todas las combinaciones razonables de decisiones, en lugar de una estimación elegida, es lo que la metodología de las ciencias sociales llama, en la literatura internacional, *multiverse analysis* (Steegen, Tuerlinckx, Gelman y Vanpaemel, 2016), emparentado con el *specification curve analysis* (Simonsohn, Simmons y Nelson, 2020). El sitio usa la expresión «espacio de especificaciones» o «conjunto de cálculos posibles»; el método es el mismo: hace visible cuánto de un resultado depende de los datos y cuánto de las decisiones con que se los construye. El sitio ofrece tres accesos a las 288 especificaciones principales y a las 64 intra-rama: el [explorador](index.html#explorador) de la portada, donde se elige una opción en cada bifurcación y se ve la curva resultante sobre el abanico; el [mapa](mapa.html), donde cada hoja es una especificación y cada bifurcación muestra la mediana de sus opciones; y la [tabla de las especificaciones](descargas/eeuu_tabla_especificaciones.csv) (`eeuu_tabla_especificaciones.csv`), con una fila por especificación, sus decisiones en palabras, la tasa (%) en 1948, 1982 y el último año, y sus años de quiebre.

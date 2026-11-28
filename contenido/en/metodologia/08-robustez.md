@@ -5,7 +5,7 @@ menu: Robustness by decade
 ---
 ## Robustness by decade
 
-For each pair of consecutive decades, the percentage of specifications in the main multiverse whose decade average falls is calculated. The classification is:
+For each pair of consecutive decades, the percentage of specifications in the main set of specifications whose decade average falls is calculated. The classification is:
 
 - **robust: falls**, if it falls in ≥ 90% of specifications;
 - **robust: rises**, if it falls in ≤ 10%;

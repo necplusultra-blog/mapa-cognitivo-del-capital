@@ -2,6 +2,11 @@ cff-version: 1.2.0
 message: "Si usas este software o sus datos, cítalo así."
 title: "Mapa cognitivo del capital: tasa y masa de ganancia y de plusvalor (EE.UU. y mundo)"
 version: "1.0.0"
+doi: "10.5281/zenodo.24551894"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24551894"
+    description: "Versión archivada en Zenodo"
 type: software
 authors:
   - family-names: "Jiménez Cea"
@@ -15,5 +20,5 @@ keywords:
   - tasa de ganancia
   - crítica de la economía política
   - plusvalor
-  - multiverso
+  - espacio de especificaciones
   - límites inmanentes del capital

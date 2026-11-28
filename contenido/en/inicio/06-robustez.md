@@ -14,5 +14,5 @@ Sources: BEA: national accounts (NIPA), GDP by industry and fixed assets; BLS: e
 {: .fuente }
 
 :::como How is this table calculated?
-For each specification in the main multiverse, the average of each decade (and of the period from 2020 to the latest year) is calculated. Then the percentage of specifications whose average is lower than in the previous decade is counted. ‘Robust: falls’ if that percentage is ≥ 90%; ‘robust: rises’ if it is ≤ 10%; ‘theory-dependent’ in all other cases. Decades are reporting units, not theoretical breaks.
+For each specification in the main set, the average of each decade (and of the period from 2020 to the latest year) is calculated. Then the percentage of specifications whose average is lower than in the previous decade is counted. ‘Robust: falls’ if that percentage is ≥ 90%; ‘robust: rises’ if it is ≤ 10%; ‘theory-dependent’ in all other cases. Decades are reporting units, not theoretical breaks.
 :::

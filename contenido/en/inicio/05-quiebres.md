@@ -7,7 +7,7 @@ menu: Endogenous breaks
 
 How many specifications detect a break in trend in each year. No break point is fixed in advance.
 
-A statistical procedure searches, in each of the measurements of the multiverse, for the years in which the rate changes course, without anyone telling it where to look. Each bar counts how many measurements show a change of course in that year. The tall bars are the tremors that almost all of them record. They serve to test the periodisations of theory against what the data mark out on their own.
+A statistical procedure searches, in each of the measurements in the set, for the years in which the rate changes course, without anyone telling it where to look. Each bar counts how many measurements show a change of course in that year. The tall bars are the tremors that almost all of them record. They serve to test the periodisations of theory against what the data mark out on their own.
 {: .llano }
 
 [[grafico c-quiebres corto]]

@@ -1,9 +1,9 @@
 ---
-seccion: "02 The US multiverse"
+seccion: "02 Set of calculations, US"
 id: multiverso
-menu: The US multiverse
+menu: Possible calculations of the US rate of profit
 ---
-## United States: the spread of the multiverse
+## United States: the set of possible calculations of the rate of profit
 
 {{m-n}} specifications of the US rate of profit, each normalised to its period average (= 100). The light band covers the 10th to 90th percentiles; the dark band, the 25th to 75th; the line is the median.
 

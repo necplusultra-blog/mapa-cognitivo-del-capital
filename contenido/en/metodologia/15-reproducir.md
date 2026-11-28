@@ -24,4 +24,4 @@ Modules:
 
 Licences: code MIT; derived data and texts CC BY 4.0.
 
-Citation: Jiménez Cea, P. I. (2026). *Cognitive Map of Capital: multiverse of the rate of profit*. https://github.com/necplusultra-blog/mapa-cognitivo-del-capital
+Citation: Jiménez Cea, P. I. (2026). *Cognitive Map of Capital: rate and mass of profit and surplus value* [software and data]. Zenodo. https://doi.org/10.5281/zenodo.24551894. Code: https://github.com/necplusultra-blog/mapa-cognitivo-del-capital

@@ -14,7 +14,7 @@ El mapa cognitivo pone a seis corrientes del debate marxista a leer los mismos d
 | Kliman | Corporativo, costo histórico | excedente neto corporativo sobre K a costo histórico |
 | Duménil y Lévy | No financiero, costo corriente | excedente neto de las corporaciones no financieras sobre K a costo corriente |
 | Roberts y Carchedi | pv/(c + v) y tasa mundial | variante b con el capital variable anual en el denominador; tasa neta mundial de la Penn World Table |
-| Heinrich | (ninguna) | el abanico del multiverso y la tabla de robustez por décadas |
+| Heinrich | (ninguna) | el abanico de las especificaciones y la tabla de robustez por décadas |
 
 A ellas se agrega una línea de base, **empresarial, todo productivo** (variante a), que no distingue trabajo productivo e improductivo.
 

@@ -1,6 +1,8 @@
 # Mapa cognitivo del capital
 
-**Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, organizado como un multiverso de especificaciones teóricamente explícitas.**
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24551894.svg)](https://doi.org/10.5281/zenodo.24551894)
+
+**Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, organizado como un espacio de especificaciones teóricamente explícitas.**
 
 El objetivo de este mapa cognitivo del capitalismo contemporáneo —una cartografía crítica de las relaciones sociales capitalistas a escala global, en el sentido de Jameson (1988)— es dar cuenta de las tendencias fundamentales de la producción capitalista contemporánea, mediante el estudio de diversos datos empíricos y el cruce de las principales interpretaciones marxistas, que se ponen a leer los mismos datos. Registra también el estado de las fuerzas productivas: el tiempo que libera la reducción relativa del trabajo necesario y en qué lo convierte el capital.
 
@@ -59,4 +61,4 @@ Todas son públicas y no requieren claves:
 
 Investigación doctoral de Pablo Ignacio Jiménez Cea, *Los límites inmanentes del capital* (Doctorado en Sociología, ICSyH-BUAP; candidatura aprobada, conclusión prevista en agosto de 2029). Marco teórico: Jiménez Cea, P. I. (2026). The immanent dialectic of capital: Falling rate of profit and the crisis of late capitalism. *Capital & Class*. https://doi.org/10.1177/03098168261503922
 
-Jiménez Cea, P. I. (2026). *Mapa cognitivo del capital: multiverso de la tasa de ganancia* [software y datos]. https://github.com/necplusultra-blog/mapa-cognitivo-del-capital
+Jiménez Cea, P. I. (2026). *Mapa cognitivo del capital: tasa y masa de ganancia y de plusvalor* [software y datos]. Zenodo. https://doi.org/10.5281/zenodo.24551894

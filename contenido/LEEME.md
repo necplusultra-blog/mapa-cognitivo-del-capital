@@ -16,9 +16,9 @@ En unos cinco minutos, GitHub Actions reconstruye y publica el sitio. El avance 
 - `lectura/`: la página «Primera lectura de los resultados», la interpretación teórica de la medición.
 - `metodologia/`: la página de metodología, también con un archivo por sección.
 - `glosario/`: la pestaña «Glosario» (símbolos, series publicadas y decisiones del multiverso). Las tablas se llenan solas con los datos del mapa; aquí se editan los títulos y los párrafos que las rodean.
-- `mapa.yml`: **todos los textos de la pestaña Mapa** (título de la lámina, botones, panel «Cómo leer el mapa», leyenda, fichas de los nodos, capa «Símbolos», los pasos del recorrido guiado, los nombres y descripciones de las cinco estaciones del eje y los rótulos dibujados en la lámina). En Pages CMS aparece como «Pestaña Mapa (textos)», con un campo por texto. Reglas:
+- `mapa.yml`: **todos los textos de la pestaña Mapa** (título y bajada de la figura, botones, panel «Cómo leer la figura», leyenda, fichas de los nodos, capa «Símbolos», los pasos del recorrido guiado, los nombres y descripciones de las cinco estaciones del eje, y los títulos, leyendas y rótulos de los paneles A–D dibujados en la figura). En Pages CMS aparece como «Pestaña Mapa (textos)», con un campo por texto. Reglas:
   - Las llaves `{n}`, `{eeuu}`, `{mundo}`, `{fecha}`, `{semilla}`, `{version}`, `{familia}` se reemplazan por cifras o nombres: no las borres.
-  - El título de la lámina, el párrafo del panel y los textos del recorrido admiten Markdown (`**negrita**`, `*cursiva*`, `` `código` ``).
+  - El título de la figura, el párrafo del panel y los textos del recorrido admiten Markdown (`**negrita**`, `*cursiva*`, `` `código` ``).
   - En el recorrido, cada paso tiene una `clave` que decide adónde vuela la cámara: no la cambies. Sí puedes reordenar, quitar o duplicar pasos y cambiar sus títulos y textos.
   - Si borras un campo, el sitio usa el texto por defecto del código.
   - La versión inglesa está en `en/mapa.yml`.

@@ -10,7 +10,7 @@ Marx (2021, pp. 297–307) expone seis causas que contrarrestan la caída tenden
 
 ### Qué movió la tasa en cada fase
 
-La tasa de ganancia puede escribirse como r = e · v/K: sube si sube la tasa de plusvalor e y baja si sube la composición K/V. Las fases no se eligen de antemano: sus límites son los años de quiebre más frecuentes en el multiverso ({{ct-cortes}}). Cada barra mide, en logaritmos, cuánto aportó cada factor al cambio de la tasa en esa fase.
+La tasa de ganancia puede escribirse como r = e · v/K: sube si sube la tasa de plusvalor e y baja si sube la composición K/V. Las fases no se eligen de antemano: sus límites son los años de quiebre más frecuentes en el conjunto de especificaciones ({{ct-cortes}}). Cada barra mide, en logaritmos, cuánto aportó cada factor al cambio de la tasa en esa fase.
 
 La tasa de ganancia sube si el capital obtiene más plusvalor por cada dólar de salario (tasa de plusvalor) y baja si necesita más capital por cada dólar de salario (composición). En cada periodo, las barras muestran cuánto empujó cada fuerza. Si la barra de la tasa de plusvalor es más alta que la caída por la composición, la tasa de ganancia sube; si no, baja. Así se ve qué contratendencia sostuvo la ganancia en cada etapa y cuándo dejó de hacerlo.
 {: .llano }
@@ -43,13 +43,13 @@ Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS:
 La misma descomposición, repetida para las 16 especificaciones de cada criterio de trabajo productivo (costo corriente o histórico, neta o bruta, con o sin propiedad intelectual, todo el capital o sólo el de las ramas productivas). Cada celda da la mediana y, entre paréntesis, el rango de los percentiles 10 a 90. La última columna indica en qué porcentaje de las especificaciones en que la composición sube, la elevación de la tasa de plusvalor alcanza a compensarla.
 {: .nota }
 
-La tabla repite el cálculo con todas las mediciones del multiverso. Si el resultado de una fase se mantiene en casi todas, no depende de la teoría.
+La tabla repite el cálculo con todas las mediciones del conjunto de especificaciones. Si el resultado de una fase se mantiene en casi todas, no depende de la teoría.
 {: .llano }
 
 [[tabla t-ct-fm: Criterio | Fase | Aporte de e | Aporte de K/V | Especificaciones en que la tasa sube | e compensa la composición]]
 
 :::como ¿Cómo se calcula esta descomposición?
-Para cada fase entre los años a<sub>0</sub> y a<sub>1</sub>: Δln r = Δln e − Δln(K/V), con e = S/V y K/V tomados de la sección «La ley bifacética» (plusvalor ampliado neto del sector empresarial; K a costo corriente; V por ramas desde 1948 o intra-rama desde 1972). En la variante intra-rama, K/V = (K<sub>real</sub>/H) · (P<sub>K</sub>/w): K<sub>real</sub> es K deflactado por el precio implícito del capital fijo privado no residencial (stock a costo corriente sobre índice de cantidad del BEA, 2017 = 1); H son las horas de los obreros productivos (BLS) y w = V/H. Los años de corte son los cinco años de quiebre más frecuentes en el multiverso principal (configuración base: tramo mínimo de 8 años, BIC), separados entre sí por al menos seis años. Las descargas incluyen la tabla completa (contratendencias_fases.csv).
+Para cada fase entre los años a<sub>0</sub> y a<sub>1</sub>: Δln r = Δln e − Δln(K/V), con e = S/V y K/V tomados de la sección «La ley bifacética» (plusvalor ampliado neto del sector empresarial; K a costo corriente; V por ramas desde 1948 o intra-rama desde 1972). En la variante intra-rama, K/V = (K<sub>real</sub>/H) · (P<sub>K</sub>/w): K<sub>real</sub> es K deflactado por el precio implícito del capital fijo privado no residencial (stock a costo corriente sobre índice de cantidad del BEA, 2017 = 1); H son las horas de los obreros productivos (BLS) y w = V/H. Los años de corte son los cinco años de quiebre más frecuentes en el conjunto principal de especificaciones (configuración base: tramo mínimo de 8 años, BIC), separados entre sí por al menos seis años. Las descargas incluyen la tabla completa (contratendencias_fases.csv).
 :::
 
 ### 1. Elevación del grado de explotación

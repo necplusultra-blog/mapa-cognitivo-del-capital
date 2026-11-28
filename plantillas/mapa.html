@@ -16,18 +16,22 @@
   <nav aria-label="Páginas"><a href="mapa.html" aria-current="page">Mapa</a><a href="lectura.html">Lectura</a><a href="metodologia.html">Metodología</a><a href="glosario.html">Glosario</a><a href="descargas/">Descargas</a><a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">Código</a><span class="idioma" role="group" aria-label="Idioma / Language"><span class="activo" aria-current="true">ES</span><a class="cambiar-idioma" href="en/map.html" hreflang="en" lang="en" title="Read this page in English">EN</a></span></nav>
 </header>
 <div class="escenario">
-  <div class="lamina" id="lamina">
-    <div class="rotulo"><div class="kicker">{{cabecera.antetitulo}}</div>
-      <h1>{{cabecera.titulo}}</h1>
-      <div class="claves"><span><i style="background:#9d86ff"></i>{{cabecera.clave_a}}</span><span><i style="background:#3fc8e0"></i>{{cabecera.clave_b}}</span><span><i style="background:#ff5c7a"></i>{{cabecera.clave_quiebres}}</span></div></div>
-    <div id="estado" aria-live="polite"></div>
-    <section class="guia" id="guia" hidden aria-live="polite" aria-label="Recorrido guiado"></section>
-    <div class="simbolos" id="simbolos" hidden role="dialog" aria-label="Símbolos y expresiones"></div>
-    <div class="mandos" role="toolbar" aria-label="Mandos del mapa">
-      <div class="grupo"><button class="btn-recorrer" id="btn-recorrer" aria-pressed="false">{{cabecera.boton_recorrer}}</button></div>
-      <div class="grupo"><button id="btn-simbolos" aria-pressed="false">{{cabecera.boton_simbolos}}</button></div>
-      <div class="grupo"><button id="menos" aria-label="{{cabecera.boton_alejar}}">−</button><button id="mas" aria-label="{{cabecera.boton_acercar}}">+</button><button id="encuadre">{{cabecera.boton_encuadre}}</button></div>
-      <div class="grupo"><button id="png">PNG</button><button id="svg">SVG</button></div>
+  <div class="figura">
+    <div class="cab-figura">
+      <div class="rotulo"><div class="kicker">{{cabecera.antetitulo}}</div>
+        <h1>{{cabecera.titulo}}</h1>
+        <p class="bajada">{{cabecera.bajada}}</p></div>
+      <div class="mandos" role="toolbar" aria-label="Mandos de la figura">
+        <button class="btn-recorrer" id="btn-recorrer" aria-pressed="false">{{cabecera.boton_recorrer}}</button>
+        <button id="btn-simbolos" aria-pressed="false">{{cabecera.boton_simbolos}}</button>
+        <span class="grupo"><button id="menos" aria-label="{{cabecera.boton_alejar}}">−</button><button id="mas" aria-label="{{cabecera.boton_acercar}}">+</button><button id="encuadre">{{cabecera.boton_encuadre}}</button></span>
+        <span class="grupo"><button id="png">PNG</button><button id="svg">SVG</button></span>
+      </div>
+    </div>
+    <div class="lamina" id="lamina">
+      <div id="estado" aria-live="polite"></div>
+      <section class="guia" id="guia" hidden aria-live="polite" aria-label="Recorrido guiado"></section>
+      <div class="simbolos" id="simbolos" hidden role="dialog" aria-label="Símbolos y expresiones"></div>
     </div>
   </div>
   <aside class="panel" id="panel" aria-live="polite"></aside>

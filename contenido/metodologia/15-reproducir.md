@@ -24,4 +24,4 @@ Módulos:
 
 Licencias: código MIT; datos derivados y textos CC BY 4.0.
 
-Cita: Jiménez Cea, P. I. (2026). *Mapa cognitivo del capital: multiverso de la tasa de ganancia*. https://github.com/necplusultra-blog/mapa-cognitivo-del-capital
+Cita: Jiménez Cea, P. I. (2026). *Mapa cognitivo del capital: tasa y masa de ganancia y de plusvalor* [software y datos]. Zenodo. https://doi.org/10.5281/zenodo.24551894. Código: https://github.com/necplusultra-blog/mapa-cognitivo-del-capital

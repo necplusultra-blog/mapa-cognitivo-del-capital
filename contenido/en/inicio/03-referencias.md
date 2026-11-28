@@ -60,7 +60,7 @@ Net rates in %, at current cost except the Kliman-type rate (historical cost). H
 :::
 
 :::lectura | Heinrich: there is no law that the data could confirm
-**What it looks at.** It does not propose a measure. It reads the entire spread of the multiverse and asks whether the fall can be deduced from the determinations of capital.
+**What it looks at.** It does not propose a measure. It reads the entire spread of the specifications and asks whether the fall can be deduced from the determinations of capital.
 
 **What it sees here.** Only {{lx-dec-rob}} of the {{lx-dec-n}} changes between decades hold across all specifications. The K/V composition rose until 1982 ({{lx-kv82}}), fell until 2000 owing to the cheapening of capital, and rose again. The level and the direction depend on the theory adopted.
 

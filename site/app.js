@@ -363,7 +363,7 @@ function draw() {
   set('k-masa', f0(masa[masa.length - 1].masa_ramas)); set('k-masa48', f0(masa[0].masa_ramas));
   const cn = mmasa.filter((r) => r.china_pct_K != null);
   set('k-cn', f1(cn[cn.length - 1].china_pct_K) + PCT); set('k-cn00', f1(mmasa.find((r) => r.anio === 2000).china_pct_K) + PCT);
-  lineChart('c-bandas', bandas, [{ key: 'p50', label: 'Mediana' }], { bands: [['p10', 'p90'], ['p25', 'p75']], ref: 100, tipfmt: d3.format('.1f'), aria: 'Abanico del multiverso de la tasa de ganancia de EE.UU.', tipExtra: (r) => [['P90', r.p90], ['P75', r.p75], ['P25', r.p25], ['P10', r.p10]] });
+  lineChart('c-bandas', bandas, [{ key: 'p50', label: 'Mediana' }], { bands: [['p10', 'p90'], ['p25', 'p75']], ref: 100, tipfmt: d3.format('.1f'), aria: 'Abanico de las especificaciones de la tasa de ganancia de EE.UU.', tipExtra: (r) => [['P90', r.p90], ['P75', r.p75], ['P25', r.p25], ['P10', r.p10]] });
   legend('l-ref', REFS.map((s) => s[1]));
   lineChart('c-ref', ref, REFS.map(([key, label]) => ({ key, label })), { yfmt: (v) => v + PCT, tipfmt: (v) => d3.format('.1f')(v) + PCT, aria: 'Seis medidas de la tasa de ganancia de EE.UU., a la manera de las corrientes del debate' });
   drawLecturas(ref, masa, mtasas, decadas);

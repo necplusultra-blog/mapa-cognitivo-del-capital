@@ -14,7 +14,7 @@ The cognitive map sets six currents of the Marxist debate to read the same data.
 | Kliman | Corporate, historical cost | corporate net surplus over K at historical cost |
 | Duménil and Lévy | Non-financial, current cost | net surplus of non-financial corporations over K at current cost |
 | Roberts and Carchedi | pv/(c + v) and world rate | variant b with annual variable capital in the denominator; world net rate from the Penn World Table |
-| Heinrich | (none) | the spread of the multiverse and the table of robustness by decade |
+| Heinrich | (none) | the spread of the specifications and the table of robustness by decade |
 
 To these is added a baseline, **business, all productive** (variant a), which does not distinguish between productive and unproductive labour.
 

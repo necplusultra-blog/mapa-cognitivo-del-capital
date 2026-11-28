@@ -271,7 +271,7 @@ def calcular(dir_datos, dir_out):
     c['expresion_monetaria_hora_real'] = c['expresion_monetaria_hora'] / DEFL.reindex(c.index) * 100
     masa['c'] = c
 
-    R.to_csv(os.path.join(dir_out, 'eeuu_multiverso_tasas.csv'), index_label='anio')
+    R.to_csv(os.path.join(dir_out, 'eeuu_tasas_especificaciones.csv'), index_label='anio')
     M.to_csv(os.path.join(dir_out, 'eeuu_especificaciones.csv'))
     for k, v in masa.items(): v.to_csv(os.path.join(dir_out, f'eeuu_masa_plusvalor_{k}.csv'), index_label='anio')
     pd.DataFrame({'COMP_U': COMP_U, 'V_ramas': V['b'], 'V_intra_rama': V['c'], 'COMP_empresarial': COMP_BUS}).to_csv(os.path.join(dir_out, 'eeuu_salarios.csv'), index_label='anio')

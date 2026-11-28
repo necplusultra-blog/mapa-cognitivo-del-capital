@@ -145,15 +145,9 @@ content:
           - name: titulo
             label: "Título"
             type: string
-            description: "Admite Markdown: *cursiva* (p. ej. *multiverso*)."
-          - name: clave_a
-            label: "Clave A (EE.UU.)"
-            type: string
-          - name: clave_b
-            label: "Clave B (mundo)"
-            type: string
-          - name: clave_quiebres
-            label: "Clave quiebres"
+            description: "Admite Markdown: *cursiva*."
+          - name: bajada
+            label: "Bajada (bajo el título)"
             type: string
           - name: boton_recorrer
             label: "Botón recorrer"
@@ -171,9 +165,12 @@ content:
             label: "Botón encuadre"
             type: string
       - name: panel
-        label: Panel «Cómo leer el mapa»
+        label: Panel «Cómo leer la figura»
         type: object
         fields:
+          - name: boton_todos_simbolos
+            label: "Botón todos símbolos"
+            type: string
           - name: antetitulo
             label: "Antetítulo"
             type: string
@@ -196,9 +193,6 @@ content:
           - name: rotulo_simbolos
             label: "Rótulo símbolos"
             type: string
-          - name: boton_todos_simbolos
-            label: "Botón todos símbolos"
-            type: string
           - name: rotulo_nodos
             label: "Rótulo nodos"
             type: string
@@ -214,23 +208,26 @@ content:
           - name: leyenda_decisión_mundo
             label: "Leyenda decisión mundo"
             type: string
-          - name: leyenda_serie
-            label: "Leyenda serie"
-            type: string
           - name: leyenda_especificación
             label: "Leyenda especificación"
+            type: string
+          - name: leyenda_crisis
+            label: "Leyenda crisis"
             type: string
           - name: leyenda_empalme
             label: "Leyenda empalme"
             type: string
-          - name: leyenda_guia
-            label: "Leyenda guía"
+          - name: leyenda_serie
+            label: "Leyenda serie"
             type: string
           - name: ayuda
             label: "Ayuda"
             type: string
           - name: nota_datos
             label: "Nota datos"
+            type: string
+          - name: cita
+            label: "Cómo citar (DOI)"
             type: string
       - name: ficha
         label: Fichas de los nodos
@@ -254,6 +251,9 @@ content:
           - name: tipo_empalme
             label: "Tipo: empalme"
             type: string
+          - name: quiebres_aria
+            label: "Quiebres (accesibilidad)"
+            type: string
           - name: fijado
             label: "Fijado"
             type: string
@@ -270,10 +270,10 @@ content:
             label: "Glosario (CSV)"
             type: string
           - name: decisión_explicita
-            label: "Decisión explícita"
+            label: "Decision explicita"
             type: string
           - name: abrev_especificaciónes
-            label: "Abreviatura de especificaciones"
+            label: "Abreviatura de especificaciónes"
             type: string
           - name: decisiónes_especificación
             label: "Decisiones especificación"
@@ -298,9 +298,6 @@ content:
             type: string
           - name: quiebres_rama
             label: "Quiebres rama"
-            type: string
-          - name: quiebres_aria
-            label: "Quiebres (accesibilidad)"
             type: string
           - name: ruta
             label: "Ruta"
@@ -336,6 +333,9 @@ content:
           - name: intro
             label: "Introducción"
             type: text
+          - name: cerrar
+            label: "Cerrar"
+            type: string
           - name: subtitulo_series
             label: "Subtítulo series"
             type: string
@@ -345,18 +345,15 @@ content:
           - name: enlace_csv
             label: "Enlace CSV"
             type: string
-          - name: cerrar
-            label: "Cerrar"
-            type: string
       - name: recorrido
         label: Recorrido guiado
         type: object
         fields:
-          - name: rotulo
-            label: "Rótulo"
-            type: string
           - name: aria
             label: "Descripción accesible"
+            type: string
+          - name: rotulo
+            label: "Rótulo"
             type: string
           - name: salir
             label: "Salir"
@@ -406,7 +403,7 @@ content:
             label: "SVG"
             type: string
       - name: lamina
-        label: Lámina (motor del mapa)
+        label: Figura (rótulos dibujados en el lienzo)
         type: object
         fields:
           - name: estaciones
@@ -420,44 +417,74 @@ content:
               - name: descripcion
                 label: "Descripción"
                 type: text
-          - name: raiz_nombre
-            label: "Raíz nombre"
+          - name: eje_titulo
+            label: "Rótulo del eje"
             type: string
-          - name: raiz_descripcion
-            label: "Raíz descripción"
-            type: text
-          - name: bifurcacion_nombre
-            label: "Bifurcación nombre"
+          - name: b_paises
+            label: "Rótulo de las barras de países (B)"
             type: string
-          - name: bifurcacion_descripcion
-            label: "Bifurcación descripción"
-            type: text
           - name: empalme_nombre
             label: "Empalme nombre"
             type: string
-          - name: empalme_subtitulo
-            label: "Empalme subtítulo"
+          - name: d_eje_y
+            label: "Eje vertical del panel D"
             type: string
-          - name: empalme_descripcion
-            label: "Empalme descripción"
-            type: text
+          - name: d_leyenda
+            label: "Leyenda de las bandas (D)"
+            type: string
+          - name: d_barras
+            label: "Leyenda de las barras (D)"
+            type: string
+          - name: titulo_a
+            label: "Título del panel A"
+            type: string
+          - name: sub_a
+            label: "Bajada del panel A"
+            type: string
+          - name: titulo_b
+            label: "Título del panel B"
+            type: string
+          - name: sub_b
+            label: "Bajada del panel B"
+            type: string
+          - name: titulo_c
+            label: "Título del panel C"
+            type: string
+          - name: titulo_d
+            label: "Título del panel D"
+            type: string
+          - name: leyenda_anillos
+            label: "Leyenda anillos"
+            type: string
+          - name: leyenda_hojas
+            label: "Leyenda hojas"
+            type: string
+          - name: leyenda_corona
+            label: "Leyenda corona"
+            type: string
+          - name: leyenda_quiebre
+            label: "Leyenda quiebre"
+            type: string
+          - name: leyenda_crisis
+            label: "Leyenda crisis"
+            type: string
+          - name: leyenda_empalme
+            label: "Leyenda empalme"
+            type: string
+          - name: pie
+            label: "Pie de la figura (sólo en PNG y SVG)"
+            type: string
+          - name: raiz_nombre
+            label: "Raíz nombre"
+            type: string
+          - name: bifurcacion_nombre
+            label: "Bifurcación nombre"
+            type: string
+          - name: enlace_leer
+            label: "Enlace leer"
+            type: string
           - name: sub_estacion
             label: "Subtítulo de estación"
-            type: string
-          - name: sub_bifurcacion
-            label: "Subtítulo: bifurcación"
-            type: string
-          - name: sub_especificación
-            label: "Subtítulo: especificación"
-            type: string
-          - name: sub_especificación_mundial
-            label: "Subtítulo: especificación mundial"
-            type: string
-          - name: sub_familia
-            label: "Subtítulo: familia"
-            type: string
-          - name: sub_serie
-            label: "Subtítulo: serie"
             type: string
           - name: arbol_eeuu
             label: "Árbol EE.UU."
@@ -465,14 +492,8 @@ content:
           - name: arbol_mundo
             label: "Árbol mundo"
             type: string
-          - name: no_aplica
-            label: "No aplica"
-            type: string
-          - name: enlace_leer
-            label: "Enlace «leer en el sitio»"
-            type: string
           - name: enlace_multiverso
-            label: "Enlace multiverso"
+            label: "Enlace a los cálculos en el sitio"
             type: string
           - name: enlace_metodologia_5
             label: "Enlace metodología 5"
@@ -483,53 +504,44 @@ content:
           - name: enlace_metodologia
             label: "Enlace metodología"
             type: string
+          - name: sub_bifurcacion
+            label: "Subtítulo: bifurcación"
+            type: string
+          - name: raiz_descripcion
+            label: "Raíz descripción"
+            type: text
+          - name: bifurcacion_descripcion
+            label: "Bifurcación descripción"
+            type: text
           - name: enlace_plusvalor
             label: "Enlace plusvalor"
+            type: string
+          - name: sub_especificación
+            label: "Subtítulo: especificación"
+            type: string
+          - name: sub_especificación_mundial
+            label: "Subtítulo: especificación mundial"
+            type: string
+          - name: no_aplica
+            label: "No aplica"
+            type: string
+          - name: sub_familia
+            label: "Subtítulo: familia"
             type: string
           - name: enlace_seccion
             label: "Enlace sección"
             type: string
+          - name: sub_serie
+            label: "Subtítulo: serie"
+            type: string
+          - name: empalme_subtitulo
+            label: "Empalme subtítulo"
+            type: string
+          - name: empalme_descripcion
+            label: "Empalme descripción"
+            type: text
           - name: enlace_empalmes
             label: "Enlace empalmes"
-            type: string
-          - name: rotulo_registro
-            label: "Rótulo registro"
-            type: string
-          - name: rotulo_eje_1
-            label: "Rótulo eje 1"
-            type: string
-          - name: rotulo_eje_2
-            label: "Rótulo eje 2"
-            type: string
-          - name: rotulo_eje_3
-            label: "Rótulo eje 3"
-            type: string
-          - name: rotulo_eje_4
-            label: "Rótulo eje 4"
-            type: string
-          - name: rotulo_eje_5
-            label: "Rótulo eje 5"
-            type: string
-          - name: rotulo_raiz
-            label: "Rótulo raíz"
-            type: string
-          - name: rotulo_bifurcacion
-            label: "Rótulo bifurcación"
-            type: string
-          - name: rotulo_empalmes
-            label: "Rótulo empalmes"
-            type: string
-          - name: rotulo_region
-            label: "Rótulo región"
-            type: string
-          - name: marca
-            label: "Marca"
-            type: string
-          - name: topologia
-            label: "Topología"
-            type: string
-          - name: datos
-            label: "Datos"
             type: string
           - name: aria
             label: "Descripción accesible"

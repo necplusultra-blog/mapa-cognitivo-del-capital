@@ -1,10 +1,10 @@
 ---
-seccion: 02 El multiverso de EE.UU.
-menu: El multiverso de la tasa de ganancia de EE.UU.
+seccion: 02 Conjunto de cálculos de EE.UU.
+menu: Cálculos posibles de la tasa de ganancia de EE.UU.
 id: multiverso
 oculta: false
 ---
-## EE.UU.: el abanico del multiverso de la tasa de ganancia
+## EE.UU.: el conjunto de cálculos posibles de la tasa de ganancia
 
 {{m-n}} especificaciones de la tasa de ganancia de EE.UU., cada una normalizada a su promedio del periodo (= 100). La banda clara cubre los percentiles 10 a 90; la oscura, 25 a 75; la línea es la mediana.
 

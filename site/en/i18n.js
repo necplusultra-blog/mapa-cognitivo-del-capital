@@ -35,8 +35,8 @@ window.TRAD_EN = {
   'Empresarial, todo productivo (línea de base)': 'Business sector, all productive (baseline)', 'Plusvalor ampliado por ramas (tipo Shaikh-Tonak)': 'Broad surplus value by industry (Shaikh–Tonak type)',
   'Plusvalor ampliado intra-rama, desde 1972 (tipo Moseley)': 'Broad surplus value within industries, from 1972 (Moseley type)', 'Plusvalor por ramas sobre c + v (tipo Roberts-Carchedi)': 'Surplus value by industry over c + v (Roberts–Carchedi type)',
   'Seis medidas de la tasa de ganancia de EE.UU., a la manera de las corrientes del debate': 'Six measures of the US rate of profit, in the manner of the currents in the debate',
-  // multiverso y quiebres
-  'Abanico del multiverso de la tasa de ganancia de EE.UU.': 'Fan of the multiverse of the US rate of profit', 'Quiebres por año': 'Breaks per year', '{n}: {n} especificaciones': '{n}: {n} specifications',
+  // especificaciones y quiebres
+  'Abanico de las especificaciones de la tasa de ganancia de EE.UU.': 'Spread of the specifications of the US rate of profit', 'Quiebres por año': 'Breaks per year', '{n}: {n} especificaciones': '{n}: {n} specifications',
   'robusto: baja': 'robust: falls', 'robusto: sube': 'robust: rises', 'dependiente de la teoría': 'theory-dependent',
   'h=6, BIC': 'h=6, BIC', 'h=8, BIC (base)': 'h=8, BIC (baseline)', 'h=10, BIC': 'h=10, BIC', 'h=8, LWZ': 'h=8, LWZ',
   'Tasa de ganancia corporativa trimestral': 'Quarterly corporate rate of profit', 'Por ramas (desde 1948)': 'By industry (from 1948)', 'Corrección intra-rama (desde 1972)': 'Within-industry correction (from 1972)',
