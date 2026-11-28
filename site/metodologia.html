@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Metodología — Mapa cognitivo del capital</title>
 <link rel="alternate" hreflang="en" href="en/methodology.html">
-<link rel="stylesheet" href="style.css?v=68d2fd72611281744">
+<link rel="stylesheet" href="style.css?v=e5aa0f92611281755">
 </head>
 <body class="doc">
 <a class="saltar" href="#contenido">Ir al contenido</a>
@@ -101,7 +101,7 @@
 </ul>
 <p>pv incluye las ganancias, los intereses, las rentas, los impuestos a la producción y los salarios improductivos, que son deducciones de la masa global de plusvalor. La tasa de plusvalor es e = pv/v. En la variante neta se resta la depreciación del capital no residencial del sector empresarial: el consumo de capital fijo no residencial privado, a costo corriente, menos el de las instituciones sin fines de lucro y el de los hogares. Las mediciones en horas de EE.UU. (jornada, masa de plustrabajo, fuerzas productivas) usan la e neta.</p>
 <p>Siguiendo a Moseley (2016), el capital constante y el variable se toman como magnitudes dinerarias dadas (precios efectivos). Por eso no hace falta «transformar» valores en precios para medir la tasa agregada.</p>
-<p class="nota">El significado de cada símbolo y de cada una de las series publicadas, con su expresión y el nombre de su columna en los datos, está reunido en la pestaña <a href="glosario.html">Glosario</a>, que también enumera las decisiones de los multiversos.</p>
+<p class="nota">El significado de cada símbolo y de cada una de las series publicadas, con su expresión y el nombre de su columna en los datos, está reunido en la pestaña <a href="glosario.html">Glosario</a>, que también enumera las decisiones de los dos conjuntos de cálculos.</p>
 </section>
 <section id="multiverso" class="seccion">
 <h2 id="el-espacio-de-especificaciones">El espacio de especificaciones</h2>
@@ -174,7 +174,7 @@
 </section>
 <section id="referencias" class="seccion">
 <h2 id="las-seis-lecturas-del-debate">Las seis lecturas del debate</h2>
-<p>El mapa cognitivo pone a seis corrientes del debate marxista a leer los mismos datos. Para cinco de ellas calcula una tasa «a la manera de» sus autores; la sexta, la de Heinrich (2013; 2014), no propone una medida y se contrasta con el abanico completo del multiverso.</p>
+<p>El mapa cognitivo pone a seis corrientes del debate marxista a leer los mismos datos. Para cinco de ellas calcula una tasa «a la manera de» sus autores; la sexta, la de Heinrich (2013; 2014), no propone una medida y se contrasta con el abanico completo de las especificaciones.</p>
 <table>
 <thead>
 <tr>
@@ -400,7 +400,7 @@
 <div class="f">K/V = (K<sub>real</sub> / H) · (P<sub>K</sub> / w) · P<sub>K</sub> = K<sub>costo corriente</sub> / (índice de cantidad × K<sub>2017</sub> / 100) · w = V / H</div>
 
 <p>El índice de cantidad y el stock a costo corriente son los del capital fijo privado no residencial del BEA (kcntotl1es00, k1ntotl1es00); K y V son los de la variante intra-rama. Los años de corte son los cinco años de quiebre más frecuentes en el conjunto principal de especificaciones (h = 8, BIC), con al menos seis años de separación: la periodización no se fija de antemano.</p>
-<p><strong>Robustez sobre el multiverso.</strong> La descomposición se repite para cada especificación empresarial sin ajuste por utilización y con denominador K (16 por criterio de trabajo productivo: costo corriente o histórico, neta o bruta, con o sin propiedad intelectual, todo el capital o sólo el productivo). Se publican la mediana y los percentiles 10 y 90 de los aportes, el porcentaje de especificaciones en que la tasa sube y, entre las especificaciones en que la composición sube, el porcentaje en que Δln e ≥ Δln(K/V) (contratendencias_fases_especificaciones.csv).</p>
+<p><strong>Robustez sobre el conjunto de especificaciones.</strong> La descomposición se repite para cada especificación empresarial sin ajuste por utilización y con denominador K (16 por criterio de trabajo productivo: costo corriente o histórico, neta o bruta, con o sin propiedad intelectual, todo el capital o sólo el productivo). Se publican la mediana y los percentiles 10 y 90 de los aportes, el porcentaje de especificaciones en que la tasa sube y, entre las especificaciones en que la composición sube, el porcentaje en que Δln e ≥ Δln(K/V) (contratendencias_fases_especificaciones.csv).</p>
 <p><strong>Transferencia de tiempo de trabajo por comercio exterior.</strong> Para cada país, h = H / PIB, con H = ocupados × horas anuales (PWT 11.0) y el PIB en dólares corrientes a tipo de cambio de mercado (Banco Mundial):</p>
 <div class="f">h<sub>X</sub> = Σ<sub>j</sub> X<sub>j</sub> h<sub>j</sub> / Σ<sub>j</sub> X<sub>j</sub> · T<sub>i</sub> = M<sub>i</sub> · h<sub>X</sub> − X<sub>i</sub> · h<sub>i</sub></div>
 
@@ -496,7 +496,7 @@ python run.py                 # descarga, calcula y escribe resultados/ y site/d
 <p>Módulos:</p>
 <ul>
 <li><code>sismografo/descarga.py</code>: fuentes.</li>
-<li><code>eeuu.py</code>: multiverso, plusvalor y tiempo de trabajo.</li>
+<li><code>eeuu.py</code>: espacio de especificaciones, plusvalor y tiempo de trabajo.</li>
 <li><code>trimestral.py</code>: estimación trimestral.</li>
 <li><code>mundo.py</code>: PWT.</li>
 <li><code>ocde_ramas.py</code>: medición por rama con las cuentas de la OCDE.</li>
@@ -588,7 +588,7 @@ fetch('data/meta.json', { cache: 'no-cache' }).then((r) => r.json()).then((m) =>
 });
 </script>
 <script>/* el botón ES | EN conserva la sección (las anclas son iguales en las dos versiones) */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.cambiar-idioma");if(a&&location.hash)a.href=a.getAttribute("href").split("#")[0]+location.hash;});</script>
-<script src="mapa-textos.js?v=68d2fd72611281744" defer></script>
-<script src="mapa-cognitivo.js?v=68d2fd72611281744" data-modo="fondo" defer></script>
+<script src="mapa-textos.js?v=e5aa0f92611281755" defer></script>
+<script src="mapa-cognitivo.js?v=e5aa0f92611281755" data-modo="fondo" defer></script>
 </body>
 </html>

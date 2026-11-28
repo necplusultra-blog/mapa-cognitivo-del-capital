@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Methodology — Cognitive Map of Capital</title>
 <link rel="alternate" hreflang="es" href="../metodologia.html">
-<link rel="stylesheet" href="../style.css?v=68d2fd72611281744">
+<link rel="stylesheet" href="../style.css?v=e5aa0f92611281755">
 </head>
 <body class="doc">
 <a class="saltar" href="#contenido">Skip to content</a>
@@ -101,7 +101,7 @@
 </ul>
 <p>pv includes profits, interest, rents, taxes on production and unproductive wages, which are deductions from the total mass of surplus value. The rate of surplus value is e = pv/v. In the net variant, the depreciation of the business sector's non-residential capital is subtracted: private non-residential consumption of fixed capital, at current cost, minus that of non-profit institutions and households. The US measurements in hours (working day, mass of surplus labour, productive forces) use the net e.</p>
 <p>Following Moseley (2016), constant and variable capital are taken as given money magnitudes (actual prices). That is why there is no need to ‘transform’ values into prices in order to measure the aggregate rate.</p>
-<p class="nota">The meaning of each symbol and of each published series, with its expression and the name of its column in the data, is gathered in the <a href="glossary.html">Glossary</a> tab, which also lists the decisions of the multiverses.</p>
+<p class="nota">The meaning of each symbol and of each published series, with its expression and the name of its column in the data, is gathered in the <a href="glossary.html">Glossary</a> tab, which also lists the decisions of the two sets of calculations.</p>
 </section>
 <section id="multiverso" class="seccion">
 <h2 id="the-specification-space">The specification space</h2>
@@ -174,7 +174,7 @@
 </section>
 <section id="referencias" class="seccion">
 <h2 id="the-six-readings-in-the-debate">The six readings in the debate</h2>
-<p>The cognitive map sets six currents of the Marxist debate to read the same data. For five of them it calculates a rate ‘in the manner of’ their authors; the sixth, Heinrich's (2013; 2014), does not propose a measure and is contrasted with the full spread of the multiverse.</p>
+<p>The cognitive map sets six currents of the Marxist debate to read the same data. For five of them it calculates a rate ‘in the manner of’ their authors; the sixth, Heinrich's (2013; 2014), does not propose a measure and is contrasted with the full spread of the specifications.</p>
 <table>
 <thead>
 <tr>
@@ -400,7 +400,7 @@
 <div class="f">K/V = (K<sub>real</sub> / H) · (P<sub>K</sub> / w) · P<sub>K</sub> = K<sub>current cost</sub> / (quantity index × K<sub>2017</sub> / 100) · w = V / H</div>
 
 <p>The quantity index and the stock at current cost are those of the BEA's private non-residential fixed capital (kcntotl1es00, k1ntotl1es00); K and V are those of the within-industry variant. The cut-off years are the five most frequent break years in the main set of specifications (h = 8, BIC), at least six years apart: the periodisation is not fixed in advance.</p>
-<p><strong>Robustness across the multiverse.</strong> The decomposition is repeated for each business-sector specification without utilisation adjustment and with denominator K (16 per productive-labour criterion: current or historical cost, net or gross, with or without intellectual property, all capital or only productive capital). The median and the 10th and 90th percentiles of the contributions are published, together with the percentage of specifications in which the rate rises and, among the specifications in which the composition rises, the percentage in which Δln e ≥ Δln(K/V) (contratendencias_fases_especificaciones.csv).</p>
+<p><strong>Robustness across the set of specifications.</strong> The decomposition is repeated for each business-sector specification without utilisation adjustment and with denominator K (16 per productive-labour criterion: current or historical cost, net or gross, with or without intellectual property, all capital or only productive capital). The median and the 10th and 90th percentiles of the contributions are published, together with the percentage of specifications in which the rate rises and, among the specifications in which the composition rises, the percentage in which Δln e ≥ Δln(K/V) (contratendencias_fases_especificaciones.csv).</p>
 <p><strong>Transfer of labour time through foreign trade.</strong> For each country, h = H / GDP, with H = persons employed × annual hours (PWT 11.0) and GDP in current dollars at market exchange rates (World Bank):</p>
 <div class="f">h<sub>X</sub> = Σ<sub>j</sub> X<sub>j</sub> h<sub>j</sub> / Σ<sub>j</sub> X<sub>j</sub> · T<sub>i</sub> = M<sub>i</sub> · h<sub>X</sub> − X<sub>i</sub> · h<sub>i</sub></div>
 
@@ -496,7 +496,7 @@ python run.py                 # downloads, computes and writes resultados/ and s
 <p>Modules:</p>
 <ul>
 <li><code>sismografo/descarga.py</code>: sources.</li>
-<li><code>eeuu.py</code>: multiverse, surplus value and labour time.</li>
+<li><code>eeuu.py</code>: specification space, surplus value and labour time.</li>
 <li><code>trimestral.py</code>: quarterly estimate.</li>
 <li><code>mundo.py</code>: PWT.</li>
 <li><code>ocde_ramas.py</code>: measurement by industry with the OECD accounts.</li>
@@ -588,7 +588,7 @@ fetch('../data/meta.json', { cache: 'no-cache' }).then((r) => r.json()).then((m)
 });
 </script>
 <script>/* el botón ES | EN conserva la sección (las anclas son iguales en las dos versiones) */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.cambiar-idioma");if(a&&location.hash)a.href=a.getAttribute("href").split("#")[0]+location.hash;});</script>
-<script src="mapa-textos.js?v=68d2fd72611281744" defer></script>
-<script src="../mapa-cognitivo.js?v=68d2fd72611281744" data-modo="fondo" defer></script>
+<script src="mapa-textos.js?v=e5aa0f92611281755" defer></script>
+<script src="../mapa-cognitivo.js?v=e5aa0f92611281755" data-modo="fondo" defer></script>
 </body>
 </html>

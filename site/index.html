@@ -6,7 +6,7 @@
 <title>Mapa cognitivo del capital — tasa y masa de ganancia y de plusvalor</title>
 <meta name="description" content="Observatorio público y reproducible de la tasa y la masa de ganancia y de plusvalor, en dinero y en tiempo de trabajo: EE.UU. y mundo, como espacio de especificaciones teóricamente explícitas.">
 <link rel="alternate" hreflang="en" href="en/">
-<link rel="stylesheet" href="style.css?v=68d2fd72611281744">
+<link rel="stylesheet" href="style.css?v=e5aa0f92611281755">
 <script src="vendor/d3.min.js"></script>
 </head>
 <body>
@@ -60,7 +60,7 @@
 <details class="como">
 <summary>¿Cómo se calculan estas cuatro cifras?</summary>
 <ul>
-<li><strong>Mediana del multiverso.</strong> Para cada año, la mediana de las tasas de todas las especificaciones del conjunto principal, después de dividir cada una por su propio promedio del periodo y multiplicar por 100.</li>
+<li><strong>Mediana de las especificaciones.</strong> Para cada año, la mediana de las tasas de todas las especificaciones del conjunto principal, después de dividir cada una por su propio promedio del periodo y multiplicar por 100.</li>
 <li><strong>S/V con corrección intra-rama.</strong> S = valor agregado del sector empresarial (BEA, A195RC) − valor agregado de la vivienda arrendada (A2009C − B701RC) − servicios financieros pagados por los hogares con sus salarios (DFNLRC × A033RC / A065RC) − depreciación del capital no residencial del sector − V. V = remuneración de los obreros de producción y no supervisores de las ramas productivas: empleo × salario por hora × horas semanales × 52 por supersector (BLS, CES), escalado por la razón remuneración/salarios para incluir prestaciones.</li>
 <li><strong>Masa de plusvalor en poder de compra.</strong> El mismo S, con V de todas las ramas productivas (criterio por ramas), deflactado con el deflactor del PIB (2017 = 100).</li>
 <li><strong>Peso de China en el capital mundial.</strong> Stock de capital de China a PPA corrientes (cn, Penn World Table 11.0) sobre la suma de los 79 países del panel balanceado (los que tienen datos desde 1960).</li>
@@ -90,7 +90,7 @@
 <details class="como">
 <summary>¿Cómo se calcula este gráfico?</summary>
 <p>Cada especificación es la tasa anual r = numerador / denominador definida por sus decisiones (véase la <a href="metodologia.html#multiverso">metodología, §5</a>). La serie elegida se divide por su propio promedio del periodo y se multiplica por 100, igual que en el abanico; las especificaciones intra-rama comienzan en 1972 y su promedio se toma desde ese año. El abanico de fondo (percentiles 10–90 y 25–75 y mediana) es el de las 288 especificaciones principales. Los quiebres son los que el procedimiento de Bai y Perron detecta en esa especificación (metodología, §7). Los niveles se dan en porcentaje, sin normalizar.</p>
-<p>La tabla descargable tiene una fila por especificación, con sus decisiones en palabras, la tasa (%) en 1948, 1982 y el último año, y los años de quiebre. Este modo de exponer todas las combinaciones razonables de decisiones, en lugar de una sola estimación, es lo que Steegen, Tuerlinckx, Gelman y Vanpaemel (2016) llaman análisis de multiverso.</p>
+<p>La tabla descargable tiene una fila por especificación, con sus decisiones en palabras, la tasa (%) en 1948, 1982 y el último año, y los años de quiebre. Este modo de exponer todas las combinaciones razonables de decisiones, en lugar de una sola estimación, es lo que Steegen, Tuerlinckx, Gelman y Vanpaemel (2016) llaman <em>multiverse analysis</em>.</p>
 </details>
 </section>
 <section id="referencias" class="seccion">
@@ -100,7 +100,7 @@
 <figure class="placa"><div class="chart" id="c-ref"></div></figure>
 
 <p class="fuente">Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED). Cada serie se construye con la definición de cada corriente (metodología, §6). Cálculo propio.</p>
-<p class="nota">Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). Heinrich no propone una medida propia: su lectura se apoya en el abanico completo del multiverso de la sección anterior.</p>
+<p class="nota">Tasas netas en %, a costo corriente salvo la de tipo Kliman (costo histórico). Heinrich no propone una medida propia: su lectura se apoya en el abanico completo de las especificaciones de la sección anterior.</p>
 <div class="tablewrap"><table><thead><tr><th>Medida (a la manera de)</th><th>1948</th><th>1965</th><th>1982</th><th>2007</th><th>Último año</th><th>Desde el mínimo de 1982</th></tr></thead><tbody id="t-lect"></tbody></table></div>
 
 <article class="lectura" data-series="emp_ramas_cc" tabindex="0">
@@ -215,7 +215,7 @@
 <p class="fuente">Fuentes: BEA: cuentas nacionales (NIPA), PIB por industria y activos fijos; BLS: encuesta de establecimientos (CES, vía FRED). Cálculo propio sobre las 288 especificaciones.</p>
 <details class="como">
 <summary>¿Cómo se calcula esta tabla?</summary>
-<p>Para cada especificación del multiverso principal se calcula el promedio de cada década (y del tramo 2020 al último año). Luego se cuenta qué porcentaje de especificaciones tiene un promedio menor que en la década anterior. «Robusto: baja» si ese porcentaje es ≥ 90 %; «robusto: sube» si es ≤ 10 %; «dependiente de la teoría» en los demás casos. Las décadas son unidades de reporte, no cortes teóricos.</p>
+<p>Para cada especificación del conjunto principal se calcula el promedio de cada década (y del tramo 2020 al último año). Luego se cuenta qué porcentaje de especificaciones tiene un promedio menor que en la década anterior. «Robusto: baja» si ese porcentaje es ≥ 90 %; «robusto: sube» si es ≤ 10 %; «dependiente de la teoría» en los demás casos. Las décadas son unidades de reporte, no cortes teóricos.</p>
 </details>
 </section>
 <section id="masa-tasa" class="seccion">
@@ -807,10 +807,10 @@
 <p>Investigación doctoral de Pablo Ignacio Jiménez Cea, <em>Los límites inmanentes del capital. Crisis, contratendencias y la hipótesis del capitalismo limítrofe</em>, aprobada para su candidatura al Doctorado en Sociología (ICSyH-BUAP), que concluirá en agosto de 2029, realizada con una beca de la SECIHTI (número 4052073). Gracias a la clase trabajadora mexicana, que hace posible esta beca. Marco teórico: Jiménez Cea (2026), <a href="https://doi.org/10.1177/03098168261503922"><em>Capital &amp; Class</em></a>.</p>
 <p>Cómo citar: Jiménez Cea (2026), <em>Mapa cognitivo del capital</em>, DOI <a href="https://doi.org/10.5281/zenodo.24551894">10.5281/zenodo.24551894</a>. Código abierto (MIT) y datos derivados (CC BY 4.0) en <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital">GitHub</a>. <a href="descargas/">Descargas</a>. <a href="metodologia.html">Metodología</a>. <a href="glosario.html">Glosario</a>. <a href="https://github.com/necplusultra-blog/mapa-cognitivo-del-capital/tree/main/contenido">Editar los textos</a>.</p>
 </footer>
-<script src="app.js?v=68d2fd72611281744"></script>
-<script src="explorador.js?v=68d2fd72611281744" defer></script>
+<script src="app.js?v=e5aa0f92611281755"></script>
+<script src="explorador.js?v=e5aa0f92611281755" defer></script>
 <script>/* el botón ES | EN conserva la sección (las anclas son iguales en las dos versiones) */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a.cambiar-idioma");if(a&&location.hash)a.href=a.getAttribute("href").split("#")[0]+location.hash;});</script>
-<script src="mapa-textos.js?v=68d2fd72611281744" defer></script>
-<script src="mapa-cognitivo.js?v=68d2fd72611281744" data-modo="fondo" defer></script>
+<script src="mapa-textos.js?v=e5aa0f92611281755" defer></script>
+<script src="mapa-cognitivo.js?v=e5aa0f92611281755" data-modo="fondo" defer></script>
 </body>
 </html>
