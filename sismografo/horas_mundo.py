@@ -147,14 +147,20 @@ def calcular(dir_datos, dir_out):
             print('Medición ONU por rama omitida:', repr(e))
         try:
             from sismografo import tim_ramas
-            RT = tim_ramas.calcular(share_ees, VARIANTES)
+            RT = tim_ramas.calcular(share_ees, VARIANTES); diag_tim = pd.DataFrame()
             if not RT.empty:
                 X, diag_tim = combinar_un(P, X, RT, etiqueta='OCDE TiM por rama')
                 X = combinar_tim_obreros(P, X, RT)
+            # Indonesia y Rusia: TiM con el ingreso de los no asalariados imputado (OIT por sección); India, sólo sensibilidad
+            RA = tim_ramas.calcular_asalariados(VARIANTES)
+            if not RA.empty:
+                X, diag_a = combinar_un(P, X, RA, etiqueta='OCDE TiM por rama')
+                RT = pd.concat([RT, RA], ignore_index=True); diag_tim = pd.concat([diag_tim, diag_a], ignore_index=True)
+            if not RT.empty:
                 RT.to_csv(os.path.join(dir_out, 'mundo_horas_tim_ramas.csv'), index=False)
                 diag_tim.to_csv(os.path.join(dir_out, 'mundo_horas_tim_diagnostico.csv'), index=False)
         except Exception as e:  # noqa: BLE001
-            print('Medición TiM por rama (China) omitida:', repr(e))
+            print('Medición TiM por rama omitida:', repr(e))
         try:
             X, diag_ilo = combinar_ilo(P, X, piv)
             diag_ilo.to_csv(os.path.join(dir_out, 'mundo_horas_ilo_secciones.csv'), index=False)
@@ -285,6 +291,22 @@ def sensibilidad(P, SB, share_ees, piv):
                 gc = g[g.pais == c].iloc[0]
                 nuevo += gc.plustrabajo_mill_h * (pt_s / pt_b - 1); obreros += gc.obreros_mill * (sb.obreros_mill / b.obreros_mill - 1)
             fila(caso, nuevo, obreros, 'Contraste: excluye la agricultura de ambos países, que según el criterio adoptado es productiva cuando su salario es capital')
+        # India con TiM por rama desde 2020 (sensibilidad, no central): factor sobre e desde el último año de TiM
+        try:
+            from sismografo import tim_ramas
+            RI = tim_ramas.calcular_asalariados(VARIANTES, paises=('IND',))
+            RI = RI[RI.variante == VARIANTES[1][0]].set_index('anio').e if not RI.empty else pd.Series(dtype=float)   # la razón de TiM no depende mucho de la variante
+            if y > base_wiod and len(RI) > 1 and not ind.empty:
+                a0, a1 = int(RI.index.min()), int(RI.index.max())
+                ec = P[(P.variante == vc) & (P.pais == 'IND')].set_index('anio').e
+                if a0 in ec.index and a1 in ec.index and y >= a1:
+                    k_e = ec[a0] * RI[a1] / RI[a0] / ec[a1]
+                    e_y = float(ind.e.iloc[0]); e_alt = e_y * k_e
+                    pt = float(ind.plustrabajo_mill_h.sum())
+                    fila(f'India: e por rama con TiM desde {a0}', tot + pt * ((e_alt / (1 + e_alt)) / (e_y / (1 + e_y)) - 1), g.obreros_mill.sum(),
+                         f'variación de e por rama de TiM {a0}–{a1} (ingreso de los cuentapropistas imputado con el salario medio de los asalariados de cada sección); e de India × {k_e:.2f}')
+        except Exception as e_:  # noqa: BLE001
+            print('Sensibilidad India TiM omitida:', repr(e_))
         sb = SB[(SB.variante == var) & (SB.caso == 'China: método anterior')]
         if not sb.empty and not chn.empty:
             sb = sb.iloc[0]; b = P[(P.variante == var) & (P.pais == 'CHN') & (P.anio == base_wiod)].iloc[0]
@@ -421,9 +443,10 @@ def combinar_ilo(P, X, piv):
             hpw_b = float(fila_b.horas_mill.iloc[0] / fila_b.obreros_mill.iloc[0])
             tiene_h = b in hp.index and not pd.isna(hp.get(b)) and hp.notna().sum() > 1
             tiene_q = b in q.index and not pd.isna(q.get(b)) and q.notna().sum() > 1
-            # si la ONU midió e por rama (Brasil, India), la corrección q se reancla en el último año medido por la ONU,
-            # para no aplicar de nuevo la variación de q de los años que ya midió (auditoría de nov. 2026)
-            un = X.loc[m & X.fuente_e.astype(str).str.startswith('ONU'), 'anio']
+            # si la ONU o TiM midieron e por rama (Brasil, India, China, Indonesia, Rusia), la corrección q se reancla en
+            # el último año medido por rama, para no aplicar de nuevo la variación de q de los años que ya se midieron
+            # (auditoría de nov. 2026; extendida a TiM en F3d, 28 nov. 2026)
+            un = X.loc[m & X.fuente_e.astype(str).str.match(r'^(ONU|OCDE TiM)'), 'anio']
             qb = int(un.max()) if len(un) and int(un.max()) in q.index and not pd.isna(q.get(int(un.max()))) else b
             for i in X.index[m & (X.anio >= b)]:
                 y = int(X.at[i, 'anio'])

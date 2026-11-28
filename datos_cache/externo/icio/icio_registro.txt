@@ -1,20 +1,30 @@
 TiM: 81 economías; g: 1092 observaciones; φ_M: 39 países
-2000-2005_SML.zip: ['2000_SML.csv', '2001_SML.csv', '2002_SML.csv', '2004_SML.csv', '2005_SML.csv']
-  2000: 4050 filas; ramas = ['A01', 'A02', 'A03', 'B05', 'B06', 'B07', 'B08', 'B09', 'C10T12', 'C13T15', 'C16', 'C17_18', 'C19', 'C20', 'C21', 'C22', 'C23', 'C24A', 'C24B', 'C25', 'C26', 'C27', 'C28', 'C29', 'C301', 'C302T309', 'C31T33', 'D', 'E', 'F', 'G', 'H49', 'H50', 'H51', 'H52', 'H53', 'I', 'J58T60', 'J61', 'J62_63', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']; economías = 81; demanda final = 486 columnas
-  2000: 81 economías calculadas en 10 s
-  2001: 81 economías calculadas en 9 s
-  2002: 81 economías calculadas en 9 s
-  2004: 81 economías calculadas en 10 s
-  2005: 81 economías calculadas en 10 s
+2000-2014_SML.zip: ['2000_SML.csv', '2001_SML.csv', '2002_SML.csv', '2003_SML.csv', '2004_SML.csv', '2005_SML.csv', '2006_SML.csv', '2007_SML.csv', '2008_SML.csv', '2009_SML.csv', '2010_SML.csv', '2011_SML.csv', '2012_SML.csv', '2013_SML.csv', '2014_SML.csv']
+  2000: 4800 filas; ramas = ['A01', 'A02', 'A03', 'B05', 'B06', 'B07', 'B08', 'B09', 'C10T12', 'C13T15', 'C16', 'C17_18', 'C19', 'C20', 'C21', 'C22', 'C23', 'C24A', 'C24B', 'C25', 'C26', 'C27', 'C28', 'C29', 'C301', 'C302T309', 'C31T33', 'D', 'E', 'F', 'G', 'H49', 'H50', 'H51', 'H52', 'H53', 'I', 'J58T60', 'J61', 'J62_63', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']; economías = 96; demanda final = 576 columnas
+  2000: 96 economías calculadas en 23 s
+  2001: 96 economías calculadas en 23 s
+  2002: 96 economías calculadas en 28 s
+  2003: 96 economías calculadas en 23 s
+  2004: 96 economías calculadas en 21 s
+  2005: 96 economías calculadas en 26 s
+  2006: 96 economías calculadas en 31 s
+  2007: 96 economías calculadas en 26 s
+  2008: 96 economías calculadas en 31 s
+  2009: 96 economías calculadas en 28 s
+  2010: 96 economías calculadas en 23 s
+  2011: 96 economías calculadas en 30 s
+  2012: 96 economías calculadas en 32 s
+  2013: 96 economías calculadas en 32 s
+  2014: 96 economías calculadas en 27 s
 2015-2019_SML.zip: ['2015_SML.csv', '2016_SML.csv', '2017_SML.csv', '2018_SML.csv', '2019_SML.csv']
-  2015: 96 economías calculadas en 20 s
-  2016: 96 economías calculadas en 20 s
-  2017: 96 economías calculadas en 21 s
-  2018: 96 economías calculadas en 20 s
-  2019: 96 economías calculadas en 20 s
+  2015: 96 economías calculadas en 23 s
+  2016: 96 economías calculadas en 32 s
+  2017: 96 economías calculadas en 29 s
+  2018: 96 economías calculadas en 22 s
+  2019: 96 economías calculadas en 22 s
 2020-2024_SML.zip: ['2020_SML.csv', '2021_SML.csv', '2022_SML.csv', '2023_SML.csv', '2024_SML.csv']
-  2020: 96 economías calculadas en 21 s
-  2021: 96 economías calculadas en 20 s
-  2022: 96 economías calculadas en 20 s
-  2023: 96 economías calculadas en 20 s
-  2024: 96 economías calculadas en 19 s
+  2020: 96 economías calculadas en 26 s
+  2021: 96 economías calculadas en 24 s
+  2022: 96 economías calculadas en 32 s
+  2023: 96 economías calculadas en 26 s
+  2024: 96 economías calculadas en 24 s
